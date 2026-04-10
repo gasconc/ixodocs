@@ -1,0 +1,57 @@
+# ixodocs
+
+> Curated, LLM-optimized knowledge base of Ixopay and TokenEx payment platform documentation. 676 indexed markdown files across 4 documentation portals, with YAML frontmatter metadata and full-text search support.
+
+Ixopay is a payment orchestration platform that enables merchants to process transactions across multiple payment service providers (PSPs) through a unified API. TokenEx is the tokenization and vault platform integrated into Ixopay's modules, providing PCI-compliant card tokenization, iFrame-based data collection, and transparent gateway proxying.
+
+This repository contains the complete documentation from both platforms, scraped from their Docusaurus-based documentation site at documentation.ixopay.com, cleaned into structured markdown, and indexed for efficient retrieval by LLMs and developer tools.
+
+## Navigation
+
+- [Master Index](index.md): Complete map of all 676 documentation pages organized by portal, section, and topic. Start here to find any document.
+
+## Ixopay Developer Hub (191 pages)
+
+- [PCI Transaction API](docs/ixopay/api/pci/pci-transaction-api.md): REST API for processing transactions with raw card data — debit, preauthorize, capture, void, refund. Requires PCI SAQ-D compliance.
+- [Transaction API](docs/ixopay/api/transaction/transaction-api.md): Non-PCI transaction operations — scheduling, status checks, options retrieval.
+- [Payment.js Methods](docs/ixopay/reference/integration/payment.js/methods.md): Client-side JavaScript library for secure card data collection without PCI scope.
+- [Hosted Payment Pages](docs/ixopay/reference/integration/processing-options/hosted-payment-pages.md): Redirect-based checkout integration, PCI scope reduction.
+- [Callback Data](docs/ixopay/reference/integration/callbacks/callback-data.md): Webhook notification payload format and verification.
+- [Customer-Initiated Transactions](docs/ixopay/guides/payments/customer-initiated.md): Guide to debit, preauthorize, and recurring payment flows.
+- [3D Secure Authentication](docs/ixopay/reference/features/3d-secure.md): 3DS2 integration, challenge flows, transaction indicators.
+- [Simulator Adapter](docs/ixopay/adapters/simulator.md): Test card numbers, 3DS simulation, IBAN test data.
+- [Provisioning API](docs/ixopay/api/provisioning/provisioning-api.md): Create and manage merchants, connectors, users via API.
+- [HMAC Authentication](docs/ixopay/guides/production/additional-security.md): API request signing with HMAC-SHA512.
+
+## Ixopay User Manual (136 pages)
+
+- [Getting Started](docs/ixopay/manual/getting-started.md): Admin panel orientation, first-time setup.
+- [Connector Configuration](docs/ixopay/manual/connector.md): PSP connector setup and management in the admin panel.
+
+## TokenEx Documentation (159 pages)
+
+- [Welcome & Overview](docs/tokenex/welcome.md): TokenEx platform overview, client portal access (test/production environments).
+- [What is Tokenization](docs/tokenex/what-is-tokenization.md): Core concepts of payment tokenization and PCI scope reduction.
+- [iFrame Tokenizer](docs/tokenex/creating-the-iframe.md): Client-side tokenization via embedded iFrame.
+- [Token Services API v2](docs/tokenex/the-basics-1.md): REST API for tokenize, detokenize, delete, validate operations.
+- [Transparent Gateway API v2](docs/tokenex/tgapi-v2-the-basics.md): Proxy API that detokenizes and forwards to payment gateways.
+- [3D Secure](docs/tokenex/3ds.md): TokenEx 3DS authentication integration.
+- [Network Tokenization](docs/tokenex/network-tokenization.md): Visa/Mastercard network token provisioning and lifecycle.
+- [Browser-Based Encryption](docs/tokenex/browser-based-encryption-1.md): Client-side encryption for secure data submission.
+
+## Ixopay Modules (190 pages)
+
+- [Modules Overview](docs/ixopay/modules/index.md): Module-specific docs and API tooling for TokenEx integration.
+- [Token Services v2 API](docs/ixopay/modules/api/tokenex/token-servicesv-2-tokenize.md): Tokenize endpoint specification.
+
+## Scripts & Automation
+
+- [scrape.py](scripts/scrape.py): Crawl4AI-based Docusaurus scraper with deep crawling and CSS content extraction.
+- [clean.py](scripts/clean.py): Markdown cleaning pipeline — deduplication, boilerplate removal, YAML frontmatter generation.
+- [build_index.py](scripts/build_index.py): Automatic index.md generator from frontmatter metadata.
+
+## Optional
+
+- [Adapters](docs/ixopay/adapters/): 30+ PSP connector reference pages (Stripe, Adyen, PayPal, Klarna, etc.)
+- [Error Codes](docs/ixopay/reference/appendix/error-codes.md): API error code reference
+- [Currencies](docs/ixopay/reference/concepts/currencies.md): Supported currencies list

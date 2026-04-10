@@ -1,0 +1,725 @@
+# ixodocs
+
+> Curated, LLM-optimized knowledge base of Ixopay and TokenEx payment platform documentation. 676 indexed markdown files across 4 documentation portals, with YAML frontmatter metadata and full-text search support.
+
+Ixopay is a payment orchestration platform that enables merchants to process transactions across multiple payment service providers (PSPs) through a unified API. TokenEx is the tokenization and vault platform integrated into Ixopay's modules, providing PCI-compliant card tokenization, iFrame-based data collection, and transparent gateway proxying.
+
+This repository contains the complete documentation from both platforms, scraped from their Docusaurus-based documentation site at documentation.ixopay.com, cleaned into structured markdown, and indexed for efficient retrieval by LLMs and developer tools.
+
+## Navigation
+
+- [Master Index](index.md): Complete map of all 676 documentation pages organized by portal, section, and topic. Start here to find any document.
+
+## Ixopay Developer Hub (191 pages)
+
+### Adapters
+
+- [Emerchantpay Genesis PCI](docs/ixopay/adapters/emerchantpaygenesis-pci.md): Emerchantpay Genesis PCI
+- [Emerchantpay Genesis](docs/ixopay/adapters/emerchantpaygenesis.md): Emerchantpay Genesis
+- [ESR / SwissQR Bill](docs/ixopay/adapters/esr.md): ESR / SwissQR Bill
+- [EwlPISP](docs/ixopay/adapters/ewlpisp.md): Overview of payments methods provided by the EwlPISP adapter in the IXOPAY platform, including full list of all configuration options.
+- [E-xact](docs/ixopay/adapters/exact.md): Overview of payments methods provided by the E-xact adapter in the IXOPAY platform, including full list of all configuration options.
+- [External Risk](docs/ixopay/adapters/external-risk.md): External Risk
+- [FacilitaPay](docs/ixopay/adapters/facilitapay.md): Overview of payments methods provided by the FacilitaPay adapter in the IXOPAY platform, including full list of all configuration options.
+- [Finance Wide](docs/ixopay/adapters/finance-wide.md): Finance Wide
+- [Finaro](docs/ixopay/adapters/finaro.md): Overview of payments methods provided by the Finaro adapter in the IXOPAY platform, including full list of all configuration options.
+- [Finrax](docs/ixopay/adapters/finrax.md): Overview of payments methods provided by the Finrax adapter in the IXOPAY platform, including full list of all configuration options.
+- [FinTecSystems](docs/ixopay/adapters/fintecsystems.md): Overview of payments methods provided by the FinTecSystems adapter in the IXOPAY platform, including full list of all configuration options.
+- [Scalapay](docs/ixopay/adapters/scalapay.md): Overview of payments methods provided by the Scalapay adapter in the IXOPAY platform, including full list of all configuration options.
+- [SCB](docs/ixopay/adapters/scb.md): Overview of payments methods provided by the SCB adapter in the IXOPAY platform, including full list of all configuration options.
+- [SecureTrading](docs/ixopay/adapters/securetrading.md): Overview of payments methods provided by the SecureTrading adapter in the IXOPAY platform, including full list of all configuration options.
+- [Shimotomo](docs/ixopay/adapters/shimotomo.md): Overview of payments methods provided by the Shimotomo adapter in the IXOPAY platform, including full list of all configuration options.
+- [SIA](docs/ixopay/adapters/sia.md): Overview of payments methods provided by the SIA adapter in the IXOPAY platform, including full list of all configuration options.
+- [Silverflow](docs/ixopay/adapters/silverflow.md): Overview of payments methods provided by the Silverflow adapter in the IXOPAY platform, including full list of all configuration options.
+- [Simulator (Testing connector)](docs/ixopay/adapters/simulator.md): Simulator Testing connector
+- [SIX ELink](docs/ixopay/adapters/sixelink.md): SIX ELink
+- [Skrill](docs/ixopay/adapters/skrill.md): Overview of payments methods provided by the Skrill adapter in the IXOPAY platform, including full list of all configuration options.
+- [Sofort](docs/ixopay/adapters/sofort.md): Overview of payments methods provided by the Sofort adapter in the IXOPAY platform, including full list of all configuration options.
+- [SoftBank](docs/ixopay/adapters/softbank.md): Overview of payments methods provided by the SoftBank adapter in the IXOPAY platform, including full list of all configuration options.
+- [Spreedly](docs/ixopay/adapters/spreedly.md): Overview of payments methods provided by the Spreedly adapter in the IXOPAY platform, including full list of all configuration options.
+- [Straight2Bank](docs/ixopay/adapters/straight2bank.md): Overview of payments methods provided by the Straight2Bank adapter in the IXOPAY platform, including full list of all configuration options.
+
+### Api
+
+- [Batch-upload API](docs/ixopay/api/batch-upload.md): Batch-upload API
+- [Attach payment instrument](docs/ixopay/api/customer-profiles/attach-payment-instrument.md): Customer profiles API — Customer profiles — Attach payment instrument
+- [Customer profiles API](docs/ixopay/api/customer-profiles/customer-profiles-api.md): Customer profiles API
+- [Delete Profile](docs/ixopay/api/customer-profiles/delete-profile.md): (no description)
+- [Detach payment instrument](docs/ixopay/api/customer-profiles/detach-payment-instrument.md): Customer profiles API — Customer profiles — Detach payment instrument
+- [Get Profile](docs/ixopay/api/customer-profiles/get-profile.md): (no description)
+- [Update profile](docs/ixopay/api/customer-profiles/update-profile.md): Customer profiles API — Customer profiles — Update profile
+- [Enterprise](docs/ixopay/api/enterprise.md): APIs available only to enterprise customers, with detailed information on access and usage.
+- [Forward compatibility](docs/ixopay/api/forward-compatibility.md): Forward compatibility
+- [Legacy](docs/ixopay/api/legacy.md): APIs no longer recommended for use; deprecated due to system changes.
+- [Cancel](docs/ixopay/api/pay-by-link/cancel.md): (no description)
+- [Pay-by-Link API](docs/ixopay/api/pay-by-link/pay-by-link-api.md): Pay-by-Link API
+- [Callback](docs/ixopay/api/pci/callback.md): PCI Transaction API
+- [Capture](docs/ixopay/api/pci/capture.md): PCI Transaction API
+- [Continue](docs/ixopay/api/pci/continue-dcc.md): PCI Transaction API
+- [DCC](docs/ixopay/api/pci/dcc.md): PCI Transaction API
+- [Debit](docs/ixopay/api/pci/debit.md): PCI Transaction API
+- [Deregister](docs/ixopay/api/pci/deregister.md): PCI Transaction API
+- [Incremental authorization](docs/ixopay/api/pci/incremental-authorization.md): PCI Transaction API — Incremental authorization
+- [Payout](docs/ixopay/api/pci/payout.md): PCI Transaction API
+- [PCI Transaction API](docs/ixopay/api/pci/pci-transaction-api.md): PCI Transaction API
+- [Preauthorize](docs/ixopay/api/pci/preauthorize.md): PCI Transaction API
+- [Refund](docs/ixopay/api/pci/refund.md): PCI Transaction API
+- [Register](docs/ixopay/api/pci/register.md): PCI Transaction API
+- [Transaction](docs/ixopay/api/pci/transaction.md): PCI Transaction API
+- [Void](docs/ixopay/api/pci/void.md): PCI Transaction API
+- [Connector](docs/ixopay/api/provisioning/connector.md): Provisioning API
+- [Create](docs/ixopay/api/provisioning/create-connector.md): Provisioning API
+- [Create Merchant User](docs/ixopay/api/provisioning/create-merchant-user.md): (no description)
+- [Create](docs/ixopay/api/provisioning/create-merchant.md): Provisioning API
+- [Settings vault](docs/ixopay/api/provisioning/get-connector-settings-vault.md): Provisioning API — Settings vault
+- [Settings extra-data](docs/ixopay/api/provisioning/get-connector-settings.md): Provisioning API — Settings extra-data
+- [List Connectors](docs/ixopay/api/provisioning/list-connectors.md): (no description)
+- [List Merchant Users](docs/ixopay/api/provisioning/list-merchant-users.md): (no description)
+- [List Merchants](docs/ixopay/api/provisioning/list-merchants.md): (no description)
+- [List Tenants](docs/ixopay/api/provisioning/list-tenants.md): (no description)
+- [Merchant user](docs/ixopay/api/provisioning/merchant-user.md): Provisioning API — Merchant user
+- [Merchant](docs/ixopay/api/provisioning/merchant.md): Provisioning API
+- [Provisioning API](docs/ixopay/api/provisioning/provisioning-api.md): Provisioning API
+- [Tenant](docs/ixopay/api/provisioning/tenant.md): Provisioning API
+- [Update](docs/ixopay/api/provisioning/update-connector.md): Provisioning API
+- [Update Merchant User](docs/ixopay/api/provisioning/update-merchant-user.md): (no description)
+- [Update](docs/ixopay/api/provisioning/update-merchant.md): Provisioning API
+- [Update](docs/ixopay/api/provisioning/update-tenant.md): Provisioning API
+- [Capture](docs/ixopay/api/push/capture.md): Push API
+- [Chargeback](docs/ixopay/api/push/chargeback.md): Push API
+- [Debit](docs/ixopay/api/push/debit.md): Push API
+- [Preauthorize](docs/ixopay/api/push/preauthorize.md): Push API
+- [Push API](docs/ixopay/api/push/push-api.md): Push API
+- [Refund](docs/ixopay/api/push/refund.md): Push API
+- [Register](docs/ixopay/api/push/register.md): Push API
+- [Void](docs/ixopay/api/push/void.md): Push API
+- [Reconciliation API](docs/ixopay/api/reconciliation/reconciliation-api.md): Reconciliation API
+- [Retrieve](docs/ixopay/api/reconciliation/retrieve.md): (no description)
+- [Get settlement files](docs/ixopay/api/settlement/get-settlement-files.md): Settlement API — Get settlement files
+- [Settlement API](docs/ixopay/api/settlement/settlement-api.md): Settlement API
+- [Callback](docs/ixopay/api/transaction/callback.md): Transaction API
+- [Capture](docs/ixopay/api/transaction/capture.md): Transaction API
+- [Continue](docs/ixopay/api/transaction/continue-dcc.md): Transaction API
+- [DCC](docs/ixopay/api/transaction/dcc.md): Transaction API
+- [Debit](docs/ixopay/api/transaction/debit.md): Transaction API
+- [Deregister](docs/ixopay/api/transaction/deregister.md): Transaction API
+- [Incremental authorization](docs/ixopay/api/transaction/incremental-authorization.md): Transaction API — Incremental authorization
+- [Options List](docs/ixopay/api/transaction/options-list.md): (no description)
+- [Options](docs/ixopay/api/transaction/options.md): Transaction API
+- [Payout](docs/ixopay/api/transaction/payout.md): Transaction API
+- [Preauthorize](docs/ixopay/api/transaction/preauthorize.md): Transaction API
+- [Prepare debit](docs/ixopay/api/transaction/prepare-debit.md): Transaction API — Prepare transaction — Prepare debit
+- [Prepare pre-authorize](docs/ixopay/api/transaction/prepare-preauthorize.md): Transaction API — Prepare transaction — Prepare pre-authorize
+- [Prepare register](docs/ixopay/api/transaction/prepare-register.md): Transaction API — Prepare transaction — Prepare register
+- [Prepare transaction](docs/ixopay/api/transaction/prepare-transaction.md): Transaction API — Prepare transaction
+- [Refund](docs/ixopay/api/transaction/refund.md): Transaction API
+- [Register](docs/ixopay/api/transaction/register.md): Transaction API
+- [Cancel](docs/ixopay/api/transaction/schedule-cancel.md): Transaction API
+- [Continue](docs/ixopay/api/transaction/schedule-continue.md): Transaction API
+- [Schedule Get](docs/ixopay/api/transaction/schedule-get.md): (no description)
+- [Pause](docs/ixopay/api/transaction/schedule-pause.md): Transaction API
+- [Schedule Start](docs/ixopay/api/transaction/schedule-start.md): (no description)
+- [Schedule Update](docs/ixopay/api/transaction/schedule-update.md): (no description)
+- [Schedule](docs/ixopay/api/transaction/schedule.md): Transaction API
+- [Get by merchantTransactionId](docs/ixopay/api/transaction/status-by-merchant-transaction-id.md): Transaction API — Get by merchantTransactionId
+- [Get by UUID](docs/ixopay/api/transaction/status-by-uuid.md): Transaction API — Get by UUID
+- [Status](docs/ixopay/api/transaction/status.md): Transaction API
+- [Transaction API](docs/ixopay/api/transaction/transaction-api.md): Transaction API
+- [Transaction](docs/ixopay/api/transaction/transaction.md): Transaction API
+- [Void](docs/ixopay/api/transaction/void.md): Transaction API
+
+### General
+
+- [Overview](docs/ixopay/api.md): IXOPAY platform API reference. The IXOPAY platform offers several APIs to process online payments.
+- [Introduction](docs/ixopay/guides.md): IXOPAY platform integration guide for developers to understand how to integrate the IXOPAY platform.
+- [Index](docs/ixopay/index.md): (no description)
+- [Introduction](docs/ixopay/recipes.md): IXOPAY platform Recipes — practical guide for software developers.
+- [Overview](docs/ixopay/reference.md): IXOPAY platform reference documentation with in-depth information on the payment platform.
+
+### Guides
+
+- [Features](docs/ixopay/guides/features.md): Detailed guides on additional features the IXOPAY platform provides.
+- [3-D Secure](docs/ixopay/guides/features/3d-secure.md): 3-D Secure
+- [Customer profiles](docs/ixopay/guides/features/customer-profiles.md): Customer profiles
+- [Pay By Link](docs/ixopay/guides/features/pay-by-link.md): The Pay-by-Link feature offers a seamless, almost no-code integration for creating secure payment links.
+- [Tokenization & PCI](docs/ixopay/guides/features/tokenization.md): Tokenization & PCI
+- [Getting started](docs/ixopay/guides/getting-started.md): Getting started
+- [Accept payments](docs/ixopay/guides/getting-started/accept-payments.md): Getting started — Accept payments
+- [Hosted payment pages](docs/ixopay/guides/getting-started/accept-payments/hosted-payment-pages.md): Getting started — Accept payments — Hosted payment pages
+- [Callbacks](docs/ixopay/guides/getting-started/callbacks.md): Getting started — Callbacks
+- [Recurring payments](docs/ixopay/guides/getting-started/recurring-payments.md): Getting started — Recurring payments
+- [Setting up your account](docs/ixopay/guides/getting-started/setup.md): Getting started — Setting up your account
+- [Testing your setup](docs/ixopay/guides/getting-started/testing.md): Getting started — Testing your setup
+- [Payments](docs/ixopay/guides/payments.md): Accepting payments from customers — complex process with many moving parts, from processing to settlement.
+- [After the payment](docs/ixopay/guides/payments/after.md): After the payment
+- [Reconciliation](docs/ixopay/guides/payments/after/reconciliation.md): Reconciliation — matching payment records with those of payment service providers.
+- [Settling Payments](docs/ixopay/guides/payments/after/settling-payments.md): Settling payments — transfer of funds from customer's account to merchant's account.
+- [Customer-initiated transactions](docs/ixopay/guides/payments/customer-initiated.md): Customer-initiated transactions
+- [Place a hold on a payment](docs/ixopay/guides/payments/holding-funds.md): Place a hold on a payment
+- [Merchant-initiated transactions](docs/ixopay/guides/payments/merchant-initiated.md): Merchant-initiated transactions
+- [Payouts](docs/ixopay/guides/payments/payouts.md): Payout transactions — transfer funds from merchant account to customer's account.
+- [Refunds](docs/ixopay/guides/payments/refunds.md): Handling online payment refunds — merchant-initiated and processor-initiated types.
+- [Saving](docs/ixopay/guides/payments/saving.md): How to save payment details for future transactions.
+- [Getting production ready](docs/ixopay/guides/production.md): Getting production ready
+- [Additional security](docs/ixopay/guides/production/additional-security.md): HMAC request signing, callback signature validation, and additional security measures.
+- [Handling errors](docs/ixopay/guides/production/handling-errors.md): Getting production ready — Handling errors
+
+### Recipes
+
+- [How to …](docs/ixopay/recipes/how-to.md): How to …
+- [How to add alternative payment methods](docs/ixopay/recipes/how-to/alternative-payment-methods.md): How to add alternative payment methods
+- [How to add a second PSP for fail-safe payments](docs/ixopay/recipes/how-to/dual-psp-failure-safety.md): How to add a second PSP for fail-safe payments
+- [Migrating From Spreedly](docs/ixopay/recipes/how-to/migrating-from-spreedly.md): Transitioning from Spreedly to IXOPAY payment platform.
+- [How to use TokenEx universal tokens](docs/ixopay/recipes/how-to/use-tokenex-universal-tokens.md): How to use TokenEx universal tokens
+
+### Reference
+
+- [Appendix](docs/ixopay/reference/appendix.md): Additional information and resources — supplementary material for the documentation.
+- [Error codes](docs/ixopay/reference/appendix/error-codes.md): Error codes
+- [Concepts](docs/ixopay/reference/concepts.md): Overview of important concepts in the IXOPAY platform reference documentation.
+- [Currencies](docs/ixopay/reference/concepts/currencies.md): Supported currencies for transactions in the IXOPAY platform API.
+- [Transactions](docs/ixopay/reference/concepts/transactions.md): Transactions — fundamental unit of operation in IXOPAY platform.
+- [Transaction indicators](docs/ixopay/reference/concepts/transactions/indicators.md): Transaction indicators
+- [Transaction return types](docs/ixopay/reference/concepts/transactions/return-types.md): Transaction return types
+- [Transaction types](docs/ixopay/reference/concepts/transactions/types.md): Transaction types
+- [Features](docs/ixopay/reference/features.md): Comprehensive information on IXOPAY platform features.
+- [3-D Secure](docs/ixopay/reference/features/3d-secure.md): 3-D Secure
+- [Advanced guides](docs/ixopay/reference/features/3d-secure/advanced-guides.md): 3-D Secure — Advanced guides
+- [Display the challenge flow in an iframe](docs/ixopay/reference/features/3d-secure/advanced-guides/challenge-flow-iframe.md): 3-D Secure — Advanced guides — Display the challenge flow in an iframe
+- [Authentication flows](docs/ixopay/reference/features/3d-secure/authentication-flows.md): 3-D Secure — Authentication flows
+- [Liability shift](docs/ixopay/reference/features/3d-secure/liability-shift.md): 3-D Secure — Liability shift
+- [Testing 3-D Secure authentication](docs/ixopay/reference/features/3d-secure/testing.md): 3-D Secure — Testing 3-D Secure authentication
+- [Transaction Results](docs/ixopay/reference/features/3d-secure/transaction-results.md): 3-D Secure — Transaction Results
+- [BI data source](docs/ixopay/reference/features/bi-data-source.md): BI data source
+- [BI data source v1 — ElasticSearch](docs/ixopay/reference/features/bi-data-source/legacy.md): BI data source — Version 1
+- [Customer profiles](docs/ixopay/reference/features/customer-profiles.md): Customer profiles
+- [Dcc](docs/ixopay/reference/features/dcc.md): Dynamic Currency Conversion DCC — allows customers to see transaction cost in their local currency.
+- [Pay By Link](docs/ixopay/reference/features/pay-by-link.md): IXOPAY Pay-by-Link feature — create secure URLs for customers to access a payment page.
+- [Payment method selection](docs/ixopay/reference/features/payment-method-selection.md): Payment method selection
+- [Intermediate Redirects](docs/ixopay/reference/features/payment-method-selection/intermediate-redirects.md): Intermediate redirects for transactions processed through a Payment Selection Page.
+- [Provisioning](docs/ixopay/reference/features/provisioning.md): The Provisioning API component of the IXOPAY platform.
+- [3Ds Connector Configuration](docs/ixopay/reference/features/provisioning/3ds-connector-configuration.md): 3-D Secure connector configuration for integrating IXOPAY with 3-D Secure enabled connectors.
+- [Risk checks](docs/ixopay/reference/features/risk-checks.md): Risk checks
+- [External risk checks](docs/ixopay/reference/features/risk-checks/external.md): Risk checks — External risk checks
+- [Forter](docs/ixopay/reference/features/risk-checks/external/forter.md): Forter external risk checks for enhancing transaction processing in IXOPAY.
+- [Scheduler](docs/ixopay/reference/features/scheduler.md): Scheduler feature in IXOPAY — efficient management of recurring transactions.
+- [PCI data migration](docs/ixopay/reference/features/tokenization/pci-data-migration.md): Tokenization & PCI — PCI data migration
+- [Integration](docs/ixopay/reference/integration.md): Integration section — all information needed to integrate with the IXOPAY platform.
+- [Callbacks](docs/ixopay/reference/integration/callbacks.md): Callbacks — notifications sent by IXOPAY as part of the payment processing workflow.
+- [Callback data](docs/ixopay/reference/integration/callbacks/callback-data.md): Callback data
+- [Notification Types](docs/ixopay/reference/integration/callbacks/notification-types.md): Overview of various notification types received from the IXOPAY payment processing platform.
+- [Response handling](docs/ixopay/reference/integration/callbacks/response-handling.md): Response handling
+- [Advanced guides](docs/ixopay/reference/integration/payment.js/advanced-guides.md): Hosted fields — payment.js — Advanced guides
+- [Auto-fill card data](docs/ixopay/reference/integration/payment.js/advanced-guides/auto-fill-card-data.md): Hosted fields — payment.js — Advanced guides — Auto-fill card data
+- [Cvv Refreshing](docs/ixopay/reference/integration/payment.js/advanced-guides/cvv-refreshing.md): CVV refreshing for previously tokenized cards via Register or Debit.
+- [Form Styling](docs/ixopay/reference/integration/payment.js/advanced-guides/form-styling.md): Using setNumberStyle and setCvvStyle for form styling.
+- [Error codes](docs/ixopay/reference/integration/payment.js/error-codes.md): Hosted fields — payment.js — Error codes
+- [Event Listening](docs/ixopay/reference/integration/payment.js/event-listening.md): Events supported by number and CVV fields — input, focus, blur, mouseover, mouseout, enter, esc, tab, shift-tab.
+- [Methods](docs/ixopay/reference/integration/payment.js/methods.md): Methods for initializing and using PaymentJs.
+- [Processing options](docs/ixopay/reference/integration/processing-options.md): Processing options
+- [Full Page Redirect](docs/ixopay/reference/integration/processing-options/full-page-redirect.md): Full-page redirects — redirects customer away from merchant site for payment processing.
+- [Hosted Payment Pages](docs/ixopay/reference/integration/processing-options/hosted-payment-pages.md): Hosted payment pages — redirect customers to payment page hosted by IXOPAY.
+- [Server-to-server](docs/ixopay/reference/integration/processing-options/server-to-server.md): Server-to-server processing options.
+
+## Ixopay User Manual (136 pages)
+
+### Manual
+
+- [Bank Of America](docs/ixopay/manual/adapters/bank-of-america.md): The Bank of America Adapter in IXOPAY differs in behavior from an ordinary Adapter — does not directly communicate to a payment processor.
+- [Scalapay](docs/ixopay/manual/adapters/scalapay.md): Configure parameters for the Scalapay Connector — Bearer Token and other settings.
+- [SCB](docs/ixopay/manual/adapters/scb.md): Configure parameters for the SCB Connector — API Key Client ID and other settings.
+- [Trust Payment / Secure Trading](docs/ixopay/manual/adapters/securetrading.md): Trust Payment / Secure Trading
+- [Selfpay](docs/ixopay/manual/adapters/selfpay.md): Configure parameters for the Selfpay Connector — Username and other settings.
+- [Sepa](docs/ixopay/manual/adapters/sepa.md): Configure parameters for the SepaExpress Connector — Username and other settings.
+- [Shift4 / Finaro / Credorax](docs/ixopay/manual/adapters/shift4.md): Shift4 / Finaro / Credorax
+- [Shopify](docs/ixopay/manual/adapters/shopify.md): Shopify does not process payments via IXOPAY directly — uses Shopify Payments.
+- [SIA](docs/ixopay/manual/adapters/sia.md): Configure parameters for the SIA Creditcard Connector — Vault Configuration.
+- [Silverflow](docs/ixopay/manual/adapters/silverflow.md): Configure parameters for the Silverflow Creditcard Connector — Vault Configuration.
+- [Simulator / OfflineInvoice / OfflinePayment / SepaDummy / RiskCheckOnly](docs/ixopay/manual/adapters/simulator.md): Simulator / OfflineInvoice / OfflinePayment / SepaDummy / RiskCheckOnly
+- [Six / PAYONE](docs/ixopay/manual/adapters/six.md): Six / PAYONE
+- [Skrill](docs/ixopay/manual/adapters/skrill.md): Configure parameters for the Skrill Connector — Merchant Account E-mail and other settings.
+- [Sofort](docs/ixopay/manual/adapters/sofort.md): Configure iDeal/Sofort via Sofort Merchant Account.
+- [Softbank](docs/ixopay/manual/adapters/softbank.md): Configure parameters for the Softbank QR Payments Connector — Preauthorize Merchant ID and other settings.
+- [Straal](docs/ixopay/manual/adapters/straal.md): Configure parameters for the Straal Connector — Straal API Key.
+- [Straight2Bank](docs/ixopay/manual/adapters/straight2bank.md): Configure parameters for the Straight2Bank Connector — Corp ID and other settings.
+- [Stripe](docs/ixopay/manual/adapters/stripe.md): Configure parameters for the Stripe Connector based on chosen method.
+- [Stuzza](docs/ixopay/manual/adapters/stuzza.md): Configure parameters for the Stuzza Connector — User ID and other settings.
+- [Tabby](docs/ixopay/manual/adapters/tabby.md): Configure parameters for the Tabby Connector — Secret Key and other settings.
+- [Administrative Tools](docs/ixopay/manual/administrative-tools.md): Administrative Tools
+- [Account Settings](docs/ixopay/manual/administrative-tools/account-settings.md): Administrative Tools — Account Settings
+- [Change/Reset Password](docs/ixopay/manual/administrative-tools/account-settings/change-password.md): Administrative Tools — Account Settings — Change/Reset Password
+- [Timezone Settings](docs/ixopay/manual/administrative-tools/account-settings/time-zone-settings.md): Administrative Tools — Account Settings — Timezone Settings
+- [Two-Factor Setup](docs/ixopay/manual/administrative-tools/account-settings/two-factor-setup.md): Administrative Tools — Account Settings — Two-Factor Setup
+- [Dashboard Widgets](docs/ixopay/manual/administrative-tools/dashboard-widgets.md): Administrative Tools — Dashboard Widgets
+- [Dashboard Widgets](docs/ixopay/manual/administrative-tools/dashboard-widgets/dashboard-widgets.md): Administrative Tools — Dashboard Widgets — Dashboard Widgets
+- [Add/Customize Dashboards](docs/ixopay/manual/administrative-tools/dashboard-widgets/edit-mode.md): Administrative Tools — Dashboard Widgets — Add/Customize Dashboards
+- [Dashboard Tips & Best Practice](docs/ixopay/manual/administrative-tools/dashboard-widgets/tips-best-practice.md): Administrative Tools — Dashboard Widgets — Dashboard Tips & Best Practice
+- [Manage and Visualize Alerts](docs/ixopay/manual/administrative-tools/manage-and-visualize-alerts.md): Administrative Tools — Manage and Visualize Alerts
+- [Interface Overview](docs/ixopay/manual/administrative-tools/platform-overview.md): Administrative Tools — Interface Overview
+- [API Testing](docs/ixopay/manual/api-testing.md): API Testing
+- [Schedule API](docs/ixopay/manual/api-testing/schedule-api.md): API Testing — Schedule API
+- [Status API](docs/ixopay/manual/api-testing/status-api.md): API Testing — Status API
+- [Transaction API](docs/ixopay/manual/api-testing/transaction-api.md): API Testing — Transaction API
+- [Connector Specific Features](docs/ixopay/manual/connector-specific-features.md): Connector Specific Features
+- [Marketplace](docs/ixopay/manual/connector-specific-features/marketplace.md): Connector Specific Features — Marketplace
+- [Pay By Link](docs/ixopay/manual/connector-specific-features/paybylink.md): Connector Specific Features — Pay By Link
+- [Connector](docs/ixopay/manual/connector.md): Configure and manage payment connectors — set up credentials, routing, and behaviors for PSPs.
+- [Advanced Configuration](docs/ixopay/manual/connector/advanced-configuration.md): Advanced Configuration
+- [ApplePay & Google Pay](docs/ixopay/manual/connector/advanced-configuration/applepay-googlepay.md): Advanced Configuration — ApplePay & Google Pay
+- [Convert Register to Debit Transaction](docs/ixopay/manual/connector/advanced-configuration/convert-register-to-debit-transaction.md): Advanced Configuration — Convert Register to Debit Transaction
+- [Copy TX Data](docs/ixopay/manual/connector/advanced-configuration/copy-tx-data.md): Advanced Configuration — Copy TX Data
+- [Field Expression Operation](docs/ixopay/manual/connector/advanced-configuration/field-expression-language.md): Advanced Configuration — Field Expression Operation
+- [Field Operation](docs/ixopay/manual/connector/advanced-configuration/field-operation.md): Advanced Configuration — Field Operation
+- [Handle unknown transactions postbacks](docs/ixopay/manual/connector/advanced-configuration/handle-unknown-tx-pb.md): Advanced Configuration — Handle unknown transactions postbacks
+- [Network Tokenization Setting](docs/ixopay/manual/connector/advanced-configuration/network-tokenization-setting.md): Advanced Configuration — Network Tokenization Setting
+- [Overwrite Merchant Metadata](docs/ixopay/manual/connector/advanced-configuration/overwritemerchantmeta.md): Advanced Configuration — Overwrite Merchant Metadata
+- [Risk Engine: Manual Review](docs/ixopay/manual/connector/advanced-configuration/risk-engine-manual-review.md): Advanced Configuration — Risk Engine: Manual Review
+- [Subbrand Selection](docs/ixopay/manual/connector/advanced-configuration/subbrand-selection.md): Advanced Configuration — Subbrand Selection
+- [Success Hooks](docs/ixopay/manual/connector/advanced-configuration/success-hooks.md): Advanced Configuration — Success Hooks
+- [Surcharge - GST Fee](docs/ixopay/manual/connector/advanced-configuration/surcharge.md): Advanced Configuration — Surcharge - GST Fee
+- [Create and Assign Connectors & Adapters](docs/ixopay/manual/connector/create.md): Create and Assign Connectors & Adapters
+- [3D-Secure Configuration](docs/ixopay/manual/connector/create/3d-secure-configuration.md): Create and Assign Connectors & Adapters — 3D-Secure Configuration
+- [Edit Connectors](docs/ixopay/manual/connector/edit.md): Edit Connectors
+- [Connector Settings](docs/ixopay/manual/connector/edit/connector-settings.md): Edit Connectors — Connector Settings
+- [Global Settings](docs/ixopay/manual/connector/edit/global-connector-settings.md): Edit Connectors — Global Settings
+- [Payment Templates](docs/ixopay/manual/connector/edit/payment-templates.md): Edit Connectors — Payment Templates
+- [Fee Management](docs/ixopay/manual/connector/fee-management.md): Fee Management
+- [Fee Entities](docs/ixopay/manual/connector/fee-management/fee-entities.md): Fee Management — Fee Entities
+- [Set up Fees](docs/ixopay/manual/connector/fee-management/set-up-fees.md): Fee Management — Set up Fees
+- [Multi-Method Connector](docs/ixopay/manual/connector/multi-method-connector.md): Multi-Method Connector
+- [Payment Selection Page](docs/ixopay/manual/connector/multi-method-connector/payment-selection-page.md): Payment Selection Page requires a Multi-Method Meta-Connector.
+- [Post Processing - Reconciliation / Settlement on the Connector Level](docs/ixopay/manual/connector/post-processing.md): Post Processing - Reconciliation / Settlement on the Connector Level
+- [Meta-Connector - Routing - Cascading - Balancing - Fallback](docs/ixopay/manual/connector/routing-cascading-balancing-fallback.md): Meta-Connector - Routing - Cascading - Balancing - Fallback
+- [Terminals](docs/ixopay/manual/connector/terminals.md): Adapters using ISO 8583 standard protocols like GICC, e.Link.
+- [Create Users (Web & API)](docs/ixopay/manual/connector/users.md): Create Users Web & API
+- [API User](docs/ixopay/manual/connector/users/api.md): Create Users Web & API — API User
+- [Web User](docs/ixopay/manual/connector/users/web.md): Create Users Web & API — Web User
+- [FAST Editor](docs/ixopay/manual/fast.md): FAST Editor
+- [Getting Started](docs/ixopay/manual/getting-started.md): Getting Started
+- [Index](docs/ixopay/manual/index.md): (no description)
+- [Merchant](docs/ixopay/manual/merchant.md): Merchants in IXOPAY — central entity, operators of a sales channel.
+- [Merchant archiving](docs/ixopay/manual/merchant/archive.md): Merchant archiving
+- [Connector List & Routing](docs/ixopay/manual/merchant/connector-list.md): Connector List & Routing
+- [Merchants Overview](docs/ixopay/manual/merchant/overview.md): Merchants Overview
+- [Create and edit Merchant Profiles](docs/ixopay/manual/merchant/profiles.md): Create and edit Merchant Profiles
+- [Job Schedules](docs/ixopay/manual/merchant/profiles/job-schedules.md): Create and edit Merchant Profiles — Job Schedules
+- [Line Items](docs/ixopay/manual/merchant/profiles/line-items.md): Create and edit Merchant Profiles — Line Items
+- [PCI Data Migration](docs/ixopay/manual/pci-data-migration.md): PCI Data Migration
+- [Post-Processing](docs/ixopay/manual/post-processing.md): Post-authorization workflows — settlement, reconciliation, and operational follow-ups.
+- [Post Processing Jobs](docs/ixopay/manual/post-processing/jobs.md): Post Processing Jobs
+- [Step-by-Step Guides](docs/ixopay/manual/post-processing/jobs/examples.md): Post Processing Jobs — Step-by-Step Guides
+- [Provider Settlements](docs/ixopay/manual/post-processing/provider-settlements.md): Provider Settlements
+- [Provider](docs/ixopay/manual/post-processing/provider.md): Full version only — access all IXOPAY platform features.
+- [Reconciliation](docs/ixopay/manual/post-processing/reconciliation.md): Full version only — access all IXOPAY platform features.
+- [Rolling Reserve](docs/ixopay/manual/post-processing/rolling-reserve.md): Rolling Reserve
+- [Risk Management](docs/ixopay/manual/risk-management.md): Risk Management
+- [Block- & Allowlist](docs/ixopay/manual/risk-management/blocklist-allowlist.md): Risk Management — Block- & Allowlist
+- [Review List](docs/ixopay/manual/risk-management/review-list.md): Risk Management — Review List
+- [Secure Payouts / Manual Review](docs/ixopay/manual/risk-management/review-list/secure-payouts.md): Risk Management — Review List — Secure Payouts / Manual Review
+- [Risk Profiles & Risk Rules](docs/ixopay/manual/risk-management/risk-profiles.md): Risk Management — Risk Profiles & Risk Rules
+- [Assign Risk Profiles](docs/ixopay/manual/risk-management/risk-profiles/assign.md): Risk Management — Risk Profiles & Risk Rules — Assign Risk Profiles
+- [Create Risk Rules for Your Risk Profile](docs/ixopay/manual/risk-management/risk-profiles/create-risk-rules.md): Risk Management — Risk Profiles & Risk Rules — Create Risk Rules for Your Risk Profile
+- [Create Risk Profile](docs/ixopay/manual/risk-management/risk-profiles/create.md): Risk Management — Risk Profiles & Risk Rules — Create Risk Profile
+- [Overview](docs/ixopay/manual/risk-management/risk-profiles/overview.md): Risk Management — Risk Profiles & Risk Rules — Overview
+- [Available Risk Rules](docs/ixopay/manual/risk-management/risk-profiles/risk-rules.md): Risk Management — Risk Profiles & Risk Rules — Available Risk Rules
+- [Risk Statistics](docs/ixopay/manual/risk-management/risk-profiles/risk-statistics.md): Risk Management — Risk Profiles & Risk Rules — Risk Statistics
+- [Score Card & Actions](docs/ixopay/manual/risk-management/risk-profiles/score-card-actions.md): Risk Management — Risk Profiles & Risk Rules — Score Card & Actions
+- [Statistics](docs/ixopay/manual/statistics.md): Reporting and analytics tools to explore transaction data, track performance, and surface insights.
+- [Financial Reports](docs/ixopay/manual/statistics/financial-reports.md): Financial Reports
+- [Pivot Table](docs/ixopay/manual/statistics/pivot-table.md): Pivot Table
+- [System Setup](docs/ixopay/manual/system-setup.md): System Setup
+- [API Keys](docs/ixopay/manual/system-setup/api-keys.md): System Setup — API Keys
+- [Currency Conversion Rates](docs/ixopay/manual/system-setup/currency-conversion-rates.md): System Setup — Currency Conversion Rates
+- [Fee Entities](docs/ixopay/manual/system-setup/fee-entities.md): Fee Management — Fee Entities
+- [Post Processing Jobs](docs/ixopay/manual/system-setup/global-job-schedules.md): Post Processing Jobs
+- [Post Processing Jobs](docs/ixopay/manual/system-setup/job-configuration.md): Post Processing Jobs
+- [Roles](docs/ixopay/manual/system-setup/roles.md): System Setup — Roles
+- [Security Center](docs/ixopay/manual/system-setup/security-center.md): System Setup — Security Center
+- [Service Contacts](docs/ixopay/manual/system-setup/service-contacts.md): System Setup — Service Contacts
+- [SSL Configuration](docs/ixopay/manual/system-setup/ssl-configuration.md): System Setup — SSL Configuration
+- [Tenants](docs/ixopay/manual/system-setup/tenants.md): System Setup — Tenants
+- [Mail Settings](docs/ixopay/manual/system-setup/tenants/mail-settings.md): System Setup — Mail Settings
+- [User](docs/ixopay/manual/system-setup/user.md): System Setup — User
+- [Tokenization](docs/ixopay/manual/tokenization.md): Tokenize and vault payment details — reduce PCI scope, manage tokens, and control their lifecycle.
+- [Account Updater](docs/ixopay/manual/tokenization/account-updater.md): Account Updater
+- [Customer Profiles](docs/ixopay/manual/tokenization/customer-profiles.md): Customer Profiles
+- [Network Token Services](docs/ixopay/manual/tokenization/nt.md): Network Token Services
+- [Transactions](docs/ixopay/manual/transactions.md): Manage payment transactions — initiate, track, and act on the lifecycle (authorize, capture, refund).
+- [Data Export Tool](docs/ixopay/manual/transactions/data-export.md): Data Export Tool
+- [Transaction Details](docs/ixopay/manual/transactions/details.md): Transaction Details
+- [Approve/Decline](docs/ixopay/manual/transactions/details/approve-decline.md): Transaction Details — Approve/Decline
+- [Blocklist Customer Data from Transaction list](docs/ixopay/manual/transactions/details/blocklist-customer-data-from-transaction-list.md): Transaction Details — Blocklist Customer Data from Transaction list
+- [Cancel/Resolve](docs/ixopay/manual/transactions/details/cancel-resolve.md): Transaction Details — Cancel/Resolve
+- [Capture/Void](docs/ixopay/manual/transactions/details/capture-void.md): Transaction Details — Capture/Void
+- [Simulate Chargeback / Chargeback Reversal](docs/ixopay/manual/transactions/details/chargeback.md): Transaction Details — Simulate Chargeback / Chargeback Reversal
+- [Refund](docs/ixopay/manual/transactions/details/refund.md): Transaction Details — Refund
+- [Send Postback / Recalculate Fees](docs/ixopay/manual/transactions/details/send-postback-recalculate-fees.md): Transaction Details — Send Postback / Recalculate Fees
+- [Transaction Tags](docs/ixopay/manual/transactions/details/transaction-tags.md): Transaction Details — Transaction Tags
+- [Overview](docs/ixopay/manual/transactions/overview.md): Transaction list overview — all transactions (Successful, Failed, Pending) in IXOPAY.
+- [Transaction Schedules](docs/ixopay/manual/transactions/schedules.md): Transaction Schedules
+- [Create a Schedule](docs/ixopay/manual/transactions/schedules/create.md): Transaction Schedules — Create a Schedule
+- [Schedules Overview](docs/ixopay/manual/transactions/schedules/overview.md): Transaction Schedules — Schedules Overview
+- [Pause, Continue, Retry or Cancel Schedules](docs/ixopay/manual/transactions/schedules/pause-continue-retry-cancel.md): Transaction Schedules — Pause, Continue, Retry or Cancel Schedules
+- [Virtual Terminal (MOTO)](docs/ixopay/manual/virtual-terminal-moto.md): Virtual Terminal MOTO
+
+## Ixopay Modules (190 pages)
+
+### Modules
+
+- [Overview](docs/ixopay/modules/api.md): IXOPAY platform modules API reference — several APIs to process online payments.
+- [About the Echo API](docs/ixopay/modules/api/tokenex-echo/echo-api.md): TokenEx Echo — About the Echo API
+- [Response Simulation](docs/ixopay/modules/api/tokenex-echo/response-simulation.md): Simulate server responses to enable more thorough testing and troubleshooting.
+- [Account Updater](docs/ixopay/modules/api/tokenex/account-updater.md): TokenEx API v2 — Account Updater
+- [AccountUpdater](docs/ixopay/modules/api/tokenex/accountupdater.md): TokenEx API v2 — Account Updater
+- [Bin File](docs/ixopay/modules/api/tokenex/bin-file.md): TokenEx API v2 — PCI Token Services — Bin File
+- [Bin Lookup 2](docs/ixopay/modules/api/tokenex/bin-lookup-2.md): (no description)
+- [Device Services (P2PE)](docs/ixopay/modules/api/tokenex/device-services-p-2-pe.md): TokenEx API v2 — Device Services P2PE
+- [Device Services V 2 Tokenize](docs/ixopay/modules/api/tokenex/device-services-v-2-tokenize.md): (no description)
+- [Device Services V 2 Tokenizeemv](docs/ixopay/modules/api/tokenex/device-services-v-2-tokenizeemv.md): (no description)
+- [Encrypted Token Services V 2 Tokenize](docs/ixopay/modules/api/tokenex/encrypted-token-services-v-2-tokenize.md): (no description)
+- [Encrypted Token Services](docs/ixopay/modules/api/tokenex/encrypted-token-services.md): TokenEx API v2 — Encrypted Token Services
+- [Fraud Preventionv 2 Hash](docs/ixopay/modules/api/tokenex/fraud-preventionv-2-hash.md): (no description)
+- [Fraud Preventionv 2 Tokenize](docs/ixopay/modules/api/tokenex/fraud-preventionv-2-tokenize.md): (no description)
+- [Kount Fraud Prevention](docs/ixopay/modules/api/tokenex/kount-fraud-prevention.md): TokenEx API v2 — Kount Fraud Prevention
+- [PCI Token Services](docs/ixopay/modules/api/tokenex/pci-token-services.md): TokenEx API v2 — PCI Token Services
+- [Pci Token Servicesv 2 Associatecvv](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-associatecvv.md): (no description)
+- [AssociateEncryptedCvv](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-associateencryptedcvv.md): TokenEx API v2 — PCI Token Services
+- [Pci Token Servicesv 2 Detokenizewithcvv](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-detokenizewithcvv.md): (no description)
+- [Pci Token Servicesv 2 Getbinandlastfour](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-getbinandlastfour.md): (no description)
+- [Pci Token Servicesv 2 Tokenize](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-tokenize.md): (no description)
+- [Pci Token Servicesv 2 Tokenizeencrypted](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-tokenizeencrypted.md): (no description)
+- [Retokenize](docs/ixopay/modules/api/tokenex/retokenize.md): (no description)
+- [Retrievetokenmetadata](docs/ixopay/modules/api/tokenex/retrievetokenmetadata.md): (no description)
+- [Token Services](docs/ixopay/modules/api/tokenex/token-services.md): TokenEx API v2 — Token Services
+- [Token Servicesv 2 Delete](docs/ixopay/modules/api/tokenex/token-servicesv-2-delete.md): (no description)
+- [Token Servicesv 2 Detokenize](docs/ixopay/modules/api/tokenex/token-servicesv-2-detokenize.md): (no description)
+- [Token Servicesv 2 Tokenize](docs/ixopay/modules/api/tokenex/token-servicesv-2-tokenize.md): (no description)
+- [Token Servicesv 2 Updatetoken](docs/ixopay/modules/api/tokenex/token-servicesv-2-updatetoken.md): (no description)
+- [Token Servicesv 2 Validatetoken](docs/ixopay/modules/api/tokenex/token-servicesv-2-validatetoken.md): (no description)
+- [TokenEx API v2](docs/ixopay/modules/api/tokenex/tokenex-api-v-2.md): TokenEx API v2
+- [Index](docs/ixopay/modules/index.md): (no description)
+- [3 D Secure Device Fingerprinting](docs/ixopay/modules/tokenex/3-d-secure-device-fingerprinting.md): Associating Client Browser Attributes with a 3DS Transaction ID — device fingerprinting.
+- [Brand Specific Guidelines](docs/ixopay/modules/tokenex/3ds-brand-specific-guidelines.md): 3-D Secure Authentication — Brand Specific Guidelines
+- [3DS FAQs](docs/ixopay/modules/tokenex/3ds-faqs.md): 3-D Secure Authentication — 3DS FAQs
+- [3DS Test Cases](docs/ixopay/modules/tokenex/3ds-test-cases.md): 3-D Secure Authentication — 3DS Test Cases
+- [Transaction Statuses](docs/ixopay/modules/tokenex/3ds-transaction-statuses.md): 3-D Secure Authentication — Transaction Statuses
+- [Version 1 Challenge](docs/ixopay/modules/tokenex/3ds-version-1-challenge-test-cases.md): 3-D Secure Authentication — 3DS Test Cases — Version 1 Challenge
+- [Version 1 Frictionless](docs/ixopay/modules/tokenex/3ds-version-1-frictionless-test-cases.md): 3-D Secure Authentication — 3DS Test Cases — Version 1 Frictionless
+- [Version 2 Challenge](docs/ixopay/modules/tokenex/3ds-version-2-challenge-test-cases.md): 3-D Secure Authentication — 3DS Test Cases — Version 2 Challenge
+- [Version 2 Frictionless](docs/ixopay/modules/tokenex/3ds-version-2-frictionless-test-cases.md): 3-D Secure Authentication — 3DS Test Cases — Version 2 Frictionless
+- [3DS Overview](docs/ixopay/modules/tokenex/3ds.md): 3-D Secure Authentication — 3DS Overview
+- [8-Digit BINs](docs/ixopay/modules/tokenex/8-digit-bins.md): 8-Digit BINs
+- [Associateencryptedcvvwithtoken 1](docs/ixopay/modules/tokenex/associateencryptedcvvwithtoken-1.md): AssociateEncryptedCvvWithToken — associate an encrypted CVV with a tokenized credit card PAN. (API v1 deprecated)
+- [Authentication](docs/ixopay/modules/tokenex/authentication-2.md): Transparent Gateway API v2
+- [API v1 Authentication](docs/ixopay/modules/tokenex/authentication.md): TokenEx API v1 — API v1 Authentication
+- [Authentications](docs/ixopay/modules/tokenex/authentications.md): 3-D Secure Authentication — 3DS Overview
+- [Autocomplete](docs/ixopay/modules/tokenex/autocomplete.md): Build web forms allowing customer autocomplete to populate information from previously stored data.
+- [BIN Lookup Guide](docs/ixopay/modules/tokenex/bin-lookup-overview.md): BIN Lookup — BIN Lookup Guide
+- [Overview of BBE](docs/ixopay/modules/tokenex/browser-based-encryption-1.md): Browser based encryption BBE — Overview of BBE
+- [Building The Configuration Object](docs/ixopay/modules/tokenex/building-the-configuration-object.md): Creating the iFrame configuration object with parameters for Type, Required, and Description.
+- [Card Metadata Update Notification](docs/ixopay/modules/tokenex/card-metadata-update-notification.md): Network tokenization — Network Tokenization API — Card Metadata Update Notification
+- [Challenge Abandonment](docs/ixopay/modules/tokenex/challenge-abandonment.md): Closes the authentication process for challenges abandoned by the merchant.
+- [Challenge Results](docs/ixopay/modules/tokenex/challenge-results.md): Provides the authentication result following a challenge by submitting a previous Transaction ID.
+- [Co-Branded Challenge](docs/ixopay/modules/tokenex/co-branded-challenge.md): 3-D Secure Authentication — 3DS Test Cases — Co-Branded Challenge
+- [Co-Branded Frictionless](docs/ixopay/modules/tokenex/co-branded-frictionless.md): 3-D Secure Authentication — 3DS Test Cases — Co-Branded Frictionless
+- [Code Examples](docs/ixopay/modules/tokenex/code-examples.md): Code Examples
+- [Collecting and Exchanging Payment Information](docs/ixopay/modules/tokenex/collecting-and-exchanging-payment-information.md): Getting started — Collecting and Exchanging Payment Information
+- [Common Network Tokenization Errors](docs/ixopay/modules/tokenex/common-network-tokenization-errors.md): Network tokenization — Common Network Tokenization Errors
+- [Completing A Challenge](docs/ixopay/modules/tokenex/completing-a-challenge.md): Implementing a 3DS challenge flow within the client's browser.
+- [Construct Request](docs/ixopay/modules/tokenex/construct-request-1.md): Transparent Gateway API v2 — Construct Request
+- [Creating The Iframe](docs/ixopay/modules/tokenex/creating-the-iframe.md): Setting up the iFrame — three steps: Generating Authentication Key, building configuration, and initializing.
+- [CVV Function](docs/ixopay/modules/tokenex/cvv-function.md): Transparent Gateway API v2 — Invoke Functions — CVV Function
+- [Cvv Only Mode Configuration](docs/ixopay/modules/tokenex/cvv-only-mode-configuration.md): CVV Only Mode — update the CVV tied to an existing token by loading a single CVV input.
+- [CVV Retention and Retrieval](docs/ixopay/modules/tokenex/cvv-retention-retrieval.md): CVV Retention and Retrieval
+- [Data Dictionary](docs/ixopay/modules/tokenex/data-dictionary.md): BIN Lookup — Data Dictionary
+- [Debugging](docs/ixopay/modules/tokenex/debugging.md): Transparent Gateway API v1
+- [Decrypt Function](docs/ixopay/modules/tokenex/decrypt-function.md): Decrypt data within the request body — pass encrypted data through Transparent Detokenization.
+- [Delete Token 1](docs/ixopay/modules/tokenex/delete-token-1.md): DeleteToken — remove sensitive data element and corresponding token from vault. (API v1 deprecated)
+- [Detokenization Integration2](docs/ixopay/modules/tokenex/detokenization-integration2.md): Modifications to HTTPS POST to 3rd-party endpoint for detokenization.
+- [Detokenization](docs/ixopay/modules/tokenex/detokenization.md): Transparent Gateway API v1
+- [Detokenize 1](docs/ixopay/modules/tokenex/detokenize-1.md): Detokenize — obtain a data element represented by the corresponding token. (API v1 deprecated)
+- [Detokenize](docs/ixopay/modules/tokenex/detokenize.md): TokenEx iFrame — securely display detokenized sensitive data on a web page without PCI scope.
+- [Encrypt Function](docs/ixopay/modules/tokenex/encrypt-function.md): Encrypt data within the request body — data may include a token identified by token notation.
+- [Encrypt](docs/ixopay/modules/tokenex/encrypt.md): Transparent Gateway API v1
+- [Error Codes](docs/ixopay/modules/tokenex/error-codes.md): Error Codes
+- [Error Handling](docs/ixopay/modules/tokenex/error-handling.md): Errors reported via HTTP 400 status code — payment gateway may also return errors.
+- [iFrame Events](docs/ixopay/modules/tokenex/events.md): TokenEx iFrame — Using the iFrame — iFrame Events
+- [Forter 3DS](docs/ixopay/modules/tokenex/forter.md): TokenEx iFrame — Third Party Integrations — Forter 3DS
+- [Kount](docs/ixopay/modules/tokenex/fraud-prevention-services.md): Fraud Solutions
+- [Functions](docs/ixopay/modules/tokenex/functions-1.md): Transparent Gateway API v1
+- [iFrame Functions](docs/ixopay/modules/tokenex/functions.md): TokenEx iFrame — Using the iFrame — iFrame Functions
+- [General Overview](docs/ixopay/modules/tokenex/general-overview.md): Reseller API — General Overview
+- [Generating the Authentication Key](docs/ixopay/modules/tokenex/generating-the-authentication-key-1.md): Mobile Solutions — Generating the Authentication Key
+- [Generating The Authentication Key](docs/ixopay/modules/tokenex/generating-the-authentication-key.md): Generating the Authentication Key for iFrame initialization.
+- [Get Asset](docs/ixopay/modules/tokenex/get-asset.md): Retrieve card assets such as card imagery and issuer icons identified by GUIDs.
+- [Get Card Metadata](docs/ixopay/modules/tokenex/get-card-metadata.md): Retrieve metadata for a credit card — card art, issuer information, card metadata and token metadata.
+- [Get Kount Hash Value And Tokenize 1](docs/ixopay/modules/tokenex/get-kount-hash-value-and-tokenize-1.md): Generate a Kount hash value for fraud validation and return a TokenEx token.
+- [Get Kount Hash Value](docs/ixopay/modules/tokenex/get-kount-hash-value.md): Generate a Kount hash value for fraud validation of a given PAN.
+- [Get Payment Bundle](docs/ixopay/modules/tokenex/get-payment-bundle.md): Retrieve a cryptogram for an existing TokenEx token that has a network token associated with it.
+- [Get Status](docs/ixopay/modules/tokenex/get-status.md): Retrieve the status of a network token — INACTIVE, ACTIVE, SUSPENDED, etc.
+- [Getkountriskresult](docs/ixopay/modules/tokenex/getkountriskresult.md): Get Kount risk result via REST API.
+- [HMAC Examples](docs/ixopay/modules/tokenex/hmac-examples.md): Transparent Gateway API v1 — Payload HMAC — HMAC Examples
+- [iFrame Modes](docs/ixopay/modules/tokenex/iframe-modes.md): TokenEx iFrame — iFrame Modes
+- [TokenEx iFrame - The Basics](docs/ixopay/modules/tokenex/iframe-new.md): TokenEx iFrame — TokenEx iFrame - The Basics
+- [BBE Implementation Steps](docs/ixopay/modules/tokenex/integration-steps.md): Browser based encryption BBE — BBE Implementation Steps
+- [Invoke Functions](docs/ixopay/modules/tokenex/invoke-functions-1.md): Transparent Gateway API v2 — Invoke Functions
+- [IP Addresses](docs/ixopay/modules/tokenex/ip-addresses.md): Getting started — IP Addresses
+- [Kount Data Collection And Risk Analysis](docs/ixopay/modules/tokenex/kount-data-collection-and-risk-analysis.md): Support of Kount fraud services via the TokenEx iFrame.
+- [Kount - KHASH](docs/ixopay/modules/tokenex/kount.md): TokenEx iFrame — Third Party Integrations — Kount - KHASH
+- [Lifecycle Management](docs/ixopay/modules/tokenex/lifecycle-management.md): Change status of a network token — DELETETOKEN, RESUMETOKEN, SUSPENDTOKEN actions.
+- [Mastercard Identity Check Insights](docs/ixopay/modules/tokenex/mastercard-identity-check-insights.md): Mastercard Identity Check Insights IDCI — frictionless requests with reduced latency and no challenge.
+- [Mobile Bin Lookup](docs/ixopay/modules/tokenex/mobile-bin-lookup.md): BIN lookup subscription service — contact Customer Success Manager for access.
+- [Nested iFrames](docs/ixopay/modules/tokenex/nested-iframes.md): TokenEx iFrame — Creating the iFrame — Nested iFrames
+- [Network Tokenization API](docs/ixopay/modules/tokenex/network-token-services.md): Network tokenization — Network Tokenization API
+- [Network Tokenization Test Cases](docs/ixopay/modules/tokenex/network-tokenization-test-cases.md): Network tokenization — Network Tokenization Test Cases
+- [Network Tokenization Overview](docs/ixopay/modules/tokenex/network-tokenization.md): Network tokenization — Network Tokenization Overview
+- [Non-PCI iFrame Configuration](docs/ixopay/modules/tokenex/non-pci-configuration.md): TokenEx iFrame — Creating the iFrame — Non-PCI iFrame Configuration
+- [P2Pe Decrypt Function](docs/ixopay/modules/tokenex/p2pe-decrypt-function.md): Decrypt data previously encrypted at a point-of-interaction POI device or payment terminal.
+- [P2Pe Tokenize](docs/ixopay/modules/tokenex/p2pe-tokenize.md): Accept encrypted data from a POI device, decrypt, and tokenize the PAN.
+- [Payload Hashing 2](docs/ixopay/modules/tokenex/payload-hashing-2.md): Generate hash value for payload to verify authenticity in detokenize requests.
+- [Payload HMAC](docs/ixopay/modules/tokenex/payload-hmac.md): Transparent Gateway API v1 — Payload HMAC
+- [Universal Token Payment Orchestration](docs/ixopay/modules/tokenex/payment-orchestration.md): Universal Token Payment Orchestration
+- [Payment Services](docs/ixopay/modules/tokenex/payment-services.md): Payment Services
+- [Adyen Checkout](docs/ixopay/modules/tokenex/payment-services/adyen-direct.md): Payment Services — Card/Check/Wallet API — Adyen Checkout Gateway Parameters
+- [Adyen Classic](docs/ixopay/modules/tokenex/payment-services/adyen.md): Payment Services — Card/Check/Wallet API — Adyen Classic Gateway Parameters
+- [Authorize.Net](docs/ixopay/modules/tokenex/payment-services/authorizenet-direct.md): Payment Services — Card/Check/Wallet API — Authorize.Net Gateway Parameters
+- [BluePay](docs/ixopay/modules/tokenex/payment-services/bluepay.md): Payment Services — Card/Check/Wallet API — BluePay Gateway Parameters
+- [Braintree](docs/ixopay/modules/tokenex/payment-services/braintree.md): Payment Services — Card/Check/Wallet API — Braintree Gateway Parameters
+- [Chasenetconnect](docs/ixopay/modules/tokenex/payment-services/chasenetconnect.md): Chase Net Connect — Account Management and Developer Documentation.
+- [CyberSource](docs/ixopay/modules/tokenex/payment-services/cybersource.md): Payment Services — Card/Check/Wallet API — CyberSource Gateway Parameters
+- [dLocal](docs/ixopay/modules/tokenex/payment-services/dlocal.md): Payment Services — Card/Check/Wallet API — dLocal Gateway Parameters
+- [EBANX](docs/ixopay/modules/tokenex/payment-services/ebanx.md): Payment Services — Card/Check/Wallet API — EBANX Gateway Parameters
+- [Elavon](docs/ixopay/modules/tokenex/payment-services/elavon.md): Payment Services — Card/Check/Wallet API — Elavon Gateway Parameters
+- [EMerchantPay](docs/ixopay/modules/tokenex/payment-services/emerchantpay.md): Payment Services — Card/Check/Wallet API — EMerchantPay Gateway Parameters
+- [First Data IPG](docs/ixopay/modules/tokenex/payment-services/first-data-ipg.md): Payment Services — Card/Check/Wallet API — First Data IPG Gateway Parameters
+- [Gateway Parameters](docs/ixopay/modules/tokenex/payment-services/gateway-parameters.md): Payment Services — ProcessTransaction API — Gateway Parameters
+- [Nuvei](docs/ixopay/modules/tokenex/payment-services/nuvei.md): Payment Services — Card/Check/Wallet API — Nuvei Gateway Parameters
+- [Orbital](docs/ixopay/modules/tokenex/payment-services/orbital.md): Payment Services — Card/Check/Wallet API — Orbital Gateway Parameters
+- [The Basics](docs/ixopay/modules/tokenex/payment-services/payment-services-the-basics.md): Payment Services — ProcessTransaction API — The Basics
+- [Payment Services V2 The Basics](docs/ixopay/modules/tokenex/payment-services/payment-services-v2-the-basics.md): Use TokenEx tokens with a variety of Payment Gateways
+- [Adding Response Parameters](docs/ixopay/modules/tokenex/payment-services/psv2-adding-response-parameters.md): Payment Services — Card/Check/Wallet API — Adding Response Parameters
+- [Gateway Parameters](docs/ixopay/modules/tokenex/payment-services/psv2-gateway-parameters.md): Payment Services — Card/Check/Wallet API — Gateway Parameters
+- [Psv2 Parameter Forwarding](docs/ixopay/modules/tokenex/payment-services/psv2-parameter-forwarding.md): Sending parameters for which a TokenEx gateway implementation does not have a suitable mapping.
+- [Payment Services Testing](docs/ixopay/modules/tokenex/payment-services/psv2-testing.md): Payment Services — Card/Check/Wallet API — Payment Services Testing
+- [Stripe](docs/ixopay/modules/tokenex/payment-services/stripe.md): Payment Services — Card/Check/Wallet API — Stripe Gateway Parameters
+- [Worldpay eComm cnpAPI](docs/ixopay/modules/tokenex/payment-services/worldpay-ecomm-cnpapi.md): Payment Services — Card/Check/Wallet API — Worldpay eComm cnpAPI Gateway Parameters
+- [Worldpay Native RAFT](docs/ixopay/modules/tokenex/payment-services/worldpay-native-raft.md): Payment Services — Card/Check/Wallet API — Worldpay Native RAFT Gateway Parameters
+- [Worldpaywpg](docs/ixopay/modules/tokenex/payment-services/worldpaywpg.md): Worldpay WPG — Gateway Website and Developer Documentation.
+- [PCI iFrame Configuration](docs/ixopay/modules/tokenex/pci-configuration.md): TokenEx iFrame — Creating the iFrame — PCI iFrame Configuration
+- [PCI Token Services](docs/ixopay/modules/tokenex/pci-token-services-api.md): TokenEx API v1 — PCI Token Services
+- [PCI-Validated P2PE Overview](docs/ixopay/modules/tokenex/pci-validated-p2pe-overview.md): PCI validated P2PE — PCI-Validated P2PE Overview
+- [PCI w/ CVV Configuration](docs/ixopay/modules/tokenex/pci-w-cvv-configuration.md): TokenEx iFrame — Creating the iFrame — PCI w/ CVV Configuration
+- [Prerequisites](docs/ixopay/modules/tokenex/prerequisites.md): Mobile Solutions — Prerequisites
+- [Proxy Detokenization (Inbound)](docs/ixopay/modules/tokenex/proxy-detokenization-1.md): Transparent Gateway API v2 — Proxy Detokenization Inbound
+- [Proxy Profile Management](docs/ixopay/modules/tokenex/proxy-profile-management.md): Proxy Profile Management — test and production environment hosts.
+- [Proxy Tokenization (Inbound)](docs/ixopay/modules/tokenex/proxy-tokenization-1.md): Transparent Gateway API v2 — Proxy Tokenization Inbound
+- [Proxy Tokenization Encryption](docs/ixopay/modules/tokenex/proxy-tokenization-encryption.md): Transparent Gateway API v2 — Proxy Tokenization Inbound — Proxy Tokenization Encryption
+- [Putting It All Together](docs/ixopay/modules/tokenex/putting-it-all-together.md): TokenEx iFrame — Creating the iFrame — Putting It All Together
+- [Regex Handling](docs/ixopay/modules/tokenex/regex-handling.md): Regex Handling
+- [Reporting](docs/ixopay/modules/tokenex/reporting.md): Reporting — test and production environment hosts.
+- [Response Handling](docs/ixopay/modules/tokenex/response-handling-1.md): Transparent Gateway API v2 — Response Handling
+- [Retries and 3rd-Party APIs](docs/ixopay/modules/tokenex/retries-and-3rd-party-apis.md): Retries and 3rd-Party APIs
+- [RSA Key Management](docs/ixopay/modules/tokenex/rsa-key-management.md): Reseller API — RSA Key Management
+- [Select a TGAPI Endpoint](docs/ixopay/modules/tokenex/select-a-tgapi-endpoint-1.md): Transparent Gateway API v2 — Select a TGAPI Endpoint
+- [Styling the CVV iFrame](docs/ixopay/modules/tokenex/styling-the-cvv-iframe.md): TokenEx iFrame — Styling the iFrame — Styling the CVV iFrame
+- [Styling The Iframe](docs/ixopay/modules/tokenex/styling-the-iframe.md): iFrame styling via CSS in configuration object — base, focus, and error style elements.
+- [Supported Versions](docs/ixopay/modules/tokenex/supported-versions.md): 3-D Secure Authentication — 3DS Overview — Supported Versions
+- [Testing BIN Lookup](docs/ixopay/modules/tokenex/testing-bin-lookup.md): BIN Lookup — Testing BIN Lookup
+- [TGAPI v2 - The Basics](docs/ixopay/modules/tokenex/tgapi-v2-the-basics.md): Transparent Gateway API v2 — TGAPI v2 - The Basics
+- [Overview of TokenEx API v2](docs/ixopay/modules/tokenex/the-basics-1.md): TokenEx API v2 — Overview of TokenEx API v2
+- [Overview of TokenEx API v1](docs/ixopay/modules/tokenex/the-basics.md): TokenEx API v1 — Overview of TokenEx API v1
+- [Third Party Integrations](docs/ixopay/modules/tokenex/third-party-integrations.md): TokenEx iFrame — Third Party Integrations
+- [Token Services API](docs/ixopay/modules/tokenex/token-services-api.md): TokenEx API v1 — Token Services API
+- [Token State Change Notification](docs/ixopay/modules/tokenex/token-state-change-notification.md): Network tokenization — Network Tokenization API — Token State Change Notification
+- [Tokenex Api Vault Ip Whitelist Management](docs/ixopay/modules/tokenex/tokenex-api-vault-ip-whitelist-management.md): TokenEx API Vault IP Whitelist Management — test and production environment hosts.
+- [TokenEx : EMVCo Property Mapping](docs/ixopay/modules/tokenex/tokenex-emvco-property-mapping.md): 3-D Secure Authentication — TokenEx : EMVCo Property Mapping
+- [TokenEx Mobile API - The Basics](docs/ixopay/modules/tokenex/tokenex-mobile-api.md): Mobile Solutions — TokenEx Mobile API - The Basics
+- [TokenEx Platform Overview](docs/ixopay/modules/tokenex/tokenex-overview.md): Getting started — TokenEx Platform Overview
+- [Tokenex Public Keys](docs/ixopay/modules/tokenex/tokenex-public-keys.md): TokenEx public key in PKCS#8 format for RSA encryption libraries.
+- [Tokenization](docs/ixopay/modules/tokenex/tokenization.md): Transparent Gateway API v1
+- [Tokenize](docs/ixopay/modules/tokenex/tokenize-7.md): Network tokenization — Network Tokenization API
+- [Tokenize](docs/ixopay/modules/tokenex/tokenize.md): Tokenize a data element such as a Social Security number or health ID number.
+- [Tokenizefromencryptedvalue Pci](docs/ixopay/modules/tokenex/tokenizefromencryptedvalue-pci.md): TokenizeFromEncryptedValues — tokenize a credit card PAN encrypted with the TokenEx public RSA key.
+- [Tokenizefromencryptedvalue](docs/ixopay/modules/tokenex/tokenizefromencryptedvalue.md): TokenizeFromEncryptedValue — tokenize a sensitive data element encrypted with the TokenEx public RSA key.
+- [Transparent Detokenization](docs/ixopay/modules/tokenex/transparent-detokenization-1.md): Transparent Gateway API v2 — Transparent Detokenization
+- [Transparent Detokenization and Tokenization](docs/ixopay/modules/tokenex/transparent-detokenization-and-tokenization-1.md): Transparent Gateway API v2 — Transparent Detokenization and Tokenization
+- [Transparent Detokenization Integration](docs/ixopay/modules/tokenex/transparent-detokenization-integration.md): Modifications to HTTPS payload to 3rd-party endpoint for transparent detokenization.
+- [TGAPI v1 - The Basics](docs/ixopay/modules/tokenex/transparent-gateway-api.md): Transparent Gateway API v1 — TGAPI v1 - The Basics
+- [Transparent Tokenization](docs/ixopay/modules/tokenex/transparent-tokenization-1.md): Transparent Gateway API v2 — Transparent Tokenization
+- [Universal Token Schemes](docs/ixopay/modules/tokenex/universal-token-schemes.md): Universal Token Schemes
+- [Usage](docs/ixopay/modules/tokenex/usage.md): Mobile Solutions — Usage
+- [Use Network Token Function](docs/ixopay/modules/tokenex/use-network-token-function.md): Insert a network token and/or network token expiration date into the request body.
+- [Using Custom Data Types](docs/ixopay/modules/tokenex/using-custom-data-types.md): TokenEx iFrame — Using Custom Data Types
+- [Using the iFrame](docs/ixopay/modules/tokenex/using-the-iframe.md): TokenEx iFrame — Using the iFrame
+- [Validate Token](docs/ixopay/modules/tokenex/validate-token.md): ValidateToken — verify the specified token exists within your token vault. (API v1 deprecated)
+- [Vault API Key & Permission Management](docs/ixopay/modules/tokenex/vault-api-key-permissions.md): Reseller API — Vault API Key & Permission Management
+- [Vault Management](docs/ixopay/modules/tokenex/vault-management.md): Reseller API — Vault Management
+- [Welcome!](docs/ixopay/modules/tokenex/welcome.md): Getting started
+- [What is Tokenization?](docs/ixopay/modules/tokenex/what-is-tokenization.md): Getting started — What is Tokenization?
+
+## TokenEx Documentation (159 pages)
+
+### General
+
+- [3 D Secure Device Fingerprinting](docs/tokenex/3-d-secure-device-fingerprinting.md): Associating Client Browser Attributes with a 3DS Transaction ID — device fingerprinting.
+- [Brand Specific Guidelines](docs/tokenex/3ds-brand-specific-guidelines.md): 3-D Secure Authentication — Brand Specific Guidelines
+- [3DS FAQs](docs/tokenex/3ds-faqs.md): 3-D Secure Authentication — 3DS FAQs
+- [3DS Test Cases](docs/tokenex/3ds-test-cases.md): 3-D Secure Authentication — 3DS Test Cases
+- [Transaction Statuses](docs/tokenex/3ds-transaction-statuses.md): 3-D Secure Authentication — Transaction Statuses
+- [Version 1 Challenge](docs/tokenex/3ds-version-1-challenge-test-cases.md): 3-D Secure Authentication — 3DS Test Cases — Version 1 Challenge
+- [Version 1 Frictionless](docs/tokenex/3ds-version-1-frictionless-test-cases.md): 3-D Secure Authentication — 3DS Test Cases — Version 1 Frictionless
+- [Version 2 Challenge](docs/tokenex/3ds-version-2-challenge-test-cases.md): 3-D Secure Authentication — 3DS Test Cases — Version 2 Challenge
+- [Version 2 Frictionless](docs/tokenex/3ds-version-2-frictionless-test-cases.md): 3-D Secure Authentication — 3DS Test Cases — Version 2 Frictionless
+- [3DS Overview](docs/tokenex/3ds.md): 3-D Secure Authentication — 3DS Overview
+- [8-Digit BINs](docs/tokenex/8-digit-bins.md): 8-Digit BINs
+- [Associateencryptedcvvwithtoken 1](docs/tokenex/associateencryptedcvvwithtoken-1.md): AssociateEncryptedCvvWithToken — associate an encrypted CVV with a tokenized credit card PAN. (API v1 deprecated)
+- [Authentication](docs/tokenex/authentication-2.md): Transparent Gateway API v2
+- [API v1 Authentication](docs/tokenex/authentication.md): TokenEx API v1 — API v1 Authentication
+- [Authentications](docs/tokenex/authentications.md): 3-D Secure Authentication — 3DS Overview
+- [Autocomplete](docs/tokenex/autocomplete.md): Build web forms allowing customer autocomplete to populate previously stored information.
+- [BIN Lookup Guide](docs/tokenex/bin-lookup-overview.md): BIN Lookup — BIN Lookup Guide
+- [Overview of BBE](docs/tokenex/browser-based-encryption-1.md): Browser based encryption BBE — Overview of BBE
+- [Building The Configuration Object](docs/tokenex/building-the-configuration-object.md): Creating the iFrame configuration object with parameters for Type, Required, and Description.
+- [Card Metadata Update Notification](docs/tokenex/card-metadata-update-notification.md): Network tokenization — Network Tokenization API — Card Metadata Update Notification
+- [Challenge Abandonment](docs/tokenex/challenge-abandonment.md): Closes the authentication process for challenges abandoned by the merchant.
+- [Challenge Results](docs/tokenex/challenge-results.md): Provides the authentication result following a challenge by submitting a previous Transaction ID.
+- [Co-Branded Challenge](docs/tokenex/co-branded-challenge.md): 3-D Secure Authentication — 3DS Test Cases — Co-Branded Challenge
+- [Co-Branded Frictionless](docs/tokenex/co-branded-frictionless.md): 3-D Secure Authentication — 3DS Test Cases — Co-Branded Frictionless
+- [Code Examples](docs/tokenex/code-examples.md): Code Examples
+- [Collecting and Exchanging Payment Information](docs/tokenex/collecting-and-exchanging-payment-information.md): Getting started — Collecting and Exchanging Payment Information
+- [Common Network Tokenization Errors](docs/tokenex/common-network-tokenization-errors.md): Network tokenization — Common Network Tokenization Errors
+- [Completing A Challenge](docs/tokenex/completing-a-challenge.md): Implementing a 3DS challenge flow within the client's browser.
+- [Construct Request](docs/tokenex/construct-request-1.md): Transparent Gateway API v2 — Construct Request
+- [Creating The Iframe](docs/tokenex/creating-the-iframe.md): Setting up the iFrame — three steps: Generating Authentication Key, building configuration, and initializing.
+- [CVV Function](docs/tokenex/cvv-function.md): Transparent Gateway API v2 — Invoke Functions — CVV Function
+- [Cvv Only Mode Configuration](docs/tokenex/cvv-only-mode-configuration.md): CVV Only Mode — update the CVV tied to an existing token by loading a single CVV input.
+- [CVV Retention and Retrieval](docs/tokenex/cvv-retention-retrieval.md): CVV Retention and Retrieval
+- [Data Dictionary](docs/tokenex/data-dictionary.md): BIN Lookup — Data Dictionary
+- [Debugging](docs/tokenex/debugging.md): Transparent Gateway API v1
+- [Decrypt Function](docs/tokenex/decrypt-function.md): Decrypt data within the request body — pass encrypted data through Transparent Detokenization.
+- [Delete Token 1](docs/tokenex/delete-token-1.md): DeleteToken — remove sensitive data element and corresponding token from vault. (API v1 deprecated)
+- [Detokenization Integration2](docs/tokenex/detokenization-integration2.md): Modifications to HTTPS POST to 3rd-party endpoint for detokenization.
+- [Detokenization](docs/tokenex/detokenization.md): Transparent Gateway API v1
+- [Detokenize 1](docs/tokenex/detokenize-1.md): Detokenize — obtain a data element represented by the corresponding token. (API v1 deprecated)
+- [Detokenize](docs/tokenex/detokenize.md): TokenEx iFrame — securely display detokenized sensitive data on a web page without PCI scope.
+- [Encrypt Function](docs/tokenex/encrypt-function.md): Encrypt data within the request body — data may include a token identified by token notation.
+- [Encrypt](docs/tokenex/encrypt.md): Transparent Gateway API v1
+- [Error Codes](docs/tokenex/error-codes.md): Error Codes
+- [Error Handling](docs/tokenex/error-handling.md): Errors reported via HTTP 400 status code — payment gateway may also return errors.
+- [iFrame Events](docs/tokenex/events.md): TokenEx iFrame — Using the iFrame — iFrame Events
+- [Forter 3DS](docs/tokenex/forter.md): TokenEx iFrame — Third Party Integrations — Forter 3DS
+- [Kount](docs/tokenex/fraud-prevention-services.md): Fraud Solutions
+- [Functions](docs/tokenex/functions-1.md): Transparent Gateway API v1
+- [iFrame Functions](docs/tokenex/functions.md): TokenEx iFrame — Using the iFrame — iFrame Functions
+- [General Overview](docs/tokenex/general-overview.md): Reseller API — General Overview
+- [Generating the Authentication Key](docs/tokenex/generating-the-authentication-key-1.md): Mobile Solutions — Generating the Authentication Key
+- [Generating The Authentication Key](docs/tokenex/generating-the-authentication-key.md): Generating the Authentication Key for iFrame initialization.
+- [Get Asset](docs/tokenex/get-asset.md): Retrieve card assets such as card imagery and issuer icons identified by GUIDs.
+- [Get Card Metadata](docs/tokenex/get-card-metadata.md): Retrieve metadata for a credit card — card art, issuer information, card metadata and token metadata.
+- [Get Kount Hash Value And Tokenize 1](docs/tokenex/get-kount-hash-value-and-tokenize-1.md): Generate a Kount hash value for fraud validation and return a TokenEx token.
+- [Get Kount Hash Value](docs/tokenex/get-kount-hash-value.md): Generate a Kount hash value for fraud validation of a given PAN.
+- [Get Payment Bundle](docs/tokenex/get-payment-bundle.md): Retrieve a cryptogram for an existing TokenEx token that has a network token associated with it.
+- [Get Status](docs/tokenex/get-status.md): Retrieve the status of a network token — INACTIVE, ACTIVE, SUSPENDED, etc.
+- [Getkountriskresult](docs/tokenex/getkountriskresult.md): Get Kount risk result via REST API.
+- [HMAC Examples](docs/tokenex/hmac-examples.md): Transparent Gateway API v1 — Payload HMAC — HMAC Examples
+- [iFrame Modes](docs/tokenex/iframe-modes.md): TokenEx iFrame — iFrame Modes
+- [TokenEx iFrame - The Basics](docs/tokenex/iframe-new.md): TokenEx iFrame — TokenEx iFrame - The Basics
+- [Welcome!](docs/tokenex/index.md): Getting started
+- [BBE Implementation Steps](docs/tokenex/integration-steps.md): Browser based encryption BBE — BBE Implementation Steps
+- [Invoke Functions](docs/tokenex/invoke-functions-1.md): Transparent Gateway API v2 — Invoke Functions
+- [IP Addresses](docs/tokenex/ip-addresses.md): Getting started — IP Addresses
+- [Kount Data Collection And Risk Analysis](docs/tokenex/kount-data-collection-and-risk-analysis.md): Support of Kount fraud services via the TokenEx iFrame.
+- [Kount - KHASH](docs/tokenex/kount.md): TokenEx iFrame — Third Party Integrations — Kount - KHASH
+- [Lifecycle Management](docs/tokenex/lifecycle-management.md): Change status of a network token — DELETETOKEN, RESUMETOKEN, SUSPENDTOKEN actions.
+- [Mastercard Identity Check Insights](docs/tokenex/mastercard-identity-check-insights.md): Mastercard Identity Check Insights IDCI — frictionless requests with reduced latency and no challenge.
+- [Mobile Bin Lookup](docs/tokenex/mobile-bin-lookup.md): BIN lookup subscription service — contact Customer Success Manager for access.
+- [Nested iFrames](docs/tokenex/nested-iframes.md): TokenEx iFrame — Creating the iFrame — Nested iFrames
+- [Network Tokenization API](docs/tokenex/network-token-services.md): Network tokenization — Network Tokenization API
+- [Network Tokenization Test Cases](docs/tokenex/network-tokenization-test-cases.md): Network tokenization — Network Tokenization Test Cases
+- [Network Tokenization Overview](docs/tokenex/network-tokenization.md): Network tokenization — Network Tokenization Overview
+- [Non-PCI iFrame Configuration](docs/tokenex/non-pci-configuration.md): TokenEx iFrame — Creating the iFrame — Non-PCI iFrame Configuration
+- [P2Pe Decrypt Function](docs/tokenex/p2pe-decrypt-function.md): Decrypt data previously encrypted at a point-of-interaction POI device or payment terminal.
+- [P2Pe Tokenize](docs/tokenex/p2pe-tokenize.md): Accept encrypted data from a POI device, decrypt, and tokenize the PAN.
+- [Payload Hashing 2](docs/tokenex/payload-hashing-2.md): Generate hash value for payload to verify authenticity in detokenize requests.
+- [Payload HMAC](docs/tokenex/payload-hmac.md): Transparent Gateway API v1 — Payload HMAC
+- [Universal Token Payment Orchestration](docs/tokenex/payment-orchestration.md): Universal Token Payment Orchestration
+- [Payment Services](docs/tokenex/payment-services.md): Payment Services
+- [PCI iFrame Configuration](docs/tokenex/pci-configuration.md): TokenEx iFrame — Creating the iFrame — PCI iFrame Configuration
+- [PCI Token Services](docs/tokenex/pci-token-services-api.md): TokenEx API v1 — PCI Token Services
+- [PCI-Validated P2PE Overview](docs/tokenex/pci-validated-p2pe-overview.md): PCI validated P2PE — PCI-Validated P2PE Overview
+- [PCI w/ CVV Configuration](docs/tokenex/pci-w-cvv-configuration.md): TokenEx iFrame — Creating the iFrame — PCI w/ CVV Configuration
+- [Prerequisites](docs/tokenex/prerequisites.md): Mobile Solutions — Prerequisites
+- [Proxy Detokenization (Inbound)](docs/tokenex/proxy-detokenization-1.md): Transparent Gateway API v2 — Proxy Detokenization Inbound
+- [Proxy Profile Management](docs/tokenex/proxy-profile-management.md): Proxy Profile Management — test and production environment hosts.
+- [Proxy Tokenization (Inbound)](docs/tokenex/proxy-tokenization-1.md): Transparent Gateway API v2 — Proxy Tokenization Inbound
+- [Proxy Tokenization Encryption](docs/tokenex/proxy-tokenization-encryption.md): Transparent Gateway API v2 — Proxy Tokenization Inbound — Proxy Tokenization Encryption
+- [Putting It All Together](docs/tokenex/putting-it-all-together.md): TokenEx iFrame — Creating the iFrame — Putting It All Together
+- [Regex Handling](docs/tokenex/regex-handling.md): Regex Handling
+- [Reporting](docs/tokenex/reporting.md): Reporting — test and production environment hosts.
+- [Response Handling](docs/tokenex/response-handling-1.md): Transparent Gateway API v2 — Response Handling
+- [Retries and 3rd-Party APIs](docs/tokenex/retries-and-3rd-party-apis.md): Retries and 3rd-Party APIs
+- [RSA Key Management](docs/tokenex/rsa-key-management.md): Reseller API — RSA Key Management
+- [Select a TGAPI Endpoint](docs/tokenex/select-a-tgapi-endpoint-1.md): Transparent Gateway API v2 — Select a TGAPI Endpoint
+- [Styling the CVV iFrame](docs/tokenex/styling-the-cvv-iframe.md): TokenEx iFrame — Styling the iFrame — Styling the CVV iFrame
+- [Styling The Iframe](docs/tokenex/styling-the-iframe.md): iFrame styling via CSS in configuration object — base, focus, and error style elements.
+- [Supported Versions](docs/tokenex/supported-versions.md): 3-D Secure Authentication — 3DS Overview — Supported Versions
+- [Testing BIN Lookup](docs/tokenex/testing-bin-lookup.md): BIN Lookup — Testing BIN Lookup
+- [TGAPI v2 - The Basics](docs/tokenex/tgapi-v2-the-basics.md): Transparent Gateway API v2 — TGAPI v2 - The Basics
+- [Overview of TokenEx API v2](docs/tokenex/the-basics-1.md): TokenEx API v2 — Overview of TokenEx API v2
+- [Overview of TokenEx API v1](docs/tokenex/the-basics.md): TokenEx API v1 — Overview of TokenEx API v1
+- [Third Party Integrations](docs/tokenex/third-party-integrations.md): TokenEx iFrame — Third Party Integrations
+- [Token Services API](docs/tokenex/token-services-api.md): TokenEx API v1 — Token Services API
+- [Token State Change Notification](docs/tokenex/token-state-change-notification.md): Network tokenization — Network Tokenization API — Token State Change Notification
+- [Tokenex Api Vault Ip Whitelist Management](docs/tokenex/tokenex-api-vault-ip-whitelist-management.md): TokenEx API Vault IP Whitelist Management — test and production environment hosts.
+- [TokenEx : EMVCo Property Mapping](docs/tokenex/tokenex-emvco-property-mapping.md): 3-D Secure Authentication — TokenEx : EMVCo Property Mapping
+- [TokenEx Mobile API - The Basics](docs/tokenex/tokenex-mobile-api.md): Mobile Solutions — TokenEx Mobile API - The Basics
+- [TokenEx Platform Overview](docs/tokenex/tokenex-overview.md): Getting started — TokenEx Platform Overview
+- [Tokenex Public Keys](docs/tokenex/tokenex-public-keys.md): TokenEx public key in PKCS#8 format for RSA encryption libraries.
+- [Tokenization](docs/tokenex/tokenization.md): Transparent Gateway API v1
+- [Tokenize](docs/tokenex/tokenize-7.md): Network tokenization — Network Tokenization API
+- [Tokenize](docs/tokenex/tokenize.md): Tokenize a data element such as a Social Security number or health ID number.
+- [Tokenizefromencryptedvalue Pci](docs/tokenex/tokenizefromencryptedvalue-pci.md): TokenizeFromEncryptedValues — tokenize a credit card PAN encrypted with the TokenEx public RSA key.
+- [Tokenizefromencryptedvalue](docs/tokenex/tokenizefromencryptedvalue.md): TokenizeFromEncryptedValue — tokenize a sensitive data element encrypted with the TokenEx public RSA key.
+- [Transparent Detokenization](docs/tokenex/transparent-detokenization-1.md): Transparent Gateway API v2 — Transparent Detokenization
+- [Transparent Detokenization and Tokenization](docs/tokenex/transparent-detokenization-and-tokenization-1.md): Transparent Gateway API v2 — Transparent Detokenization and Tokenization
+- [Transparent Detokenization Integration](docs/tokenex/transparent-detokenization-integration.md): Modifications to HTTPS payload to 3rd-party endpoint for transparent detokenization.
+- [TGAPI v1 - The Basics](docs/tokenex/transparent-gateway-api.md): Transparent Gateway API v1 — TGAPI v1 - The Basics
+- [Transparent Tokenization](docs/tokenex/transparent-tokenization-1.md): Transparent Gateway API v2 — Transparent Tokenization
+- [Universal Token Schemes](docs/tokenex/universal-token-schemes.md): Universal Token Schemes
+- [Usage](docs/tokenex/usage.md): Mobile Solutions — Usage
+- [Use Network Token Function](docs/tokenex/use-network-token-function.md): Insert a network token and/or network token expiration date into the request body.
+- [Using Custom Data Types](docs/tokenex/using-custom-data-types.md): TokenEx iFrame — Using Custom Data Types
+- [Using the iFrame](docs/tokenex/using-the-iframe.md): TokenEx iFrame — Using the iFrame
+- [Validate Token](docs/tokenex/validate-token.md): ValidateToken — verify the specified token exists within your token vault. (API v1 deprecated)
+- [Vault API Key & Permission Management](docs/tokenex/vault-api-key-permissions.md): Reseller API — Vault API Key & Permission Management
+- [Vault Management](docs/tokenex/vault-management.md): Reseller API — Vault Management
+- [Welcome!](docs/tokenex/welcome.md): Getting started
+- [What is Tokenization?](docs/tokenex/what-is-tokenization.md): Getting started — What is Tokenization?
+
+### Payment Services
+
+- [Adyen Checkout](docs/tokenex/payment-services/adyen-direct.md): Payment Services — Card/Check/Wallet API — Adyen Checkout Gateway Parameters
+- [Adyen Classic](docs/tokenex/payment-services/adyen.md): Payment Services — Card/Check/Wallet API — Adyen Classic Gateway Parameters
+- [Authorize.Net](docs/tokenex/payment-services/authorizenet-direct.md): Payment Services — Card/Check/Wallet API — Authorize.Net Gateway Parameters
+- [BluePay](docs/tokenex/payment-services/bluepay.md): Payment Services — Card/Check/Wallet API — BluePay Gateway Parameters
+- [Braintree](docs/tokenex/payment-services/braintree.md): Payment Services — Card/Check/Wallet API — Braintree Gateway Parameters
+- [Chasenetconnect](docs/tokenex/payment-services/chasenetconnect.md): Chase Net Connect — Account Management and Developer Documentation.
+- [CyberSource](docs/tokenex/payment-services/cybersource.md): Payment Services — Card/Check/Wallet API — CyberSource Gateway Parameters
+- [dLocal](docs/tokenex/payment-services/dlocal.md): Payment Services — Card/Check/Wallet API — dLocal Gateway Parameters
+- [EBANX](docs/tokenex/payment-services/ebanx.md): Payment Services — Card/Check/Wallet API — EBANX Gateway Parameters
+- [Elavon](docs/tokenex/payment-services/elavon.md): Payment Services — Card/Check/Wallet API — Elavon Gateway Parameters
+- [EMerchantPay](docs/tokenex/payment-services/emerchantpay.md): Payment Services — Card/Check/Wallet API — EMerchantPay Gateway Parameters
+- [First Data IPG](docs/tokenex/payment-services/first-data-ipg.md): Payment Services — Card/Check/Wallet API — First Data IPG Gateway Parameters
+- [Gateway Parameters](docs/tokenex/payment-services/gateway-parameters.md): Payment Services — ProcessTransaction API — Gateway Parameters
+- [Nuvei](docs/tokenex/payment-services/nuvei.md): Payment Services — Card/Check/Wallet API — Nuvei Gateway Parameters
+- [Orbital](docs/tokenex/payment-services/orbital.md): Payment Services — Card/Check/Wallet API — Orbital Gateway Parameters
+- [The Basics](docs/tokenex/payment-services/payment-services-the-basics.md): Payment Services — ProcessTransaction API — The Basics
+- [Payment Services V2 The Basics](docs/tokenex/payment-services/payment-services-v2-the-basics.md): Use TokenEx tokens with a variety of Payment Gateways
+- [Adding Response Parameters](docs/tokenex/payment-services/psv2-adding-response-parameters.md): Payment Services — Card/Check/Wallet API — Adding Response Parameters
+- [Gateway Parameters](docs/tokenex/payment-services/psv2-gateway-parameters.md): Payment Services — Card/Check/Wallet API — Gateway Parameters
+- [Psv2 Parameter Forwarding](docs/tokenex/payment-services/psv2-parameter-forwarding.md): Sending parameters for which a TokenEx gateway implementation does not have a suitable mapping.
+- [Payment Services Testing](docs/tokenex/payment-services/psv2-testing.md): Payment Services — Card/Check/Wallet API — Payment Services Testing
+- [Stripe](docs/tokenex/payment-services/stripe.md): Payment Services — Card/Check/Wallet API — Stripe Gateway Parameters
+- [Worldpay eComm cnpAPI](docs/tokenex/payment-services/worldpay-ecomm-cnpapi.md): Payment Services — Card/Check/Wallet API — Worldpay eComm cnpAPI Gateway Parameters
+- [Worldpay Native RAFT](docs/tokenex/payment-services/worldpay-native-raft.md): Payment Services — Card/Check/Wallet API — Worldpay Native RAFT Gateway Parameters
+- [Worldpaywpg](docs/tokenex/payment-services/worldpaywpg.md): Worldpay WPG — Gateway Website and Developer Documentation.
