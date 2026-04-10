@@ -1,0 +1,75 @@
+name: Weekly Documentation Sync
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Lunes 6am UTC
+  workflow_dispatch:  # Manual trigger
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+          cache-dependency-path: scripts/requirements.txt
+
+      - name: Install dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+          playwright install chromium --with-deps
+
+      - name: Run incremental sync
+        run: python scripts/scrape.py --target all
+        env:
+          PYTHONUNBUFFERED: '1'
+
+      - name: Clean and format documentation
+        run: python scripts/clean.py --input-dir docs/
+
+      - name: Rebuild index
+        run: python scripts/build_index.py
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git diff --quiet docs/ index.md docs_manifest.json || echo "has_changes=true" >> $GITHUB_OUTPUT
+
+      - name: Validate documentation quality
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          # Ensure expected directories exist
+          for dir in docs/ixopay docs/tokenex; do
+            if [ ! -d "$dir" ]; then
+              echo "ERROR: Missing directory $dir"
+              exit 1
+            fi
+          done
+          # Check index.md exists and is non-empty
+          if [ ! -s index.md ]; then
+            echo "ERROR: index.md is empty or missing"
+            exit 1
+          fi
+          # Check for reasonable file sizes (no empty docs)
+          find docs/ -name "*.md" -empty -exec echo "WARNING: Empty file: {}" \;
+          echo "Quality gate passed"
+
+      - name: Commit changes
+        if: steps.changes.outputs.has_changes == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          CHANGED=$(git diff --name-only docs/ index.md docs_manifest.json | wc -l | tr -d ' ')
+          git add docs/ index.md docs_manifest.json
+          git commit -m "docs: weekly sync - ${CHANGED} files updated
+
+          Automated incremental documentation sync.
+          $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git push

@@ -1,0 +1,5 @@
+crawl4ai>=0.4.0
+trafilatura>=2.0.0
+markdownify>=0.14.0
+pyyaml>=6.0
+playwright>=1.49.0

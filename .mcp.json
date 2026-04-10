@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "fetch": {
+      "command": "uvx",
+      "args": ["mcp-server-fetch"]
+    },
+    "local-rag": {
+      "command": "npx",
+      "args": ["-y", "mcp-local-rag"]
+    }
+  }
+}
