@@ -102,6 +102,8 @@ def detect_portal(filepath: str | Path) -> str:
         return "ixopay-manual"
     elif "docs/ixopay/modules" in path_str:
         return "ixopay-modules"
+    elif "docs/congrify" in path_str:
+        return "congrify"
     else:
         return "ixopay-dev"
 
@@ -332,6 +334,8 @@ def extract_tags(content: str) -> list[str]:
         "hosted-payment-page", "hpp", "direct-debit", "sepa",
         "credit-card", "debit-card", "ach", "bank-transfer",
         "transaction", "merchant", "gateway",
+        "congrify", "observability", "data-pipeline", "reconciliation",
+        "snowflake", "unified-reports", "fee-intelligence", "dashboard",
     ]
     content_lower = content.lower()
     for term in _TECH_TERMS:

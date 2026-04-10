@@ -32,6 +32,7 @@ PORTAL_ORDER = [
     "ixopay-manual",
     "ixopay-modules",
     "tokenex",
+    "congrify",
 ]
 
 PORTAL_LABELS = {
@@ -39,6 +40,7 @@ PORTAL_LABELS = {
     "ixopay-manual": "Ixopay User Manual",
     "ixopay-modules": "Ixopay Modules",
     "tokenex": "TokenEx Documentation",
+    "congrify": "Congrify Payment Intelligence",
 }
 
 STATS_LABELS = {
@@ -46,6 +48,7 @@ STATS_LABELS = {
     "ixopay-manual": "Ixopay Manual",
     "ixopay-modules": "Ixopay Modules",
     "tokenex": "TokenEx",
+    "congrify": "Congrify",
 }
 
 # ---------------------------------------------------------------------------
@@ -87,6 +90,8 @@ def detect_portal(filepath: Path) -> str:
         return "ixopay-manual"
     elif "docs/ixopay/modules" in path_str:
         return "ixopay-modules"
+    elif "docs/congrify" in path_str:
+        return "congrify"
     else:
         return "ixopay-dev"
 

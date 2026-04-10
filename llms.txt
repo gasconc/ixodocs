@@ -1,14 +1,14 @@
 # ixodocs
 
-> Curated, LLM-optimized knowledge base of Ixopay and TokenEx payment platform documentation. 676 indexed markdown files across 4 documentation portals, with YAML frontmatter metadata and full-text search support.
+> Curated, LLM-optimized knowledge base of Ixopay, TokenEx, and Congrify payment platform documentation. 707 indexed markdown files across 5 documentation portals, with YAML frontmatter metadata and full-text search support.
 
-Ixopay is a payment orchestration platform that enables merchants to process transactions across multiple payment service providers (PSPs) through a unified API. TokenEx is the tokenization and vault platform integrated into Ixopay's modules, providing PCI-compliant card tokenization, iFrame-based data collection, and transparent gateway proxying.
+Ixopay is a payment orchestration platform that enables merchants to process transactions across multiple payment service providers (PSPs) through a unified API. TokenEx is the tokenization and vault platform integrated into Ixopay's modules, providing PCI-compliant card tokenization, iFrame-based data collection, and transparent gateway proxying. Congrify is a payments observability and intelligence platform acquired by IXOPAY, providing AI-driven insights, real-time monitoring, and data pipelines for payment operations.
 
-This repository contains the complete documentation from both platforms, scraped from their Docusaurus-based documentation site at documentation.ixopay.com, cleaned into structured markdown, and indexed for efficient retrieval by LLMs and developer tools.
+This repository contains the complete documentation from all platforms, scraped from their documentation sites, cleaned into structured markdown, and indexed for efficient retrieval by LLMs and developer tools.
 
 ## Navigation
 
-- [Master Index](index.md): Complete map of all 676 documentation pages organized by portal, section, and topic. Start here to find any document.
+- [Master Index](index.md): Complete map of all 707 documentation pages organized by portal, section, and topic. Start here to find any document.
 
 ## Ixopay Developer Hub (191 pages)
 
@@ -44,9 +44,21 @@ This repository contains the complete documentation from both platforms, scraped
 - [Modules Overview](docs/ixopay/modules/index.md): Module-specific docs and API tooling for TokenEx integration.
 - [Token Services v2 API](docs/ixopay/modules/api/tokenex/token-servicesv-2-tokenize.md): Tokenize endpoint specification.
 
+## Congrify Payment Intelligence (31 pages)
+
+- [Congrify Platform Overview](docs/congrify/index.md): AI-powered payments observability and intelligence platform (an IXOPAY company) — unifies payment data, delivers real-time monitoring, and provides AI-driven insights across PSPs.
+- [Observability Dashboards](docs/congrify/observability/dashboards.md): Real-time payment dashboards covering authorizations, declines, sales, refunds, chargebacks, fees, 3DS, and VAMP compliance monitoring.
+- [KPIs](docs/congrify/observability/kpis.md): Key performance indicators for payment ecosystems — authorization rates, decline reasons, chargeback ratios, fee analysis.
+- [AI Co-Pilot](docs/congrify/observability/ai-copilot.md): Conversational AI assistant for navigating and analyzing payment data, generating reports, and surfacing actionable recommendations.
+- [Snowflake Integration](docs/congrify/data-pipelines/snowflake.md): Payment data pipeline to Snowflake — sync PSP transaction data, reports, and chargeback data to your data warehouse.
+- [Integrations Getting Started](docs/congrify/integrations/getting-started.md): How to connect PSP data sources (Adyen, Stripe, PayPal, Ixopay, etc.) via Reporting API, SFTP, or Webhooks.
+- [Pre-Chargeback Alerts](docs/congrify/pre-chargeback/alerts.md): Verifi RDR and Ethoca pre-chargeback alert integration to reduce dispute rates.
+- [IXOPAY Integration](docs/congrify/integrations/ixopay.md): Connecting Ixopay as a data source in Congrify for unified payment observability.
+
 ## Scripts & Automation
 
 - [scrape.py](scripts/scrape.py): Crawl4AI-based Docusaurus scraper with deep crawling and CSS content extraction.
+- [scrape_congrify.py](scripts/scrape_congrify.py): Dedicated Congrify scraper for Docsify hash-routed SPA documentation.
 - [clean.py](scripts/clean.py): Markdown cleaning pipeline — deduplication, boilerplate removal, YAML frontmatter generation.
 - [build_index.py](scripts/build_index.py): Automatic index.md generator from frontmatter metadata.
 

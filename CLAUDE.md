@@ -1,4 +1,4 @@
-# ixodocs — Ixopay & TokenEx Documentation Knowledge Base
+# ixodocs — Ixopay, TokenEx & Congrify Documentation Knowledge Base
 
 ## Search strategy
 1. Grep `index.md` for your topic (do NOT read the full file — it's 34k tokens)
@@ -11,16 +11,18 @@
 - `docs/ixopay/manual/` — User Manual: admin operations, merchant config (136 pages)
 - `docs/ixopay/modules/` — Modules: TokenEx vault integration (190 pages)
 - `docs/tokenex/` — TokenEx: tokenization, iFrame, 3DS, P2PE, encryption (159 pages)
-- `index.md` — Master navigation index (676 entries with descriptions)
+- `docs/congrify/` — Congrify: payments observability, intelligence, data pipelines, integrations (31 pages)
+- `index.md` — Master navigation index (707 entries with descriptions)
 
 ## File format
 Every doc has YAML frontmatter: title, summary, tags, source_url, portal, updated, related.
 
 ## Scripts
-- `scripts/scrape.py` — Crawl4AI scraper (`--target all|ixopay-dev|ixopay-manual|ixopay-modules|tokenex`)
+- `scripts/scrape.py` — Crawl4AI scraper (`--target all|ixopay-dev|ixopay-manual|ixopay-modules|tokenex|congrify`)
+- `scripts/scrape_congrify.py` — Dedicated Congrify scraper (Docsify hash-routed SPA)
 - `scripts/clean.py` — Markdown cleaner + frontmatter generator (`--input-dir docs/`)
 - `scripts/build_index.py` — Auto-generates index.md from frontmatter
 
 ## For LLMs
 - `llms.txt` — Curated summary with key links
-- `llms-full.txt` — Complete 676-entry documentation map
+- `llms-full.txt` — Complete 707-entry documentation map

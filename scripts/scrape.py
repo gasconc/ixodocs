@@ -54,6 +54,12 @@ TARGETS = {
         "exclude_patterns": [],
         "description": "TokenEx Documentation (hosted under Ixopay Modules)",
     },
+    "congrify": {
+        "base_url": "https://docs.congrify.com/",
+        "output_dir": "docs/congrify",
+        "exclude_patterns": [],
+        "description": "Congrify Payment Intelligence",
+    },
 }
 
 # ---------------------------------------------------------------------------

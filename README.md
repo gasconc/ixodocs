@@ -1,14 +1,14 @@
 # ixodocs
 
-Curated, LLM-optimized knowledge base of **Ixopay** and **TokenEx** payment platform documentation.
+Curated, LLM-optimized knowledge base of **Ixopay**, **TokenEx** & **Congrify** payment platform documentation.
 
-![Docs](https://img.shields.io/badge/docs-676_pages-blue)
-![Portals](https://img.shields.io/badge/portals-4-green)
+![Docs](https://img.shields.io/badge/docs-707_pages-blue)
+![Portals](https://img.shields.io/badge/portals-5-green)
 ![Sync](https://img.shields.io/badge/sync-weekly-orange)
 
 ## What is this?
 
-A searchable documentation repository containing 676 markdown files scraped from `documentation.ixopay.com` and `docs.tokenex.com`, cleaned and indexed for use with Claude Code and other LLM tools. Every file is structured with YAML frontmatter (title, summary, tags, source URL, related topics) so agents can navigate and retrieve context without loading the full corpus.
+A searchable documentation repository containing 707 markdown files scraped from `documentation.ixopay.com`, `docs.tokenex.com`, and `docs.congrify.com`, cleaned and indexed for use with Claude Code and other LLM tools. Congrify is a payments observability and intelligence platform acquired by IXOPAY. Every file is structured with YAML frontmatter (title, summary, tags, source URL, related topics) so agents can navigate and retrieve context without loading the full corpus.
 
 ## Coverage
 
@@ -18,6 +18,7 @@ A searchable documentation repository containing 676 markdown files scraped from
 | User Manual | 136 | Admin operations, merchant config, connectors | documentation.ixopay.com/manual/ |
 | Modules | 190 | TokenEx vault integration, module APIs | documentation.ixopay.com/modules/ |
 | TokenEx | 159 | Tokenization, iFrame, 3DS, P2PE, encryption | docs.tokenex.com |
+| Congrify | 31 | Payments observability, intelligence, data pipelines | `docs.congrify.com` |
 
 ## Quick Start
 
@@ -60,14 +61,16 @@ ixodocs/
 │   │   ├── guides/          # Integration guides & recipes
 │   │   ├── manual/          # User Manual (136 pages)
 │   │   └── modules/         # Modules / TokenEx vault (190 pages)
-│   └── tokenex/             # TokenEx portal (159 pages)
+│   ├── tokenex/             # TokenEx portal (159 pages)
+│   └── congrify/            # Congrify portal (31 pages)
 ├── scripts/
 │   ├── scrape.py            # Crawl4AI scraper
+│   ├── scrape_congrify.py   # Dedicated Congrify scraper (Docsify SPA)
 │   ├── clean.py             # Markdown cleaner + frontmatter
 │   └── build_index.py       # Index generator
-├── index.md                 # Master navigation index (676 entries)
+├── index.md                 # Master navigation index (707 entries)
 ├── llms.txt                 # Curated summary for LLMs
-├── llms-full.txt            # Complete 676-entry documentation map
+├── llms-full.txt            # Complete 707-entry documentation map
 ├── .mcp.json                # MCP server config (fetch + local-rag)
 └── CLAUDE.md                # Instructions for Claude Code agents
 ```
@@ -106,6 +109,7 @@ related:
 | Script | Purpose | Usage |
 |---|---|---|
 | `scripts/scrape.py` | Crawl4AI scraper for Docusaurus portals | `python scripts/scrape.py --target all` |
+| `scripts/scrape_congrify.py` | Dedicated Congrify scraper for Docsify hash-routed SPA | `python scripts/scrape_congrify.py` |
 | `scripts/clean.py` | Cleans raw markdown and generates YAML frontmatter | `python scripts/clean.py --input-dir docs/` |
 | `scripts/build_index.py` | Reads all frontmatter and regenerates `index.md` | `python scripts/build_index.py` |
 
@@ -118,21 +122,21 @@ pip install -r scripts/requirements.txt
 playwright install chromium
 ```
 
-`--target` options for `scrape.py`: `all`, `ixopay-dev`, `ixopay-manual`, `ixopay-modules`, `tokenex`.
+`--target` options for `scrape.py`: `all`, `ixopay-dev`, `ixopay-manual`, `ixopay-modules`, `tokenex`, `congrify`.
 
 ## Automation
 
 | Job | Schedule | Trigger |
 |---|---|---|
 | Weekly sync | Every Monday 06:00 UTC | Re-scrapes changed pages, runs `clean.py` and `build_index.py` |
-| Monthly full crawl | 1st of each month | Full re-scrape of all 4 portals from scratch |
+| Monthly full crawl | 1st of each month | Full re-scrape of all 5 portals from scratch |
 
 ## For LLMs
 
 Two pre-built context files are included for tools that consume a documentation manifest:
 
 - `llms.txt` — Curated summary with key links, suitable for system prompts.
-- `llms-full.txt` — Complete 676-entry documentation map with descriptions.
+- `llms-full.txt` — Complete 707-entry documentation map with descriptions.
 
 ## Contributing
 

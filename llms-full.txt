@@ -1,14 +1,14 @@
 # ixodocs
 
-> Curated, LLM-optimized knowledge base of Ixopay and TokenEx payment platform documentation. 676 indexed markdown files across 4 documentation portals, with YAML frontmatter metadata and full-text search support.
+> Curated, LLM-optimized knowledge base of Ixopay, TokenEx, and Congrify payment platform documentation. 707 indexed markdown files across 5 documentation portals, with YAML frontmatter metadata and full-text search support.
 
-Ixopay is a payment orchestration platform that enables merchants to process transactions across multiple payment service providers (PSPs) through a unified API. TokenEx is the tokenization and vault platform integrated into Ixopay's modules, providing PCI-compliant card tokenization, iFrame-based data collection, and transparent gateway proxying.
+Ixopay is a payment orchestration platform that enables merchants to process transactions across multiple payment service providers (PSPs) through a unified API. TokenEx is the tokenization and vault platform integrated into Ixopay's modules, providing PCI-compliant card tokenization, iFrame-based data collection, and transparent gateway proxying. Congrify is a payments observability and intelligence platform acquired by IXOPAY, providing AI-driven insights, real-time monitoring, and data pipelines for payment operations.
 
-This repository contains the complete documentation from both platforms, scraped from their Docusaurus-based documentation site at documentation.ixopay.com, cleaned into structured markdown, and indexed for efficient retrieval by LLMs and developer tools.
+This repository contains the complete documentation from all platforms, scraped from their documentation sites, cleaned into structured markdown, and indexed for efficient retrieval by LLMs and developer tools.
 
 ## Navigation
 
-- [Master Index](index.md): Complete map of all 676 documentation pages organized by portal, section, and topic. Start here to find any document.
+- [Master Index](index.md): Complete map of all 707 documentation pages organized by portal, section, and topic. Start here to find any document.
 
 ## Ixopay Developer Hub (191 pages)
 
@@ -723,3 +723,54 @@ This repository contains the complete documentation from both platforms, scraped
 - [Worldpay eComm cnpAPI](docs/tokenex/payment-services/worldpay-ecomm-cnpapi.md): Payment Services — Card/Check/Wallet API — Worldpay eComm cnpAPI Gateway Parameters
 - [Worldpay Native RAFT](docs/tokenex/payment-services/worldpay-native-raft.md): Payment Services — Card/Check/Wallet API — Worldpay Native RAFT Gateway Parameters
 - [Worldpaywpg](docs/tokenex/payment-services/worldpaywpg.md): Worldpay WPG — Gateway Website and Developer Documentation.
+
+## Congrify Payment Intelligence (31 pages)
+
+### Platform
+
+- [Congrify Platform Overview](docs/congrify/index.md): AI-powered payments observability and intelligence platform (an IXOPAY company) — unifies payment data, delivers real-time monitoring, and provides AI-driven insights across PSPs.
+- [Registration & Login](docs/congrify/platform/registration-login.md): Account registration, login, and demo mode setup for the Congrify platform.
+- [User Management & Notifications](docs/congrify/platform/user-management-notifications.md): Managing users, roles, and notification settings within the Congrify platform.
+- [Merchant Settings](docs/congrify/platform/merchant-settings.md): Configuring merchant-level settings and PSP connector credentials.
+- [Security](docs/congrify/platform/security.md): Platform security — ISO 27001, SOC2, MFA, PII anonymization, and database segregation policies.
+- [Payments](docs/congrify/platform/payments.md): Payment data management and configuration within the Congrify platform.
+
+### Observability
+
+- [Dashboards](docs/congrify/observability/dashboards.md): Real-time payment dashboards covering authorizations, declines, sales, refunds, chargebacks, fees, 3DS, and VAMP compliance monitoring.
+- [KPIs](docs/congrify/observability/kpis.md): Key performance indicators for payment ecosystems — authorization rates, decline reasons, chargeback ratios, fee analysis.
+- [VAMP](docs/congrify/observability/vamp.md): Dedicated monitoring for the Visa Acquiring Monitoring Program (VAMP) compliance and merchant performance metrics.
+- [AI Co-Pilot](docs/congrify/observability/ai-copilot.md): Conversational AI assistant for navigating and analyzing payment data, generating reports, and surfacing actionable recommendations.
+
+### Data Pipelines
+
+- [Snowflake Integration](docs/congrify/data-pipelines/snowflake.md): Payment data pipeline to Snowflake — sync PSP transaction data, reports, and chargeback data to your data warehouse.
+- [Unified Reports](docs/congrify/data-pipelines/unified-reports.md): Unified reporting for fee and cost management across multiple payment service providers.
+
+### Marketplace
+
+- [Stripe App Marketplace](docs/congrify/marketplace/stripe-marketplace.md): Congrify integration available via the Stripe App Marketplace for Stripe merchants.
+
+### Integrations
+
+- [Getting Started](docs/congrify/integrations/getting-started.md): How to connect PSP data sources via Reporting API, SFTP, or Webhooks — available PSP connections and setup.
+- [Adyen](docs/congrify/integrations/adyen.md): Connecting Adyen as a data source in Congrify.
+- [Barclaycard](docs/congrify/integrations/barclaycard.md): Connecting Barclaycard as a data source in Congrify.
+- [Braintree](docs/congrify/integrations/braintree.md): Connecting Braintree as a data source in Congrify.
+- [Chargebee](docs/congrify/integrations/chargebee.md): Connecting Chargebee as a data source in Congrify.
+- [Chase](docs/congrify/integrations/chase.md): Connecting Chase Paymentech as a data source in Congrify.
+- [Checkout.com](docs/congrify/integrations/checkout.md): Connecting Checkout.com as a data source in Congrify.
+- [IXOPAY](docs/congrify/integrations/ixopay.md): Connecting Ixopay as a data source in Congrify for unified payment observability.
+- [iyzico (PayU)](docs/congrify/integrations/iyzico.md): Connecting iyzico/PayU as a data source in Congrify.
+- [PayPal](docs/congrify/integrations/paypal.md): Connecting PayPal as a data source in Congrify.
+- [Paysafecard](docs/congrify/integrations/paysafecard.md): Connecting Paysafecard as a data source in Congrify.
+- [PayU](docs/congrify/integrations/payu.md): Connecting PayU as a data source in Congrify.
+- [Satispay](docs/congrify/integrations/satispay.md): Connecting Satispay as a data source in Congrify.
+- [Solidgate](docs/congrify/integrations/solidgate.md): Connecting Solidgate as a data source in Congrify.
+- [Stripe](docs/congrify/integrations/stripe.md): Connecting Stripe as a data source in Congrify.
+- [Worldline](docs/congrify/integrations/worldline.md): Connecting Worldline as a data source in Congrify.
+- [Worldpay](docs/congrify/integrations/worldpay.md): Connecting Worldpay as a data source in Congrify.
+
+### Pre-Chargeback Alerts
+
+- [Pre-Chargeback Alerts](docs/congrify/pre-chargeback/alerts.md): Verifi RDR and Ethoca pre-chargeback alert integration to reduce dispute rates.
