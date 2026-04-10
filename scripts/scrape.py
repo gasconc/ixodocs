@@ -48,10 +48,11 @@ TARGETS = {
         "description": "Ixopay Modules (TokenEx integration)",
     },
     "tokenex": {
-        "base_url": "https://docs.tokenex.com/",
+        "base_url": "https://documentation.ixopay.com/modules/docs/tokenex/",
+        "start_url": "https://documentation.ixopay.com/modules/docs/tokenex/welcome",
         "output_dir": "docs/tokenex",
         "exclude_patterns": [],
-        "description": "TokenEx Documentation",
+        "description": "TokenEx Documentation (hosted under Ixopay Modules)",
     },
 }
 
@@ -180,7 +181,7 @@ def _build_url_filter(target_cfg: dict) -> FilterChain:
     parsed = urlparse(base_url)
     domain = parsed.netloc  # e.g. "documentation.ixopay.com"
 
-    filters: list = [DomainFilter(domains=[domain], reverse=False)]
+    filters: list = [DomainFilter(allowed_domains=[domain])]
 
     base_path = parsed.path.rstrip("/")
     if base_path:
@@ -217,6 +218,7 @@ async def scrape_target(
     """Scrape a single target. Returns the number of pages saved."""
     output_dir = output_dir_override if output_dir_override else target_cfg["output_dir"]
     base_url = target_cfg["base_url"]
+    start_url = target_cfg.get("start_url", base_url)
     description = target_cfg["description"]
 
     print(f"\n{'='*60}")
@@ -246,6 +248,7 @@ async def scrape_target(
 
     run_cfg = CrawlerRunConfig(
         css_selector=css_selector,
+        word_count_threshold=50,   # skip pages with fewer than 50 words
         cache_mode=CacheMode.BYPASS,
         wait_until="networkidle",
         page_timeout=30_000,
@@ -261,7 +264,7 @@ async def scrape_target(
 
     async with AsyncWebCrawler(config=browser_cfg) as crawler:
         # arun returns an async generator when deep_crawl_strategy is set
-        result_iter = await crawler.arun(url=base_url, config=run_cfg)
+        result_iter = await crawler.arun(url=start_url, config=run_cfg)
 
         # Normalise: result_iter may be a list or an async generator
         if hasattr(result_iter, "__aiter__"):

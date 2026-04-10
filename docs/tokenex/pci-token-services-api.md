@@ -1,0 +1,18 @@
+---
+title: PCI Token Services
+summary: ' TokenEx API v1  PCI Token Services'
+tags:
+- api
+- pci
+- tokenex
+source_url: ''
+portal: tokenex
+updated: '2026-04-10'
+related: []
+---
+
+* TokenEx API v1
+  * PCI Token Services
+
+# PCI Token Services
+This API allows customers to tokenize encrypted data and CVV, including the operation to associate an encrypted CVV with token.

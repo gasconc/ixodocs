@@ -1,0 +1,29 @@
+---
+title: Features
+summary: In this section of the documentation, you will find detailed guides on the
+  additional features the IXOPAY platformhttps://www.ixopay.com provides. These features
+  extend beyond basic payment processing tasks, offering you more flexibility and
+  control over your payment operations.
+tags:
+- secure-secure-security-protocol-online-credit-debit-card-transactions-https-documentation-ixopay-com-docs-guides-features-secure-customer-profiles-customer-profiles-powerful-feature-allows-store-manage-customer-data-payment-details-https-documentation-ixopay-com-docs-guides-features-customer-profiles-pay-link-pay-link-feature-offers-seamless-almost-code-integration-creating-secure-payment-links-https-documentation-ixopay-com-docs-guides-features-pay-link-tokenization-pci-explore-tokenization-pci-compliance-customer-profiles-mobile-sdks-developer-guide-fortify-online-payment-security-https-documentation-ixopay-com-docs-guides-features-tokenization
+- secure-secure-security-protocol-online-credit-debit-card-transactions-https-documentation-ixopay-com-docs-guides-features-secure-customer-profiles-customer-profiles-powerful-feature-allows-store-manage-customer-data-payment-details-https-documentation-ixopay-com-docs-guides-features-customer-profiles-pay-link-pay-link-feature-offers-seamless-almost-code-integration-creating-secure-payment-links-https-documentation-ixopay-com-docs-guides-features-pay-link-tokenization-pci-explore-tokenization-pci-compliance-customer-profiles-mobile-sdks-developer-guide-fortify-online-payment-security-https-documentation-ixopay-com-docs-guides-features-tokenization-secure-secure-security-protocol-online-credit-debit-card-transactions-https-documentation-ixopay-com-docs-guides-features-secure-customer-profiles-customer-profiles-powerful-feature-allows-store-manage-customer-data-payment-details-https-documentation-ixopay-com-docs-guides-features-customer-profiles-pay-link-pay-link-feature-offers-seamless-almost-code-integration-creating-secure-payment-links-https-documentation-ixopay-com-docs-guides-features-pay-link-tokenization-pci-explore-tokenization-pci-compliance-customer-profiles-mobile-sdks-developer-guide-fortify-online-payment-security-https-documentation-ixopay-com-docs-guides-features-tokenization
+- 3ds
+- 3d-secure
+- pci
+- tokenization
+- ixopay
+- debit-card
+source_url: ''
+portal: ixopay-dev
+updated: '2026-04-10'
+related: []
+---
+
+* Features
+
+# Features
+In this section of the documentation, you will find detailed guides on the additional features the [IXOPAY platform](https://www.ixopay.com) provides. These features extend beyond basic payment processing tasks, offering you more flexibility and control over your payment operations.
+Each guide in this section is dedicated to a specific feature, providing an in-depth explanation of its functionality, implementation, and benefits. These guides are designed to help you understand how you can leverage these features to enhance your payment process and meet your specific business requirements.
+## [ 3-D Secure 3-D Secure (3DS) is a security protocol used in online credit and debit card transactions.](https://documentation.ixopay.com/docs/guides/features/3d-secure)## [ Customer profiles Customer profiles are a powerful feature that allows you to store and manage customer data and payment details.](https://documentation.ixopay.com/docs/guides/features/customer-profiles)## [ Pay-by-Link The Pay-by-Link feature offers a seamless, (almost) no-code integration for creating secure payment links.](https://documentation.ixopay.com/docs/guides/features/pay-by-link)## [ Tokenization & PCI Explore tokenization, PCI compliance, customer profiles, and mobile SDKs in this developer's guide to fortify online payment security.](https://documentation.ixopay.com/docs/guides/features/tokenization)
+By understanding and effectively utilizing these features, you can tailor your payment process to better serve your business needs and provide an optimal experience for your customers.
+## [ 3-D Secure 3-D Secure (3DS) is a security protocol used in online credit and debit card transactions.](https://documentation.ixopay.com/docs/guides/features/3d-secure)## [ Customer profiles Customer profiles are a powerful feature that allows you to store and manage customer data and payment details.](https://documentation.ixopay.com/docs/guides/features/customer-profiles)## [ Pay-by-Link The Pay-by-Link feature offers a seamless, (almost) no-code integration for creating secure payment links.](https://documentation.ixopay.com/docs/guides/features/pay-by-link)## [ Tokenization & PCI Explore tokenization, PCI compliance, customer profiles, and mobile SDKs in this developer's guide to fortify online payment security.](https://documentation.ixopay.com/docs/guides/features/tokenization)## [ 3-D Secure 3-D Secure (3DS) is a security protocol used in online credit and debit card transactions.](https://documentation.ixopay.com/docs/guides/features/3d-secure)## [ Customer profiles Customer profiles are a powerful feature that allows you to store and manage customer data and payment details.](https://documentation.ixopay.com/docs/guides/features/customer-profiles)## [ Pay-by-Link The Pay-by-Link feature offers a seamless, (almost) no-code integration for creating secure payment links.](https://documentation.ixopay.com/docs/guides/features/pay-by-link)## [ Tokenization & PCI Explore tokenization, PCI compliance, customer profiles, and mobile SDKs in this developer's guide to fortify online payment security.](https://documentation.ixopay.com/docs/guides/features/tokenization)

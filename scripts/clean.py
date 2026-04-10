@@ -30,12 +30,16 @@ _BOILERPLATE_LINE_PATTERNS = [
     # Navigation links
     re.compile(r"^\*{0,2}(Next|Previous|Prev)\s*:\s*.+$", re.IGNORECASE),
     re.compile(r"^\[?(Next|Previous|Prev)\]?\s*[:\-]", re.IGNORECASE),
+    # Docusaurus next/prev navigation links at bottom of page
+    re.compile(r"^\[Next\s+.*\]\(https?://.*\)$", re.IGNORECASE),
+    re.compile(r"^\[Previous\s+.*\]\(https?://.*\)$", re.IGNORECASE),
     # "On this page" section header
     re.compile(r"^#+\s*On [Tt]his [Pp]age\s*$"),
     re.compile(r"^On [Tt]his [Pp]age\s*$"),
     # Footer patterns
     re.compile(r"^Edit this page\s*$", re.IGNORECASE),
     re.compile(r"^Last updated\s*[:\-]", re.IGNORECASE),
+    re.compile(r"^Last updated on \*\*.*\*\*$", re.IGNORECASE),
     re.compile(r"^Copyright\s+©", re.IGNORECASE),
     re.compile(r"^©\s+\d{4}", re.IGNORECASE),
     # Common Docusaurus footer text
@@ -45,6 +49,12 @@ _BOILERPLATE_LINE_PATTERNS = [
     re.compile(r"^(Previous|Next) page\s*$", re.IGNORECASE),
     # Sidebar artifacts (short standalone nav items)
     re.compile(r"^\s*\[Back to top\]", re.IGNORECASE),
+    # "Send Feedback" button text
+    re.compile(r"^Send Feedback\s*$", re.IGNORECASE),
+    # Empty breadcrumb links: "* [](url)"
+    re.compile(r"^\*\s*\[\]\(https?://[^\)]+\)\s*$"),
+    # Bare URLs (no description text around them)
+    re.compile(r"^https?://\S+$"),
 ]
 
 # Patterns for multi-line boilerplate blocks to remove
@@ -213,6 +223,60 @@ def _normalise_whitespace(text: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", text).strip()
 
 
+def _deduplicate_paragraphs(text: str) -> str:
+    """
+    Remove exact duplicate paragraphs (separated by blank lines), keeping
+    only the first occurrence. This eliminates content repeated across
+    multiple Docusaurus DOM containers captured by the scraper.
+    """
+    # Split on one or more blank lines, preserving the separator logic
+    paragraphs = re.split(r"\n\n+", text)
+    seen: set[str] = set()
+    unique: list[str] = []
+    for para in paragraphs:
+        key = para.strip()
+        if not key:
+            continue
+        if key not in seen:
+            seen.add(key)
+            unique.append(para)
+    return "\n\n".join(unique)
+
+
+def _deduplicate_headings(text: str) -> str:
+    """
+    Remove duplicate headings (same heading text appearing more than once),
+    keeping only the first occurrence. Lines between a removed heading and the
+    next heading (or blank line) are also removed since they are duplicate
+    content sections.
+    """
+    lines = text.splitlines()
+    seen_headings: set[str] = set()
+    result: list[str] = []
+    skip_until_next_heading = False
+
+    for line in lines:
+        stripped = line.strip()
+        heading_match = re.match(r"^(#{1,6})\s+(.+)$", stripped)
+        if heading_match:
+            heading_text = heading_match.group(2).strip().lower()
+            if heading_text in seen_headings:
+                skip_until_next_heading = True
+                continue
+            else:
+                seen_headings.add(heading_text)
+                skip_until_next_heading = False
+                result.append(line)
+        elif skip_until_next_heading:
+            # Keep blank lines so we don't collapse surrounding structure
+            if not stripped:
+                result.append(line)
+        else:
+            result.append(line)
+
+    return "\n".join(result)
+
+
 def clean_content(raw: str) -> str:
     """
     Run the full cleaning pipeline on non-frontmatter content,
@@ -229,6 +293,8 @@ def clean_content(raw: str) -> str:
             cleaned_segments.append(segment)
 
     text = "".join(cleaned_segments)
+    text = _deduplicate_paragraphs(text)
+    text = _deduplicate_headings(text)
     text = _fix_heading_hierarchy(text)
     text = _normalise_whitespace(text)
     return text
@@ -291,6 +357,11 @@ def extract_tags(content: str) -> list[str]:
 # ---------------------------------------------------------------------------
 
 
+def _is_boilerplate_line(line: str) -> bool:
+    """Return True if the line matches any boilerplate pattern."""
+    return any(p.match(line) for p in _BOILERPLATE_LINE_PATTERNS)
+
+
 def extract_summary(content: str) -> str:
     """
     Extract the first substantive sentence or paragraph after the H1.
@@ -307,7 +378,7 @@ def extract_summary(content: str) -> str:
             continue
         body_lines.append(stripped)
 
-    # Find first non-empty, non-heading paragraph
+    # Find first non-empty, non-heading, non-boilerplate paragraph
     paragraph_lines = []
     for line in body_lines:
         if not line:
@@ -321,6 +392,15 @@ def extract_summary(content: str) -> str:
         # Skip code fence starts at top level
         if line.startswith("```"):
             break
+        # Skip boilerplate lines even if cleaning didn't catch them
+        if _is_boilerplate_line(line):
+            continue
+        # Skip lines that are purely markdown links (no description text)
+        if re.match(r"^\[.*\]\(https?://.*\)\s*$", line):
+            continue
+        # Skip standalone list items (sidebar nav artifacts like "* Overview")
+        if re.match(r"^[-*]\s+\S+\s*$", line):
+            continue
         paragraph_lines.append(line)
 
     if not paragraph_lines:

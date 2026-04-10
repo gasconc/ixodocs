@@ -1,0 +1,62 @@
+---
+title: PCI data migration
+summary: ' Tokenization & PCI  PCI data migration'
+tags:
+- pci
+- tokenization
+- ixopay
+- credit-card
+source_url: ''
+portal: ixopay-dev
+updated: '2026-04-10'
+related: []
+---
+
+* [Features](https://documentation.ixopay.com/docs/reference/features)
+  * Tokenization & PCI
+  * PCI data migration
+
+# PCI data migration
+We support credit card portability! We will import your sensitive customer data into the [IXOPAY platform](https://www.ixopay.com), as well as allow you to transfer your credit card data to another payment processing provider if you ever need to leave.
+When we exchange sensitive customer data, all cardholder data needs to be sent in an encrypted way! Please use the following PGP encryption key to encrypt all files:
+  * **Key ID:** `31E2FBC07C9BF61C`
+  * **Key type:** `RSA`
+  * **Key size:** `4096 bits`
+  * **Fingerprint:** `3A77 C3E4 A63B 313A 8C14 91B2 31E2 FBC0 7C9B F61C`
+  * **User ID:** `IXOPAY PCI Data Migration Key 2021 `
+
+IXOPAY PCI Data Migration Key 2021
+Copy the key below or [download it here](https://documentation.ixopay.com/files/IXOPAY-PCI-Data-Migration-2021-31E2FBC07C9BF61C.asc).
+```
+-----BEGIN PGP PUBLIC KEY BLOCK-----  
+Version: GnuPG v1  
+  
+mQINBGAFYzQBEAC2ksnaL9TeC8bgXaZhTqBKHP0EInhy1D81gxUtaSDPLe+WKC7+  
+wLMGtGeY/K7qYgw7X92lOSV/BA8t+Tv74tLapTtvmNflb0G/WW1u5Bx41ei5jEgr  
+lmjGN3KV51E3ZdL7e1KSUyZ3Wd0g47K3R/ED+4EEorhl1EEndGxZqy3jEGGYdJLL  
++Wmos4bq1cM+O8Rg1/mEoVBIoD2i/v8mYDfXhj0YUXJ+FuL3nJdN9xEacT133s4+  
+SFHYLm1Z5s86xDCTR8s7UiyM2/Xe5Dqa3LCZKp2Ub8potAE67VvLdTVs6H6DDaxB  
+Gxwptk1ykzb89piWBpJeOvPo1Y8lA60dVEt5UNFk3d4e+5kUJaTwZMxsjiSx3A9W  
+Pct7A+0mzo5PAZ0XU+Qp6aNZH7obQA6VM3FkUIuoaBkEUtDRxDAvr3vJ0q9xV8c+  
+NSXuJVQZO3Qqo38rlRehON9F/FroMRDOM6RmPX2ttIsg2zTnlZnk93m+vqTKj3z8  
+glAzAfuEdpY8VySlSe+SlpXA6FIp9uvHqTWFb+JzBA7zJPIdryqdruquThtdqdkE  
+ttBXJeEnZPPv8tpgKxLrv3yPaL4hrl6EBJezPpyfuF7hu7gCVoJ+BDvIRaj1PCMJ  
+QnruKZoZL3BYTsD38mtVKERc2aFe8sSTEnJiHOM0KBRj3xsdl1PAY1jnpwARAQAB  
+tB5JWE9QQVkgUENJIERhdGEgTWlncmFpdG9uIDIwMjGJAk4EEwEKADgWIQQ6d8Pk  
+pjsxOowUkbIx4vvAfJv2HAUCYAVjNAIbLwULCQgHAgYVCgkICwIEFgIDAQIeAQIX  
+gAAKCRAx4vvAfJv2HM25EACQzSfWwl4tGryOX3lXblU66ZMaeBg17UTyN1KRqzIu  
+rox0o0jfj28UPuca6CIb2djYIoD2yT+lYmeMKvarkCUE+eoUBg5/eJ8ji5qpN7Cl  
+77TaTb7Qy53Ko2OvLvcRVZUvsaNDCze91kIS9QBzNcS0CT7EeIMkdyMKjyR6/Veb  
+BoEe9Y3jbepXXZ93KYdmeQEikyyCV2EfT3zUAhiWUs9c3/Z2OI5aNAiM5t4/KHSM  
+51zh5YeHd9SP/BjnN0uwuKTgPATwHkdnVAx3MMtNfcdro2ElFto9PRgiYvBqLRql  
+0/z7419yn+xL6mEN1zNdnhJnbNZ0ZUPqaZ6G9wHjsyiKQDz6awmaAonmMv7q0Hvs  
+tYb9lZKX9bR1d5FkGzAkc1KOY3Oc8h/kSsHznQkRAzedziXrZcBEIZU+2WoIT07w  
+E9nx2lZ5CkzzO31AD8zBbSSGcTEQ1NrlrXQ95gFR80FBdVQAWUXFbj3gbDvG6qZM  
+UV3WYwfBKtgOuQEAcLAONTjytt7l6psUe3K0uc/YYiTwAc+fRz7X6RbkWn+QtVwi  
+2Bb4igAe0Ex234srPvutIDKYzh7FydxbC+ebonQsGW5zE8REQNMX+j0VYMVK6wSb  
+VXWG0DSXb2lUAksfMrGV6iDq9uNBmTF4gmbueQWPuyz4quFQ1TRcACLfShTMq/5x  
+4w==  
+=91Ne  
+-----END PGP PUBLIC KEY BLOCK-----  
+
+```

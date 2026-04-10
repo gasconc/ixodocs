@@ -1,0 +1,20 @@
+---
+title: Dashboard Widgets
+summary: ' Administrative Toolshttps://documentation.ixopay.com/manual/docs/administrative-tools  Dashboard
+  Widgets'
+tags:
+- dashboard-widgets-dashboard-provides-overview-processed-transactions-offers-various-filters-widgets-allowing-customize-overview-monitor-transactions-near-realtime-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-dashboard-widgets-customize-dashboards-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-edit-mode-dashboard-tips-best-practice-general-there-rules-structure-dashboards-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-tips-best-practice
+- dashboard-widgets-dashboard-provides-overview-processed-transactions-offers-various-filters-widgets-allowing-customize-overview-monitor-transactions-near-realtime-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-dashboard-widgets-customize-dashboards-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-edit-mode-dashboard-tips-best-practice-general-there-rules-structure-dashboards-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-tips-best-practice-dashboard-widgets-dashboard-provides-overview-processed-transactions-offers-various-filters-widgets-allowing-customize-overview-monitor-transactions-near-realtime-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-dashboard-widgets-customize-dashboards-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-edit-mode-dashboard-tips-best-practice-general-there-rules-structure-dashboards-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-tips-best-practice
+- ixopay
+source_url: ''
+portal: ixopay-manual
+updated: '2026-04-10'
+related: []
+---
+
+* [Administrative Tools](https://documentation.ixopay.com/manual/docs/administrative-tools)
+  * Dashboard Widgets
+
+# Dashboard Widgets
+## [ Dashboard Widgets The dashboard provides an overview of your processed transactions. It offers various filters and widgets, allowing you to customize the overview and monitor your transactions in near realtime.](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets)## [ Add/Customize Dashboards <GalleryColumn](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/edit-mode)## [ Dashboard Tips & Best Practice In general, there are no rules on how to structure or use dashboards.](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/tips-best-practice)
+## [ Dashboard Widgets The dashboard provides an overview of your processed transactions. It offers various filters and widgets, allowing you to customize the overview and monitor your transactions in near realtime.](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets)## [ Add/Customize Dashboards <GalleryColumn](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/edit-mode)## [ Dashboard Tips & Best Practice In general, there are no rules on how to structure or use dashboards.](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/tips-best-practice)## [ Dashboard Widgets The dashboard provides an overview of your processed transactions. It offers various filters and widgets, allowing you to customize the overview and monitor your transactions in near realtime.](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets)## [ Add/Customize Dashboards <GalleryColumn](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/edit-mode)## [ Dashboard Tips & Best Practice In general, there are no rules on how to structure or use dashboards.](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/tips-best-practice)
