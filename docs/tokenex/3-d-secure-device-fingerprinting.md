@@ -1,3 +1,12 @@
+---
+title: "3DS Device Fingerprinting"
+summary: "Associate client browser attributes with a 3DS transaction ID using TokenEx iFrame or custom checkout workflow, enabling richer authentication signals for 3D Secure flows."
+tags: [3ds, device-fingerprinting, tokenex, iframe, authentication, browser-attributes, pci, 3d-secure]
+source_url: "https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting"
+portal: "tokenex"
+updated: "2026-04-10"
+related: []
+---
 Send Feedback
   * [](https://documentation.ixopay.com/modules/)
   * 3-D Secure Authentication

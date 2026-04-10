@@ -1,3 +1,12 @@
+---
+title: "Response Simulation"
+summary: "Simulate server responses for the TokenEx Echo endpoint to enable thorough testing and troubleshooting of 3rd-party API integrations and transient faults."
+tags: [response-simulation, tokenex-echo, testing, echo-endpoint, api, response-set]
+source_url: "https://documentation.ixopay.com/modules/api/tokenex-echo/response-simulation"
+portal: "ixopay-modules"
+updated: "2026-04-10"
+related: []
+---
   * [](https://documentation.ixopay.com/modules/)
   * TokenEx
   * TokenEx Echo

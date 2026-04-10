@@ -1,3 +1,12 @@
+---
+title: "Bin Lookup"
+summary: "Retrieve rich metadata about a payment card by querying the PAN against a BIN database using the TokenEx API v2 PCI Token Services endpoint."
+tags: [bin-lookup, tokenex, pci, pan, bank-identification-number, card-metadata, api]
+source_url: "https://documentation.ixopay.com/modules/api/tokenex/bin-lookup-2"
+portal: "ixopay-modules"
+updated: "2026-04-10"
+related: []
+---
   * [](https://documentation.ixopay.com/modules/)
   * TokenEx
   * TokenEx API v2

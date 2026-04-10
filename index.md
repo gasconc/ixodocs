@@ -34,14 +34,14 @@
 - [Batch-upload API](docs/ixopay/api/batch-upload.md) — Batch-upload API
 - [Attach payment instrument](docs/ixopay/api/customer-profiles/attach-payment-instrument.md) — Customer profiles API  Customer profiles  Attach payment instrument
 - [Customer profiles API](docs/ixopay/api/customer-profiles/customer-profiles-api.md) — Customer profiles API
-- [Delete Profile](docs/ixopay/api/customer-profiles/delete-profile.md) — (no description)
+- [Delete Profile](docs/ixopay/api/customer-profiles/delete-profile.md) — Delete a customer profile via POST /api/v3/customerProfiles/:apiKey/deleteProfile; supports deletion by GUID or other identifier
 - [Detach payment instrument](docs/ixopay/api/customer-profiles/detach-payment-instrument.md) — Customer profiles API  Customer profiles  Detach payment instrument
-- [Get Profile](docs/ixopay/api/customer-profiles/get-profile.md) — (no description)
+- [Get Profile](docs/ixopay/api/customer-profiles/get-profile.md) — Retrieve a customer profile by GUID or identifier via POST /api/v3/customerProfiles/:apiKey/getProfile; returns profile data or not-found response
 - [Update profile](docs/ixopay/api/customer-profiles/update-profile.md) — Customer profiles API  Customer profiles  Update profile
 - [Enterprise](docs/ixopay/api/enterprise.md) — This section provides information on APIs that are only available to our enterprise customers. We have included detailed information on how to acce...
 - [Forward compatibility](docs/ixopay/api/forward-compatibility.md) — Forward compatibility
 - [Legacy](docs/ixopay/api/legacy.md) — This section lists APIs that are no longer recommended for use and should be avoided. These APIs have been deprecated due to changes in our system...
-- [Cancel](docs/ixopay/api/pay-by-link/cancel.md) — (no description)
+- [Cancel](docs/ixopay/api/pay-by-link/cancel.md) — Cancel a Pay-by-Link via POST /api/v3/payByLink/:payByLinkId/cancel; note cancellation may not stop in-flight PSP redirects
 - [Pay-by-Link API](docs/ixopay/api/pay-by-link/pay-by-link-api.md) — Pay-by-Link API
 - [Callback](docs/ixopay/api/pci/callback.md) — PCI Transaction API
 - [Capture](docs/ixopay/api/pci/capture.md) — PCI Transaction API
@@ -59,20 +59,20 @@
 - [Void](docs/ixopay/api/pci/void.md) — PCI Transaction API
 - [Connector](docs/ixopay/api/provisioning/connector.md) — Provisioning API
 - [Create](docs/ixopay/api/provisioning/create-connector.md) — Provisioning API
-- [Create Merchant User](docs/ixopay/api/provisioning/create-merchant-user.md) — (no description)
+- [Create Merchant User](docs/ixopay/api/provisioning/create-merchant-user.md) — Create a merchant user for a given merchantGuid via POST /api/provisioning/createMerchantUser/:merchantGuid; set username, type, and permissions
 - [Create](docs/ixopay/api/provisioning/create-merchant.md) — Provisioning API
 - [Settings vault](docs/ixopay/api/provisioning/get-connector-settings-vault.md) — Provisioning API  Settings vault
 - [Settings extra-data](docs/ixopay/api/provisioning/get-connector-settings.md) — Provisioning API  Settings extra-data
-- [List Connectors](docs/ixopay/api/provisioning/list-connectors.md) — (no description)
-- [List Merchant Users](docs/ixopay/api/provisioning/list-merchant-users.md) — (no description)
-- [List Merchants](docs/ixopay/api/provisioning/list-merchants.md) — (no description)
-- [List Tenants](docs/ixopay/api/provisioning/list-tenants.md) — (no description)
+- [List Connectors](docs/ixopay/api/provisioning/list-connectors.md) — List all payment connectors for a merchant via GET /api/provisioning/listConnectors/:merchantGuid; returns connector objects for the given merchant
+- [List Merchant Users](docs/ixopay/api/provisioning/list-merchant-users.md) — List all merchant users for a given merchantGuid via GET /api/provisioning/listMerchantUsers/:merchantGuid
+- [List Merchants](docs/ixopay/api/provisioning/list-merchants.md) — List all merchants for a given tenantGuid via GET /api/provisioning/listMerchants/:tenantGuid
+- [List Tenants](docs/ixopay/api/provisioning/list-tenants.md) — List sub-tenants of the API key's tenant via GET /api/provisioning/listTenants; returns tenant objects for the authenticated user's tenant
 - [Merchant user](docs/ixopay/api/provisioning/merchant-user.md) — Provisioning API  Merchant user
 - [Merchant](docs/ixopay/api/provisioning/merchant.md) — Provisioning API
 - [Provisioning API](docs/ixopay/api/provisioning/provisioning-api.md) — Provisioning API
 - [Tenant](docs/ixopay/api/provisioning/tenant.md) — Provisioning API
 - [Update](docs/ixopay/api/provisioning/update-connector.md) — Provisioning API
-- [Update Merchant User](docs/ixopay/api/provisioning/update-merchant-user.md) — (no description)
+- [Update Merchant User](docs/ixopay/api/provisioning/update-merchant-user.md) — Update fields of a merchant user via POST /api/provisioning/updateMerchantUser/:merchantUserGuid; omit unchanged fields, supports username and type
 - [Update](docs/ixopay/api/provisioning/update-merchant.md) — Provisioning API
 - [Update](docs/ixopay/api/provisioning/update-tenant.md) — Provisioning API
 - [Capture](docs/ixopay/api/push/capture.md) — Push API
@@ -84,7 +84,7 @@
 - [Register](docs/ixopay/api/push/register.md) — Push API
 - [Void](docs/ixopay/api/push/void.md) — Push API
 - [Reconciliation API](docs/ixopay/api/reconciliation/reconciliation-api.md) — Reconciliation API
-- [Retrieve](docs/ixopay/api/reconciliation/retrieve.md) — (no description)
+- [Retrieve](docs/ixopay/api/reconciliation/retrieve.md) — Retrieve a paginated list of transactions with associated fees between a from/to date range via POST /api/reconciliation/retrieve/:apiKey
 - [Get settlement files](docs/ixopay/api/settlement/get-settlement-files.md) — Settlement API  Get settlement files
 - [Settlement API](docs/ixopay/api/settlement/settlement-api.md) — Settlement API
 - [Callback](docs/ixopay/api/transaction/callback.md) — Transaction API
@@ -94,7 +94,7 @@
 - [Debit](docs/ixopay/api/transaction/debit.md) — Transaction API
 - [Deregister](docs/ixopay/api/transaction/deregister.md) — Transaction API
 - [Incremental authorization](docs/ixopay/api/transaction/incremental-authorization.md) — Transaction API  Incremental authorization
-- [Options List](docs/ixopay/api/transaction/options-list.md) — (no description)
+- [Options List](docs/ixopay/api/transaction/options-list.md) — Retrieve an adapter-specific options list by optionsName via POST /api/v3/options/:apiKey/:optionsName; parameters depend on the adapter
 - [Options](docs/ixopay/api/transaction/options.md) — Transaction API
 - [Payout](docs/ixopay/api/transaction/payout.md) — Transaction API
 - [Preauthorize](docs/ixopay/api/transaction/preauthorize.md) — Transaction API
@@ -106,10 +106,10 @@
 - [Register](docs/ixopay/api/transaction/register.md) — Transaction API
 - [Cancel](docs/ixopay/api/transaction/schedule-cancel.md) — Transaction API
 - [Continue](docs/ixopay/api/transaction/schedule-continue.md) — Transaction API
-- [Schedule Get](docs/ixopay/api/transaction/schedule-get.md) — (no description)
+- [Schedule Get](docs/ixopay/api/transaction/schedule-get.md) — Retrieve an existing payment schedule by scheduleId via GET /api/v3/schedule/:apiKey/:scheduleId/get; rate limited to 60 req/min, 10 req/min per scheduleId
 - [Pause](docs/ixopay/api/transaction/schedule-pause.md) — Transaction API
-- [Schedule Start](docs/ixopay/api/transaction/schedule-start.md) — (no description)
-- [Schedule Update](docs/ixopay/api/transaction/schedule-update.md) — (no description)
+- [Schedule Start](docs/ixopay/api/transaction/schedule-start.md) — Start a recurring payment schedule via POST /api/v3/schedule/:apiKey/start using a registrationId from Register, Debit withRegister, or Preauthorize withRegister
+- [Schedule Update](docs/ixopay/api/transaction/schedule-update.md) — Update fields of an existing schedule via POST /api/v3/schedule/:apiKey/:scheduleId/update; send only the fields to change
 - [Schedule](docs/ixopay/api/transaction/schedule.md) — Transaction API
 - [Get by merchantTransactionId](docs/ixopay/api/transaction/status-by-merchant-transaction-id.md) — Transaction API  Get by merchantTransactionId
 - [Get by UUID](docs/ixopay/api/transaction/status-by-uuid.md) — Transaction API  Get by UUID
@@ -121,7 +121,7 @@
 ### General
 - [Overview](docs/ixopay/api.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com API reference. The IXOPAY platform offers several APIs to process online payments.
 - [Introduction](docs/ixopay/guides.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com integration guide. This guide is designed to help developers understand how to integrate the I...
-- [Index](docs/ixopay/index.md) — (no description)
+- [Index](docs/ixopay/index.md) — IXOPAY documentation portal landing page: links to Developer Hub (API reference, recipes), User Manual (admin/merchant guides), and Modules Docs (TokenEx)
 - [Introduction](docs/ixopay/recipes.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com Recipes. This section is designed to serve as a practical guide for software developers workin...
 - [Overview](docs/ixopay/reference.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com reference documentation. This section provides in-depth information on the payment platform an...
 
@@ -281,7 +281,7 @@
 - [Web User](docs/ixopay/manual/connector/users/web.md) — Create Users Web & APIhttps://documentation.ixopay.com/manual/docs/connector/users  Web User
 - [FAST Editor](docs/ixopay/manual/fast.md) — FAST Editor
 - [Getting Started](docs/ixopay/manual/getting-started.md) — Getting Started
-- [Index](docs/ixopay/manual/index.md) — (no description)
+- [Index](docs/ixopay/manual/index.md) — IXOPAY User Manual portal landing page: links to admin/merchant setup guides, payment adapter configuration, and Developer Hub/Modules Docs
 - [Merchant](docs/ixopay/manual/merchant.md) — Merchants in the IXOPAY platformhttps://www.ixopay.com are a central entity, they are the actual operators of a sales channel, selling goods or ser...
 - [Merchant archiving](docs/ixopay/manual/merchant/archive.md) — Merchant archiving
 - [Connector List & Routing](docs/ixopay/manual/merchant/connector-list.md) — Connector List & Routing
@@ -356,32 +356,32 @@
 - [Account Updater](docs/ixopay/modules/api/tokenex/account-updater.md) — TokenEx API v2  Account Updater
 - [AccountUpdater](docs/ixopay/modules/api/tokenex/accountupdater.md) — TokenEx API v2  Account Updaterhttps://documentation.ixopay.com/modules/api/tokenex/account-updater
 - [Bin File](docs/ixopay/modules/api/tokenex/bin-file.md) — TokenEx API v2  PCI Token Serviceshttps://documentation.ixopay.com/modules/api/tokenex/pci-token-services  Bin File
-- [Bin Lookup 2](docs/ixopay/modules/api/tokenex/bin-lookup-2.md) — (no description)
+- [Bin Lookup 2](docs/ixopay/modules/api/tokenex/bin-lookup-2.md) — Look up card BIN metadata (issuer, brand, card type) from a tokenized PAN via POST /v2/pci/BinLookup; subscription service, contact CSM for access
 - [Device Services (P2PE)](docs/ixopay/modules/api/tokenex/device-services-p-2-pe.md) — TokenEx API v2  Device Services P2PE
-- [Device Services V 2 Tokenize](docs/ixopay/modules/api/tokenex/device-services-v-2-tokenize.md) — (no description)
-- [Device Services V 2 Tokenizeemv](docs/ixopay/modules/api/tokenex/device-services-v-2-tokenizeemv.md) — (no description)
-- [Encrypted Token Services V 2 Tokenize](docs/ixopay/modules/api/tokenex/encrypted-token-services-v-2-tokenize.md) — (no description)
+- [Device Services V 2 Tokenize](docs/ixopay/modules/api/tokenex/device-services-v-2-tokenize.md) — Tokenize a credit card PAN encrypted by a P2PE card terminal or pin-pad device via POST /v2/Device/Tokenize; supports dual-decryption for MagTek tDynamo
+- [Device Services V 2 Tokenizeemv](docs/ixopay/modules/api/tokenex/device-services-v-2-tokenizeemv.md) — Tokenize an EMV chip or contactless (NFC tap) card PAN via POST /v2/Device/TokenizeEMV for MagTek tDynamo INSERT (DIP) and CONTACTLESS (TAP) modes
+- [Encrypted Token Services V 2 Tokenize](docs/ixopay/modules/api/tokenex/encrypted-token-services-v-2-tokenize.md) — Tokenize a sensitive data element pre-encrypted with the TokenEx public RSA key via POST /v2/EncryptedToken/Tokenize; specify tx-token-scheme header
 - [Encrypted Token Services](docs/ixopay/modules/api/tokenex/encrypted-token-services.md) — TokenEx API v2  Encrypted Token Services
-- [Fraud Preventionv 2 Hash](docs/ixopay/modules/api/tokenex/fraud-preventionv-2-hash.md) — (no description)
-- [Fraud Preventionv 2 Tokenize](docs/ixopay/modules/api/tokenex/fraud-preventionv-2-tokenize.md) — (no description)
+- [Fraud Preventionv 2 Hash](docs/ixopay/modules/api/tokenex/fraud-preventionv-2-hash.md) — Generate a Kount KHASH value from a tokenized credit card PAN via POST /v2/FraudPrevention/Hash for use with Kount fraud prevention platform
+- [Fraud Preventionv 2 Tokenize](docs/ixopay/modules/api/tokenex/fraud-preventionv-2-tokenize.md) — Tokenize a credit card PAN and generate a Kount KHASH value via POST /v2/FraudPrevention/Tokenize; supports RSA-encrypted PANs via encrypted parameter
 - [Kount Fraud Prevention](docs/ixopay/modules/api/tokenex/kount-fraud-prevention.md) — TokenEx API v2  Kount Fraud Prevention
 - [PCI Token Services](docs/ixopay/modules/api/tokenex/pci-token-services.md) — TokenEx API v2  PCI Token Services
-- [Pci Token Servicesv 2 Associatecvv](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-associatecvv.md) — (no description)
+- [Pci Token Servicesv 2 Associatecvv](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-associatecvv.md) — Associate a CVV with a tokenized credit card PAN via POST /v2/Pci/AssociateCvv; requires tx-tokenex-id and tx-apikey headers
 - [AssociateEncryptedCvv](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-associateencryptedcvv.md) — TokenEx API v2  PCI Token Serviceshttps://documentation.ixopay.com/modules/api/tokenex/pci-token-services
-- [Pci Token Servicesv 2 Detokenizewithcvv](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-detokenizewithcvv.md) — (no description)
-- [Pci Token Servicesv 2 Getbinandlastfour](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-getbinandlastfour.md) — (no description)
-- [Pci Token Servicesv 2 Tokenize](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-tokenize.md) — (no description)
-- [Pci Token Servicesv 2 Tokenizeencrypted](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-tokenizeencrypted.md) — (no description)
-- [Retokenize](docs/ixopay/modules/api/tokenex/retokenize.md) — (no description)
-- [Retrievetokenmetadata](docs/ixopay/modules/api/tokenex/retrievetokenmetadata.md) — (no description)
+- [Pci Token Servicesv 2 Detokenizewithcvv](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-detokenizewithcvv.md) — Detokenize a PAN and retrieve its associated CVV via POST /v2/Pci/DetokenizeWithCvv; supports CacheCvv retention per PCI rules; increases PCI scope
+- [Pci Token Servicesv 2 Getbinandlastfour](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-getbinandlastfour.md) — Return the BIN range and/or last four digits of a tokenized credit card PAN via POST /v2/Pci/GetBINAndLastFour
+- [Pci Token Servicesv 2 Tokenize](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-tokenize.md) — Tokenize a credit card PAN and optionally associate a CVV with the token via POST /v2/Pci/Tokenize; specify tx-token-scheme (default: PCI)
+- [Pci Token Servicesv 2 Tokenizeencrypted](docs/ixopay/modules/api/tokenex/pci-token-servicesv-2-tokenizeencrypted.md) — Tokenize an RSA-encrypted credit card PAN and optionally associate an encrypted CVV via POST /v2/Pci/TokenizeEncrypted; uses TokenEx public key encryption
+- [Retokenize](docs/ixopay/modules/api/tokenex/retokenize.md) — Share tokens between separate TokenEx vault IDs via POST /v2/Token/ReTokenize; both source and destination API keys must have ReTokenize permission
+- [Retrievetokenmetadata](docs/ixopay/modules/api/tokenex/retrievetokenmetadata.md) — Retrieve metadata associated with a PCI token via POST /v2/Pci/RetrieveTokenMetadata; requires tx-tokenex-id and tx-apikey headers
 - [Token Services](docs/ixopay/modules/api/tokenex/token-services.md) — TokenEx API v2  Token Services
-- [Token Servicesv 2 Delete](docs/ixopay/modules/api/tokenex/token-servicesv-2-delete.md) — (no description)
-- [Token Servicesv 2 Detokenize](docs/ixopay/modules/api/tokenex/token-servicesv-2-detokenize.md) — (no description)
-- [Token Servicesv 2 Tokenize](docs/ixopay/modules/api/tokenex/token-servicesv-2-tokenize.md) — (no description)
-- [Token Servicesv 2 Updatetoken](docs/ixopay/modules/api/tokenex/token-servicesv-2-updatetoken.md) — (no description)
-- [Token Servicesv 2 Validatetoken](docs/ixopay/modules/api/tokenex/token-servicesv-2-validatetoken.md) — (no description)
+- [Token Servicesv 2 Delete](docs/ixopay/modules/api/tokenex/token-servicesv-2-delete.md) — Remove a sensitive data element and its token from the vault via POST /v2/Token/Delete; vaulted tokenization only, not applicable to vaultless profiles
+- [Token Servicesv 2 Detokenize](docs/ixopay/modules/api/tokenex/token-servicesv-2-detokenize.md) — Retrieve the original data element represented by a token via POST /v2/Token/Detokenize; works with vaulted and vaultless tokenization profiles
+- [Token Servicesv 2 Tokenize](docs/ixopay/modules/api/tokenex/token-servicesv-2-tokenize.md) — Tokenize a non-PAN data element (e.g. SSN, health ID) via POST /v2/Token/Tokenize; specify tx-token-scheme (default: ASCII)
+- [Token Servicesv 2 Updatetoken](docs/ixopay/modules/api/tokenex/token-servicesv-2-updatetoken.md) — Modify the data element stored for an existing token via POST /v2/Token/UpdateToken; vaulted tokenization only, supports GUID and TOKEN schemes
+- [Token Servicesv 2 Validatetoken](docs/ixopay/modules/api/tokenex/token-servicesv-2-validatetoken.md) — Verify a token exists in the vault via POST /v2/Token/ValidateToken; vaulted tokenization only, returns error for vaultless profiles
 - [TokenEx API v2](docs/ixopay/modules/api/tokenex/tokenex-api-v-2.md) — TokenEx API v2
-- [Index](docs/ixopay/modules/index.md) — (no description)
+- [Index](docs/ixopay/modules/index.md) — IXOPAY Modules Docs portal landing page: links to TokenEx documentation, TokenEx API explorer, Developer Hub, and User Manual
 - [3 D Secure Device Fingerprinting](docs/ixopay/modules/tokenex/3-d-secure-device-fingerprinting.md) — Associating Client Browser Attributes with a 3DS Transaction ID. Device fingerprinting is the association of client browser attributes with a specific
 - [Brand Specific Guidelines](docs/ixopay/modules/tokenex/3ds-brand-specific-guidelines.md) — 3-D Secure Authentication  Brand Specific Guidelines
 - [3DS FAQs](docs/ixopay/modules/tokenex/3ds-faqs.md) — 3-D Secure Authentication  3DS FAQs
