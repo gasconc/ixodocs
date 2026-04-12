@@ -1,0 +1,26 @@
+name: MCP Server CI
+
+on:
+  push:
+    paths: ['mcp/**']
+  pull_request:
+    paths: ['mcp/**']
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20, 22]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+          cache-dependency-path: mcp/package-lock.json
+      - run: cd mcp && npm ci
+      - run: cd mcp && npm run build:bundle
+      - run: cd mcp && npx tsc --noEmit
+      - run: cd mcp && npm run test:coverage
+      - run: cd mcp && npx tsc

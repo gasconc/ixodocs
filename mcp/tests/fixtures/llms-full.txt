@@ -1,0 +1,3 @@
+# Ixodocs LLMs Full fixture
+Complete documentation map for all portals.
+Used by build-bundle integration tests only.
