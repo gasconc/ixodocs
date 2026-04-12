@@ -39,9 +39,45 @@ Then ask questions like:
 
 The `ixopay-docs-search` agent is installed in `~/.claude/agents/`. Claude Code will invoke it automatically when you ask documentation questions. It uses a grep-based strategy against `index.md` and `docs/` — no embeddings, no vector DB, no setup required.
 
-### With MCP servers
+### With the MCP server
 
-`.mcp.json` is pre-configured with two MCP servers:
+The project includes a custom MCP server (`mcp/`) that exposes all documentation as searchable tools and browsable resources. Any MCP-compatible client (Claude Code, Claude Desktop, Cursor, etc.) can use it.
+
+**Quick setup (local):**
+
+```bash
+cd mcp && npm install && npm run build
+```
+
+**Add to your Claude/Cursor config** (`.mcp.json` or `settings.json`):
+
+```json
+{
+  "mcpServers": {
+    "ixodocs": {
+      "command": "node",
+      "args": ["/path/to/ixodocs/mcp/dist/cli.js"]
+    }
+  }
+}
+```
+
+**Or run via npx** (after npm publish):
+
+```json
+{
+  "mcpServers": {
+    "ixodocs": {
+      "command": "npx",
+      "args": ["-y", "ixodocs-mcp"]
+    }
+  }
+}
+```
+
+### With additional MCP servers
+
+`.mcp.json` also includes:
 
 | Server | Purpose |
 |---|---|
@@ -71,9 +107,100 @@ ixodocs/
 ├── index.md                 # Master navigation index (707 entries)
 ├── llms.txt                 # Curated summary for LLMs
 ├── llms-full.txt            # Complete 707-entry documentation map
-├── .mcp.json                # MCP server config (fetch + local-rag)
+├── mcp/
+│   ├── src/                 # TypeScript MCP server source
+│   ├── tests/               # 133 tests (95%+ coverage)
+│   ├── bundle/              # Pre-built search index + compressed docs
+│   └── package.json         # ixodocs-mcp (npx-installable)
+├── .mcp.json                # MCP server config (ixodocs + fetch + local-rag)
 └── CLAUDE.md                # Instructions for Claude Code agents
 ```
+
+## MCP Server
+
+The `mcp/` directory contains a TypeScript MCP server that exposes the documentation as tools and resources over the [Model Context Protocol](https://modelcontextprotocol.io).
+
+### Tools
+
+| Tool | Description |
+|------|-------------|
+| `search_docs` | Full-text search across all 707 docs with MiniSearch (fuzzy + prefix). Filter by portal or section. |
+| `read_doc` | Read a specific document by `ixodocs://` URI. Returns full markdown with parsed frontmatter. |
+| `list_api_endpoints` | List all API reference pages, optionally filtered by portal. |
+| `find_related` | Given a doc URI, returns related documents from frontmatter links. |
+| `ixopay_call` | Make HMAC-SHA512 signed API calls to the Ixopay gateway (requires `IXOPAY_API_KEY` + `IXOPAY_API_SECRET`). |
+| `ixopay_transaction_status` | Query transaction status by UUID or merchantTransactionId. |
+| `tokenex_tokenize` | Tokenize sensitive card data via the TokenEx vault (requires `TOKENEX_ID` + `TOKENEX_CLIENT_SECRET`). |
+| `tokenex_detokenize` | Retrieve original value from a TokenEx token. |
+| `tokenex_delete_token` | Delete a token from the TokenEx vault. |
+| `tokenex_call` | Generic escape hatch for any TokenEx API operation. |
+| `congrify_call` | Placeholder for Congrify API integration (not yet implemented). |
+
+### Resources
+
+All 707 docs are exposed as MCP resources with `ixodocs://` URIs:
+
+| URI pattern | Content |
+|---|---|
+| `ixodocs://{portal}/{path}` | Individual documentation pages (text/markdown) |
+| `ixodocs://meta/index` | Master navigation index |
+| `ixodocs://meta/llms` | Curated LLM summary |
+| `ixodocs://meta/llms-full` | Complete 707-entry documentation map |
+| `ixodocs://meta/build-info` | Bundle metadata (JSON) |
+
+### Configuration
+
+The documentation tools work out of the box. API integration tools require environment variables:
+
+```bash
+# Ixopay (optional — enables ixopay_call, ixopay_transaction_status)
+IXOPAY_API_KEY=your-api-key
+IXOPAY_API_SECRET=your-api-secret
+IXOPAY_BASE_URL=https://gateway.ixopay.com/api/v3  # default
+
+# TokenEx (optional — enables tokenex_tokenize, detokenize, delete, call)
+TOKENEX_ID=your-tokenex-id
+TOKENEX_CLIENT_SECRET=your-client-secret
+TOKENEX_ENV=test  # or "prod"
+
+# Congrify (placeholder — not yet implemented)
+CONGRIFY_API_KEY=your-api-key
+```
+
+Pass env vars in your MCP config:
+
+```json
+{
+  "mcpServers": {
+    "ixodocs": {
+      "command": "node",
+      "args": ["./mcp/dist/cli.js"],
+      "env": {
+        "IXOPAY_API_KEY": "your-key",
+        "IXOPAY_API_SECRET": "your-secret"
+      }
+    }
+  }
+}
+```
+
+### Build & Development
+
+```bash
+cd mcp
+npm install                  # Install dependencies
+npm run build:bundle         # Build search index from docs/
+npm run build                # Full build (bundle + TypeScript + CLI)
+npm run dev                  # Run in development mode
+npm test                     # Run test suite (133 tests)
+npm run test:coverage        # Run with coverage (95%+ lines)
+```
+
+### How the MCP server works
+
+1. **Build step**: `build-bundle.ts` scans all 707 markdown files, parses YAML frontmatter, builds a MiniSearch full-text index, and generates a compressed bundle (`bundle/`).
+2. **Runtime**: The server loads the pre-built bundle into memory (~1.4 MB gzipped), starts a MiniSearch instance, and serves tools + resources over stdio.
+3. **Search**: Queries are matched against title (4x boost), tags (3x), summary (2x), and content (1x) with prefix and fuzzy matching (0.2 tolerance).
 
 ## How It Works
 
