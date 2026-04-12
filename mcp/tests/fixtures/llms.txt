@@ -1,0 +1,3 @@
+# Ixodocs LLMs fixture
+Covers Ixopay, TokenEx and Congrify documentation.
+Use search_docs tool to find relevant pages.

@@ -20,3 +20,9 @@ raw_html/
 
 # Research (original investigation file)
 compass_artifact_*.md
+
+# MCP server build artifacts
+mcp/node_modules/
+mcp/dist/
+mcp/coverage/
+mcp/bundle/

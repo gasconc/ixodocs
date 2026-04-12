@@ -26,3 +26,10 @@ Every doc has YAML frontmatter: title, summary, tags, source_url, portal, update
 ## For LLMs
 - `llms.txt` — Curated summary with key links
 - `llms-full.txt` — Complete 707-entry documentation map
+
+## MCP Server
+- `mcp/` — TypeScript MCP server exposing docs as tools and resources
+- Build: `cd mcp && npm install && npm run build`
+- Dev: `cd mcp && npm run dev`
+- Test: `cd mcp && npm test`
+- Tools: search_docs, read_doc, list_api_endpoints, find_related, ixopay_call, tokenex_tokenize, etc.
