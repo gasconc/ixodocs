@@ -1,0 +1,58 @@
+# Coverage sources — authoritative catalogs of URLs we expect to index.
+#
+# The auditor (audit_coverage.py) fetches each source, builds the set of
+# "published" URLs, and cross-checks against docs_manifest.json to surface:
+#   - missing: URLs published but not in the manifest (= scraping gap)
+#   - stale:   URLs in the manifest that are no longer published
+#
+# Fields per source:
+#   name          Identifier used in the report.
+#   description   Human-readable note.
+#   sitemap_url   Optional. URL of sitemap.xml (or sitemap index). Parsed
+#                 recursively.
+#   include_paths Optional. Only URLs whose path contains any of these
+#                 substrings are counted. Omit to include everything the
+#                 sitemap exposes.
+#   exclude_paths Optional. URLs whose path contains any of these substrings
+#                 are dropped (applied after include_paths). Use to silence
+#                 known-uninteresting sections (localisations, changelogs).
+#   extra_urls    Optional. URLs known to exist but absent from the sitemap
+#                 (common for manually published legal or compliance pages).
+
+sources:
+  - name: ixopay-docs
+    description: "Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)."
+    sitemap_url: https://documentation.ixopay.com/sitemap.xml
+    # Release notes are volatile and change too often to mirror usefully in a
+    # weekly snapshot. Search is a UI route, not content. /modules/docs/** is
+    # the TokenEx-hosted tree we already scrape via its own target.
+    exclude_paths:
+      - /releases/
+      - /search
+
+  - name: ixopay-corp-legal
+    description: "Ixopay corporate legal & compliance pages."
+    sitemap_url: https://www.ixopay.com/sitemap.xml
+    include_paths:
+      - /legal/
+    # German translations of legal pages — out of scope for the English-only
+    # knowledge base. Remove this filter if/when we add multilingual support.
+    exclude_paths:
+      - /de/
+    # Pages confirmed to return 200 but not listed in the sitemap today.
+    # Keep this list curated — any 200 under /legal/ discovered later should
+    # be added here (or — better — pushed upstream to the sitemap).
+    extra_urls:
+      - https://www.ixopay.com/legal/subprocessors
+      - https://www.ixopay.com/legal/privacy-notice
+      - https://www.ixopay.com/legal/toms
+      - https://www.ixopay.com/legal/terms-of-use
+      - https://www.ixopay.com/legal/privacy-policy-applicants
+
+  - name: congrify-docs
+    description: "Congrify Docsify SPA — no sitemap; URL list mirrors scrape_congrify.py seeds."
+    # docs.congrify.com returns 404 for /sitemap.xml, so we rely on the
+    # curated list in scrape_congrify.py. Keep in sync with that file.
+    sitemap_url: null
+    extra_urls:
+      - https://docs.congrify.com/

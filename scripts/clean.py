@@ -102,6 +102,8 @@ def detect_portal(filepath: str | Path) -> str:
         return "ixopay-manual"
     elif "docs/ixopay/modules" in path_str:
         return "ixopay-modules"
+    elif "docs/ixopay/legal" in path_str:
+        return "ixopay-legal"
     elif "docs/congrify" in path_str:
         return "congrify"
     else:
@@ -129,8 +131,13 @@ def _split_code_blocks(text: str) -> list[tuple[bool, str]]:
 
 
 def _count_code_fences(text: str) -> int:
-    """Count ``` occurrences (each fence line counts as one)."""
-    return len(re.findall(r"^```", text, re.MULTILINE))
+    """Count ``` occurrences (each fence line counts as one).
+
+    Allows leading whitespace so fences inside list items or blockquotes
+    (which markdownify emits indented) are counted, matching the indentation
+    tolerance of `_split_code_blocks`.
+    """
+    return len(re.findall(r"^\s*```", text, re.MULTILINE))
 
 
 # ---------------------------------------------------------------------------
@@ -175,13 +182,19 @@ def _serialise_frontmatter(fm: dict) -> str:
 
 
 def _strip_boilerplate(text: str) -> str:
-    """Remove known boilerplate patterns from non-code text."""
+    """Remove known boilerplate patterns from non-code text.
+
+    Preserves trailing newlines so the boundary between this non-code segment
+    and the next code block (a fence at column 0) is not collapsed when the
+    pieces are concatenated again. `splitlines()` would drop a final `\\n`
+    and glue the opening fence to the previous line.
+    """
     # First apply multi-line block patterns
     for pattern in _BOILERPLATE_BLOCK_PATTERNS:
         text = pattern.sub("\n", text)
 
-    # Then process line-by-line
-    lines = text.splitlines()
+    # split("\n") round-trips trailing newlines correctly (splitlines does not)
+    lines = text.split("\n")
     clean_lines = []
     for line in lines:
         stripped = line.strip()
@@ -225,15 +238,18 @@ def _normalise_whitespace(text: str) -> str:
     return re.sub(r"\n{3,}", "\n\n", text).strip()
 
 
-def _deduplicate_paragraphs(text: str) -> str:
+def _deduplicate_paragraphs(text: str, seen: set[str] | None = None) -> str:
     """
     Remove exact duplicate paragraphs (separated by blank lines), keeping
     only the first occurrence. This eliminates content repeated across
     multiple Docusaurus DOM containers captured by the scraper.
+
+    `seen` is an optional state set so dedup can persist across multiple
+    non-code segments processed independently by `clean_content`.
     """
-    # Split on one or more blank lines, preserving the separator logic
+    if seen is None:
+        seen = set()
     paragraphs = re.split(r"\n\n+", text)
-    seen: set[str] = set()
     unique: list[str] = []
     for para in paragraphs:
         key = para.strip()
@@ -242,18 +258,27 @@ def _deduplicate_paragraphs(text: str) -> str:
         if key not in seen:
             seen.add(key)
             unique.append(para)
-    return "\n\n".join(unique)
+    result = "\n\n".join(unique)
+    # Preserve trailing newline so the boundary with the next code block is
+    # not collapsed; otherwise the opening fence would be glued to text.
+    if text.endswith("\n") and not result.endswith("\n"):
+        result += "\n"
+    return result
 
 
-def _deduplicate_headings(text: str) -> str:
+def _deduplicate_headings(text: str, seen_headings: set[str] | None = None) -> str:
     """
     Remove duplicate headings (same heading text appearing more than once),
     keeping only the first occurrence. Lines between a removed heading and the
     next heading (or blank line) are also removed since they are duplicate
     content sections.
+
+    `seen_headings` is an optional state set so dedup persists across
+    non-code segments.
     """
-    lines = text.splitlines()
-    seen_headings: set[str] = set()
+    if seen_headings is None:
+        seen_headings = set()
+    lines = text.split("\n")
     result: list[str] = []
     skip_until_next_heading = False
 
@@ -283,20 +308,26 @@ def clean_content(raw: str) -> str:
     """
     Run the full cleaning pipeline on non-frontmatter content,
     preserving code blocks throughout.
+
+    Paragraph- and heading-level deduplication runs only on non-code segments;
+    applying them across code blocks would split fenced blocks containing
+    blank lines and collapse repeated examples, leaving orphan fences.
     """
     segments = _split_code_blocks(raw)
     cleaned_segments = []
+    seen_paragraphs: set[str] = set()
+    seen_headings: set[str] = set()
     for is_code, segment in segments:
         if is_code:
             cleaned_segments.append(segment)
         else:
             segment = _strip_boilerplate(segment)
             segment = _strip_html_tags(segment)
+            segment = _deduplicate_paragraphs(segment, seen_paragraphs)
+            segment = _deduplicate_headings(segment, seen_headings)
             cleaned_segments.append(segment)
 
     text = "".join(cleaned_segments)
-    text = _deduplicate_paragraphs(text)
-    text = _deduplicate_headings(text)
     text = _fix_heading_hierarchy(text)
     text = _normalise_whitespace(text)
     return text
@@ -560,6 +591,15 @@ def parse_args(argv=None) -> argparse.Namespace:
         action="store_true",
         help="Show what would be done without modifying any files.",
     )
+    parser.add_argument(
+        "--strict",
+        action="store_true",
+        help=(
+            "Exit with code 1 if any file has validation errors. Without this "
+            "flag, errors are reported in the summary but the process exits 0. "
+            "Use --strict for PR gates; leave it off for the weekly sync."
+        ),
+    )
     return parser.parse_args(argv)
 
 
@@ -621,7 +661,7 @@ def main(argv=None) -> None:
         print("[DRY RUN] No files were modified.")
     print(f"{'='*60}")
 
-    if errors:
+    if errors and args.strict:
         sys.exit(1)
 
 
