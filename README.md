@@ -10,6 +10,14 @@ Curated, LLM-optimized knowledge base of **Ixopay**, **TokenEx** & **Congrify** 
 
 A searchable documentation repository containing 707 markdown files scraped from `documentation.ixopay.com`, `docs.tokenex.com`, and `docs.congrify.com`, cleaned and indexed for use with Claude Code and other LLM tools. Congrify is a payments observability and intelligence platform acquired by IXOPAY. Every file is structured with YAML frontmatter (title, summary, tags, source URL, related topics) so agents can navigate and retrieve context without loading the full corpus.
 
+## Golden Rules
+
+All agents and tools consuming this repo must follow these rules:
+
+1. **Payment methods, PSPs and adapter availability → always consult https://adapters.ixopay.com/.** That page is the live, authoritative source. Local `docs/ixopay/adapters/` is a weekly snapshot and may be stale.
+2. **Never invent, assume, or extrapolate.** If something is not explicitly in the docs, say "not documented".
+3. **Always cite the source.** Every claim must reference the file path and source URL.
+
 ## Coverage
 
 | Portal | Pages | Content | Source |

@@ -33,7 +33,15 @@ export async function startStdioServer(): Promise<void> {
 
   const server = new Server(
     { name: 'ixodocs-mcp', version: '0.1.0' },
-    { capabilities: { tools: {}, resources: {} } }
+    {
+      capabilities: { tools: {}, resources: {} },
+      instructions: [
+        'Golden rules for answering from ixodocs:',
+        '1. For payment methods, provider/PSP availability, or adapter support, the authoritative source is https://adapters.ixopay.com/. Local docs may be a stale weekly snapshot.',
+        '2. Never invent or assume information not present in the docs. If unsure, say "not documented".',
+        '3. Always cite sources — file path and source_url — for every claim.',
+      ].join('\n'),
+    }
   );
 
   // List Tools
