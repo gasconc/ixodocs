@@ -12,9 +12,9 @@ tags:
 - credit-card
 - transaction
 - gateway
-source_url: ''
+source_url: https://documentation.ixopay.com/adapters/finance-wide
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -12,9 +12,10 @@ tags:
 - transaction
 - merchant
 - gateway
-source_url: ''
+- reconciliation
+source_url: https://documentation.ixopay.com/api
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -5,17 +5,16 @@ summary: ' Getting production readyhttps://documentation.ixopay.com/docs/guides/
 tags:
 - api-responses-https-documentation-ixopay-com-docs-guides-production-handling-errors-api-responses-direct-link-api-responses
 - system-errors-https-documentation-ixopay-com-docs-guides-production-handling-errors-system-errors-direct-link-system-errors
-- processing-errors-https-documentation-ixopay-com-docs-guides-production-handling-errors-processing-errors-direct-link-processing-errors
-- merchant-advice-codes-https-documentation-ixopay-com-docs-guides-production-handling-errors-merchant-advice-codes-direct-link-merchant-advice-codes
-- parsed-merchant-advice-codes-https-documentation-ixopay-com-docs-guides-production-handling-errors-parsed-merchant-advice-codes-direct-link-parsed-merchant-advice-codes
-- best-practices-error-handling-https-documentation-ixopay-com-docs-guides-production-handling-errors-best-practices-error-handling-direct-link-best-practices-error-handling
 - api
 - json
 - ixopay
 - psp
-source_url: ''
+- credit-card
+- transaction
+- merchant
+source_url: https://documentation.ixopay.com/docs/guides/production/handling-errors
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -42,55 +41,87 @@ Merchant advice:\ndo not resubmit
 If the `success` flag is `false` and the HTTP status code is not 200, there was a system error. In this case, the response will include the `errorMessage`, `errorType`, and `details` fields. The HTTP status code being in the 4xx range indicates a client error, which means the request shouldn't be retried without making some changes. If the HTTP status code is in the 5xx range, it indicates a server-side error.
 Example system error
 ```
+
 HTTP/1.1 500 Internal Server Error  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "success": false,  
+
   "errorMessage": "System Error occurred",  
+
   "errorCode": 1008  
+
 }  
 
-```
-
-#### Maintenance mode[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#maintenance-mode "Direct link to Maintenance mode")
+```#### Maintenance mode[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#maintenance-mode "Direct link to Maintenance mode")
 Maintenance mode is a unique system error that occurs when [IXOPAY platform](https://www.ixopay.com) is undergoing scheduled maintenance. Advance notice of upcoming maintenance events will be communicated through [status.ixopay.com](https://status.ixopay.com) (subscribe to updates via email or other channels).
 ```
+
 HTTP/1.1 503 Service Unavailable  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "success": false,  
+
   "errorMessage": "The system is currently undergoing scheduled maintenance. Please try again later.",  
+
   "errorCode": 1010  
+
 }  
 
-### Processing errors[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#processing-errors "Direct link to Processing errors")
+```### Processing errors[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#processing-errors "Direct link to Processing errors")
 If the HTTP status code is 200, it means a transaction has been created, but some other error happened along the way. To help you understand what went wrong, the response will include an `errors` field, which is an array of error objects. Each object contains fields such as `errorMessage`, `errorCode`, `adapterMessage`, and `adapterCode`.
 The `errorMessage` field provides a brief description of the error. The `errorCode` field is a standardized error code by the IXOPAY platform, which maps the variety of different PSP error codes to a unified error scheme. You can find the individual error codes in the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
 Finally, the `adapterMessage` and `adapterCode` fields contain the native error message and code from the payment provider or acquiring bank, which gives you more specific information about what went wrong.
 Example processing error
 ```
+
 HTTP/1.1 200 OK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "success": false,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
-  "purchaseId": "20260409-d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
   "returnType": "ERROR",  
+
   "paymentMethod": "Creditcard",  
+
   "errors": [  
+
     {  
+
       "errorMessage": "Request failed",  
+
       "errorCode": 1000,  
+
       "adapterMessage": "Invalid parameters given",  
+
       "adapterCode": "1234"  
+
     }  
+
   ]  
+
 }  
 
-### Merchant advice codes[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#merchant-advice-codes "Direct link to Merchant advice codes")
+```### Merchant advice codes[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#merchant-advice-codes "Direct link to Merchant advice codes")
 Merchant advice codes are a set of codes introduced by credit card schemes to provide feedback to merchants on how to handle failed transactions. The specific returned value for a merchant advice code varies depending on the payment service provider (PSP) being used. However, it is usually a numeric error code that provides advice on how to proceed with a failed transaction.
 The [Transaction API](https://documentation.ixopay.com/api/transaction/transaction-api) supports handling and forwarding merchant advice codes sent by PSPs. To find out which adapters support merchant advice codes, check the [Adapters](https://adapters.ixopay.com) page.
 If a merchant advice code is returned with the response, it can be found in the `returnData.merchantAdviceCode` field. The merchant advice code is piped through as received by the IXOPAY platform.
@@ -99,45 +130,82 @@ warning
 It's important to note that if a merchant advice code indicating "do not retry" is returned and the error response extra data includes the `doNotResubmit` flag set to true, the merchant should not attempt to resubmit the transaction. Doing so could result in additional charges and complications. It's best to contact the customer to obtain an alternative payment method for the transaction.
 Example merchant advice code error
 ```
+
 HTTP/1.1 200 OK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "success": false,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
-  "purchaseId": "20260409-d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
   "returnType": "ERROR",  
+
   "paymentMethod": "Creditcard",  
+
   "errors": [  
+
     {  
+
       "errorMessage": "Expired card",  
+
       "errorCode": 2009,  
+
       "adapterMessage": "Expired card",  
+
       "adapterCode": "54"  
+
     }  
+
   ],  
+
   "returnData": {  
+
     "creditcardData": {  
+
       "type": "visa",  
+
       "cardHolder": "Alex Smith",  
+
       "expiryMonth": 4,  
+
       "expiryYear": 2031,  
+
       "binDigits": "41111111",  
+
       "firstSixDigits": "411111",  
+
       "lastFourDigits": "1111",  
+
       "threeDSecure": "OFF",  
+
       "binBrand": "US",  
+
       "binBank": "Global Trust Bank",  
+
       "binCountry": "US",  
+
       "merchantAdviceCode": "54: Expired card"  
+
     }  
+
   },  
+
   "extraData": {  
+
     "doNotResubmit": true  
+
   }  
+
 }  
 
-### Parsed merchant advice codes[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#parsed-merchant-advice-codes "Direct link to Parsed merchant advice codes")
+```### Parsed merchant advice codes[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#parsed-merchant-advice-codes "Direct link to Parsed merchant advice codes")
 Parsed merchant advice codes are standardized numeric codes that refer to the [merchant advice codes](https://documentation.ixopay.com/docs/guides/production/handling-errors#merchant-advice-codes) provided by various Payment Service Providers (PSPs). These codes serve to unify and streamline the handling of failed transactions. When working with the [Transaction API](https://documentation.ixopay.com/api/transaction/transaction-api), you can utilize parsed merchant advice codes for more efficient error handling.
 When a parsed merchant advice code is returned with the response, you can access it in the `returnData.parsedMerchantAdviceCode` field. This field will contain the parsed merchant advice code relevant to the failed transaction if it is supported by the adapter you are using.
 Just like with merchant advice codes, there are cases where a parsed merchant advice code indicates that a transaction should not be retried. Specifically, when the parsed merchant advice code is `03`, it signifies "do not retry." In such cases, IXOPAY platform parses this code and sets the `doNotResubmit` flag in the extra data field of the error response.
@@ -151,46 +219,84 @@ warning
 If a parsed merchant advice code indicating "do not retry" is received, and the error response extra data includes the `doNotResubmit` flag set to true, merchants should refrain from attempting to resubmit the transaction. Doing so could result in additional charges and complications. Instead, it is advisable to contact the customer to explore alternative payment methods for the transaction.
 Example parsed merchant advice code error
 ```
+
 HTTP/1.1 200 OK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "success": false,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
-  "purchaseId": "20260409-d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
   "returnType": "ERROR",  
+
   "paymentMethod": "Creditcard",  
+
   "errors": [  
+
     {  
+
       "errorMessage": "Expired card",  
+
       "errorCode": 2009,  
+
       "adapterMessage": "Expired card",  
+
       "adapterCode": "54"  
+
     }  
+
   ],  
+
   "returnData": {  
+
     "creditcardData": {  
+
       "type": "visa",  
+
       "cardHolder": "Alex Smith",  
+
       "expiryMonth": 4,  
+
       "expiryYear": 2031,  
+
       "binDigits": "41111111",  
+
       "firstSixDigits": "411111",  
+
       "lastFourDigits": "1111",  
+
       "threeDSecure": "OFF",  
+
       "binBrand": "US",  
+
       "binBank": "Global Trust Bank",  
+
       "binCountry": "US",  
+
       "merchantAdviceCode": "54: Expired card"  
+
       "parsedMerchantAdviceCode": "03"  
+
     }  
+
   },  
+
   "extraData": {  
+
     "doNotResubmit": true  
+
   }  
+
 }  
 
-## Best practices for error handling[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#best-practices-for-error-handling "Direct link to Best practices for error handling")
+```## Best practices for error handling[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#best-practices-for-error-handling "Direct link to Best practices for error handling")
 Here are some best practices to help you handle payment errors efficiently:
   * **Log errors:** Logging errors is important for debugging and identifying the root cause of an issue. Log as much information as possible, including the request and response payloads, error codes, and timestamps.
   * **Display user-friendly error messages:** When displaying error messages to customers, use clear and concise language that explains the issue and what steps the user can take to resolve it.
@@ -198,3 +304,1176 @@ Here are some best practices to help you handle payment errors efficiently:
   * **Monitor errors:** Monitoring error rates can help identify trends and issues that may require investigation or action.
 
 By following these best practices, you can minimize the impact of payment errors and provide a better customer experience.
+```
+
+HTTP/1.1 500 Internal Server Error  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "System Error occurred",  
+
+  "errorCode": 1008  
+
+}  
+
+```
+```
+
+HTTP/1.1 503 Service Unavailable  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The system is currently undergoing scheduled maintenance. Please try again later.",  
+
+  "errorCode": 1010  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Request failed",  
+
+      "errorCode": 1000,  
+
+      "adapterMessage": "Invalid parameters given",  
+
+      "adapterCode": "1234"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+      "parsedMerchantAdviceCode": "03"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 500 Internal Server Error  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "System Error occurred",  
+
+  "errorCode": 1008  
+
+}  
+
+```
+```
+
+HTTP/1.1 503 Service Unavailable  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The system is currently undergoing scheduled maintenance. Please try again later.",  
+
+  "errorCode": 1010  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Request failed",  
+
+      "errorCode": 1000,  
+
+      "adapterMessage": "Invalid parameters given",  
+
+      "adapterCode": "1234"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+      "parsedMerchantAdviceCode": "03"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```By following these best practices, you can minimize the impact of payment errors and provide a better customer experience.
+  * [Getting production ready](https://documentation.ixopay.com/docs/guides/production)
+  * Handling errors
+```
+
+HTTP/1.1 500 Internal Server Error  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "System Error occurred",  
+
+  "errorCode": 1008  
+
+}  
+
+```
+```
+
+HTTP/1.1 503 Service Unavailable  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The system is currently undergoing scheduled maintenance. Please try again later.",  
+
+  "errorCode": 1010  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Request failed",  
+
+      "errorCode": 1000,  
+
+      "adapterMessage": "Invalid parameters given",  
+
+      "adapterCode": "1234"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+      "parsedMerchantAdviceCode": "03"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```By following these best practices, you can minimize the impact of payment errors and provide a better customer experience.
+  * [API responses](https://documentation.ixopay.com/docs/guides/production/handling-errors#api-responses)
+    * [System errors](https://documentation.ixopay.com/docs/guides/production/handling-errors#system-errors)
+    * [Processing errors](https://documentation.ixopay.com/docs/guides/production/handling-errors#processing-errors)
+    * [Merchant advice codes](https://documentation.ixopay.com/docs/guides/production/handling-errors#merchant-advice-codes)
+    * [Parsed merchant advice codes](https://documentation.ixopay.com/docs/guides/production/handling-errors#parsed-merchant-advice-codes)
+  * [Best practices for error handling](https://documentation.ixopay.com/docs/guides/production/handling-errors#best-practices-for-error-handling)
+```
+
+HTTP/1.1 500 Internal Server Error  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "System Error occurred",  
+
+  "errorCode": 1008  
+
+}  
+
+```
+```
+
+HTTP/1.1 503 Service Unavailable  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The system is currently undergoing scheduled maintenance. Please try again later.",  
+
+  "errorCode": 1010  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Request failed",  
+
+      "errorCode": 1000,  
+
+      "adapterMessage": "Invalid parameters given",  
+
+      "adapterCode": "1234"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+      "parsedMerchantAdviceCode": "03"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 500 Internal Server Error  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "System Error occurred",  
+
+  "errorCode": 1008  
+
+}  
+
+```
+```
+
+HTTP/1.1 503 Service Unavailable  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The system is currently undergoing scheduled maintenance. Please try again later.",  
+
+  "errorCode": 1010  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Request failed",  
+
+      "errorCode": 1000,  
+
+      "adapterMessage": "Invalid parameters given",  
+
+      "adapterCode": "1234"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Creditcard",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Expired card",  
+
+      "errorCode": 2009,  
+
+      "adapterMessage": "Expired card",  
+
+      "adapterCode": "54"  
+
+    }  
+
+  ],  
+
+  "returnData": {  
+
+    "creditcardData": {  
+
+      "type": "visa",  
+
+      "cardHolder": "Alex Smith",  
+
+      "expiryMonth": 4,  
+
+      "expiryYear": 2031,  
+
+      "binDigits": "41111111",  
+
+      "firstSixDigits": "411111",  
+
+      "lastFourDigits": "1111",  
+
+      "threeDSecure": "OFF",  
+
+      "binBrand": "US",  
+
+      "binBank": "Global Trust Bank",  
+
+      "binCountry": "US",  
+
+      "merchantAdviceCode": "54: Expired card"  
+
+      "parsedMerchantAdviceCode": "03"  
+
+    }  
+
+  },  
+
+  "extraData": {  
+
+    "doNotResubmit": true  
+
+  }  
+
+}  
+
+```By following these best practices, you can minimize the impact of payment errors and provide a better customer experience.

@@ -7,16 +7,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-first-data-ipg-overview-direct-link-overview
 - supported-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-first-data-ipg-supported-parameters-direct-link-supported-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-first-data-ipg-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-first-data-ipg-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-first-data-ipg-responses-direct-link-responses
 - api
 - 3d-secure
 - tokenization
 - tokenex
 - ixopay
-source_url: ''
+- recurring
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -111,98 +111,180 @@ any other string value = false  |
 ## Example Requests[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#example-requests "Direct link to Example Requests")
   * Card Authorize/Purchase
   * Card Capture/Refund/Void
-
 ```
+
 {  
+
   "gateway": "FirstDataIPG",  
+
   "testMode": true,  
+
   "publicKey": "<Your IPG Public Key>",  
+
   "privateKey": "<Your IPG Private Key>",  
+
   "storeId": "<Your IPG Store Id, if applicable>",  
+
   "amount": 1000,  
+
   "currencyCode": "USD",  
+
   "shippingAddress": {  
+
     "phone": "444-444-4444",  
+
     "fax": "444-444-6666",  
+
     "email": "jane@doe.dev",  
+
     "fullName": "Jane Doe",  
+
     "company": "Test Co.",  
+
     "address1": "456 Someplace Drive",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74112",  
+
     "country": "USA"  
+
   },  
+
   "creditCard": {  
+
     "bin": "411111",  
+
     "brand": "Visa",  
+
     "number": "4111111111111111",  
+
     "expMonth": 6,  
+
     "expYear": 2026,  
+
     "fullName": "John Doe",  
+
     "cvv": "123"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "fax": "555-555-6666",  
+
     "email": "john@doe.dev",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "fullName": "John Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "orderInfo": {  
+
     "invoiceNumber": "A456789A",  
+
     "customerId": "9876543210"  
+
   },  
+
   "threeDSecure": {  
+
     "authenticationResponse": "Y",  
+
     "cavv": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",  
+
     "dsTransId": "5a56fdc9-6d47-5fee-8000-000000296743"  
+
   },  
+
   "storedCredentials": {  
+
     "initiator": "merchant",  
+
     "credentialStored": true,  
+
     "previousNetworkTransactionId": "84558721076",  
+
     "transactionType": "recurring"  
+
   },  
+
   "softDescriptors": {  
+
     "merchantAddress": {  
+
       "company": "Jay's Widgets",  
+
       "address1": "123 W. Brie Street",  
+
       "address2": "#3",  
+
       "city": "Denver",  
+
       "state": "CO",  
+
       "zip": "00001",  
+
       "country": "USA"  
+
     },  
+
     "merchantCategoryCode": "0001",  
+
     "merchantPhone": "9180000000",  
+
     "merchantCity": "Denver",  
+
     "merchantName": "Jay's Widgets, LLC"  
+
   }  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "gateway": "FirstDataIPG",  
+
   "testMode": true,  
+
   "publicKey": "<Your IPG Public Key>",  
+
   "privateKey": "<Your IPG Private Key>",  
+
   "storeId": "<Your IPG Store Id, if applicable>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Purchase, Capture, or Refund call>"  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | IPG Response Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approvalCode`  | string  | `ApprovalCode`  | Transaction approval code.  |  
@@ -226,189 +308,2995 @@ any other string value = false  |
   * Card Void
   * Gateway Error
   * Processor Error
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"clientRequestId\":\"7b21b860-643c-4e6d-bd4d-1f5011d1ec85\",\"apiTraceId\":\"ZXH2IXDbEVHj4RmYjrsBuQAAA2Y\",\"ipgTransactionId\":\"84643453089\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967393,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453089:YYYX:685976\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODQ2NDM0NTMwODk7MDtVU0Q7MTAwMA==",  
+
     "approvalCode": "Y:OK7807:4643453089:YYYX:685976",  
+
     "providerTransactionCode": "84643453089",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "Y",  
+
       "cvvRaw": "NOT_CHECKED",  
+
       "providerParsed": {  
+
         "streetMatch": "Y",  
+
         "postalCodeMatch": "Y"  
+
       }  
+
     },  
+
     "networkTransactionId": "013341105228347",  
+
     "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
   },  
+
   "referenceNumber": "23120710431273630926",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"clientRequestId\":\"f1b639fe-45df-46ac-9bae-5b00e0b60ebe\",\"apiTraceId\":\"ZXH21T1xpUjAluhLw-mjlAAAAfg\",\"ipgTransactionId\":\"84643453143\",\"orderId\":\"R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0\",\"transactionType\":\"SALE\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967573,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK8297:4643453143:YYYX:686028\",\"schemeTransactionId\":\"013341999277513\",\"processor\":{\"referenceNumber\":\"84643453143\",\"authorizationCode\":\"OK8297\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODQ2NDM0NTMxNDM7MTtVU0Q7MTAwMA==",  
+
     "approvalCode": "Y:OK8297:4643453143:YYYX:686028",  
+
     "providerTransactionCode": "84643453143",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "Y",  
+
       "cvvRaw": "NOT_CHECKED",  
+
       "providerParsed": {  
+
         "streetMatch": "Y",  
+
         "postalCodeMatch": "Y"  
+
       }  
+
     },  
+
     "networkTransactionId": "013341999277513",  
+
     "merchantReferenceId": "R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0"  
+
   },  
+
   "referenceNumber": "23120710461254554694",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"clientRequestId\":\"d8d4835f-0a25-407d-b280-53033a4f26b6\",\"apiTraceId\":\"ZXH2RB8wMOMoZZ7ZsYnEiwAAA7E\",\"ipgTransactionId\":\"84643453101\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"POSTAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967428,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453101:YYY :685978\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"   \",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"}},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"cardBrand\":\"V\"}}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODQ2NDM0NTMxMDE7MjtVU0Q7MTAwMA==",  
+
     "approvalCode": "Y:OK7807:4643453101:YYY :685978",  
+
     "providerTransactionCode": "84643453101",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "Y",  
+
       "providerParsed": {  
+
         "streetMatch": "Y",  
+
         "postalCodeMatch": "Y"  
+
       }  
+
     },  
+
     "networkTransactionId": "013341105228347",  
+
     "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
   },  
+
   "referenceNumber": "2312071043464695885",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"clientRequestId\":\"bd2088cf-4385-415a-8727-9622d551d69b\",\"apiTraceId\":\"ZXH2fQUu2irmML7hSxNHNwAAAxI\",\"ipgTransactionId\":\"84643453121\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"RETURN\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967485,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453121:PPX :685996\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"NO_INPUT_DATA\",\"postalCodeMatch\":\"NO_INPUT_DATA\"}}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODQ2NDM0NTMxMjE7MztVU0Q7MTAwMA==",  
+
     "approvalCode": "Y:000000:4643453121:PPX :685996",  
+
     "providerTransactionCode": "84643453121",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {  
+
         "streetMatch": "NO_INPUT_DATA",  
+
         "postalCodeMatch": "NO_INPUT_DATA"  
+
       }  
+
     },  
+
     "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
   },  
+
   "referenceNumber": "23120710444451583740",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"clientRequestId\":\"6102c130-7de2-4e93-8136-6f1d64e528ce\",\"apiTraceId\":\"ZXH2onNn3m0878N3vMhKOQAAAsM\",\"ipgTransactionId\":\"84643453127\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"VOID\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967522,\"approvedAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453127:PPX :686012\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"cardBrand\":\"V\"}}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODQ2NDM0NTMxMjc7NDtVU0Q7",  
+
     "approvalCode": "Y:000000:4643453127:PPX :686012",  
+
     "providerTransactionCode": "84643453127",  
+
     "approved": true,  
+
     "verificationResult": {},  
+
     "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
   },  
+
   "referenceNumber": "23120710452126963836",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"clientRequestId\":\"372277df-d537-4cef-9c07-cbd2e391b1ce\",\"apiTraceId\":\"ZXNRVjc5_7d6IseXKsvu_wAAA0A\",\"responseType\":\"GatewayDeclined\",\"ipgTransactionId\":\"84643535942\",\"orderId\":\"R-f31c0fe5-1df1-472e-91c7-94a39ae6645d\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"transactionTime\":1702056278,\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"VALIDATION_FAILED\",\"approvalCode\":\"N:-2303:Invalid credit card number\",\"errorMessage\":\"2303: Invalid credit card number\",\"error\":{\"code\":\"2303\",\"message\":\"Invalid credit card number\"}}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "2303",  
+
         "message": "Invalid credit card number",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "N:-2303:Invalid credit card number",  
+
     "providerTransactionCode": "84643535942",  
+
     "approved": false,  
+
     "merchantReferenceId": "R-f31c0fe5-1df1-472e-91c7-94a39ae6645d"  
+
   },  
+
   "referenceNumber": "23120811243794389878",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "409"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"clientRequestId\":\"28e8d3ca-2bdd-46fb-89c9-3c5cc30b77b8\",\"apiTraceId\":\"ZXOGGAUu2irmML7hSxMpqwAAAwo\",\"responseType\":\"EndpointDeclined\",\"ipgTransactionId\":\"84643544641\",\"orderId\":\"R-f755e66d-b599-4d7d-92e3-0aa4d5619cce\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"DINERSCLUB\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2024\"},\"bin\":\"601100\",\"last4\":\"0000\",\"brand\":\"DINERSCLUB\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"DINERSCLUB\"},\"country\":\"USA\",\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1702069784,\"transactionAmount\":{\"total\":2.95,\"currency\":\"USD\",\"components\":{\"subtotal\":2.95}},\"transactionStatus\":\"DECLINED\",\"approvalCode\":\"N:51:DECLINED\",\"errorMessage\":\"99951: DECLINED\",\"schemeTransactionId\":\"170206978466713\",\"processor\":{\"referenceNumber\":\"84643544641\",\"responseCode\":\"51\",\"network\":\"DISC\",\"associationResponseCode\":\"005\",\"responseMessage\":\"DECLINED\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"issuingBankName\":\";DISCOVER IIN RAN\",\"cardProductID\":\"X\",\"associationResponseCodeAdtl\":\"05\",\"cardBrand\":\"D\"}},\"error\":{\"code\":\"99951\",\"message\":\"DECLINED\"}}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "99951",  
+
         "message": "DECLINED",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "N:51:DECLINED",  
+
     "providerTransactionCode": "84643544641",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "avsRaw": "Y",  
+
       "cvvRaw": "NOT_CHECKED",  
+
       "providerParsed": {  
+
         "streetMatch": "Y",  
+
         "postalCodeMatch": "Y"  
+
       }  
+
     },  
+
     "networkTransactionId": "170206978466713",  
+
     "merchantReferenceId": "R-f755e66d-b599-4d7d-92e3-0aa4d5619cce"  
+
   },  
+
   "referenceNumber": "23120815094262572755",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "422"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#overview)
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD",  
+
+  "shippingAddress": {  
+
+    "phone": "444-444-4444",  
+
+    "fax": "444-444-6666",  
+
+    "email": "jane@doe.dev",  
+
+    "fullName": "Jane Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "456 Someplace Drive",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74112",  
+
+    "country": "USA"  
+
+  },  
+
+  "creditCard": {  
+
+    "bin": "411111",  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "invoiceNumber": "A456789A",  
+
+    "customerId": "9876543210"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "cavv": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",  
+
+    "dsTransId": "5a56fdc9-6d47-5fee-8000-000000296743"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "84558721076",  
+
+    "transactionType": "recurring"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantAddress": {  
+
+      "company": "Jay's Widgets",  
+
+      "address1": "123 W. Brie Street",  
+
+      "address2": "#3",  
+
+      "city": "Denver",  
+
+      "state": "CO",  
+
+      "zip": "00001",  
+
+      "country": "USA"  
+
+    },  
+
+    "merchantCategoryCode": "0001",  
+
+    "merchantPhone": "9180000000",  
+
+    "merchantCity": "Denver",  
+
+    "merchantName": "Jay's Widgets, LLC"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Purchase, Capture, or Refund call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"7b21b860-643c-4e6d-bd4d-1f5011d1ec85\",\"apiTraceId\":\"ZXH2IXDbEVHj4RmYjrsBuQAAA2Y\",\"ipgTransactionId\":\"84643453089\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967393,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453089:YYYX:685976\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMwODk7MDtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453089:YYYX:685976",  
+
+    "providerTransactionCode": "84643453089",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710431273630926",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"f1b639fe-45df-46ac-9bae-5b00e0b60ebe\",\"apiTraceId\":\"ZXH21T1xpUjAluhLw-mjlAAAAfg\",\"ipgTransactionId\":\"84643453143\",\"orderId\":\"R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0\",\"transactionType\":\"SALE\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967573,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK8297:4643453143:YYYX:686028\",\"schemeTransactionId\":\"013341999277513\",\"processor\":{\"referenceNumber\":\"84643453143\",\"authorizationCode\":\"OK8297\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxNDM7MTtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK8297:4643453143:YYYX:686028",  
+
+    "providerTransactionCode": "84643453143",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341999277513",  
+
+    "merchantReferenceId": "R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0"  
+
+  },  
+
+  "referenceNumber": "23120710461254554694",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"d8d4835f-0a25-407d-b280-53033a4f26b6\",\"apiTraceId\":\"ZXH2RB8wMOMoZZ7ZsYnEiwAAA7E\",\"ipgTransactionId\":\"84643453101\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"POSTAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967428,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453101:YYY :685978\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"   \",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"}},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMDE7MjtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453101:YYY :685978",  
+
+    "providerTransactionCode": "84643453101",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "2312071043464695885",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"bd2088cf-4385-415a-8727-9622d551d69b\",\"apiTraceId\":\"ZXH2fQUu2irmML7hSxNHNwAAAxI\",\"ipgTransactionId\":\"84643453121\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"RETURN\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967485,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453121:PPX :685996\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"NO_INPUT_DATA\",\"postalCodeMatch\":\"NO_INPUT_DATA\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjE7MztVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:000000:4643453121:PPX :685996",  
+
+    "providerTransactionCode": "84643453121",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "streetMatch": "NO_INPUT_DATA",  
+
+        "postalCodeMatch": "NO_INPUT_DATA"  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710444451583740",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"6102c130-7de2-4e93-8136-6f1d64e528ce\",\"apiTraceId\":\"ZXH2onNn3m0878N3vMhKOQAAAsM\",\"ipgTransactionId\":\"84643453127\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"VOID\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967522,\"approvedAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453127:PPX :686012\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjc7NDtVU0Q7",  
+
+    "approvalCode": "Y:000000:4643453127:PPX :686012",  
+
+    "providerTransactionCode": "84643453127",  
+
+    "approved": true,  
+
+    "verificationResult": {},  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710452126963836",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"372277df-d537-4cef-9c07-cbd2e391b1ce\",\"apiTraceId\":\"ZXNRVjc5_7d6IseXKsvu_wAAA0A\",\"responseType\":\"GatewayDeclined\",\"ipgTransactionId\":\"84643535942\",\"orderId\":\"R-f31c0fe5-1df1-472e-91c7-94a39ae6645d\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"transactionTime\":1702056278,\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"VALIDATION_FAILED\",\"approvalCode\":\"N:-2303:Invalid credit card number\",\"errorMessage\":\"2303: Invalid credit card number\",\"error\":{\"code\":\"2303\",\"message\":\"Invalid credit card number\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2303",  
+
+        "message": "Invalid credit card number",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:-2303:Invalid credit card number",  
+
+    "providerTransactionCode": "84643535942",  
+
+    "approved": false,  
+
+    "merchantReferenceId": "R-f31c0fe5-1df1-472e-91c7-94a39ae6645d"  
+
+  },  
+
+  "referenceNumber": "23120811243794389878",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "409"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"28e8d3ca-2bdd-46fb-89c9-3c5cc30b77b8\",\"apiTraceId\":\"ZXOGGAUu2irmML7hSxMpqwAAAwo\",\"responseType\":\"EndpointDeclined\",\"ipgTransactionId\":\"84643544641\",\"orderId\":\"R-f755e66d-b599-4d7d-92e3-0aa4d5619cce\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"DINERSCLUB\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2024\"},\"bin\":\"601100\",\"last4\":\"0000\",\"brand\":\"DINERSCLUB\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"DINERSCLUB\"},\"country\":\"USA\",\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1702069784,\"transactionAmount\":{\"total\":2.95,\"currency\":\"USD\",\"components\":{\"subtotal\":2.95}},\"transactionStatus\":\"DECLINED\",\"approvalCode\":\"N:51:DECLINED\",\"errorMessage\":\"99951: DECLINED\",\"schemeTransactionId\":\"170206978466713\",\"processor\":{\"referenceNumber\":\"84643544641\",\"responseCode\":\"51\",\"network\":\"DISC\",\"associationResponseCode\":\"005\",\"responseMessage\":\"DECLINED\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"issuingBankName\":\";DISCOVER IIN RAN\",\"cardProductID\":\"X\",\"associationResponseCodeAdtl\":\"05\",\"cardBrand\":\"D\"}},\"error\":{\"code\":\"99951\",\"message\":\"DECLINED\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "99951",  
+
+        "message": "DECLINED",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:51:DECLINED",  
+
+    "providerTransactionCode": "84643544641",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "170206978466713",  
+
+    "merchantReferenceId": "R-f755e66d-b599-4d7d-92e3-0aa4d5619cce"  
+
+  },  
+
+  "referenceNumber": "23120815094262572755",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD",  
+
+  "shippingAddress": {  
+
+    "phone": "444-444-4444",  
+
+    "fax": "444-444-6666",  
+
+    "email": "jane@doe.dev",  
+
+    "fullName": "Jane Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "456 Someplace Drive",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74112",  
+
+    "country": "USA"  
+
+  },  
+
+  "creditCard": {  
+
+    "bin": "411111",  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "invoiceNumber": "A456789A",  
+
+    "customerId": "9876543210"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "cavv": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",  
+
+    "dsTransId": "5a56fdc9-6d47-5fee-8000-000000296743"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "84558721076",  
+
+    "transactionType": "recurring"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantAddress": {  
+
+      "company": "Jay's Widgets",  
+
+      "address1": "123 W. Brie Street",  
+
+      "address2": "#3",  
+
+      "city": "Denver",  
+
+      "state": "CO",  
+
+      "zip": "00001",  
+
+      "country": "USA"  
+
+    },  
+
+    "merchantCategoryCode": "0001",  
+
+    "merchantPhone": "9180000000",  
+
+    "merchantCity": "Denver",  
+
+    "merchantName": "Jay's Widgets, LLC"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Purchase, Capture, or Refund call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"7b21b860-643c-4e6d-bd4d-1f5011d1ec85\",\"apiTraceId\":\"ZXH2IXDbEVHj4RmYjrsBuQAAA2Y\",\"ipgTransactionId\":\"84643453089\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967393,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453089:YYYX:685976\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMwODk7MDtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453089:YYYX:685976",  
+
+    "providerTransactionCode": "84643453089",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710431273630926",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"f1b639fe-45df-46ac-9bae-5b00e0b60ebe\",\"apiTraceId\":\"ZXH21T1xpUjAluhLw-mjlAAAAfg\",\"ipgTransactionId\":\"84643453143\",\"orderId\":\"R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0\",\"transactionType\":\"SALE\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967573,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK8297:4643453143:YYYX:686028\",\"schemeTransactionId\":\"013341999277513\",\"processor\":{\"referenceNumber\":\"84643453143\",\"authorizationCode\":\"OK8297\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxNDM7MTtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK8297:4643453143:YYYX:686028",  
+
+    "providerTransactionCode": "84643453143",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341999277513",  
+
+    "merchantReferenceId": "R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0"  
+
+  },  
+
+  "referenceNumber": "23120710461254554694",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"d8d4835f-0a25-407d-b280-53033a4f26b6\",\"apiTraceId\":\"ZXH2RB8wMOMoZZ7ZsYnEiwAAA7E\",\"ipgTransactionId\":\"84643453101\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"POSTAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967428,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453101:YYY :685978\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"   \",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"}},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMDE7MjtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453101:YYY :685978",  
+
+    "providerTransactionCode": "84643453101",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "2312071043464695885",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"bd2088cf-4385-415a-8727-9622d551d69b\",\"apiTraceId\":\"ZXH2fQUu2irmML7hSxNHNwAAAxI\",\"ipgTransactionId\":\"84643453121\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"RETURN\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967485,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453121:PPX :685996\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"NO_INPUT_DATA\",\"postalCodeMatch\":\"NO_INPUT_DATA\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjE7MztVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:000000:4643453121:PPX :685996",  
+
+    "providerTransactionCode": "84643453121",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "streetMatch": "NO_INPUT_DATA",  
+
+        "postalCodeMatch": "NO_INPUT_DATA"  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710444451583740",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"6102c130-7de2-4e93-8136-6f1d64e528ce\",\"apiTraceId\":\"ZXH2onNn3m0878N3vMhKOQAAAsM\",\"ipgTransactionId\":\"84643453127\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"VOID\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967522,\"approvedAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453127:PPX :686012\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjc7NDtVU0Q7",  
+
+    "approvalCode": "Y:000000:4643453127:PPX :686012",  
+
+    "providerTransactionCode": "84643453127",  
+
+    "approved": true,  
+
+    "verificationResult": {},  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710452126963836",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"372277df-d537-4cef-9c07-cbd2e391b1ce\",\"apiTraceId\":\"ZXNRVjc5_7d6IseXKsvu_wAAA0A\",\"responseType\":\"GatewayDeclined\",\"ipgTransactionId\":\"84643535942\",\"orderId\":\"R-f31c0fe5-1df1-472e-91c7-94a39ae6645d\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"transactionTime\":1702056278,\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"VALIDATION_FAILED\",\"approvalCode\":\"N:-2303:Invalid credit card number\",\"errorMessage\":\"2303: Invalid credit card number\",\"error\":{\"code\":\"2303\",\"message\":\"Invalid credit card number\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2303",  
+
+        "message": "Invalid credit card number",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:-2303:Invalid credit card number",  
+
+    "providerTransactionCode": "84643535942",  
+
+    "approved": false,  
+
+    "merchantReferenceId": "R-f31c0fe5-1df1-472e-91c7-94a39ae6645d"  
+
+  },  
+
+  "referenceNumber": "23120811243794389878",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "409"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"28e8d3ca-2bdd-46fb-89c9-3c5cc30b77b8\",\"apiTraceId\":\"ZXOGGAUu2irmML7hSxMpqwAAAwo\",\"responseType\":\"EndpointDeclined\",\"ipgTransactionId\":\"84643544641\",\"orderId\":\"R-f755e66d-b599-4d7d-92e3-0aa4d5619cce\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"DINERSCLUB\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2024\"},\"bin\":\"601100\",\"last4\":\"0000\",\"brand\":\"DINERSCLUB\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"DINERSCLUB\"},\"country\":\"USA\",\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1702069784,\"transactionAmount\":{\"total\":2.95,\"currency\":\"USD\",\"components\":{\"subtotal\":2.95}},\"transactionStatus\":\"DECLINED\",\"approvalCode\":\"N:51:DECLINED\",\"errorMessage\":\"99951: DECLINED\",\"schemeTransactionId\":\"170206978466713\",\"processor\":{\"referenceNumber\":\"84643544641\",\"responseCode\":\"51\",\"network\":\"DISC\",\"associationResponseCode\":\"005\",\"responseMessage\":\"DECLINED\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"issuingBankName\":\";DISCOVER IIN RAN\",\"cardProductID\":\"X\",\"associationResponseCodeAdtl\":\"05\",\"cardBrand\":\"D\"}},\"error\":{\"code\":\"99951\",\"message\":\"DECLINED\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "99951",  
+
+        "message": "DECLINED",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:51:DECLINED",  
+
+    "providerTransactionCode": "84643544641",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "170206978466713",  
+
+    "merchantReferenceId": "R-f755e66d-b599-4d7d-92e3-0aa4d5619cce"  
+
+  },  
+
+  "referenceNumber": "23120815094262572755",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD",  
+
+  "shippingAddress": {  
+
+    "phone": "444-444-4444",  
+
+    "fax": "444-444-6666",  
+
+    "email": "jane@doe.dev",  
+
+    "fullName": "Jane Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "456 Someplace Drive",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74112",  
+
+    "country": "USA"  
+
+  },  
+
+  "creditCard": {  
+
+    "bin": "411111",  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "invoiceNumber": "A456789A",  
+
+    "customerId": "9876543210"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "cavv": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",  
+
+    "dsTransId": "5a56fdc9-6d47-5fee-8000-000000296743"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "84558721076",  
+
+    "transactionType": "recurring"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantAddress": {  
+
+      "company": "Jay's Widgets",  
+
+      "address1": "123 W. Brie Street",  
+
+      "address2": "#3",  
+
+      "city": "Denver",  
+
+      "state": "CO",  
+
+      "zip": "00001",  
+
+      "country": "USA"  
+
+    },  
+
+    "merchantCategoryCode": "0001",  
+
+    "merchantPhone": "9180000000",  
+
+    "merchantCity": "Denver",  
+
+    "merchantName": "Jay's Widgets, LLC"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Purchase, Capture, or Refund call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"7b21b860-643c-4e6d-bd4d-1f5011d1ec85\",\"apiTraceId\":\"ZXH2IXDbEVHj4RmYjrsBuQAAA2Y\",\"ipgTransactionId\":\"84643453089\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967393,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453089:YYYX:685976\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMwODk7MDtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453089:YYYX:685976",  
+
+    "providerTransactionCode": "84643453089",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710431273630926",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"f1b639fe-45df-46ac-9bae-5b00e0b60ebe\",\"apiTraceId\":\"ZXH21T1xpUjAluhLw-mjlAAAAfg\",\"ipgTransactionId\":\"84643453143\",\"orderId\":\"R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0\",\"transactionType\":\"SALE\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967573,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK8297:4643453143:YYYX:686028\",\"schemeTransactionId\":\"013341999277513\",\"processor\":{\"referenceNumber\":\"84643453143\",\"authorizationCode\":\"OK8297\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxNDM7MTtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK8297:4643453143:YYYX:686028",  
+
+    "providerTransactionCode": "84643453143",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341999277513",  
+
+    "merchantReferenceId": "R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0"  
+
+  },  
+
+  "referenceNumber": "23120710461254554694",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"d8d4835f-0a25-407d-b280-53033a4f26b6\",\"apiTraceId\":\"ZXH2RB8wMOMoZZ7ZsYnEiwAAA7E\",\"ipgTransactionId\":\"84643453101\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"POSTAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967428,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453101:YYY :685978\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"   \",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"}},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMDE7MjtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453101:YYY :685978",  
+
+    "providerTransactionCode": "84643453101",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "2312071043464695885",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"bd2088cf-4385-415a-8727-9622d551d69b\",\"apiTraceId\":\"ZXH2fQUu2irmML7hSxNHNwAAAxI\",\"ipgTransactionId\":\"84643453121\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"RETURN\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967485,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453121:PPX :685996\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"NO_INPUT_DATA\",\"postalCodeMatch\":\"NO_INPUT_DATA\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjE7MztVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:000000:4643453121:PPX :685996",  
+
+    "providerTransactionCode": "84643453121",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "streetMatch": "NO_INPUT_DATA",  
+
+        "postalCodeMatch": "NO_INPUT_DATA"  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710444451583740",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"6102c130-7de2-4e93-8136-6f1d64e528ce\",\"apiTraceId\":\"ZXH2onNn3m0878N3vMhKOQAAAsM\",\"ipgTransactionId\":\"84643453127\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"VOID\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967522,\"approvedAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453127:PPX :686012\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjc7NDtVU0Q7",  
+
+    "approvalCode": "Y:000000:4643453127:PPX :686012",  
+
+    "providerTransactionCode": "84643453127",  
+
+    "approved": true,  
+
+    "verificationResult": {},  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710452126963836",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"372277df-d537-4cef-9c07-cbd2e391b1ce\",\"apiTraceId\":\"ZXNRVjc5_7d6IseXKsvu_wAAA0A\",\"responseType\":\"GatewayDeclined\",\"ipgTransactionId\":\"84643535942\",\"orderId\":\"R-f31c0fe5-1df1-472e-91c7-94a39ae6645d\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"transactionTime\":1702056278,\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"VALIDATION_FAILED\",\"approvalCode\":\"N:-2303:Invalid credit card number\",\"errorMessage\":\"2303: Invalid credit card number\",\"error\":{\"code\":\"2303\",\"message\":\"Invalid credit card number\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2303",  
+
+        "message": "Invalid credit card number",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:-2303:Invalid credit card number",  
+
+    "providerTransactionCode": "84643535942",  
+
+    "approved": false,  
+
+    "merchantReferenceId": "R-f31c0fe5-1df1-472e-91c7-94a39ae6645d"  
+
+  },  
+
+  "referenceNumber": "23120811243794389878",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "409"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"28e8d3ca-2bdd-46fb-89c9-3c5cc30b77b8\",\"apiTraceId\":\"ZXOGGAUu2irmML7hSxMpqwAAAwo\",\"responseType\":\"EndpointDeclined\",\"ipgTransactionId\":\"84643544641\",\"orderId\":\"R-f755e66d-b599-4d7d-92e3-0aa4d5619cce\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"DINERSCLUB\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2024\"},\"bin\":\"601100\",\"last4\":\"0000\",\"brand\":\"DINERSCLUB\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"DINERSCLUB\"},\"country\":\"USA\",\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1702069784,\"transactionAmount\":{\"total\":2.95,\"currency\":\"USD\",\"components\":{\"subtotal\":2.95}},\"transactionStatus\":\"DECLINED\",\"approvalCode\":\"N:51:DECLINED\",\"errorMessage\":\"99951: DECLINED\",\"schemeTransactionId\":\"170206978466713\",\"processor\":{\"referenceNumber\":\"84643544641\",\"responseCode\":\"51\",\"network\":\"DISC\",\"associationResponseCode\":\"005\",\"responseMessage\":\"DECLINED\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"issuingBankName\":\";DISCOVER IIN RAN\",\"cardProductID\":\"X\",\"associationResponseCodeAdtl\":\"05\",\"cardBrand\":\"D\"}},\"error\":{\"code\":\"99951\",\"message\":\"DECLINED\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "99951",  
+
+        "message": "DECLINED",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:51:DECLINED",  
+
+    "providerTransactionCode": "84643544641",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "170206978466713",  
+
+    "merchantReferenceId": "R-f755e66d-b599-4d7d-92e3-0aa4d5619cce"  
+
+  },  
+
+  "referenceNumber": "23120815094262572755",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#overview)
   * [Supported Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#supported-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/first-data-ipg#example-responses)
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD",  
+
+  "shippingAddress": {  
+
+    "phone": "444-444-4444",  
+
+    "fax": "444-444-6666",  
+
+    "email": "jane@doe.dev",  
+
+    "fullName": "Jane Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "456 Someplace Drive",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74112",  
+
+    "country": "USA"  
+
+  },  
+
+  "creditCard": {  
+
+    "bin": "411111",  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "invoiceNumber": "A456789A",  
+
+    "customerId": "9876543210"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "cavv": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",  
+
+    "dsTransId": "5a56fdc9-6d47-5fee-8000-000000296743"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "84558721076",  
+
+    "transactionType": "recurring"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantAddress": {  
+
+      "company": "Jay's Widgets",  
+
+      "address1": "123 W. Brie Street",  
+
+      "address2": "#3",  
+
+      "city": "Denver",  
+
+      "state": "CO",  
+
+      "zip": "00001",  
+
+      "country": "USA"  
+
+    },  
+
+    "merchantCategoryCode": "0001",  
+
+    "merchantPhone": "9180000000",  
+
+    "merchantCity": "Denver",  
+
+    "merchantName": "Jay's Widgets, LLC"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Purchase, Capture, or Refund call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"7b21b860-643c-4e6d-bd4d-1f5011d1ec85\",\"apiTraceId\":\"ZXH2IXDbEVHj4RmYjrsBuQAAA2Y\",\"ipgTransactionId\":\"84643453089\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967393,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453089:YYYX:685976\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMwODk7MDtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453089:YYYX:685976",  
+
+    "providerTransactionCode": "84643453089",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710431273630926",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"f1b639fe-45df-46ac-9bae-5b00e0b60ebe\",\"apiTraceId\":\"ZXH21T1xpUjAluhLw-mjlAAAAfg\",\"ipgTransactionId\":\"84643453143\",\"orderId\":\"R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0\",\"transactionType\":\"SALE\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967573,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK8297:4643453143:YYYX:686028\",\"schemeTransactionId\":\"013341999277513\",\"processor\":{\"referenceNumber\":\"84643453143\",\"authorizationCode\":\"OK8297\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxNDM7MTtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK8297:4643453143:YYYX:686028",  
+
+    "providerTransactionCode": "84643453143",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341999277513",  
+
+    "merchantReferenceId": "R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0"  
+
+  },  
+
+  "referenceNumber": "23120710461254554694",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"d8d4835f-0a25-407d-b280-53033a4f26b6\",\"apiTraceId\":\"ZXH2RB8wMOMoZZ7ZsYnEiwAAA7E\",\"ipgTransactionId\":\"84643453101\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"POSTAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967428,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453101:YYY :685978\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"   \",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"}},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMDE7MjtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453101:YYY :685978",  
+
+    "providerTransactionCode": "84643453101",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "2312071043464695885",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"bd2088cf-4385-415a-8727-9622d551d69b\",\"apiTraceId\":\"ZXH2fQUu2irmML7hSxNHNwAAAxI\",\"ipgTransactionId\":\"84643453121\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"RETURN\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967485,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453121:PPX :685996\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"NO_INPUT_DATA\",\"postalCodeMatch\":\"NO_INPUT_DATA\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjE7MztVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:000000:4643453121:PPX :685996",  
+
+    "providerTransactionCode": "84643453121",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "streetMatch": "NO_INPUT_DATA",  
+
+        "postalCodeMatch": "NO_INPUT_DATA"  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710444451583740",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"6102c130-7de2-4e93-8136-6f1d64e528ce\",\"apiTraceId\":\"ZXH2onNn3m0878N3vMhKOQAAAsM\",\"ipgTransactionId\":\"84643453127\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"VOID\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967522,\"approvedAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453127:PPX :686012\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjc7NDtVU0Q7",  
+
+    "approvalCode": "Y:000000:4643453127:PPX :686012",  
+
+    "providerTransactionCode": "84643453127",  
+
+    "approved": true,  
+
+    "verificationResult": {},  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710452126963836",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"372277df-d537-4cef-9c07-cbd2e391b1ce\",\"apiTraceId\":\"ZXNRVjc5_7d6IseXKsvu_wAAA0A\",\"responseType\":\"GatewayDeclined\",\"ipgTransactionId\":\"84643535942\",\"orderId\":\"R-f31c0fe5-1df1-472e-91c7-94a39ae6645d\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"transactionTime\":1702056278,\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"VALIDATION_FAILED\",\"approvalCode\":\"N:-2303:Invalid credit card number\",\"errorMessage\":\"2303: Invalid credit card number\",\"error\":{\"code\":\"2303\",\"message\":\"Invalid credit card number\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2303",  
+
+        "message": "Invalid credit card number",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:-2303:Invalid credit card number",  
+
+    "providerTransactionCode": "84643535942",  
+
+    "approved": false,  
+
+    "merchantReferenceId": "R-f31c0fe5-1df1-472e-91c7-94a39ae6645d"  
+
+  },  
+
+  "referenceNumber": "23120811243794389878",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "409"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"28e8d3ca-2bdd-46fb-89c9-3c5cc30b77b8\",\"apiTraceId\":\"ZXOGGAUu2irmML7hSxMpqwAAAwo\",\"responseType\":\"EndpointDeclined\",\"ipgTransactionId\":\"84643544641\",\"orderId\":\"R-f755e66d-b599-4d7d-92e3-0aa4d5619cce\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"DINERSCLUB\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2024\"},\"bin\":\"601100\",\"last4\":\"0000\",\"brand\":\"DINERSCLUB\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"DINERSCLUB\"},\"country\":\"USA\",\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1702069784,\"transactionAmount\":{\"total\":2.95,\"currency\":\"USD\",\"components\":{\"subtotal\":2.95}},\"transactionStatus\":\"DECLINED\",\"approvalCode\":\"N:51:DECLINED\",\"errorMessage\":\"99951: DECLINED\",\"schemeTransactionId\":\"170206978466713\",\"processor\":{\"referenceNumber\":\"84643544641\",\"responseCode\":\"51\",\"network\":\"DISC\",\"associationResponseCode\":\"005\",\"responseMessage\":\"DECLINED\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"issuingBankName\":\";DISCOVER IIN RAN\",\"cardProductID\":\"X\",\"associationResponseCodeAdtl\":\"05\",\"cardBrand\":\"D\"}},\"error\":{\"code\":\"99951\",\"message\":\"DECLINED\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "99951",  
+
+        "message": "DECLINED",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:51:DECLINED",  
+
+    "providerTransactionCode": "84643544641",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "170206978466713",  
+
+    "merchantReferenceId": "R-f755e66d-b599-4d7d-92e3-0aa4d5619cce"  
+
+  },  
+
+  "referenceNumber": "23120815094262572755",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD",  
+
+  "shippingAddress": {  
+
+    "phone": "444-444-4444",  
+
+    "fax": "444-444-6666",  
+
+    "email": "jane@doe.dev",  
+
+    "fullName": "Jane Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "456 Someplace Drive",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74112",  
+
+    "country": "USA"  
+
+  },  
+
+  "creditCard": {  
+
+    "bin": "411111",  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "invoiceNumber": "A456789A",  
+
+    "customerId": "9876543210"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "cavv": "AAAAAAAAAAAAAAAAAAAAAAAAAAA=",  
+
+    "dsTransId": "5a56fdc9-6d47-5fee-8000-000000296743"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "84558721076",  
+
+    "transactionType": "recurring"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantAddress": {  
+
+      "company": "Jay's Widgets",  
+
+      "address1": "123 W. Brie Street",  
+
+      "address2": "#3",  
+
+      "city": "Denver",  
+
+      "state": "CO",  
+
+      "zip": "00001",  
+
+      "country": "USA"  
+
+    },  
+
+    "merchantCategoryCode": "0001",  
+
+    "merchantPhone": "9180000000",  
+
+    "merchantCity": "Denver",  
+
+    "merchantName": "Jay's Widgets, LLC"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "FirstDataIPG",  
+
+  "testMode": true,  
+
+  "publicKey": "<Your IPG Public Key>",  
+
+  "privateKey": "<Your IPG Private Key>",  
+
+  "storeId": "<Your IPG Store Id, if applicable>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Purchase, Capture, or Refund call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"7b21b860-643c-4e6d-bd4d-1f5011d1ec85\",\"apiTraceId\":\"ZXH2IXDbEVHj4RmYjrsBuQAAA2Y\",\"ipgTransactionId\":\"84643453089\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967393,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453089:YYYX:685976\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMwODk7MDtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453089:YYYX:685976",  
+
+    "providerTransactionCode": "84643453089",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710431273630926",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"f1b639fe-45df-46ac-9bae-5b00e0b60ebe\",\"apiTraceId\":\"ZXH21T1xpUjAluhLw-mjlAAAAfg\",\"ipgTransactionId\":\"84643453143\",\"orderId\":\"R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0\",\"transactionType\":\"SALE\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967573,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK8297:4643453143:YYYX:686028\",\"schemeTransactionId\":\"013341999277513\",\"processor\":{\"referenceNumber\":\"84643453143\",\"authorizationCode\":\"OK8297\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"000\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"associationResponseCodeAdtl\":\"00\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxNDM7MTtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK8297:4643453143:YYYX:686028",  
+
+    "providerTransactionCode": "84643453143",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341999277513",  
+
+    "merchantReferenceId": "R-5cfb8189-bfa6-40a5-8753-d4c0c270cfa0"  
+
+  },  
+
+  "referenceNumber": "23120710461254554694",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"d8d4835f-0a25-407d-b280-53033a4f26b6\",\"apiTraceId\":\"ZXH2RB8wMOMoZZ7ZsYnEiwAAA7E\",\"ipgTransactionId\":\"84643453101\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"POSTAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967428,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:OK7807:4643453101:YYY :685978\",\"schemeTransactionId\":\"013341105228347\",\"processor\":{\"referenceNumber\":\"84643453089\",\"authorizationCode\":\"OK7807\",\"responseCode\":\"00\",\"network\":\"VISA\",\"associationResponseCode\":\"   \",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"}},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"detailedProductID\":\"H\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMDE7MjtVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:OK7807:4643453101:YYY :685978",  
+
+    "providerTransactionCode": "84643453101",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "013341105228347",  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "2312071043464695885",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"bd2088cf-4385-415a-8727-9622d551d69b\",\"apiTraceId\":\"ZXH2fQUu2irmML7hSxNHNwAAAxI\",\"ipgTransactionId\":\"84643453121\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"RETURN\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967485,\"approvedAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453121:PPX :685996\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\",\"avsResponse\":{\"streetMatch\":\"NO_INPUT_DATA\",\"postalCodeMatch\":\"NO_INPUT_DATA\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjE7MztVU0Q7MTAwMA==",  
+
+    "approvalCode": "Y:000000:4643453121:PPX :685996",  
+
+    "providerTransactionCode": "84643453121",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "streetMatch": "NO_INPUT_DATA",  
+
+        "postalCodeMatch": "NO_INPUT_DATA"  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710444451583740",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"6102c130-7de2-4e93-8136-6f1d64e528ce\",\"apiTraceId\":\"ZXH2onNn3m0878N3vMhKOQAAAsM\",\"ipgTransactionId\":\"84643453127\",\"orderId\":\"R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a\",\"transactionType\":\"VOID\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1701967522,\"approvedAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionAmount\":{\"total\":10,\"currency\":\"USD\",\"components\":{\"subtotal\":10}},\"transactionStatus\":\"APPROVED\",\"approvalCode\":\"Y:000000:4643453127:PPX :686012\",\"processor\":{\"referenceNumber\":\"84643453121\",\"responseCode\":\"00\",\"responseMessage\":\"APPROVAL\"},\"additionalDetails\":{\"additionalResponseData\":{\"cardProductID\":\"?\",\"cardBrand\":\"V\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODQ2NDM0NTMxMjc7NDtVU0Q7",  
+
+    "approvalCode": "Y:000000:4643453127:PPX :686012",  
+
+    "providerTransactionCode": "84643453127",  
+
+    "approved": true,  
+
+    "verificationResult": {},  
+
+    "merchantReferenceId": "R-337f7da4-e0eb-4e8b-95ae-f008a6ea720a"  
+
+  },  
+
+  "referenceNumber": "23120710452126963836",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"372277df-d537-4cef-9c07-cbd2e391b1ce\",\"apiTraceId\":\"ZXNRVjc5_7d6IseXKsvu_wAAA0A\",\"responseType\":\"GatewayDeclined\",\"ipgTransactionId\":\"84643535942\",\"orderId\":\"R-f31c0fe5-1df1-472e-91c7-94a39ae6645d\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"VISA\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2000\"},\"bin\":\"411111\",\"last4\":\"1111\",\"brand\":\"VISA\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"VISA\"},\"transactionTime\":1702056278,\"transactionAmount\":{\"total\":10.00,\"currency\":\"USD\",\"components\":{\"subtotal\":10.00}},\"transactionStatus\":\"VALIDATION_FAILED\",\"approvalCode\":\"N:-2303:Invalid credit card number\",\"errorMessage\":\"2303: Invalid credit card number\",\"error\":{\"code\":\"2303\",\"message\":\"Invalid credit card number\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2303",  
+
+        "message": "Invalid credit card number",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:-2303:Invalid credit card number",  
+
+    "providerTransactionCode": "84643535942",  
+
+    "approved": false,  
+
+    "merchantReferenceId": "R-f31c0fe5-1df1-472e-91c7-94a39ae6645d"  
+
+  },  
+
+  "referenceNumber": "23120811243794389878",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "409"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"clientRequestId\":\"28e8d3ca-2bdd-46fb-89c9-3c5cc30b77b8\",\"apiTraceId\":\"ZXOGGAUu2irmML7hSxMpqwAAAwo\",\"responseType\":\"EndpointDeclined\",\"ipgTransactionId\":\"84643544641\",\"orderId\":\"R-f755e66d-b599-4d7d-92e3-0aa4d5619cce\",\"transactionType\":\"PREAUTH\",\"paymentToken\":{\"reusable\":true,\"declineDuplicates\":false,\"brand\":\"DINERSCLUB\",\"type\":\"PAYMENT_CARD\"},\"transactionOrigin\":\"ECOM\",\"paymentMethodDetails\":{\"paymentCard\":{\"expiryDate\":{\"month\":\"12\",\"year\":\"2024\"},\"bin\":\"601100\",\"last4\":\"0000\",\"brand\":\"DINERSCLUB\"},\"paymentMethodType\":\"PAYMENT_CARD\",\"paymentMethodBrand\":\"DINERSCLUB\"},\"country\":\"USA\",\"terminalId\":\"1567065\",\"merchantId\":\"323254102995\",\"transactionTime\":1702069784,\"transactionAmount\":{\"total\":2.95,\"currency\":\"USD\",\"components\":{\"subtotal\":2.95}},\"transactionStatus\":\"DECLINED\",\"approvalCode\":\"N:51:DECLINED\",\"errorMessage\":\"99951: DECLINED\",\"schemeTransactionId\":\"170206978466713\",\"processor\":{\"referenceNumber\":\"84643544641\",\"responseCode\":\"51\",\"network\":\"DISC\",\"associationResponseCode\":\"005\",\"responseMessage\":\"DECLINED\",\"avsResponse\":{\"streetMatch\":\"Y\",\"postalCodeMatch\":\"Y\",\"associationAvsResponse\":\"Y\"},\"securityCodeResponse\":\"NOT_CHECKED\"},\"additionalDetails\":{\"additionalResponseData\":{\"issuingBankName\":\";DISCOVER IIN RAN\",\"cardProductID\":\"X\",\"associationResponseCodeAdtl\":\"05\",\"cardBrand\":\"D\"}},\"error\":{\"code\":\"99951\",\"message\":\"DECLINED\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "99951",  
+
+        "message": "DECLINED",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "N:51:DECLINED",  
+
+    "providerTransactionCode": "84643544641",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "Y",  
+
+      "cvvRaw": "NOT_CHECKED",  
+
+      "providerParsed": {  
+
+        "streetMatch": "Y",  
+
+        "postalCodeMatch": "Y"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "170206978466713",  
+
+    "merchantReferenceId": "R-f755e66d-b599-4d7d-92e3-0aa4d5619cce"  
+
+  },  
+
+  "referenceNumber": "23120815094262572755",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```

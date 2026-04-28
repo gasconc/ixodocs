@@ -12,9 +12,9 @@ tags:
 - ixopay
 - psp
 - settlement
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -68,7 +68,7 @@ The settlement details include further information about the provider settlement
 
 ![Settlement Details](https://documentation.ixopay.com/manual/assets/ideal-img/settlement-details-annotated.169f16d.1280.png)Settlement Details![Transactions in Batch](https://documentation.ixopay.com/manual/assets/ideal-img/transactions-in-batch.175eaa6.1280.png)Transactions in Batch![Line Items](https://documentation.ixopay.com/manual/assets/ideal-img/line-items.7a8a54c.1280.png)Line Items![Documents](https://documentation.ixopay.com/manual/assets/ideal-img/documents.3ff7d28.1280.png)Documents![Logs](https://documentation.ixopay.com/manual/assets/ideal-img/logs.99f7e0b.1280.png)Logs
 File retention
-Files are retained for 12 months and permanently deleted thereafter. 
+Files are retained for 12 months and permanently deleted thereafter.
 Depending on the provider settlement status, you may need to take action to complete the settlement processing.
 info
 You can configure [Post Processing Jobs](https://documentation.ixopay.com/manual/docs/post-processing/jobs) triggered by provider settlements (see also [Testing Provider Settlements](https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements#test-provider-settlements)). Once a settlement is finished, it automatically collects all settlement data, provider fees and rolling reserve. This data can be exported, e.g. to Navision.
@@ -117,7 +117,7 @@ To upload a settlement file:
 The file format and size depends on the provider. The provider settlement file is processed in the same way as settlement files received via the provider settlement data fetcher.
 ![Upload Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/upload-provider-settlement.10b57a4.1104.png)Upload Provider Settlement
 File retention
-The file format and size depends on the provider. Files are retained for 12 months and permanently deleted thereafter. 
+The file format and size depends on the provider. Files are retained for 12 months and permanently deleted thereafter.
 ## Test Provider Settlements[​](https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements#test-provider-settlements "Direct link to Test Provider Settlements")
 In order to to test Post Processing Jobs triggered by Provider Settlements you create a test provider settlement using a SimulatorPci adapter.
 To create a Test Provider Settlement:

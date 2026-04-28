@@ -12,9 +12,9 @@ tags:
 - tokenization
 - ixopay
 - authorization
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/tokenization/nt
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -88,6 +88,7 @@ Network Tokens Lifecycle Events received from the card schemes, such as:
   * Underlying PAN changed
 
 will trigger a postback notification will be sent. For further details have a look in the
-[API Documentation — Network token notification](https://documentation.ixopay.com/docs/reference/integration/callbacks/notification-types#network-token-notification) (see Network Token Status)
+[API Documentation — Network token notification](https://documentation.ixopay.com/docs/reference/integration/callbacks/notification-types#network-token-notification)
+(see Network Token Status)
 By default the PAN data and the network token are stored in the IXOPAY PCI Vault. You have the option to either deregister only the network token (**deregister-nt**) or only the PAN data (**deregister-pan**) or deregister both (**deregister = deregister-pan** + **deregister-nt)** with one API call (see Transaction Details - Register Transaction). Keep in mind that deregistering both, PAN data and network token will automatically create a **deregister-pan** and **deregister-nt** transaction (see [API Documentation - Deregister TokenType](https://documentation.ixopay.com/api/transaction/deregister)).
 ![Network Token Status](https://documentation.ixopay.com/manual/assets/ideal-img/network-token-status.367cb30.1280.png)Network Token Status![Transaction Details - Register Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-register-transaction.2e5c903.1280.png)Transaction Details - Register Transaction

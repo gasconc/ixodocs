@@ -7,9 +7,9 @@ tags:
 - editing-sub-tenant-https-documentation-ixopay-com-manual-docs-system-setup-tenants-editing-sub-tenant-direct-link-editing-sub-tenant
 - ixopay
 - merchant
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/system-setup/tenants
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -11,10 +11,10 @@ tags:
 - xml
 - ixopay
 - recurring
-- capture
-source_url: ''
+- chargeback
+source_url: https://documentation.ixopay.com/manual/adapters/six
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -77,24 +77,31 @@ The payment reference is taken from the parameter paymentNo.
 We are mapping the following fields from the Provider settlement reports (Provider → [IXOPAY platform](https://www.ixopay.com)):  
 | Provider  | IXOPAY platform  | default (if not set by Provider)  |  
 | --- | --- | --- |  
-| `arn`  | Settlement arn  | None  |  
-| `aTrxOC`  | Transaction settlement currency  | None - required  |  
+| `arn`  | Settlement ARN  | None  |  
+| `aTrxOC/@c`  | Settlement currency  | None  |  
 | `aTrxNetSC`  | Net settlement amount  | None  |  
-|  `aTrxOC` ‘c’  | Settlement currency  | None  |  
-| `xRate`  | Exchange Rate  | None  |  
-| `pan`  | Last 4 digits - Return data  | None  |  
-| `aComEffExclVatSC`  | Transaction fee amount  | None  |  
-|  `aComEffExclVatSC` ‘c’  | Transaction fee currency  | None  |  
-|  `condCode` = `1`  | Fee type Markup  | None  |  
-|  `condCode` = `15`  | Fee type interchange  | None  |  
-|  `condCode` = `35`  | Fee type Scheme  | None  |  
-|  `condCode` = `38`  | Fee type Scheme  | None  |  
-|  `condCode` = `103`  | Fee type interchange  | None  |  
-|  `condCode` = `200`, `221`, `600`  | Fee type markup  | None  |  
-| Payment Date  | Settlement date  | Now  |  
-| `paymentNo`  | Settlement number  | None  |  
-| `extSettlingRefNo`  | Settlement number  | Now as Ymd  |  
+| `xRate`  | Settlement exchange rate  | None  |  
+| `pan`  | Last 4 digits - Settlement return data  | None  |  
+| `aComEffExclVatSC`  | Fee amount  | None  |  
+| `aComEffExclVatSC/@c`  | Fee currency  | None  |  
+|  `condCode` = `1`, `200`, `221`, `600`, `701`  | Fee type markup  | None  |  
+|  `condCode` = `15`, `103`  | Fee type interchange  | None  |  
+|  `condCode` = `35`, `38`  | Fee type scheme  | None  |  
+|  `condCode` = `55`  | Fee type dispute  | None  |  
+| `Payment Date`  | Settlement date  | Now  |  
+|  `paymentNo` (see Settlement fields)  | Settlement number  | None  |  
+|  `extSettlingRefNo` (see Settlement fields)  | Settlement number  | Now as Ymd  |  
 | `addlMercData`  | Settlement transaction id  | None  |  
+##### Transaction Types[​](https://documentation.ixopay.com/manual/adapters/six#transaction-types "Direct link to Transaction Types")  
+| `trxIndicator`  | Provider  | IXOPAY platform  | default (if not set by Provider)  |  
+| --- | --- | --- | --- |  
+| `100`  |  `trxTypeId` = `1`, `3`  | Debit  | None  |  
+| `100`  |  `trxTypeId` = `2`  | Preauthorize  | None  |  
+| `100`  |  `trxTypeId` = `9`, `37`  | Refund  | None  |  
+| `100`  |  `trxTypeId` = `10`, `21`, `4`  | Payout  | None  |  
+| `100`  |  `trxTypeId` = `22`  | Capture  | None  |  
+| `140`  | /  | Chargeback  | None  |  
+| `141`  | /  | Cb-reversal  | None  |  
 ## PAYONE Creditcard[​](https://documentation.ixopay.com/manual/adapters/six#payone-creditcard "Direct link to PAYONE Creditcard")
 Configure the following parameters for the Connector (see Connector Detail Overview - PAYONE Creditcard - Vault Configuration):
   1. Select the mandatory **Target Environment:** Dev, Quality, Production

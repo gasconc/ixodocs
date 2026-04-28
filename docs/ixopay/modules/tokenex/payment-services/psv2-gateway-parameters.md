@@ -13,9 +13,9 @@ tags:
 - softdescriptors-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-psv2-gateway-parameters-softdescriptors-direct-link-softdescriptors
 - storedcredentials-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-psv2-gateway-parameters-storedcredentials-direct-link-storedcredentials
 - threedsecure-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-psv2-gateway-parameters-threedsecure-direct-link-threedsecure
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -333,27 +333,36 @@ Legacy GatewayErrors Format
 All gateways support the structured Error Codes and Messages format where `gatewayErrors` is an array of objects with `Code`, `Message`, and `Source` fields. However, some customer integrations are still targeted for the older list-of-strings format where `gatewayErrors` is an array of plain strings rather than objects.
 The example below shows the legacy list-of-strings format for a gateway error:
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{varies by gateway}",  
-    "gatewayErrors": [  
-      "Declined - Updated Cardholder Available",  
-      "2022 - Declined - Updated Cardholder Available"  
-    ],  
+
+    "gatewayErrors": ["Declined - Updated Cardholder Available", "2022 - Declined - Updated Cardholder Available"],  
+
     "tokenExTransactionCode": "",  
+
     "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "22112316405851364004",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
-```
-
-note
+```note
 The [Unsupported Operation](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#response-examples) error documented above also uses the list-of-strings format (a plain string in the `gatewayErrors` array) regardless of migration status.
 The table below shows when each gateway's structured Error Codes and Messages format became available. The list-of-strings format will be maintained for active customers until a sunset date is identified, after which the format will be switched.  
 | Gateway  | Sandbox Migration Date  | Production Migration Date  |  
@@ -379,80 +388,643 @@ Any request that includes either the `creditCard.Number` or `check. AccountNumbe
   * Detokenize and Passthrough
   * Gateway Error
   * Unsupported Operation
-
 ```
+
 {  
+
   "tokens": {  
+
     "PAN": "TokenEx Token Here"  
+
   },  
+
   "gatewayResponse": {  
+
     "rawResponse": "{varies by gateway}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
     "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23111113453145218703",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{varies by gateway}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
     "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23111113453145218703",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{varies by gateway}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "2022",  
+
         "message": "Declined - Updated Cardholder Available",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "22112316405851364004",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
-    "gatewayErrors": [  
-      "Requested operation not supported by gateway"  
-    ],  
+
+    "gatewayErrors": ["Requested operation not supported by gateway"],  
+
     "tokenExTransactionCode": "",  
+
     "providerTransactionCode": "",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "2512162034388070110",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
-  * [Gateway Implementations](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#gateway-implementations)
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": ["Declined - Updated Cardholder Available", "2022 - Declined - Updated Cardholder Available"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "tokens": {  
+
+    "PAN": "TokenEx Token Here"  
+
+  },  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2022",  
+
+        "message": "Declined - Updated Cardholder Available",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "gatewayErrors": ["Requested operation not supported by gateway"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2512162034388070110",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": ["Declined - Updated Cardholder Available", "2022 - Declined - Updated Cardholder Available"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "tokens": {  
+
+    "PAN": "TokenEx Token Here"  
+
+  },  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2022",  
+
+        "message": "Declined - Updated Cardholder Available",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "gatewayErrors": ["Requested operation not supported by gateway"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2512162034388070110",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": ["Declined - Updated Cardholder Available", "2022 - Declined - Updated Cardholder Available"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "tokens": {  
+
+    "PAN": "TokenEx Token Here"  
+
+  },  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2022",  
+
+        "message": "Declined - Updated Cardholder Available",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "gatewayErrors": ["Requested operation not supported by gateway"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2512162034388070110",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```  * [Gateway Implementations](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#gateway-implementations)
   * [Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#request-parameters)
     * [BillingAddress](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#billingaddress)
     * [Check](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#check)
@@ -468,3 +1040,337 @@ Any request that includes either the `creditCard.Number` or `check. AccountNumbe
     * [VerificationResult](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#verificationresult)
     * [GatewayErrors](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#gatewayerrors)
     * [Response Examples](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters#response-examples)
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": ["Declined - Updated Cardholder Available", "2022 - Declined - Updated Cardholder Available"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "tokens": {  
+
+    "PAN": "TokenEx Token Here"  
+
+  },  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2022",  
+
+        "message": "Declined - Updated Cardholder Available",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "gatewayErrors": ["Requested operation not supported by gateway"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2512162034388070110",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": ["Declined - Updated Cardholder Available", "2022 - Declined - Updated Cardholder Available"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "tokens": {  
+
+    "PAN": "TokenEx Token Here"  
+
+  },  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UUxNTkpTQzVDVEdMTks4Mg==",  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23111113453145218703",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{varies by gateway}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2022",  
+
+        "message": "Declined - Updated Cardholder Available",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "QLMNJSC5CTGLNK82",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "22112316405851364004",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "gatewayErrors": ["Requested operation not supported by gateway"],  
+
+    "tokenExTransactionCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2512162034388070110",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```

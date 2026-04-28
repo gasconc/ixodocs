@@ -16,7 +16,7 @@ tags:
 - getting-notifiedhttps-docs-congrify-com-observability-vamp-getting-notified
 source_url: ''
 portal: congrify
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

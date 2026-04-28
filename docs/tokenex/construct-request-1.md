@@ -12,9 +12,9 @@ tags:
 - json
 - xml
 - 3d-secure
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/construct-request-1
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -84,11 +84,10 @@ info
 Modifications to the body are not always required, such as with proxy tokenization, or when using the tx-request-regex instead of token notation for transparent detokenization.
 **Token Notation** – The token is located between three sets of curly brackets
 ```
+
 {{{TOKEN}}}  
 
-```
-
-Tokens can be located in the body of a request using token notation. Functions can also be invoked within the request body using function notation. A combination of up to ten tokens or functions may be located within a request body.
+```Tokens can be located in the body of a request using token notation. Functions can also be invoked within the request body using function notation. A combination of up to ten tokens or functions may be located within a request body.
 ## Payload Encodings / Formats[​](https://documentation.ixopay.com/modules/docs/tokenex/construct-request-1#payload-encodings--formats "Direct link to Payload Encodings / Formats")
 The TGAPI will support any data format (JSON, XML, form-URL-encoded, etc.) if the token can be located in the request body (by token notation, a proxy profile regular expression, or via the tx-request-regex header) and read. If the token is not readable (i.e. the tokens characters have changed due to encoding/compression) or the regular expression has no match, the TGAPI will not be able to locate the token. In this case, the TGAPI detokenize endpoint and the TGAPI payload hashing endpoint will return a 3000 error, “token does not exist”. TGAPI tokenize and proxy endpoints will not return an error but will report that there are no matches for the regular expression in the tx-message response header.
 By default, a charset of UTF-8 is appended to the outgoing request when TGAPI is forwarding it on to the third party. To bypass this default encoding, please set the _tx-ignore-default-encoding_ header to **true**.
@@ -100,12 +99,16 @@ MultiRegex allows more than one regex pattern to be sent for locating data eleme
 To build a MultiRegex, create a JSON object where the keys are the regex patterns to match against and the values are the token schemes to use when tokenizing those matches.
 MultiRegex object example
 ```
+
 {  
+
   "(?<=data\": \")([0-9]{13})(?=\")": "nTOKEN",  
+
   "(?<=number\": \")([0-9]{14,16})(?=\")": "ANTOKEN"  
+
 }  
 
-MultiRegex Validation
+```MultiRegex Validation
 For a MultiRegex to be accepted, the JSON object must only contain root-level keys/values as described in this section. If there is a parsing error, the value is assumed to be a single regex pattern and the `tx-token-scheme` header controls how matches are tokenized, if any.
 Once you have built the object, stringify it, then take the MultiRegex string value and set it to the `tx-response-regex` header of your request. The `tx-message` response header will indicate how many matches in the response were found and tokenized. The MultiRegex limit is the same as the per-request Tokenize limit.
 Vaultless token schemes
@@ -121,3 +124,107 @@ The tx-proxy-key value may also be sent via the http basic authorization header.
 To leverage, simply pass tx-proxy-key as the username, and the proxy key as the password.  
 For example: **Basic tx-proxy-key :Your-Proxy-Key-Here**  
 The username:password segment is expected to be base64 encoded before being sent in the request.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+```
+
+{{{TOKEN}}}  
+
+```
+```
+
+{  
+
+  "(?<=data\": \")([0-9]{13})(?=\")": "nTOKEN",  
+
+  "(?<=number\": \")([0-9]{14,16})(?=\")": "ANTOKEN"  
+
+}  
+
+```
+```
+
+{{{TOKEN}}}  
+
+```
+```
+
+{  
+
+  "(?<=data\": \")([0-9]{13})(?=\")": "nTOKEN",  
+
+  "(?<=number\": \")([0-9]{14,16})(?=\")": "ANTOKEN"  
+
+}  
+
+```MultiRegex Validation
+For a MultiRegex to be accepted, the JSON object must only contain root-level keys/values as described in this section. If there is a parsing error, the value is assumed to be a single regex pattern and the `tx-token-scheme` header controls how matches are tokenized, if any.
+Once you have built the object, stringify it, then take the MultiRegex string value and set it to the `tx-response-regex` header of your request. The `tx-message` response header will indicate how many matches in the response were found and tokenized. The MultiRegex limit is the same as the per-request Tokenize limit.
+Vaultless token schemes
+For clients who use vaultless token schemes, matched data will be tokenized using your chose vaultless token scheme. If any MultiRegex pattern specifies a different token scheme, it will be ignored.
+```
+
+{{{TOKEN}}}  
+
+```
+```
+
+{  
+
+  "(?<=data\": \")([0-9]{13})(?=\")": "nTOKEN",  
+
+  "(?<=number\": \")([0-9]{14,16})(?=\")": "ANTOKEN"  
+
+}  
+
+```MultiRegex Validation
+For a MultiRegex to be accepted, the JSON object must only contain root-level keys/values as described in this section. If there is a parsing error, the value is assumed to be a single regex pattern and the `tx-token-scheme` header controls how matches are tokenized, if any.
+Once you have built the object, stringify it, then take the MultiRegex string value and set it to the `tx-response-regex` header of your request. The `tx-message` response header will indicate how many matches in the response were found and tokenized. The MultiRegex limit is the same as the per-request Tokenize limit.
+Vaultless token schemes
+For clients who use vaultless token schemes, matched data will be tokenized using your chose vaultless token scheme. If any MultiRegex pattern specifies a different token scheme, it will be ignored.
+```
+
+{{{TOKEN}}}  
+
+```
+```
+
+{  
+
+  "(?<=data\": \")([0-9]{13})(?=\")": "nTOKEN",  
+
+  "(?<=number\": \")([0-9]{14,16})(?=\")": "ANTOKEN"  
+
+}  
+
+```
+```
+
+{{{TOKEN}}}  
+
+```
+```
+
+{  
+
+  "(?<=data\": \")([0-9]{13})(?=\")": "nTOKEN",  
+
+  "(?<=number\": \")([0-9]{14,16})(?=\")": "ANTOKEN"  
+
+}  
+
+```MultiRegex Validation
+For a MultiRegex to be accepted, the JSON object must only contain root-level keys/values as described in this section. If there is a parsing error, the value is assumed to be a single regex pattern and the `tx-token-scheme` header controls how matches are tokenized, if any.
+Once you have built the object, stringify it, then take the MultiRegex string value and set it to the `tx-response-regex` header of your request. The `tx-message` response header will indicate how many matches in the response were found and tokenized. The MultiRegex limit is the same as the per-request Tokenize limit.
+Vaultless token schemes
+For clients who use vaultless token schemes, matched data will be tokenized using your chose vaultless token scheme. If any MultiRegex pattern specifies a different token scheme, it will be ignored.

@@ -11,9 +11,9 @@ tags:
 - ixopay
 - authorization
 - iframe
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/forter
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -41,26 +41,242 @@ The following are the minimum required iFrame parameters.
 Sample response for a card which supports 3DS
 JSON
 ```
+
 {  
+
   "correlationId": "2021-02-01T170217623-3a818c00-v3",  
+
   "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021",  
+
   "dsIdentifier": "MC00000001",  
+
   "methodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
   "version": "2.1.0",  
+
   "additionalThreeDsData": {  
+
     "dsIdentifier": "MC00000001",  
+
     "threeDSServerEndVersion": "V2",  
+
     "threeDSServerStartVersion": "V1",  
+
     "acsStartProtocolVersion": "2.1.0",  
+
     "threeDSMethodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
     "dsEndProtocolVersion": "2.2.0",  
+
     "acsEndProtocolVersion": "2.2.0",  
+
     "dsStartProtocolVersion": "2.1.0",  
+
     "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021"  
+
   }  
+
+}  
+
+```warning
+The response received will vary slightly by card type and card issuer.
+```
+
+{  
+
+  "correlationId": "2021-02-01T170217623-3a818c00-v3",  
+
+  "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021",  
+
+  "dsIdentifier": "MC00000001",  
+
+  "methodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+  "version": "2.1.0",  
+
+  "additionalThreeDsData": {  
+
+    "dsIdentifier": "MC00000001",  
+
+    "threeDSServerEndVersion": "V2",  
+
+    "threeDSServerStartVersion": "V1",  
+
+    "acsStartProtocolVersion": "2.1.0",  
+
+    "threeDSMethodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+    "dsEndProtocolVersion": "2.2.0",  
+
+    "acsEndProtocolVersion": "2.2.0",  
+
+    "dsStartProtocolVersion": "2.1.0",  
+
+    "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021"  
+
+  }  
+
 }  
 
 ```
+```
 
-warning
+{  
+
+  "correlationId": "2021-02-01T170217623-3a818c00-v3",  
+
+  "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021",  
+
+  "dsIdentifier": "MC00000001",  
+
+  "methodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+  "version": "2.1.0",  
+
+  "additionalThreeDsData": {  
+
+    "dsIdentifier": "MC00000001",  
+
+    "threeDSServerEndVersion": "V2",  
+
+    "threeDSServerStartVersion": "V1",  
+
+    "acsStartProtocolVersion": "2.1.0",  
+
+    "threeDSMethodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+    "dsEndProtocolVersion": "2.2.0",  
+
+    "acsEndProtocolVersion": "2.2.0",  
+
+    "dsStartProtocolVersion": "2.1.0",  
+
+    "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021"  
+
+  }  
+
+}  
+
+```warning
+The response received will vary slightly by card type and card issuer.
+  * TokenEx iFrame
+  * [Third Party Integrations](https://documentation.ixopay.com/modules/docs/tokenex/third-party-integrations)
+  * Forter 3DS
+```
+
+{  
+
+  "correlationId": "2021-02-01T170217623-3a818c00-v3",  
+
+  "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021",  
+
+  "dsIdentifier": "MC00000001",  
+
+  "methodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+  "version": "2.1.0",  
+
+  "additionalThreeDsData": {  
+
+    "dsIdentifier": "MC00000001",  
+
+    "threeDSServerEndVersion": "V2",  
+
+    "threeDSServerStartVersion": "V1",  
+
+    "acsStartProtocolVersion": "2.1.0",  
+
+    "threeDSMethodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+    "dsEndProtocolVersion": "2.2.0",  
+
+    "acsEndProtocolVersion": "2.2.0",  
+
+    "dsStartProtocolVersion": "2.1.0",  
+
+    "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "correlationId": "2021-02-01T170217623-3a818c00-v3",  
+
+  "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021",  
+
+  "dsIdentifier": "MC00000001",  
+
+  "methodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+  "version": "2.1.0",  
+
+  "additionalThreeDsData": {  
+
+    "dsIdentifier": "MC00000001",  
+
+    "threeDSServerEndVersion": "V2",  
+
+    "threeDSServerStartVersion": "V1",  
+
+    "acsStartProtocolVersion": "2.1.0",  
+
+    "threeDSMethodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+    "dsEndProtocolVersion": "2.2.0",  
+
+    "acsEndProtocolVersion": "2.2.0",  
+
+    "dsStartProtocolVersion": "2.1.0",  
+
+    "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "correlationId": "2021-02-01T170217623-3a818c00-v3",  
+
+  "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021",  
+
+  "dsIdentifier": "MC00000001",  
+
+  "methodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+  "version": "2.1.0",  
+
+  "additionalThreeDsData": {  
+
+    "dsIdentifier": "MC00000001",  
+
+    "threeDSServerEndVersion": "V2",  
+
+    "threeDSServerStartVersion": "V1",  
+
+    "acsStartProtocolVersion": "2.1.0",  
+
+    "threeDSMethodURL": "https://acs-us-east-1.ndsprod.nds-sandbox-issuer.com/api/v1/acs/3ds_method",  
+
+    "dsEndProtocolVersion": "2.2.0",  
+
+    "acsEndProtocolVersion": "2.2.0",  
+
+    "dsStartProtocolVersion": "2.1.0",  
+
+    "threeDSServerTransID": "d00c8f19-d41b-4f41-8457-eea14e293021"  
+
+  }  
+
+}  
+
+```warning
 The response received will vary slightly by card type and card issuer.

@@ -12,9 +12,9 @@ tags:
 - hard-decline-messages-non-recoverable-failures-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-hard-decline-messages-non-recoverable-failures-direct-link-hard-decline-messages-non-recoverable-failures
 - 3d-secure
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -12,9 +12,9 @@ tags:
 - pci-dss
 - tokenex
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/8-digit-bins
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -54,37 +54,336 @@ For more information regarding the maximum number of PAN digits that can be stor
 When provisioning a network token for a PAN, details regarding the issuer as well as the card account are returned in a successful response, including the BIN.
 Network Token Provisioning Example
 ```
+
 {  
+
   {  
+
     "type": "TOKEN",  
+
     "value": "4014000000006820"  
+
   },  
+
   {  
+
     "type": "TOKEN_EXP",  
+
     "value": "2401"  
+
   }  
+
   "cardMetaData": {  
+
     "cardForegroundColor": "#0D2F4C",  
+
     "labelColor": "#E0DEDC",  
+
     "shortDescription": "USAA  Visa Credit Card",  
+
     "issuerData": {  
+
       "issuerName": "USAA Savings Bank",  
+
       "issuerWebsite": "https://www.usaa.com",  
+
       "customerServiceTelephone": "1-800-531-8722"  
+
     },  
+
    ...  
+
   "paymentInstrument": {  
+
     "panSuffix": "2560",  
+
     "cardScheme": "VISA",  
+
     "cardAlias": "VISA",  
+
     "bankIdentificationNumber": "489537"  
+
   },  
+
 }  
 
 ```
+```
 
-  * [Background](https://documentation.ixopay.com/modules/docs/tokenex/8-digit-bins#background)
+{  
+
+  {  
+
+    "type": "TOKEN",  
+
+    "value": "4014000000006820"  
+
+  },  
+
+  {  
+
+    "type": "TOKEN_EXP",  
+
+    "value": "2401"  
+
+  }  
+
+  "cardMetaData": {  
+
+    "cardForegroundColor": "#0D2F4C",  
+
+    "labelColor": "#E0DEDC",  
+
+    "shortDescription": "USAA  Visa Credit Card",  
+
+    "issuerData": {  
+
+      "issuerName": "USAA Savings Bank",  
+
+      "issuerWebsite": "https://www.usaa.com",  
+
+      "customerServiceTelephone": "1-800-531-8722"  
+
+    },  
+
+   ...  
+
+  "paymentInstrument": {  
+
+    "panSuffix": "2560",  
+
+    "cardScheme": "VISA",  
+
+    "cardAlias": "VISA",  
+
+    "bankIdentificationNumber": "489537"  
+
+  },  
+
+}  
+
+```
+```
+
+{  
+
+  {  
+
+    "type": "TOKEN",  
+
+    "value": "4014000000006820"  
+
+  },  
+
+  {  
+
+    "type": "TOKEN_EXP",  
+
+    "value": "2401"  
+
+  }  
+
+  "cardMetaData": {  
+
+    "cardForegroundColor": "#0D2F4C",  
+
+    "labelColor": "#E0DEDC",  
+
+    "shortDescription": "USAA  Visa Credit Card",  
+
+    "issuerData": {  
+
+      "issuerName": "USAA Savings Bank",  
+
+      "issuerWebsite": "https://www.usaa.com",  
+
+      "customerServiceTelephone": "1-800-531-8722"  
+
+    },  
+
+   ...  
+
+  "paymentInstrument": {  
+
+    "panSuffix": "2560",  
+
+    "cardScheme": "VISA",  
+
+    "cardAlias": "VISA",  
+
+    "bankIdentificationNumber": "489537"  
+
+  },  
+
+}  
+
+```
+```
+
+{  
+
+  {  
+
+    "type": "TOKEN",  
+
+    "value": "4014000000006820"  
+
+  },  
+
+  {  
+
+    "type": "TOKEN_EXP",  
+
+    "value": "2401"  
+
+  }  
+
+  "cardMetaData": {  
+
+    "cardForegroundColor": "#0D2F4C",  
+
+    "labelColor": "#E0DEDC",  
+
+    "shortDescription": "USAA  Visa Credit Card",  
+
+    "issuerData": {  
+
+      "issuerName": "USAA Savings Bank",  
+
+      "issuerWebsite": "https://www.usaa.com",  
+
+      "customerServiceTelephone": "1-800-531-8722"  
+
+    },  
+
+   ...  
+
+  "paymentInstrument": {  
+
+    "panSuffix": "2560",  
+
+    "cardScheme": "VISA",  
+
+    "cardAlias": "VISA",  
+
+    "bankIdentificationNumber": "489537"  
+
+  },  
+
+}  
+
+```  * [Background](https://documentation.ixopay.com/modules/docs/tokenex/8-digit-bins#background)
   * [Impact](https://documentation.ixopay.com/modules/docs/tokenex/8-digit-bins#impact)
   * [8-Digit BINs and PCI Scope](https://documentation.ixopay.com/modules/docs/tokenex/8-digit-bins#8-digit-bins-and-pci-scope)
   * [TokenEx Support for 8-Digit BINs](https://documentation.ixopay.com/modules/docs/tokenex/8-digit-bins#tokenex-support-for-8-digit-bins)
   * [Network Tokens and BINs](https://documentation.ixopay.com/modules/docs/tokenex/8-digit-bins#network-tokens-and-bins)
+```
+
+{  
+
+  {  
+
+    "type": "TOKEN",  
+
+    "value": "4014000000006820"  
+
+  },  
+
+  {  
+
+    "type": "TOKEN_EXP",  
+
+    "value": "2401"  
+
+  }  
+
+  "cardMetaData": {  
+
+    "cardForegroundColor": "#0D2F4C",  
+
+    "labelColor": "#E0DEDC",  
+
+    "shortDescription": "USAA  Visa Credit Card",  
+
+    "issuerData": {  
+
+      "issuerName": "USAA Savings Bank",  
+
+      "issuerWebsite": "https://www.usaa.com",  
+
+      "customerServiceTelephone": "1-800-531-8722"  
+
+    },  
+
+   ...  
+
+  "paymentInstrument": {  
+
+    "panSuffix": "2560",  
+
+    "cardScheme": "VISA",  
+
+    "cardAlias": "VISA",  
+
+    "bankIdentificationNumber": "489537"  
+
+  },  
+
+}  
+
+```
+```
+
+{  
+
+  {  
+
+    "type": "TOKEN",  
+
+    "value": "4014000000006820"  
+
+  },  
+
+  {  
+
+    "type": "TOKEN_EXP",  
+
+    "value": "2401"  
+
+  }  
+
+  "cardMetaData": {  
+
+    "cardForegroundColor": "#0D2F4C",  
+
+    "labelColor": "#E0DEDC",  
+
+    "shortDescription": "USAA  Visa Credit Card",  
+
+    "issuerData": {  
+
+      "issuerName": "USAA Savings Bank",  
+
+      "issuerWebsite": "https://www.usaa.com",  
+
+      "customerServiceTelephone": "1-800-531-8722"  
+
+    },  
+
+   ...  
+
+  "paymentInstrument": {  
+
+    "panSuffix": "2560",  
+
+    "cardScheme": "VISA",  
+
+    "cardAlias": "VISA",  
+
+    "bankIdentificationNumber": "489537"  
+
+  },  
+
+}  
+
+```

@@ -8,9 +8,9 @@ tags:
 - ixopay
 - credit-card
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/integration/callbacks/callback-data
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -28,18 +28,24 @@ To further enhance your understanding of callback handling in IXOPAY platform, e
 If you require additional per-transaction information to process the notification for your customer's order, you have two options:
   1. You can use the optional field `merchantMetaData` when creating a transaction to include any additional data specific to your application. For example:
 ```
+
 {  
+
   "merchantTransactionId": "your-unique-identifier",  
+
   "description": "Purchase description shown on credit card statement.",  
+
   "amount": "9.99",  
+
   "currency": "EUR",  
+
   "callbackUrl": "https://api.example.org/callback",  
+
   "merchantMetaData": "someKey=someValue&anything=else"  
+
 }  
 
-```
-
-tip
+```tip
 Please note that the maximum length of `merchantMetaData` is currently limited to 255 characters.
      * You can use key-value pairs, similar to query-string parameters, to provide the necessary information.
      * Alternatively, you can use escaped JSON to structure the data.
@@ -47,3 +53,102 @@ Please note that the maximum length of `merchantMetaData` is currently limited t
   2. Alternatively, you can provide the required data as query-string parameters in the `callbackUrl` that you define. For example, you can include the additional data in the URL like this: `https://api.example.org/callback?someKey=someValue&anything=else`.
 
 This flexibility allows you to customize the callback data and include any necessary information to handle the transaction appropriately.
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "merchantMetaData": "someKey=someValue&anything=else"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "merchantMetaData": "someKey=someValue&anything=else"  
+
+}  
+
+```This flexibility allows you to customize the callback data and include any necessary information to handle the transaction appropriately.
+  * [Integration](https://documentation.ixopay.com/docs/reference/integration)
+  * [Callbacks](https://documentation.ixopay.com/docs/reference/integration/callbacks)
+  * Callback data
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "merchantMetaData": "someKey=someValue&anything=else"  
+
+}  
+
+```This flexibility allows you to customize the callback data and include any necessary information to handle the transaction appropriately.
+  * [Additional data](https://documentation.ixopay.com/docs/reference/integration/callbacks/callback-data#additional-data)
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "merchantMetaData": "someKey=someValue&anything=else"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "merchantMetaData": "someKey=someValue&anything=else"  
+
+}  
+
+```This flexibility allows you to customize the callback data and include any necessary information to handle the transaction appropriately.

@@ -1,10 +1,10 @@
 ---
-title: '[![Congrify Documentation Portal](https://congrify.com/wp-content/uploads/logo-congrify.svg)](https://docs.congrify.com/)'
-summary: ' Payments Observability & Intelligencehttps://docs.congrify.com/#/README
-  "Payments Observability & Intelligence"  Registration & Loginhttps://docs.congrify.com/#/Fintech/RegistrationLogin
-  "Registration & Login"  User Management and Notificationshttps://docs.congrify.com/#/Fintech/UserManagementNotif'
+title: '[Congrify''s payments observability and intelligence🚀](https://docs.congrify.com/#/?id=congrify39s-payments-observability-and-intelligence%f0%9f%9a%80)'
+summary: '   Congrify an IXOPAY company, is an AI-powered Payments Intelligence solution
+  transforming how businesses understand and optimize their payment operations. We
+  empower merchants and platforms to optimize performance, gain real-time visibility,
+  and proactively mitigate risks through AI-driven insight'
 tags:
-- congrify-payments-observability-intelligence-https-docs-congrify-com-congrify39s-payments-observability-intelligence
 - why-solution-like-congrify-https-docs-congrify-com-why-solution-like-congrify
 - solutionhttps-docs-congrify-com-solution
 - payment-data-pipelineshttps-docs-congrify-com-payment-data-pipelines
@@ -14,51 +14,14 @@ tags:
 - payment-reconciliationhttps-docs-congrify-com-payment-reconciliation
 - pilothttps-docs-congrify-com-pilot
 - pre-chargebacks-alertshttps-docs-congrify-com-pre-chargebacks-alerts
-source_url: ''
+- anomaly-detectionhttps-docs-congrify-com-anomaly-detection
+source_url: https://docs.congrify.com/
 portal: congrify
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
-# [![Congrify Documentation Portal](https://congrify.com/wp-content/uploads/logo-congrify.svg)](https://docs.congrify.com/)
-  * **Platform**
-    * [Payments Observability & Intelligence](https://docs.congrify.com/#/README "Payments Observability & Intelligence")
-    * [Registration & Login](https://docs.congrify.com/#/Fintech/RegistrationLogin "Registration & Login")
-    * [User Management and Notifications](https://docs.congrify.com/#/Fintech/UserManagementNotifications "User Management and Notifications")
-    * [Merchant Settings](https://docs.congrify.com/#/Fintech/MerchantSettings "Merchant Settings")
-    * [Security](https://docs.congrify.com/#/Fintech/Security "Security")
-  * **Observability**
-    * [Dashboards](https://docs.congrify.com/#/Observability/Dashboards "Dashboards")
-    * [KPIs](https://docs.congrify.com/#/Observability/KPIs "KPIs")
-    * [VAMP](https://docs.congrify.com/#/Observability/VAMP "VAMP")
-    * [AI Co-Pilot](https://docs.congrify.com/#/Observability/AICopilot "AI Co-Pilot")
-  * **Data Pipelines**
-    * [Snowflake Integration](https://docs.congrify.com/#/Data%20Pipelines/Snowflake "Snowflake Integration")
-    * [Unified Reports](https://docs.congrify.com/#/Data%20Pipelines/UnifiedReports "Unified Reports")
-  * **Marketplace Integrations**
-    * [Stripe App Marketplace](https://docs.congrify.com/#/Marketplaces/StripeMarketplace "Stripe App Marketplace")
-  * **Integrations**
-    * [Getting Started](https://docs.congrify.com/#/Integrations/GettingStarted "Getting Started")
-    * [Adyen](https://docs.congrify.com/#/Integrations/adyen "Adyen")
-    * [Barclaycard](https://docs.congrify.com/#/Integrations/barclaycard "Barclaycard")
-    * [Braintree](https://docs.congrify.com/#/Integrations/braintree "Braintree")
-    * [Chargebee](https://docs.congrify.com/#/Integrations/chargebee "Chargebee")
-    * [Chase Payment tech](https://docs.congrify.com/#/Integrations/chase "Chase Payment tech")
-    * [Checkout.com](https://docs.congrify.com/#/Integrations/checkout "Checkout.com")
-    * [ixopay](https://docs.congrify.com/#/Integrations/ixopay "ixopay")
-    * [izyco(PayU)](https://docs.congrify.com/#/Integrations/iyzico "izyco\(PayU\)")
-    * [PayPal](https://docs.congrify.com/#/Integrations/paypal "PayPal")
-    * [Paysafecard](https://docs.congrify.com/#/Integrations/paysafecard "Paysafecard")
-    * [Payu](https://docs.congrify.com/#/Integrations/payu "Payu")
-    * [Satispay](https://docs.congrify.com/#/Integrations/satispay "Satispay")
-    * [Solidgate](https://docs.congrify.com/#/Integrations/solidgate "Solidgate")
-    * [Stripe](https://docs.congrify.com/#/Integrations/stripe "Stripe")
-    * [Worldline](https://docs.congrify.com/#/Integrations/worldline "Worldline")
-    * [Worldpay](https://docs.congrify.com/#/Integrations/worldpay "Worldpay")
-  * **Pre-Chargeback Alerts**
-    * [Pre-Chargeback Alerts](https://docs.congrify.com/#/Pre%20Chargeback%20notifications/pre_chargebacks "Pre-Chargeback Alerts")
-
-## [Congrify's payments observability and intelligence🚀](https://docs.congrify.com/#/?id=congrify39s-payments-observability-and-intelligence%f0%9f%9a%80)
+# [Congrify's payments observability and intelligence🚀](https://docs.congrify.com/#/?id=congrify39s-payments-observability-and-intelligence%f0%9f%9a%80)
 * * *
 Congrify (an IXOPAY company), is an AI-powered Payments Intelligence solution transforming how businesses understand and optimize their payment operations. We empower merchants and platforms to optimize performance, gain real-time visibility, and proactively mitigate risks through AI-driven insights and automation. With a focus on innovation and data reliability, Congrify turns complex, fragmented payment data into actionable intelligence and confident decisions.
 ## [Why a solution like Congrify?](https://docs.congrify.com/#/?id=why-a-solution-like-congrify)
@@ -106,3 +69,47 @@ We keep data secure, and the platform is ISO 27001 and SOC2 certified, undergoin
 Additionally, the platform requires MFA access for all users due to the sensitivity of payments data, allows PII anonymization, and has database segregation policies across different customers.
 #### [What’s the pricing model?](https://docs.congrify.com/#/?id=whats-the-pricing-model)
 The pricing model is based on the number of connections and ingested events. For a pricing quote, please reach out to your point of contact or to our support.
+## [![Congrify Documentation Portal](https://congrify.com/wp-content/uploads/logo-congrify.svg)](https://docs.congrify.com/)
+  * **Platform**
+    * [Payments Observability & Intelligence](https://docs.congrify.com/#/README "Payments Observability & Intelligence")
+    * [Registration & Login](https://docs.congrify.com/#/Fintech/RegistrationLogin "Registration & Login")
+    * [User Management and Notifications](https://docs.congrify.com/#/Fintech/UserManagementNotifications "User Management and Notifications")
+    * [Merchant Settings](https://docs.congrify.com/#/Fintech/MerchantSettings "Merchant Settings")
+    * [Security](https://docs.congrify.com/#/Fintech/Security "Security")
+    * [Integration Monitoring](https://docs.congrify.com/#/Fintech/IntegrationMonitoring "Integration Monitoring")
+  * **Observability**
+    * [Dashboards](https://docs.congrify.com/#/Observability/Dashboards "Dashboards")
+    * [KPIs](https://docs.congrify.com/#/Observability/KPIs "KPIs")
+    * [VAMP](https://docs.congrify.com/#/Observability/VAMP "VAMP")
+    * [AI Co-Pilot](https://docs.congrify.com/#/Observability/AICopilot "AI Co-Pilot")
+    * [Anomaly Detection](https://docs.congrify.com/#/Observability/AnomalyDetection "Anomaly Detection")
+    * [Alerts](https://docs.congrify.com/#/Observability/Alerts "Alerts")
+    * [Reports](https://docs.congrify.com/#/Observability/Reports "Reports")
+    * [Transaction Search](https://docs.congrify.com/#/Observability/TransactionSearch "Transaction Search")
+    * [Data Explorer](https://docs.congrify.com/#/Observability/DataExplorer "Data Explorer")
+  * **Data Pipelines**
+    * [Snowflake Integration](https://docs.congrify.com/#/Data%20Pipelines/Snowflake "Snowflake Integration")
+    * [Unified Reports](https://docs.congrify.com/#/Data%20Pipelines/UnifiedReports "Unified Reports")
+  * **Marketplace Integrations**
+    * [Stripe App Marketplace](https://docs.congrify.com/#/Marketplaces/StripeMarketplace "Stripe App Marketplace")
+  * **Integrations**
+    * [Getting Started](https://docs.congrify.com/#/Integrations/GettingStarted "Getting Started")
+    * [Adyen](https://docs.congrify.com/#/Integrations/adyen "Adyen")
+    * [Barclaycard](https://docs.congrify.com/#/Integrations/barclaycard "Barclaycard")
+    * [Braintree](https://docs.congrify.com/#/Integrations/braintree "Braintree")
+    * [Chargebee](https://docs.congrify.com/#/Integrations/chargebee "Chargebee")
+    * [Chase Payment tech](https://docs.congrify.com/#/Integrations/chase "Chase Payment tech")
+    * [Checkout.com](https://docs.congrify.com/#/Integrations/checkout "Checkout.com")
+    * [ixopay](https://docs.congrify.com/#/Integrations/ixopay "ixopay")
+    * [izyco(PayU)](https://docs.congrify.com/#/Integrations/iyzico "izyco\(PayU\)")
+    * [PayPal](https://docs.congrify.com/#/Integrations/paypal "PayPal")
+    * [Paysafecard](https://docs.congrify.com/#/Integrations/paysafecard "Paysafecard")
+    * [Payu](https://docs.congrify.com/#/Integrations/payu "Payu")
+    * [Satispay](https://docs.congrify.com/#/Integrations/satispay "Satispay")
+    * [Solidgate](https://docs.congrify.com/#/Integrations/solidgate "Solidgate")
+    * [Stripe](https://docs.congrify.com/#/Integrations/stripe "Stripe")
+    * [Worldline](https://docs.congrify.com/#/Integrations/worldline "Worldline")
+    * [Worldpay](https://docs.congrify.com/#/Integrations/worldpay "Worldpay")
+  * **Pre-Chargeback Alerts**
+    * [Pre-Chargeback management with Congrify](https://docs.congrify.com/#/Pre%20Chargeback%20notifications/PreChargebacks "Pre-Chargeback management with Congrify")
+    * [Setting up your Pre-Chargebacks](https://docs.congrify.com/#/Pre%20Chargeback%20notifications/pre_chargebacks "Setting up your Pre-Chargebacks")

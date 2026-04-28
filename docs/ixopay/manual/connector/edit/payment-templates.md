@@ -10,9 +10,9 @@ tags:
 - publish-templates-https-documentation-ixopay-com-manual-docs-connector-edit-payment-templates-publish-templates-direct-link-publish-templates
 - delete-templates-https-documentation-ixopay-com-manual-docs-connector-edit-payment-templates-delete-templates-direct-link-delete-templates
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/connector/edit/payment-templates
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

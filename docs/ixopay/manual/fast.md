@@ -6,15 +6,15 @@ tags:
 - general-https-documentation-ixopay-com-manual-docs-fast-general-direct-link-general
 - placeholders-https-documentation-ixopay-com-manual-docs-fast-placeholders-direct-link-placeholders
 - layout-inheritance-https-documentation-ixopay-com-manual-docs-fast-layout-inheritance-direct-link-layout-inheritance
-- form-validation-error-handling-https-documentation-ixopay-com-manual-docs-fast-form-validation-error-handling-direct-link-form-validation-error-handling
-- pci-compliant-fields-https-documentation-ixopay-com-manual-docs-fast-pci-compliant-fields-direct-link-pci-compliant-fields
 - event-listening-https-documentation-ixopay-com-manual-docs-fast-event-listening-direct-link-event-listening
-- static-content-https-documentation-ixopay-com-manual-docs-fast-static-content-direct-link-static-content
 - publish-https-documentation-ixopay-com-manual-docs-fast-publish-direct-link-publish
 - api
-source_url: ''
+- pci
+- ixopay
+- credit-card
+source_url: https://documentation.ixopay.com/manual/docs/fast
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -115,103 +115,180 @@ tip
 Based on this logic it will first try to look for a page layout specific to the given language (e.g. **payment.en.php**), and if that doesn't exist, it will eventually fallback to **payment.php**.
 A typical page layout could look like this:
 ```
+
 {{ html.doctype }}          <!-- This is the placeholder for the doctype element -->  
+
 <html>  
+
     <head>  
+
         {{ head.metatags }} <!-- Metatags required by the Adapter are inserted using this placeholder --->  
+
         {{ head.css }}      <!-- CSS Stylesheets required by the Adapter are inserted using this placeholder -->  
+
         {{ head.js }}       <!-- Javascript files required by the Adapter are inserted using this placeholder -->  
+
     </head>  
+
     <body>  
+
         {{ body.jsTop }}    <!-- Javascript snippets for the adapter -->  
+
   
+
         {{ form.open }}     <!-- the opening form tag -->  
+
   
+
         <?= getContent() ?> <!-- this is where the magic happens: this function call inserts the payment template content on this position -->  
+
   
+
         {{ form.close }}    <!-- the closing form tag -->  
+
   
+
         {{ body.jsBottom }} <!-- more Javascript snippets for the adapter -->  
+
     </body>  
+
 </html>  
 
-```
-
-## Form validation & Error handling[​](https://documentation.ixopay.com/manual/docs/fast#form-validation--error-handling "Direct link to Form validation & Error handling")
+```## Form validation & Error handling[​](https://documentation.ixopay.com/manual/docs/fast#form-validation--error-handling "Direct link to Form validation & Error handling")
 In many cases you may want to validate additional fields and display error messages. For this, the payment templates provide a Javascript API to influence the form submission.
 For validation you have to define the `Ixopay.onValidation` method:
 ```
+
 <script type="text/javascript">  
-/**  
- * @return true|false - whether to continue processing or not  
- */  
-Ixopay.onValidation(function(data) {  
-  if (!data.values.first_name) {  
-    alert('You have to enter a first name');  
-    return false;  
-  }  
-  if (!data.values.last_name) {  
-    alert('You have to enter a last name');  
-    return false;  
-  }  
-  return true;  
-});  
+
+  /**  
+
+   * @return true|false - whether to continue processing or not  
+
+   */  
+
+  Ixopay.onValidation(function (data) {  
+
+    if (!data.values.first_name) {  
+
+      alert("You have to enter a first name");  
+
+      return false;  
+
+    }  
+
+    if (!data.values.last_name) {  
+
+      alert("You have to enter a last name");  
+
+      return false;  
+
+    }  
+
+    return true;  
+
+  });  
+
 </script>  
 
-In case of errors, the `Ixopay.onError` method will be called, where it should display the error messages to the User:
+```In case of errors, the `Ixopay.onError` method will be called, where it should display the error messages to the User:
 ```
+
 <script type="text/javascript">  
-Ixopay.onError(function(errors) {  
-  for (var i = 0; i < errors.length; i++) {  
-    var attribute = errors[i].attribute;  
-    var errorCode = errors[i].key;  
-    var errorMessage = errors[i].message;  
+
+  Ixopay.onError(function (errors) {  
+
+    for (var i = 0; i < errors.length; i++) {  
+
+      var attribute = errors[i].attribute;  
+
+      var errorCode = errors[i].key;  
+
+      var errorMessage = errors[i].message;  
+
   
-    alert(errorMessage);  
-  }  
-});  
+
+      alert(errorMessage);  
+
+    }  
+
+  });  
+
 </script>  
 
-## PCI compliant fields[​](https://documentation.ixopay.com/manual/docs/fast#pci-compliant-fields "Direct link to PCI compliant fields")
+```## PCI compliant fields[​](https://documentation.ixopay.com/manual/docs/fast#pci-compliant-fields "Direct link to PCI compliant fields")
 Fields which require additional compliance, such as Credit Card number and CVV code, are not included in the payment form directly, but provided by the external PCI compliant vault.
 To embed them in the designated spot, you have to provide a DIV element with the appropriate ID (see API Documentation: [payment.js](https://documentation.ixopay.com/docs/reference/integration/processing-options/payment.js)).
 However since you don't have full HTML code control for these fields, you cannot apply CSS styles directly via style attribute or CSS class definitions. Instead you must use the `Ixopay.PaymentFormV2.setCss` method to apply those styles upon document ready event. You can also apply styles in the validation and error handler methods.
 ```
+
 <script type="text/javascript">  
-// this is a shortcut event handler for document.ready provided by the awesome jQuery library  
-// see http://api.jquery.com  
-$(function() {  
-  // set card number style  
-  Ixopay.PaymentFormV2.setCss('creditcard_number', {  
-    'width': '200px',  
-    'color': '#333333',  
-    'font-family': 'Helvetica, Arial, sans-serif',  
-    'font-size': '10pt'  
-  });  
-  // set CVV style  
-  Ixopay.PaymentFormV2.setCss('cvv', {  
-    'width': '200px',  
-    'color': '#333333',  
-    'font-family': 'Helvetica, Arial, sans-serif',  
-    'font-size': '10pt'  
-  });  
+
+  // this is a shortcut event handler for document.ready provided by the awesome jQuery library  
+
+  // see http://api.jquery.com  
+
+  $(function () {  
+
+    // set card number style  
+
+    Ixopay.PaymentFormV2.setCss("creditcard_number", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+    // set CVV style  
+
+    Ixopay.PaymentFormV2.setCss("cvv", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
   
-  //set style on validation failure  
-  Ixopay.onValidation(function(data) {  
-    if (data.custom.number_valid == false) {  
-      //you can even call it here  
-      Ixopay.PaymentFormV2.setCss('creditcard_number', { 'color': 'red' });  
-      return false;  
-    }  
-    if (data.custom.cvv_valid == false) {  
-      //...  
-    }  
-    return true;  
+
+    //set style on validation failure  
+
+    Ixopay.onValidation(function (data) {  
+
+      if (data.custom.number_valid == false) {  
+
+        //you can even call it here  
+
+        Ixopay.PaymentFormV2.setCss("creditcard_number", { color: "red" });  
+
+        return false;  
+
+      }  
+
+      if (data.custom.cvv_valid == false) {  
+
+        //...  
+
+      }  
+
+      return true;  
+
+    });  
+
   });  
-});  
+
 </script>  
 
-If needed, you can also include placeholders for PCI compliant fields:  
+```If needed, you can also include placeholders for PCI compliant fields:  
 | Placeholder  | Description  |  
 | --- | --- |  
 | `Ixopay.PaymentFormV2.setNumberPlaceholder('...')`  | Placeholder Creditcard Number  |  
@@ -234,32 +311,42 @@ For all events, the callback function will receive a data object which will cont
   * numberLength (number)
   * validCvv (boolean)
   * validNumber (boolean)
-
 ```
-Ixopay.PaymentFormV2.numberOn('focus', function(data) {  
- // do something here  
-});  
-  
-Ixopay.PaymentFormV2.cvvOn('blur', function(data) {  
- // do something here  
+
+Ixopay.PaymentFormV2.numberOn("focus", function (data) {  
+
+  // do something here  
+
 });  
 
-## Static content[​](https://documentation.ixopay.com/manual/docs/fast#static-content "Direct link to Static content")
+  
+
+Ixopay.PaymentFormV2.cvvOn("blur", function (data) {  
+
+  // do something here  
+
+});  
+
+```## Static content[​](https://documentation.ixopay.com/manual/docs/fast#static-content "Direct link to Static content")
 You may also insert images, css and js which you have uploaded to the FAST Editor. To make such elements accessible, navigate to the **static** folder where you will find a **css** , **img** and **js** folder. Simply upload your files into the appropriate folders or create your own folder structure (see Static Section).
 vhosts / [ hostname ] / static
 To link your uploaded element into your template use the `getStaticLink` tag which will automatically create a link to the specified file.
 ![Static Section](https://documentation.ixopay.com/manual/assets/ideal-img/static-section.31f9e3a.1280.png)Static Section
 ```
+
 <?= getStaticLink('path/to/file'); ?>  
 
-> Example
+```> Example
 > If you have uploaded a 'info.png' into the **static/img/info.png** you can embed it into your template as an image by doing
-> ```
-<img src="<?= getStaticLink('img/info.png'); ?>" />  
 > 
 ```
 
-> note
+> 
+<img src="<?= getStaticLink('img/info.png'); ?>" />  
+> 
+
+> 
+```> note
 > The **static** directory itself is not part of the given URL.
 ![FAST Editor](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-2.c48e6be.301.png)FAST Editor
 ## Publish[​](https://documentation.ixopay.com/manual/docs/fast#publish "Direct link to Publish")
@@ -269,6 +356,1025 @@ Once finished, you need to publish your changes or created templates, before the
   3. Click **Publish**
 
 Now your templates will be shown as **published** in the Connectors Detail Overview - Payment Templates section.
+![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.1489d33.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.bce3004.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.5d8cae2.782.png)Connectors Detail Overview - Payment Templates
+note
+During the publish step all changes will be published performed on templates in the structure regardless of the editor. Same is true for reverting of changes: all changes done after the the change that you want to revert will be lost.
+```
+
+{{ html.doctype }}          <!-- This is the placeholder for the doctype element -->  
+
+<html>  
+
+    <head>  
+
+        {{ head.metatags }} <!-- Metatags required by the Adapter are inserted using this placeholder --->  
+
+        {{ head.css }}      <!-- CSS Stylesheets required by the Adapter are inserted using this placeholder -->  
+
+        {{ head.js }}       <!-- Javascript files required by the Adapter are inserted using this placeholder -->  
+
+    </head>  
+
+    <body>  
+
+        {{ body.jsTop }}    <!-- Javascript snippets for the adapter -->  
+
+  
+
+        {{ form.open }}     <!-- the opening form tag -->  
+
+  
+
+        <?= getContent() ?> <!-- this is where the magic happens: this function call inserts the payment template content on this position -->  
+
+  
+
+        {{ form.close }}    <!-- the closing form tag -->  
+
+  
+
+        {{ body.jsBottom }} <!-- more Javascript snippets for the adapter -->  
+
+    </body>  
+
+</html>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  /**  
+
+   * @return true|false - whether to continue processing or not  
+
+   */  
+
+  Ixopay.onValidation(function (data) {  
+
+    if (!data.values.first_name) {  
+
+      alert("You have to enter a first name");  
+
+      return false;  
+
+    }  
+
+    if (!data.values.last_name) {  
+
+      alert("You have to enter a last name");  
+
+      return false;  
+
+    }  
+
+    return true;  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  Ixopay.onError(function (errors) {  
+
+    for (var i = 0; i < errors.length; i++) {  
+
+      var attribute = errors[i].attribute;  
+
+      var errorCode = errors[i].key;  
+
+      var errorMessage = errors[i].message;  
+
+  
+
+      alert(errorMessage);  
+
+    }  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  // this is a shortcut event handler for document.ready provided by the awesome jQuery library  
+
+  // see http://api.jquery.com  
+
+  $(function () {  
+
+    // set card number style  
+
+    Ixopay.PaymentFormV2.setCss("creditcard_number", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+    // set CVV style  
+
+    Ixopay.PaymentFormV2.setCss("cvv", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+  
+
+    //set style on validation failure  
+
+    Ixopay.onValidation(function (data) {  
+
+      if (data.custom.number_valid == false) {  
+
+        //you can even call it here  
+
+        Ixopay.PaymentFormV2.setCss("creditcard_number", { color: "red" });  
+
+        return false;  
+
+      }  
+
+      if (data.custom.cvv_valid == false) {  
+
+        //...  
+
+      }  
+
+      return true;  
+
+    });  
+
+  });  
+
+</script>  
+
+```
+```
+
+Ixopay.PaymentFormV2.numberOn("focus", function (data) {  
+
+  // do something here  
+
+});  
+
+  
+
+Ixopay.PaymentFormV2.cvvOn("blur", function (data) {  
+
+  // do something here  
+
+});  
+
+```
+```
+
+<?= getStaticLink('path/to/file'); ?>  
+
+```
+```
+
+> 
+<img src="<?= getStaticLink('img/info.png'); ?>" />  
+> 
+
+> 
+```
+```
+
+{{ html.doctype }}          <!-- This is the placeholder for the doctype element -->  
+
+<html>  
+
+    <head>  
+
+        {{ head.metatags }} <!-- Metatags required by the Adapter are inserted using this placeholder --->  
+
+        {{ head.css }}      <!-- CSS Stylesheets required by the Adapter are inserted using this placeholder -->  
+
+        {{ head.js }}       <!-- Javascript files required by the Adapter are inserted using this placeholder -->  
+
+    </head>  
+
+    <body>  
+
+        {{ body.jsTop }}    <!-- Javascript snippets for the adapter -->  
+
+  
+
+        {{ form.open }}     <!-- the opening form tag -->  
+
+  
+
+        <?= getContent() ?> <!-- this is where the magic happens: this function call inserts the payment template content on this position -->  
+
+  
+
+        {{ form.close }}    <!-- the closing form tag -->  
+
+  
+
+        {{ body.jsBottom }} <!-- more Javascript snippets for the adapter -->  
+
+    </body>  
+
+</html>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  /**  
+
+   * @return true|false - whether to continue processing or not  
+
+   */  
+
+  Ixopay.onValidation(function (data) {  
+
+    if (!data.values.first_name) {  
+
+      alert("You have to enter a first name");  
+
+      return false;  
+
+    }  
+
+    if (!data.values.last_name) {  
+
+      alert("You have to enter a last name");  
+
+      return false;  
+
+    }  
+
+    return true;  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  Ixopay.onError(function (errors) {  
+
+    for (var i = 0; i < errors.length; i++) {  
+
+      var attribute = errors[i].attribute;  
+
+      var errorCode = errors[i].key;  
+
+      var errorMessage = errors[i].message;  
+
+  
+
+      alert(errorMessage);  
+
+    }  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  // this is a shortcut event handler for document.ready provided by the awesome jQuery library  
+
+  // see http://api.jquery.com  
+
+  $(function () {  
+
+    // set card number style  
+
+    Ixopay.PaymentFormV2.setCss("creditcard_number", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+    // set CVV style  
+
+    Ixopay.PaymentFormV2.setCss("cvv", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+  
+
+    //set style on validation failure  
+
+    Ixopay.onValidation(function (data) {  
+
+      if (data.custom.number_valid == false) {  
+
+        //you can even call it here  
+
+        Ixopay.PaymentFormV2.setCss("creditcard_number", { color: "red" });  
+
+        return false;  
+
+      }  
+
+      if (data.custom.cvv_valid == false) {  
+
+        //...  
+
+      }  
+
+      return true;  
+
+    });  
+
+  });  
+
+</script>  
+
+```
+```
+
+Ixopay.PaymentFormV2.numberOn("focus", function (data) {  
+
+  // do something here  
+
+});  
+
+  
+
+Ixopay.PaymentFormV2.cvvOn("blur", function (data) {  
+
+  // do something here  
+
+});  
+
+```
+```
+
+<?= getStaticLink('path/to/file'); ?>  
+
+```
+```
+
+> 
+<img src="<?= getStaticLink('img/info.png'); ?>" />  
+> 
+
+> 
+```Now your templates will be shown as **published** in the Connectors Detail Overview - Payment Templates section.
+![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.1489d33.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.bce3004.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.5d8cae2.782.png)Connectors Detail Overview - Payment Templates
+note
+During the publish step all changes will be published performed on templates in the structure regardless of the editor. Same is true for reverting of changes: all changes done after the the change that you want to revert will be lost.
+  * FAST Editor
+```
+
+{{ html.doctype }}          <!-- This is the placeholder for the doctype element -->  
+
+<html>  
+
+    <head>  
+
+        {{ head.metatags }} <!-- Metatags required by the Adapter are inserted using this placeholder --->  
+
+        {{ head.css }}      <!-- CSS Stylesheets required by the Adapter are inserted using this placeholder -->  
+
+        {{ head.js }}       <!-- Javascript files required by the Adapter are inserted using this placeholder -->  
+
+    </head>  
+
+    <body>  
+
+        {{ body.jsTop }}    <!-- Javascript snippets for the adapter -->  
+
+  
+
+        {{ form.open }}     <!-- the opening form tag -->  
+
+  
+
+        <?= getContent() ?> <!-- this is where the magic happens: this function call inserts the payment template content on this position -->  
+
+  
+
+        {{ form.close }}    <!-- the closing form tag -->  
+
+  
+
+        {{ body.jsBottom }} <!-- more Javascript snippets for the adapter -->  
+
+    </body>  
+
+</html>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  /**  
+
+   * @return true|false - whether to continue processing or not  
+
+   */  
+
+  Ixopay.onValidation(function (data) {  
+
+    if (!data.values.first_name) {  
+
+      alert("You have to enter a first name");  
+
+      return false;  
+
+    }  
+
+    if (!data.values.last_name) {  
+
+      alert("You have to enter a last name");  
+
+      return false;  
+
+    }  
+
+    return true;  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  Ixopay.onError(function (errors) {  
+
+    for (var i = 0; i < errors.length; i++) {  
+
+      var attribute = errors[i].attribute;  
+
+      var errorCode = errors[i].key;  
+
+      var errorMessage = errors[i].message;  
+
+  
+
+      alert(errorMessage);  
+
+    }  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  // this is a shortcut event handler for document.ready provided by the awesome jQuery library  
+
+  // see http://api.jquery.com  
+
+  $(function () {  
+
+    // set card number style  
+
+    Ixopay.PaymentFormV2.setCss("creditcard_number", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+    // set CVV style  
+
+    Ixopay.PaymentFormV2.setCss("cvv", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+  
+
+    //set style on validation failure  
+
+    Ixopay.onValidation(function (data) {  
+
+      if (data.custom.number_valid == false) {  
+
+        //you can even call it here  
+
+        Ixopay.PaymentFormV2.setCss("creditcard_number", { color: "red" });  
+
+        return false;  
+
+      }  
+
+      if (data.custom.cvv_valid == false) {  
+
+        //...  
+
+      }  
+
+      return true;  
+
+    });  
+
+  });  
+
+</script>  
+
+```
+```
+
+Ixopay.PaymentFormV2.numberOn("focus", function (data) {  
+
+  // do something here  
+
+});  
+
+  
+
+Ixopay.PaymentFormV2.cvvOn("blur", function (data) {  
+
+  // do something here  
+
+});  
+
+```
+```
+
+<?= getStaticLink('path/to/file'); ?>  
+
+```
+```
+
+> 
+<img src="<?= getStaticLink('img/info.png'); ?>" />  
+> 
+
+> 
+```Now your templates will be shown as **published** in the Connectors Detail Overview - Payment Templates section.
+![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.1489d33.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.bce3004.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.5d8cae2.782.png)Connectors Detail Overview - Payment Templates
+note
+During the publish step all changes will be published performed on templates in the structure regardless of the editor. Same is true for reverting of changes: all changes done after the the change that you want to revert will be lost.
+  * [Setup](https://documentation.ixopay.com/manual/docs/fast#setup)
+  * [General](https://documentation.ixopay.com/manual/docs/fast#general)
+  * [Placeholders](https://documentation.ixopay.com/manual/docs/fast#placeholders)
+  * [Page layout inheritance](https://documentation.ixopay.com/manual/docs/fast#page-layout-inheritance)
+  * [Form validation & Error handling](https://documentation.ixopay.com/manual/docs/fast#form-validation--error-handling)
+  * [PCI compliant fields](https://documentation.ixopay.com/manual/docs/fast#pci-compliant-fields)
+  * [Event listening](https://documentation.ixopay.com/manual/docs/fast#event-listening)
+  * [Static content](https://documentation.ixopay.com/manual/docs/fast#static-content)
+  * [Publish](https://documentation.ixopay.com/manual/docs/fast#publish)
+```
+
+{{ html.doctype }}          <!-- This is the placeholder for the doctype element -->  
+
+<html>  
+
+    <head>  
+
+        {{ head.metatags }} <!-- Metatags required by the Adapter are inserted using this placeholder --->  
+
+        {{ head.css }}      <!-- CSS Stylesheets required by the Adapter are inserted using this placeholder -->  
+
+        {{ head.js }}       <!-- Javascript files required by the Adapter are inserted using this placeholder -->  
+
+    </head>  
+
+    <body>  
+
+        {{ body.jsTop }}    <!-- Javascript snippets for the adapter -->  
+
+  
+
+        {{ form.open }}     <!-- the opening form tag -->  
+
+  
+
+        <?= getContent() ?> <!-- this is where the magic happens: this function call inserts the payment template content on this position -->  
+
+  
+
+        {{ form.close }}    <!-- the closing form tag -->  
+
+  
+
+        {{ body.jsBottom }} <!-- more Javascript snippets for the adapter -->  
+
+    </body>  
+
+</html>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  /**  
+
+   * @return true|false - whether to continue processing or not  
+
+   */  
+
+  Ixopay.onValidation(function (data) {  
+
+    if (!data.values.first_name) {  
+
+      alert("You have to enter a first name");  
+
+      return false;  
+
+    }  
+
+    if (!data.values.last_name) {  
+
+      alert("You have to enter a last name");  
+
+      return false;  
+
+    }  
+
+    return true;  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  Ixopay.onError(function (errors) {  
+
+    for (var i = 0; i < errors.length; i++) {  
+
+      var attribute = errors[i].attribute;  
+
+      var errorCode = errors[i].key;  
+
+      var errorMessage = errors[i].message;  
+
+  
+
+      alert(errorMessage);  
+
+    }  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  // this is a shortcut event handler for document.ready provided by the awesome jQuery library  
+
+  // see http://api.jquery.com  
+
+  $(function () {  
+
+    // set card number style  
+
+    Ixopay.PaymentFormV2.setCss("creditcard_number", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+    // set CVV style  
+
+    Ixopay.PaymentFormV2.setCss("cvv", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+  
+
+    //set style on validation failure  
+
+    Ixopay.onValidation(function (data) {  
+
+      if (data.custom.number_valid == false) {  
+
+        //you can even call it here  
+
+        Ixopay.PaymentFormV2.setCss("creditcard_number", { color: "red" });  
+
+        return false;  
+
+      }  
+
+      if (data.custom.cvv_valid == false) {  
+
+        //...  
+
+      }  
+
+      return true;  
+
+    });  
+
+  });  
+
+</script>  
+
+```
+```
+
+Ixopay.PaymentFormV2.numberOn("focus", function (data) {  
+
+  // do something here  
+
+});  
+
+  
+
+Ixopay.PaymentFormV2.cvvOn("blur", function (data) {  
+
+  // do something here  
+
+});  
+
+```
+```
+
+<?= getStaticLink('path/to/file'); ?>  
+
+```
+```
+
+> 
+<img src="<?= getStaticLink('img/info.png'); ?>" />  
+> 
+
+> 
+```
+```
+
+{{ html.doctype }}          <!-- This is the placeholder for the doctype element -->  
+
+<html>  
+
+    <head>  
+
+        {{ head.metatags }} <!-- Metatags required by the Adapter are inserted using this placeholder --->  
+
+        {{ head.css }}      <!-- CSS Stylesheets required by the Adapter are inserted using this placeholder -->  
+
+        {{ head.js }}       <!-- Javascript files required by the Adapter are inserted using this placeholder -->  
+
+    </head>  
+
+    <body>  
+
+        {{ body.jsTop }}    <!-- Javascript snippets for the adapter -->  
+
+  
+
+        {{ form.open }}     <!-- the opening form tag -->  
+
+  
+
+        <?= getContent() ?> <!-- this is where the magic happens: this function call inserts the payment template content on this position -->  
+
+  
+
+        {{ form.close }}    <!-- the closing form tag -->  
+
+  
+
+        {{ body.jsBottom }} <!-- more Javascript snippets for the adapter -->  
+
+    </body>  
+
+</html>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  /**  
+
+   * @return true|false - whether to continue processing or not  
+
+   */  
+
+  Ixopay.onValidation(function (data) {  
+
+    if (!data.values.first_name) {  
+
+      alert("You have to enter a first name");  
+
+      return false;  
+
+    }  
+
+    if (!data.values.last_name) {  
+
+      alert("You have to enter a last name");  
+
+      return false;  
+
+    }  
+
+    return true;  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  Ixopay.onError(function (errors) {  
+
+    for (var i = 0; i < errors.length; i++) {  
+
+      var attribute = errors[i].attribute;  
+
+      var errorCode = errors[i].key;  
+
+      var errorMessage = errors[i].message;  
+
+  
+
+      alert(errorMessage);  
+
+    }  
+
+  });  
+
+</script>  
+
+```
+```
+
+<script type="text/javascript">  
+
+  // this is a shortcut event handler for document.ready provided by the awesome jQuery library  
+
+  // see http://api.jquery.com  
+
+  $(function () {  
+
+    // set card number style  
+
+    Ixopay.PaymentFormV2.setCss("creditcard_number", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+    // set CVV style  
+
+    Ixopay.PaymentFormV2.setCss("cvv", {  
+
+      width: "200px",  
+
+      color: "#333333",  
+
+      "font-family": "Helvetica, Arial, sans-serif",  
+
+      "font-size": "10pt",  
+
+    });  
+
+  
+
+    //set style on validation failure  
+
+    Ixopay.onValidation(function (data) {  
+
+      if (data.custom.number_valid == false) {  
+
+        //you can even call it here  
+
+        Ixopay.PaymentFormV2.setCss("creditcard_number", { color: "red" });  
+
+        return false;  
+
+      }  
+
+      if (data.custom.cvv_valid == false) {  
+
+        //...  
+
+      }  
+
+      return true;  
+
+    });  
+
+  });  
+
+</script>  
+
+```
+```
+
+Ixopay.PaymentFormV2.numberOn("focus", function (data) {  
+
+  // do something here  
+
+});  
+
+  
+
+Ixopay.PaymentFormV2.cvvOn("blur", function (data) {  
+
+  // do something here  
+
+});  
+
+```
+```
+
+<?= getStaticLink('path/to/file'); ?>  
+
+```
+```
+
+> 
+<img src="<?= getStaticLink('img/info.png'); ?>" />  
+> 
+
+> 
+```Now your templates will be shown as **published** in the Connectors Detail Overview - Payment Templates section.
 ![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.1489d33.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.bce3004.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.5d8cae2.782.png)Connectors Detail Overview - Payment Templates
 note
 During the publish step all changes will be published performed on templates in the structure regardless of the editor. Same is true for reverting of changes: all changes done after the the change that you want to revert will be lost.

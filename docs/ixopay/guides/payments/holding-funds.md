@@ -3,18 +3,18 @@ title: Place a hold on a payment
 summary: ' Place a hold on a payment'
 tags:
 - preauthorizing-funds-https-documentation-ixopay-com-docs-guides-payments-holding-funds-preauthorizing-funds-direct-link-preauthorizing-funds
-- transferring-funds-https-documentation-ixopay-com-docs-guides-payments-holding-funds-transferring-funds-direct-link-transferring-funds
-- releasing-held-funds-https-documentation-ixopay-com-docs-guides-payments-holding-funds-releasing-held-funds-direct-link-releasing-held-funds
-- prolonging-increasing-held-funds-https-documentation-ixopay-com-docs-guides-payments-holding-funds-prolonging-increasing-held-funds-direct-link-prolonging-increasing-held-funds
 - api
 - json
 - ixopay
 - authorization
 - capture
 - void
-source_url: ''
+- credit-card
+- transaction
+- merchant
+source_url: https://documentation.ixopay.com/docs/guides/payments/holding-funds
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -41,115 +41,245 @@ Funds for a preauthorize transaction are typically held for 7 days, but this can
   * PHP
   * Java
 ```
+
 curl --request POST -sL \  
+
   --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/preauthorize" \  
+
   --header 'Content-Type: application/json' \  
+
   --header 'Accept: application/json' \  
+
   --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
   --data-raw '{  
+
     "merchantTransactionId": "your-unique-identifier",  
+
     "transactionToken": "$CC_TOKEN",  
+
     "description": "Purchase description shown on credit card statement.",  
+
     "amount": "9.99",  
+
     "currency": "EUR",  
+
     "successUrl": "https://shop.example.org/checkout/success",  
+
     "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
     "errorUrl": "https://shop.example.org/checkout/error",  
+
     "callbackUrl": "https://api.example.org/callback"  
+
   }'  
 
 ```
 ```
+
 import requests  
+
 import json  
+
 import base64  
+
 import os  
+
   
+
 url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/preauthorize".format(  
+
     apiKey=os.environ["API_KEY"]  
+
 )  
+
 auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
 cc_token = os.environ["CC_TOKEN"]  
+
   
+
 payload = json.dumps(  
+
     {  
+
         "merchantTransactionId": "your-unique-identifier",  
+
         "transactionToken": cc_token,  
+
         "description": "Purchase description shown on credit card statement.",  
+
         "amount": "9.99",  
+
         "currency": "EUR",  
+
         "successUrl": "https://shop.example.org/checkout/success",  
+
         "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
         "errorUrl": "https://shop.example.org/checkout/error",  
+
         "callbackUrl": "https://api.example.org/callback"  
+
     }  
+
 )  
+
 headers = {  
+
     "Content-Type": "application/json",  
+
     "Accept": "application/json",  
+
     "Authorization": "Basic {auth}".format(auth=auth),  
+
 }  
+
   
+
 response = requests.request("POST", url, headers=headers, data=payload)  
 
 ```
-<?php  
-  
-$curl = curl_init();  
-  
-$auth = base64_encode("$USERNAME:$PASSWORD");  
-$transactionToken = $_REQUEST['cctoken'];  
-  
-curl_setopt_array($curl, array(  
-  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/preauthorize",  
-  CURLOPT_RETURNTRANSFER => true,  
-  CURLOPT_ENCODING => '',  
-  CURLOPT_MAXREDIRS => 10,  
-  CURLOPT_TIMEOUT => 0,  
-  CURLOPT_FOLLOWLOCATION => true,  
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
-  CURLOPT_CUSTOMREQUEST => 'POST',  
-  CURLOPT_POSTFIELDS => << array(  
-    'Content-Type: application/json',  
-    'Accept: application/json',  
-    "Authorization: Basic $auth"  
-  ),  
-));  
-  
-$response = curl_exec($curl);  
-  
-curl_close($curl);  
 ```
-String transactionToken = req.getParameter("cctoken");  
+
+<?php  
+
   
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+$transactionToken = $_REQUEST['cctoken'];  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/preauthorize",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": {$transactionToken},  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+String transactionToken = req.getParameter("cctoken");  
+
+  
+
 OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
 RequestBody body = RequestBody.create(  
+
   MediaType.parse("application/json"),  
+
   "{" +  
+
     "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
     "\"transactionToken\": \"" + transactionToken + "\"," +  
+
     "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
     "\"amount\": \"9.99\"," +  
+
     "\"currency\": \"EUR\"," +  
+
     "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
     "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
     "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
     "\"callbackUrl\": \"https://api.example.org/callback\""  
+
   "}"  
+
 );  
+
 String auth = Base64.getEncoder().encodeToString(  
+
   "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
 Request request = new Request.Builder()  
+
   .url("https://gateway.ixopay.com/api/v3/transaction/%s/preauthorize"  
+
     .format(System.getenv("API_KEY")))  
+
   .method("POST", body)  
+
   .addHeader("Content-Type", "application/json")  
+
   .addHeader("Accept", "application/json")  
+
   .addHeader("Authorization", "Basic %s".format(auth))  
+
   .build();  
+
 Response response = client.newCall(request).execute();  
 
-## Transferring funds[​](https://documentation.ixopay.com/docs/guides/payments/holding-funds#transferring-funds "Direct link to Transferring funds")
+```## Transferring funds[​](https://documentation.ixopay.com/docs/guides/payments/holding-funds#transferring-funds "Direct link to Transferring funds")
 [Capture transactions](https://documentation.ixopay.com/api/transaction/capture) are used to transfer the held funds from a preauthorization to the merchant's account. Typically, this is done when the merchant is ready to provide the service or product to the customer. For some adapters, a partial capture is possible where not all funds that were held are transferred, for example, if the customer only receives part of the service or product.
 info
 The previously stored `uuid` from the [preauthorize transaction](https://documentation.ixopay.com/docs/guides/payments/holding-funds#preauthorizing-funds) must be used as `referenceUuid` in the capture transaction.
@@ -157,111 +287,238 @@ The previously stored `uuid` from the [preauthorize transaction](https://documen
   * Python
   * PHP
   * Java
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/capture" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
 
 ```
-curl --request POST -sL \  
-  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/capture" \  
-  --header 'Content-Type: application/json' \  
-  --header 'Accept: application/json' \  
-  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
-  --data-raw '{  
-    "referenceUuid": "4d40738b1194869734f7",  
-    "merchantTransactionId": "your-unique-identifier",  
-    "description": "Purchase description shown on credit card statement.",  
-    "amount": "9.99",  
-    "currency": "EUR",  
-    "successUrl": "https://shop.example.org/checkout/success",  
-    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-    "errorUrl": "https://shop.example.org/checkout/error",  
-    "callbackUrl": "https://api.example.org/callback"  
-  }'  
 ```
+
 import requests  
+
 import json  
+
 import base64  
+
 import os  
+
   
+
 url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/capture".format(  
+
     apiKey=os.environ["API_KEY"]  
+
 )  
+
 auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
   
+
 payload = json.dumps(  
+
     {  
+
         "referenceUuid": "4d40738b1194869734f7",  
+
         "merchantTransactionId": "your-unique-identifier",  
+
         "description": "Purchase description shown on credit card statement.",  
+
         "amount": "9.99",  
+
         "currency": "EUR",  
+
         "successUrl": "https://shop.example.org/checkout/success",  
+
         "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
         "errorUrl": "https://shop.example.org/checkout/error",  
+
         "callbackUrl": "https://api.example.org/callback"  
+
     }  
+
 )  
+
 headers = {  
+
     "Content-Type": "application/json",  
+
     "Accept": "application/json",  
+
     "Authorization": "Basic {auth}".format(auth=auth),  
+
 }  
+
   
+
 response = requests.request("POST", url, headers=headers, data=payload)  
 
 ```
-<?php  
-  
-$curl = curl_init();  
-  
-$auth = base64_encode("$USERNAME:$PASSWORD");  
-  
-curl_setopt_array($curl, array(  
-  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/capture",  
-  CURLOPT_RETURNTRANSFER => true,  
-  CURLOPT_ENCODING => '',  
-  CURLOPT_MAXREDIRS => 10,  
-  CURLOPT_TIMEOUT => 0,  
-  CURLOPT_FOLLOWLOCATION => true,  
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
-  CURLOPT_CUSTOMREQUEST => 'POST',  
-  CURLOPT_POSTFIELDS => << array(  
-    'Content-Type: application/json',  
-    'Accept: application/json',  
-    "Authorization: Basic $auth"  
-  ),  
-));  
-  
-$response = curl_exec($curl);  
-  
-curl_close($curl);  
 ```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/capture",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
 OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
 RequestBody body = RequestBody.create(  
+
   MediaType.parse("application/json"),  
+
   "{" +  
+
     "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
     "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
     "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
     "\"amount\": \"9.99\"," +  
+
     "\"currency\": \"EUR\"," +  
+
     "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
     "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
     "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
     "\"callbackUrl\": \"https://api.example.org/callback\""  
+
   "}"  
+
 );  
+
 String auth = Base64.getEncoder().encodeToString(  
+
   "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
 Request request = new Request.Builder()  
+
   .url("https://gateway.ixopay.com/api/v3/transaction/%s/capture"  
+
     .format(System.getenv("API_KEY")))  
+
   .method("POST", body)  
+
   .addHeader("Content-Type", "application/json")  
+
   .addHeader("Accept", "application/json")  
+
   .addHeader("Authorization", "Basic %s".format(auth))  
+
   .build();  
+
 Response response = client.newCall(request).execute();  
 
-## Releasing held funds[​](https://documentation.ixopay.com/docs/guides/payments/holding-funds#releasing-held-funds "Direct link to Releasing held funds")
+```## Releasing held funds[​](https://documentation.ixopay.com/docs/guides/payments/holding-funds#releasing-held-funds "Direct link to Releasing held funds")
 [Void transactions](https://documentation.ixopay.com/api/transaction/void) are used to cancel the preauthorization and release the held funds back to the customer's account. This is usually done when the merchant cannot fulfill the service or product, or if the customer decides to cancel the order. It's important to note that once a void transaction is made, the held funds will not be transferred, even if the merchant is later able to fulfill the order.
 info
 The previously stored `uuid` from the [preauthorize transaction](https://documentation.ixopay.com/docs/guides/payments/holding-funds#preauthorizing-funds) must be used as `referenceUuid` in the void transaction.
@@ -269,102 +526,214 @@ The previously stored `uuid` from the [preauthorize transaction](https://documen
   * Python
   * PHP
   * Java
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/void" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
 
 ```
-curl --request POST -sL \  
-  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/void" \  
-  --header 'Content-Type: application/json' \  
-  --header 'Accept: application/json' \  
-  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
-  --data-raw '{  
-    "referenceUuid": "4d40738b1194869734f7",  
-    "merchantTransactionId": "your-unique-identifier",  
-    "successUrl": "https://shop.example.org/checkout/success",  
-    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-    "errorUrl": "https://shop.example.org/checkout/error",  
-    "callbackUrl": "https://api.example.org/callback"  
-  }'  
 ```
+
 import requests  
+
 import json  
+
 import base64  
+
 import os  
+
   
+
 url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/void".format(  
+
     apiKey=os.environ["API_KEY"]  
+
 )  
+
 auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
   
+
 payload = json.dumps(  
+
     {  
+
         "referenceUuid": "4d40738b1194869734f7",  
+
         "merchantTransactionId": "your-unique-identifier",  
+
         "successUrl": "https://shop.example.org/checkout/success",  
+
         "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
         "errorUrl": "https://shop.example.org/checkout/error",  
+
         "callbackUrl": "https://api.example.org/callback"  
+
     }  
+
 )  
+
 headers = {  
+
     "Content-Type": "application/json",  
+
     "Accept": "application/json",  
+
     "Authorization": "Basic {auth}".format(auth=auth),  
+
 }  
+
   
+
 response = requests.request("POST", url, headers=headers, data=payload)  
 
 ```
-<?php  
-  
-$curl = curl_init();  
-  
-$auth = base64_encode("$USERNAME:$PASSWORD");  
-  
-curl_setopt_array($curl, array(  
-  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/void",  
-  CURLOPT_RETURNTRANSFER => true,  
-  CURLOPT_ENCODING => '',  
-  CURLOPT_MAXREDIRS => 10,  
-  CURLOPT_TIMEOUT => 0,  
-  CURLOPT_FOLLOWLOCATION => true,  
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
-  CURLOPT_CUSTOMREQUEST => 'POST',  
-  CURLOPT_POSTFIELDS => << array(  
-    'Content-Type: application/json',  
-    'Accept: application/json',  
-    "Authorization: Basic $auth"  
-  ),  
-));  
-  
-$response = curl_exec($curl);  
-  
-curl_close($curl);  
 ```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/void",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
 OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
 RequestBody body = RequestBody.create(  
+
   MediaType.parse("application/json"),  
+
   "{" +  
+
     "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
     "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
     "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
     "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
     "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
     "\"callbackUrl\": \"https://api.example.org/callback\""  
+
   "}"  
+
 );  
+
 String auth = Base64.getEncoder().encodeToString(  
+
   "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
 Request request = new Request.Builder()  
+
   .url("https://gateway.ixopay.com/api/v3/transaction/%s/void"  
+
     .format(System.getenv("API_KEY")))  
+
   .method("POST", body)  
+
   .addHeader("Content-Type", "application/json")  
+
   .addHeader("Accept", "application/json")  
+
   .addHeader("Authorization", "Basic %s".format(auth))  
+
   .build();  
+
 Response response = client.newCall(request).execute();  
 
-## Prolonging or increasing held funds[​](https://documentation.ixopay.com/docs/guides/payments/holding-funds#prolonging-or-increasing-held-funds "Direct link to Prolonging or increasing held funds")
+```## Prolonging or increasing held funds[​](https://documentation.ixopay.com/docs/guides/payments/holding-funds#prolonging-or-increasing-held-funds "Direct link to Prolonging or increasing held funds")
 [Incremental authorization transactions](https://documentation.ixopay.com/api/transaction/incremental-authorization) are used to prolong the hold on the funds or to increase the amount of funds being held. This is useful in cases where the initial preauthorization hold is about to expire, but the merchant needs more time to provide the service or product.
 info
 Incremental authorization is optional and not supported by all adapters.
@@ -375,113 +744,4810 @@ A follow-up [void transaction](https://documentation.ixopay.com/docs/guides/paym
   * Python
   * PHP
   * Java
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/incrementalAuthorization" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
 
 ```
-curl --request POST -sL \  
-  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/incrementalAuthorization" \  
-  --header 'Content-Type: application/json' \  
-  --header 'Accept: application/json' \  
-  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
-  --data-raw '{  
-    "referenceUuid": "4d40738b1194869734f7",  
-    "merchantTransactionId": "your-unique-identifier",  
-    "description": "Purchase description shown on credit card statement.",  
-    "amount": "9.99",  
-    "currency": "EUR",  
-    "successUrl": "https://shop.example.org/checkout/success",  
-    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-    "errorUrl": "https://shop.example.org/checkout/error",  
-    "callbackUrl": "https://api.example.org/callback"  
-  }'  
 ```
+
 import requests  
+
 import json  
+
 import base64  
+
 import os  
+
   
+
 url =  
+
     "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/incrementalAuthorization"  
+
     .format(apiKey=os.environ["API_KEY"])  
+
 auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
   
+
 payload = json.dumps(  
+
     {  
+
         "referenceUuid": "4d40738b1194869734f7",  
+
         "merchantTransactionId": "your-unique-identifier",  
+
         "description": "Purchase description shown on credit card statement.",  
+
         "amount": "9.99",  
+
         "currency": "EUR",  
+
         "successUrl": "https://shop.example.org/checkout/success",  
+
         "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
         "errorUrl": "https://shop.example.org/checkout/error",  
+
         "callbackUrl": "https://api.example.org/callback"  
+
     }  
+
 )  
+
 headers = {  
+
     "Content-Type": "application/json",  
+
     "Accept": "application/json",  
+
     "Authorization": "Basic {auth}".format(auth=auth),  
+
 }  
+
   
+
 response = requests.request("POST", url, headers=headers, data=payload)  
 
 ```
+```
+
 <?php  
+
   
+
 $curl = curl_init();  
+
   
+
 $auth = base64_encode("$USERNAME:$PASSWORD");  
+
   
+
 curl_setopt_array($curl, array(  
+
   CURLOPT_URL =>  
+
     "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/incrementalAuthorization",  
+
   CURLOPT_RETURNTRANSFER => true,  
+
   CURLOPT_ENCODING => '',  
+
   CURLOPT_MAXREDIRS => 10,  
+
   CURLOPT_TIMEOUT => 0,  
+
   CURLOPT_FOLLOWLOCATION => true,  
+
   CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
   CURLOPT_CUSTOMREQUEST => 'POST',  
-  CURLOPT_POSTFIELDS => << array(  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
     'Content-Type: application/json',  
+
     'Accept: application/json',  
+
     "Authorization: Basic $auth"  
+
   ),  
+
 ));  
+
   
+
 $response = curl_exec($curl);  
+
   
+
 curl_close($curl);  
 
 ```
+```
+
 OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
 RequestBody body = RequestBody.create(  
+
   MediaType.parse("application/json"),  
+
   "{" +  
+
     "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
     "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
     "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
     "\"amount\": \"9.99\"," +  
+
     "\"currency\": \"EUR\"," +  
+
     "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
     "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
     "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
     "\"callbackUrl\": \"https://api.example.org/callback\""  
+
   "}"  
+
 );  
+
 String auth = Base64.getEncoder().encodeToString(  
+
   "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
 Request request = new Request.Builder()  
+
   .url("https://gateway.ixopay.com/api/v3/transaction/%s/incrementalAuthorization"  
+
     .format(System.getenv("API_KEY")))  
+
   .method("POST", body)  
+
   .addHeader("Content-Type", "application/json")  
+
   .addHeader("Accept", "application/json")  
+
   .addHeader("Authorization", "Basic %s".format(auth))  
+
   .build();  
+
 Response response = client.newCall(request).execute();  
 
-  * [Preauthorizing funds](https://documentation.ixopay.com/docs/guides/payments/holding-funds#preauthorizing-funds)
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/preauthorize" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": "$CC_TOKEN",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/preauthorize".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+cc_token = os.environ["CC_TOKEN"]  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "transactionToken": cc_token,  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+$transactionToken = $_REQUEST['cctoken'];  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/preauthorize",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": {$transactionToken},  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+String transactionToken = req.getParameter("cctoken");  
+
+  
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"transactionToken\": \"" + transactionToken + "\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/preauthorize"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/capture" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/capture".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/capture",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/capture"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/void" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/void".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/void",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/void"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/incrementalAuthorization" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url =  
+
+    "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/incrementalAuthorization"  
+
+    .format(apiKey=os.environ["API_KEY"])  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL =>  
+
+    "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/incrementalAuthorization",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/incrementalAuthorization"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/preauthorize" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": "$CC_TOKEN",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/preauthorize".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+cc_token = os.environ["CC_TOKEN"]  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "transactionToken": cc_token,  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+$transactionToken = $_REQUEST['cctoken'];  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/preauthorize",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": {$transactionToken},  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+String transactionToken = req.getParameter("cctoken");  
+
+  
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"transactionToken\": \"" + transactionToken + "\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/preauthorize"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/capture" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/capture".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/capture",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/capture"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/void" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/void".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/void",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/void"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/incrementalAuthorization" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url =  
+
+    "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/incrementalAuthorization"  
+
+    .format(apiKey=os.environ["API_KEY"])  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL =>  
+
+    "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/incrementalAuthorization",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/incrementalAuthorization"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/preauthorize" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": "$CC_TOKEN",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/preauthorize".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+cc_token = os.environ["CC_TOKEN"]  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "transactionToken": cc_token,  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+$transactionToken = $_REQUEST['cctoken'];  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/preauthorize",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": {$transactionToken},  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+String transactionToken = req.getParameter("cctoken");  
+
+  
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"transactionToken\": \"" + transactionToken + "\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/preauthorize"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/capture" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/capture".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/capture",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/capture"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/void" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/void".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/void",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/void"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/incrementalAuthorization" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url =  
+
+    "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/incrementalAuthorization"  
+
+    .format(apiKey=os.environ["API_KEY"])  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL =>  
+
+    "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/incrementalAuthorization",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/incrementalAuthorization"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```  * [Preauthorizing funds](https://documentation.ixopay.com/docs/guides/payments/holding-funds#preauthorizing-funds)
   * [Transferring funds](https://documentation.ixopay.com/docs/guides/payments/holding-funds#transferring-funds)
   * [Releasing held funds](https://documentation.ixopay.com/docs/guides/payments/holding-funds#releasing-held-funds)
   * [Prolonging or increasing held funds](https://documentation.ixopay.com/docs/guides/payments/holding-funds#prolonging-or-increasing-held-funds)
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/preauthorize" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": "$CC_TOKEN",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/preauthorize".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+cc_token = os.environ["CC_TOKEN"]  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "transactionToken": cc_token,  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+$transactionToken = $_REQUEST['cctoken'];  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/preauthorize",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": {$transactionToken},  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+String transactionToken = req.getParameter("cctoken");  
+
+  
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"transactionToken\": \"" + transactionToken + "\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/preauthorize"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/capture" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/capture".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/capture",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/capture"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/void" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/void".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/void",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/void"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/incrementalAuthorization" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url =  
+
+    "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/incrementalAuthorization"  
+
+    .format(apiKey=os.environ["API_KEY"])  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL =>  
+
+    "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/incrementalAuthorization",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/incrementalAuthorization"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/preauthorize" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": "$CC_TOKEN",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/preauthorize".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+cc_token = os.environ["CC_TOKEN"]  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "transactionToken": cc_token,  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+$transactionToken = $_REQUEST['cctoken'];  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/preauthorize",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "transactionToken": {$transactionToken},  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+String transactionToken = req.getParameter("cctoken");  
+
+  
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"transactionToken\": \"" + transactionToken + "\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/preauthorize"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/capture" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/capture".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/capture",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"," +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/capture"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/void" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/void".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/void",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/void"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://gateway.ixopay.com/api/v3/transaction/${API_KEY}/incrementalAuthorization" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw '{  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }'  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url =  
+
+    "https://gateway.ixopay.com/api/v3/transaction/{apiKey}/incrementalAuthorization"  
+
+    .format(apiKey=os.environ["API_KEY"])  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "referenceUuid": "4d40738b1194869734f7",  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+        "callbackUrl": "https://api.example.org/callback"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL =>  
+
+    "https://gateway.ixopay.com/api/v3/transaction/$API_KEY/incrementalAuthorization",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "referenceUuid": "4d40738b1194869734f7",  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error",  
+
+    "callbackUrl": "https://api.example.org/callback"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"referenceUuid\": \"4d40738b1194869734f7\"," +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+    "\"callbackUrl\": \"https://api.example.org/callback\""  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://gateway.ixopay.com/api/v3/transaction/%s/incrementalAuthorization"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```

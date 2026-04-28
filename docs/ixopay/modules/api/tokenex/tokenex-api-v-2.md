@@ -9,9 +9,9 @@ tags:
 - tls
 - tokenex
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -30,13 +30,14 @@ TokenEx API v2 accepts JSON payloads sent over HTTPS.
 
 Headers Example
 ```
+
 Content-Type: application/json; charset=utf-8  
+
 tx-tokenex-id: 8149339711073860  
+
 tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
 
-```
-
-Each documented endpoint uses the `/v2` base path that maps to the listed test/production hosts.
+```Each documented endpoint uses the `/v2` base path that maps to the listed test/production hosts.
 ## Authentication[​](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication "Direct link to Authentication")
   * API Key: tokenExId
   * API Key: tokenExApiKey
@@ -49,3 +50,106 @@ Each documented endpoint uses the `/v2` base path that maps to the listed test/p
 | --- | --- |  
 | Header parameter name:  | tx-apikey  |  
 Version: 2.1
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```  
+| Security Scheme Type:  | apiKey  |  
+| --- | --- |  
+| Header parameter name:  | tx-tokenex-id  |  
+| Security Scheme Type:  | apiKey  |  
+| --- | --- |  
+| Header parameter name:  | tx-apikey  |  
+  * TokenEx
+  * TokenEx API v2
+  * Introduction
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```  
+| Security Scheme Type:  | apiKey  |  
+| --- | --- |  
+| Header parameter name:  | tx-tokenex-id  |  
+| Security Scheme Type:  | apiKey  |  
+| --- | --- |  
+| Header parameter name:  | tx-apikey  |  
+  * [Request format](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#request-format)
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+tx-tokenex-id: 8149339711073860  
+
+tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv  
+
+```  
+| Security Scheme Type:  | apiKey  |  
+| --- | --- |  
+| Header parameter name:  | tx-tokenex-id  |  
+| Security Scheme Type:  | apiKey  |  
+| --- | --- |  
+| Header parameter name:  | tx-apikey  |

@@ -7,9 +7,9 @@ tags:
 - deviation-tolerance-https-documentation-ixopay-com-manual-docs-system-setup-currency-conversion-rates-deviation-tolerance-direct-link-deviation-tolerance
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/system-setup/currency-conversion-rates
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

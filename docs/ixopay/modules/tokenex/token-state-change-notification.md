@@ -8,9 +8,9 @@ tags:
 - tokenex
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/token-state-change-notification
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -55,24 +55,225 @@ UNKNOWN_REASON_CODE  |
 | networkTokenStateChangeNotification.previousTokenState  | string  | The previous network token status.  |  
 | networkTokenStateChangeNotification.currentTokenState  | string  | The current network token status  |  
   * Request
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  "networkTokenStateChangeNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291",  
+
+    "tokenTimestamp": "1523879928000",  
+
+    "requestReason": "The mobile device is stolen.",  
+
+    "requestReasonCode": "ACTIVATED_BY_ISSUER",  
+
+    "previousTokenState": "INACTIVE",  
+
+    "currentTokenState": "ACTIVE"  
+
+  }  
+
+}  
 
 ```
+```
+
 {  
+
   "token": "476120FDallZ7718",  
+
   "referenceNumber": "21082509302518698472",  
+
   "success": "true",  
+
   "error": "",  
+
   "networkTokenStateChangeNotification": {  
+
     "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
     "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
     "tokenRequestorId": "12345678901",  
+
     "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291",  
+
     "tokenTimestamp": "1523879928000",  
+
     "requestReason": "The mobile device is stolen.",  
+
     "requestReasonCode": "ACTIVATED_BY_ISSUER",  
+
     "previousTokenState": "INACTIVE",  
+
     "currentTokenState": "ACTIVE"  
+
   }  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  "networkTokenStateChangeNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291",  
+
+    "tokenTimestamp": "1523879928000",  
+
+    "requestReason": "The mobile device is stolen.",  
+
+    "requestReasonCode": "ACTIVATED_BY_ISSUER",  
+
+    "previousTokenState": "INACTIVE",  
+
+    "currentTokenState": "ACTIVE"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  "networkTokenStateChangeNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291",  
+
+    "tokenTimestamp": "1523879928000",  
+
+    "requestReason": "The mobile device is stolen.",  
+
+    "requestReasonCode": "ACTIVATED_BY_ISSUER",  
+
+    "previousTokenState": "INACTIVE",  
+
+    "currentTokenState": "ACTIVE"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  "networkTokenStateChangeNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291",  
+
+    "tokenTimestamp": "1523879928000",  
+
+    "requestReason": "The mobile device is stolen.",  
+
+    "requestReasonCode": "ACTIVATED_BY_ISSUER",  
+
+    "previousTokenState": "INACTIVE",  
+
+    "currentTokenState": "ACTIVE"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  "networkTokenStateChangeNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291",  
+
+    "tokenTimestamp": "1523879928000",  
+
+    "requestReason": "The mobile device is stolen.",  
+
+    "requestReasonCode": "ACTIVATED_BY_ISSUER",  
+
+    "previousTokenState": "INACTIVE",  
+
+    "currentTokenState": "ACTIVE"  
+
+  }  
+
 }  
 
 ```

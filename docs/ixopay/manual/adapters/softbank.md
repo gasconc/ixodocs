@@ -6,9 +6,9 @@ tags:
 - adapter-configuration-https-documentation-ixopay-com-manual-adapters-softbank-adapter-configuration-direct-link-adapter-configuration
 - ixopay
 - merchant
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/adapters/softbank
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

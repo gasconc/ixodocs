@@ -5,9 +5,9 @@ tags:
 - risk-profiles-risk-rules-itemshttps-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-block-allowlist-gallerycolumnhttps-documentation-ixopay-com-manual-docs-risk-management-blocklist-allowlist-review-list-itemshttps-documentation-ixopay-com-manual-docs-risk-management-review-list
 - risk-profiles-risk-rules-itemshttps-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-block-allowlist-gallerycolumnhttps-documentation-ixopay-com-manual-docs-risk-management-blocklist-allowlist-review-list-itemshttps-documentation-ixopay-com-manual-docs-risk-management-review-list-risk-profiles-risk-rules-itemshttps-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-block-allowlist-gallerycolumnhttps-documentation-ixopay-com-manual-docs-risk-management-blocklist-allowlist-review-list-itemshttps-documentation-ixopay-com-manual-docs-risk-management-review-list
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/risk-management
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

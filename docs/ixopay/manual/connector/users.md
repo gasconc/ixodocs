@@ -6,9 +6,9 @@ tags:
 - web-user-video-web-userhttps-documentation-ixopay-com-manual-docs-connector-users-web-api-user-video-api-userhttps-documentation-ixopay-com-manual-docs-connector-users-api-web-user-video-web-userhttps-documentation-ixopay-com-manual-docs-connector-users-web-api-user-video-api-userhttps-documentation-ixopay-com-manual-docs-connector-users-api
 - api
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/connector/users
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

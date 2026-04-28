@@ -6,9 +6,9 @@ tags:
 - external-risk-checks-itemshttps-documentation-ixopay-com-docs-reference-features-risk-checks-external-external-risk-checks-itemshttps-documentation-ixopay-com-docs-reference-features-risk-checks-external
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/features/risk-checks
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

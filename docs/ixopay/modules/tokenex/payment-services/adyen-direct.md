@@ -7,16 +7,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-adyen-direct-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-adyen-direct-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-adyen-direct-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-adyen-direct-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-adyen-direct-responses-direct-link-responses
 - api
 - 3ds
 - tokenex
 - ixopay
 - acquirer
-source_url: ''
+- recurring
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -111,97 +111,170 @@ Soft Descriptors - ShopperStatement Construction
 Adyen API's shopperStatement is a free-text field. If values are sent in the TokenEx SoftDescriptor fields, they will be concatenated and space separated in the forwarded request. Alternatively, use the shopperStatement passthrough in OrderInfo.
 Example usage:
 ```
+
 "softDescriptors": {  
+
   "merchantName":"Bob Smalls",  
+
   "merchantPhone": "(876) 613-1270 x38785",  
+
   "merchantEmail":"bob@smalls.com",  
+
   "merchantUrl": "http://merchant.com"  
+
 }  
 
-```
-
-Forwarded output: `Bob Smalls (876) 613-1270 x38785 bob@smalls.com http://merchant.com`
+```Forwarded output: `Bob Smalls (876) 613-1270 x38785 bob@smalls.com http://merchant.com`
 The value Adyen receives from ShopperStatement is visible within the Adyen merchant portal's description of that transaction's Shopper Details.
 ## Example Requests[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#example-requests "Direct link to Example Requests")
   * Card Authorize/Purchase
   * Card Capture/Refund
   * Card Void
-
 ```
+
 {  
+
   "gateway": "AdyenDirect",  
+
   "testMode": true,  
+
   "merchantId": "<Your merchant account identifier>",  
+
   "username": "<Your Adyen Username>",  
+
   "password": "<Your Adyen Password>",  
+
   "currencyCode": "USD",  
+
   "amount": 150,  
+
   "creditCard": {  
+
     "brand": "MasterCard",  
+
     "number": "5555341244441115",  
+
     "expMonth": 12,  
+
     "expYear": 2030,  
+
     "fullName": "Fredrick Gulgowski",  
+
     "cvv": "737"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "793-358-4413 x1584",  
+
     "email": "Fredrick_Gulgowski@yahoo.com",  
+
     "company": "Wolff, Durgan and Satterfield",  
+
     "address1": "Suite 676",  
+
     "address2": "175 Cassin Manors",  
+
     "city": "Felipeshire",  
+
     "state": "MT",  
+
     "zip": "37685",  
+
     "country": "USA"  
+
   },  
+
   "orderInfo": {  
+
     "orderId": "ae34a289-1505-4c75-9ab1-a02490d6fc37"  
+
   },  
+
   "threeDSecure": {  
+
     "authenticationResponse": "Y",  
+
     "directoryResponse": "C",  
+
     "threeDSecureVersion": "2.1.0",  
+
     "eci": "02",  
+
     "cavv": "3q2+78r+ur7erb7vyv66vv\\/\\/\\/\\/8=",  
+
     "dsTransId": "76d5b612-ac0f-45a3-8166-3d5f99faf568"  
+
   },  
+
   "softDescriptors": {  
+
     "merchantName": "Bob Smalls",  
+
     "merchantPhone": "(876) 613-1270 x38785",  
+
     "merchantEmail": "bob@smalls.com",  
+
     "merchantUrl": "http://merchant.com"  
+
   },  
+
   "storedCredentials": {  
+
     "credentialStored": true,  
+
     "transactionType": "installment",  
+
     "previousNetworkTransactionId": "HKF5ISPDV0922"  
+
   }  
+
 }  
 
 ```
+```
+
 {  
+
   "gateway": "AdyenDirect",  
+
   "testMode": true,  
+
   "merchantId": "<Your merchant account identifier>",  
+
   "username": "<Your Adyen Username>",  
+
   "password": "<Your Adyen Password>",  
+
   "currencyCode": "USD",  
+
   "tokenExTransactionCode": "V1c4TDQ3UzVKVjVYOE44Mg==",  
+
   "amount": 150  
+
 }  
 
 ```
+```
+
 {  
+
   "gateway": "AdyenDirect",  
+
   "testMode": true,  
+
   "merchantId": "<Your merchant account identifier>",  
+
   "username": "<Your Adyen Username>",  
+
   "password": "<Your Adyen Password>",  
+
   "tokenExTransactionCode": "V0dWRDQ0TkdWTUsyV044Mg=="  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | Adyen Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `Approved`  | boolean  |  `ResultCode` (Primary transactions)   
@@ -227,173 +300,2733 @@ This contains either the Mastercard Trace ID or the Visa Transaction ID.  |
   * Card Void
   * Gateway Error
   * Processor Error
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"054713\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"zKOXz46ry95J4Z5HebXHLP4ipyDae\",\"threeDOffered\":\"false\",\"networkTxReference\":\"Q7GKE3IG51120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"1-c62fbC1D3\"},\"pspReference\":\"PQ9522HF9HXXGN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "UFE5NTIySEY5SFhYR044Mg==",  
+
     "approvalCode": "054713",  
+
     "providerTransactionCode": "PQ9522HF9HXXGN82",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "2",  
+
       "cvvRaw": "U",  
+
       "providerParsed": {  
+
         "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
         "avs": "2 Neither postal code nor address match"  
+
       }  
+
     },  
+
     "networkTransactionId": "Q7GKE3IG51120",  
+
     "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
   },  
+
   "referenceNumber": "23112010564922704876",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"043383\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"1BZVvg7AiI8piUUPb1ZpJ7sB2VyXM\",\"threeDOffered\":\"false\",\"networkTxReference\":\"1F7XCJ1QM1120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"F24GG4M84JH\"},\"pspReference\":\"JRR8KLPX6NK2WN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "SlJSOEtMUFg2TksyV044Mg==",  
+
     "approvalCode": "043383",  
+
     "providerTransactionCode": "JRR8KLPX6NK2WN82",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "2",  
+
       "cvvRaw": "U",  
+
       "providerParsed": {  
+
         "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
         "avs": "2 Neither postal code nor address match"  
+
       }  
+
     },  
+
     "networkTransactionId": "1F7XCJ1QM1120",  
+
     "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
   },  
+
   "referenceNumber": "23112010584148827716",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"PQ9522HF9HXXGN82\",\"pspReference\":\"F3R6HQTMSV5X8N82\",\"reference\":\"PQ9522HF9HXXGN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "RjNSNkhRVE1TVjVYOE44Mg==",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "F3R6HQTMSV5X8N82",  
+
     "approved": true,  
+
     "merchantReferenceId": "PQ9522HF9HXXGN82"  
+
   },  
+
   "referenceNumber": "23112010572476795207",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"JRR8KLPX6NK2WN82\",\"pspReference\":\"QZ8SJFGDCTGLNK82\",\"reference\":\"JRR8KLPX6NK2WN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "UVo4U0pGR0RDVEdMTks4Mg==",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "QZ8SJFGDCTGLNK82",  
+
     "approved": true,  
+
     "merchantReferenceId": "JRR8KLPX6NK2WN82"  
+
   },  
+
   "referenceNumber": "23112010591299228642",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"J6N66C47Q3RZNN82\",\"pspReference\":\"KVGX56TLV8NKGK82\",\"reference\":\"J6N66C47Q3RZNN82\",\"status\":\"received\"}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "S1ZHWDU2VExWOE5LR0s4Mg==",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "KVGX56TLV8NKGK82",  
+
     "approved": true,  
+
     "merchantReferenceId": "J6N66C47Q3RZNN82"  
+
   },  
+
   "referenceNumber": "23112011000552348816",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"status\":422,\"errorCode\":\"130\",\"message\":\"Required field 'reference' is not provided.\",\"errorType\":\"validation\",\"pspReference\":\"LC3SD679J7RPWJ65\"}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "130",  
+
         "message": "Required field 'reference' is not provided.",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "LC3SD679J7RPWJ65",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "23120816343252746474",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "422"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"ztN0W0tsgj4jQPE4mA3evHpjgtVZm\",\"threeDOffered\":\"false\",\"networkTxReference\":\"SEB7MVSZI1208\",\"expiryDate\":\"3/2030\",\"cvcResult\":\"5 Issuer not certified for CVC/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\"},\"pspReference\":\"HL7BV8VMM75ZGN82\",\"refusalReason\":\"Acquirer Fraud\",\"resultCode\":\"Refused\",\"refusalReasonCode\":\"14\",\"merchantReference\":\"SlicedApplesBulk\"}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "14",  
+
         "message": "Acquirer Fraud",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "HL7BV8VMM75ZGN82",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "avsRaw": "2",  
+
       "cvvRaw": "U",  
+
       "providerParsed": {  
+
         "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
         "avs": "2 Neither postal code nor address match"  
+
       }  
+
     },  
+
     "networkTransactionId": "SEB7MVSZI1208",  
+
     "merchantReferenceId": "SlicedApplesBulk"  
+
   },  
+
   "referenceNumber": "23120816363685560139",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#overview)
+```
+```
+
+"softDescriptors": {  
+
+  "merchantName":"Bob Smalls",  
+
+  "merchantPhone": "(876) 613-1270 x38785",  
+
+  "merchantEmail":"bob@smalls.com",  
+
+  "merchantUrl": "http://merchant.com"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "amount": 150,  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "5555341244441115",  
+
+    "expMonth": 12,  
+
+    "expYear": 2030,  
+
+    "fullName": "Fredrick Gulgowski",  
+
+    "cvv": "737"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "793-358-4413 x1584",  
+
+    "email": "Fredrick_Gulgowski@yahoo.com",  
+
+    "company": "Wolff, Durgan and Satterfield",  
+
+    "address1": "Suite 676",  
+
+    "address2": "175 Cassin Manors",  
+
+    "city": "Felipeshire",  
+
+    "state": "MT",  
+
+    "zip": "37685",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "ae34a289-1505-4c75-9ab1-a02490d6fc37"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "directoryResponse": "C",  
+
+    "threeDSecureVersion": "2.1.0",  
+
+    "eci": "02",  
+
+    "cavv": "3q2+78r+ur7erb7vyv66vv\\/\\/\\/\\/8=",  
+
+    "dsTransId": "76d5b612-ac0f-45a3-8166-3d5f99faf568"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantName": "Bob Smalls",  
+
+    "merchantPhone": "(876) 613-1270 x38785",  
+
+    "merchantEmail": "bob@smalls.com",  
+
+    "merchantUrl": "http://merchant.com"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "credentialStored": true,  
+
+    "transactionType": "installment",  
+
+    "previousNetworkTransactionId": "HKF5ISPDV0922"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "tokenExTransactionCode": "V1c4TDQ3UzVKVjVYOE44Mg==",  
+
+  "amount": 150  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "tokenExTransactionCode": "V0dWRDQ0TkdWTUsyV044Mg=="  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"054713\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"zKOXz46ry95J4Z5HebXHLP4ipyDae\",\"threeDOffered\":\"false\",\"networkTxReference\":\"Q7GKE3IG51120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"1-c62fbC1D3\"},\"pspReference\":\"PQ9522HF9HXXGN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UFE5NTIySEY5SFhYR044Mg==",  
+
+    "approvalCode": "054713",  
+
+    "providerTransactionCode": "PQ9522HF9HXXGN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "Q7GKE3IG51120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010564922704876",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"043383\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"1BZVvg7AiI8piUUPb1ZpJ7sB2VyXM\",\"threeDOffered\":\"false\",\"networkTxReference\":\"1F7XCJ1QM1120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"F24GG4M84JH\"},\"pspReference\":\"JRR8KLPX6NK2WN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "SlJSOEtMUFg2TksyV044Mg==",  
+
+    "approvalCode": "043383",  
+
+    "providerTransactionCode": "JRR8KLPX6NK2WN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "1F7XCJ1QM1120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010584148827716",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"PQ9522HF9HXXGN82\",\"pspReference\":\"F3R6HQTMSV5X8N82\",\"reference\":\"PQ9522HF9HXXGN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "RjNSNkhRVE1TVjVYOE44Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "F3R6HQTMSV5X8N82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "PQ9522HF9HXXGN82"  
+
+  },  
+
+  "referenceNumber": "23112010572476795207",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"JRR8KLPX6NK2WN82\",\"pspReference\":\"QZ8SJFGDCTGLNK82\",\"reference\":\"JRR8KLPX6NK2WN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UVo4U0pGR0RDVEdMTks4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "QZ8SJFGDCTGLNK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "JRR8KLPX6NK2WN82"  
+
+  },  
+
+  "referenceNumber": "23112010591299228642",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"J6N66C47Q3RZNN82\",\"pspReference\":\"KVGX56TLV8NKGK82\",\"reference\":\"J6N66C47Q3RZNN82\",\"status\":\"received\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "S1ZHWDU2VExWOE5LR0s4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "KVGX56TLV8NKGK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "J6N66C47Q3RZNN82"  
+
+  },  
+
+  "referenceNumber": "23112011000552348816",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"status\":422,\"errorCode\":\"130\",\"message\":\"Required field 'reference' is not provided.\",\"errorType\":\"validation\",\"pspReference\":\"LC3SD679J7RPWJ65\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "130",  
+
+        "message": "Required field 'reference' is not provided.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "LC3SD679J7RPWJ65",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816343252746474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"ztN0W0tsgj4jQPE4mA3evHpjgtVZm\",\"threeDOffered\":\"false\",\"networkTxReference\":\"SEB7MVSZI1208\",\"expiryDate\":\"3/2030\",\"cvcResult\":\"5 Issuer not certified for CVC/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\"},\"pspReference\":\"HL7BV8VMM75ZGN82\",\"refusalReason\":\"Acquirer Fraud\",\"resultCode\":\"Refused\",\"refusalReasonCode\":\"14\",\"merchantReference\":\"SlicedApplesBulk\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "14",  
+
+        "message": "Acquirer Fraud",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "HL7BV8VMM75ZGN82",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "SEB7MVSZI1208",  
+
+    "merchantReferenceId": "SlicedApplesBulk"  
+
+  },  
+
+  "referenceNumber": "23120816363685560139",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+"softDescriptors": {  
+
+  "merchantName":"Bob Smalls",  
+
+  "merchantPhone": "(876) 613-1270 x38785",  
+
+  "merchantEmail":"bob@smalls.com",  
+
+  "merchantUrl": "http://merchant.com"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "amount": 150,  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "5555341244441115",  
+
+    "expMonth": 12,  
+
+    "expYear": 2030,  
+
+    "fullName": "Fredrick Gulgowski",  
+
+    "cvv": "737"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "793-358-4413 x1584",  
+
+    "email": "Fredrick_Gulgowski@yahoo.com",  
+
+    "company": "Wolff, Durgan and Satterfield",  
+
+    "address1": "Suite 676",  
+
+    "address2": "175 Cassin Manors",  
+
+    "city": "Felipeshire",  
+
+    "state": "MT",  
+
+    "zip": "37685",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "ae34a289-1505-4c75-9ab1-a02490d6fc37"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "directoryResponse": "C",  
+
+    "threeDSecureVersion": "2.1.0",  
+
+    "eci": "02",  
+
+    "cavv": "3q2+78r+ur7erb7vyv66vv\\/\\/\\/\\/8=",  
+
+    "dsTransId": "76d5b612-ac0f-45a3-8166-3d5f99faf568"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantName": "Bob Smalls",  
+
+    "merchantPhone": "(876) 613-1270 x38785",  
+
+    "merchantEmail": "bob@smalls.com",  
+
+    "merchantUrl": "http://merchant.com"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "credentialStored": true,  
+
+    "transactionType": "installment",  
+
+    "previousNetworkTransactionId": "HKF5ISPDV0922"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "tokenExTransactionCode": "V1c4TDQ3UzVKVjVYOE44Mg==",  
+
+  "amount": 150  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "tokenExTransactionCode": "V0dWRDQ0TkdWTUsyV044Mg=="  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"054713\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"zKOXz46ry95J4Z5HebXHLP4ipyDae\",\"threeDOffered\":\"false\",\"networkTxReference\":\"Q7GKE3IG51120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"1-c62fbC1D3\"},\"pspReference\":\"PQ9522HF9HXXGN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UFE5NTIySEY5SFhYR044Mg==",  
+
+    "approvalCode": "054713",  
+
+    "providerTransactionCode": "PQ9522HF9HXXGN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "Q7GKE3IG51120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010564922704876",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"043383\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"1BZVvg7AiI8piUUPb1ZpJ7sB2VyXM\",\"threeDOffered\":\"false\",\"networkTxReference\":\"1F7XCJ1QM1120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"F24GG4M84JH\"},\"pspReference\":\"JRR8KLPX6NK2WN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "SlJSOEtMUFg2TksyV044Mg==",  
+
+    "approvalCode": "043383",  
+
+    "providerTransactionCode": "JRR8KLPX6NK2WN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "1F7XCJ1QM1120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010584148827716",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"PQ9522HF9HXXGN82\",\"pspReference\":\"F3R6HQTMSV5X8N82\",\"reference\":\"PQ9522HF9HXXGN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "RjNSNkhRVE1TVjVYOE44Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "F3R6HQTMSV5X8N82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "PQ9522HF9HXXGN82"  
+
+  },  
+
+  "referenceNumber": "23112010572476795207",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"JRR8KLPX6NK2WN82\",\"pspReference\":\"QZ8SJFGDCTGLNK82\",\"reference\":\"JRR8KLPX6NK2WN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UVo4U0pGR0RDVEdMTks4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "QZ8SJFGDCTGLNK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "JRR8KLPX6NK2WN82"  
+
+  },  
+
+  "referenceNumber": "23112010591299228642",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"J6N66C47Q3RZNN82\",\"pspReference\":\"KVGX56TLV8NKGK82\",\"reference\":\"J6N66C47Q3RZNN82\",\"status\":\"received\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "S1ZHWDU2VExWOE5LR0s4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "KVGX56TLV8NKGK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "J6N66C47Q3RZNN82"  
+
+  },  
+
+  "referenceNumber": "23112011000552348816",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"status\":422,\"errorCode\":\"130\",\"message\":\"Required field 'reference' is not provided.\",\"errorType\":\"validation\",\"pspReference\":\"LC3SD679J7RPWJ65\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "130",  
+
+        "message": "Required field 'reference' is not provided.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "LC3SD679J7RPWJ65",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816343252746474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"ztN0W0tsgj4jQPE4mA3evHpjgtVZm\",\"threeDOffered\":\"false\",\"networkTxReference\":\"SEB7MVSZI1208\",\"expiryDate\":\"3/2030\",\"cvcResult\":\"5 Issuer not certified for CVC/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\"},\"pspReference\":\"HL7BV8VMM75ZGN82\",\"refusalReason\":\"Acquirer Fraud\",\"resultCode\":\"Refused\",\"refusalReasonCode\":\"14\",\"merchantReference\":\"SlicedApplesBulk\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "14",  
+
+        "message": "Acquirer Fraud",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "HL7BV8VMM75ZGN82",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "SEB7MVSZI1208",  
+
+    "merchantReferenceId": "SlicedApplesBulk"  
+
+  },  
+
+  "referenceNumber": "23120816363685560139",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+"softDescriptors": {  
+
+  "merchantName":"Bob Smalls",  
+
+  "merchantPhone": "(876) 613-1270 x38785",  
+
+  "merchantEmail":"bob@smalls.com",  
+
+  "merchantUrl": "http://merchant.com"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "amount": 150,  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "5555341244441115",  
+
+    "expMonth": 12,  
+
+    "expYear": 2030,  
+
+    "fullName": "Fredrick Gulgowski",  
+
+    "cvv": "737"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "793-358-4413 x1584",  
+
+    "email": "Fredrick_Gulgowski@yahoo.com",  
+
+    "company": "Wolff, Durgan and Satterfield",  
+
+    "address1": "Suite 676",  
+
+    "address2": "175 Cassin Manors",  
+
+    "city": "Felipeshire",  
+
+    "state": "MT",  
+
+    "zip": "37685",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "ae34a289-1505-4c75-9ab1-a02490d6fc37"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "directoryResponse": "C",  
+
+    "threeDSecureVersion": "2.1.0",  
+
+    "eci": "02",  
+
+    "cavv": "3q2+78r+ur7erb7vyv66vv\\/\\/\\/\\/8=",  
+
+    "dsTransId": "76d5b612-ac0f-45a3-8166-3d5f99faf568"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantName": "Bob Smalls",  
+
+    "merchantPhone": "(876) 613-1270 x38785",  
+
+    "merchantEmail": "bob@smalls.com",  
+
+    "merchantUrl": "http://merchant.com"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "credentialStored": true,  
+
+    "transactionType": "installment",  
+
+    "previousNetworkTransactionId": "HKF5ISPDV0922"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "tokenExTransactionCode": "V1c4TDQ3UzVKVjVYOE44Mg==",  
+
+  "amount": 150  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "tokenExTransactionCode": "V0dWRDQ0TkdWTUsyV044Mg=="  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"054713\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"zKOXz46ry95J4Z5HebXHLP4ipyDae\",\"threeDOffered\":\"false\",\"networkTxReference\":\"Q7GKE3IG51120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"1-c62fbC1D3\"},\"pspReference\":\"PQ9522HF9HXXGN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UFE5NTIySEY5SFhYR044Mg==",  
+
+    "approvalCode": "054713",  
+
+    "providerTransactionCode": "PQ9522HF9HXXGN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "Q7GKE3IG51120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010564922704876",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"043383\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"1BZVvg7AiI8piUUPb1ZpJ7sB2VyXM\",\"threeDOffered\":\"false\",\"networkTxReference\":\"1F7XCJ1QM1120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"F24GG4M84JH\"},\"pspReference\":\"JRR8KLPX6NK2WN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "SlJSOEtMUFg2TksyV044Mg==",  
+
+    "approvalCode": "043383",  
+
+    "providerTransactionCode": "JRR8KLPX6NK2WN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "1F7XCJ1QM1120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010584148827716",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"PQ9522HF9HXXGN82\",\"pspReference\":\"F3R6HQTMSV5X8N82\",\"reference\":\"PQ9522HF9HXXGN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "RjNSNkhRVE1TVjVYOE44Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "F3R6HQTMSV5X8N82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "PQ9522HF9HXXGN82"  
+
+  },  
+
+  "referenceNumber": "23112010572476795207",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"JRR8KLPX6NK2WN82\",\"pspReference\":\"QZ8SJFGDCTGLNK82\",\"reference\":\"JRR8KLPX6NK2WN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UVo4U0pGR0RDVEdMTks4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "QZ8SJFGDCTGLNK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "JRR8KLPX6NK2WN82"  
+
+  },  
+
+  "referenceNumber": "23112010591299228642",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"J6N66C47Q3RZNN82\",\"pspReference\":\"KVGX56TLV8NKGK82\",\"reference\":\"J6N66C47Q3RZNN82\",\"status\":\"received\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "S1ZHWDU2VExWOE5LR0s4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "KVGX56TLV8NKGK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "J6N66C47Q3RZNN82"  
+
+  },  
+
+  "referenceNumber": "23112011000552348816",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"status\":422,\"errorCode\":\"130\",\"message\":\"Required field 'reference' is not provided.\",\"errorType\":\"validation\",\"pspReference\":\"LC3SD679J7RPWJ65\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "130",  
+
+        "message": "Required field 'reference' is not provided.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "LC3SD679J7RPWJ65",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816343252746474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"ztN0W0tsgj4jQPE4mA3evHpjgtVZm\",\"threeDOffered\":\"false\",\"networkTxReference\":\"SEB7MVSZI1208\",\"expiryDate\":\"3/2030\",\"cvcResult\":\"5 Issuer not certified for CVC/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\"},\"pspReference\":\"HL7BV8VMM75ZGN82\",\"refusalReason\":\"Acquirer Fraud\",\"resultCode\":\"Refused\",\"refusalReasonCode\":\"14\",\"merchantReference\":\"SlicedApplesBulk\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "14",  
+
+        "message": "Acquirer Fraud",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "HL7BV8VMM75ZGN82",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "SEB7MVSZI1208",  
+
+    "merchantReferenceId": "SlicedApplesBulk"  
+
+  },  
+
+  "referenceNumber": "23120816363685560139",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct#example-responses)
+```
+
+"softDescriptors": {  
+
+  "merchantName":"Bob Smalls",  
+
+  "merchantPhone": "(876) 613-1270 x38785",  
+
+  "merchantEmail":"bob@smalls.com",  
+
+  "merchantUrl": "http://merchant.com"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "amount": 150,  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "5555341244441115",  
+
+    "expMonth": 12,  
+
+    "expYear": 2030,  
+
+    "fullName": "Fredrick Gulgowski",  
+
+    "cvv": "737"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "793-358-4413 x1584",  
+
+    "email": "Fredrick_Gulgowski@yahoo.com",  
+
+    "company": "Wolff, Durgan and Satterfield",  
+
+    "address1": "Suite 676",  
+
+    "address2": "175 Cassin Manors",  
+
+    "city": "Felipeshire",  
+
+    "state": "MT",  
+
+    "zip": "37685",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "ae34a289-1505-4c75-9ab1-a02490d6fc37"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "directoryResponse": "C",  
+
+    "threeDSecureVersion": "2.1.0",  
+
+    "eci": "02",  
+
+    "cavv": "3q2+78r+ur7erb7vyv66vv\\/\\/\\/\\/8=",  
+
+    "dsTransId": "76d5b612-ac0f-45a3-8166-3d5f99faf568"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantName": "Bob Smalls",  
+
+    "merchantPhone": "(876) 613-1270 x38785",  
+
+    "merchantEmail": "bob@smalls.com",  
+
+    "merchantUrl": "http://merchant.com"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "credentialStored": true,  
+
+    "transactionType": "installment",  
+
+    "previousNetworkTransactionId": "HKF5ISPDV0922"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "tokenExTransactionCode": "V1c4TDQ3UzVKVjVYOE44Mg==",  
+
+  "amount": 150  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "tokenExTransactionCode": "V0dWRDQ0TkdWTUsyV044Mg=="  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"054713\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"zKOXz46ry95J4Z5HebXHLP4ipyDae\",\"threeDOffered\":\"false\",\"networkTxReference\":\"Q7GKE3IG51120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"1-c62fbC1D3\"},\"pspReference\":\"PQ9522HF9HXXGN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UFE5NTIySEY5SFhYR044Mg==",  
+
+    "approvalCode": "054713",  
+
+    "providerTransactionCode": "PQ9522HF9HXXGN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "Q7GKE3IG51120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010564922704876",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"043383\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"1BZVvg7AiI8piUUPb1ZpJ7sB2VyXM\",\"threeDOffered\":\"false\",\"networkTxReference\":\"1F7XCJ1QM1120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"F24GG4M84JH\"},\"pspReference\":\"JRR8KLPX6NK2WN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "SlJSOEtMUFg2TksyV044Mg==",  
+
+    "approvalCode": "043383",  
+
+    "providerTransactionCode": "JRR8KLPX6NK2WN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "1F7XCJ1QM1120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010584148827716",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"PQ9522HF9HXXGN82\",\"pspReference\":\"F3R6HQTMSV5X8N82\",\"reference\":\"PQ9522HF9HXXGN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "RjNSNkhRVE1TVjVYOE44Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "F3R6HQTMSV5X8N82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "PQ9522HF9HXXGN82"  
+
+  },  
+
+  "referenceNumber": "23112010572476795207",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"JRR8KLPX6NK2WN82\",\"pspReference\":\"QZ8SJFGDCTGLNK82\",\"reference\":\"JRR8KLPX6NK2WN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UVo4U0pGR0RDVEdMTks4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "QZ8SJFGDCTGLNK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "JRR8KLPX6NK2WN82"  
+
+  },  
+
+  "referenceNumber": "23112010591299228642",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"J6N66C47Q3RZNN82\",\"pspReference\":\"KVGX56TLV8NKGK82\",\"reference\":\"J6N66C47Q3RZNN82\",\"status\":\"received\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "S1ZHWDU2VExWOE5LR0s4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "KVGX56TLV8NKGK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "J6N66C47Q3RZNN82"  
+
+  },  
+
+  "referenceNumber": "23112011000552348816",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"status\":422,\"errorCode\":\"130\",\"message\":\"Required field 'reference' is not provided.\",\"errorType\":\"validation\",\"pspReference\":\"LC3SD679J7RPWJ65\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "130",  
+
+        "message": "Required field 'reference' is not provided.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "LC3SD679J7RPWJ65",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816343252746474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"ztN0W0tsgj4jQPE4mA3evHpjgtVZm\",\"threeDOffered\":\"false\",\"networkTxReference\":\"SEB7MVSZI1208\",\"expiryDate\":\"3/2030\",\"cvcResult\":\"5 Issuer not certified for CVC/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\"},\"pspReference\":\"HL7BV8VMM75ZGN82\",\"refusalReason\":\"Acquirer Fraud\",\"resultCode\":\"Refused\",\"refusalReasonCode\":\"14\",\"merchantReference\":\"SlicedApplesBulk\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "14",  
+
+        "message": "Acquirer Fraud",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "HL7BV8VMM75ZGN82",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "SEB7MVSZI1208",  
+
+    "merchantReferenceId": "SlicedApplesBulk"  
+
+  },  
+
+  "referenceNumber": "23120816363685560139",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+"softDescriptors": {  
+
+  "merchantName":"Bob Smalls",  
+
+  "merchantPhone": "(876) 613-1270 x38785",  
+
+  "merchantEmail":"bob@smalls.com",  
+
+  "merchantUrl": "http://merchant.com"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "amount": 150,  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "5555341244441115",  
+
+    "expMonth": 12,  
+
+    "expYear": 2030,  
+
+    "fullName": "Fredrick Gulgowski",  
+
+    "cvv": "737"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "793-358-4413 x1584",  
+
+    "email": "Fredrick_Gulgowski@yahoo.com",  
+
+    "company": "Wolff, Durgan and Satterfield",  
+
+    "address1": "Suite 676",  
+
+    "address2": "175 Cassin Manors",  
+
+    "city": "Felipeshire",  
+
+    "state": "MT",  
+
+    "zip": "37685",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "ae34a289-1505-4c75-9ab1-a02490d6fc37"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "authenticationResponse": "Y",  
+
+    "directoryResponse": "C",  
+
+    "threeDSecureVersion": "2.1.0",  
+
+    "eci": "02",  
+
+    "cavv": "3q2+78r+ur7erb7vyv66vv\\/\\/\\/\\/8=",  
+
+    "dsTransId": "76d5b612-ac0f-45a3-8166-3d5f99faf568"  
+
+  },  
+
+  "softDescriptors": {  
+
+    "merchantName": "Bob Smalls",  
+
+    "merchantPhone": "(876) 613-1270 x38785",  
+
+    "merchantEmail": "bob@smalls.com",  
+
+    "merchantUrl": "http://merchant.com"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "credentialStored": true,  
+
+    "transactionType": "installment",  
+
+    "previousNetworkTransactionId": "HKF5ISPDV0922"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "currencyCode": "USD",  
+
+  "tokenExTransactionCode": "V1c4TDQ3UzVKVjVYOE44Mg==",  
+
+  "amount": 150  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "AdyenDirect",  
+
+  "testMode": true,  
+
+  "merchantId": "<Your merchant account identifier>",  
+
+  "username": "<Your Adyen Username>",  
+
+  "password": "<Your Adyen Password>",  
+
+  "tokenExTransactionCode": "V0dWRDQ0TkdWTUsyV044Mg=="  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"054713\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"zKOXz46ry95J4Z5HebXHLP4ipyDae\",\"threeDOffered\":\"false\",\"networkTxReference\":\"Q7GKE3IG51120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"1-c62fbC1D3\"},\"pspReference\":\"PQ9522HF9HXXGN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UFE5NTIySEY5SFhYR044Mg==",  
+
+    "approvalCode": "054713",  
+
+    "providerTransactionCode": "PQ9522HF9HXXGN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "Q7GKE3IG51120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010564922704876",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"authCode\":\"043383\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"1BZVvg7AiI8piUUPb1ZpJ7sB2VyXM\",\"threeDOffered\":\"false\",\"networkTxReference\":\"1F7XCJ1QM1120\",\"refusalReasonRaw\":\"AUTHORISED\",\"expiryDate\":\"3\\/2030\",\"cvcResult\":\"5 Issuer not certified for CVC\\/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\",\"acquirerReference\":\"F24GG4M84JH\"},\"pspReference\":\"JRR8KLPX6NK2WN82\",\"resultCode\":\"Authorised\",\"amount\":{\"currency\":\"USD\",\"value\":13},\"merchantReference\":\"Zpm2k8s2we5nhg1u\",\"paymentMethod\":{\"brand\":\"mc\",\"type\":\"scheme\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "SlJSOEtMUFg2TksyV044Mg==",  
+
+    "approvalCode": "043383",  
+
+    "providerTransactionCode": "JRR8KLPX6NK2WN82",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "1F7XCJ1QM1120",  
+
+    "merchantReferenceId": "Zpm2k8s2we5nhg1u"  
+
+  },  
+
+  "referenceNumber": "23112010584148827716",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"PQ9522HF9HXXGN82\",\"pspReference\":\"F3R6HQTMSV5X8N82\",\"reference\":\"PQ9522HF9HXXGN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "RjNSNkhRVE1TVjVYOE44Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "F3R6HQTMSV5X8N82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "PQ9522HF9HXXGN82"  
+
+  },  
+
+  "referenceNumber": "23112010572476795207",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"JRR8KLPX6NK2WN82\",\"pspReference\":\"QZ8SJFGDCTGLNK82\",\"reference\":\"JRR8KLPX6NK2WN82\",\"status\":\"received\",\"amount\":{\"currency\":\"USD\",\"value\":13}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "UVo4U0pGR0RDVEdMTks4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "QZ8SJFGDCTGLNK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "JRR8KLPX6NK2WN82"  
+
+  },  
+
+  "referenceNumber": "23112010591299228642",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchantAccount\":\"TokenExECOM\",\"paymentPspReference\":\"J6N66C47Q3RZNN82\",\"pspReference\":\"KVGX56TLV8NKGK82\",\"reference\":\"J6N66C47Q3RZNN82\",\"status\":\"received\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "S1ZHWDU2VExWOE5LR0s4Mg==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "KVGX56TLV8NKGK82",  
+
+    "approved": true,  
+
+    "merchantReferenceId": "J6N66C47Q3RZNN82"  
+
+  },  
+
+  "referenceNumber": "23112011000552348816",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"status\":422,\"errorCode\":\"130\",\"message\":\"Required field 'reference' is not provided.\",\"errorType\":\"validation\",\"pspReference\":\"LC3SD679J7RPWJ65\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "130",  
+
+        "message": "Required field 'reference' is not provided.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "LC3SD679J7RPWJ65",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816343252746474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "422"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"additionalData\":{\"liabilityShift\":\"false\",\"avsResult\":\"2 Neither postal code nor address match\",\"PaymentAccountReference\":\"ztN0W0tsgj4jQPE4mA3evHpjgtVZm\",\"threeDOffered\":\"false\",\"networkTxReference\":\"SEB7MVSZI1208\",\"expiryDate\":\"3/2030\",\"cvcResult\":\"5 Issuer not certified for CVC/CVV\",\"avsResultRaw\":\"2\",\"threeDAuthenticated\":\"false\",\"paymentMethod\":\"mc\",\"retry.attempt1.shopperInteraction\":\"Ecommerce\",\"cvcResultRaw\":\"U\",\"acquirerCode\":\"TestPmmAcquirer\"},\"pspReference\":\"HL7BV8VMM75ZGN82\",\"refusalReason\":\"Acquirer Fraud\",\"resultCode\":\"Refused\",\"refusalReasonCode\":\"14\",\"merchantReference\":\"SlicedApplesBulk\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "14",  
+
+        "message": "Acquirer Fraud",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "HL7BV8VMM75ZGN82",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "2",  
+
+      "cvvRaw": "U",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "5 Issuer not certified for CVC/CVV",  
+
+        "avs": "2 Neither postal code nor address match"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "SEB7MVSZI1208",  
+
+    "merchantReferenceId": "SlicedApplesBulk"  
+
+  },  
+
+  "referenceNumber": "23120816363685560139",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```

@@ -4,9 +4,9 @@ summary: ' System Setuphttps://documentation.ixopay.com/manual/docs/system-setup
   Contacts'
 tags:
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/system-setup/service-contacts
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

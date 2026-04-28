@@ -7,9 +7,9 @@ tags:
 - tokenex
 - ixopay
 - gateway
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/tgapi-v2-the-basics
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -15,9 +15,9 @@ tags:
 - ixopay
 - psp
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/post-processing/reconciliation
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -30,7 +30,7 @@ If you want to get access to all [IXOPAY platform](https://www.ixopay.com) featu
 The reconciliation of transactions with the processing providers presents a number of challenges to eCommerce enterprises. Different providers handle this process in different ways. For example, one service provider may provide reconciliation data within seconds to be collected via an API, whereas it may take several hours for another service provider to provide the data as a file. The format (JSON, XML, CSV, fixed-width file), semantics and granularity of the data often differ, generally as a result of the underlying payment method.
 The [IXOPAY](https://www.ixopay.com) Post-Processing Engine standardizes the reconciliation process across all PSPs and payment methods. Any resulting conflicts, such as incorrectly calculated fees, missing reconciliation data and unknown transactions are handled in the same manner for all providers. All identified conflicts can easily be resolved within the IXOPAY platform, thereby drastically simplifying this task for your employees.
 File retention
-Files are retained for 12 months and permanently deleted thereafter. 
+Files are retained for 12 months and permanently deleted thereafter.
 To view and manage reconciliation conflicts:
   1. Navigate to the **Post Processing** section, sub-section **Reconciliation**.
   2. The **Reconciliation** section contains three tabs (see Reconciliation screenshot):
@@ -74,6 +74,6 @@ To upload a reconciliation file:
 The file format and size depends on the provider. The reconciliation file is processed in the same way as reconciliation files received via the data fetcher.
 ![New Reconciliation](https://documentation.ixopay.com/manual/assets/ideal-img/new-reconciliation.60c5ab0.1600.png)New Reconciliation![Upload Reconciliation File](https://documentation.ixopay.com/manual/assets/ideal-img/upload-reconciliation-file.3cf71c7.1258.png)Upload Reconciliation File
 File retention
-The file format and size depends on the provider. Files are retained for 12 months and permanently deleted thereafter. 
+The file format and size depends on the provider. Files are retained for 12 months and permanently deleted thereafter.
 Permission
 This feature requires the `postProcessing.reconciliations.create` permission.

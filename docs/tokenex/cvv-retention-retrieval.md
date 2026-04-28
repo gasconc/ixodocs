@@ -12,9 +12,9 @@ tags:
 - ixopay
 - credit-card
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/cvv-retention-retrieval
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

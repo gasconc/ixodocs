@@ -14,9 +14,9 @@ tags:
 - notify-merchant-https-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-create-risk-rules-notify-merchant-direct-link-notify-merchant
 - external-risk-checks-https-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-create-risk-rules-external-risk-checks-direct-link-external-risk-checks
 - kount-external-risk-check-https-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-create-risk-rules-kount-external-risk-check-direct-link-kount-external-risk-check
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -6,9 +6,9 @@ tags:
 - video-risk-profiles-https-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-overview-video-risk-profiles-direct-link-video-risk-profiles
 - ixopay
 - merchant
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/overview
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

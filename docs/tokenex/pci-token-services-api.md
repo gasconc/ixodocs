@@ -5,9 +5,9 @@ tags:
 - api
 - pci
 - tokenex
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/pci-token-services-api
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

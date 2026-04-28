@@ -3,7 +3,6 @@ title: Customer profiles API
 summary: ' Customer profiles API'
 tags:
 - request-format-https-documentation-ixopay-com-api-customer-profiles-customer-profiles-api-request-format-direct-link-request-format
-- authentication-https-documentation-ixopay-com-api-customer-profiles-customer-profiles-api-authentication-direct-link-authentication
 - api
 - json
 - tls
@@ -11,9 +10,9 @@ tags:
 - authorization
 - transaction
 - gateway
-source_url: ''
+source_url: https://documentation.ixopay.com/api/customer-profiles/customer-profiles-api
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -38,14 +37,16 @@ Requests to the Customer Profile API are sent via HTTPS containing a JSON body.
 
 **Headers Example:**
 ```
+
 Content-Type: application/json; charset=utf-8  
+
 Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
 Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
 X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
 
-```
-
-## Authentication[​](https://documentation.ixopay.com/api/customer-profiles/customer-profiles-api#authentication "Direct link to Authentication")
+```## Authentication[​](https://documentation.ixopay.com/api/customer-profiles/customer-profiles-api#authentication "Direct link to Authentication")
   * HTTP: Basic Auth
 
 To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header, as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617). To achieve this, the username and password are first concatenated with a `:` (colon) separator, and the resulting string is then Base64 encoded. Here is an example of how this process works:
@@ -62,8 +63,61 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 Version: 3.0.0
 Export
   * [OpenAPI Spec](https://gateway.ixopay.com/Schema/V3/CustomerProfilesOpenApiSpecification.yml)
+```
 
-tip
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
 Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
 | Security Scheme Type:  | http  |  
 | --- | --- |  
@@ -71,15 +125,55 @@ Many programming frameworks will automatically handle the BASIC Authentication p
   * [Enterprise](https://documentation.ixopay.com/api/enterprise)
   * Customer profiles API
   * Introduction
+```
 
-tip
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
 Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
 | Security Scheme Type:  | http  |  
 | --- | --- |  
 | HTTP Authorization Scheme:  | basic  |  
   * [Request format](https://documentation.ixopay.com/api/customer-profiles/customer-profiles-api#request-format)
+```
 
-tip
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 UTC  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
 Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
 | Security Scheme Type:  | http  |  
 | --- | --- |  

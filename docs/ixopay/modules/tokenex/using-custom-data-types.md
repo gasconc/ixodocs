@@ -6,9 +6,9 @@ tags:
 - tokenex
 - ixopay
 - iframe
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/using-custom-data-types
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -38,26 +38,272 @@ Note: - There will not be (Luhn compliance) format validation error if enforceLu
 This will suppress the JavaScript Luhn check error, allowing the user to send the request to the backend. However if the token scheme doesn't allow skipping the Luhn check, the token generation will still error.  |  
 JavaScript
 ```
+
 var iframeConfig = {  
+
   origin: "https://mysite.com",  
+
   timestamp: "20180109161437",  
+
   tokenExID: "REMOVED",  
+
   authenticationKey: "REMOVED",  
+
   pci: true,  
+
   cvv: true,  
+
   customDataTypes: [  
+
     {  
+
       type: "privateCard",  
+
       validRegex: "^(5019)\\d{12}$",  
+
       possibleRegEx: "^(5019)\\d+$",  
+
       maxLength: 16,  
+
       cvvValidRegex: "^[0-9]{2}$",  
+
       cvvMaxLength: 2,  
+
       cvvRequired: false,  
+
       luhnCheck: true  
+
     }  
+
   ],  
+
   ...  
+
+}  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "REMOVED",  
+
+  authenticationKey: "REMOVED",  
+
+  pci: true,  
+
+  cvv: true,  
+
+  customDataTypes: [  
+
+    {  
+
+      type: "privateCard",  
+
+      validRegex: "^(5019)\\d{12}$",  
+
+      possibleRegEx: "^(5019)\\d+$",  
+
+      maxLength: 16,  
+
+      cvvValidRegex: "^[0-9]{2}$",  
+
+      cvvMaxLength: 2,  
+
+      cvvRequired: false,  
+
+      luhnCheck: true  
+
+    }  
+
+  ],  
+
+  ...  
+
+}  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "REMOVED",  
+
+  authenticationKey: "REMOVED",  
+
+  pci: true,  
+
+  cvv: true,  
+
+  customDataTypes: [  
+
+    {  
+
+      type: "privateCard",  
+
+      validRegex: "^(5019)\\d{12}$",  
+
+      possibleRegEx: "^(5019)\\d+$",  
+
+      maxLength: 16,  
+
+      cvvValidRegex: "^[0-9]{2}$",  
+
+      cvvMaxLength: 2,  
+
+      cvvRequired: false,  
+
+      luhnCheck: true  
+
+    }  
+
+  ],  
+
+  ...  
+
+}  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "REMOVED",  
+
+  authenticationKey: "REMOVED",  
+
+  pci: true,  
+
+  cvv: true,  
+
+  customDataTypes: [  
+
+    {  
+
+      type: "privateCard",  
+
+      validRegex: "^(5019)\\d{12}$",  
+
+      possibleRegEx: "^(5019)\\d+$",  
+
+      maxLength: 16,  
+
+      cvvValidRegex: "^[0-9]{2}$",  
+
+      cvvMaxLength: 2,  
+
+      cvvRequired: false,  
+
+      luhnCheck: true  
+
+    }  
+
+  ],  
+
+  ...  
+
+}  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "REMOVED",  
+
+  authenticationKey: "REMOVED",  
+
+  pci: true,  
+
+  cvv: true,  
+
+  customDataTypes: [  
+
+    {  
+
+      type: "privateCard",  
+
+      validRegex: "^(5019)\\d{12}$",  
+
+      possibleRegEx: "^(5019)\\d+$",  
+
+      maxLength: 16,  
+
+      cvvValidRegex: "^[0-9]{2}$",  
+
+      cvvMaxLength: 2,  
+
+      cvvRequired: false,  
+
+      luhnCheck: true  
+
+    }  
+
+  ],  
+
+  ...  
+
+}  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "REMOVED",  
+
+  authenticationKey: "REMOVED",  
+
+  pci: true,  
+
+  cvv: true,  
+
+  customDataTypes: [  
+
+    {  
+
+      type: "privateCard",  
+
+      validRegex: "^(5019)\\d{12}$",  
+
+      possibleRegEx: "^(5019)\\d+$",  
+
+      maxLength: 16,  
+
+      cvvValidRegex: "^[0-9]{2}$",  
+
+      cvvMaxLength: 2,  
+
+      cvvRequired: false,  
+
+      luhnCheck: true  
+
+    }  
+
+  ],  
+
+  ...  
+
 }  
 
 ```

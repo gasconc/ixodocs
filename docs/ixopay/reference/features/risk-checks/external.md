@@ -8,9 +8,9 @@ tags:
 - forter-processing-transactions-payment-platform-forter-external-risk-checks-utilized-enhance-transaction-security-https-documentation-ixopay-com-docs-reference-features-risk-checks-external-forter-forter-processing-transactions-payment-platform-forter-external-risk-checks-utilized-enhance-transaction-security-https-documentation-ixopay-com-docs-reference-features-risk-checks-external-forter
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/features/risk-checks/external
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

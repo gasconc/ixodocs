@@ -3,19 +3,19 @@ title: iFrame Events
 summary: ' TokenEx iFrame  Using the iFramehttps://documentation.ixopay.com/modules/docs/tokenex/using-the-iframe  iFrame
   Events'
 tags:
-- validate-https-documentation-ixopay-com-modules-docs-tokenex-events-validate-direct-link-validate
-- tokenize-https-documentation-ixopay-com-modules-docs-tokenex-events-tokenize-direct-link-tokenize
-- trusting-token-https-documentation-ixopay-com-modules-docs-tokenex-events-trusting-token-direct-link-trusting-token
-- error-https-documentation-ixopay-com-modules-docs-tokenex-events-error-direct-link-error
 - togglemask-togglecvvmask-https-documentation-ixopay-com-modules-docs-tokenex-events-togglemask-togglecvvmask-direct-link-togglemask-togglecvvmask
-- autocomplete-values-https-documentation-ixopay-com-modules-docs-tokenex-events-autocomplete-values-direct-link-autocomplete-values
-- card-type-validation-regexes-https-documentation-ixopay-com-modules-docs-tokenex-events-card-type-validation-regexes-direct-link-card-type-validation-regexes
 - bin-lookup-values-https-documentation-ixopay-com-modules-docs-tokenex-events-bin-lookup-values-direct-link-bin-lookup-values
 - json
 - 3ds
-source_url: ''
+- pci
+- hmac
+- tokenization
+- tokenex
+- ixopay
+- iframe
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/events
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -46,30 +46,48 @@ Also provides 3DS Fingerprinting event notifications.  |
 | binLookup  | The binLookup command was invoked (see fields below)  |  
 JavaScript
 ```
+
 //create a new instance of the iframe, and add the container ID and config object  
+
 var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
   
+
 //add event listeners  
+
 iframe.on("load", function () { console.log("CC iFrame Loaded") });  
+
 iframe.on("focus", function () { console.log("CC iFrame focus") });  
+
 iframe.on("blur", function () { console.log("CC iFrame blur") });  
+
 iframe.on("change", function () { console.log("CC iFrame Change:") });  
+
 iframe.on("validate", function (data) { console.log("CC iFrame validate:" + JSON.stringify(data)) });  
+
 iframe.on("cardTypeChange", function (data) { console.log("CC iFrame cardTypeChange:" + JSON.stringify(data)) });  
+
 iframe.on("tokenize", function (data) { console.log("CC iFrame Tokenize:" + JSON.stringify(data)) });  
+
 iframe.on("error", function (data) { console.log("CC iFrame error:" + JSON.stringify(data)) });  
+
 iframe.on("cvvFocus", function () { console.log("CVV iFrame focus") });  
+
 iframe.on("cvvBlur", function () { console.log("CVV iFrame blur") });  
+
 iframe.on("autoCompleteValues", function (data) { console.log("CC iFrame Autocomplete Values:" + JSON.stringify(data)) });  
+
 iframe.on("binLookup", function (data) { console.log("iFrame Binlookup Values:" + JSON.stringify(data)) });  
+
 iframe.on("notice", function(data) { console.log("CC iFrame notice:" + JSON.stringify(data) });  
+
   
+
 //calling the iframe's load function adds the iframe to the DOM.  
+
 iframe.load();  
 
-```
-
-## Validate[​](https://documentation.ixopay.com/modules/docs/tokenex/events#validate "Direct link to Validate")  
+```## Validate[​](https://documentation.ixopay.com/modules/docs/tokenex/events#validate "Direct link to Validate")  
 | Field  | Type  | Description  |  
 | --- | --- | --- |  
 | isValid  | bool  | Indicates whether or not the input data is valid  |  
@@ -83,20 +101,26 @@ iframe.load();
   * Invalid input data/failed validation
   * User did not supply any data
   * Non-PCI Valid:
-
 ```
+
 { "isValid": true, "cardType": "masterCard", "lastFour": "5454", "firstSix": "545454" }  
 
 ```
+```
+
 {"isValid":false,"validator":"format"}  
 
 ```
+```
+
 { "isValid": false, "validator": "required" }  
 
 ```
+```
+
 {"isValid":true,"characterCount":9}  
 
-## Tokenize[​](https://documentation.ixopay.com/modules/docs/tokenex/events#tokenize "Direct link to Tokenize")  
+```## Tokenize[​](https://documentation.ixopay.com/modules/docs/tokenex/events#tokenize "Direct link to Tokenize")  
 | Field  | Type  | Description  |  
 | --- | --- | --- |  
 | firstSix  | string  | (PCI Only) The first six characters of the input data  |  
@@ -111,43 +135,67 @@ Returned only if useExtendedBIN is true in the iFrame configuration and the PAN 
 | tokenHMAC  | string  | HMAC generated using Token as the data and the Client Secret Key  |  
   * PCI
   * Non-PCI
-
 ```
+
 {  
+
   "firstSix": "545454",  
+
   "lastFour": "5454",  
+
   "firstEight": "54545454",  
+
   "cardType": "masterCard",  
+
   "token": "545454R5F6RR5454",  
+
   "referenceNumber": "18022410572868097790",  
+
   "tokenHMAC": "RqMhITN57i2WkDZLeoUcOMK71zT8zLnonzTKdyeCq0k="  
+
 }  
 
 ```
+```
+
 {  
+
   "characterCount": 9,  
+
   "token": "UUYLWJFEJE8C3NL24GQECHW614D4D9JOIIYICY",  
+
   "referenceNumber": "18022411000938179325",  
+
   "tokenHMAC": "5MDYcUNcZL7UKFyVZQk/9lG6i0Llj/i4L+uTfBHXkrg="  
+
 }  
 
-## Trusting the Token[​](https://documentation.ixopay.com/modules/docs/tokenex/events#trusting-the-token "Direct link to Trusting the Token")
+```## Trusting the Token[​](https://documentation.ixopay.com/modules/docs/tokenex/events#trusting-the-token "Direct link to Trusting the Token")
 Token HMAC
 Since the token is accessible via the web browser or on the consumer's mobile device, TokenEx provides an [HMAC](https://en.wikipedia.org/wiki/Hash-based_message_authentication_code) of the token, which is generated using your client secret key. (Your client secret key is available via the [Client Portal](https://documentation.ixopay.com/modules/docs/tokenex/welcome) in the "iFrame Configuration" menu.)
 Before trusting the token value, it is recommended that clients validate the HMAC. The same procedure used when [generating the iFrame Authentication Key](https://documentation.ixopay.com/modules/docs/tokenex/generating-the-authentication-key), can be used to reconstruct the HMAC returned by the iFrame Tokenize event. Rather than a concatenated string, use the token value - `HMAC-SHA256(token, customerSecretKey)`. See example below.
 C#
 ```
+
 private string GenerateHMAC(string token, string customerSecretKey)  
+
 {  
+
   var result = string.Empty;  
+
   var hmac = new System.Security.Cryptography.HMACSHA256();  
+
   hmac.Key = System.Text.Encoding.UTF8.GetBytes(customerSecretKey);  
+
   var hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(token));  
+
   result = Convert.ToBase64String(hash); // Ensure the string returned is Base64 Encoded  
+
   return result;  
+
 }  
 
-## Error[​](https://documentation.ixopay.com/modules/docs/tokenex/events#error "Direct link to Error")  
+```## Error[​](https://documentation.ixopay.com/modules/docs/tokenex/events#error "Direct link to Error")  
 | Field  | Type  | Description  |  
 | --- | --- | --- |  
 | error  | string  | Description of the error(s) that occurred during execution of the invoked command  |  
@@ -158,23 +206,26 @@ private string GenerateHMAC(string token, string customerSecretKey)
 | inputMasked  | bool  | The toggled state of the input, whether it is masked or not.  |  
   * Toggle Mask
   * Toggle Cvv Mask
-
 ```
+
 { "inputMasked": true }  
 
 ```
+```
+
 { "inputMasked": false }  
 
-## AutoComplete Values[​](https://documentation.ixopay.com/modules/docs/tokenex/events#autocomplete-values "Direct link to AutoComplete Values")  
+```## AutoComplete Values[​](https://documentation.ixopay.com/modules/docs/tokenex/events#autocomplete-values "Direct link to AutoComplete Values")  
 | Field  | Type  | Description  |  
 | --- | --- | --- |  
 | nameOnCard  | string  | Autocompleted Name on Card value.  |  
 | cardExp  | string  | Autocompleted Card Expiration Date value. (MM/YYYY)  |  
 Autocomplete Values
 ```
+
 { "nameOnCard": "Jane Doe", "cardExp": "01/2027" }  
 
-## Card Type Validation Regexes[​](https://documentation.ixopay.com/modules/docs/tokenex/events#card-type-validation-regexes "Direct link to Card Type Validation Regexes")
+```## Card Type Validation Regexes[​](https://documentation.ixopay.com/modules/docs/tokenex/events#card-type-validation-regexes "Direct link to Card Type Validation Regexes")
 The TokenEx iFrame does not utilize a BIN database or lookup service, instead it matches PANs to possible regexes on keyup events and valid regexes on submit. The regexes matched against are below for each major card type. If a regex does not match a used card type, see [Custom Data Types](https://documentation.ixopay.com/modules/docs/tokenex/using-custom-data-types).  
 | Brand  | Possible Regex  | Valid Regex  |  
 | --- | --- | --- |  
@@ -225,49 +276,750 @@ The TokenEx iFrame does not utilize a BIN database or lookup service, instead it
 | Authentication[].SCAName  | string  |   |  
 JSON
 ```
+
 {  
+
   "accountUpdater": false,  
+
   "alm": false,  
+
   "authentication": [],  
+
   "bankName": "NATIONAL BANK OF CANADA",  
+
   "bankPhone": "",  
+
   "bankUrl": "",  
+
   "binLength": null,  
+
   "binMax": "5569233199999999999",  
+
   "binMin": "5569233110000000000",  
+
   "cardBrand": "MASTERCARD",  
+
   "cardBrandIsAdditional": false,  
+
   "cardSegmentType": "Commercial",  
+
   "cleanBankName": "",  
+
   "comboCard": "",  
+
   "correlationId": "eyJGaWxlSWQiOjc4OTgsIlZlcnNpb24iOjQyfQ==",  
+
   "cost": [  
+
     {  
+
       "capAdvaloremAmount": 0.015,  
+
       "capFixedAmount": 0,  
+
       "capTypeQualifierText": "CA CREDIT MASTERCARD"  
+
     }  
+
   ],  
+
   "countryAlpha2": "CA",  
+
   "countryName": "CANADA",  
+
   "countryNumeric": "124",  
+
   "domesticOnly": false,  
+
   "gamblingBlocked": false,  
+
   "issuerCurrency": "",  
+
   "level2": false,  
+
   "level3": false,  
+
   "panOrToken": "pan",  
+
   "prepaid": false,  
+
   "productCode": "MNF",  
+
   "productName": "MasterCard Public Sector Commercial Card",  
+
   "regulated": null,  
+
   "regulatedName": "",  
+
   "reloadable": true,  
+
   "sharedBin": false,  
+
   "type": "Credit"  
+
 }  
 
-  * [Validate](https://documentation.ixopay.com/modules/docs/tokenex/events#validate)
+```
+```
+
+//create a new instance of the iframe, and add the container ID and config object  
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+//add event listeners  
+
+iframe.on("load", function () { console.log("CC iFrame Loaded") });  
+
+iframe.on("focus", function () { console.log("CC iFrame focus") });  
+
+iframe.on("blur", function () { console.log("CC iFrame blur") });  
+
+iframe.on("change", function () { console.log("CC iFrame Change:") });  
+
+iframe.on("validate", function (data) { console.log("CC iFrame validate:" + JSON.stringify(data)) });  
+
+iframe.on("cardTypeChange", function (data) { console.log("CC iFrame cardTypeChange:" + JSON.stringify(data)) });  
+
+iframe.on("tokenize", function (data) { console.log("CC iFrame Tokenize:" + JSON.stringify(data)) });  
+
+iframe.on("error", function (data) { console.log("CC iFrame error:" + JSON.stringify(data)) });  
+
+iframe.on("cvvFocus", function () { console.log("CVV iFrame focus") });  
+
+iframe.on("cvvBlur", function () { console.log("CVV iFrame blur") });  
+
+iframe.on("autoCompleteValues", function (data) { console.log("CC iFrame Autocomplete Values:" + JSON.stringify(data)) });  
+
+iframe.on("binLookup", function (data) { console.log("iFrame Binlookup Values:" + JSON.stringify(data)) });  
+
+iframe.on("notice", function(data) { console.log("CC iFrame notice:" + JSON.stringify(data) });  
+
+  
+
+//calling the iframe's load function adds the iframe to the DOM.  
+
+iframe.load();  
+
+```
+```
+
+{ "isValid": true, "cardType": "masterCard", "lastFour": "5454", "firstSix": "545454" }  
+
+```
+```
+
+{"isValid":false,"validator":"format"}  
+
+```
+```
+
+{ "isValid": false, "validator": "required" }  
+
+```
+```
+
+{"isValid":true,"characterCount":9}  
+
+```
+```
+
+{  
+
+  "firstSix": "545454",  
+
+  "lastFour": "5454",  
+
+  "firstEight": "54545454",  
+
+  "cardType": "masterCard",  
+
+  "token": "545454R5F6RR5454",  
+
+  "referenceNumber": "18022410572868097790",  
+
+  "tokenHMAC": "RqMhITN57i2WkDZLeoUcOMK71zT8zLnonzTKdyeCq0k="  
+
+}  
+
+```
+```
+
+{  
+
+  "characterCount": 9,  
+
+  "token": "UUYLWJFEJE8C3NL24GQECHW614D4D9JOIIYICY",  
+
+  "referenceNumber": "18022411000938179325",  
+
+  "tokenHMAC": "5MDYcUNcZL7UKFyVZQk/9lG6i0Llj/i4L+uTfBHXkrg="  
+
+}  
+
+```
+```
+
+private string GenerateHMAC(string token, string customerSecretKey)  
+
+{  
+
+  var result = string.Empty;  
+
+  var hmac = new System.Security.Cryptography.HMACSHA256();  
+
+  hmac.Key = System.Text.Encoding.UTF8.GetBytes(customerSecretKey);  
+
+  var hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(token));  
+
+  result = Convert.ToBase64String(hash); // Ensure the string returned is Base64 Encoded  
+
+  return result;  
+
+}  
+
+```
+```
+
+{ "inputMasked": true }  
+
+```
+```
+
+{ "inputMasked": false }  
+
+```
+```
+
+{ "nameOnCard": "Jane Doe", "cardExp": "01/2027" }  
+
+```
+```
+
+{  
+
+  "accountUpdater": false,  
+
+  "alm": false,  
+
+  "authentication": [],  
+
+  "bankName": "NATIONAL BANK OF CANADA",  
+
+  "bankPhone": "",  
+
+  "bankUrl": "",  
+
+  "binLength": null,  
+
+  "binMax": "5569233199999999999",  
+
+  "binMin": "5569233110000000000",  
+
+  "cardBrand": "MASTERCARD",  
+
+  "cardBrandIsAdditional": false,  
+
+  "cardSegmentType": "Commercial",  
+
+  "cleanBankName": "",  
+
+  "comboCard": "",  
+
+  "correlationId": "eyJGaWxlSWQiOjc4OTgsIlZlcnNpb24iOjQyfQ==",  
+
+  "cost": [  
+
+    {  
+
+      "capAdvaloremAmount": 0.015,  
+
+      "capFixedAmount": 0,  
+
+      "capTypeQualifierText": "CA CREDIT MASTERCARD"  
+
+    }  
+
+  ],  
+
+  "countryAlpha2": "CA",  
+
+  "countryName": "CANADA",  
+
+  "countryNumeric": "124",  
+
+  "domesticOnly": false,  
+
+  "gamblingBlocked": false,  
+
+  "issuerCurrency": "",  
+
+  "level2": false,  
+
+  "level3": false,  
+
+  "panOrToken": "pan",  
+
+  "prepaid": false,  
+
+  "productCode": "MNF",  
+
+  "productName": "MasterCard Public Sector Commercial Card",  
+
+  "regulated": null,  
+
+  "regulatedName": "",  
+
+  "reloadable": true,  
+
+  "sharedBin": false,  
+
+  "type": "Credit"  
+
+}  
+
+```
+```
+
+//create a new instance of the iframe, and add the container ID and config object  
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+//add event listeners  
+
+iframe.on("load", function () { console.log("CC iFrame Loaded") });  
+
+iframe.on("focus", function () { console.log("CC iFrame focus") });  
+
+iframe.on("blur", function () { console.log("CC iFrame blur") });  
+
+iframe.on("change", function () { console.log("CC iFrame Change:") });  
+
+iframe.on("validate", function (data) { console.log("CC iFrame validate:" + JSON.stringify(data)) });  
+
+iframe.on("cardTypeChange", function (data) { console.log("CC iFrame cardTypeChange:" + JSON.stringify(data)) });  
+
+iframe.on("tokenize", function (data) { console.log("CC iFrame Tokenize:" + JSON.stringify(data)) });  
+
+iframe.on("error", function (data) { console.log("CC iFrame error:" + JSON.stringify(data)) });  
+
+iframe.on("cvvFocus", function () { console.log("CVV iFrame focus") });  
+
+iframe.on("cvvBlur", function () { console.log("CVV iFrame blur") });  
+
+iframe.on("autoCompleteValues", function (data) { console.log("CC iFrame Autocomplete Values:" + JSON.stringify(data)) });  
+
+iframe.on("binLookup", function (data) { console.log("iFrame Binlookup Values:" + JSON.stringify(data)) });  
+
+iframe.on("notice", function(data) { console.log("CC iFrame notice:" + JSON.stringify(data) });  
+
+  
+
+//calling the iframe's load function adds the iframe to the DOM.  
+
+iframe.load();  
+
+```
+```
+
+{ "isValid": true, "cardType": "masterCard", "lastFour": "5454", "firstSix": "545454" }  
+
+```
+```
+
+{"isValid":false,"validator":"format"}  
+
+```
+```
+
+{ "isValid": false, "validator": "required" }  
+
+```
+```
+
+{"isValid":true,"characterCount":9}  
+
+```
+```
+
+{  
+
+  "firstSix": "545454",  
+
+  "lastFour": "5454",  
+
+  "firstEight": "54545454",  
+
+  "cardType": "masterCard",  
+
+  "token": "545454R5F6RR5454",  
+
+  "referenceNumber": "18022410572868097790",  
+
+  "tokenHMAC": "RqMhITN57i2WkDZLeoUcOMK71zT8zLnonzTKdyeCq0k="  
+
+}  
+
+```
+```
+
+{  
+
+  "characterCount": 9,  
+
+  "token": "UUYLWJFEJE8C3NL24GQECHW614D4D9JOIIYICY",  
+
+  "referenceNumber": "18022411000938179325",  
+
+  "tokenHMAC": "5MDYcUNcZL7UKFyVZQk/9lG6i0Llj/i4L+uTfBHXkrg="  
+
+}  
+
+```
+```
+
+private string GenerateHMAC(string token, string customerSecretKey)  
+
+{  
+
+  var result = string.Empty;  
+
+  var hmac = new System.Security.Cryptography.HMACSHA256();  
+
+  hmac.Key = System.Text.Encoding.UTF8.GetBytes(customerSecretKey);  
+
+  var hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(token));  
+
+  result = Convert.ToBase64String(hash); // Ensure the string returned is Base64 Encoded  
+
+  return result;  
+
+}  
+
+```
+```
+
+{ "inputMasked": true }  
+
+```
+```
+
+{ "inputMasked": false }  
+
+```
+```
+
+{ "nameOnCard": "Jane Doe", "cardExp": "01/2027" }  
+
+```
+```
+
+{  
+
+  "accountUpdater": false,  
+
+  "alm": false,  
+
+  "authentication": [],  
+
+  "bankName": "NATIONAL BANK OF CANADA",  
+
+  "bankPhone": "",  
+
+  "bankUrl": "",  
+
+  "binLength": null,  
+
+  "binMax": "5569233199999999999",  
+
+  "binMin": "5569233110000000000",  
+
+  "cardBrand": "MASTERCARD",  
+
+  "cardBrandIsAdditional": false,  
+
+  "cardSegmentType": "Commercial",  
+
+  "cleanBankName": "",  
+
+  "comboCard": "",  
+
+  "correlationId": "eyJGaWxlSWQiOjc4OTgsIlZlcnNpb24iOjQyfQ==",  
+
+  "cost": [  
+
+    {  
+
+      "capAdvaloremAmount": 0.015,  
+
+      "capFixedAmount": 0,  
+
+      "capTypeQualifierText": "CA CREDIT MASTERCARD"  
+
+    }  
+
+  ],  
+
+  "countryAlpha2": "CA",  
+
+  "countryName": "CANADA",  
+
+  "countryNumeric": "124",  
+
+  "domesticOnly": false,  
+
+  "gamblingBlocked": false,  
+
+  "issuerCurrency": "",  
+
+  "level2": false,  
+
+  "level3": false,  
+
+  "panOrToken": "pan",  
+
+  "prepaid": false,  
+
+  "productCode": "MNF",  
+
+  "productName": "MasterCard Public Sector Commercial Card",  
+
+  "regulated": null,  
+
+  "regulatedName": "",  
+
+  "reloadable": true,  
+
+  "sharedBin": false,  
+
+  "type": "Credit"  
+
+}  
+
+```
+```
+
+//create a new instance of the iframe, and add the container ID and config object  
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+//add event listeners  
+
+iframe.on("load", function () { console.log("CC iFrame Loaded") });  
+
+iframe.on("focus", function () { console.log("CC iFrame focus") });  
+
+iframe.on("blur", function () { console.log("CC iFrame blur") });  
+
+iframe.on("change", function () { console.log("CC iFrame Change:") });  
+
+iframe.on("validate", function (data) { console.log("CC iFrame validate:" + JSON.stringify(data)) });  
+
+iframe.on("cardTypeChange", function (data) { console.log("CC iFrame cardTypeChange:" + JSON.stringify(data)) });  
+
+iframe.on("tokenize", function (data) { console.log("CC iFrame Tokenize:" + JSON.stringify(data)) });  
+
+iframe.on("error", function (data) { console.log("CC iFrame error:" + JSON.stringify(data)) });  
+
+iframe.on("cvvFocus", function () { console.log("CVV iFrame focus") });  
+
+iframe.on("cvvBlur", function () { console.log("CVV iFrame blur") });  
+
+iframe.on("autoCompleteValues", function (data) { console.log("CC iFrame Autocomplete Values:" + JSON.stringify(data)) });  
+
+iframe.on("binLookup", function (data) { console.log("iFrame Binlookup Values:" + JSON.stringify(data)) });  
+
+iframe.on("notice", function(data) { console.log("CC iFrame notice:" + JSON.stringify(data) });  
+
+  
+
+//calling the iframe's load function adds the iframe to the DOM.  
+
+iframe.load();  
+
+```
+```
+
+{ "isValid": true, "cardType": "masterCard", "lastFour": "5454", "firstSix": "545454" }  
+
+```
+```
+
+{"isValid":false,"validator":"format"}  
+
+```
+```
+
+{ "isValid": false, "validator": "required" }  
+
+```
+```
+
+{"isValid":true,"characterCount":9}  
+
+```
+```
+
+{  
+
+  "firstSix": "545454",  
+
+  "lastFour": "5454",  
+
+  "firstEight": "54545454",  
+
+  "cardType": "masterCard",  
+
+  "token": "545454R5F6RR5454",  
+
+  "referenceNumber": "18022410572868097790",  
+
+  "tokenHMAC": "RqMhITN57i2WkDZLeoUcOMK71zT8zLnonzTKdyeCq0k="  
+
+}  
+
+```
+```
+
+{  
+
+  "characterCount": 9,  
+
+  "token": "UUYLWJFEJE8C3NL24GQECHW614D4D9JOIIYICY",  
+
+  "referenceNumber": "18022411000938179325",  
+
+  "tokenHMAC": "5MDYcUNcZL7UKFyVZQk/9lG6i0Llj/i4L+uTfBHXkrg="  
+
+}  
+
+```
+```
+
+private string GenerateHMAC(string token, string customerSecretKey)  
+
+{  
+
+  var result = string.Empty;  
+
+  var hmac = new System.Security.Cryptography.HMACSHA256();  
+
+  hmac.Key = System.Text.Encoding.UTF8.GetBytes(customerSecretKey);  
+
+  var hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(token));  
+
+  result = Convert.ToBase64String(hash); // Ensure the string returned is Base64 Encoded  
+
+  return result;  
+
+}  
+
+```
+```
+
+{ "inputMasked": true }  
+
+```
+```
+
+{ "inputMasked": false }  
+
+```
+```
+
+{ "nameOnCard": "Jane Doe", "cardExp": "01/2027" }  
+
+```
+```
+
+{  
+
+  "accountUpdater": false,  
+
+  "alm": false,  
+
+  "authentication": [],  
+
+  "bankName": "NATIONAL BANK OF CANADA",  
+
+  "bankPhone": "",  
+
+  "bankUrl": "",  
+
+  "binLength": null,  
+
+  "binMax": "5569233199999999999",  
+
+  "binMin": "5569233110000000000",  
+
+  "cardBrand": "MASTERCARD",  
+
+  "cardBrandIsAdditional": false,  
+
+  "cardSegmentType": "Commercial",  
+
+  "cleanBankName": "",  
+
+  "comboCard": "",  
+
+  "correlationId": "eyJGaWxlSWQiOjc4OTgsIlZlcnNpb24iOjQyfQ==",  
+
+  "cost": [  
+
+    {  
+
+      "capAdvaloremAmount": 0.015,  
+
+      "capFixedAmount": 0,  
+
+      "capTypeQualifierText": "CA CREDIT MASTERCARD"  
+
+    }  
+
+  ],  
+
+  "countryAlpha2": "CA",  
+
+  "countryName": "CANADA",  
+
+  "countryNumeric": "124",  
+
+  "domesticOnly": false,  
+
+  "gamblingBlocked": false,  
+
+  "issuerCurrency": "",  
+
+  "level2": false,  
+
+  "level3": false,  
+
+  "panOrToken": "pan",  
+
+  "prepaid": false,  
+
+  "productCode": "MNF",  
+
+  "productName": "MasterCard Public Sector Commercial Card",  
+
+  "regulated": null,  
+
+  "regulatedName": "",  
+
+  "reloadable": true,  
+
+  "sharedBin": false,  
+
+  "type": "Credit"  
+
+}  
+
+```  * [Validate](https://documentation.ixopay.com/modules/docs/tokenex/events#validate)
   * [Tokenize](https://documentation.ixopay.com/modules/docs/tokenex/events#tokenize)
   * [Trusting the Token](https://documentation.ixopay.com/modules/docs/tokenex/events#trusting-the-token)
   * [Error](https://documentation.ixopay.com/modules/docs/tokenex/events#error)
@@ -275,3 +1027,443 @@ JSON
   * [AutoComplete Values](https://documentation.ixopay.com/modules/docs/tokenex/events#autocomplete-values)
   * [Card Type Validation Regexes](https://documentation.ixopay.com/modules/docs/tokenex/events#card-type-validation-regexes)
   * [Bin Lookup Values](https://documentation.ixopay.com/modules/docs/tokenex/events#bin-lookup-values)
+```
+
+//create a new instance of the iframe, and add the container ID and config object  
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+//add event listeners  
+
+iframe.on("load", function () { console.log("CC iFrame Loaded") });  
+
+iframe.on("focus", function () { console.log("CC iFrame focus") });  
+
+iframe.on("blur", function () { console.log("CC iFrame blur") });  
+
+iframe.on("change", function () { console.log("CC iFrame Change:") });  
+
+iframe.on("validate", function (data) { console.log("CC iFrame validate:" + JSON.stringify(data)) });  
+
+iframe.on("cardTypeChange", function (data) { console.log("CC iFrame cardTypeChange:" + JSON.stringify(data)) });  
+
+iframe.on("tokenize", function (data) { console.log("CC iFrame Tokenize:" + JSON.stringify(data)) });  
+
+iframe.on("error", function (data) { console.log("CC iFrame error:" + JSON.stringify(data)) });  
+
+iframe.on("cvvFocus", function () { console.log("CVV iFrame focus") });  
+
+iframe.on("cvvBlur", function () { console.log("CVV iFrame blur") });  
+
+iframe.on("autoCompleteValues", function (data) { console.log("CC iFrame Autocomplete Values:" + JSON.stringify(data)) });  
+
+iframe.on("binLookup", function (data) { console.log("iFrame Binlookup Values:" + JSON.stringify(data)) });  
+
+iframe.on("notice", function(data) { console.log("CC iFrame notice:" + JSON.stringify(data) });  
+
+  
+
+//calling the iframe's load function adds the iframe to the DOM.  
+
+iframe.load();  
+
+```
+```
+
+{ "isValid": true, "cardType": "masterCard", "lastFour": "5454", "firstSix": "545454" }  
+
+```
+```
+
+{"isValid":false,"validator":"format"}  
+
+```
+```
+
+{ "isValid": false, "validator": "required" }  
+
+```
+```
+
+{"isValid":true,"characterCount":9}  
+
+```
+```
+
+{  
+
+  "firstSix": "545454",  
+
+  "lastFour": "5454",  
+
+  "firstEight": "54545454",  
+
+  "cardType": "masterCard",  
+
+  "token": "545454R5F6RR5454",  
+
+  "referenceNumber": "18022410572868097790",  
+
+  "tokenHMAC": "RqMhITN57i2WkDZLeoUcOMK71zT8zLnonzTKdyeCq0k="  
+
+}  
+
+```
+```
+
+{  
+
+  "characterCount": 9,  
+
+  "token": "UUYLWJFEJE8C3NL24GQECHW614D4D9JOIIYICY",  
+
+  "referenceNumber": "18022411000938179325",  
+
+  "tokenHMAC": "5MDYcUNcZL7UKFyVZQk/9lG6i0Llj/i4L+uTfBHXkrg="  
+
+}  
+
+```
+```
+
+private string GenerateHMAC(string token, string customerSecretKey)  
+
+{  
+
+  var result = string.Empty;  
+
+  var hmac = new System.Security.Cryptography.HMACSHA256();  
+
+  hmac.Key = System.Text.Encoding.UTF8.GetBytes(customerSecretKey);  
+
+  var hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(token));  
+
+  result = Convert.ToBase64String(hash); // Ensure the string returned is Base64 Encoded  
+
+  return result;  
+
+}  
+
+```
+```
+
+{ "inputMasked": true }  
+
+```
+```
+
+{ "inputMasked": false }  
+
+```
+```
+
+{ "nameOnCard": "Jane Doe", "cardExp": "01/2027" }  
+
+```
+```
+
+{  
+
+  "accountUpdater": false,  
+
+  "alm": false,  
+
+  "authentication": [],  
+
+  "bankName": "NATIONAL BANK OF CANADA",  
+
+  "bankPhone": "",  
+
+  "bankUrl": "",  
+
+  "binLength": null,  
+
+  "binMax": "5569233199999999999",  
+
+  "binMin": "5569233110000000000",  
+
+  "cardBrand": "MASTERCARD",  
+
+  "cardBrandIsAdditional": false,  
+
+  "cardSegmentType": "Commercial",  
+
+  "cleanBankName": "",  
+
+  "comboCard": "",  
+
+  "correlationId": "eyJGaWxlSWQiOjc4OTgsIlZlcnNpb24iOjQyfQ==",  
+
+  "cost": [  
+
+    {  
+
+      "capAdvaloremAmount": 0.015,  
+
+      "capFixedAmount": 0,  
+
+      "capTypeQualifierText": "CA CREDIT MASTERCARD"  
+
+    }  
+
+  ],  
+
+  "countryAlpha2": "CA",  
+
+  "countryName": "CANADA",  
+
+  "countryNumeric": "124",  
+
+  "domesticOnly": false,  
+
+  "gamblingBlocked": false,  
+
+  "issuerCurrency": "",  
+
+  "level2": false,  
+
+  "level3": false,  
+
+  "panOrToken": "pan",  
+
+  "prepaid": false,  
+
+  "productCode": "MNF",  
+
+  "productName": "MasterCard Public Sector Commercial Card",  
+
+  "regulated": null,  
+
+  "regulatedName": "",  
+
+  "reloadable": true,  
+
+  "sharedBin": false,  
+
+  "type": "Credit"  
+
+}  
+
+```
+```
+
+//create a new instance of the iframe, and add the container ID and config object  
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+//add event listeners  
+
+iframe.on("load", function () { console.log("CC iFrame Loaded") });  
+
+iframe.on("focus", function () { console.log("CC iFrame focus") });  
+
+iframe.on("blur", function () { console.log("CC iFrame blur") });  
+
+iframe.on("change", function () { console.log("CC iFrame Change:") });  
+
+iframe.on("validate", function (data) { console.log("CC iFrame validate:" + JSON.stringify(data)) });  
+
+iframe.on("cardTypeChange", function (data) { console.log("CC iFrame cardTypeChange:" + JSON.stringify(data)) });  
+
+iframe.on("tokenize", function (data) { console.log("CC iFrame Tokenize:" + JSON.stringify(data)) });  
+
+iframe.on("error", function (data) { console.log("CC iFrame error:" + JSON.stringify(data)) });  
+
+iframe.on("cvvFocus", function () { console.log("CVV iFrame focus") });  
+
+iframe.on("cvvBlur", function () { console.log("CVV iFrame blur") });  
+
+iframe.on("autoCompleteValues", function (data) { console.log("CC iFrame Autocomplete Values:" + JSON.stringify(data)) });  
+
+iframe.on("binLookup", function (data) { console.log("iFrame Binlookup Values:" + JSON.stringify(data)) });  
+
+iframe.on("notice", function(data) { console.log("CC iFrame notice:" + JSON.stringify(data) });  
+
+  
+
+//calling the iframe's load function adds the iframe to the DOM.  
+
+iframe.load();  
+
+```
+```
+
+{ "isValid": true, "cardType": "masterCard", "lastFour": "5454", "firstSix": "545454" }  
+
+```
+```
+
+{"isValid":false,"validator":"format"}  
+
+```
+```
+
+{ "isValid": false, "validator": "required" }  
+
+```
+```
+
+{"isValid":true,"characterCount":9}  
+
+```
+```
+
+{  
+
+  "firstSix": "545454",  
+
+  "lastFour": "5454",  
+
+  "firstEight": "54545454",  
+
+  "cardType": "masterCard",  
+
+  "token": "545454R5F6RR5454",  
+
+  "referenceNumber": "18022410572868097790",  
+
+  "tokenHMAC": "RqMhITN57i2WkDZLeoUcOMK71zT8zLnonzTKdyeCq0k="  
+
+}  
+
+```
+```
+
+{  
+
+  "characterCount": 9,  
+
+  "token": "UUYLWJFEJE8C3NL24GQECHW614D4D9JOIIYICY",  
+
+  "referenceNumber": "18022411000938179325",  
+
+  "tokenHMAC": "5MDYcUNcZL7UKFyVZQk/9lG6i0Llj/i4L+uTfBHXkrg="  
+
+}  
+
+```
+```
+
+private string GenerateHMAC(string token, string customerSecretKey)  
+
+{  
+
+  var result = string.Empty;  
+
+  var hmac = new System.Security.Cryptography.HMACSHA256();  
+
+  hmac.Key = System.Text.Encoding.UTF8.GetBytes(customerSecretKey);  
+
+  var hash = hmac.ComputeHash(System.Text.Encoding.UTF8.GetBytes(token));  
+
+  result = Convert.ToBase64String(hash); // Ensure the string returned is Base64 Encoded  
+
+  return result;  
+
+}  
+
+```
+```
+
+{ "inputMasked": true }  
+
+```
+```
+
+{ "inputMasked": false }  
+
+```
+```
+
+{ "nameOnCard": "Jane Doe", "cardExp": "01/2027" }  
+
+```
+```
+
+{  
+
+  "accountUpdater": false,  
+
+  "alm": false,  
+
+  "authentication": [],  
+
+  "bankName": "NATIONAL BANK OF CANADA",  
+
+  "bankPhone": "",  
+
+  "bankUrl": "",  
+
+  "binLength": null,  
+
+  "binMax": "5569233199999999999",  
+
+  "binMin": "5569233110000000000",  
+
+  "cardBrand": "MASTERCARD",  
+
+  "cardBrandIsAdditional": false,  
+
+  "cardSegmentType": "Commercial",  
+
+  "cleanBankName": "",  
+
+  "comboCard": "",  
+
+  "correlationId": "eyJGaWxlSWQiOjc4OTgsIlZlcnNpb24iOjQyfQ==",  
+
+  "cost": [  
+
+    {  
+
+      "capAdvaloremAmount": 0.015,  
+
+      "capFixedAmount": 0,  
+
+      "capTypeQualifierText": "CA CREDIT MASTERCARD"  
+
+    }  
+
+  ],  
+
+  "countryAlpha2": "CA",  
+
+  "countryName": "CANADA",  
+
+  "countryNumeric": "124",  
+
+  "domesticOnly": false,  
+
+  "gamblingBlocked": false,  
+
+  "issuerCurrency": "",  
+
+  "level2": false,  
+
+  "level3": false,  
+
+  "panOrToken": "pan",  
+
+  "prepaid": false,  
+
+  "productCode": "MNF",  
+
+  "productName": "MasterCard Public Sector Commercial Card",  
+
+  "regulated": null,  
+
+  "regulatedName": "",  
+
+  "reloadable": true,  
+
+  "sharedBin": false,  
+
+  "type": "Credit"  
+
+}  
+
+```

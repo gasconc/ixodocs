@@ -13,9 +13,9 @@ tags:
 - 3ds
 - tokenex
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/supported-versions
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -94,92 +94,961 @@ The version 2.1.0 is being sunset by the following brands: Mastercard, Visa, Dis
   * Request
   * Single Brand Response
   * Co-Branded Response
-
 ```
+
 POST /[Test|Prod]/ThreeDSecure/SupportedVersions HTTP/1.1  
+
 Content-Type: application/json  
+
 tx-tokenex-id:YourTokenExID  
+
 tx-apikey:YourAPIKey  
+
 tx-token-scheme:4  
+
 tx-tokenize:true  
+
   
+
 {  
+
   "data": "4242424242424242"  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
   "recommended3dsVersion": {  
+
     "MASTERCARD": "2.2.0"  
+
   },  
+
   "threeDSecureResponse": [  
+
     {  
+
       "threeDSMethodURL": "http://www.mc.com/methodURL",  
+
       "acsStartProtocolVersion": "2.1.0",  
+
       "acsEndProtocolVersion": "2.2.0",  
+
       "threeDSServerStartVersion": "v1",  
+
       "threeDSServerEndVersion": "v2",  
+
       "acsInfoInd": ["01", "02", "81", "84", "85", "86", "87", "88", "89"],  
+
       "directoryServerID": "A000000004",  
+
       "dsStartProtocolVersion": "2.1.0",  
+
       "dsEndProtocolVersion": "2.2.0",  
+
       "dsIdentifier": "MASTERCARD",  
+
       "threeDSServerTransID": "d30c45c3-d8bc-49f2-8799-b9da53b3d8ee"  
+
     }  
+
   ],  
+
   "thirdPartyStatusCode": "200",  
+
   "referenceNumber": "021081300184804066092",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "SupportedVersions Successful!"  
+
 }  
 
 ```
+```
+
 {  
+
   "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
   "recommended3dsVersion": {  
+
     "MASTERCARD": "2.2.0"  
+
   },  
+
   "threeDSecureResponse": [  
+
     {  
+
       "threeDSMethodURL": "http://www.mc.com/methodURL_1",  
+
       "acsStartProtocolVersion": "2.1.0",  
+
       "acsEndProtocolVersion": "2.2.0",  
+
       "threeDSServerStartVersion": "v1",  
+
       "threeDSServerEndVersion": "v2",  
+
       "acsInfoInd": ["01", "02"],  
+
       "dsStartProtocolVersion": "2.1.0",  
+
       "dsEndProtocolVersion": "2.2.0",  
+
       "directoryServerID": "A000000004",  
+
       "dsIdentifier": "SANDBOX2",  
+
       "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
     },  
+
     {  
+
       "threeDSMethodURL": "http://www.mc.com/methodURL_2",  
+
       "acsStartProtocolVersion": "2.1.0",  
+
       "acsEndProtocolVersion": "2.2.0",  
+
       "threeDSServerStartVersion": "v1",  
+
       "threeDSServerEndVersion": "v2",  
+
       "acsInfoInd": ["01", "02"],  
+
       "dsStartProtocolVersion": "2.1.0",  
+
       "dsEndProtocolVersion": "2.2.0",  
+
       "directoryServerID": "M000000004",  
+
       "dsIdentifier": "SANDBOX_DS",  
+
       "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
     }  
+
   ],  
+
   "thirdPartyStatusCode": "200",  
+
   "referenceNumber": "021081300184804066092",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "SupportedVersions Successful!"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/supported-versions#overview)
+```
+```
+
+POST /[Test|Prod]/ThreeDSecure/SupportedVersions HTTP/1.1  
+
+Content-Type: application/json  
+
+tx-tokenex-id:YourTokenExID  
+
+tx-apikey:YourAPIKey  
+
+tx-token-scheme:4  
+
+tx-tokenize:true  
+
+  
+
+{  
+
+  "data": "4242424242424242"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02", "81", "84", "85", "86", "87", "88", "89"],  
+
+      "directoryServerID": "A000000004",  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "dsIdentifier": "MASTERCARD",  
+
+      "threeDSServerTransID": "d30c45c3-d8bc-49f2-8799-b9da53b3d8ee"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_1",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "A000000004",  
+
+      "dsIdentifier": "SANDBOX2",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    },  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_2",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "M000000004",  
+
+      "dsIdentifier": "SANDBOX_DS",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```
+```
+
+POST /[Test|Prod]/ThreeDSecure/SupportedVersions HTTP/1.1  
+
+Content-Type: application/json  
+
+tx-tokenex-id:YourTokenExID  
+
+tx-apikey:YourAPIKey  
+
+tx-token-scheme:4  
+
+tx-tokenize:true  
+
+  
+
+{  
+
+  "data": "4242424242424242"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02", "81", "84", "85", "86", "87", "88", "89"],  
+
+      "directoryServerID": "A000000004",  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "dsIdentifier": "MASTERCARD",  
+
+      "threeDSServerTransID": "d30c45c3-d8bc-49f2-8799-b9da53b3d8ee"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_1",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "A000000004",  
+
+      "dsIdentifier": "SANDBOX2",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    },  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_2",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "M000000004",  
+
+      "dsIdentifier": "SANDBOX_DS",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```
+```
+
+POST /[Test|Prod]/ThreeDSecure/SupportedVersions HTTP/1.1  
+
+Content-Type: application/json  
+
+tx-tokenex-id:YourTokenExID  
+
+tx-apikey:YourAPIKey  
+
+tx-token-scheme:4  
+
+tx-tokenize:true  
+
+  
+
+{  
+
+  "data": "4242424242424242"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02", "81", "84", "85", "86", "87", "88", "89"],  
+
+      "directoryServerID": "A000000004",  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "dsIdentifier": "MASTERCARD",  
+
+      "threeDSServerTransID": "d30c45c3-d8bc-49f2-8799-b9da53b3d8ee"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_1",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "A000000004",  
+
+      "dsIdentifier": "SANDBOX2",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    },  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_2",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "M000000004",  
+
+      "dsIdentifier": "SANDBOX_DS",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/supported-versions#overview)
   * [Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/supported-versions#request-parameters)
   * [Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/supported-versions#response-parameters)
   * [Version 2.1.0 Sunset](https://documentation.ixopay.com/modules/docs/tokenex/supported-versions#version-210-sunset)
   * [Request and Response Examples](https://documentation.ixopay.com/modules/docs/tokenex/supported-versions#request-and-response-examples)
+```
+
+POST /[Test|Prod]/ThreeDSecure/SupportedVersions HTTP/1.1  
+
+Content-Type: application/json  
+
+tx-tokenex-id:YourTokenExID  
+
+tx-apikey:YourAPIKey  
+
+tx-token-scheme:4  
+
+tx-tokenize:true  
+
+  
+
+{  
+
+  "data": "4242424242424242"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02", "81", "84", "85", "86", "87", "88", "89"],  
+
+      "directoryServerID": "A000000004",  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "dsIdentifier": "MASTERCARD",  
+
+      "threeDSServerTransID": "d30c45c3-d8bc-49f2-8799-b9da53b3d8ee"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_1",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "A000000004",  
+
+      "dsIdentifier": "SANDBOX2",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    },  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_2",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "M000000004",  
+
+      "dsIdentifier": "SANDBOX_DS",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```
+```
+
+POST /[Test|Prod]/ThreeDSecure/SupportedVersions HTTP/1.1  
+
+Content-Type: application/json  
+
+tx-tokenex-id:YourTokenExID  
+
+tx-apikey:YourAPIKey  
+
+tx-token-scheme:4  
+
+tx-tokenize:true  
+
+  
+
+{  
+
+  "data": "4242424242424242"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02", "81", "84", "85", "86", "87", "88", "89"],  
+
+      "directoryServerID": "A000000004",  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "dsIdentifier": "MASTERCARD",  
+
+      "threeDSServerTransID": "d30c45c3-d8bc-49f2-8799-b9da53b3d8ee"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "a0cea820-23fb-4b8c-87ab-f44f0d513a79",  
+
+  "recommended3dsVersion": {  
+
+    "MASTERCARD": "2.2.0"  
+
+  },  
+
+  "threeDSecureResponse": [  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_1",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "A000000004",  
+
+      "dsIdentifier": "SANDBOX2",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    },  
+
+    {  
+
+      "threeDSMethodURL": "http://www.mc.com/methodURL_2",  
+
+      "acsStartProtocolVersion": "2.1.0",  
+
+      "acsEndProtocolVersion": "2.2.0",  
+
+      "threeDSServerStartVersion": "v1",  
+
+      "threeDSServerEndVersion": "v2",  
+
+      "acsInfoInd": ["01", "02"],  
+
+      "dsStartProtocolVersion": "2.1.0",  
+
+      "dsEndProtocolVersion": "2.2.0",  
+
+      "directoryServerID": "M000000004",  
+
+      "dsIdentifier": "SANDBOX_DS",  
+
+      "threeDSServerTransID": "73a4f36a-17ef-4499-854a-f8128323f97d"  
+
+    }  
+
+  ],  
+
+  "thirdPartyStatusCode": "200",  
+
+  "referenceNumber": "021081300184804066092",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "SupportedVersions Successful!"  
+
+}  
+
+```

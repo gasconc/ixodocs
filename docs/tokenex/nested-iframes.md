@@ -8,9 +8,9 @@ tags:
 - tokenex
 - ixopay
 - iframe
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/nested-iframes
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -28,8 +28,36 @@ Subsequent origins that will render foo.com: `bar.com`
 The **origin** string used in the HMAC would then be: `https://foo.com,https://bar.com`
 HTTP
 ```
+
+Origin: "https://foo.com,https://bar.com"  
+
+```To see a live example of a nested origin, check out this [JS fiddle page](https://jsfiddle.net/jakeburcham/rk6up75h/). You can see the origin being passed in this example is `"https://fiddle.jshell.net,https://jsfiddle.net"`. This is because the page rendering the iframe (fiddle.shell.net) is itself an iframe being rendered within jsfiddle.net.
+```
+
 Origin: "https://foo.com,https://bar.com"  
 
 ```
+```
 
-To see a live example of a nested origin, check out this [JS fiddle page](https://jsfiddle.net/jakeburcham/rk6up75h/). You can see the origin being passed in this example is `"https://fiddle.jshell.net,https://jsfiddle.net"`. This is because the page rendering the iframe (fiddle.shell.net) is itself an iframe being rendered within jsfiddle.net.
+Origin: "https://foo.com,https://bar.com"  
+
+```To see a live example of a nested origin, check out this [JS fiddle page](https://jsfiddle.net/jakeburcham/rk6up75h/). You can see the origin being passed in this example is `"https://fiddle.jshell.net,https://jsfiddle.net"`. This is because the page rendering the iframe (fiddle.shell.net) is itself an iframe being rendered within jsfiddle.net.
+  * TokenEx iFrame
+  * [Creating the iFrame](https://documentation.ixopay.com/modules/docs/tokenex/creating-the-iframe)
+  * Nested iFrames
+```
+
+Origin: "https://foo.com,https://bar.com"  
+
+```To see a live example of a nested origin, check out this [JS fiddle page](https://jsfiddle.net/jakeburcham/rk6up75h/). You can see the origin being passed in this example is `"https://fiddle.jshell.net,https://jsfiddle.net"`. This is because the page rendering the iframe (fiddle.shell.net) is itself an iframe being rendered within jsfiddle.net.
+  * [Example](https://documentation.ixopay.com/modules/docs/tokenex/nested-iframes#example)
+```
+
+Origin: "https://foo.com,https://bar.com"  
+
+```
+```
+
+Origin: "https://foo.com,https://bar.com"  
+
+```To see a live example of a nested origin, check out this [JS fiddle page](https://jsfiddle.net/jakeburcham/rk6up75h/). You can see the origin being passed in this example is `"https://fiddle.jshell.net,https://jsfiddle.net"`. This is because the page rendering the iframe (fiddle.shell.net) is itself an iframe being rendered within jsfiddle.net.

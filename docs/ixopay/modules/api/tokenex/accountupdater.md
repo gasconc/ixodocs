@@ -10,11 +10,11 @@ tags:
 - request-https-documentation-ixopay-com-modules-api-tokenex-accountupdater-request-direct-link-request
 - header-parameters
 - body
-- responses-https-documentation-ixopay-com-modules-api-tokenex-accountupdater-responses-direct-link-responses
 - api
-source_url: ''
+- json
+source_url: https://documentation.ixopay.com/modules/api/tokenex/accountupdater
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -28,9 +28,7 @@ related: []
 POST 
 ## https://test-api.tokenex.com/v2/AccountUpdater
 
-```
-
-This endpoint accepts a list of card data that will be checked for updated card expiration. You can pass either tokens or PANs in the data field of the request. There is a maximum of 100 cardData objects that can be included per request.
+```This endpoint accepts a list of card data that will be checked for updated card expiration. You can pass either tokens or PANs in the data field of the request. There is a maximum of 100 cardData objects that can be included per request.
 ## Test Card Numbers[​](https://documentation.ixopay.com/modules/api/tokenex/accountupdater#test-card-numbers "Direct link to Test Card Numbers")
 Important Test PAN Numbers
 TokenEx test PANs can be leveraged to verify that the call to the Account Updater endpoints and subsequent response codes are successful. Some of the test cards are NOT Luhn compliant and will not pass validation for tokenization. When tokenizing these test cards, please select a token scheme that does not require Luhn validation i.e. sixANTOKENfour. The requests to trigger the specific response codes are outlined in the REQUEST section.  
@@ -99,6 +97,9 @@ Ensures that only the updated account number is returned in the response, withou
 
   * application/json
 
+  * Body
+  * Example (auto)
+
 ### Body
 **cardData** object[]required
 The card data to be processed
@@ -139,8 +140,61 @@ Sub-merchant name to use for MasterCard account update request
 **acquirerSegmentId** string
 A customer identifier assigned by MasterCard associated to the enrolled customer
   * ]
+```
 
-## Responses[​](https://documentation.ixopay.com/modules/api/tokenex/accountupdater#responses "Direct link to Responses")
+{  
+
+  "cardData": [  
+
+    {  
+
+      "data": "4111111111111111",  
+
+      "expiration": "1123",  
+
+      "sequenceNumber": "01"  
+
+    }  
+
+  ],  
+
+  "subMerchantName": "string",  
+
+  "acquirerOrMerchantProprietaryInfo": "string",  
+
+  "visaProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string",  
+
+      "acquirerOrMerchantProprietaryInfo": "string"  
+
+    }  
+
+  ],  
+
+  "masterCardProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string"  
+
+    }  
+
+  ]  
+
+}  
+
+```## Responses[​](https://documentation.ixopay.com/modules/api/tokenex/accountupdater#responses "Direct link to Responses")
   * 200
 
 200
@@ -201,217 +255,440 @@ oneOf
 **Example:**``
 **message** string
 **Example:**``
-
 ```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": true,  
+
       "sequenceNumber": "01",  
+
       "token": "token",  
+
       "expiration": "1123",  
+
       "updatedExpiration": "1124",  
+
       "message": "Account Expiration Date Updated",  
+
       "responseCode": 802  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
-{  
-  "cardData": [  
-    {  
-      "success": true,  
-      "sequenceNumber": "01",  
-      "token": "token",  
-      "expiration": "1123",  
-      "message": "Valid Account, No Update",  
-      "responseCode": 80  
-    }  
-  ],  
-  "referenceNumber": "23100513550514076457",  
-  "success": true,  
-  "error": "",  
-  "message": ""  
-}  
-
 ```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": true,  
+
       "sequenceNumber": "01",  
+
       "token": "token",  
+
       "expiration": "1123",  
+
       "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "message": "Valid Account, No Update",  
+
+      "responseCode": 80  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "23100513550514076457",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
       "updatedToken": "42424aaaa2424242",  
+
       "responseCode": 801,  
+
       "message": "Account Number Updated"  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
+```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": true,  
+
       "sequenceNumber": "01",  
+
       "token": "token",  
+
       "expiration": "1123",  
+
       "responseCode": 803,  
+
       "message": "Account is Closed"  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
+```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": "true,",  
+
       "sequenceNumber": "01",  
+
       "token": "token",  
+
       "expiration": "1123",  
+
       "responseCode": 804,  
+
       "message": "Contact Cardholder"  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
+```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": true,  
+
       "sequenceNumber": "01",  
+
       "token": "token",  
+
       "expiration": "1123",  
+
       "responseCode": 805,  
+
       "message": "Cardholder Opt Out"  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
+```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": true,  
+
       "sequenceNumber": "01",  
+
       "token": "token",  
+
       "expiration": "1123",  
+
       "responseCode": 806,  
+
       "message": "No Match"  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
+```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": true,  
+
       "sequenceNumber": "01",  
+
       "token": "token",  
+
       "expiration": "1123",  
+
       "responseCode": 807,  
+
       "message": "Non-particpating Account"  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
+```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": false,  
+
       "sequenceNumber": "01",  
+
       "token": null,  
+
       "expiration": "1123",  
+
       "responseCode": 808,  
+
       "message": "Error Occurred Updating Account"  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
+```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": false,  
+
       "sequenceNumber": "01",  
+
       "token": null,  
+
       "expiration": "1123",  
+
       "responseCode": 809,  
+
       "message": "Account Number contains non-numeric characters or is blank"  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
+```
+
 {  
+
   "cardData": [  
+
     {  
+
       "success": false,  
+
       "sequenceNumber": "01",  
+
       "expiration": "1123",  
+
       "token": "token",  
+
       "message": "Card brand not supported",  
+
       "responseCode": 808  
+
     }  
+
   ],  
+
   "referenceNumber": "2201291553541132129",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
-#### Authorization: tx-tokenex-id
+```#### Authorization: tx-tokenex-id
 ```
 **name:** tx-tokenex-id[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **8149339711073860
 ```
 ```
 **name:** tx-apikey[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv
-```
-
-  * curl
+```  * curl
   * python
   * go
   * nodejs
@@ -419,7 +696,6 @@ oneOf
   * java
 
   * CURL
-
 ```
 curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \  
 -H 'Content-Type: application/json' \  
@@ -453,7 +729,7 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ]  
 }'  
 
-RequestCollapse all
+```RequestCollapse all
 Base URL
 Edit
 Auth
@@ -462,11 +738,9 @@ tokenExApiKey
 Parameters
 tx-token-scheme — headerrequired
 Show optional parameters
-tx-tokenize — header
---- true false
+tx-tokenize — header--- true false
 tx-account-updater-merchantid — header
-tx-return-plaintext-pan — header
---- true false
+tx-return-plaintext-pan — header--- true false
 tx-acquirer-segment-id — header
 tx-tokenize-updated-pans — header
 Body
@@ -497,3 +771,2790 @@ Body
     }
   ]
 }
+
+```
+```
+POST 
+## https://test-api.tokenex.com/v2/AccountUpdater
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "data": "4111111111111111",  
+
+      "expiration": "1123",  
+
+      "sequenceNumber": "01"  
+
+    }  
+
+  ],  
+
+  "subMerchantName": "string",  
+
+  "acquirerOrMerchantProprietaryInfo": "string",  
+
+  "visaProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string",  
+
+      "acquirerOrMerchantProprietaryInfo": "string"  
+
+    }  
+
+  ],  
+
+  "masterCardProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "message": "Valid Account, No Update",  
+
+      "responseCode": 80  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "23100513550514076457",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "updatedToken": "42424aaaa2424242",  
+
+      "responseCode": 801,  
+
+      "message": "Account Number Updated"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 803,  
+
+      "message": "Account is Closed"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": "true,",  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 804,  
+
+      "message": "Contact Cardholder"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 805,  
+
+      "message": "Cardholder Opt Out"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 806,  
+
+      "message": "No Match"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 807,  
+
+      "message": "Non-particpating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 808,  
+
+      "message": "Error Occurred Updating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 809,  
+
+      "message": "Account Number contains non-numeric characters or is blank"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "expiration": "1123",  
+
+      "token": "token",  
+
+      "message": "Card brand not supported",  
+
+      "responseCode": 808  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+**name:** tx-tokenex-id[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **8149339711073860
+```
+```
+**name:** tx-apikey[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'tx-tokenex-id: <tx-tokenex-id>' \  
+-H 'tx-apikey: <tx-apikey>' \  
+-d '{  
+  "cardData": [  
+    {  
+      "data": "4111111111111111",  
+      "expiration": "1123",  
+      "sequenceNumber": "01"  
+    }  
+  ],  
+  "subMerchantName": "string",  
+  "acquirerOrMerchantProprietaryInfo": "string",  
+  "visaProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string",  
+      "acquirerOrMerchantProprietaryInfo": "string"  
+    }  
+  ],  
+  "masterCardProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string"  
+    }  
+  ]  
+}'  
+
+```
+```
+{
+  "cardData": [
+    {
+      "data": "4111111111111111",
+      "expiration": "1123",
+      "sequenceNumber": "01"
+    }
+  ],
+  "subMerchantName": "string",
+  "acquirerOrMerchantProprietaryInfo": "string",
+  "visaProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string",
+      "acquirerOrMerchantProprietaryInfo": "string"
+    }
+  ],
+  "masterCardProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string"
+    }
+  ]
+}
+
+```
+```
+POST 
+## https://test-api.tokenex.com/v2/AccountUpdater
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "data": "4111111111111111",  
+
+      "expiration": "1123",  
+
+      "sequenceNumber": "01"  
+
+    }  
+
+  ],  
+
+  "subMerchantName": "string",  
+
+  "acquirerOrMerchantProprietaryInfo": "string",  
+
+  "visaProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string",  
+
+      "acquirerOrMerchantProprietaryInfo": "string"  
+
+    }  
+
+  ],  
+
+  "masterCardProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "message": "Valid Account, No Update",  
+
+      "responseCode": 80  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "23100513550514076457",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "updatedToken": "42424aaaa2424242",  
+
+      "responseCode": 801,  
+
+      "message": "Account Number Updated"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 803,  
+
+      "message": "Account is Closed"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": "true,",  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 804,  
+
+      "message": "Contact Cardholder"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 805,  
+
+      "message": "Cardholder Opt Out"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 806,  
+
+      "message": "No Match"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 807,  
+
+      "message": "Non-particpating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 808,  
+
+      "message": "Error Occurred Updating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 809,  
+
+      "message": "Account Number contains non-numeric characters or is blank"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "expiration": "1123",  
+
+      "token": "token",  
+
+      "message": "Card brand not supported",  
+
+      "responseCode": 808  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+**name:** tx-tokenex-id[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **8149339711073860
+```
+```
+**name:** tx-apikey[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'tx-tokenex-id: <tx-tokenex-id>' \  
+-H 'tx-apikey: <tx-apikey>' \  
+-d '{  
+  "cardData": [  
+    {  
+      "data": "4111111111111111",  
+      "expiration": "1123",  
+      "sequenceNumber": "01"  
+    }  
+  ],  
+  "subMerchantName": "string",  
+  "acquirerOrMerchantProprietaryInfo": "string",  
+  "visaProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string",  
+      "acquirerOrMerchantProprietaryInfo": "string"  
+    }  
+  ],  
+  "masterCardProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string"  
+    }  
+  ]  
+}'  
+
+```
+```
+{
+  "cardData": [
+    {
+      "data": "4111111111111111",
+      "expiration": "1123",
+      "sequenceNumber": "01"
+    }
+  ],
+  "subMerchantName": "string",
+  "acquirerOrMerchantProprietaryInfo": "string",
+  "visaProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string",
+      "acquirerOrMerchantProprietaryInfo": "string"
+    }
+  ],
+  "masterCardProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string"
+    }
+  ]
+}
+
+```
+```
+POST 
+## https://test-api.tokenex.com/v2/AccountUpdater
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "data": "4111111111111111",  
+
+      "expiration": "1123",  
+
+      "sequenceNumber": "01"  
+
+    }  
+
+  ],  
+
+  "subMerchantName": "string",  
+
+  "acquirerOrMerchantProprietaryInfo": "string",  
+
+  "visaProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string",  
+
+      "acquirerOrMerchantProprietaryInfo": "string"  
+
+    }  
+
+  ],  
+
+  "masterCardProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "message": "Valid Account, No Update",  
+
+      "responseCode": 80  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "23100513550514076457",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "updatedToken": "42424aaaa2424242",  
+
+      "responseCode": 801,  
+
+      "message": "Account Number Updated"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 803,  
+
+      "message": "Account is Closed"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": "true,",  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 804,  
+
+      "message": "Contact Cardholder"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 805,  
+
+      "message": "Cardholder Opt Out"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 806,  
+
+      "message": "No Match"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 807,  
+
+      "message": "Non-particpating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 808,  
+
+      "message": "Error Occurred Updating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 809,  
+
+      "message": "Account Number contains non-numeric characters or is blank"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "expiration": "1123",  
+
+      "token": "token",  
+
+      "message": "Card brand not supported",  
+
+      "responseCode": 808  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+**name:** tx-tokenex-id[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **8149339711073860
+```
+```
+**name:** tx-apikey[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'tx-tokenex-id: <tx-tokenex-id>' \  
+-H 'tx-apikey: <tx-apikey>' \  
+-d '{  
+  "cardData": [  
+    {  
+      "data": "4111111111111111",  
+      "expiration": "1123",  
+      "sequenceNumber": "01"  
+    }  
+  ],  
+  "subMerchantName": "string",  
+  "acquirerOrMerchantProprietaryInfo": "string",  
+  "visaProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string",  
+      "acquirerOrMerchantProprietaryInfo": "string"  
+    }  
+  ],  
+  "masterCardProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string"  
+    }  
+  ]  
+}'  
+
+```
+```
+{
+  "cardData": [
+    {
+      "data": "4111111111111111",
+      "expiration": "1123",
+      "sequenceNumber": "01"
+    }
+  ],
+  "subMerchantName": "string",
+  "acquirerOrMerchantProprietaryInfo": "string",
+  "visaProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string",
+      "acquirerOrMerchantProprietaryInfo": "string"
+    }
+  ],
+  "masterCardProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string"
+    }
+  ]
+}
+
+```
+```
+POST 
+## https://test-api.tokenex.com/v2/AccountUpdater
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "data": "4111111111111111",  
+
+      "expiration": "1123",  
+
+      "sequenceNumber": "01"  
+
+    }  
+
+  ],  
+
+  "subMerchantName": "string",  
+
+  "acquirerOrMerchantProprietaryInfo": "string",  
+
+  "visaProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string",  
+
+      "acquirerOrMerchantProprietaryInfo": "string"  
+
+    }  
+
+  ],  
+
+  "masterCardProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "message": "Valid Account, No Update",  
+
+      "responseCode": 80  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "23100513550514076457",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "updatedToken": "42424aaaa2424242",  
+
+      "responseCode": 801,  
+
+      "message": "Account Number Updated"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 803,  
+
+      "message": "Account is Closed"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": "true,",  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 804,  
+
+      "message": "Contact Cardholder"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 805,  
+
+      "message": "Cardholder Opt Out"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 806,  
+
+      "message": "No Match"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 807,  
+
+      "message": "Non-particpating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 808,  
+
+      "message": "Error Occurred Updating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 809,  
+
+      "message": "Account Number contains non-numeric characters or is blank"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "expiration": "1123",  
+
+      "token": "token",  
+
+      "message": "Card brand not supported",  
+
+      "responseCode": 808  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+**name:** tx-tokenex-id[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **8149339711073860
+```
+```
+**name:** tx-apikey[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'tx-tokenex-id: <tx-tokenex-id>' \  
+-H 'tx-apikey: <tx-apikey>' \  
+-d '{  
+  "cardData": [  
+    {  
+      "data": "4111111111111111",  
+      "expiration": "1123",  
+      "sequenceNumber": "01"  
+    }  
+  ],  
+  "subMerchantName": "string",  
+  "acquirerOrMerchantProprietaryInfo": "string",  
+  "visaProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string",  
+      "acquirerOrMerchantProprietaryInfo": "string"  
+    }  
+  ],  
+  "masterCardProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string"  
+    }  
+  ]  
+}'  
+
+```
+```
+{
+  "cardData": [
+    {
+      "data": "4111111111111111",
+      "expiration": "1123",
+      "sequenceNumber": "01"
+    }
+  ],
+  "subMerchantName": "string",
+  "acquirerOrMerchantProprietaryInfo": "string",
+  "visaProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string",
+      "acquirerOrMerchantProprietaryInfo": "string"
+    }
+  ],
+  "masterCardProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string"
+    }
+  ]
+}
+
+```
+```
+POST 
+## https://test-api.tokenex.com/v2/AccountUpdater
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "data": "4111111111111111",  
+
+      "expiration": "1123",  
+
+      "sequenceNumber": "01"  
+
+    }  
+
+  ],  
+
+  "subMerchantName": "string",  
+
+  "acquirerOrMerchantProprietaryInfo": "string",  
+
+  "visaProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string",  
+
+      "acquirerOrMerchantProprietaryInfo": "string"  
+
+    }  
+
+  ],  
+
+  "masterCardProcessingParams": [  
+
+    {  
+
+      "merchantId": "string",  
+
+      "subMerchantName": "string",  
+
+      "acquirerSegmentId": "string"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "message": "Account Expiration Date Updated",  
+
+      "responseCode": 802  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "message": "Valid Account, No Update",  
+
+      "responseCode": 80  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "23100513550514076457",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "updatedExpiration": "1124",  
+
+      "updatedToken": "42424aaaa2424242",  
+
+      "responseCode": 801,  
+
+      "message": "Account Number Updated"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 803,  
+
+      "message": "Account is Closed"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": "true,",  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 804,  
+
+      "message": "Contact Cardholder"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 805,  
+
+      "message": "Cardholder Opt Out"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 806,  
+
+      "message": "No Match"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": true,  
+
+      "sequenceNumber": "01",  
+
+      "token": "token",  
+
+      "expiration": "1123",  
+
+      "responseCode": 807,  
+
+      "message": "Non-particpating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 808,  
+
+      "message": "Error Occurred Updating Account"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "token": null,  
+
+      "expiration": "1123",  
+
+      "responseCode": 809,  
+
+      "message": "Account Number contains non-numeric characters or is blank"  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "cardData": [  
+
+    {  
+
+      "success": false,  
+
+      "sequenceNumber": "01",  
+
+      "expiration": "1123",  
+
+      "token": "token",  
+
+      "message": "Card brand not supported",  
+
+      "responseCode": 808  
+
+    }  
+
+  ],  
+
+  "referenceNumber": "2201291553541132129",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+**name:** tx-tokenex-id[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **8149339711073860
+```
+```
+**name:** tx-apikey[](https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2#authentication)**type:** apiKey**in: **header**x-default: **9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'tx-tokenex-id: <tx-tokenex-id>' \  
+-H 'tx-apikey: <tx-apikey>' \  
+-d '{  
+  "cardData": [  
+    {  
+      "data": "4111111111111111",  
+      "expiration": "1123",  
+      "sequenceNumber": "01"  
+    }  
+  ],  
+  "subMerchantName": "string",  
+  "acquirerOrMerchantProprietaryInfo": "string",  
+  "visaProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string",  
+      "acquirerOrMerchantProprietaryInfo": "string"  
+    }  
+  ],  
+  "masterCardProcessingParams": [  
+    {  
+      "merchantId": "string",  
+      "subMerchantName": "string",  
+      "acquirerSegmentId": "string"  
+    }  
+  ]  
+}'  
+
+```
+```
+{
+  "cardData": [
+    {
+      "data": "4111111111111111",
+      "expiration": "1123",
+      "sequenceNumber": "01"
+    }
+  ],
+  "subMerchantName": "string",
+  "acquirerOrMerchantProprietaryInfo": "string",
+  "visaProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string",
+      "acquirerOrMerchantProprietaryInfo": "string"
+    }
+  ],
+  "masterCardProcessingParams": [
+    {
+      "merchantId": "string",
+      "subMerchantName": "string",
+      "acquirerSegmentId": "string"
+    }
+  ]
+}
+
+```

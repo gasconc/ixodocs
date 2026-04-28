@@ -6,16 +6,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-braintree-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-braintree-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-braintree-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-braintree-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-braintree-responses-direct-link-responses
 - api
 - 3ds
 - 3d-secure
 - pci
 - tokenex
-source_url: ''
+- ixopay
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -115,73 +115,128 @@ any other string value = forwarded. See [Braintree documentation](https://develo
   * Card Capture
   * Card Void
   * Card Refund
-
 ```
+
 {  
+
   "publicKey": "<Your Braintree Public Key>",  
+
   "privateKey": "<Your Braintree Private Key>",  
+
   "merchantId": "<Your Braintree Merchant ID>",  
+
   "orderId": "81553724",  
+
   "email": "john.doe@hotmail.com",  
+
   "merchantAccountId": "<Your Braintree Merchant Account ID>",  
+
   "creditCard": {  
+
     "brand": "Visa",  
+
     "number": "4111111111111111",  
+
     "expMonth": 6,  
+
     "expYear": 2024,  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "cvv": "123"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "fax": "555-555-6666",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "name": "John Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": null,  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "amount": 1200,  
+
   "gateway": "Braintree"  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "publicKey": "<Your Braintree Public Key>",  
+
   "privateKey": "<Your Braintree Private Key>",  
+
   "merchantId": "<Your Braintree Merchant ID>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize call>",  
+
   "gateway": "Braintree"  
+
 }  
 
 ```
+```
+
 {  
+
   "publicKey": "<Your Braintree Public Key>",  
+
   "privateKey": "<Your Braintree Private Key>",  
+
   "merchantId": "<Your Braintree Merchant ID>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase call>",  
+
   "gateway": "Braintree"  
+
 }  
 
 ```
+```
+
 {  
+
   "publicKey": "<Your Braintree Public Key>",  
+
   "privateKey": "<Your Braintree Private Key>",  
+
   "merchantId": "<Your Braintree Merchant ID>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
   "gateway": "Braintree",  
+
   "amount": 1200  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | Braintree Result Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approvalCode`  | string  | `Target.ProcessorAuthorizationCode`  | A six-character pseudo-ID from the processing network.  |  
@@ -246,222 +301,3143 @@ B = Bypass  |
   * Gateway Error
   * Processor Error
   * Processor Error — Declined by issuer
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":1,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:47:28Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
     "approvalCode": "4VGBS3",  
+
     "providerTransactionCode": "b781pn2z",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {  
+
         "streetMatch": "M",  
+
         "postalCodeMatch": "M"  
+
       }  
+
     },  
+
     "networkTransactionId": "020231204134728"  
+
   },  
+
   "referenceNumber": "23120407472778674556",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"Target\":{\"Id\":\"p67g2yb9\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T14:20:42Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fcDY3ZzJ5Yjk\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"03256Q\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T14:20:44Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142043\",\"AuthorizationExpiresAt\":\"2023-12-05T14:20:43Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "cDY3ZzJ5Yjk=",  
+
     "approvalCode": "03256Q",  
+
     "providerTransactionCode": "p67g2yb9",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {  
+
         "streetMatch": "M",  
+
         "postalCodeMatch": "M"  
+
       }  
+
     },  
+
     "networkTransactionId": "020231204142043"  
+
   },  
+
   "referenceNumber": "2312040820379483992",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T13:48:05Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:48:05Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
     "approvalCode": "4VGBS3",  
+
     "providerTransactionCode": "b781pn2z",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {  
+
         "streetMatch": "M",  
+
         "postalCodeMatch": "M"  
+
       }  
+
     },  
+
     "networkTransactionId": "020231204134728"  
+
   },  
+
   "referenceNumber": "2312040748031605347",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:22:17Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
     "approvalCode": "K1SL9B",  
+
     "providerTransactionCode": "e1wcap1f",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "cvvRaw": "B",  
+
       "providerParsed": {  
+
         "streetMatch": "B",  
+
         "postalCodeMatch": "B"  
+
       }  
+
     },  
+
     "networkTransactionId": "020231204142217",  
+
     "merchantReferenceId": "19937989"  
+
   },  
+
   "referenceNumber": "23120408221651497409",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":9,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":9,\"Timestamp\":\"2023-12-04T14:23:40Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:23:40Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
     "approvalCode": "K1SL9B",  
+
     "providerTransactionCode": "e1wcap1f",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "cvvRaw": "B",  
+
       "providerParsed": {  
+
         "streetMatch": "B",  
+
         "postalCodeMatch": "B"  
+
       }  
+
     },  
+
     "networkTransactionId": "020231204142217",  
+
     "merchantReferenceId": "19937989"  
+
   },  
+
   "referenceNumber": "23120408233767920282",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"Errors\":{\"Count\":0,\"DeepCount\":1},\"Parameters\":{\"transaction[amount]\":\"2.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"23\",\"transaction[credit_card][expiration_year]\":\"2003\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Expiration month is invalid.\"}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "81712",  
+
         "message": "expiration_month - Expiration month is invalid.",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "23120816170125447335",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"Transaction\":{\"Id\":\"nzhexszw\",\"AddOns\":[],\"Amount\":2000.00,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-08T22:14:52Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fbnpoZXhzenc\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":1,\"ProcessorResponseCode\":\"2000\",\"ProcessorResponseText\":\"Do Not Honor\",\"AdditionalProcessorResponse\":\"2000 : Do Not Honor\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2000.00,\"Status\":5,\"Timestamp\":\"2023-12-08T22:14:52Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-08T22:14:52Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231208221452\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2000.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"1\",\"transaction[credit_card][expiration_year]\":\"2025\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Do Not Honor\"}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "2000",  
+
         "message": "Do Not Honor",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "bnpoZXhzenc=",  
+
     "providerTransactionCode": "nzhexszw",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {  
+
         "streetMatch": "M",  
+
         "postalCodeMatch": "M"  
+
       }  
+
     },  
+
     "networkTransactionId": "020231208221452"  
+
   },  
+
   "referenceNumber": "23120816145166171746",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"Transaction\":{\"Id\":\"7657a0eq\",\"AddOns\":[],\"Amount\":2079.41,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2024-09-26T15:48:50Z\",\"CreditCard\":{\"Bin\":\"510510\",\"CardholderName\":\"John Doe\",\"CardType\":11,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"5100\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"510510******5100\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"<mailto:Della52@gmail.com|Della52@gmail.com>\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":10,\"GraphQLId\":\"dHJhbnNhY3Rpb25fNzY1N2EwZXE\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"68419245\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":2,\"ProcessorResponseCode\":\"2079\",\"ProcessorResponseText\":\"PayPal Merchant Account Configuration Error\",\"AdditionalProcessorResponse\":\"2079 : PayPal Merchant Account Configuration Error\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2079.41,\"Status\":5,\"Timestamp\":\"2024-09-26T15:48:50Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2024-09-26T15:48:50Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"Packages\":[],\"PaymentInstrumentType\":4,\"NetworkTransactionId\":\"020240926154850\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false,\"RetryIds\":[],\"MerchantAdviceCode\":\"01\",\"MerchantAdviceCodeText\":\"New account information available\"},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2079.41\",\"transaction[order_id]\":\"68419245\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"6\",\"transaction[credit_card][expiration_year]\":\"2026\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[customer][email]\":\"Della52@gmail.com\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping]\":null,\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"PayPal Merchant Account Configuration Error\"}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "2079",  
+
         "message": "PayPal Merchant Account Configuration Error",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "NzY1N2EwZXE=",  
+
     "providerTransactionCode": "7657a0eq",  
+
     "Approved": false,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {  
+
         "streetMatch": "M",  
+
         "postalCodeMatch": "M"  
+
       }  
+
     },  
+
     "networkTransactionId": "020240926154850",  
+
     "merchantReferenceId": "68419245",  
+
     "brandAuthResponseCode": "XX",  
+
     "brandAuthResponseCodeDescription": "sample network response text",  
+
     "recurringAdviceCode": "01",  
+
     "recurringAdviceDescription": "New account information available"  
+
   },  
+
   "referenceNumber": "024092610484355121126",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
+
   
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree#overview)
+```
+```
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "orderId": "81553724",  
+
+  "email": "john.doe@hotmail.com",  
+
+  "merchantAccountId": "<Your Braintree Merchant Account ID>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "gateway": "Braintree",  
+
+  "amount": 1200  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":1,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:47:28Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "23120407472778674556",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"p67g2yb9\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T14:20:42Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fcDY3ZzJ5Yjk\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"03256Q\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T14:20:44Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142043\",\"AuthorizationExpiresAt\":\"2023-12-05T14:20:43Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cDY3ZzJ5Yjk=",  
+
+    "approvalCode": "03256Q",  
+
+    "providerTransactionCode": "p67g2yb9",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142043"  
+
+  },  
+
+  "referenceNumber": "2312040820379483992",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T13:48:05Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:48:05Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "2312040748031605347",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:22:17Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408221651497409",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":9,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":9,\"Timestamp\":\"2023-12-04T14:23:40Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:23:40Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408233767920282",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Errors\":{\"Count\":0,\"DeepCount\":1},\"Parameters\":{\"transaction[amount]\":\"2.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"23\",\"transaction[credit_card][expiration_year]\":\"2003\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Expiration month is invalid.\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "81712",  
+
+        "message": "expiration_month - Expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816170125447335",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"nzhexszw\",\"AddOns\":[],\"Amount\":2000.00,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-08T22:14:52Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fbnpoZXhzenc\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":1,\"ProcessorResponseCode\":\"2000\",\"ProcessorResponseText\":\"Do Not Honor\",\"AdditionalProcessorResponse\":\"2000 : Do Not Honor\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2000.00,\"Status\":5,\"Timestamp\":\"2023-12-08T22:14:52Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-08T22:14:52Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231208221452\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2000.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"1\",\"transaction[credit_card][expiration_year]\":\"2025\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Do Not Honor\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2000",  
+
+        "message": "Do Not Honor",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "bnpoZXhzenc=",  
+
+    "providerTransactionCode": "nzhexszw",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231208221452"  
+
+  },  
+
+  "referenceNumber": "23120816145166171746",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"7657a0eq\",\"AddOns\":[],\"Amount\":2079.41,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2024-09-26T15:48:50Z\",\"CreditCard\":{\"Bin\":\"510510\",\"CardholderName\":\"John Doe\",\"CardType\":11,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"5100\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"510510******5100\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"<mailto:Della52@gmail.com|Della52@gmail.com>\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":10,\"GraphQLId\":\"dHJhbnNhY3Rpb25fNzY1N2EwZXE\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"68419245\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":2,\"ProcessorResponseCode\":\"2079\",\"ProcessorResponseText\":\"PayPal Merchant Account Configuration Error\",\"AdditionalProcessorResponse\":\"2079 : PayPal Merchant Account Configuration Error\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2079.41,\"Status\":5,\"Timestamp\":\"2024-09-26T15:48:50Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2024-09-26T15:48:50Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"Packages\":[],\"PaymentInstrumentType\":4,\"NetworkTransactionId\":\"020240926154850\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false,\"RetryIds\":[],\"MerchantAdviceCode\":\"01\",\"MerchantAdviceCodeText\":\"New account information available\"},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2079.41\",\"transaction[order_id]\":\"68419245\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"6\",\"transaction[credit_card][expiration_year]\":\"2026\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[customer][email]\":\"Della52@gmail.com\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping]\":null,\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"PayPal Merchant Account Configuration Error\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2079",  
+
+        "message": "PayPal Merchant Account Configuration Error",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "NzY1N2EwZXE=",  
+
+    "providerTransactionCode": "7657a0eq",  
+
+    "Approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020240926154850",  
+
+    "merchantReferenceId": "68419245",  
+
+    "brandAuthResponseCode": "XX",  
+
+    "brandAuthResponseCodeDescription": "sample network response text",  
+
+    "recurringAdviceCode": "01",  
+
+    "recurringAdviceDescription": "New account information available"  
+
+  },  
+
+  "referenceNumber": "024092610484355121126",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+  
+
+```
+```
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "orderId": "81553724",  
+
+  "email": "john.doe@hotmail.com",  
+
+  "merchantAccountId": "<Your Braintree Merchant Account ID>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "gateway": "Braintree",  
+
+  "amount": 1200  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":1,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:47:28Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "23120407472778674556",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"p67g2yb9\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T14:20:42Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fcDY3ZzJ5Yjk\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"03256Q\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T14:20:44Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142043\",\"AuthorizationExpiresAt\":\"2023-12-05T14:20:43Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cDY3ZzJ5Yjk=",  
+
+    "approvalCode": "03256Q",  
+
+    "providerTransactionCode": "p67g2yb9",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142043"  
+
+  },  
+
+  "referenceNumber": "2312040820379483992",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T13:48:05Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:48:05Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "2312040748031605347",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:22:17Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408221651497409",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":9,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":9,\"Timestamp\":\"2023-12-04T14:23:40Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:23:40Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408233767920282",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Errors\":{\"Count\":0,\"DeepCount\":1},\"Parameters\":{\"transaction[amount]\":\"2.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"23\",\"transaction[credit_card][expiration_year]\":\"2003\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Expiration month is invalid.\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "81712",  
+
+        "message": "expiration_month - Expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816170125447335",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"nzhexszw\",\"AddOns\":[],\"Amount\":2000.00,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-08T22:14:52Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fbnpoZXhzenc\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":1,\"ProcessorResponseCode\":\"2000\",\"ProcessorResponseText\":\"Do Not Honor\",\"AdditionalProcessorResponse\":\"2000 : Do Not Honor\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2000.00,\"Status\":5,\"Timestamp\":\"2023-12-08T22:14:52Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-08T22:14:52Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231208221452\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2000.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"1\",\"transaction[credit_card][expiration_year]\":\"2025\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Do Not Honor\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2000",  
+
+        "message": "Do Not Honor",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "bnpoZXhzenc=",  
+
+    "providerTransactionCode": "nzhexszw",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231208221452"  
+
+  },  
+
+  "referenceNumber": "23120816145166171746",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"7657a0eq\",\"AddOns\":[],\"Amount\":2079.41,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2024-09-26T15:48:50Z\",\"CreditCard\":{\"Bin\":\"510510\",\"CardholderName\":\"John Doe\",\"CardType\":11,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"5100\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"510510******5100\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"<mailto:Della52@gmail.com|Della52@gmail.com>\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":10,\"GraphQLId\":\"dHJhbnNhY3Rpb25fNzY1N2EwZXE\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"68419245\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":2,\"ProcessorResponseCode\":\"2079\",\"ProcessorResponseText\":\"PayPal Merchant Account Configuration Error\",\"AdditionalProcessorResponse\":\"2079 : PayPal Merchant Account Configuration Error\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2079.41,\"Status\":5,\"Timestamp\":\"2024-09-26T15:48:50Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2024-09-26T15:48:50Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"Packages\":[],\"PaymentInstrumentType\":4,\"NetworkTransactionId\":\"020240926154850\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false,\"RetryIds\":[],\"MerchantAdviceCode\":\"01\",\"MerchantAdviceCodeText\":\"New account information available\"},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2079.41\",\"transaction[order_id]\":\"68419245\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"6\",\"transaction[credit_card][expiration_year]\":\"2026\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[customer][email]\":\"Della52@gmail.com\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping]\":null,\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"PayPal Merchant Account Configuration Error\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2079",  
+
+        "message": "PayPal Merchant Account Configuration Error",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "NzY1N2EwZXE=",  
+
+    "providerTransactionCode": "7657a0eq",  
+
+    "Approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020240926154850",  
+
+    "merchantReferenceId": "68419245",  
+
+    "brandAuthResponseCode": "XX",  
+
+    "brandAuthResponseCodeDescription": "sample network response text",  
+
+    "recurringAdviceCode": "01",  
+
+    "recurringAdviceDescription": "New account information available"  
+
+  },  
+
+  "referenceNumber": "024092610484355121126",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+  
+
+```
+```
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "orderId": "81553724",  
+
+  "email": "john.doe@hotmail.com",  
+
+  "merchantAccountId": "<Your Braintree Merchant Account ID>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "gateway": "Braintree",  
+
+  "amount": 1200  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":1,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:47:28Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "23120407472778674556",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"p67g2yb9\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T14:20:42Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fcDY3ZzJ5Yjk\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"03256Q\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T14:20:44Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142043\",\"AuthorizationExpiresAt\":\"2023-12-05T14:20:43Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cDY3ZzJ5Yjk=",  
+
+    "approvalCode": "03256Q",  
+
+    "providerTransactionCode": "p67g2yb9",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142043"  
+
+  },  
+
+  "referenceNumber": "2312040820379483992",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T13:48:05Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:48:05Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "2312040748031605347",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:22:17Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408221651497409",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":9,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":9,\"Timestamp\":\"2023-12-04T14:23:40Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:23:40Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408233767920282",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Errors\":{\"Count\":0,\"DeepCount\":1},\"Parameters\":{\"transaction[amount]\":\"2.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"23\",\"transaction[credit_card][expiration_year]\":\"2003\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Expiration month is invalid.\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "81712",  
+
+        "message": "expiration_month - Expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816170125447335",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"nzhexszw\",\"AddOns\":[],\"Amount\":2000.00,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-08T22:14:52Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fbnpoZXhzenc\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":1,\"ProcessorResponseCode\":\"2000\",\"ProcessorResponseText\":\"Do Not Honor\",\"AdditionalProcessorResponse\":\"2000 : Do Not Honor\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2000.00,\"Status\":5,\"Timestamp\":\"2023-12-08T22:14:52Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-08T22:14:52Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231208221452\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2000.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"1\",\"transaction[credit_card][expiration_year]\":\"2025\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Do Not Honor\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2000",  
+
+        "message": "Do Not Honor",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "bnpoZXhzenc=",  
+
+    "providerTransactionCode": "nzhexszw",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231208221452"  
+
+  },  
+
+  "referenceNumber": "23120816145166171746",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"7657a0eq\",\"AddOns\":[],\"Amount\":2079.41,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2024-09-26T15:48:50Z\",\"CreditCard\":{\"Bin\":\"510510\",\"CardholderName\":\"John Doe\",\"CardType\":11,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"5100\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"510510******5100\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"<mailto:Della52@gmail.com|Della52@gmail.com>\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":10,\"GraphQLId\":\"dHJhbnNhY3Rpb25fNzY1N2EwZXE\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"68419245\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":2,\"ProcessorResponseCode\":\"2079\",\"ProcessorResponseText\":\"PayPal Merchant Account Configuration Error\",\"AdditionalProcessorResponse\":\"2079 : PayPal Merchant Account Configuration Error\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2079.41,\"Status\":5,\"Timestamp\":\"2024-09-26T15:48:50Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2024-09-26T15:48:50Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"Packages\":[],\"PaymentInstrumentType\":4,\"NetworkTransactionId\":\"020240926154850\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false,\"RetryIds\":[],\"MerchantAdviceCode\":\"01\",\"MerchantAdviceCodeText\":\"New account information available\"},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2079.41\",\"transaction[order_id]\":\"68419245\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"6\",\"transaction[credit_card][expiration_year]\":\"2026\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[customer][email]\":\"Della52@gmail.com\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping]\":null,\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"PayPal Merchant Account Configuration Error\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2079",  
+
+        "message": "PayPal Merchant Account Configuration Error",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "NzY1N2EwZXE=",  
+
+    "providerTransactionCode": "7657a0eq",  
+
+    "Approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020240926154850",  
+
+    "merchantReferenceId": "68419245",  
+
+    "brandAuthResponseCode": "XX",  
+
+    "brandAuthResponseCodeDescription": "sample network response text",  
+
+    "recurringAdviceCode": "01",  
+
+    "recurringAdviceDescription": "New account information available"  
+
+  },  
+
+  "referenceNumber": "024092610484355121126",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+  
+
+```
+```
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/braintree#example-responses)
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "orderId": "81553724",  
+
+  "email": "john.doe@hotmail.com",  
+
+  "merchantAccountId": "<Your Braintree Merchant Account ID>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "gateway": "Braintree",  
+
+  "amount": 1200  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":1,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:47:28Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "23120407472778674556",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"p67g2yb9\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T14:20:42Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fcDY3ZzJ5Yjk\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"03256Q\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T14:20:44Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142043\",\"AuthorizationExpiresAt\":\"2023-12-05T14:20:43Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cDY3ZzJ5Yjk=",  
+
+    "approvalCode": "03256Q",  
+
+    "providerTransactionCode": "p67g2yb9",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142043"  
+
+  },  
+
+  "referenceNumber": "2312040820379483992",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T13:48:05Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:48:05Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "2312040748031605347",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:22:17Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408221651497409",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":9,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":9,\"Timestamp\":\"2023-12-04T14:23:40Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:23:40Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408233767920282",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Errors\":{\"Count\":0,\"DeepCount\":1},\"Parameters\":{\"transaction[amount]\":\"2.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"23\",\"transaction[credit_card][expiration_year]\":\"2003\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Expiration month is invalid.\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "81712",  
+
+        "message": "expiration_month - Expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816170125447335",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"nzhexszw\",\"AddOns\":[],\"Amount\":2000.00,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-08T22:14:52Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fbnpoZXhzenc\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":1,\"ProcessorResponseCode\":\"2000\",\"ProcessorResponseText\":\"Do Not Honor\",\"AdditionalProcessorResponse\":\"2000 : Do Not Honor\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2000.00,\"Status\":5,\"Timestamp\":\"2023-12-08T22:14:52Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-08T22:14:52Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231208221452\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2000.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"1\",\"transaction[credit_card][expiration_year]\":\"2025\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Do Not Honor\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2000",  
+
+        "message": "Do Not Honor",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "bnpoZXhzenc=",  
+
+    "providerTransactionCode": "nzhexszw",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231208221452"  
+
+  },  
+
+  "referenceNumber": "23120816145166171746",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"7657a0eq\",\"AddOns\":[],\"Amount\":2079.41,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2024-09-26T15:48:50Z\",\"CreditCard\":{\"Bin\":\"510510\",\"CardholderName\":\"John Doe\",\"CardType\":11,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"5100\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"510510******5100\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"<mailto:Della52@gmail.com|Della52@gmail.com>\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":10,\"GraphQLId\":\"dHJhbnNhY3Rpb25fNzY1N2EwZXE\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"68419245\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":2,\"ProcessorResponseCode\":\"2079\",\"ProcessorResponseText\":\"PayPal Merchant Account Configuration Error\",\"AdditionalProcessorResponse\":\"2079 : PayPal Merchant Account Configuration Error\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2079.41,\"Status\":5,\"Timestamp\":\"2024-09-26T15:48:50Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2024-09-26T15:48:50Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"Packages\":[],\"PaymentInstrumentType\":4,\"NetworkTransactionId\":\"020240926154850\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false,\"RetryIds\":[],\"MerchantAdviceCode\":\"01\",\"MerchantAdviceCodeText\":\"New account information available\"},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2079.41\",\"transaction[order_id]\":\"68419245\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"6\",\"transaction[credit_card][expiration_year]\":\"2026\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[customer][email]\":\"Della52@gmail.com\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping]\":null,\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"PayPal Merchant Account Configuration Error\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2079",  
+
+        "message": "PayPal Merchant Account Configuration Error",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "NzY1N2EwZXE=",  
+
+    "providerTransactionCode": "7657a0eq",  
+
+    "Approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020240926154850",  
+
+    "merchantReferenceId": "68419245",  
+
+    "brandAuthResponseCode": "XX",  
+
+    "brandAuthResponseCodeDescription": "sample network response text",  
+
+    "recurringAdviceCode": "01",  
+
+    "recurringAdviceDescription": "New account information available"  
+
+  },  
+
+  "referenceNumber": "024092610484355121126",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+  
+
+```
+```
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "orderId": "81553724",  
+
+  "email": "john.doe@hotmail.com",  
+
+  "merchantAccountId": "<Your Braintree Merchant Account ID>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase call>",  
+
+  "gateway": "Braintree"  
+
+}  
+
+```
+```
+
+{  
+
+  "publicKey": "<Your Braintree Public Key>",  
+
+  "privateKey": "<Your Braintree Private Key>",  
+
+  "merchantId": "<Your Braintree Merchant ID>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "gateway": "Braintree",  
+
+  "amount": 1200  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":1,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:47:28Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "23120407472778674556",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"p67g2yb9\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T14:20:42Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fcDY3ZzJ5Yjk\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"03256Q\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T14:20:44Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T14:20:44Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142043\",\"AuthorizationExpiresAt\":\"2023-12-05T14:20:43Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cDY3ZzJ5Yjk=",  
+
+    "approvalCode": "03256Q",  
+
+    "providerTransactionCode": "p67g2yb9",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142043"  
+
+  },  
+
+  "referenceNumber": "2312040820379483992",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"b781pn2z\",\"AddOns\":[],\"Amount\":917.01,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-04T13:47:28Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fYjc4MXBuMno\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"4VGBS3\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":917.01,\"Status\":1,\"Timestamp\":\"2023-12-04T13:47:28Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":917.01,\"Status\":8,\"Timestamp\":\"2023-12-04T13:48:05Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-04T13:48:05Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204134728\",\"AuthorizationExpiresAt\":\"2023-12-05T13:47:28Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "Yjc4MXBuMno=",  
+
+    "approvalCode": "4VGBS3",  
+
+    "providerTransactionCode": "b781pn2z",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204134728"  
+
+  },  
+
+  "referenceNumber": "2312040748031605347",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":8,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:22:17Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408221651497409",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Target\":{\"Id\":\"e1wcap1f\",\"AddOns\":[],\"Amount\":5.00,\"AvsPostalCodeResponseCode\":\"B\",\"AvsStreetAddressResponseCode\":\"B\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"CreatedAt\":\"2023-12-04T14:22:17Z\",\"CreditCard\":{\"Bin\":\"411111\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1111\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"411111******1111\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"Jonathan.Bergstrom@yahoo.com\"},\"CvvResponseCode\":\"B\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"cmVmdW5kX2Uxd2NhcDFm\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"19937989\",\"ProcessedWithNetworkToken\":false,\"ProcessorAuthorizationCode\":\"K1SL9B\",\"ProcessorResponseType\":0,\"ProcessorResponseCode\":\"1000\",\"ProcessorResponseText\":\"Approved\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"PurchaseOrderNumber\":\"SC-C-7849\",\"RefundedTransactionId\":\"4205t29r\",\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":9,\"StatusHistory\":[{\"Amount\":5.00,\"Status\":1,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":8,\"Timestamp\":\"2023-12-04T14:22:17Z\",\"Source\":0,\"User\":\"tmaguire\"},{\"Amount\":5.00,\"Status\":9,\"Timestamp\":\"2023-12-04T14:23:40Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":0,\"UpdatedAt\":\"2023-12-04T14:23:40Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231204142217\",\"AuthorizationExpiresAt\":\"2023-12-11T14:22:17Z\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZTF3Y2FwMWY=",  
+
+    "approvalCode": "K1SL9B",  
+
+    "providerTransactionCode": "e1wcap1f",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "B",  
+
+      "providerParsed": {  
+
+        "streetMatch": "B",  
+
+        "postalCodeMatch": "B"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231204142217",  
+
+    "merchantReferenceId": "19937989"  
+
+  },  
+
+  "referenceNumber": "23120408233767920282",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Errors\":{\"Count\":0,\"DeepCount\":1},\"Parameters\":{\"transaction[amount]\":\"2.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"23\",\"transaction[credit_card][expiration_year]\":\"2003\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Expiration month is invalid.\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "81712",  
+
+        "message": "expiration_month - Expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816170125447335",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"nzhexszw\",\"AddOns\":[],\"Amount\":2000.00,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2023-12-08T22:14:52Z\",\"CreditCard\":{\"Bin\":\"400000\",\"CardholderName\":\"John Doe\",\"CardType\":14,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"1000\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"01\",\"ExpirationYear\":\"2025\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/visa.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"01/2025\",\"MaskedNumber\":\"400000******1000\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":9,\"GraphQLId\":\"dHJhbnNhY3Rpb25fbnpoZXhzenc\",\"MerchantAccountId\":\"tokenex\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":1,\"ProcessorResponseCode\":\"2000\",\"ProcessorResponseText\":\"Do Not Honor\",\"AdditionalProcessorResponse\":\"2000 : Do Not Honor\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2000.00,\"Status\":5,\"Timestamp\":\"2023-12-08T22:14:52Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2023-12-08T22:14:52Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"PaymentInstrumentType\":2,\"NetworkTransactionId\":\"020231208221452\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2000.00\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"1\",\"transaction[credit_card][expiration_year]\":\"2025\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping][company]\":\"Test Co.\",\"transaction[shipping][street_address]\":\"123 Someplace Lane\",\"transaction[shipping][extended_address]\":\"Some Place\",\"transaction[shipping][locality]\":\"Tulsa\",\"transaction[shipping][region]\":\"OK\",\"transaction[shipping][postal_code]\":\"74111\",\"transaction[shipping][country_code_alpha3]\":\"USA\",\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"Do Not Honor\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2000",  
+
+        "message": "Do Not Honor",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "bnpoZXhzenc=",  
+
+    "providerTransactionCode": "nzhexszw",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020231208221452"  
+
+  },  
+
+  "referenceNumber": "23120816145166171746",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"Transaction\":{\"Id\":\"7657a0eq\",\"AddOns\":[],\"Amount\":2079.41,\"AvsPostalCodeResponseCode\":\"M\",\"AvsStreetAddressResponseCode\":\"M\",\"BillingAddress\":{\"Company\":\"Test Co.\",\"StreetAddress\":\"123 Someplace Lane\",\"ExtendedAddress\":\"Some Place\",\"Locality\":\"Tulsa\",\"Region\":\"OK\",\"PostalCode\":\"74111\",\"CountryCodeAlpha2\":\"US\",\"CountryCodeAlpha3\":\"USA\",\"CountryCodeNumeric\":\"840\",\"CountryName\":\"United States of America\"},\"Channel\":\"TokenEx_SP\",\"CreatedAt\":\"2024-09-26T15:48:50Z\",\"CreditCard\":{\"Bin\":\"510510\",\"CardholderName\":\"John Doe\",\"CardType\":11,\"IsVenmoSdk\":false,\"IsNetworkTokenized\":false,\"CustomerLocation\":0,\"LastFour\":\"5100\",\"Subscriptions\":[],\"BillingAddress\":{},\"ExpirationMonth\":\"06\",\"ExpirationYear\":\"2026\",\"Prepaid\":2,\"Payroll\":2,\"Debit\":2,\"Commercial\":2,\"Healthcare\":2,\"DurbinRegulated\":2,\"ImageUrl\":\"https://assets.braintreegateway.com/payment_method_logo/mastercard.png?environment=sandbox\",\"AccountType\":\"credit\",\"CountryOfIssuance\":\"Unknown\",\"IssuingBank\":\"Unknown\",\"ProductId\":\"Unknown\",\"ExpirationDate\":\"06/2026\",\"MaskedNumber\":\"510510******5100\"},\"CurrencyIsoCode\":\"USD\",\"CustomerDetails\":{\"FirstName\":\"John\",\"LastName\":\"Doe\",\"Email\":\"<mailto:Della52@gmail.com|Della52@gmail.com>\"},\"CvvResponseCode\":\"M\",\"Descriptor\":{},\"Discounts\":[],\"Disputes\":[],\"GatewayRejectionReason\":10,\"GraphQLId\":\"dHJhbnNhY3Rpb25fNzY1N2EwZXE\",\"MerchantAccountId\":\"tokenex\",\"OrderId\":\"68419245\",\"ProcessedWithNetworkToken\":false,\"ProcessorResponseType\":2,\"ProcessorResponseCode\":\"2079\",\"ProcessorResponseText\":\"PayPal Merchant Account Configuration Error\",\"AdditionalProcessorResponse\":\"2079 : PayPal Merchant Account Configuration Error\",\"NetworkResponseCode\":\"XX\",\"NetworkResponseText\":\"sample network response text\",\"Recurring\":false,\"RefundIds\":[],\"PartialSettlementTransactionIds\":[],\"ShippingAddress\":{},\"EscrowStatus\":5,\"Status\":5,\"StatusHistory\":[{\"Amount\":2079.41,\"Status\":5,\"Timestamp\":\"2024-09-26T15:48:50Z\",\"Source\":0,\"User\":\"tmaguire\"}],\"AuthorizationAdjustments\":[],\"SubscriptionDetails\":{},\"TaxExempt\":false,\"Type\":1,\"UpdatedAt\":\"2024-09-26T15:48:50Z\",\"CustomFields\":{},\"DisbursementDetails\":{},\"Packages\":[],\"PaymentInstrumentType\":4,\"NetworkTransactionId\":\"020240926154850\",\"RetrievalReferenceNumber\":\"1234567\",\"Installments\":[],\"RefundedInstallments\":[],\"Retried\":false,\"RetryIds\":[],\"MerchantAdviceCode\":\"01\",\"MerchantAdviceCodeText\":\"New account information available\"},\"Errors\":{\"Count\":0,\"DeepCount\":0},\"Parameters\":{\"transaction[amount]\":\"2079.41\",\"transaction[order_id]\":\"68419245\",\"transaction[channel]\":\"TokenEx_SP\",\"transaction[transaction_source]\":\"unscheduled\",\"transaction[merchant_account_id]\":\"tokenex\",\"transaction[type]\":\"sale\",\"transaction[currency_iso_code]\":\"USD\",\"transaction[credit_card][cardholder_name]\":\"John Doe\",\"transaction[credit_card][expiration_month]\":\"6\",\"transaction[credit_card][expiration_year]\":\"2026\",\"transaction[customer][id]\":null,\"transaction[customer][first_name]\":\"John\",\"transaction[customer][last_name]\":\"Doe\",\"transaction[customer][email]\":\"Della52@gmail.com\",\"transaction[billing][company]\":\"Test Co.\",\"transaction[billing][street_address]\":\"123 Someplace Lane\",\"transaction[billing][extended_address]\":\"Some Place\",\"transaction[billing][locality]\":\"Tulsa\",\"transaction[billing][region]\":\"OK\",\"transaction[billing][postal_code]\":\"74111\",\"transaction[billing][country_code_alpha3]\":\"USA\",\"transaction[shipping]\":null,\"transaction[options][hold_in_escrow]\":\"false\",\"transaction[options][store_in_vault]\":\"false\",\"transaction[options][submit_for_settlement]\":\"false\",\"transaction[options][three_d_secure][required]\":\"false\"},\"Message\":\"PayPal Merchant Account Configuration Error\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2079",  
+
+        "message": "PayPal Merchant Account Configuration Error",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "NzY1N2EwZXE=",  
+
+    "providerTransactionCode": "7657a0eq",  
+
+    "Approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "streetMatch": "M",  
+
+        "postalCodeMatch": "M"  
+
+      }  
+
+    },  
+
+    "networkTransactionId": "020240926154850",  
+
+    "merchantReferenceId": "68419245",  
+
+    "brandAuthResponseCode": "XX",  
+
+    "brandAuthResponseCodeDescription": "sample network response text",  
+
+    "recurringAdviceCode": "01",  
+
+    "recurringAdviceDescription": "New account information available"  
+
+  },  
+
+  "referenceNumber": "024092610484355121126",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+  
+
+```
+```
+
+```

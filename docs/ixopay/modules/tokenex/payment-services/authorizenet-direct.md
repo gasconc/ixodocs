@@ -6,16 +6,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-authorizenet-direct-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-authorizenet-direct-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-authorizenet-direct-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-authorizenet-direct-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-authorizenet-direct-responses-direct-link-responses
 - api
 - sdk
 - tokenex
 - ixopay
 - recurring
-source_url: ''
+- subscription
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -147,140 +147,259 @@ Authorize.Net's [documentation](https://developer.authorize.net/api/reference/fe
   * Check Purchase
   * Check Refund
   * Check Void
-
 ```
+
 {  
+
   "testMode": true,  
+
   "gateway": "AuthorizeNetDirect",  
+
   "username": "<Your Authorize.Net API Login ID>",  
+
   "password": "<Your Authorize.Net Transaction Key>",  
+
   "amount": 900,  
+
   "marketType": "0",  
+
   "deviceType": "1",  
+
   "creditCard": {  
+
     "number": "4111111111111111",  
+
     "expMonth": 6,  
+
     "expYear": 2024,  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "cvv": "123"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "email": "john@doe.dev",  
+
     "name": "John Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane, Suite #40A",  
+
     "city": "Edmond",  
+
     "state": "OK",  
+
     "zip": "74100",  
+
     "country": "USA"  
+
   },  
+
   "transactionSettings": [  
+
     {  
+
       "settingName": "duplicateWindow",  
+
       "settingValue": "0"  
+
     }  
+
   ]  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "testMode": true,  
+
   "gateway": "AuthorizeNetDirect",  
+
   "username": "<Your Authorize.Net API Login ID>",  
+
   "password": "<Your Authorize.Net Transaction Key>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
   "amount": 900  
+
 }  
 
 ```
+```
+
 {  
+
   "testMode": true,  
+
   "gateway": "AuthorizeNetDirect",  
+
   "username": "<Your Authorize.Net API Login ID>",  
+
   "password": "<Your Authorize.Net Transaction Key>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase response>",  
+
   "amount": 900,  
+
   "creditCard": {  
+
     "number": "1111"  
+
   }  
+
 }  
 
 ```
+```
+
 {  
+
   "testMode": true,  
+
   "gateway": "AuthorizeNetDirect",  
+
   "username": "<Your Authorize.Net API Login ID>",  
+
   "password": "<Your Authorize.Net Transaction Key>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, or Purchase response>"  
+
 }  
 
 ```
+```
+
 {  
+
   "testMode": true,  
+
   "gateway": "AuthorizeNetDirect",  
+
   "username": "<Your Authorize.Net API Login ID>",  
+
   "password": "<Your Authorize.Net Transaction Key>",  
+
   "amount": 900,  
+
   "currencyCode": "USD",  
+
   "check": {  
+
     "routingNumber": "314074269",  
+
     "accountNumber": "12345670",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "accountType": "checking",  
+
     "checkType": "WEB"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "email": "john@doe.dev",  
+
     "name": "John Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane, Suite #40A",  
+
     "city": "Edmond",  
+
     "state": "OK",  
+
     "zip": "74100",  
+
     "country": "USA"  
+
   },  
+
   "transactionSettings": [  
+
     {  
+
       "settingName": "duplicateWindow",  
+
       "settingValue": "0"  
+
     }  
+
   ]  
+
 }  
 
 ```
+```
+
 {  
+
   "testMode": true,  
+
   "gateway": "AuthorizeNetDirect",  
+
   "username": "<Your Authorize.Net API Login ID>",  
+
   "password": "<Your Authorize.Net Transaction Key>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase response>",  
+
   "amount": 900,  
+
   "currencyCode": "USD",  
+
   "check": {  
+
     "routingNumber": "XXXX4269",  
+
     "accountNumber": "XXXX5670",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "accountType": "checking"  
+
   }  
+
 }  
 
 ```
+```
+
 {  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase or Refund response>",  
+
   "gateway": "AuthorizeNetDirect",  
+
   "username": "<Your Authorize.Net API Login ID>",  
+
   "password": "<Your Authorize.Net Transaction Key>",  
+
   "testMode": true  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | Authorize.Net Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approvalCode`  | string  | `transactionResponse.authCode`  | The authorization code granted by the card issuing bank for this transaction.  |  
@@ -295,138 +414,2778 @@ The field is true if responseCode == "1"  |
   * Card Void
   * Gateway Error
   * Processor Error
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80009867871\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\",\"networkTransId\":\"KBE1HA6SQBNA4ZO1R12SKL9\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
     "approvalCode": "QX9A1K",  
+
     "providerTransactionCode": "80009867871",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23113010133720550538",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"BRZPCY\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"M\",\"cavvResultCode\":\"2\",\"transId\":\"80009867937\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"948B0D13CF875539ADACAF0B55B3773DB6EBC9C5715583B6407EBD09C8DFD69FBC9BF65D6FF60F1C8D0CF6FD69E1BCBAFD0478A7F9D7928DA4440D5731506C35\",\"networkTransId\":\"KNX0WXSNM4WL1J3WLIN91UD\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODAwMDk4Njc5Mzc=",  
+
     "approvalCode": "BRZPCY",  
+
     "providerTransactionCode": "80009867937",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23113010170964717137",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
     "approvalCode": "QX9A1K",  
+
     "providerTransactionCode": "80009867871",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23113010144737071383",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"WS0ZOM\",\"avsResultCode\":\"E\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010165312\",\"refTransID\":\"80009868541\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODAwMTAxNjUzMTI=",  
+
     "approvalCode": "WS0ZOM",  
+
     "providerTransactionCode": "80010165312",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120408230038729572",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"415848D41CA2D474B3D7E65F2C6C52CCC8FBFC2FE087A1CF679ACAA7AA94C7653C76B225595D6861E445F4A896C33BB420681AF4FA8798C3A6512E6AB906B2D1\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
     "approvalCode": "QX9A1K",  
+
     "providerTransactionCode": "80009867871",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23113010150882962587",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"2\",\"authCode\":\"\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010475281\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"errors\":[{\"errorCode\":\"2\",\"errorText\":\"This transaction has been declined.\"}],\"transHashSha2\":\"\",\"networkTransId\":\"F1M3MDK96KKENOPBDQRY055\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "2",  
+
         "message": "This transaction has been declined."  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "80010475281",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "23120816303798909481",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "/interfaces/wlcatch?RRNO=201043425078&EMV_APPLICATION=&ORIGIN=bp10emu&STATUS=0&OWNER_USER_ID=100553863406&CARD_COUNTRY=USA&AUTH_CODE=&CVV2_RESULT=_&EMV=&FANCY_STATUS=Declined&REBID=&STATE=Hawaii&INVOICE_ID=201043425078&LOGIN_ACCOUNT_ID=100553863405&F_CARD_PRESENT=0&ISSUE_DATE=2023-12-08%2016%3A19%3A29.43492&BANK_NAME=NETWORK%20ONLY&ORDER_ID=201043425078&CUSTOMER_CODE=201043425078&TRANS_ID=201043425078&AVS_RESULT=1&AMOUNT_TAX=0.00&ADDR1=173%20Antonio%20Pike&TPS_HASH_TYPE=HMAC_SHA512&BP_STAMP=E6CF795F48AA233440B640A4D508376836D1501EEB17CC5EEC76B53DBCA564E27326C0BD1513ED3CBFDBA96736F2B7EE0B479DDC91B80AFA8C384A715A578617&CVV2_STATUS=0&CUST_EMAIL=Mary0%40gmail.com&ZIP=96592-2764&COUNTRY=USA&PAYMENT_ACCOUNT=xxxxxxxxxxxx4448&EMAIL=Mary0%40gmail.com&CITY=Ornburgh&COMPANY_NAME=Franecki%2C%20Mertz%20and%20Conroy&AMOUNT=8.00&CONNECTED_IP=20.37.143.181&F_BYPASS_AUTH=0&FRAUD_SCORE=0&F_WILL_CAPTURE=0&PAYMENT_TYPE=CREDIT&REMOTE_IP=20.37.143.181&BP_STAMP_DEF=RRNO%20ISSUE_DATE%20Result&BACKEND_ID=887454904262&ORIG_IS_SETTLED=0&SOURCE_ID=201043425078&MESSAGE=Declined%20Auth&TRANS_TYPE=AUTH&ID=201043425078&F_UNHELD=0&Result=DECLINED&EMV_APPNAME=&MODE=TEST&AVS=1&FLAGS=T&CVV2=_&CARD_TYPE=MC&MEMO=Maiores%20dolore%20accusantium%20autem%20vel%20recusandae.&LEVEL_2_DATA=customer_number%3D%26cust_po%3D%26&CARD_EXPIRE=0324&ACCOUNT_NAME=DEMO-tokenex&PROCESSOR_ID=100553863525&BINDATA=8~N~P~14E00%2000%2000%2000%2000%2000%2000%2000%2000~~~~~~~~N~~~~&F_REBILL_MASTER=0",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "DECLINED",  
+
         "message": "Declined Auth"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "MjAxMDQzNDI1MDc4",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "201043425078",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "23120816192752821306",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "302"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct#overview)
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "marketType": "0",  
+
+  "deviceType": "1",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "amount": 900  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase response>",  
+
+  "amount": 900,  
+
+  "creditCard": {  
+
+    "number": "1111"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, or Purchase response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "314074269",  
+
+    "accountNumber": "12345670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking",  
+
+    "checkType": "WEB"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase response>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "XXXX4269",  
+
+    "accountNumber": "XXXX5670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase or Refund response>",  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "testMode": true  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80009867871\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\",\"networkTransId\":\"KBE1HA6SQBNA4ZO1R12SKL9\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010133720550538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"BRZPCY\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"M\",\"cavvResultCode\":\"2\",\"transId\":\"80009867937\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"948B0D13CF875539ADACAF0B55B3773DB6EBC9C5715583B6407EBD09C8DFD69FBC9BF65D6FF60F1C8D0CF6FD69E1BCBAFD0478A7F9D7928DA4440D5731506C35\",\"networkTransId\":\"KNX0WXSNM4WL1J3WLIN91UD\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc5Mzc=",  
+
+    "approvalCode": "BRZPCY",  
+
+    "providerTransactionCode": "80009867937",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010170964717137",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010144737071383",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"WS0ZOM\",\"avsResultCode\":\"E\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010165312\",\"refTransID\":\"80009868541\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMTAxNjUzMTI=",  
+
+    "approvalCode": "WS0ZOM",  
+
+    "providerTransactionCode": "80010165312",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120408230038729572",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"415848D41CA2D474B3D7E65F2C6C52CCC8FBFC2FE087A1CF679ACAA7AA94C7653C76B225595D6861E445F4A896C33BB420681AF4FA8798C3A6512E6AB906B2D1\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010150882962587",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"2\",\"authCode\":\"\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010475281\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"errors\":[{\"errorCode\":\"2\",\"errorText\":\"This transaction has been declined.\"}],\"transHashSha2\":\"\",\"networkTransId\":\"F1M3MDK96KKENOPBDQRY055\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2",  
+
+        "message": "This transaction has been declined."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "80010475281",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816303798909481",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "/interfaces/wlcatch?RRNO=201043425078&EMV_APPLICATION=&ORIGIN=bp10emu&STATUS=0&OWNER_USER_ID=100553863406&CARD_COUNTRY=USA&AUTH_CODE=&CVV2_RESULT=_&EMV=&FANCY_STATUS=Declined&REBID=&STATE=Hawaii&INVOICE_ID=201043425078&LOGIN_ACCOUNT_ID=100553863405&F_CARD_PRESENT=0&ISSUE_DATE=2023-12-08%2016%3A19%3A29.43492&BANK_NAME=NETWORK%20ONLY&ORDER_ID=201043425078&CUSTOMER_CODE=201043425078&TRANS_ID=201043425078&AVS_RESULT=1&AMOUNT_TAX=0.00&ADDR1=173%20Antonio%20Pike&TPS_HASH_TYPE=HMAC_SHA512&BP_STAMP=E6CF795F48AA233440B640A4D508376836D1501EEB17CC5EEC76B53DBCA564E27326C0BD1513ED3CBFDBA96736F2B7EE0B479DDC91B80AFA8C384A715A578617&CVV2_STATUS=0&CUST_EMAIL=Mary0%40gmail.com&ZIP=96592-2764&COUNTRY=USA&PAYMENT_ACCOUNT=xxxxxxxxxxxx4448&EMAIL=Mary0%40gmail.com&CITY=Ornburgh&COMPANY_NAME=Franecki%2C%20Mertz%20and%20Conroy&AMOUNT=8.00&CONNECTED_IP=20.37.143.181&F_BYPASS_AUTH=0&FRAUD_SCORE=0&F_WILL_CAPTURE=0&PAYMENT_TYPE=CREDIT&REMOTE_IP=20.37.143.181&BP_STAMP_DEF=RRNO%20ISSUE_DATE%20Result&BACKEND_ID=887454904262&ORIG_IS_SETTLED=0&SOURCE_ID=201043425078&MESSAGE=Declined%20Auth&TRANS_TYPE=AUTH&ID=201043425078&F_UNHELD=0&Result=DECLINED&EMV_APPNAME=&MODE=TEST&AVS=1&FLAGS=T&CVV2=_&CARD_TYPE=MC&MEMO=Maiores%20dolore%20accusantium%20autem%20vel%20recusandae.&LEVEL_2_DATA=customer_number%3D%26cust_po%3D%26&CARD_EXPIRE=0324&ACCOUNT_NAME=DEMO-tokenex&PROCESSOR_ID=100553863525&BINDATA=8~N~P~14E00%2000%2000%2000%2000%2000%2000%2000%2000~~~~~~~~N~~~~&F_REBILL_MASTER=0",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "DECLINED",  
+
+        "message": "Declined Auth"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MjAxMDQzNDI1MDc4",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "201043425078",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816192752821306",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "302"  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "marketType": "0",  
+
+  "deviceType": "1",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "amount": 900  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase response>",  
+
+  "amount": 900,  
+
+  "creditCard": {  
+
+    "number": "1111"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, or Purchase response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "314074269",  
+
+    "accountNumber": "12345670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking",  
+
+    "checkType": "WEB"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase response>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "XXXX4269",  
+
+    "accountNumber": "XXXX5670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase or Refund response>",  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "testMode": true  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80009867871\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\",\"networkTransId\":\"KBE1HA6SQBNA4ZO1R12SKL9\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010133720550538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"BRZPCY\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"M\",\"cavvResultCode\":\"2\",\"transId\":\"80009867937\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"948B0D13CF875539ADACAF0B55B3773DB6EBC9C5715583B6407EBD09C8DFD69FBC9BF65D6FF60F1C8D0CF6FD69E1BCBAFD0478A7F9D7928DA4440D5731506C35\",\"networkTransId\":\"KNX0WXSNM4WL1J3WLIN91UD\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc5Mzc=",  
+
+    "approvalCode": "BRZPCY",  
+
+    "providerTransactionCode": "80009867937",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010170964717137",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010144737071383",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"WS0ZOM\",\"avsResultCode\":\"E\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010165312\",\"refTransID\":\"80009868541\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMTAxNjUzMTI=",  
+
+    "approvalCode": "WS0ZOM",  
+
+    "providerTransactionCode": "80010165312",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120408230038729572",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"415848D41CA2D474B3D7E65F2C6C52CCC8FBFC2FE087A1CF679ACAA7AA94C7653C76B225595D6861E445F4A896C33BB420681AF4FA8798C3A6512E6AB906B2D1\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010150882962587",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"2\",\"authCode\":\"\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010475281\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"errors\":[{\"errorCode\":\"2\",\"errorText\":\"This transaction has been declined.\"}],\"transHashSha2\":\"\",\"networkTransId\":\"F1M3MDK96KKENOPBDQRY055\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2",  
+
+        "message": "This transaction has been declined."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "80010475281",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816303798909481",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "/interfaces/wlcatch?RRNO=201043425078&EMV_APPLICATION=&ORIGIN=bp10emu&STATUS=0&OWNER_USER_ID=100553863406&CARD_COUNTRY=USA&AUTH_CODE=&CVV2_RESULT=_&EMV=&FANCY_STATUS=Declined&REBID=&STATE=Hawaii&INVOICE_ID=201043425078&LOGIN_ACCOUNT_ID=100553863405&F_CARD_PRESENT=0&ISSUE_DATE=2023-12-08%2016%3A19%3A29.43492&BANK_NAME=NETWORK%20ONLY&ORDER_ID=201043425078&CUSTOMER_CODE=201043425078&TRANS_ID=201043425078&AVS_RESULT=1&AMOUNT_TAX=0.00&ADDR1=173%20Antonio%20Pike&TPS_HASH_TYPE=HMAC_SHA512&BP_STAMP=E6CF795F48AA233440B640A4D508376836D1501EEB17CC5EEC76B53DBCA564E27326C0BD1513ED3CBFDBA96736F2B7EE0B479DDC91B80AFA8C384A715A578617&CVV2_STATUS=0&CUST_EMAIL=Mary0%40gmail.com&ZIP=96592-2764&COUNTRY=USA&PAYMENT_ACCOUNT=xxxxxxxxxxxx4448&EMAIL=Mary0%40gmail.com&CITY=Ornburgh&COMPANY_NAME=Franecki%2C%20Mertz%20and%20Conroy&AMOUNT=8.00&CONNECTED_IP=20.37.143.181&F_BYPASS_AUTH=0&FRAUD_SCORE=0&F_WILL_CAPTURE=0&PAYMENT_TYPE=CREDIT&REMOTE_IP=20.37.143.181&BP_STAMP_DEF=RRNO%20ISSUE_DATE%20Result&BACKEND_ID=887454904262&ORIG_IS_SETTLED=0&SOURCE_ID=201043425078&MESSAGE=Declined%20Auth&TRANS_TYPE=AUTH&ID=201043425078&F_UNHELD=0&Result=DECLINED&EMV_APPNAME=&MODE=TEST&AVS=1&FLAGS=T&CVV2=_&CARD_TYPE=MC&MEMO=Maiores%20dolore%20accusantium%20autem%20vel%20recusandae.&LEVEL_2_DATA=customer_number%3D%26cust_po%3D%26&CARD_EXPIRE=0324&ACCOUNT_NAME=DEMO-tokenex&PROCESSOR_ID=100553863525&BINDATA=8~N~P~14E00%2000%2000%2000%2000%2000%2000%2000%2000~~~~~~~~N~~~~&F_REBILL_MASTER=0",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "DECLINED",  
+
+        "message": "Declined Auth"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MjAxMDQzNDI1MDc4",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "201043425078",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816192752821306",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "302"  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "marketType": "0",  
+
+  "deviceType": "1",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "amount": 900  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase response>",  
+
+  "amount": 900,  
+
+  "creditCard": {  
+
+    "number": "1111"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, or Purchase response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "314074269",  
+
+    "accountNumber": "12345670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking",  
+
+    "checkType": "WEB"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase response>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "XXXX4269",  
+
+    "accountNumber": "XXXX5670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase or Refund response>",  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "testMode": true  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80009867871\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\",\"networkTransId\":\"KBE1HA6SQBNA4ZO1R12SKL9\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010133720550538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"BRZPCY\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"M\",\"cavvResultCode\":\"2\",\"transId\":\"80009867937\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"948B0D13CF875539ADACAF0B55B3773DB6EBC9C5715583B6407EBD09C8DFD69FBC9BF65D6FF60F1C8D0CF6FD69E1BCBAFD0478A7F9D7928DA4440D5731506C35\",\"networkTransId\":\"KNX0WXSNM4WL1J3WLIN91UD\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc5Mzc=",  
+
+    "approvalCode": "BRZPCY",  
+
+    "providerTransactionCode": "80009867937",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010170964717137",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010144737071383",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"WS0ZOM\",\"avsResultCode\":\"E\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010165312\",\"refTransID\":\"80009868541\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMTAxNjUzMTI=",  
+
+    "approvalCode": "WS0ZOM",  
+
+    "providerTransactionCode": "80010165312",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120408230038729572",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"415848D41CA2D474B3D7E65F2C6C52CCC8FBFC2FE087A1CF679ACAA7AA94C7653C76B225595D6861E445F4A896C33BB420681AF4FA8798C3A6512E6AB906B2D1\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010150882962587",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"2\",\"authCode\":\"\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010475281\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"errors\":[{\"errorCode\":\"2\",\"errorText\":\"This transaction has been declined.\"}],\"transHashSha2\":\"\",\"networkTransId\":\"F1M3MDK96KKENOPBDQRY055\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2",  
+
+        "message": "This transaction has been declined."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "80010475281",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816303798909481",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "/interfaces/wlcatch?RRNO=201043425078&EMV_APPLICATION=&ORIGIN=bp10emu&STATUS=0&OWNER_USER_ID=100553863406&CARD_COUNTRY=USA&AUTH_CODE=&CVV2_RESULT=_&EMV=&FANCY_STATUS=Declined&REBID=&STATE=Hawaii&INVOICE_ID=201043425078&LOGIN_ACCOUNT_ID=100553863405&F_CARD_PRESENT=0&ISSUE_DATE=2023-12-08%2016%3A19%3A29.43492&BANK_NAME=NETWORK%20ONLY&ORDER_ID=201043425078&CUSTOMER_CODE=201043425078&TRANS_ID=201043425078&AVS_RESULT=1&AMOUNT_TAX=0.00&ADDR1=173%20Antonio%20Pike&TPS_HASH_TYPE=HMAC_SHA512&BP_STAMP=E6CF795F48AA233440B640A4D508376836D1501EEB17CC5EEC76B53DBCA564E27326C0BD1513ED3CBFDBA96736F2B7EE0B479DDC91B80AFA8C384A715A578617&CVV2_STATUS=0&CUST_EMAIL=Mary0%40gmail.com&ZIP=96592-2764&COUNTRY=USA&PAYMENT_ACCOUNT=xxxxxxxxxxxx4448&EMAIL=Mary0%40gmail.com&CITY=Ornburgh&COMPANY_NAME=Franecki%2C%20Mertz%20and%20Conroy&AMOUNT=8.00&CONNECTED_IP=20.37.143.181&F_BYPASS_AUTH=0&FRAUD_SCORE=0&F_WILL_CAPTURE=0&PAYMENT_TYPE=CREDIT&REMOTE_IP=20.37.143.181&BP_STAMP_DEF=RRNO%20ISSUE_DATE%20Result&BACKEND_ID=887454904262&ORIG_IS_SETTLED=0&SOURCE_ID=201043425078&MESSAGE=Declined%20Auth&TRANS_TYPE=AUTH&ID=201043425078&F_UNHELD=0&Result=DECLINED&EMV_APPNAME=&MODE=TEST&AVS=1&FLAGS=T&CVV2=_&CARD_TYPE=MC&MEMO=Maiores%20dolore%20accusantium%20autem%20vel%20recusandae.&LEVEL_2_DATA=customer_number%3D%26cust_po%3D%26&CARD_EXPIRE=0324&ACCOUNT_NAME=DEMO-tokenex&PROCESSOR_ID=100553863525&BINDATA=8~N~P~14E00%2000%2000%2000%2000%2000%2000%2000%2000~~~~~~~~N~~~~&F_REBILL_MASTER=0",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "DECLINED",  
+
+        "message": "Declined Auth"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MjAxMDQzNDI1MDc4",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "201043425078",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816192752821306",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "302"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/authorizenet-direct#example-responses)
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "marketType": "0",  
+
+  "deviceType": "1",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "amount": 900  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase response>",  
+
+  "amount": 900,  
+
+  "creditCard": {  
+
+    "number": "1111"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, or Purchase response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "314074269",  
+
+    "accountNumber": "12345670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking",  
+
+    "checkType": "WEB"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase response>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "XXXX4269",  
+
+    "accountNumber": "XXXX5670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase or Refund response>",  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "testMode": true  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80009867871\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\",\"networkTransId\":\"KBE1HA6SQBNA4ZO1R12SKL9\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010133720550538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"BRZPCY\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"M\",\"cavvResultCode\":\"2\",\"transId\":\"80009867937\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"948B0D13CF875539ADACAF0B55B3773DB6EBC9C5715583B6407EBD09C8DFD69FBC9BF65D6FF60F1C8D0CF6FD69E1BCBAFD0478A7F9D7928DA4440D5731506C35\",\"networkTransId\":\"KNX0WXSNM4WL1J3WLIN91UD\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc5Mzc=",  
+
+    "approvalCode": "BRZPCY",  
+
+    "providerTransactionCode": "80009867937",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010170964717137",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010144737071383",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"WS0ZOM\",\"avsResultCode\":\"E\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010165312\",\"refTransID\":\"80009868541\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMTAxNjUzMTI=",  
+
+    "approvalCode": "WS0ZOM",  
+
+    "providerTransactionCode": "80010165312",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120408230038729572",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"415848D41CA2D474B3D7E65F2C6C52CCC8FBFC2FE087A1CF679ACAA7AA94C7653C76B225595D6861E445F4A896C33BB420681AF4FA8798C3A6512E6AB906B2D1\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010150882962587",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"2\",\"authCode\":\"\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010475281\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"errors\":[{\"errorCode\":\"2\",\"errorText\":\"This transaction has been declined.\"}],\"transHashSha2\":\"\",\"networkTransId\":\"F1M3MDK96KKENOPBDQRY055\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2",  
+
+        "message": "This transaction has been declined."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "80010475281",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816303798909481",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "/interfaces/wlcatch?RRNO=201043425078&EMV_APPLICATION=&ORIGIN=bp10emu&STATUS=0&OWNER_USER_ID=100553863406&CARD_COUNTRY=USA&AUTH_CODE=&CVV2_RESULT=_&EMV=&FANCY_STATUS=Declined&REBID=&STATE=Hawaii&INVOICE_ID=201043425078&LOGIN_ACCOUNT_ID=100553863405&F_CARD_PRESENT=0&ISSUE_DATE=2023-12-08%2016%3A19%3A29.43492&BANK_NAME=NETWORK%20ONLY&ORDER_ID=201043425078&CUSTOMER_CODE=201043425078&TRANS_ID=201043425078&AVS_RESULT=1&AMOUNT_TAX=0.00&ADDR1=173%20Antonio%20Pike&TPS_HASH_TYPE=HMAC_SHA512&BP_STAMP=E6CF795F48AA233440B640A4D508376836D1501EEB17CC5EEC76B53DBCA564E27326C0BD1513ED3CBFDBA96736F2B7EE0B479DDC91B80AFA8C384A715A578617&CVV2_STATUS=0&CUST_EMAIL=Mary0%40gmail.com&ZIP=96592-2764&COUNTRY=USA&PAYMENT_ACCOUNT=xxxxxxxxxxxx4448&EMAIL=Mary0%40gmail.com&CITY=Ornburgh&COMPANY_NAME=Franecki%2C%20Mertz%20and%20Conroy&AMOUNT=8.00&CONNECTED_IP=20.37.143.181&F_BYPASS_AUTH=0&FRAUD_SCORE=0&F_WILL_CAPTURE=0&PAYMENT_TYPE=CREDIT&REMOTE_IP=20.37.143.181&BP_STAMP_DEF=RRNO%20ISSUE_DATE%20Result&BACKEND_ID=887454904262&ORIG_IS_SETTLED=0&SOURCE_ID=201043425078&MESSAGE=Declined%20Auth&TRANS_TYPE=AUTH&ID=201043425078&F_UNHELD=0&Result=DECLINED&EMV_APPNAME=&MODE=TEST&AVS=1&FLAGS=T&CVV2=_&CARD_TYPE=MC&MEMO=Maiores%20dolore%20accusantium%20autem%20vel%20recusandae.&LEVEL_2_DATA=customer_number%3D%26cust_po%3D%26&CARD_EXPIRE=0324&ACCOUNT_NAME=DEMO-tokenex&PROCESSOR_ID=100553863525&BINDATA=8~N~P~14E00%2000%2000%2000%2000%2000%2000%2000%2000~~~~~~~~N~~~~&F_REBILL_MASTER=0",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "DECLINED",  
+
+        "message": "Declined Auth"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MjAxMDQzNDI1MDc4",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "201043425078",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816192752821306",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "302"  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "marketType": "0",  
+
+  "deviceType": "1",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "amount": 900  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase response>",  
+
+  "amount": 900,  
+
+  "creditCard": {  
+
+    "number": "1111"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, or Purchase response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "314074269",  
+
+    "accountNumber": "12345670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking",  
+
+    "checkType": "WEB"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "email": "john@doe.dev",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane, Suite #40A",  
+
+    "city": "Edmond",  
+
+    "state": "OK",  
+
+    "zip": "74100",  
+
+    "country": "USA"  
+
+  },  
+
+  "transactionSettings": [  
+
+    {  
+
+      "settingName": "duplicateWindow",  
+
+      "settingValue": "0"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "testMode": true,  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase response>",  
+
+  "amount": 900,  
+
+  "currencyCode": "USD",  
+
+  "check": {  
+
+    "routingNumber": "XXXX4269",  
+
+    "accountNumber": "XXXX5670",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": "checking"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Purchase or Refund response>",  
+
+  "gateway": "AuthorizeNetDirect",  
+
+  "username": "<Your Authorize.Net API Login ID>",  
+
+  "password": "<Your Authorize.Net Transaction Key>",  
+
+  "testMode": true  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80009867871\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\",\"networkTransId\":\"KBE1HA6SQBNA4ZO1R12SKL9\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010133720550538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"BRZPCY\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"M\",\"cavvResultCode\":\"2\",\"transId\":\"80009867937\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"948B0D13CF875539ADACAF0B55B3773DB6EBC9C5715583B6407EBD09C8DFD69FBC9BF65D6FF60F1C8D0CF6FD69E1BCBAFD0478A7F9D7928DA4440D5731506C35\",\"networkTransId\":\"KNX0WXSNM4WL1J3WLIN91UD\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc5Mzc=",  
+
+    "approvalCode": "BRZPCY",  
+
+    "providerTransactionCode": "80009867937",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010170964717137",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"BC054C19D08E0E9BD38BCBD8A60C18A250E6938DE7D82B9A68AB87BFA0895A0BE47FE52DD95339B88634C829D35D95AD0D655E14E83736E04D02AD8BE78FF9DB\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010144737071383",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"WS0ZOM\",\"avsResultCode\":\"E\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010165312\",\"refTransID\":\"80009868541\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMTAxNjUzMTI=",  
+
+    "approvalCode": "WS0ZOM",  
+
+    "providerTransactionCode": "80010165312",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120408230038729572",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"1\",\"authCode\":\"QX9A1K\",\"avsResultCode\":\"P\",\"cvvResultCode\":\"\",\"cavvResultCode\":\"\",\"transId\":\"80009867871\",\"refTransID\":\"80009867871\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"messages\":[{\"code\":\"1\",\"description\":\"This transaction has been approved.\"}],\"transHashSha2\":\"415848D41CA2D474B3D7E65F2C6C52CCC8FBFC2FE087A1CF679ACAA7AA94C7653C76B225595D6861E445F4A896C33BB420681AF4FA8798C3A6512E6AB906B2D1\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ODAwMDk4Njc4NzE=",  
+
+    "approvalCode": "QX9A1K",  
+
+    "providerTransactionCode": "80009867871",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23113010150882962587",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transactionResponse\":{\"responseCode\":\"2\",\"authCode\":\"\",\"avsResultCode\":\"Y\",\"cvvResultCode\":\"P\",\"cavvResultCode\":\"2\",\"transId\":\"80010475281\",\"refTransID\":\"\",\"transHash\":\"\",\"testRequest\":\"0\",\"accountNumber\":\"XXXX1111\",\"accountType\":\"Visa\",\"errors\":[{\"errorCode\":\"2\",\"errorText\":\"This transaction has been declined.\"}],\"transHashSha2\":\"\",\"networkTransId\":\"F1M3MDK96KKENOPBDQRY055\"},\"messages\":{\"resultCode\":0,\"message\":[{\"code\":\"I00001\",\"text\":\"Successful.\"}]}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "2",  
+
+        "message": "This transaction has been declined."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "80010475281",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816303798909481",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "/interfaces/wlcatch?RRNO=201043425078&EMV_APPLICATION=&ORIGIN=bp10emu&STATUS=0&OWNER_USER_ID=100553863406&CARD_COUNTRY=USA&AUTH_CODE=&CVV2_RESULT=_&EMV=&FANCY_STATUS=Declined&REBID=&STATE=Hawaii&INVOICE_ID=201043425078&LOGIN_ACCOUNT_ID=100553863405&F_CARD_PRESENT=0&ISSUE_DATE=2023-12-08%2016%3A19%3A29.43492&BANK_NAME=NETWORK%20ONLY&ORDER_ID=201043425078&CUSTOMER_CODE=201043425078&TRANS_ID=201043425078&AVS_RESULT=1&AMOUNT_TAX=0.00&ADDR1=173%20Antonio%20Pike&TPS_HASH_TYPE=HMAC_SHA512&BP_STAMP=E6CF795F48AA233440B640A4D508376836D1501EEB17CC5EEC76B53DBCA564E27326C0BD1513ED3CBFDBA96736F2B7EE0B479DDC91B80AFA8C384A715A578617&CVV2_STATUS=0&CUST_EMAIL=Mary0%40gmail.com&ZIP=96592-2764&COUNTRY=USA&PAYMENT_ACCOUNT=xxxxxxxxxxxx4448&EMAIL=Mary0%40gmail.com&CITY=Ornburgh&COMPANY_NAME=Franecki%2C%20Mertz%20and%20Conroy&AMOUNT=8.00&CONNECTED_IP=20.37.143.181&F_BYPASS_AUTH=0&FRAUD_SCORE=0&F_WILL_CAPTURE=0&PAYMENT_TYPE=CREDIT&REMOTE_IP=20.37.143.181&BP_STAMP_DEF=RRNO%20ISSUE_DATE%20Result&BACKEND_ID=887454904262&ORIG_IS_SETTLED=0&SOURCE_ID=201043425078&MESSAGE=Declined%20Auth&TRANS_TYPE=AUTH&ID=201043425078&F_UNHELD=0&Result=DECLINED&EMV_APPNAME=&MODE=TEST&AVS=1&FLAGS=T&CVV2=_&CARD_TYPE=MC&MEMO=Maiores%20dolore%20accusantium%20autem%20vel%20recusandae.&LEVEL_2_DATA=customer_number%3D%26cust_po%3D%26&CARD_EXPIRE=0324&ACCOUNT_NAME=DEMO-tokenex&PROCESSOR_ID=100553863525&BINDATA=8~N~P~14E00%2000%2000%2000%2000%2000%2000%2000%2000~~~~~~~~N~~~~&F_REBILL_MASTER=0",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "DECLINED",  
+
+        "message": "Declined Auth"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MjAxMDQzNDI1MDc4",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "201043425078",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120816192752821306",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "302"  
+
+}  
+
+```

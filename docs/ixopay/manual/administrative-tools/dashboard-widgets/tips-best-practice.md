@@ -14,9 +14,9 @@ tags:
 - table-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-tips-best-practice-table-direct-link-table
 - world-map-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-tips-best-practice-world-map-direct-link-world-map
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/tips-best-practice
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

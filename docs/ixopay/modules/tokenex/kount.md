@@ -10,9 +10,9 @@ tags:
 - ixopay
 - iframe
 - credit-card
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/kount
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

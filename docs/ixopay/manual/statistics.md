@@ -8,9 +8,9 @@ tags:
 - financial-reports-video-creating-financial-reportshttps-documentation-ixopay-com-manual-docs-statistics-financial-reports-pivot-table-video-creating-pivot-tablehttps-documentation-ixopay-com-manual-docs-statistics-pivot-table-financial-reports-video-creating-financial-reportshttps-documentation-ixopay-com-manual-docs-statistics-financial-reports-pivot-table-video-creating-pivot-tablehttps-documentation-ixopay-com-manual-docs-statistics-pivot-table
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/statistics
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

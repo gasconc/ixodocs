@@ -12,9 +12,9 @@ tags:
 - pci
 - tokenex
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -23,7 +23,8 @@ related: []
 
 # 3DS Overview
 ## What is it?[​](https://documentation.ixopay.com/modules/docs/tokenex/3ds#what-is-it "Direct link to What is it?")
-EMVCo's 3-D Secure 2 is the second generation of the 3DS protocol. The 3DS protocol aims to reduce unauthorized transactions through risk-based cardholder authentication for card-not-present transactions. Authentication is performed by sending information about the presumed cardholder (client) and transaction to the card issuer (ACS) and the ACS assesses the risk. Low-to-moderate risk transactions pass through a 'frictionless' authentication flow and high-risk transactions are challenged. The frictionless flow does not require any manual input from the client, whereas high-risk transactions require a one-time-passcode (OTP) or other interaction. Merchants can utilize 3-D Secure 2 (hereafter as '3DS') within their platform to decrease cart abandonment rates and fraud, add digital wallet integration, and improve their customers' checkout experience by only requiring interaction for potentially fraudulent transactions.
+EMVCo
+'s 3-D Secure 2 is the second generation of the 3DS protocol. The 3DS protocol aims to reduce unauthorized transactions through risk-based cardholder authentication for card-not-present transactions. Authentication is performed by sending information about the presumed cardholder (client) and transaction to the card issuer ( ACS) and the ACS assesses the risk. Low-to-moderate risk transactions pass through a 'frictionless' authentication flow and high-risk transactions are challenged. The frictionless flow does not require any manual input from the client, whereas high-risk transactions require a one-time-passcode (OTP) or other interaction. Merchants can utilize 3-D Secure 2 (hereafter as '3DS') within their platform to decrease cart abandonment rates and fraud, add digital wallet integration, and improve their customers' checkout experience by only requiring interaction for potentially fraudulent transactions.
 ## How does it work?[​](https://documentation.ixopay.com/modules/docs/tokenex/3ds#how-does-it-work "Direct link to How does it work?")
 The starting point for every 3DS transaction should be checking which version(s) of 3DS the card number (PAN) supports. his check generates a transaction ID on the 3DS server for association of information and tracking the status of a transaction through the authentication process. A PAN can support more than one version and the version chosen determines what information is necessary to send to the ACS. The transaction ID is sent with the client and transaction data (browser attributes can also be associated with a transaction through a process called 'device fingerprinting') to the ACS for authentication and a risk assessment is performed. If the risk is low, the ACS returns a transaction status of 'Y' and the transaction ID can be sent to the payment processor with an authorization or purchase transaction. When the risk is high, the ACS will return a transaction status of 'C' and information necessary to retrieve and [present a challenge](https://documentation.ixopay.com/modules/docs/tokenex/completing-a-challenge) to the client. If a merchant does not present a challenge to the client, the authentication attempt should be abandoned. The authentication challenge must be abandoned by the merchant, cancelled by the cardholder, or completed by the cardholder prior to sending the transaction request to the payment processor.
 ## What does an implementation look like?[​](https://documentation.ixopay.com/modules/docs/tokenex/3ds#what-does-an-implementation-look-like "Direct link to What does an implementation look like?")

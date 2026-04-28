@@ -3,9 +3,10 @@ title: User
 summary: ' System Setuphttps://documentation.ixopay.com/manual/docs/system-setup'
 tags:
 - ixopay
-source_url: ''
+- dashboard
+source_url: https://documentation.ixopay.com/manual/docs/system-setup/user
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

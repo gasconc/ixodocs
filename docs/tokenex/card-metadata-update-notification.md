@@ -8,9 +8,9 @@ tags:
 - tokenex
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/card-metadata-update-notification
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -35,19 +35,165 @@ This is an HTTP message pushed to an endpoint specified by a TokenEx client when
 | networkTokenCardUpdateNotification.tokenRequestorId  | string  | TRID associated to the domain to which the token belongs (card brand specific). The format matches with the EMVCo Tokenization specifications.  |  
 | networkTokenCardUpdateNotification.tokenReferenceId  | string  | Unique reference identifier for the token generated.  |  
   * Request
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  " networkTokenCardUpdateNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291"  
+
+  }  
+
+}  
 
 ```
+```
+
 {  
+
   "token": "476120FDallZ7718",  
+
   "referenceNumber": "21082509302518698472",  
+
   "success": "true",  
+
   "error": "",  
+
   " networkTokenCardUpdateNotification": {  
+
     "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
     "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
     "tokenRequestorId": "12345678901",  
+
     "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291"  
+
   }  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  " networkTokenCardUpdateNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  " networkTokenCardUpdateNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  " networkTokenCardUpdateNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082509302518698472",  
+
+  "success": "true",  
+
+  "error": "",  
+
+  " networkTokenCardUpdateNotification": {  
+
+    "messageId": "6fdf4f09-7fbb-48ae-be1e-ac412a2949a7",  
+
+    "conversationId": "aa3a5f54-6eb2-4714-aea3-9f525353cbd7",  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "b2b92b5b-403d-4bd8-a756-6e415b86b291"  
+
+  }  
+
 }  
 
 ```

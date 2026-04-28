@@ -12,9 +12,9 @@ tags:
 - testing-https-documentation-ixopay-com-modules-docs-tokenex-faqs-testing-direct-link-testing
 - psp-specific-test-cards-end-end-testing-psp-https-documentation-ixopay-com-modules-docs-tokenex-faqs-psp-specific-test-cards-direct-link-psp-specific-test-cards-end-end-testing-psp
 - end-end-testing-between-providers-sandboxes-https-documentation-ixopay-com-modules-docs-tokenex-faqs-e2e-testing-provider-sandboxes-direct-link-end-end-testing-between-providers-sandboxes
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds-faqs
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

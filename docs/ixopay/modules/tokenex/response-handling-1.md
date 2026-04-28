@@ -10,9 +10,9 @@ tags:
 - ixopay
 - authorization
 - gateway
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/response-handling-1
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -43,13 +43,81 @@ Errors are reported back to the client by way of an HTTP status code and respons
 | 500  | Internal server error  | Unknown error  |  
 Error message format
 ```
+
 {  
+
   "success": false,  
+
   "error": "ErrorCode:Message",  
+
   "referenceNumber": "Reference number returned on each call"  
+
 }  
 
 ```
+```
 
-  * [TokenEx Response Headers](https://documentation.ixopay.com/modules/docs/tokenex/response-handling-1#tokenex-response-headers)
+{  
+
+  "success": false,  
+
+  "error": "ErrorCode:Message",  
+
+  "referenceNumber": "Reference number returned on each call"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "error": "ErrorCode:Message",  
+
+  "referenceNumber": "Reference number returned on each call"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "error": "ErrorCode:Message",  
+
+  "referenceNumber": "Reference number returned on each call"  
+
+}  
+
+```  * [TokenEx Response Headers](https://documentation.ixopay.com/modules/docs/tokenex/response-handling-1#tokenex-response-headers)
   * [Error Handling](https://documentation.ixopay.com/modules/docs/tokenex/response-handling-1#error-handling)
+```
+
+{  
+
+  "success": false,  
+
+  "error": "ErrorCode:Message",  
+
+  "referenceNumber": "Reference number returned on each call"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "error": "ErrorCode:Message",  
+
+  "referenceNumber": "Reference number returned on each call"  
+
+}  
+
+```

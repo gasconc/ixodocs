@@ -6,9 +6,9 @@ tags:
 - change-reset-password-changing-passwordshttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-change-password-two-factor-setup-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-two-factor-setup-timezone-settings-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-time-zone-settings
 - change-reset-password-changing-passwordshttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-change-password-two-factor-setup-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-two-factor-setup-timezone-settings-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-time-zone-settings-change-reset-password-changing-passwordshttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-change-password-two-factor-setup-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-two-factor-setup-timezone-settings-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-time-zone-settings
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

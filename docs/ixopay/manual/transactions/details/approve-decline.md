@@ -7,9 +7,9 @@ tags:
 - capture
 - void
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/transactions/details/approve-decline
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

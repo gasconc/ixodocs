@@ -1,16 +1,31 @@
-Send Feedback
-  * [](https://documentation.ixopay.com/modules/)
-  * Network tokenization
+---
+title: Get Asset
+summary: ' Network tokenization  Network Tokenization APIhttps://documentation.ixopay.com/modules/docs/tokenex/network-token-services  Get
+  Asset'
+tags:
+- api
+- json
+- xml
+- tokenization
+- tokenex
+- ixopay
+- authorization
+- transaction
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/get-asset
+portal: tokenex
+updated: '2026-04-28'
+related: []
+---
+
+* Network tokenization
   * [Network Tokenization API](https://documentation.ixopay.com/modules/docs/tokenex/network-token-services)
   * Get Asset
 
-
 # Get Asset
 This method is used to retrieve card assets such as card imagery, issuer icon, etc. These assets are identified by GUIDs returned from a call to [GetCardMetadata](https://documentation.ixopay.com/modules/docs/tokenex/get-card-metadata).
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/GetAsset>
-
+  * **Test URI** : 
+  * **Prod US URI** : 
+  * **Prod EU URI** : 
 
 **Required API Key Permissions** : NetworkTokenizationGeneralAccess
 **Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
@@ -41,448 +56,387 @@ This method is used to retrieve card assets such as card imagery, issuer icon, e
 | networkResponse.contentMimes[].assetObject  | Base64 encoded string  | The value of asset object.  |  
   * Request
   * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/GetAsset HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "AssetGuid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
   "Token": "476120FDallZ7718"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "contentType": "ICON_ISSUER",  
+
     "contentMimes": [  
+
       {  
+
         "type": "IMAGE/PNG",  
+
         "assetObject": "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"  
+
       }  
+
     ],  
+
     "messageId": "c292735e-509a-4fc2-971a-2882b26f1d7f",  
+
     "conversationId": "21db328b-7e9b-4510-ba27-6640ecc469de",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510332941084676",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
-
-Last updated on **Apr 10, 2026**
-# Get Asset
-This method is used to retrieve card assets such as card imagery, issuer icon, etc. These assets are identified by GUIDs returned from a call to [GetCardMetadata](https://documentation.ixopay.com/modules/docs/tokenex/get-card-metadata).
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/GetAsset>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| assetGuid  | string  | The GUID which represents a card asset.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.contentType  | string enum  | The type of asset. Possible values: CARD_ART_FOREGROUND, CARD_ART_BACKGROUND, ICON_ISSUER, TERMS_AND_CONDITIONS, COMBINED_BACKGROUND, ICON_PAYMENT_NETWORK, ICON_COBRAND, ICON_CARD.  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-| networkResponse.contentMimes[].type  | string enum  | The MIME type of the content. Possible values: IMAGE/PNG, IMAGE/JPEG, IMAGE/PDF, IMAGE/SVG+XML, TEXT/HTML, TEXT/PLAIN, APPLICATION/PDF, TEXT/XML  |  
-| networkResponse.contentMimes[].assetObject  | Base64 encoded string  | The value of asset object.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/GetAsset HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "AssetGuid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
   "Token": "476120FDallZ7718"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "contentType": "ICON_ISSUER",  
+
     "contentMimes": [  
+
       {  
+
         "type": "IMAGE/PNG",  
+
         "assetObject": "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"  
+
       }  
+
     ],  
+
     "messageId": "c292735e-509a-4fc2-971a-2882b26f1d7f",  
+
     "conversationId": "21db328b-7e9b-4510-ba27-6640ecc469de",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510332941084676",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
-
-# Get Asset
-This method is used to retrieve card assets such as card imagery, issuer icon, etc. These assets are identified by GUIDs returned from a call to [GetCardMetadata](https://documentation.ixopay.com/modules/docs/tokenex/get-card-metadata).
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/GetAsset>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| assetGuid  | string  | The GUID which represents a card asset.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.contentType  | string enum  | The type of asset. Possible values: CARD_ART_FOREGROUND, CARD_ART_BACKGROUND, ICON_ISSUER, TERMS_AND_CONDITIONS, COMBINED_BACKGROUND, ICON_PAYMENT_NETWORK, ICON_COBRAND, ICON_CARD.  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-| networkResponse.contentMimes[].type  | string enum  | The MIME type of the content. Possible values: IMAGE/PNG, IMAGE/JPEG, IMAGE/PDF, IMAGE/SVG+XML, TEXT/HTML, TEXT/PLAIN, APPLICATION/PDF, TEXT/XML  |  
-| networkResponse.contentMimes[].assetObject  | Base64 encoded string  | The value of asset object.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/GetAsset HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "AssetGuid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
   "Token": "476120FDallZ7718"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "contentType": "ICON_ISSUER",  
+
     "contentMimes": [  
+
       {  
+
         "type": "IMAGE/PNG",  
+
         "assetObject": "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"  
+
       }  
+
     ],  
+
     "messageId": "c292735e-509a-4fc2-971a-2882b26f1d7f",  
+
     "conversationId": "21db328b-7e9b-4510-ba27-6640ecc469de",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510332941084676",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
-
-Send Feedback
-  * [](https://documentation.ixopay.com/modules/)
-  * Network tokenization
-  * [Network Tokenization API](https://documentation.ixopay.com/modules/docs/tokenex/network-token-services)
-  * Get Asset
-
-
-# Get Asset
-This method is used to retrieve card assets such as card imagery, issuer icon, etc. These assets are identified by GUIDs returned from a call to [GetCardMetadata](https://documentation.ixopay.com/modules/docs/tokenex/get-card-metadata).
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/GetAsset>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| assetGuid  | string  | The GUID which represents a card asset.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.contentType  | string enum  | The type of asset. Possible values: CARD_ART_FOREGROUND, CARD_ART_BACKGROUND, ICON_ISSUER, TERMS_AND_CONDITIONS, COMBINED_BACKGROUND, ICON_PAYMENT_NETWORK, ICON_COBRAND, ICON_CARD.  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-| networkResponse.contentMimes[].type  | string enum  | The MIME type of the content. Possible values: IMAGE/PNG, IMAGE/JPEG, IMAGE/PDF, IMAGE/SVG+XML, TEXT/HTML, TEXT/PLAIN, APPLICATION/PDF, TEXT/XML  |  
-| networkResponse.contentMimes[].assetObject  | Base64 encoded string  | The value of asset object.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/GetAsset HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "AssetGuid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
   "Token": "476120FDallZ7718"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "contentType": "ICON_ISSUER",  
+
     "contentMimes": [  
+
       {  
+
         "type": "IMAGE/PNG",  
+
         "assetObject": "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"  
+
       }  
+
     ],  
+
     "messageId": "c292735e-509a-4fc2-971a-2882b26f1d7f",  
+
     "conversationId": "21db328b-7e9b-4510-ba27-6640ecc469de",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510332941084676",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
-
-Last updated on **Apr 10, 2026**
-[Previous Lifecycle Management](https://documentation.ixopay.com/modules/docs/tokenex/lifecycle-management)[Next Token State Change Notification](https://documentation.ixopay.com/modules/docs/tokenex/token-state-change-notification)
-Send Feedback
-Send Feedback
-  * [](https://documentation.ixopay.com/modules/)
-  * Network tokenization
-  * [Network Tokenization API](https://documentation.ixopay.com/modules/docs/tokenex/network-token-services)
-  * Get Asset
-
-
-# Get Asset
-This method is used to retrieve card assets such as card imagery, issuer icon, etc. These assets are identified by GUIDs returned from a call to [GetCardMetadata](https://documentation.ixopay.com/modules/docs/tokenex/get-card-metadata).
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/GetAsset>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| assetGuid  | string  | The GUID which represents a card asset.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.contentType  | string enum  | The type of asset. Possible values: CARD_ART_FOREGROUND, CARD_ART_BACKGROUND, ICON_ISSUER, TERMS_AND_CONDITIONS, COMBINED_BACKGROUND, ICON_PAYMENT_NETWORK, ICON_COBRAND, ICON_CARD.  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-| networkResponse.contentMimes[].type  | string enum  | The MIME type of the content. Possible values: IMAGE/PNG, IMAGE/JPEG, IMAGE/PDF, IMAGE/SVG+XML, TEXT/HTML, TEXT/PLAIN, APPLICATION/PDF, TEXT/XML  |  
-| networkResponse.contentMimes[].assetObject  | Base64 encoded string  | The value of asset object.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/GetAsset HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "AssetGuid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
   "Token": "476120FDallZ7718"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "contentType": "ICON_ISSUER",  
+
     "contentMimes": [  
+
       {  
+
         "type": "IMAGE/PNG",  
+
         "assetObject": "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"  
+
       }  
+
     ],  
+
     "messageId": "c292735e-509a-4fc2-971a-2882b26f1d7f",  
+
     "conversationId": "21db328b-7e9b-4510-ba27-6640ecc469de",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510332941084676",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
-
-Last updated on **Apr 10, 2026**
-# Get Asset
-This method is used to retrieve card assets such as card imagery, issuer icon, etc. These assets are identified by GUIDs returned from a call to [GetCardMetadata](https://documentation.ixopay.com/modules/docs/tokenex/get-card-metadata).
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/GetAsset>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/GetAsset>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| assetGuid  | string  | The GUID which represents a card asset.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.contentType  | string enum  | The type of asset. Possible values: CARD_ART_FOREGROUND, CARD_ART_BACKGROUND, ICON_ISSUER, TERMS_AND_CONDITIONS, COMBINED_BACKGROUND, ICON_PAYMENT_NETWORK, ICON_COBRAND, ICON_CARD.  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-| networkResponse.contentMimes[].type  | string enum  | The MIME type of the content. Possible values: IMAGE/PNG, IMAGE/JPEG, IMAGE/PDF, IMAGE/SVG+XML, TEXT/HTML, TEXT/PLAIN, APPLICATION/PDF, TEXT/XML  |  
-| networkResponse.contentMimes[].assetObject  | Base64 encoded string  | The value of asset object.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/GetAsset HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "AssetGuid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
   "Token": "476120FDallZ7718"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "contentType": "ICON_ISSUER",  
+
     "contentMimes": [  
+
       {  
+
         "type": "IMAGE/PNG",  
+
         "assetObject": "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"  
+
       }  
+
     ],  
+
     "messageId": "c292735e-509a-4fc2-971a-2882b26f1d7f",  
+
     "conversationId": "21db328b-7e9b-4510-ba27-6640ecc469de",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510332941084676",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
 ```
-

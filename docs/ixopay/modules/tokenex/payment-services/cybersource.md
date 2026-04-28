@@ -6,16 +6,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-cybersource-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-cybersource-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-cybersource-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-cybersource-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-cybersource-responses-direct-link-responses
 - api
 - 3ds
 - tokenization
 - tokenex
 - ixopay
-source_url: ''
+- recurring
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -108,131 +108,241 @@ Please refer to [Tokenization, Detokenization and CVV Retrieval](https://documen
   * ACH Purchase
   * ACH Refund
   * ACH Void
-
 ```
+
 {  
+
   "merchantId": "<Your Merchant Id>",  
+
   "publicKey": "<Your API Key>",  
+
   "privateKey": "<Your shared secret key>",  
+
   "referenceInformationCode": "<Your reference information code>",  
+
   "creditCard": {  
+
     "brand": "Visa",  
+
     "number": "4242424242424242",  
+
     "expMonth": 10,  
+
     "expYear": 2021,  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "cvv": "123"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "fax": "555-555-6666",  
+
     "email": "john@doe.dev",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "name": "John Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "amount": 123,  
+
   "gateway": "CyberSource"  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "merchantId": "<Your Merchant Id>",  
+
   "publicKey": "<Your API Key>",  
+
   "privateKey": "<Your shared secret key>",  
+
   "referenceInformationCode": "<Your reference information code>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize call>",  
+
   "amount": 123,  
+
   "gateway": "CyberSource"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantId": "<Your Merchant Id>",  
+
   "publicKey": "<Your API Key>",  
+
   "privateKey": "<Your shared secret key>",  
+
   "referenceInformationCode": "<Your reference information code>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode provided by Purchase/Capture call>",  
+
   "amount": 123,  
+
   "gateway": "CyberSource"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantId": "<Your Merchant Id>",  
+
   "publicKey": "<Your API Key>",  
+
   "privateKey": "<Your shared secret key>",  
+
   "referenceInformationCode": "<Your reference information code>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode of transaction to void>",  
+
   "amount": 123,  
+
   "gateway": "CyberSource"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantId": "<Your Merchant Id>",  
+
   "publicKey": "<Your API Key>",  
+
   "privateKey": "<Your shared secret key>",  
+
   "referenceInformationCode": "<Your reference information code>",  
+
   "check": {  
+
     "accountNumber": "4101",  
+
     "routingNumber": "071923284",  
+
     "checkNumber": "123456789",  
+
     "firstName": "Maureen",  
+
     "lastName": "Heller",  
+
     "accountType": "Savings"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "fax": "555-555-6666",  
+
     "email": "john@doe.dev",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "name": "John Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "amount": 12025,  
+
   "gateway": "CyberSource"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantId": "<Your Merchant Id>",  
+
   "publicKey": "<Your API Key>",  
+
   "privateKey": "<Your shared secret key>",  
+
   "referenceInformationCode": "<Your reference information code>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
   "amount": 123,  
+
   "gateway": "CyberSource"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantId": "<Your Merchant Id>",  
+
   "publicKey": "<Your API Key>",  
+
   "privateKey": "<Your shared secret key>",  
+
   "referenceInformationCode": "<Your reference information code>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
   "gateway": "CyberSource"  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | TokenEx Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approvalCode`  | string  | `ProcessorInformation.ApprovalCode`  | CyberSource approval code  |  
@@ -246,166 +356,3018 @@ Please refer to [Tokenization, Detokenization and CVV Retrieval](https://documen
   * Gateway Error 401
   * Gateway Error 400
   * Processor Error 201
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283144516797204951\",\"method\":\"GET\"},\"capture\":{\"href\":\"/pts/v2/payments/7017283144516797204951/captures\",\"method\":\"POST\"}},\"id\":\"7017283144516797204951\",\"submitTimeUtc\":\"2023-12-04T22:18:34Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728314507\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzAxNzI4MzE0NDUxNjc5NzIwNDk1MTswMQ==",  
+
     "approvalCode": "888888",  
+
     "providerTransactionCode": "7017283144516797204951",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120416183229527759",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283584606339104953\",\"method\":\"GET\"}},\"id\":\"7017283584606339104953\",\"submitTimeUtc\":\"2023-12-04T22:19:18Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028667KPNHBTMH\",\"clientReferenceInformation\":{\"code\":\"1701728358513\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzAxNzI4MzU4NDYwNjMzOTEwNDk1MzswMg==",  
+
     "approvalCode": "888888",  
+
     "providerTransactionCode": "7017283584606339104953",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120416191760977190",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/captures/7017284431566362204953\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/captures/7017284431566362204953/voids\",\"method\":\"POST\"}},\"id\":\"7017284431566362204953\",\"submitTimeUtc\":\"2023-12-04T22:20:43Z\",\"status\":\"PENDING\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728443212\"},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"currency\":\"USD\"}}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzAxNzI4NDQzMTU2NjM2MjIwNDk1MzswMw==",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "7017284431566362204953",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120416204226007564",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/refunds/7017287050566881304951\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/refunds/7017287050566881304951/voids\",\"method\":\"POST\"}},\"id\":\"7017287050566881304951\",\"submitTimeUtc\":\"2023-12-04T22:25:05Z\",\"status\":\"PENDING\",\"reconciliationId\":\"749709831PNLPFNS\",\"clientReferenceInformation\":{\"code\":\"1701728705108\"},\"refundAmountDetails\":{\"refundAmount\":\"1.23\",\"currency\":\"USD\"},\"processorInformation\":{\"responseCode\":\"100\"},\"orderInformation\":{}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzAxNzI4NzA1MDU2Njg4MTMwNDk1MTswNQ==",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "7017287050566881304951",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120416250494925549",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/voids/7017308036806043903955\",\"method\":\"GET\"}},\"id\":\"7017308036806043903955\",\"submitTimeUtc\":\"2023-12-04T23:00:04Z\",\"status\":\"VOIDED\",\"clientReferenceInformation\":{\"code\":\"1701730803868\"},\"voidAmountDetails\":{\"voidAmount\":\"1.23\",\"currency\":\"usd\"}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzAxNzMwODAzNjgwNjA0MzkwMzk1NTswNA==",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "7017308036806043903955",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "023120416595269285584",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"response\":{\"rmsg\":\"Authentication Failed\"}}",  
+
     "gatewayErrors": [  
+
       {  
+
         "message": "Authentication Failed",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "024041114092771358206",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "401"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"id\":\"7128630725326936603955\",\"submitTimeUtc\":\"2024-04-11T19:17:52Z\",\"status\":\"INVALID_REQUEST\",\"reason\":\"INVALID_DATA\",\"message\":\"Declined - One or more fields in the request contains invalid data\",\"details\":[{\"field\":\"paymentInformation.card.expirationMonth\",\"reason\":\"INVALID_DATA\"}]}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "INVALID_DATA",  
+
         "message": "Declined - One or more fields in the request contains invalid data",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "024041114174819468491",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "400"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7128629213356774403955\",\"method\":\"GET\"}},\"id\":\"7128629213356774403955\",\"status\":\"DECLINED\",\"errorInformation\":{\"reason\":\"PROCESSOR_DECLINED\",\"message\":\"Decline - General decline of the card. No other information provided by the issuing bank.\"},\"clientReferenceInformation\":{\"code\":\"1712862921525\"},\"processorInformation\":{\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"303\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInsightsInformation\":{\"responseInsights\":{\"category\":\"ISSUER_CANNOT_APPROVE_AT_THIS_TIME\",\"categoryCode\":\"02\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "PROCESSOR_DECLINED",  
+
         "message": "Decline - General decline of the card. No other information provided by the issuing bank.",  
+
         "source": "Gateway"  
+
       },  
+
       {  
+
         "code": "303",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "7128629213356774403955",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "024041114151491095296",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "201"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource#overview)
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4242424242424242",  
+
+    "expMonth": 10,  
+
+    "expYear": 2021,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Purchase/Capture call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode of transaction to void>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "check": {  
+
+    "accountNumber": "4101",  
+
+    "routingNumber": "071923284",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "Maureen",  
+
+    "lastName": "Heller",  
+
+    "accountType": "Savings"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 12025,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283144516797204951\",\"method\":\"GET\"},\"capture\":{\"href\":\"/pts/v2/payments/7017283144516797204951/captures\",\"method\":\"POST\"}},\"id\":\"7017283144516797204951\",\"submitTimeUtc\":\"2023-12-04T22:18:34Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728314507\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzE0NDUxNjc5NzIwNDk1MTswMQ==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283144516797204951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416183229527759",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283584606339104953\",\"method\":\"GET\"}},\"id\":\"7017283584606339104953\",\"submitTimeUtc\":\"2023-12-04T22:19:18Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028667KPNHBTMH\",\"clientReferenceInformation\":{\"code\":\"1701728358513\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzU4NDYwNjMzOTEwNDk1MzswMg==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283584606339104953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416191760977190",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/captures/7017284431566362204953\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/captures/7017284431566362204953/voids\",\"method\":\"POST\"}},\"id\":\"7017284431566362204953\",\"submitTimeUtc\":\"2023-12-04T22:20:43Z\",\"status\":\"PENDING\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728443212\"},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"currency\":\"USD\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NDQzMTU2NjM2MjIwNDk1MzswMw==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017284431566362204953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416204226007564",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/refunds/7017287050566881304951\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/refunds/7017287050566881304951/voids\",\"method\":\"POST\"}},\"id\":\"7017287050566881304951\",\"submitTimeUtc\":\"2023-12-04T22:25:05Z\",\"status\":\"PENDING\",\"reconciliationId\":\"749709831PNLPFNS\",\"clientReferenceInformation\":{\"code\":\"1701728705108\"},\"refundAmountDetails\":{\"refundAmount\":\"1.23\",\"currency\":\"USD\"},\"processorInformation\":{\"responseCode\":\"100\"},\"orderInformation\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NzA1MDU2Njg4MTMwNDk1MTswNQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017287050566881304951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416250494925549",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/voids/7017308036806043903955\",\"method\":\"GET\"}},\"id\":\"7017308036806043903955\",\"submitTimeUtc\":\"2023-12-04T23:00:04Z\",\"status\":\"VOIDED\",\"clientReferenceInformation\":{\"code\":\"1701730803868\"},\"voidAmountDetails\":{\"voidAmount\":\"1.23\",\"currency\":\"usd\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzMwODAzNjgwNjA0MzkwMzk1NTswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017308036806043903955",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "023120416595269285584",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"response\":{\"rmsg\":\"Authentication Failed\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "message": "Authentication Failed",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114092771358206",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "401"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"id\":\"7128630725326936603955\",\"submitTimeUtc\":\"2024-04-11T19:17:52Z\",\"status\":\"INVALID_REQUEST\",\"reason\":\"INVALID_DATA\",\"message\":\"Declined - One or more fields in the request contains invalid data\",\"details\":[{\"field\":\"paymentInformation.card.expirationMonth\",\"reason\":\"INVALID_DATA\"}]}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "INVALID_DATA",  
+
+        "message": "Declined - One or more fields in the request contains invalid data",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114174819468491",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "400"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7128629213356774403955\",\"method\":\"GET\"}},\"id\":\"7128629213356774403955\",\"status\":\"DECLINED\",\"errorInformation\":{\"reason\":\"PROCESSOR_DECLINED\",\"message\":\"Decline - General decline of the card. No other information provided by the issuing bank.\"},\"clientReferenceInformation\":{\"code\":\"1712862921525\"},\"processorInformation\":{\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"303\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInsightsInformation\":{\"responseInsights\":{\"category\":\"ISSUER_CANNOT_APPROVE_AT_THIS_TIME\",\"categoryCode\":\"02\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "PROCESSOR_DECLINED",  
+
+        "message": "Decline - General decline of the card. No other information provided by the issuing bank.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7128629213356774403955",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114151491095296",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4242424242424242",  
+
+    "expMonth": 10,  
+
+    "expYear": 2021,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Purchase/Capture call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode of transaction to void>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "check": {  
+
+    "accountNumber": "4101",  
+
+    "routingNumber": "071923284",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "Maureen",  
+
+    "lastName": "Heller",  
+
+    "accountType": "Savings"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 12025,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283144516797204951\",\"method\":\"GET\"},\"capture\":{\"href\":\"/pts/v2/payments/7017283144516797204951/captures\",\"method\":\"POST\"}},\"id\":\"7017283144516797204951\",\"submitTimeUtc\":\"2023-12-04T22:18:34Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728314507\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzE0NDUxNjc5NzIwNDk1MTswMQ==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283144516797204951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416183229527759",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283584606339104953\",\"method\":\"GET\"}},\"id\":\"7017283584606339104953\",\"submitTimeUtc\":\"2023-12-04T22:19:18Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028667KPNHBTMH\",\"clientReferenceInformation\":{\"code\":\"1701728358513\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzU4NDYwNjMzOTEwNDk1MzswMg==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283584606339104953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416191760977190",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/captures/7017284431566362204953\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/captures/7017284431566362204953/voids\",\"method\":\"POST\"}},\"id\":\"7017284431566362204953\",\"submitTimeUtc\":\"2023-12-04T22:20:43Z\",\"status\":\"PENDING\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728443212\"},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"currency\":\"USD\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NDQzMTU2NjM2MjIwNDk1MzswMw==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017284431566362204953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416204226007564",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/refunds/7017287050566881304951\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/refunds/7017287050566881304951/voids\",\"method\":\"POST\"}},\"id\":\"7017287050566881304951\",\"submitTimeUtc\":\"2023-12-04T22:25:05Z\",\"status\":\"PENDING\",\"reconciliationId\":\"749709831PNLPFNS\",\"clientReferenceInformation\":{\"code\":\"1701728705108\"},\"refundAmountDetails\":{\"refundAmount\":\"1.23\",\"currency\":\"USD\"},\"processorInformation\":{\"responseCode\":\"100\"},\"orderInformation\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NzA1MDU2Njg4MTMwNDk1MTswNQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017287050566881304951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416250494925549",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/voids/7017308036806043903955\",\"method\":\"GET\"}},\"id\":\"7017308036806043903955\",\"submitTimeUtc\":\"2023-12-04T23:00:04Z\",\"status\":\"VOIDED\",\"clientReferenceInformation\":{\"code\":\"1701730803868\"},\"voidAmountDetails\":{\"voidAmount\":\"1.23\",\"currency\":\"usd\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzMwODAzNjgwNjA0MzkwMzk1NTswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017308036806043903955",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "023120416595269285584",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"response\":{\"rmsg\":\"Authentication Failed\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "message": "Authentication Failed",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114092771358206",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "401"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"id\":\"7128630725326936603955\",\"submitTimeUtc\":\"2024-04-11T19:17:52Z\",\"status\":\"INVALID_REQUEST\",\"reason\":\"INVALID_DATA\",\"message\":\"Declined - One or more fields in the request contains invalid data\",\"details\":[{\"field\":\"paymentInformation.card.expirationMonth\",\"reason\":\"INVALID_DATA\"}]}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "INVALID_DATA",  
+
+        "message": "Declined - One or more fields in the request contains invalid data",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114174819468491",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "400"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7128629213356774403955\",\"method\":\"GET\"}},\"id\":\"7128629213356774403955\",\"status\":\"DECLINED\",\"errorInformation\":{\"reason\":\"PROCESSOR_DECLINED\",\"message\":\"Decline - General decline of the card. No other information provided by the issuing bank.\"},\"clientReferenceInformation\":{\"code\":\"1712862921525\"},\"processorInformation\":{\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"303\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInsightsInformation\":{\"responseInsights\":{\"category\":\"ISSUER_CANNOT_APPROVE_AT_THIS_TIME\",\"categoryCode\":\"02\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "PROCESSOR_DECLINED",  
+
+        "message": "Decline - General decline of the card. No other information provided by the issuing bank.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7128629213356774403955",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114151491095296",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4242424242424242",  
+
+    "expMonth": 10,  
+
+    "expYear": 2021,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Purchase/Capture call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode of transaction to void>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "check": {  
+
+    "accountNumber": "4101",  
+
+    "routingNumber": "071923284",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "Maureen",  
+
+    "lastName": "Heller",  
+
+    "accountType": "Savings"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 12025,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283144516797204951\",\"method\":\"GET\"},\"capture\":{\"href\":\"/pts/v2/payments/7017283144516797204951/captures\",\"method\":\"POST\"}},\"id\":\"7017283144516797204951\",\"submitTimeUtc\":\"2023-12-04T22:18:34Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728314507\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzE0NDUxNjc5NzIwNDk1MTswMQ==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283144516797204951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416183229527759",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283584606339104953\",\"method\":\"GET\"}},\"id\":\"7017283584606339104953\",\"submitTimeUtc\":\"2023-12-04T22:19:18Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028667KPNHBTMH\",\"clientReferenceInformation\":{\"code\":\"1701728358513\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzU4NDYwNjMzOTEwNDk1MzswMg==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283584606339104953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416191760977190",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/captures/7017284431566362204953\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/captures/7017284431566362204953/voids\",\"method\":\"POST\"}},\"id\":\"7017284431566362204953\",\"submitTimeUtc\":\"2023-12-04T22:20:43Z\",\"status\":\"PENDING\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728443212\"},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"currency\":\"USD\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NDQzMTU2NjM2MjIwNDk1MzswMw==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017284431566362204953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416204226007564",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/refunds/7017287050566881304951\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/refunds/7017287050566881304951/voids\",\"method\":\"POST\"}},\"id\":\"7017287050566881304951\",\"submitTimeUtc\":\"2023-12-04T22:25:05Z\",\"status\":\"PENDING\",\"reconciliationId\":\"749709831PNLPFNS\",\"clientReferenceInformation\":{\"code\":\"1701728705108\"},\"refundAmountDetails\":{\"refundAmount\":\"1.23\",\"currency\":\"USD\"},\"processorInformation\":{\"responseCode\":\"100\"},\"orderInformation\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NzA1MDU2Njg4MTMwNDk1MTswNQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017287050566881304951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416250494925549",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/voids/7017308036806043903955\",\"method\":\"GET\"}},\"id\":\"7017308036806043903955\",\"submitTimeUtc\":\"2023-12-04T23:00:04Z\",\"status\":\"VOIDED\",\"clientReferenceInformation\":{\"code\":\"1701730803868\"},\"voidAmountDetails\":{\"voidAmount\":\"1.23\",\"currency\":\"usd\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzMwODAzNjgwNjA0MzkwMzk1NTswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017308036806043903955",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "023120416595269285584",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"response\":{\"rmsg\":\"Authentication Failed\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "message": "Authentication Failed",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114092771358206",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "401"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"id\":\"7128630725326936603955\",\"submitTimeUtc\":\"2024-04-11T19:17:52Z\",\"status\":\"INVALID_REQUEST\",\"reason\":\"INVALID_DATA\",\"message\":\"Declined - One or more fields in the request contains invalid data\",\"details\":[{\"field\":\"paymentInformation.card.expirationMonth\",\"reason\":\"INVALID_DATA\"}]}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "INVALID_DATA",  
+
+        "message": "Declined - One or more fields in the request contains invalid data",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114174819468491",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "400"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7128629213356774403955\",\"method\":\"GET\"}},\"id\":\"7128629213356774403955\",\"status\":\"DECLINED\",\"errorInformation\":{\"reason\":\"PROCESSOR_DECLINED\",\"message\":\"Decline - General decline of the card. No other information provided by the issuing bank.\"},\"clientReferenceInformation\":{\"code\":\"1712862921525\"},\"processorInformation\":{\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"303\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInsightsInformation\":{\"responseInsights\":{\"category\":\"ISSUER_CANNOT_APPROVE_AT_THIS_TIME\",\"categoryCode\":\"02\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "PROCESSOR_DECLINED",  
+
+        "message": "Decline - General decline of the card. No other information provided by the issuing bank.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7128629213356774403955",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114151491095296",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource#example-responses)
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4242424242424242",  
+
+    "expMonth": 10,  
+
+    "expYear": 2021,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Purchase/Capture call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode of transaction to void>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "check": {  
+
+    "accountNumber": "4101",  
+
+    "routingNumber": "071923284",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "Maureen",  
+
+    "lastName": "Heller",  
+
+    "accountType": "Savings"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 12025,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283144516797204951\",\"method\":\"GET\"},\"capture\":{\"href\":\"/pts/v2/payments/7017283144516797204951/captures\",\"method\":\"POST\"}},\"id\":\"7017283144516797204951\",\"submitTimeUtc\":\"2023-12-04T22:18:34Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728314507\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzE0NDUxNjc5NzIwNDk1MTswMQ==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283144516797204951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416183229527759",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283584606339104953\",\"method\":\"GET\"}},\"id\":\"7017283584606339104953\",\"submitTimeUtc\":\"2023-12-04T22:19:18Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028667KPNHBTMH\",\"clientReferenceInformation\":{\"code\":\"1701728358513\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzU4NDYwNjMzOTEwNDk1MzswMg==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283584606339104953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416191760977190",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/captures/7017284431566362204953\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/captures/7017284431566362204953/voids\",\"method\":\"POST\"}},\"id\":\"7017284431566362204953\",\"submitTimeUtc\":\"2023-12-04T22:20:43Z\",\"status\":\"PENDING\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728443212\"},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"currency\":\"USD\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NDQzMTU2NjM2MjIwNDk1MzswMw==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017284431566362204953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416204226007564",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/refunds/7017287050566881304951\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/refunds/7017287050566881304951/voids\",\"method\":\"POST\"}},\"id\":\"7017287050566881304951\",\"submitTimeUtc\":\"2023-12-04T22:25:05Z\",\"status\":\"PENDING\",\"reconciliationId\":\"749709831PNLPFNS\",\"clientReferenceInformation\":{\"code\":\"1701728705108\"},\"refundAmountDetails\":{\"refundAmount\":\"1.23\",\"currency\":\"USD\"},\"processorInformation\":{\"responseCode\":\"100\"},\"orderInformation\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NzA1MDU2Njg4MTMwNDk1MTswNQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017287050566881304951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416250494925549",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/voids/7017308036806043903955\",\"method\":\"GET\"}},\"id\":\"7017308036806043903955\",\"submitTimeUtc\":\"2023-12-04T23:00:04Z\",\"status\":\"VOIDED\",\"clientReferenceInformation\":{\"code\":\"1701730803868\"},\"voidAmountDetails\":{\"voidAmount\":\"1.23\",\"currency\":\"usd\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzMwODAzNjgwNjA0MzkwMzk1NTswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017308036806043903955",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "023120416595269285584",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"response\":{\"rmsg\":\"Authentication Failed\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "message": "Authentication Failed",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114092771358206",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "401"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"id\":\"7128630725326936603955\",\"submitTimeUtc\":\"2024-04-11T19:17:52Z\",\"status\":\"INVALID_REQUEST\",\"reason\":\"INVALID_DATA\",\"message\":\"Declined - One or more fields in the request contains invalid data\",\"details\":[{\"field\":\"paymentInformation.card.expirationMonth\",\"reason\":\"INVALID_DATA\"}]}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "INVALID_DATA",  
+
+        "message": "Declined - One or more fields in the request contains invalid data",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114174819468491",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "400"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7128629213356774403955\",\"method\":\"GET\"}},\"id\":\"7128629213356774403955\",\"status\":\"DECLINED\",\"errorInformation\":{\"reason\":\"PROCESSOR_DECLINED\",\"message\":\"Decline - General decline of the card. No other information provided by the issuing bank.\"},\"clientReferenceInformation\":{\"code\":\"1712862921525\"},\"processorInformation\":{\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"303\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInsightsInformation\":{\"responseInsights\":{\"category\":\"ISSUER_CANNOT_APPROVE_AT_THIS_TIME\",\"categoryCode\":\"02\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "PROCESSOR_DECLINED",  
+
+        "message": "Decline - General decline of the card. No other information provided by the issuing bank.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7128629213356774403955",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114151491095296",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4242424242424242",  
+
+    "expMonth": 10,  
+
+    "expYear": 2021,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Purchase/Capture call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode of transaction to void>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "check": {  
+
+    "accountNumber": "4101",  
+
+    "routingNumber": "071923284",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "Maureen",  
+
+    "lastName": "Heller",  
+
+    "accountType": "Savings"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 12025,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Merchant Id>",  
+
+  "publicKey": "<Your API Key>",  
+
+  "privateKey": "<Your shared secret key>",  
+
+  "referenceInformationCode": "<Your reference information code>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by ACH Purchase call>",  
+
+  "gateway": "CyberSource"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283144516797204951\",\"method\":\"GET\"},\"capture\":{\"href\":\"/pts/v2/payments/7017283144516797204951/captures\",\"method\":\"POST\"}},\"id\":\"7017283144516797204951\",\"submitTimeUtc\":\"2023-12-04T22:18:34Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728314507\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzE0NDUxNjc5NzIwNDk1MTswMQ==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283144516797204951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416183229527759",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7017283584606339104953\",\"method\":\"GET\"}},\"id\":\"7017283584606339104953\",\"submitTimeUtc\":\"2023-12-04T22:19:18Z\",\"status\":\"AUTHORIZED\",\"reconciliationId\":\"75028667KPNHBTMH\",\"clientReferenceInformation\":{\"code\":\"1701728358513\"},\"processorInformation\":{\"approvalCode\":\"888888\",\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"100\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInformation\":{\"card\":{},\"tokenizedCard\":{\"type\":\"001\"}},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"authorizedAmount\":\"1.23\",\"currency\":\"USD\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4MzU4NDYwNjMzOTEwNDk1MzswMg==",  
+
+    "approvalCode": "888888",  
+
+    "providerTransactionCode": "7017283584606339104953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416191760977190",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/captures/7017284431566362204953\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/captures/7017284431566362204953/voids\",\"method\":\"POST\"}},\"id\":\"7017284431566362204953\",\"submitTimeUtc\":\"2023-12-04T22:20:43Z\",\"status\":\"PENDING\",\"reconciliationId\":\"75028628KPNHBTL3\",\"clientReferenceInformation\":{\"code\":\"1701728443212\"},\"orderInformation\":{\"amountDetails\":{\"totalAmount\":\"1.23\",\"currency\":\"USD\"}}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NDQzMTU2NjM2MjIwNDk1MzswMw==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017284431566362204953",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416204226007564",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/refunds/7017287050566881304951\",\"method\":\"GET\"},\"void\":{\"href\":\"/pts/v2/refunds/7017287050566881304951/voids\",\"method\":\"POST\"}},\"id\":\"7017287050566881304951\",\"submitTimeUtc\":\"2023-12-04T22:25:05Z\",\"status\":\"PENDING\",\"reconciliationId\":\"749709831PNLPFNS\",\"clientReferenceInformation\":{\"code\":\"1701728705108\"},\"refundAmountDetails\":{\"refundAmount\":\"1.23\",\"currency\":\"USD\"},\"processorInformation\":{\"responseCode\":\"100\"},\"orderInformation\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzI4NzA1MDU2Njg4MTMwNDk1MTswNQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017287050566881304951",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120416250494925549",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/voids/7017308036806043903955\",\"method\":\"GET\"}},\"id\":\"7017308036806043903955\",\"submitTimeUtc\":\"2023-12-04T23:00:04Z\",\"status\":\"VOIDED\",\"clientReferenceInformation\":{\"code\":\"1701730803868\"},\"voidAmountDetails\":{\"voidAmount\":\"1.23\",\"currency\":\"usd\"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzAxNzMwODAzNjgwNjA0MzkwMzk1NTswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7017308036806043903955",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "023120416595269285584",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"response\":{\"rmsg\":\"Authentication Failed\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "message": "Authentication Failed",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114092771358206",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "401"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"id\":\"7128630725326936603955\",\"submitTimeUtc\":\"2024-04-11T19:17:52Z\",\"status\":\"INVALID_REQUEST\",\"reason\":\"INVALID_DATA\",\"message\":\"Declined - One or more fields in the request contains invalid data\",\"details\":[{\"field\":\"paymentInformation.card.expirationMonth\",\"reason\":\"INVALID_DATA\"}]}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "INVALID_DATA",  
+
+        "message": "Declined - One or more fields in the request contains invalid data",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114174819468491",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "400"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"_links\":{\"self\":{\"href\":\"/pts/v2/payments/7128629213356774403955\",\"method\":\"GET\"}},\"id\":\"7128629213356774403955\",\"status\":\"DECLINED\",\"errorInformation\":{\"reason\":\"PROCESSOR_DECLINED\",\"message\":\"Decline - General decline of the card. No other information provided by the issuing bank.\"},\"clientReferenceInformation\":{\"code\":\"1712862921525\"},\"processorInformation\":{\"transactionId\":\"123456789619999\",\"networkTransactionId\":\"123456789619999\",\"responseCode\":\"303\",\"avs\":{\"code\":\"X\",\"codeRaw\":\"I1\"}},\"paymentInsightsInformation\":{\"responseInsights\":{\"category\":\"ISSUER_CANNOT_APPROVE_AT_THIS_TIME\",\"categoryCode\":\"02\"}},\"pointOfSaleInformation\":{\"terminalId\":\"111111\"}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "PROCESSOR_DECLINED",  
+
+        "message": "Decline - General decline of the card. No other information provided by the issuing bank.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "7128629213356774403955",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "024041114151491095296",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "201"  
+
+}  
+
+```

@@ -8,9 +8,9 @@ tags:
 - 3ds
 - tokenex
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds-version-1-frictionless-test-cases
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

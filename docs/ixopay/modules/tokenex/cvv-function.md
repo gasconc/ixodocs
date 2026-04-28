@@ -11,9 +11,9 @@ tags:
 - tokenex
 - ixopay
 - gateway
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/cvv-function
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -30,18 +30,176 @@ To utilize the CVV function, a CVV must have been previously associated to a PAN
 | TOKEN  | Token in which this CVV is associated  |  
 **CVV Example**
 ```
+
 Content-Type: application/json  
+
 TX-URL: https://www.example.com  
+
 TX-TokenEx-ID: YourTokenExID  
+
 TX-APIKey: YourAPIKey  
+
   
+
 {  
+
   "card": {  
+
     "type": "MC",  
+
     "number": "{{{545454tEc3Hk5454}}}",  
+
     "expDate": "1126",  
+
     "cardValidationNum": "{{{{FUNCTION:CVV, TOKEN:545454tEc3Hk5454}}}}"  
+
   }  
+
+}  
+
+```
+```
+
+Content-Type: application/json  
+
+TX-URL: https://www.example.com  
+
+TX-TokenEx-ID: YourTokenExID  
+
+TX-APIKey: YourAPIKey  
+
+  
+
+{  
+
+  "card": {  
+
+    "type": "MC",  
+
+    "number": "{{{545454tEc3Hk5454}}}",  
+
+    "expDate": "1126",  
+
+    "cardValidationNum": "{{{{FUNCTION:CVV, TOKEN:545454tEc3Hk5454}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+Content-Type: application/json  
+
+TX-URL: https://www.example.com  
+
+TX-TokenEx-ID: YourTokenExID  
+
+TX-APIKey: YourAPIKey  
+
+  
+
+{  
+
+  "card": {  
+
+    "type": "MC",  
+
+    "number": "{{{545454tEc3Hk5454}}}",  
+
+    "expDate": "1126",  
+
+    "cardValidationNum": "{{{{FUNCTION:CVV, TOKEN:545454tEc3Hk5454}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+Content-Type: application/json  
+
+TX-URL: https://www.example.com  
+
+TX-TokenEx-ID: YourTokenExID  
+
+TX-APIKey: YourAPIKey  
+
+  
+
+{  
+
+  "card": {  
+
+    "type": "MC",  
+
+    "number": "{{{545454tEc3Hk5454}}}",  
+
+    "expDate": "1126",  
+
+    "cardValidationNum": "{{{{FUNCTION:CVV, TOKEN:545454tEc3Hk5454}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+Content-Type: application/json  
+
+TX-URL: https://www.example.com  
+
+TX-TokenEx-ID: YourTokenExID  
+
+TX-APIKey: YourAPIKey  
+
+  
+
+{  
+
+  "card": {  
+
+    "type": "MC",  
+
+    "number": "{{{545454tEc3Hk5454}}}",  
+
+    "expDate": "1126",  
+
+    "cardValidationNum": "{{{{FUNCTION:CVV, TOKEN:545454tEc3Hk5454}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+Content-Type: application/json  
+
+TX-URL: https://www.example.com  
+
+TX-TokenEx-ID: YourTokenExID  
+
+TX-APIKey: YourAPIKey  
+
+  
+
+{  
+
+  "card": {  
+
+    "type": "MC",  
+
+    "number": "{{{545454tEc3Hk5454}}}",  
+
+    "expDate": "1126",  
+
+    "cardValidationNum": "{{{{FUNCTION:CVV, TOKEN:545454tEc3Hk5454}}}}"  
+
+  }  
+
 }  
 
 ```

@@ -12,9 +12,9 @@ tags:
 - payment-gateway
 - credit-card
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/adapters/external-risk
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -26,15 +26,25 @@ This page provides an overview of the payments methods provided by the External 
 ### Forter External Risk Check additional extra data[​](https://documentation.ixopay.com/adapters/external-risk#forter-external-risk-check-additional-extra-data "Direct link to Forter External Risk Check additional extra data")
 Those extra data fields are mapped to the corresponding Forter Validation Request Parameters: 
 #### Customer Extra Data[​](https://documentation.ixopay.com/adapters/external-risk#customer-extra-data "Direct link to Customer Extra Data")
-> Example```
+> Example
+```
+
 {  
+
   "customer": {  
+
     "identification": "c0001",  
+
     "extraData": {  
+
       "FORTER_CUSTOMER_LAST_LOGINIP": "203.12.55.12",  
+
       "FORTER_CUSTOMER_BILLING_ADDRESS_TYPE": "HOME"  
+
     }  
+
   }  
+
 }  
 
 ```
@@ -643,4 +653,696 @@ User defined label that categorizes the transaction.  | string  | european_custo
 User defined code specifying the type of Terminal at the Point of transaction.  | string  |   |  
 |  **`FRAUDNET_PAYMENT_ACTIVE_ON`**  
   
-Format: ISO 8601  | string  | 2022-03-26T18:14:29Z  |
+Format: ISO 8601  | string  | 2022-03-26T18:14:29Z  |  
+```
+
+{  
+
+  "customer": {  
+
+    "identification": "c0001",  
+
+    "extraData": {  
+
+      "FORTER_CUSTOMER_LAST_LOGINIP": "203.12.55.12",  
+
+      "FORTER_CUSTOMER_BILLING_ADDRESS_TYPE": "HOME"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "customer": {  
+
+    "identification": "c0001",  
+
+    "extraData": {  
+
+      "FORTER_CUSTOMER_LAST_LOGINIP": "203.12.55.12",  
+
+      "FORTER_CUSTOMER_BILLING_ADDRESS_TYPE": "HOME"  
+
+    }  
+
+  }  
+
+}  
+
+```
+  
+| Name  | Type  | Example values  |  
+| --- | --- | --- |  
+| **`FORTER_CUSTOMER_PAST_ORDERS_COUNT`** |  optional integer  | 0  |  
+| **`FORTER_CUSTOMER_PAST_ORDERS_SUM_USD`** |  optional decmimal  | 0.00  |  
+| **`FORTER_CUSTOMER_LAST_LOGINIP`** |  string  | 203.12.55.12  |  
+| **`FORTER_CUSTOMER_REGISTRATION_IP`** |  string  | 203.12.55.12  |  
+|  **`FORTER_CUSTOMER_ACCOUNT_TYPE`**  
+  
+optional  | string  |   |  
+|  **`FORTER_CUSTOMER_BILLING_ADDRESS_TYPE`**  
+  
+conditional Possible values are: "HOME", "BUSINESS", "OTHER"  | string  | HOME  |  
+|  **`FORTER_CUSTOMER_BILLING_CREATION_TIME`**  
+  
+conditional Time item was first entered by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448549922  |  
+|  **`FORTER_CUSTOMER_BILLING_REMOVAL_TIME`**  
+  
+conditional Time item was removed by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448895522  |  
+|  **`FORTER_CUSTOMER_BILLING_SUGGESTED_CORRECT_ADDRESS`**  
+  
+conditional True if customer selected a corrected address suggested by merchant (For example in cases where customer entered wrong zipcode)  | boolean  | 0/1  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_TYPE`**  
+  
+required ype of document (Passport, ID, Driving license) Maximum length is 35 characters.  | string  | Passport  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_SOURCE`**  
+  
+required Source of document (e.g. uploaded file, captured by camera, typed in by customer, etc.) Possible values are: "CAMERA_CAPTURED", "UPLOADED_FILE", "TYPED", "OTHER"  | string  | UPLOADED_FILE  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_NATIONALITY`**  
+  
+conditional Document holder's nationality  | string  | US  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_ISSUING_STATE`**  
+  
+conditional Document issuing state or region  | string  | NY  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_NUMBER`**  
+  
+conditional Official document's number (e.g. passport number, driving license number, etc.)  | string  | 20439190  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_FIRSTNAME`**  
+  
+conditional First name as appears on the document  | string  | John  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_LASTNAME`**  
+  
+conditional Last name as appears on the document  | string  | Smith  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_DATEOFBIRTH`**  
+  
+conditional Date of birth as appears on the document. Use YYYY-MM-DD format.  | string  | 1982-04-23  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_EXPIRATION`**  
+  
+conditional Document's exipration date. Use YYYY-MM-DD format.  | string  | 2025-04-23  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_PAYLOAD`**  
+  
+conditional JSON Response payload received from 3rd party document verification  | string JSON  | {}  |  
+|  **`FORTER_CUSTOMER_SHIPPING_EMAIL`**  
+  
+optional  | string  |   |  
+|  **`FORTER_CUSTOMER_SHIPPING_ADDRESS_TYPE`**  
+  
+conditional Possible values are: "HOME", "BUSINESS", "OTHER"  | string  | HOME  |  
+|  **`FORTER_CUSTOMER_SHIPPING_CREATION_TIME`**  
+  
+conditional Time item was first entered by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448549922  |  
+|  **`FORTER_CUSTOMER_SHIPPING_REMOVAL_TIME`**  
+  
+conditional Time item was removed by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448895522  |  
+|  **`FORTER_CUSTOMER_SHIPPING_SUGGESTED_CORRECT_ADDRESS`**  
+  
+conditional True if customer selected a corrected address suggested by merchant (For example in cases where customer entered wrong zipcode)  | boolean  | 0/1  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_TYPE`**  
+  
+required ype of document (Passport, ID, Driving license) Maximum length is 35 characters.  | string  | Passport  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_SOURCE`**  
+  
+required Source of document (e.g. uploaded file, captured by camera, typed in by customer, etc.) Possible values are: "CAMERA_CAPTURED", "UPLOADED_FILE", "TYPED", "OTHER"  | string  | UPLOADED_FILE  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_NATIONALITY`**  
+  
+conditional Document holder's nationality  | string  | US  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_ISSUING_STATE`**  
+  
+conditional Document issuing state or region  | string  | NY  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_NUMBER`**  
+  
+conditional Official document's number (e.g. passport number, driving license number, etc.)  | string  | 20439190  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_FIRSTNAME`**  
+  
+conditional First name as appears on the document  | string  | John  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_LASTNAME`**  
+  
+conditional Last name as appears on the document  | string  | Smith  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_DATEOFBIRTH`**  
+  
+conditional Date of birth as appears on the document. Use YYYY-MM-DD format.  | string  | 1982-04-23  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_EXPIRATION`**  
+  
+conditional Document's exipration date. Use YYYY-MM-DD format.  | string  | 2025-04-23  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_PAYLOAD`**  
+  
+conditional JSON Response payload received from 3rd party document verification  | string JSON  | {}  |  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+```
+
+{  
+
+  "customer": {  
+
+    "identification": "c0001",  
+
+    "extraData": {  
+
+      "FORTER_CUSTOMER_LAST_LOGINIP": "203.12.55.12",  
+
+      "FORTER_CUSTOMER_BILLING_ADDRESS_TYPE": "HOME"  
+
+    }  
+
+  }  
+
+}  
+
+```
+  
+| Name  | Type  | Example values  |  
+| --- | --- | --- |  
+| **`FORTER_CUSTOMER_PAST_ORDERS_COUNT`** |  optional integer  | 0  |  
+| **`FORTER_CUSTOMER_PAST_ORDERS_SUM_USD`** |  optional decmimal  | 0.00  |  
+| **`FORTER_CUSTOMER_LAST_LOGINIP`** |  string  | 203.12.55.12  |  
+| **`FORTER_CUSTOMER_REGISTRATION_IP`** |  string  | 203.12.55.12  |  
+|  **`FORTER_CUSTOMER_ACCOUNT_TYPE`**  
+  
+optional  | string  |   |  
+|  **`FORTER_CUSTOMER_BILLING_ADDRESS_TYPE`**  
+  
+conditional Possible values are: "HOME", "BUSINESS", "OTHER"  | string  | HOME  |  
+|  **`FORTER_CUSTOMER_BILLING_CREATION_TIME`**  
+  
+conditional Time item was first entered by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448549922  |  
+|  **`FORTER_CUSTOMER_BILLING_REMOVAL_TIME`**  
+  
+conditional Time item was removed by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448895522  |  
+|  **`FORTER_CUSTOMER_BILLING_SUGGESTED_CORRECT_ADDRESS`**  
+  
+conditional True if customer selected a corrected address suggested by merchant (For example in cases where customer entered wrong zipcode)  | boolean  | 0/1  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_TYPE`**  
+  
+required ype of document (Passport, ID, Driving license) Maximum length is 35 characters.  | string  | Passport  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_SOURCE`**  
+  
+required Source of document (e.g. uploaded file, captured by camera, typed in by customer, etc.) Possible values are: "CAMERA_CAPTURED", "UPLOADED_FILE", "TYPED", "OTHER"  | string  | UPLOADED_FILE  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_NATIONALITY`**  
+  
+conditional Document holder's nationality  | string  | US  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_ISSUING_STATE`**  
+  
+conditional Document issuing state or region  | string  | NY  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_NUMBER`**  
+  
+conditional Official document's number (e.g. passport number, driving license number, etc.)  | string  | 20439190  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_FIRSTNAME`**  
+  
+conditional First name as appears on the document  | string  | John  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_LASTNAME`**  
+  
+conditional Last name as appears on the document  | string  | Smith  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_DATEOFBIRTH`**  
+  
+conditional Date of birth as appears on the document. Use YYYY-MM-DD format.  | string  | 1982-04-23  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_EXPIRATION`**  
+  
+conditional Document's exipration date. Use YYYY-MM-DD format.  | string  | 2025-04-23  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_PAYLOAD`**  
+  
+conditional JSON Response payload received from 3rd party document verification  | string JSON  | {}  |  
+|  **`FORTER_CUSTOMER_SHIPPING_EMAIL`**  
+  
+optional  | string  |   |  
+|  **`FORTER_CUSTOMER_SHIPPING_ADDRESS_TYPE`**  
+  
+conditional Possible values are: "HOME", "BUSINESS", "OTHER"  | string  | HOME  |  
+|  **`FORTER_CUSTOMER_SHIPPING_CREATION_TIME`**  
+  
+conditional Time item was first entered by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448549922  |  
+|  **`FORTER_CUSTOMER_SHIPPING_REMOVAL_TIME`**  
+  
+conditional Time item was removed by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448895522  |  
+|  **`FORTER_CUSTOMER_SHIPPING_SUGGESTED_CORRECT_ADDRESS`**  
+  
+conditional True if customer selected a corrected address suggested by merchant (For example in cases where customer entered wrong zipcode)  | boolean  | 0/1  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_TYPE`**  
+  
+required ype of document (Passport, ID, Driving license) Maximum length is 35 characters.  | string  | Passport  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_SOURCE`**  
+  
+required Source of document (e.g. uploaded file, captured by camera, typed in by customer, etc.) Possible values are: "CAMERA_CAPTURED", "UPLOADED_FILE", "TYPED", "OTHER"  | string  | UPLOADED_FILE  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_NATIONALITY`**  
+  
+conditional Document holder's nationality  | string  | US  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_ISSUING_STATE`**  
+  
+conditional Document issuing state or region  | string  | NY  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_NUMBER`**  
+  
+conditional Official document's number (e.g. passport number, driving license number, etc.)  | string  | 20439190  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_FIRSTNAME`**  
+  
+conditional First name as appears on the document  | string  | John  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_LASTNAME`**  
+  
+conditional Last name as appears on the document  | string  | Smith  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_DATEOFBIRTH`**  
+  
+conditional Date of birth as appears on the document. Use YYYY-MM-DD format.  | string  | 1982-04-23  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_EXPIRATION`**  
+  
+conditional Document's exipration date. Use YYYY-MM-DD format.  | string  | 2025-04-23  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_PAYLOAD`**  
+  
+conditional JSON Response payload received from 3rd party document verification  | string JSON  | {}  |  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+```
+
+{  
+
+  "customer": {  
+
+    "identification": "c0001",  
+
+    "extraData": {  
+
+      "FORTER_CUSTOMER_LAST_LOGINIP": "203.12.55.12",  
+
+      "FORTER_CUSTOMER_BILLING_ADDRESS_TYPE": "HOME"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "customer": {  
+
+    "identification": "c0001",  
+
+    "extraData": {  
+
+      "FORTER_CUSTOMER_LAST_LOGINIP": "203.12.55.12",  
+
+      "FORTER_CUSTOMER_BILLING_ADDRESS_TYPE": "HOME"  
+
+    }  
+
+  }  
+
+}  
+
+```
+  
+| Name  | Type  | Example values  |  
+| --- | --- | --- |  
+| **`FORTER_CUSTOMER_PAST_ORDERS_COUNT`** |  optional integer  | 0  |  
+| **`FORTER_CUSTOMER_PAST_ORDERS_SUM_USD`** |  optional decmimal  | 0.00  |  
+| **`FORTER_CUSTOMER_LAST_LOGINIP`** |  string  | 203.12.55.12  |  
+| **`FORTER_CUSTOMER_REGISTRATION_IP`** |  string  | 203.12.55.12  |  
+|  **`FORTER_CUSTOMER_ACCOUNT_TYPE`**  
+  
+optional  | string  |   |  
+|  **`FORTER_CUSTOMER_BILLING_ADDRESS_TYPE`**  
+  
+conditional Possible values are: "HOME", "BUSINESS", "OTHER"  | string  | HOME  |  
+|  **`FORTER_CUSTOMER_BILLING_CREATION_TIME`**  
+  
+conditional Time item was first entered by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448549922  |  
+|  **`FORTER_CUSTOMER_BILLING_REMOVAL_TIME`**  
+  
+conditional Time item was removed by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448895522  |  
+|  **`FORTER_CUSTOMER_BILLING_SUGGESTED_CORRECT_ADDRESS`**  
+  
+conditional True if customer selected a corrected address suggested by merchant (For example in cases where customer entered wrong zipcode)  | boolean  | 0/1  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_TYPE`**  
+  
+required ype of document (Passport, ID, Driving license) Maximum length is 35 characters.  | string  | Passport  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_SOURCE`**  
+  
+required Source of document (e.g. uploaded file, captured by camera, typed in by customer, etc.) Possible values are: "CAMERA_CAPTURED", "UPLOADED_FILE", "TYPED", "OTHER"  | string  | UPLOADED_FILE  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_NATIONALITY`**  
+  
+conditional Document holder's nationality  | string  | US  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_ISSUING_STATE`**  
+  
+conditional Document issuing state or region  | string  | NY  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_NUMBER`**  
+  
+conditional Official document's number (e.g. passport number, driving license number, etc.)  | string  | 20439190  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_FIRSTNAME`**  
+  
+conditional First name as appears on the document  | string  | John  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_LASTNAME`**  
+  
+conditional Last name as appears on the document  | string  | Smith  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_DATEOFBIRTH`**  
+  
+conditional Date of birth as appears on the document. Use YYYY-MM-DD format.  | string  | 1982-04-23  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_EXPIRATION`**  
+  
+conditional Document's exipration date. Use YYYY-MM-DD format.  | string  | 2025-04-23  |  
+|  **`FORTER_CUSTOMER_BILLING_VERIFICATION_DOCUMENT_PAYLOAD`**  
+  
+conditional JSON Response payload received from 3rd party document verification  | string JSON  | {}  |  
+|  **`FORTER_CUSTOMER_SHIPPING_EMAIL`**  
+  
+optional  | string  |   |  
+|  **`FORTER_CUSTOMER_SHIPPING_ADDRESS_TYPE`**  
+  
+conditional Possible values are: "HOME", "BUSINESS", "OTHER"  | string  | HOME  |  
+|  **`FORTER_CUSTOMER_SHIPPING_CREATION_TIME`**  
+  
+conditional Time item was first entered by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448549922  |  
+|  **`FORTER_CUSTOMER_SHIPPING_REMOVAL_TIME`**  
+  
+conditional Time item was removed by customer in seconds since unix epoch (UTC, Jan 1, 1970)  | number  | 1448895522  |  
+|  **`FORTER_CUSTOMER_SHIPPING_SUGGESTED_CORRECT_ADDRESS`**  
+  
+conditional True if customer selected a corrected address suggested by merchant (For example in cases where customer entered wrong zipcode)  | boolean  | 0/1  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_TYPE`**  
+  
+required ype of document (Passport, ID, Driving license) Maximum length is 35 characters.  | string  | Passport  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_SOURCE`**  
+  
+required Source of document (e.g. uploaded file, captured by camera, typed in by customer, etc.) Possible values are: "CAMERA_CAPTURED", "UPLOADED_FILE", "TYPED", "OTHER"  | string  | UPLOADED_FILE  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_NATIONALITY`**  
+  
+conditional Document holder's nationality  | string  | US  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_ISSUING_STATE`**  
+  
+conditional Document issuing state or region  | string  | NY  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_NUMBER`**  
+  
+conditional Official document's number (e.g. passport number, driving license number, etc.)  | string  | 20439190  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_FIRSTNAME`**  
+  
+conditional First name as appears on the document  | string  | John  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_LASTNAME`**  
+  
+conditional Last name as appears on the document  | string  | Smith  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_DATEOFBIRTH`**  
+  
+conditional Date of birth as appears on the document. Use YYYY-MM-DD format.  | string  | 1982-04-23  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_EXPIRATION`**  
+  
+conditional Document's exipration date. Use YYYY-MM-DD format.  | string  | 2025-04-23  |  
+|  **`FORTER_CUSTOMER_SHIPPING_VERIFICATION_DOCUMENT_PAYLOAD`**  
+  
+conditional JSON Response payload received from 3rd party document verification  | string JSON  | {}  |

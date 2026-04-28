@@ -12,9 +12,9 @@ tags:
 - amex-safekey-https-documentation-ixopay-com-modules-docs-tokenex-brand-specific-guidelines-amex-safekey-direct-link-amex-safekey
 - authentications-challenge-results-response-https-documentation-ixopay-com-modules-docs-tokenex-brand-specific-guidelines-authentications-challenge-results-response-direct-link-authentications-challenge-results-response
 - jcb-secure-https-documentation-ixopay-com-modules-docs-tokenex-brand-specific-guidelines-jcb-jsecure-direct-link-jcb-secure
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -131,28 +131,40 @@ These authentication value prefixes were added specifically for recurring paymen
 **Request and Response snippet examples**
   * Authentication Request for the initial/first recurring transaction
   * Authentication Response
-
 ```
+
 {  
+
   "DeviceChannel": 2, // Browser  
+
   "MessageCategory": 1, // Payment Authentication  
+
   "AuthenticationIndicator": 2, // Recurring  
+
   "ChallengeIndicator": "03" // A challenge is requested due to merchant preference  
+
   // remainder of request  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "threeDSecureResponse": {  
+
     "transStatus": "Y",  
+
     "eci": "02",  
+
     "authenticationValue": "kB..." // ellipses in lieu of suffix  
+
    // remainder of response  
+
 }  
 
-##### 2.2.0[​](https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines#220 "Direct link to 2.2.0")
+```##### 2.2.0[​](https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines#220 "Direct link to 2.2.0")
 The request parameters described above for 2.1.0 are the same for version 2.2.0, though in 2.2.0 - all subsequent transactions that are part of a recurring payment should be sent as a 3RI transaction and include the below authentications request parameters.
 **Authentication parameters for a subsequent recurring transaction**  
 | Request Param  | Value and Details  |  
@@ -169,28 +181,44 @@ The request parameters described above for 2.1.0 are the same for version 2.2.0,
 **Request and Response snippet examples**
   * Authentication Request for subsequent recurring transaction
   * Authentication Response
-
 ```
+
 {  
+
   "MessageCategory": 1, // Payment Authentication  
+
   "DeviceChannel": 3, // 3RI  
+
   "ThreeRIIndicator": 1, // Recurring Transaction  
+
   "PriorAuthenticationInformation": {  
+
     "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
   }  
+
   // remainder of request  
+
 }  
 
 ```
+```
+
 {  
+
   "threeDSecureResponse": {  
+
     "transStatus": "Y",  
+
     "eci": "07",  
+
     "authenticationValue": "kO..." // ellipses in lieu of suffix  
+
   // remainder of response  
+
 }  
 
-#### EU Specific Guidelines[​](https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines#eu-specific-guidelines "Direct link to EU Specific Guidelines")
+```#### EU Specific Guidelines[​](https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines#eu-specific-guidelines "Direct link to EU Specific Guidelines")
 According to the Article 14 in EEA, an authentication is required for the first transaction of the recurring payments with the below mentioned guidelines.  
 | Authentication Request Param  | Value and Details  |  
 | --- | --- |  
@@ -215,27 +243,42 @@ Refer to the below tables for more details of such recurring payment scenario.
 **Request and Response snippet examples**
   * IDCI Authentication Request for subsequent recurring transaction
   * Authentication Response
-
 ```
+
 {  
+
   "MessageCategory": 80, // IDCI  
+
     "DeviceChannel": 3, // 3RI  
+
     "ThreeRIIndicator": 1, // Recurring Transaction  
+
     "PriorAuthenticationInformation": {  
+
       "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
     }  
+
   // remainder of request  
+
 }  
 
 ```
+```
+
 {  
+
   "threeDSecureResponse": {  
+
     "transStatus": "U",  
+
     "eci": "04",  
+
   // remainder of response  
+
 }  
 
-For unregulated markets where there are no regulations regarding Strong Customer Authentication, the IDCI message category —used with APP or BRW device channels— can be used for recurring payments initial or first transaction and use 3RI IDCI with subsequent transactions.
+```For unregulated markets where there are no regulations regarding Strong Customer Authentication, the IDCI message category —used with APP or BRW device channels— can be used for recurring payments initial or first transaction and use 3RI IDCI with subsequent transactions.
 Refer to the below table for more details of such recurring payment scenario:
 **Authentication parameters for an initial/first recurring transaction**  
 | Request Param  | Value and Details  |  
@@ -477,4 +520,651 @@ The liability for a fraudulent transaction is shifted to the merchant based off 
 | --- | --- | --- |  
 | Merchant asks for frictionless authentication  | Liability holder is the merchant if the authentications request's ChallengeIndicator had the value of 2.  | Liability holder is Issuer.  |  
 | Merchant requests a challenge  | Liability holder is Issuer.  | Liability holder is Issuer.  |  
-| Merchant has no preference  | Liability holder is Issuer.  | Liability holder is Issuer.  |
+| Merchant has no preference  | Liability holder is Issuer.  | Liability holder is Issuer.  |  
+  
+  
+```
+
+{  
+
+  "DeviceChannel": 2, // Browser  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "AuthenticationIndicator": 2, // Recurring  
+
+  "ChallengeIndicator": "03" // A challenge is requested due to merchant preference  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "02",  
+
+    "authenticationValue": "kB..." // ellipses in lieu of suffix  
+
+   // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "DeviceChannel": 3, // 3RI  
+
+  "ThreeRIIndicator": 1, // Recurring Transaction  
+
+  "PriorAuthenticationInformation": {  
+
+    "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+  }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "07",  
+
+    "authenticationValue": "kO..." // ellipses in lieu of suffix  
+
+  // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 80, // IDCI  
+
+    "DeviceChannel": 3, // 3RI  
+
+    "ThreeRIIndicator": 1, // Recurring Transaction  
+
+    "PriorAuthenticationInformation": {  
+
+      "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+    }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "U",  
+
+    "eci": "04",  
+
+  // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "DeviceChannel": 2, // Browser  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "AuthenticationIndicator": 2, // Recurring  
+
+  "ChallengeIndicator": "03" // A challenge is requested due to merchant preference  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "02",  
+
+    "authenticationValue": "kB..." // ellipses in lieu of suffix  
+
+   // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "DeviceChannel": 3, // 3RI  
+
+  "ThreeRIIndicator": 1, // Recurring Transaction  
+
+  "PriorAuthenticationInformation": {  
+
+    "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+  }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "07",  
+
+    "authenticationValue": "kO..." // ellipses in lieu of suffix  
+
+  // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 80, // IDCI  
+
+    "DeviceChannel": 3, // 3RI  
+
+    "ThreeRIIndicator": 1, // Recurring Transaction  
+
+    "PriorAuthenticationInformation": {  
+
+      "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+    }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "U",  
+
+    "eci": "04",  
+
+  // remainder of response  
+
+}  
+
+```**Rules and Validations**  
+| Request Param  | Applicability  | Comments  |  
+| --- | --- | --- |  
+| RequestorId  | Required  | This field should be set with the SIRET Number, either of the Merchant or of other entity for which Cardholder authentication is necessary as identified by the Cardholder when initiating the transaction.   
+  
+- If transaction is to be processed by a CB acquirer but NOT for a payment/enrolment with a Wallet approved by CB, then the SIRET Number of the 3DS Requestor (numeric value on 14 characters) must be provided   
+- If transaction is to be processed by a CB acquirer for a payment/enrolment with a Wallet approved by CB, then the SIRET Number of the 3DS Requestor (numeric value on 14 characters) + ‘Identifiant Wallet’ of the approved Wallet (numeric value on 20 characters) must be provided,**If transaction processed by a CB acquirer NOT for a payment/enrolment with a Wallet approved by CB** :CB2A field 47 / 96 = SIRET Number of the 3DS Requestor (numeric value on 14 characters)**If transaction processed by a CB acquirer for a payment/enrolment with a Wallet approved by CB** :CB2A field 47 / 96 + CB2A field 59 / 0418 = SIRET Number of the 3DS Requestor + WalletID of the approved Wallet (numeric value on 20 characters) I**If transaction NOT processed by a CB acquirer** : Follow international scheme 3DS Requestor ID  |  
+| RequestorName  | Required  | This field should be set with the name that must be displayed by the ACS in the 3-D Secure UI when it summarizes the operation for cardholder authentication (e.g. on the Challenge UI).   
+  
+If the merchant name field _is present_ in the request, then fill this field with the same value.   
+  
+If the merchant name _is not present_ in the request, then provide the commercial name of the 3DS Requestor.  |  
+| AcquirerBin  | CB DS has specific provisions for Acquirer BIN if the transaction will be CB Acquired  |  **If transaction processed by a CB acquirer** : Same as in authorization request = CB2A field 32 (11 characters with a numeric value) = Acquirer BIN (6 characters) + Bank Code (5 characters)   
+  
+**If transaction NOT processed by a CB acquirer** : Acquirer BIN should be of the Global Network  |  
+| MerchantDetails.AcquirerMerchantId  | CB DS has specific provisions for Acquirer BIN if the transaction will be CB Acquired  |  **If transaction processed by a CB acquirer** : Same as in 3DS v1 authentication requests = CB2A field 42 (15 characters blank-padded on the right) + “-” (1 character) + CB2A field 41 (8 characters blank-padded on the right) e.g. 123456789**_____**_-1236_ ____   
+  
+**If transaction NOT processed by a CB acquirer** : Acquirer BIN should be of the Global Network  |  
+| MerchantDetails.CountryCode  |  2.1.0 and 2.2.0, Required for message category PA.   
+Optional for message category NPA  | This field accepts an additional value. 900 - Country Unknown  |  
+| AccountInfo.PurchaseAccount  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-9999 (9999 if more than 9999 transactions)  |  
+| AccountInfo.PaymentAccountAgeIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01, 02, 03, 04 and 05  |  
+| AccountInfo.ProvisioningAttemptsPerDay  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-999 (999 if more than 999 transactions)  |  
+| AccountInfo.ShippingAddressUsageIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01, 02, 03 and 04  |  
+| AccountInfo.ShippingNameIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01 and 02  |  
+| AccountInfo.SuspiciousAccountActivity  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01 and 02  |  
+| AccountInfo.TransactionsPerDay  | CB DS has specific provisions for values within the Account Info sub-elements. Rather than recommended, this field is optional.  | Allowed values: 0-999 (999 if more than 999 transactions).  |  
+| AccountInfo.TransactionsPerYear  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-999 (999 if more than 999 transactions)  |  
+| BrowserInfo.IpAddress  | Element is _required_ if Device Channel is BRW and transaction processed by a CB acquirer, else _recommended_ for frictionless if Device Channel = BRW and transaction _not_ processed by a CB acquirer.  | If transaction submitted via a CB Acquirer and Device Channel is BRW, then the CB DS will validate as a required field.   
+  
+Otherwise validated as a recommended field for frictionless if Device Channel is BRW and transaction is not processed by a CB acquirer.  |  
+| MerchantDetails.RiskIndicator  | Recommended for frictionless authentication.  | Additional values accepted.   
+80 - pick up n go delivery.   
+81 - locker delivery or other automated pick-up.  |  
+| ChallengeIndicator  | See [Liability Shift](https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines#cartes-bancaires-liability-shift)  | Additional value is accepted that is applicable to message category PA. 90 - CB Scoring Data.  |  
+| PriorAuthenticationInformation.PriorTransactionReference  | Recommended for frictionless authentication.  | If transaction is to be processed by a CB acquirer for a payment with a Wallet approved by CB, then the value to be provided is the ACS Transaction ID of the 3DS operation performed to authenticate the enrolment on the approved Wallet  |  
+```
+
+{  
+
+  "DeviceChannel": 2, // Browser  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "AuthenticationIndicator": 2, // Recurring  
+
+  "ChallengeIndicator": "03" // A challenge is requested due to merchant preference  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "02",  
+
+    "authenticationValue": "kB..." // ellipses in lieu of suffix  
+
+   // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "DeviceChannel": 3, // 3RI  
+
+  "ThreeRIIndicator": 1, // Recurring Transaction  
+
+  "PriorAuthenticationInformation": {  
+
+    "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+  }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "07",  
+
+    "authenticationValue": "kO..." // ellipses in lieu of suffix  
+
+  // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 80, // IDCI  
+
+    "DeviceChannel": 3, // 3RI  
+
+    "ThreeRIIndicator": 1, // Recurring Transaction  
+
+    "PriorAuthenticationInformation": {  
+
+      "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+    }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "U",  
+
+    "eci": "04",  
+
+  // remainder of response  
+
+}  
+
+```**Rules and Validations**  
+| Request Param  | Applicability  | Comments  |  
+| --- | --- | --- |  
+| RequestorId  | Required  | This field should be set with the SIRET Number, either of the Merchant or of other entity for which Cardholder authentication is necessary as identified by the Cardholder when initiating the transaction.   
+  
+- If transaction is to be processed by a CB acquirer but NOT for a payment/enrolment with a Wallet approved by CB, then the SIRET Number of the 3DS Requestor (numeric value on 14 characters) must be provided   
+- If transaction is to be processed by a CB acquirer for a payment/enrolment with a Wallet approved by CB, then the SIRET Number of the 3DS Requestor (numeric value on 14 characters) + ‘Identifiant Wallet’ of the approved Wallet (numeric value on 20 characters) must be provided,**If transaction processed by a CB acquirer NOT for a payment/enrolment with a Wallet approved by CB** :CB2A field 47 / 96 = SIRET Number of the 3DS Requestor (numeric value on 14 characters)**If transaction processed by a CB acquirer for a payment/enrolment with a Wallet approved by CB** :CB2A field 47 / 96 + CB2A field 59 / 0418 = SIRET Number of the 3DS Requestor + WalletID of the approved Wallet (numeric value on 20 characters) I**If transaction NOT processed by a CB acquirer** : Follow international scheme 3DS Requestor ID  |  
+| RequestorName  | Required  | This field should be set with the name that must be displayed by the ACS in the 3-D Secure UI when it summarizes the operation for cardholder authentication (e.g. on the Challenge UI).   
+  
+If the merchant name field _is present_ in the request, then fill this field with the same value.   
+  
+If the merchant name _is not present_ in the request, then provide the commercial name of the 3DS Requestor.  |  
+| AcquirerBin  | CB DS has specific provisions for Acquirer BIN if the transaction will be CB Acquired  |  **If transaction processed by a CB acquirer** : Same as in authorization request = CB2A field 32 (11 characters with a numeric value) = Acquirer BIN (6 characters) + Bank Code (5 characters)   
+  
+**If transaction NOT processed by a CB acquirer** : Acquirer BIN should be of the Global Network  |  
+| MerchantDetails.AcquirerMerchantId  | CB DS has specific provisions for Acquirer BIN if the transaction will be CB Acquired  |  **If transaction processed by a CB acquirer** : Same as in 3DS v1 authentication requests = CB2A field 42 (15 characters blank-padded on the right) + “-” (1 character) + CB2A field 41 (8 characters blank-padded on the right) e.g. 123456789**_____**_-1236_ ____   
+  
+**If transaction NOT processed by a CB acquirer** : Acquirer BIN should be of the Global Network  |  
+| MerchantDetails.CountryCode  |  2.1.0 and 2.2.0, Required for message category PA.   
+Optional for message category NPA  | This field accepts an additional value. 900 - Country Unknown  |  
+| AccountInfo.PurchaseAccount  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-9999 (9999 if more than 9999 transactions)  |  
+| AccountInfo.PaymentAccountAgeIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01, 02, 03, 04 and 05  |  
+| AccountInfo.ProvisioningAttemptsPerDay  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-999 (999 if more than 999 transactions)  |  
+| AccountInfo.ShippingAddressUsageIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01, 02, 03 and 04  |  
+| AccountInfo.ShippingNameIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01 and 02  |  
+| AccountInfo.SuspiciousAccountActivity  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01 and 02  |  
+| AccountInfo.TransactionsPerDay  | CB DS has specific provisions for values within the Account Info sub-elements. Rather than recommended, this field is optional.  | Allowed values: 0-999 (999 if more than 999 transactions).  |  
+| AccountInfo.TransactionsPerYear  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-999 (999 if more than 999 transactions)  |  
+| BrowserInfo.IpAddress  | Element is _required_ if Device Channel is BRW and transaction processed by a CB acquirer, else _recommended_ for frictionless if Device Channel = BRW and transaction _not_ processed by a CB acquirer.  | If transaction submitted via a CB Acquirer and Device Channel is BRW, then the CB DS will validate as a required field.   
+  
+Otherwise validated as a recommended field for frictionless if Device Channel is BRW and transaction is not processed by a CB acquirer.  |  
+| MerchantDetails.RiskIndicator  | Recommended for frictionless authentication.  | Additional values accepted.   
+80 - pick up n go delivery.   
+81 - locker delivery or other automated pick-up.  |  
+| ChallengeIndicator  | See [Liability Shift](https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines#cartes-bancaires-liability-shift)  | Additional value is accepted that is applicable to message category PA. 90 - CB Scoring Data.  |  
+| PriorAuthenticationInformation.PriorTransactionReference  | Recommended for frictionless authentication.  | If transaction is to be processed by a CB acquirer for a payment with a Wallet approved by CB, then the value to be provided is the ACS Transaction ID of the 3DS operation performed to authenticate the enrolment on the approved Wallet  |  
+```
+
+{  
+
+  "DeviceChannel": 2, // Browser  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "AuthenticationIndicator": 2, // Recurring  
+
+  "ChallengeIndicator": "03" // A challenge is requested due to merchant preference  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "02",  
+
+    "authenticationValue": "kB..." // ellipses in lieu of suffix  
+
+   // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "DeviceChannel": 3, // 3RI  
+
+  "ThreeRIIndicator": 1, // Recurring Transaction  
+
+  "PriorAuthenticationInformation": {  
+
+    "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+  }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "07",  
+
+    "authenticationValue": "kO..." // ellipses in lieu of suffix  
+
+  // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 80, // IDCI  
+
+    "DeviceChannel": 3, // 3RI  
+
+    "ThreeRIIndicator": 1, // Recurring Transaction  
+
+    "PriorAuthenticationInformation": {  
+
+      "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+    }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "U",  
+
+    "eci": "04",  
+
+  // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "DeviceChannel": 2, // Browser  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "AuthenticationIndicator": 2, // Recurring  
+
+  "ChallengeIndicator": "03" // A challenge is requested due to merchant preference  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "02",  
+
+    "authenticationValue": "kB..." // ellipses in lieu of suffix  
+
+   // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 1, // Payment Authentication  
+
+  "DeviceChannel": 3, // 3RI  
+
+  "ThreeRIIndicator": 1, // Recurring Transaction  
+
+  "PriorAuthenticationInformation": {  
+
+    "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+  }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "Y",  
+
+    "eci": "07",  
+
+    "authenticationValue": "kO..." // ellipses in lieu of suffix  
+
+  // remainder of response  
+
+}  
+
+```
+```
+
+{  
+
+  "MessageCategory": 80, // IDCI  
+
+    "DeviceChannel": 3, // 3RI  
+
+    "ThreeRIIndicator": 1, // Recurring Transaction  
+
+    "PriorAuthenticationInformation": {  
+
+      "Data":"64d76f6d-e512-4aba-ae29-f7af0dc7db09" // DS Transaction ID of the initial or first recurring payment transaction  
+
+    }  
+
+  // remainder of request  
+
+}  
+
+```
+```
+
+{  
+
+  "threeDSecureResponse": {  
+
+    "transStatus": "U",  
+
+    "eci": "04",  
+
+  // remainder of response  
+
+}  
+
+```**Rules and Validations**  
+| Request Param  | Applicability  | Comments  |  
+| --- | --- | --- |  
+| RequestorId  | Required  | This field should be set with the SIRET Number, either of the Merchant or of other entity for which Cardholder authentication is necessary as identified by the Cardholder when initiating the transaction.   
+  
+- If transaction is to be processed by a CB acquirer but NOT for a payment/enrolment with a Wallet approved by CB, then the SIRET Number of the 3DS Requestor (numeric value on 14 characters) must be provided   
+- If transaction is to be processed by a CB acquirer for a payment/enrolment with a Wallet approved by CB, then the SIRET Number of the 3DS Requestor (numeric value on 14 characters) + ‘Identifiant Wallet’ of the approved Wallet (numeric value on 20 characters) must be provided,**If transaction processed by a CB acquirer NOT for a payment/enrolment with a Wallet approved by CB** :CB2A field 47 / 96 = SIRET Number of the 3DS Requestor (numeric value on 14 characters)**If transaction processed by a CB acquirer for a payment/enrolment with a Wallet approved by CB** :CB2A field 47 / 96 + CB2A field 59 / 0418 = SIRET Number of the 3DS Requestor + WalletID of the approved Wallet (numeric value on 20 characters) I**If transaction NOT processed by a CB acquirer** : Follow international scheme 3DS Requestor ID  |  
+| RequestorName  | Required  | This field should be set with the name that must be displayed by the ACS in the 3-D Secure UI when it summarizes the operation for cardholder authentication (e.g. on the Challenge UI).   
+  
+If the merchant name field _is present_ in the request, then fill this field with the same value.   
+  
+If the merchant name _is not present_ in the request, then provide the commercial name of the 3DS Requestor.  |  
+| AcquirerBin  | CB DS has specific provisions for Acquirer BIN if the transaction will be CB Acquired  |  **If transaction processed by a CB acquirer** : Same as in authorization request = CB2A field 32 (11 characters with a numeric value) = Acquirer BIN (6 characters) + Bank Code (5 characters)   
+  
+**If transaction NOT processed by a CB acquirer** : Acquirer BIN should be of the Global Network  |  
+| MerchantDetails.AcquirerMerchantId  | CB DS has specific provisions for Acquirer BIN if the transaction will be CB Acquired  |  **If transaction processed by a CB acquirer** : Same as in 3DS v1 authentication requests = CB2A field 42 (15 characters blank-padded on the right) + “-” (1 character) + CB2A field 41 (8 characters blank-padded on the right) e.g. 123456789**_____**_-1236_ ____   
+  
+**If transaction NOT processed by a CB acquirer** : Acquirer BIN should be of the Global Network  |  
+| MerchantDetails.CountryCode  |  2.1.0 and 2.2.0, Required for message category PA.   
+Optional for message category NPA  | This field accepts an additional value. 900 - Country Unknown  |  
+| AccountInfo.PurchaseAccount  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-9999 (9999 if more than 9999 transactions)  |  
+| AccountInfo.PaymentAccountAgeIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01, 02, 03, 04 and 05  |  
+| AccountInfo.ProvisioningAttemptsPerDay  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-999 (999 if more than 999 transactions)  |  
+| AccountInfo.ShippingAddressUsageIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01, 02, 03 and 04  |  
+| AccountInfo.ShippingNameIndicator  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01 and 02  |  
+| AccountInfo.SuspiciousAccountActivity  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 01 and 02  |  
+| AccountInfo.TransactionsPerDay  | CB DS has specific provisions for values within the Account Info sub-elements. Rather than recommended, this field is optional.  | Allowed values: 0-999 (999 if more than 999 transactions).  |  
+| AccountInfo.TransactionsPerYear  | CB DS has specific provisions for values within the Account Info sub-elements  | Allowed values: 0-999 (999 if more than 999 transactions)  |  
+| BrowserInfo.IpAddress  | Element is _required_ if Device Channel is BRW and transaction processed by a CB acquirer, else _recommended_ for frictionless if Device Channel = BRW and transaction _not_ processed by a CB acquirer.  | If transaction submitted via a CB Acquirer and Device Channel is BRW, then the CB DS will validate as a required field.   
+  
+Otherwise validated as a recommended field for frictionless if Device Channel is BRW and transaction is not processed by a CB acquirer.  |  
+| MerchantDetails.RiskIndicator  | Recommended for frictionless authentication.  | Additional values accepted.   
+80 - pick up n go delivery.   
+81 - locker delivery or other automated pick-up.  |  
+| ChallengeIndicator  | See [Liability Shift](https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines#cartes-bancaires-liability-shift)  | Additional value is accepted that is applicable to message category PA. 90 - CB Scoring Data.  |  
+| PriorAuthenticationInformation.PriorTransactionReference  | Recommended for frictionless authentication.  | If transaction is to be processed by a CB acquirer for a payment with a Wallet approved by CB, then the value to be provided is the ACS Transaction ID of the 3DS operation performed to authenticate the enrolment on the approved Wallet  |

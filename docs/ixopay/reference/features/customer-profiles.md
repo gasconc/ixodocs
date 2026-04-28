@@ -5,16 +5,16 @@ tags:
 - introduction-https-documentation-ixopay-com-docs-reference-features-customer-profiles-introduction-direct-link-introduction
 - cases-https-documentation-ixopay-com-docs-reference-features-customer-profiles-cases-direct-link-cases
 - creating-customer-profile-https-documentation-ixopay-com-docs-reference-features-customer-profiles-creating-customer-profile-direct-link-creating-customer-profile
-- customer-profiles-https-documentation-ixopay-com-docs-reference-features-customer-profiles-customer-profiles-direct-link-customer-profiles
 - retrieving-profile-information-https-documentation-ixopay-com-docs-reference-features-customer-profiles-retrieving-profile-information-direct-link-retrieving-profile-information
-- executing-transactions-https-documentation-ixopay-com-docs-reference-features-customer-profiles-executing-transactions-direct-link-executing-transactions
 - updating-profile-information-https-documentation-ixopay-com-docs-reference-features-customer-profiles-updating-profile-information-direct-link-updating-profile-information
 - deleting-profile-information-https-documentation-ixopay-com-docs-reference-features-customer-profiles-deleting-profile-information-direct-link-deleting-profile-information
 - managing-payment-instruments-https-documentation-ixopay-com-docs-reference-features-customer-profiles-managing-payment-instruments-direct-link-managing-payment-instruments
 - attaching-payment-instrument-https-documentation-ixopay-com-docs-reference-features-customer-profiles-attaching-payment-instrument-direct-link-attaching-payment-instrument
-source_url: ''
+- detaching-payment-instrument-https-documentation-ixopay-com-docs-reference-features-customer-profiles-detaching-payment-instrument-direct-link-detaching-payment-instrument
+- customer-profile-containers-https-documentation-ixopay-com-docs-reference-features-customer-profiles-customer-profile-containers-direct-link-customer-profile-containers
+source_url: https://documentation.ixopay.com/docs/reference/features/customer-profiles
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -51,125 +51,220 @@ The main use cases for customer profiles are:
 ## Creating a customer profile[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#creating-a-customer-profile "Direct link to Creating a customer profile")
 During a transaction request that includes the `customerProfileData` element, you can implicitly create a new customer profile. This request should be sent to the appropriate connector for the selected payment method. The `customerIdentification` field must be set during this transaction.
 The system will automatically use any data provided in the `customer` element for the customer profile's data. If the transaction is a [Register](https://documentation.ixopay.com/api/transaction/register) type or a [Debit](https://documentation.ixopay.com/api/transaction/debit)/[Preauthorize](https://documentation.ixopay.com/api/transaction/preauthorize) type with the `withRegister` flag set, the payment instrument will be stored within the customer profile for later usage on subsequent charges.
-Transaction request body```
-{  
-  "merchantTransactionId": "your-unique-identifier",  
-  // in this example we use the tokenized credit card from payment.js  
-  "transactionToken": "$CC_TOKEN",  
-  "description": "Purchase description shown on credit card statement.",  
-  "amount": "9.99",  
-  "currency": "EUR",  
-  "customer": {  
-    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
-    "billingCountry": "US",  
-    "birthDate": "1970-01-01",  
-    "email": "alex.smith@example.org"  
-  },  
-  "customerProfileData": {  
-    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
-    // Mark this as the preferred one for the future  
-    "markAsPreferred": true  
-  }  
-}  
-
+Transaction request body
 ```
 
-Once the transaction is successful, the system will automatically add the customer's registered payment instrument to the customer profile. Along with this, the response of the successful transaction will also include the `customerProfileData.profileGuid`. You can use this `profileGuid` to retrieve the full customer profile information, including the stored payment instruments, using the [`getProfile`](https://documentation.ixopay.com/api/customer-profiles/get-profile) call.
-Transaction response```
-HTTP/1.1 200 OK  
-Content-Type: application/json  
-  
 {  
-  "success": true,  
-  "uuid": "d94c0d72f3a36e21f16e",  
-  "purchaseId": "20260409-d94c0d72f3a36e21f16e",  
-  "returnType": "FINISHED",  
-  "paymentMethod": "Creditcard"  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // in this example we use the tokenized credit card from payment.js  
+
+  "transactionToken": "$CC_TOKEN",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
   "customerProfileData": {  
-    "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
     "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
-    "paymentToken": "pt::b639e636df17af782602"  
+
+    // Mark this as the preferred one for the future  
+
+    "markAsPreferred": true  
+
   }  
+
 }  
 
-## Using customer profiles[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#using-customer-profiles "Direct link to Using customer profiles")
+```Once the transaction is successful, the system will automatically add the customer's registered payment instrument to the customer profile. Along with this, the response of the successful transaction will also include the `customerProfileData.profileGuid`. You can use this `profileGuid` to retrieve the full customer profile information, including the stored payment instruments, using the [`getProfile`](https://documentation.ixopay.com/api/customer-profiles/get-profile) call.
+Transaction response
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+  "customerProfileData": {  
+
+    "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "paymentToken": "pt::b639e636df17af782602"  
+
+  }  
+
+}  
+
+```## Using customer profiles[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#using-customer-profiles "Direct link to Using customer profiles")
 Once a customer profile is set up, it can be used to retrieve profile information and to execute transactions.
 ### Retrieving profile information[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#retrieving-profile-information "Direct link to Retrieving profile information")
 You can retrieve the customer profile using the [`getProfile`](https://documentation.ixopay.com/api/customer-profiles/get-profile) call, which returns the stored payment instruments. The profile can be requested either via the `profileGuid` or via the `customerIdentification`.
   * Request by customer identification
   * Request by profile GUID
   * Response
-
 ```
+
 POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
 Host: gateway.ixopay.com  
+
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
 }  
+
 ```
+```
+
 POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
 Host: gateway.ixopay.com  
+
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
 }  
 
-getProfile response
+```getProfile response
 ```
+
 {  
+
   "success": true,  
+
   "profileExists": "true",  
+
   "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
   "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
   "preferredMethod": "Creditcard",  
+
   "customer": {  
+
     "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
     "billingCountry": "US",  
+
     "birthDate": "1970-01-01",  
+
     "email": "alex.smith@example.org"  
+
   },  
+
   "paymentInstruments": [  
+
     {  
+
       "_TYPE": "card",  
-      "createdAt": "2031-04-10 08:52:36",  
+
+      "createdAt": "2031-04-22 12:42:24",  
+
       "method": "card",  
+
       "paymentData": {  
+
         "_TYPE": "paymentData.card",  
+
         "brand": "visa",  
+
         "cardHolder": "Alex Smith",  
+
         "expiryMonth": 4,  
+
         "expiryYear": 2031,  
+
         "firstSixDigits": "411111",  
+
         "lastFourDigits": "1111"  
+
       },  
+
       "paymentToken": "pt::b639e636df17af782602",  
+
       "isPreferred": true  
+
     }  
+
   ]  
+
 }  
 
-### Executing transactions[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#executing-transactions "Direct link to Executing transactions")
+```### Executing transactions[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#executing-transactions "Direct link to Executing transactions")
 For transactions, the `paymentToken` of the selected instrument must be included within the `transactionToken` element of the transaction request.
-You can also designate a payment instrument as the preferred one by either using the `markAsPreferred` flag during the transaction that registers the instrument or specifying the `paymentToken` as the `preferredInstrument` when calling the [`updateProfile`](https://documentation.ixopay.com/api/customer-profiles/update-profile) endpoint.```
+You can also designate a payment instrument as the preferred one by either using the `markAsPreferred` flag during the transaction that registers the instrument or specifying the `paymentToken` as the `preferredInstrument` when calling the [`updateProfile`](https://documentation.ixopay.com/api/customer-profiles/update-profile) endpoint.
+```
+
 {  
+
   "merchantTransactionId": "your-unique-identifier",  
+
   // this is the paymentToken from the customer profile  
+
   "transactionToken": "pt::b639e636df17af782602",  
+
   "description": "Purchase description shown on credit card statement.",  
+
   "amount": "9.99",  
+
   "currency": "EUR",  
+
   "successUrl": "https://shop.example.org/checkout/success",  
+
   "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
   "errorUrl": "https://shop.example.org/checkout/error",  
+
   "callbackUrl": "https://api.example.org/callback"  
+
 }  
 
-Transaction execution and security considerations
+```Transaction execution and security considerations
 When dealing with transaction execution and customer profiles, it's essential to bear in mind the following key points:
   * If you're a merchant using multiple connectors and storing payment instruments to customer profiles, be aware that each payment instrument is tied to a specific connector. Use a [meta-connector](https://docs.ixopay.com/en/platform-user-administration-manual/connector/routing-cascading-balancing-fallback) when sending the transaction request. This guarantees that the transaction is appropriately routed to the correct connector linked to the stored payment instrument.
   * ⁮IXOPAY platform doesn't conduct any authentication for accessing a customer profile. Therefore, it's important for you to ensure that only authorized users can access a particular customer profile. You should only transmit a `profileGuid` or `customerIdentification` if the user is authorized.
@@ -190,22 +285,33 @@ You have the ability to permanently delete customer profiles using the [`deleteP
   * Request by customer identification
   * Request by profile GUID
   * Response
-
 ```
+
 {  
+
   "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
 }  
+
 ```
+```
+
 {  
+
   "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
 }  
 
 ```
+```
+
 {  
+
   "success": true  
+
 }  
 
-Please exercise caution when deleting profiles as this action is irreversible. Once a profile is deleted, all related customer data and payment details stored within that profile will be lost.
+```Please exercise caution when deleting profiles as this action is irreversible. Once a profile is deleted, all related customer data and payment details stored within that profile will be lost.
 ## Managing payment instruments[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#managing-payment-instruments "Direct link to Managing payment instruments")
 Customer profiles allow dynamic management of stored payment instruments. New payment instruments can be attached to a customer profile or detached from them when no longer needed.
 Deregister
@@ -224,47 +330,85 @@ Prerequisites
   * Request by customer identification and `createProfileIfNotExists`
   * Response
 ```
+
 POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
 Host: gateway.ixopay.com  
+
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "transactionUuid": "d94c0d72f3a36e21f16e",  
+
   "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
 }  
 
 ```
-POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
-Host: gateway.ixopay.com  
-Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
-Content-Type: application/json  
-  
-{  
-  "transactionUuid": "d94c0d72f3a36e21f16e",  
-  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
-}  
 ```
+
 POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
 Host: gateway.ixopay.com  
+
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
   "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
   "createProfileIfNotExists": true  
+
 }  
 
 ```
+```
+
 {  
+
   "success": true,  
+
   "message": "Payment instrument successfully attached to customer profile.",  
+
   "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
   "paymentToken": "pt::b639e636df17af782602"  
+
 }  
 
-#### Field descriptions[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#field-descriptions "Direct link to Field descriptions")  
+```#### Field descriptions[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#field-descriptions "Direct link to Field descriptions")  
 | Field  | Type  | Description  |  
 | --- | --- | --- |  
 | `transactionUuid`  | required`string`  | If provided, attaches the payment instrument to the specified existing profile.  |  
@@ -281,35 +425,60 @@ The referenced transaction must be attached to the customer profile provided in 
   * Request by profile GUID
   * Response
 ```
+
 POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
 Host: gateway.ixopay.com  
+
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "transactionUuid": "d94c0d72f3a36e21f16e",  
+
   "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
 }  
 
 ```
+```
+
 POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
 Host: gateway.ixopay.com  
+
 Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "transactionUuid": "d94c0d72f3a36e21f16e",  
+
   "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
 }  
 
 ```
+```
+
 {  
+
   "success": true,  
+
   "message": "Payment instrument successfully detached from customer profile.",  
+
   "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
 }  
 
-#### Field descriptions[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#field-descriptions-1 "Direct link to Field descriptions")  
+```#### Field descriptions[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#field-descriptions-1 "Direct link to Field descriptions")  
 | Field  | Type  | Description  |  
 | --- | --- | --- |  
 | `transactionUuid`  | required`string`  | UUID of the successful transaction that registered the payment instrument..  |  
@@ -328,8 +497,1104 @@ It's important to note that each `customerIdentification` must be unique per cus
 Upon its creation, a customer profile container is not automatically associated with any specific function. There are two main methods to utilize a customer profile container:
   1. Implement a [global setting](https://docs.ixopay.com/en/platform-user-administration-manual/connector/edit-connector/global-connector-settings) that assigns the customer profile container to all connectors of a given tenant. This setting is specific to a tenant and is not passed down to sub-tenants.
   2. Associate the customer profile container with each individual connector that should employ the customer profiles.
+```
 
-  * [Introduction](https://documentation.ixopay.com/docs/reference/features/customer-profiles#introduction)
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // in this example we use the tokenized credit card from payment.js  
+
+  "transactionToken": "$CC_TOKEN",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "customerProfileData": {  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    // Mark this as the preferred one for the future  
+
+    "markAsPreferred": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+  "customerProfileData": {  
+
+    "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "paymentToken": "pt::b639e636df17af782602"  
+
+  }  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "profileExists": "true",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "preferredMethod": "Creditcard",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "paymentInstruments": [  
+
+    {  
+
+      "_TYPE": "card",  
+
+      "createdAt": "2031-04-22 12:42:24",  
+
+      "method": "card",  
+
+      "paymentData": {  
+
+        "_TYPE": "paymentData.card",  
+
+        "brand": "visa",  
+
+        "cardHolder": "Alex Smith",  
+
+        "expiryMonth": 4,  
+
+        "expiryYear": 2031,  
+
+        "firstSixDigits": "411111",  
+
+        "lastFourDigits": "1111"  
+
+      },  
+
+      "paymentToken": "pt::b639e636df17af782602",  
+
+      "isPreferred": true  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // this is the paymentToken from the customer profile  
+
+  "transactionToken": "pt::b639e636df17af782602",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback"  
+
+}  
+
+```
+```
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "createProfileIfNotExists": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully attached to customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "paymentToken": "pt::b639e636df17af782602"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully detached from customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // in this example we use the tokenized credit card from payment.js  
+
+  "transactionToken": "$CC_TOKEN",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "customerProfileData": {  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    // Mark this as the preferred one for the future  
+
+    "markAsPreferred": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+  "customerProfileData": {  
+
+    "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "paymentToken": "pt::b639e636df17af782602"  
+
+  }  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "profileExists": "true",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "preferredMethod": "Creditcard",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "paymentInstruments": [  
+
+    {  
+
+      "_TYPE": "card",  
+
+      "createdAt": "2031-04-22 12:42:24",  
+
+      "method": "card",  
+
+      "paymentData": {  
+
+        "_TYPE": "paymentData.card",  
+
+        "brand": "visa",  
+
+        "cardHolder": "Alex Smith",  
+
+        "expiryMonth": 4,  
+
+        "expiryYear": 2031,  
+
+        "firstSixDigits": "411111",  
+
+        "lastFourDigits": "1111"  
+
+      },  
+
+      "paymentToken": "pt::b639e636df17af782602",  
+
+      "isPreferred": true  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // this is the paymentToken from the customer profile  
+
+  "transactionToken": "pt::b639e636df17af782602",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback"  
+
+}  
+
+```
+```
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "createProfileIfNotExists": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully attached to customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "paymentToken": "pt::b639e636df17af782602"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully detached from customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // in this example we use the tokenized credit card from payment.js  
+
+  "transactionToken": "$CC_TOKEN",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "customerProfileData": {  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    // Mark this as the preferred one for the future  
+
+    "markAsPreferred": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+  "customerProfileData": {  
+
+    "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "paymentToken": "pt::b639e636df17af782602"  
+
+  }  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "profileExists": "true",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "preferredMethod": "Creditcard",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "paymentInstruments": [  
+
+    {  
+
+      "_TYPE": "card",  
+
+      "createdAt": "2031-04-22 12:42:24",  
+
+      "method": "card",  
+
+      "paymentData": {  
+
+        "_TYPE": "paymentData.card",  
+
+        "brand": "visa",  
+
+        "cardHolder": "Alex Smith",  
+
+        "expiryMonth": 4,  
+
+        "expiryYear": 2031,  
+
+        "firstSixDigits": "411111",  
+
+        "lastFourDigits": "1111"  
+
+      },  
+
+      "paymentToken": "pt::b639e636df17af782602",  
+
+      "isPreferred": true  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // this is the paymentToken from the customer profile  
+
+  "transactionToken": "pt::b639e636df17af782602",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback"  
+
+}  
+
+```
+```
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "createProfileIfNotExists": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully attached to customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "paymentToken": "pt::b639e636df17af782602"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully detached from customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```  * [Introduction](https://documentation.ixopay.com/docs/reference/features/customer-profiles#introduction)
   * [Use cases](https://documentation.ixopay.com/docs/reference/features/customer-profiles#use-cases)
   * [Creating a customer profile](https://documentation.ixopay.com/docs/reference/features/customer-profiles#creating-a-customer-profile)
   * [Using customer profiles](https://documentation.ixopay.com/docs/reference/features/customer-profiles#using-customer-profiles)
@@ -341,3 +1606,735 @@ Upon its creation, a customer profile container is not automatically associated 
     * [Attaching a payment instrument](https://documentation.ixopay.com/docs/reference/features/customer-profiles#attaching-a-payment-instrument)
     * [Detaching a payment instrument](https://documentation.ixopay.com/docs/reference/features/customer-profiles#detaching-a-payment-instrument)
   * [Customer profile containers](https://documentation.ixopay.com/docs/reference/features/customer-profiles#customer-profile-containers)
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // in this example we use the tokenized credit card from payment.js  
+
+  "transactionToken": "$CC_TOKEN",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "customerProfileData": {  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    // Mark this as the preferred one for the future  
+
+    "markAsPreferred": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+  "customerProfileData": {  
+
+    "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "paymentToken": "pt::b639e636df17af782602"  
+
+  }  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "profileExists": "true",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "preferredMethod": "Creditcard",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "paymentInstruments": [  
+
+    {  
+
+      "_TYPE": "card",  
+
+      "createdAt": "2031-04-22 12:42:24",  
+
+      "method": "card",  
+
+      "paymentData": {  
+
+        "_TYPE": "paymentData.card",  
+
+        "brand": "visa",  
+
+        "cardHolder": "Alex Smith",  
+
+        "expiryMonth": 4,  
+
+        "expiryYear": 2031,  
+
+        "firstSixDigits": "411111",  
+
+        "lastFourDigits": "1111"  
+
+      },  
+
+      "paymentToken": "pt::b639e636df17af782602",  
+
+      "isPreferred": true  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // this is the paymentToken from the customer profile  
+
+  "transactionToken": "pt::b639e636df17af782602",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback"  
+
+}  
+
+```
+```
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "createProfileIfNotExists": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully attached to customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "paymentToken": "pt::b639e636df17af782602"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully detached from customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // in this example we use the tokenized credit card from payment.js  
+
+  "transactionToken": "$CC_TOKEN",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "customerProfileData": {  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    // Mark this as the preferred one for the future  
+
+    "markAsPreferred": true  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+  "customerProfileData": {  
+
+    "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+    "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "paymentToken": "pt::b639e636df17af782602"  
+
+  }  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/getProfile  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "profileExists": "true",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "preferredMethod": "Creditcard",  
+
+  "customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "billingCountry": "US",  
+
+    "birthDate": "1970-01-01",  
+
+    "email": "alex.smith@example.org"  
+
+  },  
+
+  "paymentInstruments": [  
+
+    {  
+
+      "_TYPE": "card",  
+
+      "createdAt": "2031-04-22 12:42:24",  
+
+      "method": "card",  
+
+      "paymentData": {  
+
+        "_TYPE": "paymentData.card",  
+
+        "brand": "visa",  
+
+        "cardHolder": "Alex Smith",  
+
+        "expiryMonth": 4,  
+
+        "expiryYear": 2031,  
+
+        "firstSixDigits": "411111",  
+
+        "lastFourDigits": "1111"  
+
+      },  
+
+      "paymentToken": "pt::b639e636df17af782602",  
+
+      "isPreferred": true  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  // this is the paymentToken from the customer profile  
+
+  "transactionToken": "pt::b639e636df17af782602",  
+
+  "description": "Purchase description shown on credit card statement.",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback"  
+
+}  
+
+```
+```
+
+{  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+{  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/attachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+  "createProfileIfNotExists": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully attached to customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678",  
+
+  "paymentToken": "pt::b639e636df17af782602"  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "customerIdentification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+}  
+
+```
+```
+
+POST /api/v3/customerProfiles/$API_KEY/detachPaymentInstrument  
+
+Host: gateway.ixopay.com  
+
+Authorization: Basic dXNlcm5hbWU6cGFzc3dvcmQK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "transactionUuid": "d94c0d72f3a36e21f16e",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "message": "Payment instrument successfully detached from customer profile.",  
+
+  "profileGuid": "CP-1234-5678-9ABC-DEF0-1234-5678"  
+
+}  
+
+```

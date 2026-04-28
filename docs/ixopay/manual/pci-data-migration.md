@@ -6,15 +6,15 @@ tags:
 - kickoff-https-documentation-ixopay-com-manual-docs-pci-data-migration-kickoff-direct-link-kickoff
 - data-transfer-import-https-documentation-ixopay-com-manual-docs-pci-data-migration-data-transfer-import-direct-link-data-transfer-import
 - result-https-documentation-ixopay-com-manual-docs-pci-data-migration-result-direct-link-result
-- data-format-https-documentation-ixopay-com-manual-docs-pci-data-migration-data-format-direct-link-data-format
 - cardholder-data-export-https-documentation-ixopay-com-manual-docs-pci-data-migration-cardholder-data-export-direct-link-cardholder-data-export
+- data-format-https-documentation-ixopay-com-manual-docs-pci-data-migration-data-format-direct-link-data-format
 - public-encryption-key-https-documentation-ixopay-com-manual-docs-pci-data-migration-public-encryption-key-direct-link-public-encryption-key
 - json
 - pci
 - pci-dss
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/pci-data-migration
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -42,12 +42,12 @@ Your Customer Success Manager will clarify details about the Import with you (Am
 Once the import is successfully completed, IXOPAY will provide you with the result file (newline-delimited JSON) of the import, with each line containing the old and the new reference ID of one card. The result file will remain accessible for **365 days** from the date of creation.
 Example
 ```
+
 { "newReferenceId": "abcdefghijklmnopqr", "oldReferenceId": "388333B", customerId: "AT-2938938" }  
+
 { "newReferenceId": "8291edi3ndidn393un", "oldReferenceId": "7837373", customerId: "DE-3838832" }  
 
-```
-
-### Data Format[​](https://documentation.ixopay.com/manual/docs/pci-data-migration#data-format "Direct link to Data Format")
+```### Data Format[​](https://documentation.ixopay.com/manual/docs/pci-data-migration#data-format "Direct link to Data Format")
 To ensure a smooth import the data shall be provided in CSV or JSON with UTF-8 encoding. The provided data must follow the following conventions to avoid importing delays.
 note
 The encrypted file may not exceed the file size of 25 Megabytes. Please split the file into several chunks if it exceeds the file size limit.
@@ -107,7 +107,7 @@ The export of your Transaction records will be a PGP-encrypted, UTF-8 encoded CS
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-10T08:57:31Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-22T12:41:57Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
@@ -129,4 +129,120 @@ The export of your Transaction records will be a PGP-encrypted, UTF-8 encoded CS
 | `customer.national_id`  | The national ID (e.g. social insurance number) of the customer  | `COUNTRY-1234567-PLACEHOLDER`  |  
 | `customer.gender`  | either M for male or F for female  | `M`  |  
 ## Public Encryption Key[​](https://documentation.ixopay.com/manual/docs/pci-data-migration#public-encryption-key "Direct link to Public Encryption Key")
-When we exchange sensitive customer data, all cardholder data needs to be sent in an encrypted way! Please use the following PGP encryption Key to encrypt all files:
+When we exchange sensitive customer data, all cardholder data needs to be sent in an encrypted way! Please use the following PGP encryption Key to encrypt all files: 
+```
+
+{ "newReferenceId": "abcdefghijklmnopqr", "oldReferenceId": "388333B", customerId: "AT-2938938" }  
+
+{ "newReferenceId": "8291edi3ndidn393un", "oldReferenceId": "7837373", customerId: "DE-3838832" }  
+
+```
+```
+
+{ "newReferenceId": "abcdefghijklmnopqr", "oldReferenceId": "388333B", customerId: "AT-2938938" }  
+
+{ "newReferenceId": "8291edi3ndidn393un", "oldReferenceId": "7837373", customerId: "DE-3838832" }  
+
+```  
+| Field name  | Description  | Example  |  
+| --- | --- | --- |  
+| `uuid`  | The IXOPAY platform's unique transaction id assigned to this transaction  | `d94c0d72f3a36e21f16e`  |  
+| `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
+| `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
+| `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-22T12:41:57Z`  |  
+| `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
+| `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
+| `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
+| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `04` (MM)  |  
+| `creditcard.expiration_year`  | The Credit Card's expiration year (YYYY)  | `2031`  |  
+| `customer.identification`  | Any Identification representing the User or customer in your shop or ERP system  | `616c6578-2e73-6d69-7468-406578616d70`  |  
+| `customer.first_name`  | First name of the customer  | `Alex`  |  
+| `customer.last_name`  | Last name of the customer.  | `Smith`  |  
+| `customer.billing_address1`  | Street address line 1  | `123 Main St. Apt. 4B`  |  
+| `customer.billing_address2`  | Street address line 2  | `Unit A`  |  
+| `customer.billing_city`  | City  | `Anytown`  |  
+| `customer.billing_postcode`  | Postal Code / Zip code  | `12345`  |  
+| `customer.billing_state`  | State  | `AN`  |  
+| `customer.billing_country`  | 2-letter country code  | `US`  |  
+| `customer.billing_phone`  | Phone number  | `+1 1234567890`  |  
+| `customer.company`  | The company associated with the billing address  | `Alex's Artisan Goods`  |  
+| `customer.email`  | E-mail address of the customer  | `alex.smith@example.org`  |  
+| `customer.ip_address`  | IP address of the customer  | `198.51.100.123`  |  
+| `customer.national_id`  | The national ID (e.g. social insurance number) of the customer  | `COUNTRY-1234567-PLACEHOLDER`  |  
+| `customer.gender`  | either M for male or F for female  | `M`  |  
+```
+
+{ "newReferenceId": "abcdefghijklmnopqr", "oldReferenceId": "388333B", customerId: "AT-2938938" }  
+
+{ "newReferenceId": "8291edi3ndidn393un", "oldReferenceId": "7837373", customerId: "DE-3838832" }  
+
+```  
+| Field name  | Description  | Example  |  
+| --- | --- | --- |  
+| `uuid`  | The IXOPAY platform's unique transaction id assigned to this transaction  | `d94c0d72f3a36e21f16e`  |  
+| `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
+| `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
+| `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-22T12:41:57Z`  |  
+| `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
+| `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
+| `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
+| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `04` (MM)  |  
+| `creditcard.expiration_year`  | The Credit Card's expiration year (YYYY)  | `2031`  |  
+| `customer.identification`  | Any Identification representing the User or customer in your shop or ERP system  | `616c6578-2e73-6d69-7468-406578616d70`  |  
+| `customer.first_name`  | First name of the customer  | `Alex`  |  
+| `customer.last_name`  | Last name of the customer.  | `Smith`  |  
+| `customer.billing_address1`  | Street address line 1  | `123 Main St. Apt. 4B`  |  
+| `customer.billing_address2`  | Street address line 2  | `Unit A`  |  
+| `customer.billing_city`  | City  | `Anytown`  |  
+| `customer.billing_postcode`  | Postal Code / Zip code  | `12345`  |  
+| `customer.billing_state`  | State  | `AN`  |  
+| `customer.billing_country`  | 2-letter country code  | `US`  |  
+| `customer.billing_phone`  | Phone number  | `+1 1234567890`  |  
+| `customer.company`  | The company associated with the billing address  | `Alex's Artisan Goods`  |  
+| `customer.email`  | E-mail address of the customer  | `alex.smith@example.org`  |  
+| `customer.ip_address`  | IP address of the customer  | `198.51.100.123`  |  
+| `customer.national_id`  | The national ID (e.g. social insurance number) of the customer  | `COUNTRY-1234567-PLACEHOLDER`  |  
+| `customer.gender`  | either M for male or F for female  | `M`  |  
+```
+
+{ "newReferenceId": "abcdefghijklmnopqr", "oldReferenceId": "388333B", customerId: "AT-2938938" }  
+
+{ "newReferenceId": "8291edi3ndidn393un", "oldReferenceId": "7837373", customerId: "DE-3838832" }  
+
+```
+```
+
+{ "newReferenceId": "abcdefghijklmnopqr", "oldReferenceId": "388333B", customerId: "AT-2938938" }  
+
+{ "newReferenceId": "8291edi3ndidn393un", "oldReferenceId": "7837373", customerId: "DE-3838832" }  
+
+```  
+| Field name  | Description  | Example  |  
+| --- | --- | --- |  
+| `uuid`  | The IXOPAY platform's unique transaction id assigned to this transaction  | `d94c0d72f3a36e21f16e`  |  
+| `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
+| `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
+| `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-22T12:41:57Z`  |  
+| `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
+| `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
+| `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
+| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `04` (MM)  |  
+| `creditcard.expiration_year`  | The Credit Card's expiration year (YYYY)  | `2031`  |  
+| `customer.identification`  | Any Identification representing the User or customer in your shop or ERP system  | `616c6578-2e73-6d69-7468-406578616d70`  |  
+| `customer.first_name`  | First name of the customer  | `Alex`  |  
+| `customer.last_name`  | Last name of the customer.  | `Smith`  |  
+| `customer.billing_address1`  | Street address line 1  | `123 Main St. Apt. 4B`  |  
+| `customer.billing_address2`  | Street address line 2  | `Unit A`  |  
+| `customer.billing_city`  | City  | `Anytown`  |  
+| `customer.billing_postcode`  | Postal Code / Zip code  | `12345`  |  
+| `customer.billing_state`  | State  | `AN`  |  
+| `customer.billing_country`  | 2-letter country code  | `US`  |  
+| `customer.billing_phone`  | Phone number  | `+1 1234567890`  |  
+| `customer.company`  | The company associated with the billing address  | `Alex's Artisan Goods`  |  
+| `customer.email`  | E-mail address of the customer  | `alex.smith@example.org`  |  
+| `customer.ip_address`  | IP address of the customer  | `198.51.100.123`  |  
+| `customer.national_id`  | The national ID (e.g. social insurance number) of the customer  | `COUNTRY-1234567-PLACEHOLDER`  |  
+| `customer.gender`  | either M for male or F for female  | `M`  |

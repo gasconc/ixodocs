@@ -7,9 +7,9 @@ tags:
 - ixopay
 - transaction
 - merchant
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/transactions/data-export
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -34,4 +34,4 @@ Refreshing the page is possible during generation and will show you processed pe
 The customized Report will be shown in the Data Export Overview in status Done for **Download** in the selected data format or **Deletion**.
 ![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.3fdc9fb.1280.png)Data Export![New Transactions Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-transactions-export.379bc5f.1280.png)New Transactions Export![New Transactions Export: Customize Columns](https://documentation.ixopay.com/manual/assets/ideal-img/new-transactions-export-customize-columns.a0b68e2.1280.png)New Transactions Export: Customize Columns![Data Export: waiting](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-waiting.309385b.1280.png)Data Export: waiting![Data Export: processing](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-processing.c11897e.1280.png)Data Export: processing![Data Export: done](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-done.3e7409c.1280.png)Data Export: done![Data Export: Delete confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-delete-confirmation.5b9d5ba.984.png)Data Export: Delete confirmation
 File retention
-Files are retained for 12 months and permanently deleted thereafter. If you want to know more about the IXOPAY platform's Analytics capabilities, have a look at our [BI Data Source](https://documentation.ixopay.com/docs/reference/features/bi-data-source).
+Files are retained for 12 months and permanently deleted thereafter.

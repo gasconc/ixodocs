@@ -13,9 +13,9 @@ tags:
 - post-processing-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-post-processing-settings-direct-link-post-processing-settings
 - external-risk-checks-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-external-risk-checks-settings-direct-link-external-risk-checks-settings
 - expert-settings-migration-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-expert-settings-migration-settings-direct-link-expert-settings-migration-settings
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

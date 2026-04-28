@@ -12,9 +12,9 @@ tags:
 - tokenex
 - ixopay
 - authorization
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/general-overview
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

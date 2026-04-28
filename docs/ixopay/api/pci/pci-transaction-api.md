@@ -3,7 +3,6 @@ title: PCI Transaction API
 summary: ' PCI Transaction API'
 tags:
 - request-format-https-documentation-ixopay-com-api-pci-pci-transaction-api-request-format-direct-link-request-format
-- authentication-https-documentation-ixopay-com-api-pci-pci-transaction-api-authentication-direct-link-authentication
 - api
 - json
 - pci
@@ -12,9 +11,10 @@ tags:
 - tokenization
 - ixopay
 - payment-gateway
-source_url: ''
+- authorization
+source_url: https://documentation.ixopay.com/api/pci/pci-transaction-api
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -61,14 +61,16 @@ If required by your merchant configuration:
 
 Headers Example
 ```
+
 Content-Type: application/json; charset=utf-8  
+
 Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
 Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
 X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
 
-```
-
-## Authentication[​](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication "Direct link to Authentication")
+```## Authentication[​](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication "Direct link to Authentication")
   * HTTP: Basic Auth
   * Signature
 
@@ -88,3 +90,130 @@ We highly encourage our users to take advantage of the additional security measu
 | --- | --- |  
 | HTTP Authorization Scheme:  | signature  |  
 Version: 3.0.0
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
+| Security Scheme Type:  | http  |  
+| --- | --- |  
+| HTTP Authorization Scheme:  | basic  |  
+We highly encourage our users to take advantage of the additional security measures we offer. One such measure involves verifying the authenticity of responses through signature verification. For further details on how to implement this security feature, we recommend reviewing our comprehensive guide to [Additional security](https://documentation.ixopay.com/docs/guides/production/additional-security).  
+| Security Scheme Type:  | http  |  
+| --- | --- |  
+| HTTP Authorization Scheme:  | signature  |  
+  * [Enterprise](https://documentation.ixopay.com/api/enterprise)
+  * PCI Transaction API
+  * Introduction
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
+| Security Scheme Type:  | http  |  
+| --- | --- |  
+| HTTP Authorization Scheme:  | basic  |  
+We highly encourage our users to take advantage of the additional security measures we offer. One such measure involves verifying the authenticity of responses through signature verification. For further details on how to implement this security feature, we recommend reviewing our comprehensive guide to [Additional security](https://documentation.ixopay.com/docs/guides/production/additional-security).  
+| Security Scheme Type:  | http  |  
+| --- | --- |  
+| HTTP Authorization Scheme:  | signature  |  
+  * [Request format](https://documentation.ixopay.com/api/pci/pci-transaction-api#request-format)
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
+| Security Scheme Type:  | http  |  
+| --- | --- |  
+| HTTP Authorization Scheme:  | basic  |  
+We highly encourage our users to take advantage of the additional security measures we offer. One such measure involves verifying the authenticity of responses through signature verification. For further details on how to implement this security feature, we recommend reviewing our comprehensive guide to [Additional security](https://documentation.ixopay.com/docs/guides/production/additional-security).  
+| Security Scheme Type:  | http  |  
+| --- | --- |  
+| HTTP Authorization Scheme:  | signature  |

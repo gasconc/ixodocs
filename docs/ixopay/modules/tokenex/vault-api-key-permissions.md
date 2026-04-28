@@ -6,15 +6,15 @@ tags:
 - permissions-https-documentation-ixopay-com-modules-docs-tokenex-vault-api-key-permissions-permissions-direct-link-permissions
 - examples-https-documentation-ixopay-com-modules-docs-tokenex-vault-api-key-permissions-examples-direct-link-examples
 - create-api-key-https-documentation-ixopay-com-modules-docs-tokenex-vault-api-key-permissions-create-api-key-direct-link-create-api-key
-- vault-api-keys-https-documentation-ixopay-com-modules-docs-tokenex-vault-api-key-permissions-vault-api-keys-direct-link-vault-api-keys
-- update-api-key-permission-https-documentation-ixopay-com-modules-docs-tokenex-vault-api-key-permissions-update-api-key-permission-direct-link-update-api-key-permission
-- delete-api-key-https-documentation-ixopay-com-modules-docs-tokenex-vault-api-key-permissions-delete-api-key-direct-link-delete-api-key
 - api
 - rest
 - json
-source_url: ''
+- 3ds
+- pci
+- pci-dss
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -88,95 +88,843 @@ info This permission is required to allow access to BinLookUp along with BinLook
 ### Create API Key[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#create-api-key "Direct link to Create API Key")
   * Request
   * Response
-
 ```
+
 POST /api/api/vault/{tokenexid}/key HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Authorization: {Your Authorization Value}  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Description": "New API Key",  
+
   "Permissions": {  
+
     "APIv2": ["VaultedGeneralAccess"],  
+
     "TGAPIv2": ["GeneralAccess"]  
+
     // etc.  
+
   }  
+
 }  
 
 ```
-
 ```
+
 HTTP/1.1 200 OK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "key": "string",  
+
   "description": "New API Key"  
+
 }  
 
-### Get Vault API Keys[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#get-vault-api-keys "Direct link to Get Vault API Keys")
+```### Get Vault API Keys[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#get-vault-api-keys "Direct link to Get Vault API Keys")
   * Request
   * Response
-
 ```
+
 GET /api/api/vault/{tokenexid}/key HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Authorization: {Your Authorization Value}  
 
 ```
+```
+
 HTTP/1.1 200 OK  
+
 Content-Type: application/json  
+
   
+
 [  
+
   {  
+
     apiKey: "string",  
+
     description: "New API Key",  
+
     addUser: "",  
+
     addDate: "07/02/24 16:02",  
+
     permissions: {  
+
       APIv2: ["VaultedGeneralAccess"],  
+
       TGAPIv2: ["GeneralAccess"],  
+
     },  
+
   },  
+
   // etc.  
+
 ]  
 
-### Update API Key Permission[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#update-api-key-permission "Direct link to Update API Key Permission")
+```### Update API Key Permission[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#update-api-key-permission "Direct link to Update API Key Permission")
   * Request
   * Response
-
 ```
+
 PUT /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Authorization: {Your Authorization Value}  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Description": "Updated API Key", //optional  
+
   "Permissions": {  
+
     "APIv2": ["VaultedGeneralAccess"],  
+
     "TGAPIv2": ["GeneralAccess"],  
+
     "iFrame": ["V3"]  
+
   }  
+
 }  
 
 ```
+```
+
 HTTP/1.1 200 OK  
 
-### Delete API Key[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#delete-api-key "Direct link to Delete API Key")
+```### Delete API Key[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#delete-api-key "Direct link to Delete API Key")
   * Request
   * Response
-
 ```
+
 DELETE /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Authorization: {Your Authorization Value}  
 
-  * [Actions](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#actions)
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+POST /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "New API Key",  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"]  
+
+    // etc.  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "key": "string",  
+
+  "description": "New API Key"  
+
+}  
+
+```
+```
+
+GET /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+[  
+
+  {  
+
+    apiKey: "string",  
+
+    description: "New API Key",  
+
+    addUser: "",  
+
+    addDate: "07/02/24 16:02",  
+
+    permissions: {  
+
+      APIv2: ["VaultedGeneralAccess"],  
+
+      TGAPIv2: ["GeneralAccess"],  
+
+    },  
+
+  },  
+
+  // etc.  
+
+]  
+
+```
+```
+
+PUT /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "Updated API Key", //optional  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"],  
+
+    "iFrame": ["V3"]  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+POST /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "New API Key",  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"]  
+
+    // etc.  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "key": "string",  
+
+  "description": "New API Key"  
+
+}  
+
+```
+```
+
+GET /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+[  
+
+  {  
+
+    apiKey: "string",  
+
+    description: "New API Key",  
+
+    addUser: "",  
+
+    addDate: "07/02/24 16:02",  
+
+    permissions: {  
+
+      APIv2: ["VaultedGeneralAccess"],  
+
+      TGAPIv2: ["GeneralAccess"],  
+
+    },  
+
+  },  
+
+  // etc.  
+
+]  
+
+```
+```
+
+PUT /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "Updated API Key", //optional  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"],  
+
+    "iFrame": ["V3"]  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+POST /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "New API Key",  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"]  
+
+    // etc.  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "key": "string",  
+
+  "description": "New API Key"  
+
+}  
+
+```
+```
+
+GET /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+[  
+
+  {  
+
+    apiKey: "string",  
+
+    description: "New API Key",  
+
+    addUser: "",  
+
+    addDate: "07/02/24 16:02",  
+
+    permissions: {  
+
+      APIv2: ["VaultedGeneralAccess"],  
+
+      TGAPIv2: ["GeneralAccess"],  
+
+    },  
+
+  },  
+
+  // etc.  
+
+]  
+
+```
+```
+
+PUT /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "Updated API Key", //optional  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"],  
+
+    "iFrame": ["V3"]  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```  * [Actions](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#actions)
   * [Permissions](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#permissions)
   * [Examples](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#examples)
     * [Create API Key](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#create-api-key)
     * [Get Vault API Keys](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#get-vault-api-keys)
     * [Update API Key Permission](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#update-api-key-permission)
     * [Delete API Key](https://documentation.ixopay.com/modules/docs/tokenex/vault-api-key-permissions#delete-api-key)
+```
+
+POST /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "New API Key",  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"]  
+
+    // etc.  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "key": "string",  
+
+  "description": "New API Key"  
+
+}  
+
+```
+```
+
+GET /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+[  
+
+  {  
+
+    apiKey: "string",  
+
+    description: "New API Key",  
+
+    addUser: "",  
+
+    addDate: "07/02/24 16:02",  
+
+    permissions: {  
+
+      APIv2: ["VaultedGeneralAccess"],  
+
+      TGAPIv2: ["GeneralAccess"],  
+
+    },  
+
+  },  
+
+  // etc.  
+
+]  
+
+```
+```
+
+PUT /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "Updated API Key", //optional  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"],  
+
+    "iFrame": ["V3"]  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+POST /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "New API Key",  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"]  
+
+    // etc.  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "key": "string",  
+
+  "description": "New API Key"  
+
+}  
+
+```
+```
+
+GET /api/api/vault/{tokenexid}/key HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+[  
+
+  {  
+
+    apiKey: "string",  
+
+    description: "New API Key",  
+
+    addUser: "",  
+
+    addDate: "07/02/24 16:02",  
+
+    permissions: {  
+
+      APIv2: ["VaultedGeneralAccess"],  
+
+      TGAPIv2: ["GeneralAccess"],  
+
+    },  
+
+  },  
+
+  // etc.  
+
+]  
+
+```
+```
+
+PUT /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Description": "Updated API Key", //optional  
+
+  "Permissions": {  
+
+    "APIv2": ["VaultedGeneralAccess"],  
+
+    "TGAPIv2": ["GeneralAccess"],  
+
+    "iFrame": ["V3"]  
+
+  }  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/{tokenexid}/key/{keyid} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```

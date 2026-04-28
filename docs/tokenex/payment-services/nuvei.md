@@ -6,16 +6,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-nuvei-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-nuvei-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-nuvei-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-nuvei-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-nuvei-responses-direct-link-responses
 - api
 - rest
 - 3ds
 - 3d-secure
 - pci
-source_url: ''
+- tokenization
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -168,119 +168,220 @@ Cardholder information must be stored securely and in accordance with the Paymen
   * Card Capture
   * Card Void
   * Card Refund
-
 ```
+
 {  
+
   "merchantKey": "<Your Nuvei Merchant Key>",  
+
   "merchantId": "<Your Nuvei Merchant ID>",  
+
   "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
   "customerIpAddress": "100.101.102.103",  
+
   "subMerchant": {  
+
     "countryCode": "USA",  
+
     "city": "Chicago",  
+
     "id": "sampleMerchant"  
+
   },  
+
   "deviceDetails": {  
+
     "deviceType": "DESKTOP",  
+
     "deviceName": "TestDevice",  
+
     "deviceOs": "Windows 10",  
+
     "browser": null  
+
   },  
+
   "creditCard": {  
+
     "acquirerId": null,  
+
     "ccTempToken": null,  
+
     "storedCredentialsMode": null,  
+
     "lastName": "Nader",  
+
     "brand": "Visa",  
+
     "number": "4000022756305864",  
+
     "expMonth": 9,  
+
     "expYear": 2024,  
+
     "firstName": "Rochelle",  
+
     "cvv": "123"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "fax": "555-555-6666",  
+
     "email": "john@doe.dev",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "name": "John Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": null,  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "orderInfo": {  
+
     "customerId": "storedCredentials-CustomerId"  
+
   },  
+
   "storedCredentials": {  
+
     "initiator": "merchant",  
+
     "credentialStored": true,  
+
     "previousNetworkTransactionId": "711000000014281841"  
+
   },  
+
   "amount": 1000,  
+
   "gateway": "Nuvei",  
+
   "testMode": true,  
+
   "currencyCode": "USD"  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "merchantKey": "<Your Nuvei Merchant Key>",  
+
   "merchantId": "<Your Nuvei Merchant ID>",  
+
   "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
   "subMerchant": {  
+
     "countryCode": "USA",  
+
     "city": "Atlanta",  
+
     "id": "submerchantExample"  
+
   },  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorization>",  
+
   "amount": 1000,  
+
   "gateway": "Nuvei",  
+
   "testMode": true,  
+
   "currencyCode": "USD"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantKey": "<Your Nuvei Merchant Key>",  
+
   "merchantId": "<Your Nuvei Merchant ID>",  
+
   "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
   "subMerchant": {  
+
     "countryCode": "USA",  
+
     "city": "Atlanta",  
+
     "id": "submerchantExample"  
+
   },  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase>",  
+
   "amount": 1000,  
+
   "gateway": "Nuvei",  
+
   "testMode": true,  
+
   "currencyCode": "USD"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantKey": "<Your Nuvei Merchant Key>",  
+
   "merchantId": "<Your Nuvei Merchant ID>",  
+
   "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
   "subMerchant": {  
+
     "countryCode": "USA",  
+
     "city": "Los Angeles",  
+
     "id": "submerchantExample"  
+
   },  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
   "amount": 1000,  
+
   "gateway": "Nuvei",  
+
   "testMode": true,  
+
   "currencyCode": "USD"  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | Nuvei Result Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approved`  | boolean  | `TransactionStatus`  | True if TransactionStatus equals 2 or "APPROVED"  |  
@@ -301,161 +402,2859 @@ Cardholder information must be stored securely and in accordance with the Paymen
   * Card Void
   * Gateway Error
   * Processor Error
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"internalRequestId\":850532838,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"18c348b1-5ceb-4549-a952-5d95b018c633\",\"orderId\":\"407325938\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029469188\",\"externalTransactionId\":\"\",\"authCode\":\"111748\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTg4OzExMTc0OA==",  
+
     "approvalCode": "111748",  
+
     "providerTransactionCode": "711000000029469188",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "",  
+
       "cvvRaw": ""  
+
     },  
+
     "networkTransactionId": "",  
+
     "paymentProfileId": ""  
+
   },  
+
   "referenceNumber": "23120710552911748563",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"internalRequestId\":850533048,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"a8428e5b-e4de-48b6-8bfa-bfb9058a9f4b\",\"orderId\":\"407325978\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Sale\",\"transactionId\":\"711000000029469194\",\"externalTransactionId\":\"\",\"authCode\":\"111189\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTk0OzExMTE4OQ==",  
+
     "approvalCode": "111189",  
+
     "providerTransactionCode": "711000000029469194",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "",  
+
       "cvvRaw": ""  
+
     },  
+
     "networkTransactionId": "",  
+
     "paymentProfileId": ""  
+
   },  
+
   "referenceNumber": "23120710554749874086",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"internalRequestId\":850534148,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469244\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111274\",\"transactionType\":\"Settle\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MjQ0OzExMTI3NA==",  
+
     "approvalCode": "111274",  
+
     "providerTransactionCode": "711000000029469244",  
+
     "approved": true,  
+
     "networkTransactionId": "711000000029469244"  
+
   },  
+
   "referenceNumber": "23120710572728939467",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"internalRequestId\":850536208,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469341\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111311\",\"transactionType\":\"Credit\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzQxOzExMTMxMQ==",  
+
     "approvalCode": "111311",  
+
     "providerTransactionCode": "711000000029469341",  
+
     "approved": true,  
+
     "networkTransactionId": "711000000029469341"  
+
   },  
+
   "referenceNumber": "23120710595586473084",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"internalRequestId\":850535338,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469307\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111659\",\"transactionType\":\"Void\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzA3OzExMTY1OQ==",  
+
     "approvalCode": "111659",  
+
     "providerTransactionCode": "711000000029469307",  
+
     "approved": true,  
+
     "networkTransactionId": "711000000029469307"  
+
   },  
+
   "referenceNumber": "2312071059085320971",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"internalRequestId\":851493948,\"status\":\"ERROR\",\"errCode\":1004,\"reason\":\"Missing or invalid CardData data. Invalid credit card number.\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"5bd43a59-ad94-4d33-8c41-587fe5ee2765\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"threeD\":{}}}}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "1004",  
+
         "message": "Missing or invalid CardData data. Invalid credit card number.",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "2312081121005281411",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"internalRequestId\":851494458,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"cdbf6e5d-3636-49b7-86ba-78bd300f0746\",\"orderId\":\"407524878\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****7969\",\"bin\":\"400015\",\"last4Digits\":\"7969\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"24\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"w66wr3rkjpvx8zrg0qobzvzvo697k\"},\"transactionStatus\":\"DECLINED\",\"gwErrorCode\":-1,\"gwErrorReason\":\"Lost/Stolen\",\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029508885\",\"externalTransactionId\":\"\",\"authCode\":\"\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "0",  
+
         "message": "Lost/Stolen",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "711000000029508885",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "avsRaw": "",  
+
       "cvvRaw": ""  
+
     },  
+
     "networkTransactionId": "",  
+
     "paymentProfileId": ""  
+
   },  
+
   "referenceNumber": "23120811215583339345",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei#overview)
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "customerIpAddress": "100.101.102.103",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Chicago",  
+
+    "id": "sampleMerchant"  
+
+  },  
+
+  "deviceDetails": {  
+
+    "deviceType": "DESKTOP",  
+
+    "deviceName": "TestDevice",  
+
+    "deviceOs": "Windows 10",  
+
+    "browser": null  
+
+  },  
+
+  "creditCard": {  
+
+    "acquirerId": null,  
+
+    "ccTempToken": null,  
+
+    "storedCredentialsMode": null,  
+
+    "lastName": "Nader",  
+
+    "brand": "Visa",  
+
+    "number": "4000022756305864",  
+
+    "expMonth": 9,  
+
+    "expYear": 2024,  
+
+    "firstName": "Rochelle",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "customerId": "storedCredentials-CustomerId"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "711000000014281841"  
+
+  },  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorization>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Los Angeles",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850532838,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"18c348b1-5ceb-4549-a952-5d95b018c633\",\"orderId\":\"407325938\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029469188\",\"externalTransactionId\":\"\",\"authCode\":\"111748\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTg4OzExMTc0OA==",  
+
+    "approvalCode": "111748",  
+
+    "providerTransactionCode": "711000000029469188",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710552911748563",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850533048,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"a8428e5b-e4de-48b6-8bfa-bfb9058a9f4b\",\"orderId\":\"407325978\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Sale\",\"transactionId\":\"711000000029469194\",\"externalTransactionId\":\"\",\"authCode\":\"111189\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTk0OzExMTE4OQ==",  
+
+    "approvalCode": "111189",  
+
+    "providerTransactionCode": "711000000029469194",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710554749874086",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850534148,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469244\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111274\",\"transactionType\":\"Settle\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MjQ0OzExMTI3NA==",  
+
+    "approvalCode": "111274",  
+
+    "providerTransactionCode": "711000000029469244",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469244"  
+
+  },  
+
+  "referenceNumber": "23120710572728939467",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850536208,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469341\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111311\",\"transactionType\":\"Credit\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzQxOzExMTMxMQ==",  
+
+    "approvalCode": "111311",  
+
+    "providerTransactionCode": "711000000029469341",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469341"  
+
+  },  
+
+  "referenceNumber": "23120710595586473084",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850535338,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469307\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111659\",\"transactionType\":\"Void\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzA3OzExMTY1OQ==",  
+
+    "approvalCode": "111659",  
+
+    "providerTransactionCode": "711000000029469307",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469307"  
+
+  },  
+
+  "referenceNumber": "2312071059085320971",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851493948,\"status\":\"ERROR\",\"errCode\":1004,\"reason\":\"Missing or invalid CardData data. Invalid credit card number.\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"5bd43a59-ad94-4d33-8c41-587fe5ee2765\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"threeD\":{}}}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "1004",  
+
+        "message": "Missing or invalid CardData data. Invalid credit card number.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081121005281411",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851494458,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"cdbf6e5d-3636-49b7-86ba-78bd300f0746\",\"orderId\":\"407524878\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****7969\",\"bin\":\"400015\",\"last4Digits\":\"7969\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"24\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"w66wr3rkjpvx8zrg0qobzvzvo697k\"},\"transactionStatus\":\"DECLINED\",\"gwErrorCode\":-1,\"gwErrorReason\":\"Lost/Stolen\",\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029508885\",\"externalTransactionId\":\"\",\"authCode\":\"\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0",  
+
+        "message": "Lost/Stolen",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "711000000029508885",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120811215583339345",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "customerIpAddress": "100.101.102.103",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Chicago",  
+
+    "id": "sampleMerchant"  
+
+  },  
+
+  "deviceDetails": {  
+
+    "deviceType": "DESKTOP",  
+
+    "deviceName": "TestDevice",  
+
+    "deviceOs": "Windows 10",  
+
+    "browser": null  
+
+  },  
+
+  "creditCard": {  
+
+    "acquirerId": null,  
+
+    "ccTempToken": null,  
+
+    "storedCredentialsMode": null,  
+
+    "lastName": "Nader",  
+
+    "brand": "Visa",  
+
+    "number": "4000022756305864",  
+
+    "expMonth": 9,  
+
+    "expYear": 2024,  
+
+    "firstName": "Rochelle",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "customerId": "storedCredentials-CustomerId"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "711000000014281841"  
+
+  },  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorization>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Los Angeles",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850532838,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"18c348b1-5ceb-4549-a952-5d95b018c633\",\"orderId\":\"407325938\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029469188\",\"externalTransactionId\":\"\",\"authCode\":\"111748\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTg4OzExMTc0OA==",  
+
+    "approvalCode": "111748",  
+
+    "providerTransactionCode": "711000000029469188",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710552911748563",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850533048,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"a8428e5b-e4de-48b6-8bfa-bfb9058a9f4b\",\"orderId\":\"407325978\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Sale\",\"transactionId\":\"711000000029469194\",\"externalTransactionId\":\"\",\"authCode\":\"111189\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTk0OzExMTE4OQ==",  
+
+    "approvalCode": "111189",  
+
+    "providerTransactionCode": "711000000029469194",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710554749874086",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850534148,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469244\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111274\",\"transactionType\":\"Settle\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MjQ0OzExMTI3NA==",  
+
+    "approvalCode": "111274",  
+
+    "providerTransactionCode": "711000000029469244",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469244"  
+
+  },  
+
+  "referenceNumber": "23120710572728939467",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850536208,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469341\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111311\",\"transactionType\":\"Credit\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzQxOzExMTMxMQ==",  
+
+    "approvalCode": "111311",  
+
+    "providerTransactionCode": "711000000029469341",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469341"  
+
+  },  
+
+  "referenceNumber": "23120710595586473084",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850535338,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469307\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111659\",\"transactionType\":\"Void\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzA3OzExMTY1OQ==",  
+
+    "approvalCode": "111659",  
+
+    "providerTransactionCode": "711000000029469307",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469307"  
+
+  },  
+
+  "referenceNumber": "2312071059085320971",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851493948,\"status\":\"ERROR\",\"errCode\":1004,\"reason\":\"Missing or invalid CardData data. Invalid credit card number.\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"5bd43a59-ad94-4d33-8c41-587fe5ee2765\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"threeD\":{}}}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "1004",  
+
+        "message": "Missing or invalid CardData data. Invalid credit card number.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081121005281411",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851494458,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"cdbf6e5d-3636-49b7-86ba-78bd300f0746\",\"orderId\":\"407524878\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****7969\",\"bin\":\"400015\",\"last4Digits\":\"7969\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"24\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"w66wr3rkjpvx8zrg0qobzvzvo697k\"},\"transactionStatus\":\"DECLINED\",\"gwErrorCode\":-1,\"gwErrorReason\":\"Lost/Stolen\",\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029508885\",\"externalTransactionId\":\"\",\"authCode\":\"\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0",  
+
+        "message": "Lost/Stolen",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "711000000029508885",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120811215583339345",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "customerIpAddress": "100.101.102.103",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Chicago",  
+
+    "id": "sampleMerchant"  
+
+  },  
+
+  "deviceDetails": {  
+
+    "deviceType": "DESKTOP",  
+
+    "deviceName": "TestDevice",  
+
+    "deviceOs": "Windows 10",  
+
+    "browser": null  
+
+  },  
+
+  "creditCard": {  
+
+    "acquirerId": null,  
+
+    "ccTempToken": null,  
+
+    "storedCredentialsMode": null,  
+
+    "lastName": "Nader",  
+
+    "brand": "Visa",  
+
+    "number": "4000022756305864",  
+
+    "expMonth": 9,  
+
+    "expYear": 2024,  
+
+    "firstName": "Rochelle",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "customerId": "storedCredentials-CustomerId"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "711000000014281841"  
+
+  },  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorization>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Los Angeles",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850532838,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"18c348b1-5ceb-4549-a952-5d95b018c633\",\"orderId\":\"407325938\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029469188\",\"externalTransactionId\":\"\",\"authCode\":\"111748\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTg4OzExMTc0OA==",  
+
+    "approvalCode": "111748",  
+
+    "providerTransactionCode": "711000000029469188",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710552911748563",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850533048,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"a8428e5b-e4de-48b6-8bfa-bfb9058a9f4b\",\"orderId\":\"407325978\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Sale\",\"transactionId\":\"711000000029469194\",\"externalTransactionId\":\"\",\"authCode\":\"111189\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTk0OzExMTE4OQ==",  
+
+    "approvalCode": "111189",  
+
+    "providerTransactionCode": "711000000029469194",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710554749874086",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850534148,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469244\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111274\",\"transactionType\":\"Settle\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MjQ0OzExMTI3NA==",  
+
+    "approvalCode": "111274",  
+
+    "providerTransactionCode": "711000000029469244",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469244"  
+
+  },  
+
+  "referenceNumber": "23120710572728939467",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850536208,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469341\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111311\",\"transactionType\":\"Credit\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzQxOzExMTMxMQ==",  
+
+    "approvalCode": "111311",  
+
+    "providerTransactionCode": "711000000029469341",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469341"  
+
+  },  
+
+  "referenceNumber": "23120710595586473084",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850535338,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469307\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111659\",\"transactionType\":\"Void\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzA3OzExMTY1OQ==",  
+
+    "approvalCode": "111659",  
+
+    "providerTransactionCode": "711000000029469307",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469307"  
+
+  },  
+
+  "referenceNumber": "2312071059085320971",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851493948,\"status\":\"ERROR\",\"errCode\":1004,\"reason\":\"Missing or invalid CardData data. Invalid credit card number.\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"5bd43a59-ad94-4d33-8c41-587fe5ee2765\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"threeD\":{}}}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "1004",  
+
+        "message": "Missing or invalid CardData data. Invalid credit card number.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081121005281411",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851494458,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"cdbf6e5d-3636-49b7-86ba-78bd300f0746\",\"orderId\":\"407524878\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****7969\",\"bin\":\"400015\",\"last4Digits\":\"7969\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"24\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"w66wr3rkjpvx8zrg0qobzvzvo697k\"},\"transactionStatus\":\"DECLINED\",\"gwErrorCode\":-1,\"gwErrorReason\":\"Lost/Stolen\",\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029508885\",\"externalTransactionId\":\"\",\"authCode\":\"\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0",  
+
+        "message": "Lost/Stolen",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "711000000029508885",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120811215583339345",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei#example-responses)
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "customerIpAddress": "100.101.102.103",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Chicago",  
+
+    "id": "sampleMerchant"  
+
+  },  
+
+  "deviceDetails": {  
+
+    "deviceType": "DESKTOP",  
+
+    "deviceName": "TestDevice",  
+
+    "deviceOs": "Windows 10",  
+
+    "browser": null  
+
+  },  
+
+  "creditCard": {  
+
+    "acquirerId": null,  
+
+    "ccTempToken": null,  
+
+    "storedCredentialsMode": null,  
+
+    "lastName": "Nader",  
+
+    "brand": "Visa",  
+
+    "number": "4000022756305864",  
+
+    "expMonth": 9,  
+
+    "expYear": 2024,  
+
+    "firstName": "Rochelle",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "customerId": "storedCredentials-CustomerId"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "711000000014281841"  
+
+  },  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorization>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Los Angeles",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850532838,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"18c348b1-5ceb-4549-a952-5d95b018c633\",\"orderId\":\"407325938\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029469188\",\"externalTransactionId\":\"\",\"authCode\":\"111748\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTg4OzExMTc0OA==",  
+
+    "approvalCode": "111748",  
+
+    "providerTransactionCode": "711000000029469188",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710552911748563",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850533048,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"a8428e5b-e4de-48b6-8bfa-bfb9058a9f4b\",\"orderId\":\"407325978\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Sale\",\"transactionId\":\"711000000029469194\",\"externalTransactionId\":\"\",\"authCode\":\"111189\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTk0OzExMTE4OQ==",  
+
+    "approvalCode": "111189",  
+
+    "providerTransactionCode": "711000000029469194",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710554749874086",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850534148,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469244\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111274\",\"transactionType\":\"Settle\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MjQ0OzExMTI3NA==",  
+
+    "approvalCode": "111274",  
+
+    "providerTransactionCode": "711000000029469244",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469244"  
+
+  },  
+
+  "referenceNumber": "23120710572728939467",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850536208,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469341\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111311\",\"transactionType\":\"Credit\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzQxOzExMTMxMQ==",  
+
+    "approvalCode": "111311",  
+
+    "providerTransactionCode": "711000000029469341",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469341"  
+
+  },  
+
+  "referenceNumber": "23120710595586473084",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850535338,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469307\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111659\",\"transactionType\":\"Void\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzA3OzExMTY1OQ==",  
+
+    "approvalCode": "111659",  
+
+    "providerTransactionCode": "711000000029469307",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469307"  
+
+  },  
+
+  "referenceNumber": "2312071059085320971",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851493948,\"status\":\"ERROR\",\"errCode\":1004,\"reason\":\"Missing or invalid CardData data. Invalid credit card number.\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"5bd43a59-ad94-4d33-8c41-587fe5ee2765\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"threeD\":{}}}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "1004",  
+
+        "message": "Missing or invalid CardData data. Invalid credit card number.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081121005281411",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851494458,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"cdbf6e5d-3636-49b7-86ba-78bd300f0746\",\"orderId\":\"407524878\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****7969\",\"bin\":\"400015\",\"last4Digits\":\"7969\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"24\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"w66wr3rkjpvx8zrg0qobzvzvo697k\"},\"transactionStatus\":\"DECLINED\",\"gwErrorCode\":-1,\"gwErrorReason\":\"Lost/Stolen\",\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029508885\",\"externalTransactionId\":\"\",\"authCode\":\"\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0",  
+
+        "message": "Lost/Stolen",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "711000000029508885",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120811215583339345",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "customerIpAddress": "100.101.102.103",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Chicago",  
+
+    "id": "sampleMerchant"  
+
+  },  
+
+  "deviceDetails": {  
+
+    "deviceType": "DESKTOP",  
+
+    "deviceName": "TestDevice",  
+
+    "deviceOs": "Windows 10",  
+
+    "browser": null  
+
+  },  
+
+  "creditCard": {  
+
+    "acquirerId": null,  
+
+    "ccTempToken": null,  
+
+    "storedCredentialsMode": null,  
+
+    "lastName": "Nader",  
+
+    "brand": "Visa",  
+
+    "number": "4000022756305864",  
+
+    "expMonth": 9,  
+
+    "expYear": 2024,  
+
+    "firstName": "Rochelle",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "customerId": "storedCredentials-CustomerId"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "711000000014281841"  
+
+  },  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorization>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Atlanta",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Capture or Purchase>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantKey": "<Your Nuvei Merchant Key>",  
+
+  "merchantId": "<Your Nuvei Merchant ID>",  
+
+  "merchantSiteId": "<Your Nuvei Merchant Site ID>",  
+
+  "subMerchant": {  
+
+    "countryCode": "USA",  
+
+    "city": "Los Angeles",  
+
+    "id": "submerchantExample"  
+
+  },  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a settled Purchase or Capture>",  
+
+  "amount": 1000,  
+
+  "gateway": "Nuvei",  
+
+  "testMode": true,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850532838,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"18c348b1-5ceb-4549-a952-5d95b018c633\",\"orderId\":\"407325938\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029469188\",\"externalTransactionId\":\"\",\"authCode\":\"111748\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTg4OzExMTc0OA==",  
+
+    "approvalCode": "111748",  
+
+    "providerTransactionCode": "711000000029469188",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710552911748563",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850533048,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"a8428e5b-e4de-48b6-8bfa-bfb9058a9f4b\",\"orderId\":\"407325978\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****1390\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"issuerCountry\":\"SG\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\"},\"transactionStatus\":\"APPROVED\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Sale\",\"transactionId\":\"711000000029469194\",\"externalTransactionId\":\"\",\"authCode\":\"111189\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MTk0OzExMTE4OQ==",  
+
+    "approvalCode": "111189",  
+
+    "providerTransactionCode": "711000000029469194",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120710554749874086",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850534148,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469244\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111274\",\"transactionType\":\"Settle\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MjQ0OzExMTI3NA==",  
+
+    "approvalCode": "111274",  
+
+    "providerTransactionCode": "711000000029469244",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469244"  
+
+  },  
+
+  "referenceNumber": "23120710572728939467",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850536208,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469341\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111311\",\"transactionType\":\"Credit\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"paymentAccountReference\":\"f4iK2pnudYKvTALGdcwEzqj9p4\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzQxOzExMTMxMQ==",  
+
+    "approvalCode": "111311",  
+
+    "providerTransactionCode": "711000000029469341",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469341"  
+
+  },  
+
+  "referenceNumber": "23120710595586473084",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":850535338,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"transactionId\":\"711000000029469307\",\"externalTransactionId\":\"\",\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"gwErrorCode\":0,\"gwExtendedErrorCode\":0,\"transactionStatus\":\"APPROVED\",\"authCode\":\"111659\",\"transactionType\":\"Void\",\"customData\":\"\",\"acquirerId\":\"19\",\"bin\":\"476134\",\"last4Digits\":\"1390\",\"ccCardNumber\":\"4****1390\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"25\",\"cardType\":\"Credit\",\"cardBrand\":\"VISA\",\"issuerCountry\":\"SG\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"merchantAdviceCode\":\"\",\"AVSCode\":\"\",\"CVV2Reply\":\"\"}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NzExMDAwMDAwMDI5NDY5MzA3OzExMTY1OQ==",  
+
+    "approvalCode": "111659",  
+
+    "providerTransactionCode": "711000000029469307",  
+
+    "approved": true,  
+
+    "networkTransactionId": "711000000029469307"  
+
+  },  
+
+  "referenceNumber": "2312071059085320971",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851493948,\"status\":\"ERROR\",\"errCode\":1004,\"reason\":\"Missing or invalid CardData data. Invalid credit card number.\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"5bd43a59-ad94-4d33-8c41-587fe5ee2765\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"threeD\":{}}}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "1004",  
+
+        "message": "Missing or invalid CardData data. Invalid credit card number.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081121005281411",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"internalRequestId\":851494458,\"status\":\"SUCCESS\",\"errCode\":0,\"reason\":\"\",\"merchantId\":\"3612317282928935212\",\"merchantSiteId\":\"212567\",\"version\":\"1.0\",\"sessionToken\":\"cdbf6e5d-3636-49b7-86ba-78bd300f0746\",\"orderId\":\"407524878\",\"paymentOption\":{\"userPaymentOptionId\":\"\",\"card\":{\"ccCardNumber\":\"4****7969\",\"bin\":\"400015\",\"last4Digits\":\"7969\",\"ccExpMonth\":\"01\",\"ccExpYear\":\"24\",\"acquirerId\":\"19\",\"cvv2Reply\":\"\",\"avsCode\":\"\",\"cardBrand\":\"VISA\",\"issuerBankName\":\"\",\"isPrepaid\":\"false\",\"threeD\":{}},\"paymentAccountReference\":\"w66wr3rkjpvx8zrg0qobzvzvo697k\"},\"transactionStatus\":\"DECLINED\",\"gwErrorCode\":-1,\"gwErrorReason\":\"Lost/Stolen\",\"gwExtendedErrorCode\":0,\"issuerDeclineCode\":\"\",\"issuerDeclineReason\":\"\",\"transactionType\":\"Auth\",\"transactionId\":\"711000000029508885\",\"externalTransactionId\":\"\",\"authCode\":\"\",\"customData\":\"\",\"fraudDetails\":{\"finalDecision\":\"Accept\"},\"externalSchemeTransactionId\":\"\",\"merchantAdviceCode\":\"\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0",  
+
+        "message": "Lost/Stolen",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "711000000029508885",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "",  
+
+      "cvvRaw": ""  
+
+    },  
+
+    "networkTransactionId": "",  
+
+    "paymentProfileId": ""  
+
+  },  
+
+  "referenceNumber": "23120811215583339345",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
