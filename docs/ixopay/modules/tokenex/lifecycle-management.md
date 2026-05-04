@@ -1,10 +1,25 @@
-Send Feedback
-  * [](https://documentation.ixopay.com/modules/)
-  * Network tokenization
+---
+title: Lifecycle Management
+summary: ' Network tokenization  Network Tokenization APIhttps://documentation.ixopay.com/modules/docs/tokenex/network-token-services  Lifecycle
+  Management'
+tags:
+- api
+- json
+- tokenization
+- tokenex
+- ixopay
+- authorization
+- transaction
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/lifecycle-management
+portal: ixopay-modules
+updated: '2026-04-28'
+related: []
+---
+
+* Network tokenization
   * [Network Tokenization API](https://documentation.ixopay.com/modules/docs/tokenex/network-token-services)
   * Lifecycle Management
 
-
 # Lifecycle Management
 This method is used to change the status of a network token. The following actions can change the status of a token: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN. To check the current status of a token, see the [GetStatus](https://documentation.ixopay.com/modules/docs/tokenex/get-status) method.
 The following actions can be used to change the state of a network token.  
@@ -13,10 +28,9 @@ The following actions can be used to change the state of a network token.
 | DELETE_TOKEN  | 1  |  
 | RESUME_TOKEN  | 2  |  
 | SUSPEND_TOKEN  | 3  |  
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-
+  * **Test URI** : 
+  * **Prod US URI** : 
+  * **Prod EU URI** : 
 
 **Required API Key Permissions** : NetworkTokenizationGeneralAccess
 **Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
@@ -47,454 +61,339 @@ The following actions can be used to change the state of a network token.
 | networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
   * Request
   * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/LifecycleManagement HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Token": "4761202544127718",  
+
   "LifecycleManagementAction": "SUSPEND_TOKEN",  
+
   "RequestReason": "Wallet LOST"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
     "lifecycleManagementAction": "SUSPEND_TOKEN",  
+
     "messageId": "0c859b3b-6414-4e3a-b11b-db481c1107c2",  
+
     "conversationId": "b5a9390f-c232-4ab0-9808-a68168472dec",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510103957444322",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "Network Token LifecycleManagement update successful!"  
+
 }  
 
 ```
-
-Last updated on **Apr 10, 2026**
-# Lifecycle Management
-This method is used to change the status of a network token. The following actions can change the status of a token: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN. To check the current status of a token, see the [GetStatus](https://documentation.ixopay.com/modules/docs/tokenex/get-status) method.
-The following actions can be used to change the state of a network token.  
-| Action  | Equivalent JSON Value  |  
-| --- | --- |  
-| DELETE_TOKEN  | 1  |  
-| RESUME_TOKEN  | 2  |  
-| SUSPEND_TOKEN  | 3  |  
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| lifecycleManagementAction  | string enum  | The action to update the status of the Network Token. Must be one of the following values (DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN or 1, 2, and 3 respectively).  |  
-| requestReason  | string  | The reason for changing the status.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.tokenReferenceId  | string  | Unique reference identifier for the token generated.  |  
-| networkResponse.lifecycleManagementAction  |   | Possible Values: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/LifecycleManagement HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Token": "4761202544127718",  
+
   "LifecycleManagementAction": "SUSPEND_TOKEN",  
+
   "RequestReason": "Wallet LOST"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
     "lifecycleManagementAction": "SUSPEND_TOKEN",  
+
     "messageId": "0c859b3b-6414-4e3a-b11b-db481c1107c2",  
+
     "conversationId": "b5a9390f-c232-4ab0-9808-a68168472dec",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510103957444322",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "Network Token LifecycleManagement update successful!"  
+
 }  
 
 ```
-
-# Lifecycle Management
-This method is used to change the status of a network token. The following actions can change the status of a token: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN. To check the current status of a token, see the [GetStatus](https://documentation.ixopay.com/modules/docs/tokenex/get-status) method.
-The following actions can be used to change the state of a network token.  
-| Action  | Equivalent JSON Value  |  
-| --- | --- |  
-| DELETE_TOKEN  | 1  |  
-| RESUME_TOKEN  | 2  |  
-| SUSPEND_TOKEN  | 3  |  
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| lifecycleManagementAction  | string enum  | The action to update the status of the Network Token. Must be one of the following values (DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN or 1, 2, and 3 respectively).  |  
-| requestReason  | string  | The reason for changing the status.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.tokenReferenceId  | string  | Unique reference identifier for the token generated.  |  
-| networkResponse.lifecycleManagementAction  |   | Possible Values: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/LifecycleManagement HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Token": "4761202544127718",  
+
   "LifecycleManagementAction": "SUSPEND_TOKEN",  
+
   "RequestReason": "Wallet LOST"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
     "lifecycleManagementAction": "SUSPEND_TOKEN",  
+
     "messageId": "0c859b3b-6414-4e3a-b11b-db481c1107c2",  
+
     "conversationId": "b5a9390f-c232-4ab0-9808-a68168472dec",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510103957444322",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "Network Token LifecycleManagement update successful!"  
+
 }  
 
 ```
-
-Send Feedback
-  * [](https://documentation.ixopay.com/modules/)
-  * Network tokenization
-  * [Network Tokenization API](https://documentation.ixopay.com/modules/docs/tokenex/network-token-services)
-  * Lifecycle Management
-
-
-# Lifecycle Management
-This method is used to change the status of a network token. The following actions can change the status of a token: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN. To check the current status of a token, see the [GetStatus](https://documentation.ixopay.com/modules/docs/tokenex/get-status) method.
-The following actions can be used to change the state of a network token.  
-| Action  | Equivalent JSON Value  |  
-| --- | --- |  
-| DELETE_TOKEN  | 1  |  
-| RESUME_TOKEN  | 2  |  
-| SUSPEND_TOKEN  | 3  |  
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| lifecycleManagementAction  | string enum  | The action to update the status of the Network Token. Must be one of the following values (DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN or 1, 2, and 3 respectively).  |  
-| requestReason  | string  | The reason for changing the status.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.tokenReferenceId  | string  | Unique reference identifier for the token generated.  |  
-| networkResponse.lifecycleManagementAction  |   | Possible Values: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/LifecycleManagement HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Token": "4761202544127718",  
+
   "LifecycleManagementAction": "SUSPEND_TOKEN",  
+
   "RequestReason": "Wallet LOST"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
     "lifecycleManagementAction": "SUSPEND_TOKEN",  
+
     "messageId": "0c859b3b-6414-4e3a-b11b-db481c1107c2",  
+
     "conversationId": "b5a9390f-c232-4ab0-9808-a68168472dec",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510103957444322",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "Network Token LifecycleManagement update successful!"  
+
 }  
 
 ```
-
-Last updated on **Apr 10, 2026**
-[Previous Get Status](https://documentation.ixopay.com/modules/docs/tokenex/get-status)[Next Get Asset](https://documentation.ixopay.com/modules/docs/tokenex/get-asset)
-Send Feedback
-Send Feedback
-  * [](https://documentation.ixopay.com/modules/)
-  * Network tokenization
-  * [Network Tokenization API](https://documentation.ixopay.com/modules/docs/tokenex/network-token-services)
-  * Lifecycle Management
-
-
-# Lifecycle Management
-This method is used to change the status of a network token. The following actions can change the status of a token: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN. To check the current status of a token, see the [GetStatus](https://documentation.ixopay.com/modules/docs/tokenex/get-status) method.
-The following actions can be used to change the state of a network token.  
-| Action  | Equivalent JSON Value  |  
-| --- | --- |  
-| DELETE_TOKEN  | 1  |  
-| RESUME_TOKEN  | 2  |  
-| SUSPEND_TOKEN  | 3  |  
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| lifecycleManagementAction  | string enum  | The action to update the status of the Network Token. Must be one of the following values (DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN or 1, 2, and 3 respectively).  |  
-| requestReason  | string  | The reason for changing the status.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.tokenReferenceId  | string  | Unique reference identifier for the token generated.  |  
-| networkResponse.lifecycleManagementAction  |   | Possible Values: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/LifecycleManagement HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Token": "4761202544127718",  
+
   "LifecycleManagementAction": "SUSPEND_TOKEN",  
+
   "RequestReason": "Wallet LOST"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
     "lifecycleManagementAction": "SUSPEND_TOKEN",  
+
     "messageId": "0c859b3b-6414-4e3a-b11b-db481c1107c2",  
+
     "conversationId": "b5a9390f-c232-4ab0-9808-a68168472dec",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510103957444322",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "Network Token LifecycleManagement update successful!"  
+
 }  
 
 ```
-
-Last updated on **Apr 10, 2026**
-# Lifecycle Management
-This method is used to change the status of a network token. The following actions can change the status of a token: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN. To check the current status of a token, see the [GetStatus](https://documentation.ixopay.com/modules/docs/tokenex/get-status) method.
-The following actions can be used to change the state of a network token.  
-| Action  | Equivalent JSON Value  |  
-| --- | --- |  
-| DELETE_TOKEN  | 1  |  
-| RESUME_TOKEN  | 2  |  
-| SUSPEND_TOKEN  | 3  |  
-  * **Test URI** : <https://test-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod US URI** : <https://api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-  * **Prod EU URI** : <https://eu1-api.tokenex.com/v2/NetworkToken/LifecycleManagement>
-
-
-**Required API Key Permissions** : NetworkTokenizationGeneralAccess
-**Request Headers** : [Authentication and Authorization](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)
-* denotes a required field  
-| HTTP Request Header  | Description  |  
-| --- | --- |  
-| tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
-**Request Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| token  | string  | The TokenEx token that represents the PAN and has an associated network token.  |  
-| lifecycleManagementAction  | string enum  | The action to update the status of the Network Token. Must be one of the following values (DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN or 1, 2, and 3 respectively).  |  
-| requestReason  | string  | The reason for changing the status.  |  
-| tokenReferenceId  | string  | If there is more than one network token stored for that token, indicate which network token to use for this operation.  |  
-**Response Body Parameters** :  
-| Parameter  | Type  | Description  |  
-| --- | --- | --- |  
-| success  | bool  | Indicator if the request was successfully processed by TokenEx.  |  
-| referenceNumber  | string  | TokenEx reference number for the transaction.  |  
-| error  | string  | TokenEx Error Code and human readable description.  |  
-| message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.tokenReferenceId  | string  | Unique reference identifier for the token generated.  |  
-| networkResponse.lifecycleManagementAction  |   | Possible Values: DELETE_TOKEN, RESUME_TOKEN, SUSPEND_TOKEN  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
-| networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-  * Request
-  * Response
-
-
-
 ```
+
 POST /v2/NetworkToken/LifecycleManagement HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Token": "4761202544127718",  
+
   "LifecycleManagementAction": "SUSPEND_TOKEN",  
+
   "RequestReason": "Wallet LOST"  
+
 }  
 
 ```
-
-
 ```
+
 {  
+
   "networkResponse": {  
+
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
     "lifecycleManagementAction": "SUSPEND_TOKEN",  
+
     "messageId": "0c859b3b-6414-4e3a-b11b-db481c1107c2",  
+
     "conversationId": "b5a9390f-c232-4ab0-9808-a68168472dec",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "referenceNumber": "21082510103957444322",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "Network Token LifecycleManagement update successful!"  
+
 }  
 
 ```
-

@@ -7,9 +7,9 @@ tags:
 - user-settings-https-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-time-zone-settings-user-settings-direct-link-user-settings
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/time-zone-settings
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

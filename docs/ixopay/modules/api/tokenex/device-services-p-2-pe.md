@@ -9,9 +9,9 @@ tags:
 - tokenex
 - ixopay
 - credit-card
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/api/tokenex/device-services-p-2-pe
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

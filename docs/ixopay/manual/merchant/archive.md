@@ -4,9 +4,9 @@ summary: ' Merchant archiving'
 tags:
 - ixopay
 - merchant
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/merchant/archive
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

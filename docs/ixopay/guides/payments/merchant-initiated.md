@@ -12,9 +12,9 @@ tags:
 - rest
 - ixopay
 - recurring
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/guides/payments/merchant-initiated
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

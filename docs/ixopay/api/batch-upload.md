@@ -6,15 +6,15 @@ tags:
 - endpoint-https-documentation-ixopay-com-api-batch-upload-endpoint-direct-link-endpoint
 - payload-https-documentation-ixopay-com-api-batch-upload-payload-direct-link-payload
 - replace-username-password-apikey-filename-callbackurl-corresponding-values
-- transaction-batch-file-structure-https-documentation-ixopay-com-api-batch-upload-transaction-batch-file-structure-direct-link-transaction-batch-file-structure
-- response-examples-https-documentation-ixopay-com-api-batch-upload-response-examples-direct-link-response-examples
-- transaction-types-https-documentation-ixopay-com-api-batch-upload-transaction-types-direct-link-transaction-types
 - debit-https-documentation-ixopay-com-api-batch-upload-debit-direct-link-debit
 - preauthorize-https-documentation-ixopay-com-api-batch-upload-preauthorize-direct-link-preauthorize
 - refund-https-documentation-ixopay-com-api-batch-upload-refund-direct-link-refund
-source_url: ''
+- payout-https-documentation-ixopay-com-api-batch-upload-payout-direct-link-payout
+- callback-notification-https-documentation-ixopay-com-api-batch-upload-callback-notification-direct-link-callback-notification
+- result-file-includes-part-successful-transaction-successful-transaction-transaction-error-failed-transaction
+source_url: https://documentation.ixopay.com/api/batch-upload
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -35,18 +35,24 @@ As a result a csv file will be generated containing the transactions after they 
 | --- | --- | --- |  
 | `apiKey`  | required`string`  | API Key of the Connector  |  
 | `batchFile`  | required`string`  | The data of your batch file. Maximum upload size: **8 MB**  |  
-| `callbackUrl`  | optional`string?`  | The url the link to the resulting csv file will be sent to once the processing of all transactions in the given batch file is finished, for example: `https://api.example.org/callback`  |  ```
-## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
-curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
-  --request POST \  
-  --header "Content-Type: application/json" \  
-  --user '$USERNAME:$PASSWORD' \  
-  --form "batchFile=@$FILENAME.csv" \  
-  --form "callbackUrl=$CALLBACK_URL"  
-
+| `callbackUrl`  | optional`string?`  | The url the link to the resulting csv file will be sent to once the processing of all transactions in the given batch file is finished, for example: `https://api.example.org/callback`  |  
 ```
 
-### Transaction batch file structure[​](https://documentation.ixopay.com/api/batch-upload#transaction-batch-file-structure "Direct link to Transaction batch file structure")
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```### Transaction batch file structure[​](https://documentation.ixopay.com/api/batch-upload#transaction-batch-file-structure "Direct link to Transaction batch file structure")
 The first line of the batch file needs to be the header line. This line has to contain all keys for following transactions.
 The mandatory and possible keys for the transactions can be found in the [transaction types documentation](https://documentation.ixopay.com/api/batch-upload#transaction-types).
 Any objects (e.g. the Customer object as stated in the [transaction data documentation](https://documentation.ixopay.com/api/transaction/debit)) need to be given as flattened values.
@@ -56,40 +62,66 @@ Any objects (e.g. the Customer object as stated in the [transaction data documen
   * JSON object
   * Flattened CSV
 ```
+
 "customer": {  
+
     "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
     "firstName": "Alex",  
+
     "lastName": "Smith"  
+
 }  
 
 ```
+```
+
 customer.identification,customer.firstName,customer.lastName  
+
 "c001","Alex","Smith"  
 
-  * Flattened array of objects:
+```  * Flattened array of objects:
 ```
+
 "errors": [  
+
   {  
+
     "message": "Some error",  
+
     "code": "1234"  
+
   },  
+
   {  
+
     "message": "Another error",  
+
     "code": "5678"  
+
   }  
+
 ]  
 
 ```
+```
+
 errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
 "Some error","1234","Another error","5678"  
 
-#### Example batch file with both debit and preauthorize transactions[​](https://documentation.ixopay.com/api/batch-upload#example-batch-file-with-both-debit-and-preauthorize-transactions "Direct link to Example batch file with both debit and preauthorize transactions")```
+```#### Example batch file with both debit and preauthorize transactions[​](https://documentation.ixopay.com/api/batch-upload#example-batch-file-with-both-debit-and-preauthorize-transactions "Direct link to Example batch file with both debit and preauthorize transactions")
+```
+
 transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
 "debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
 "debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
 "preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
 
-### Response examples[​](https://documentation.ixopay.com/api/batch-upload#response-examples "Direct link to Response examples")
+```### Response examples[​](https://documentation.ixopay.com/api/batch-upload#response-examples "Direct link to Response examples")
 The file and the included keys in the first line of the file will be checked at the file upload. If no file is given, if a given key is not allowed or if one of the required keys is missing, an error will be returned.
 The response will be in JSON-format and can include following fields.  
 | Field  | Type  | Description  |  
@@ -98,18 +130,24 @@ The response will be in JSON-format and can include following fields.
 | `error`  | optional`string?`  | The description of an error if the uploaded file was invalid.  |  
   * Success
   * Error
-
 ```
+
 {  
+
   "batchId": "someBatchId123"  
+
 }  
 
-One of the keys given in the first line of the csv file was not allowed or a required key was missing.```
+```One of the keys given in the first line of the csv file was not allowed or a required key was missing.
+```
+
 {  
+
   "error": "invalid keys line"  
+
 }  
 
-## Transaction types[​](https://documentation.ixopay.com/api/batch-upload#transaction-types "Direct link to Transaction types")
+```## Transaction types[​](https://documentation.ixopay.com/api/batch-upload#transaction-types "Direct link to Transaction types")
 The following transaction types can be given with the csv file:
 ### Debit[​](https://documentation.ixopay.com/api/batch-upload#debit "Direct link to Debit")  
 | Name  | Type  | Description  |  
@@ -208,21 +246,31 @@ The notification to the url will contain the following field:
 | `link`  | required`string`  | The downloadable URL for the result CSV file. (Available at least 7 days)  |  
 Example notification
 ```
+
 {  
+
   "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
 }  
 
-Hostname
+```Hostname
 The link field in the notification will point to the result file hosted on either `gateway.ixopay.com` (production environment) or `sandbox.ixopay.com` (sandbox environment), depending on the environment you used to upload the batch file.
-Example result files```
+Example result files
+```
+
 ## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
   
+
 success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
 true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
 true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
 false,"","","","","","","","","Transaction not found","8001","",""  
 
-#### Possible values in the result file[​](https://documentation.ixopay.com/api/batch-upload#possible-values-in-the-result-file "Direct link to Possible values in the result file")  
+```#### Possible values in the result file[​](https://documentation.ixopay.com/api/batch-upload#possible-values-in-the-result-file "Direct link to Possible values in the result file")  
 | Name  | Type  | Description  |  
 | --- | --- | --- |  
 | `success`  | optional`boolean?`  | returns `true` or `false` depending on whether the request was successful  |  
@@ -256,13 +304,18 @@ false,"","","","","","","","","Transaction not found","8001","",""
 | `batchId`  | required`string`  | The batchId returned by the /uploadFile request.  |  
 | `getDocument`  | optional`string?`  | If this value is set to `true` and the processing is finished, the result document will be returned. Otherwise, a link to the result document is returned.  |  
 ```
+
 ## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
 curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
   --request GET \  
+
   --header "Content-Type: application/json" \  
+
   --user "$USER:$PASSWORD"  
 
-### Response[​](https://documentation.ixopay.com/api/batch-upload#response "Direct link to Response")
+```### Response[​](https://documentation.ixopay.com/api/batch-upload#response "Direct link to Response")
 The response will be in JSON-format and may include following fields:  
 | Field  | Type  | Description  |  
 | --- | --- | --- |  
@@ -273,23 +326,1006 @@ If the processing is already finished and "getDocument" was set to "true" in the
   * Processing
   * Completed
 ```
+
 {  
+
   "status": "initial"  
+
 }  
 
 ```
+```
+
 {  
+
   "status": "processing"  
+
 }  
 
-getDocument set to false
+```getDocument set to false
 ```
+
 {  
+
   "status": "completed",  
+
   "link": "https://link-to-result-document"  
+
 }  
 
-  * [HTTP Upload Request](https://documentation.ixopay.com/api/batch-upload#http-upload-request)
+```
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```  * [HTTP Upload Request](https://documentation.ixopay.com/api/batch-upload#http-upload-request)
     * [Endpoint](https://documentation.ixopay.com/api/batch-upload#endpoint)
     * [Payload](https://documentation.ixopay.com/api/batch-upload#payload)
     * [Transaction batch file structure](https://documentation.ixopay.com/api/batch-upload#transaction-batch-file-structure)
@@ -304,3 +1340,489 @@ getDocument set to false
     * [Endpoint](https://documentation.ixopay.com/api/batch-upload#endpoint-1)
     * [Payload](https://documentation.ixopay.com/api/batch-upload#payload-1)
     * [Response](https://documentation.ixopay.com/api/batch-upload#response)
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```
+```
+
+## Replace $USERNAME, $PASSWORD, $API_KEY, $FILENAME and $CALLBACK_URL with their corresponding values  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/uploadFile \  
+
+  --request POST \  
+
+  --header "Content-Type: application/json" \  
+
+  --user '$USERNAME:$PASSWORD' \  
+
+  --form "batchFile=@$FILENAME.csv" \  
+
+  --form "callbackUrl=$CALLBACK_URL"  
+
+```
+```
+
+"customer": {  
+
+    "identification": "616c6578-2e73-6d69-7468-406578616d70",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+}  
+
+```
+```
+
+customer.identification,customer.firstName,customer.lastName  
+
+"c001","Alex","Smith"  
+
+```
+```
+
+"errors": [  
+
+  {  
+
+    "message": "Some error",  
+
+    "code": "1234"  
+
+  },  
+
+  {  
+
+    "message": "Another error",  
+
+    "code": "5678"  
+
+  }  
+
+]  
+
+```
+```
+
+errors.0.message,errors.0.code,errors.1.message,errors.1.code  
+
+"Some error","1234","Another error","5678"  
+
+```
+```
+
+transactionMethod,referenceUuid,merchantTransactionId,extraData.someKey,extraData.otherKey,amount,currency,customer.identification,customer.lastName,threeDSecureData.3dsecure  
+
+"debit","4d40738b1194869734f7","your-unique-identifier","someValue","otherValue","9.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith",""  
+
+"debit","1ed442bdf4f9eb855b1f","your-unique-identifier-2","alsoSomeValue","","4.99","USD","4a6f7264-616e-2e4a-6f6e-657340657861","",""  
+
+"preauthorize","44118273d04397020bb5","your-unique-identifier-3","","","99.99","EUR","616c6578-2e73-6d69-7468-406578616d70","Smith","MANDATORY"  
+
+```
+```
+
+{  
+
+  "batchId": "someBatchId123"  
+
+}  
+
+```
+```
+
+{  
+
+  "error": "invalid keys line"  
+
+}  
+
+```
+```
+
+{  
+
+  "link": "https://gateway.ixopay.com/link-to-the-result-csv-file"  
+
+}  
+
+```
+```
+
+## This example result file includes part of a successful transaction, a successful transaction with a transaction error and a failed transaction.  
+
+  
+
+success,transactionStatus,uuid,merchantTransactionId,transactionType,customer.lastName,customer.company,returnData.creditcardData.type,returnData.creditcardData.cardHolder,errorMessage,errorCode,errors.0.message,errors.0.code  
+
+true,"SUCCESS","abcd1234","2019-09-02-0001","debit","Smith","Alex's Artisan Goods","visa","Alex Smith","","","",""  
+
+true,"ERROR","bcde4567","2019-09-02-0002","debit","","","","","","","Payment could not be processed.","1234"  
+
+false,"","","","","","","","","Transaction not found","8001","",""  
+
+```
+```
+
+## Replace $USER, $PASSWORD, $API_KEY, $BATCH_ID and $GET_DOCUMENT with their corresponding values!  
+
+curl https://gateway.ixopay.com/api/v3/batchUpload/$API_KEY/$BATCH_ID/get?getDocument=$GET_DOCUMENT \  
+
+  --request GET \  
+
+  --header "Content-Type: application/json" \  
+
+  --user "$USER:$PASSWORD"  
+
+```
+```
+
+{  
+
+  "status": "initial"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "processing"  
+
+}  
+
+```
+```
+
+{  
+
+  "status": "completed",  
+
+  "link": "https://link-to-result-document"  
+
+}  
+
+```

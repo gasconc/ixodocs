@@ -8,9 +8,9 @@ tags:
 - structure-documentation-https-documentation-ixopay-com-docs-reference-structure-documentation-direct-link-structure-documentation
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

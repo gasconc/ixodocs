@@ -12,9 +12,9 @@ tags:
 - capture
 - void
 - direct-debit
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options/server-to-server
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -49,17 +49,82 @@ Merchant
 The merchant responds to the callback with:
 Callback response
 ```
+
 HTTP/1.1 200 OK  
+
 Content-Type: text/plain  
+
   
+
 OK  
 
-```
-
-  8. The IXOPAY platform responds to the merchant backend with a request containing the status of the transaction, usually `FINISHED`, `PENDING` or `ERROR`.
+```  8. The IXOPAY platform responds to the merchant backend with a request containing the status of the transaction, usually `FINISHED`, `PENDING` or `ERROR`.
   9. ⁮
 Merchant
 The merchant decides what page to display to the customer depending on the transaction status.
 
 Here's a visual representation of the processing flow using a sequence diagram:
+Sequence diagram for server-to-server processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant par​CustomerTrigger, for example a purchase with card-on-file1(Recurring) debit, or refund, etc.2Transaction3Result4Callback to callback URL5Store result6OK7Result8Thank-you or error page9
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: text/plain  
+
+  
+
+OK  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: text/plain  
+
+  
+
+OK  
+
+```Here's a visual representation of the processing flow using a sequence diagram:
+Sequence diagram for server-to-server processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant par​CustomerTrigger, for example a purchase with card-on-file1(Recurring) debit, or refund, etc.2Transaction3Result4Callback to callback URL5Store result6OK7Result8Thank-you or error page9
+  * [Integration](https://documentation.ixopay.com/docs/reference/integration)
+  * [Processing options](https://documentation.ixopay.com/docs/reference/integration/processing-options)
+  * Server-to-server
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: text/plain  
+
+  
+
+OK  
+
+```Here's a visual representation of the processing flow using a sequence diagram:
+Sequence diagram for server-to-server processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant par​CustomerTrigger, for example a purchase with card-on-file1(Recurring) debit, or refund, etc.2Transaction3Result4Callback to callback URL5Store result6OK7Result8Thank-you or error page9
+  * [Use cases](https://documentation.ixopay.com/docs/reference/integration/processing-options/server-to-server#use-cases)
+  * [Processing flow](https://documentation.ixopay.com/docs/reference/integration/processing-options/server-to-server#processing-flow)
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: text/plain  
+
+  
+
+OK  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: text/plain  
+
+  
+
+OK  
+
+```Here's a visual representation of the processing flow using a sequence diagram:
 Sequence diagram for server-to-server processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant par​CustomerTrigger, for example a purchase with card-on-file1(Recurring) debit, or refund, etc.2Transaction3Result4Callback to callback URL5Store result6OK7Result8Thank-you or error page9

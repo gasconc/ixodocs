@@ -8,9 +8,9 @@ tags:
 - resetting-passwords-https-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-change-password-resetting-passwords-direct-link-resetting-passwords
 - language-options-https-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-change-password-language-options-direct-link-language-options
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/change-password
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -1,24 +1,38 @@
-  * [](https://documentation.ixopay.com/)
-  * [Enterprise](https://documentation.ixopay.com/api/enterprise)
+---
+title: List
+summary: ' Provisioning API'
+tags:
+- https-gateway-ixopay-com-api-provisioning-listconnectors-merchantguid
+- request-https-documentation-ixopay-com-api-provisioning-list-connectors-request-direct-link-request
+- path-parameters
+- responses-https-documentation-ixopay-com-api-provisioning-list-connectors-responses-direct-link-responses
+- generating-provisioning-api-key
+- api
+- json
+- xml
+- ixopay
+- recurring
+source_url: https://documentation.ixopay.com/api/provisioning/list-connectors
+portal: ixopay-dev
+updated: '2026-04-28'
+related: []
+---
+
+* [Enterprise](https://documentation.ixopay.com/api/enterprise)
   * Provisioning API
   * [Connector](https://documentation.ixopay.com/api/provisioning/connector)
   * List
 
-
 # List
-
 ```
 GET 
 ## https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid
 
-```
-
-Returns the connectors of the given merchant.
+```Returns the connectors of the given merchant.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/list-connectors#request "Direct link to request")
 ### Path Parameters
 **merchantGuid** stringrequired
 Identifier of the merchant.
-
 
 ## Responses[​](https://documentation.ixopay.com/api/provisioning/list-connectors#responses "Direct link to Responses")
   * 200
@@ -26,14 +40,11 @@ Identifier of the merchant.
   * 422
   * 500
 
-
 The connectors of the given tenant.
   * application/json
 
-
   * Schema
   * Example (auto)
-
 
 **Schema**
 **success** booleanrequired
@@ -65,7 +76,7 @@ If left empty the sharedSecret will be generated automatically.
 **Possible values:** `<= 50 characters`
 **Example:**`OsEPpNrSr8hxYR3BO0F73YXMvMdDsM`
 **archived** boolean
-**businessCountry** Country (string)
+**businessCountry** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -83,7 +94,7 @@ To obtain valid configuration values, use the `/api/provisioning/getConnectorSet
 **property name*** any
 Configuration values.
 To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**language** Language (string)
+**language** Language
 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
 **Possible values:** Value must match regular expression `^[a-z]{2}$`
 **Example:**`de`
@@ -98,15 +109,15 @@ Configuration values for vault connectors.
 To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
 **property name*** any
 Connector configuration.
-**createdAt** string<date-time>
+**createdAt** date-time
 **Example:**`2001-02-03T04:05:06+02:00`
-**customerProfileContainer** integer<int64>
+**customerProfileContainer** int64
 Customer profile Container ID.
-**defaultRiskRuleSet** integer<int64>
+**defaultRiskRuleSet** int64
 **description** string
 **disabled** boolean
 **Example:**`false`
-**disabledTransactionTypes** TransactionType (string)[]
+**disabledTransactionTypes** TransactionType[]
 List of transaction type disabled for this connector.
 **Possible values:** [`initial_debit`, `initial_preauthorize`, `capture`, `partial_capture`, `refund`, `partial_refund`, `register`, `deregister`, `payout`, `recurring_debit`, `recurring_preauthorize`]
 **merchantGuid** string
@@ -115,7 +126,7 @@ Merchant identifier.
 **isMetaConnector** boolean
 Whether the connector is a meta-connector.
 **Example:**`false`
-**postbackFormat** PostbackFormat (string)
+**postbackFormat** PostbackFormat
 **Possible values:** [`inherit`, `json`, `xml`]
 **Default value:**`inherit`
 **provider** string
@@ -124,7 +135,7 @@ Provider identifier.
 Whether the scheduler is enabled.
 **virtualTerminalAvailable** boolean
 Whether the virtual terminal is enabled.
-**vtRiskRuleSet** integer<int64>
+**vtRiskRuleSet** int64
 Identifier of risk rule profile for virtual terminal.
 **settings** object
 **account-updater:connector-guid** string
@@ -210,93 +221,146 @@ Whether to re-route recurring transactions to the original connector.
 On create/update add this to create a multi-method meta-connector (adapter and method must be set to `MetaConnector`).
 **defaultActionDisableConnector** boolean
 If no action is configured (rules), the default action is to disable the connector.
-**retries** integer<int32>
+**retries** int32
 How many retries should be allowed if possible.
 **Possible values:** `<= 9`
-**expiry** integer<int64>
+**expiry** int64
 Expiry time in hours.
   * ]
 **property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "connectors": [  
+
     {  
+
       "guid": "CO-1234-1234-1234-1234-1234-1234",  
+
       "name": "SimulatorConnector A",  
+
       "adapter": "Simulator",  
+
       "method": "Creditcard",  
+
       "apiKey": "sim-connector-a",  
+
       "publicIntegrationKey": "4nhDxztY3bBeozkyd7Zs",  
+
       "sharedSecret": "OsEPpNrSr8hxYR3BO0F73YXMvMdDsM",  
+
       "archived": true,  
+
       "businessCountry": "AT",  
+
       "config": {  
+
         "username": "asmith",  
+
         "password": "supersecure1",  
+
         "apiSecret": "ljkllLkklmKLlk3",  
+
         "extraData": {},  
+
         "language": "de",  
+
         "testMode": true,  
+
         "vault": {}  
+
       },  
+
       "createdAt": "2001-02-03T04:05:06+02:00",  
+
       "customerProfileContainer": 0,  
+
       "defaultRiskRuleSet": 0,  
+
       "description": "string",  
+
       "disabled": false,  
+
       "disabledTransactionTypes": [  
+
         "initial_debit"  
+
       ],  
+
       "merchantGuid": "ME-1234-1234-1234-1234-1234-1234",  
+
       "isMetaConnector": false,  
+
       "postbackFormat": "inherit",  
+
       "provider": "string",  
+
       "scheduleApiAvailable": true,  
+
       "virtualTerminalAvailable": true,  
+
       "vtRiskRuleSet": 0,  
+
       "settings": {  
+
         "tx:expiration-minutes": "900",  
+
         "refund:ui-enabled": "1"  
+
       },  
+
       "alias": "string",  
+
       "terminals": [  
+
         {  
+
           "terminalId": "string",  
+
           "disabled": true  
+
         }  
+
       ],  
+
       "routingMetaConnector": {  
+
         "defaultConnector": "string",  
+
         "reRouteRecurring": false  
+
       },  
+
       "multiMethodMetaConnector": {  
+
         "defaultActionDisableConnector": true,  
+
         "retries": 0,  
+
         "expiry": 0  
+
       }  
+
     }  
+
   ]  
+
 }  
 
-```
-
-Unauthorized, see [authentication](https://documentation.ixopay.com/api/provisioning/provisioning-api#generating-a-provisioning-api-key).
+```Unauthorized, see [authentication](https://documentation.ixopay.com/api/provisioning/provisioning-api#generating-a-provisioning-api-key).
   * application/json
-
 
   * Schema
   * Example (auto)
   * 1000
 
-
 **Schema**
 **success** booleanrequired
 `true` if successful.
-**errorCode** integer<int64>required
+**errorCode** int64required
 Error code.
     * `1000` - Unauthorized, e.g. invalid credentials
     * `1001` - The request is invalid
@@ -313,135 +377,90 @@ Human readable error message.
 :::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
 **Example:**`name: nameInvalid characters`
 **property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
+```Unauthorized (1000)
 ```
 
-Unauthorized (1000)
-
-```
 {  
+
   "success": false,  
+
   "errorCode": 1000,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
-```
-
-Unprocessable entity.
+```Unprocessable entity.
   * application/json
-
 
   * Schema
   * Example (auto)
   * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
+```Unprocessable entity (1001)
 ```
 
-Unprocessable entity (1001)
-
-```
 {  
+
   "success": false,  
+
   "errorCode": 1001,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
-```
-
-Internal server error.
+```Internal server error.
   * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
+```Internal server error (9999)
 ```
 
-Internal server error (9999)
-
-```
 {  
+
   "success": false,  
+
   "errorCode": 9999,  
+
   "errorMessage": "Internal server error"  
+
 }  
 
-```
-
-#### Authorization: http
-
+```#### Authorization: http
 ```
 **name:** basicAuth[](https://documentation.ixopay.com/api/provisioning/provisioning-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API key and password must be sent as BASIC Authentication in the `Authorization` header,
 as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
@@ -468,473 +487,233 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 5. Click on "**+ Create**" to generate your new API Key.
 6. It is crucial to securely store the provided password upon creation, as this will be the only opportunity it will be visible to you. Once you navigate away from the page, you'll only have the option to reset the password, not view the existing one.
 
-```
-
-  * curl
+```  * curl
   * python
   * go
   * nodejs
   * php
   * java
 
-
   * CURL
-
-
-
 ```
 curl -L 'https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
-```
-
-RequestCollapse all
+```RequestCollapse all
 Base URL
 Edit
-https://gateway.ixopay.com/api/provisioning
 Auth
 Username
 Password
 Parameters
 merchantGuid — pathrequired
-# List
-
 ```
 GET 
 ## https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid
 
 ```
-
-Returns the connectors of the given merchant.
-## Request[​](https://documentation.ixopay.com/api/provisioning/list-connectors#request "Direct link to request")
-### Path Parameters
-**merchantGuid** stringrequired
-Identifier of the merchant.
-
-
-## Responses[​](https://documentation.ixopay.com/api/provisioning/list-connectors#responses "Direct link to Responses")
-  * 200
-  * 401
-  * 422
-  * 500
-
-
-The connectors of the given tenant.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-
-
-**Schema**
-**success** booleanrequired
-Whether the request was successful or not.
-**connectors** object[]
-List of connectors of a merchant.
-  * Array [
-**guid** string
-Identifier.
-**Example:**`CO-1234-1234-1234-1234-1234-1234`
-**name** stringrequired
-**Possible values:** `>= 3 characters`
-**Example:**`SimulatorConnector A`
-**adapter** stringrequired
-Adapter identifier.
-**Example:**`Simulator`
-**method** stringrequired
-Method identifier.
-**Example:**`Creditcard`
-**apiKey** stringrequired
-Connector API key.
-**Example:**`sim-connector-a`
-**publicIntegrationKey** string
-Connector public integration key, user for payment.js.
-**Example:**`4nhDxztY3bBeozkyd7Zs`
-**sharedSecret** string
-Connector shared secret.
-If left empty the sharedSecret will be generated automatically.
-**Possible values:** `<= 50 characters`
-**Example:**`OsEPpNrSr8hxYR3BO0F73YXMvMdDsM`
-**archived** boolean
-**businessCountry** Country (string)
-[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-**Possible values:** Value must match regular expression `^[A-Z]{2}$`
-**Example:**`AT`
-**config** object
-Connector configuration.
-**username** string
-**Example:**`asmith`
-**password** string
-**Example:**`supersecure1`
-**apiSecret** string
-**Example:**`ljkllLkklmKLlk3`
-**extraData** object
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**property name*** any
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**language** Language (string)
-[ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
-**Possible values:** Value must match regular expression `^[a-z]{2}$`
-**Example:**`de`
-**testMode** boolean
-Whether the connector is in test mode.
-**Example:**`true`
-**vault** object
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Connector configuration.
-**createdAt** string<date-time>
-**Example:**`2001-02-03T04:05:06+02:00`
-**customerProfileContainer** integer<int64>
-Customer profile Container ID.
-**defaultRiskRuleSet** integer<int64>
-**description** string
-**disabled** boolean
-**Example:**`false`
-**disabledTransactionTypes** TransactionType (string)[]
-List of transaction type disabled for this connector.
-**Possible values:** [`initial_debit`, `initial_preauthorize`, `capture`, `partial_capture`, `refund`, `partial_refund`, `register`, `deregister`, `payout`, `recurring_debit`, `recurring_preauthorize`]
-**merchantGuid** string
-Merchant identifier.
-**Example:**`ME-1234-1234-1234-1234-1234-1234`
-**isMetaConnector** boolean
-Whether the connector is a meta-connector.
-**Example:**`false`
-**postbackFormat** PostbackFormat (string)
-**Possible values:** [`inherit`, `json`, `xml`]
-**Default value:**`inherit`
-**provider** string
-Provider identifier.
-**scheduleApiAvailable** boolean
-Whether the scheduler is enabled.
-**virtualTerminalAvailable** boolean
-Whether the virtual terminal is enabled.
-**vtRiskRuleSet** integer<int64>
-Identifier of risk rule profile for virtual terminal.
-**settings** object
-**account-updater:connector-guid** string
-**adapter-id:use-merchant-txid-as-customerid** string
-**api:request-signing-enabled** string
-**backdirect:loading-screen** string
-**batch-capture:pessimistic** string
-**batch-capture:time** string
-**cb-reveral:inform-email** string
-**cb-reversal:no-conflict** string
-**cb:create-representment** string
-**email:sender-address** string
-**email:sender-name** string
-**fees:calculate-register-for-combined-tx** string
-**handler:anti-fraud-stack** string
-**hooks:transaction-success** string
-**intermediate-redirect:enabled** string
-**kount:api_key** string
-**kount:enable-update-call** string
-**kount:fields** string
-**kount:init-scripts-automatically** string
-**kount:merchant_id** string
-**kount:test-mode-enabled** string
-**manipulation:prepend-uuid** string
-**merchant-settlement:no-rolling-reserve** string
-**meta-connector:reroute-refund** string
-**migration:connector-guids** string
-**postback-queue:max-retries** string
-**postback-sharing:projects** string
-**postback:old-service-name** string
-**postback:override-api-key** string
-**postback:send-on-capture** string
-**postback:send-on-pending** string
-**postback:send-test-plain-header** string
-**postback:send-useragent-header** string
-**postback:suppress-outgoing** string
-**postback:use-rfc-compliant-tz** string
-**postback:with-adapter-reference** string
-**postback:with-auth-code** string
-**postback:with-connector-info** string
-**preemptive-rendering:enabled** string
-**processing:convert-register-to-debit** string
-**processing:copy-customer-data-from-customer-profile-transaction** string
-**processing:copy-customer-data-from-related** string
-**processing:overwrite-customer-billing-country** string
-**processing:set-customer-identification** string
-**reconciliation:returns-processor-id** string
-**redirect:type-for-html** string
-**refund:ui-enabled** string
-**refund:with-chargeback** string
-**registration-sharing:projects** string
-**risk-engine:manual-review-delay** string
-**risk-engine:manual-review-for-recurring** string
-**risk-engine:review-requirements** string
-**risk-engine:show-risk-check-data-in-api-result** string
-**risk-engine:store-test-tx** string
-**settlement:create-unknown-transaction** string
-**threedsecure:check** string
-**tx:expiration-minutes** string
-**vault:external-vault-connector-guid** string
-**view:allow-merchant-upload** string
-**view:legacy** string
-**view:merchant-defined** string
-**view:no-country-dropdown** string
-**view:no-expiration-dropdown** string
-**virtual-terminal:pan-only** string
-**alias** string
-Set connector alias for global routing.
-**terminals** object[]
-  * Array [
-**terminalId** string
-Unique terminal identifier.
-**disabled** boolean
-  * ]
-**routingMetaConnector** object
-On create/update add this to create a classic routing meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultConnector** string
-Identifier of the default connector to route to.
-**reRouteRecurring** boolean
-Whether to re-route recurring transactions to the original connector.
-**Default value:**`false`
-**multiMethodMetaConnector** object
-On create/update add this to create a multi-method meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultActionDisableConnector** boolean
-If no action is configured (rules), the default action is to disable the connector.
-**retries** integer<int32>
-How many retries should be allowed if possible.
-**Possible values:** `<= 9`
-**expiry** integer<int64>
-Expiry time in hours.
-  * ]
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "connectors": [  
+
     {  
+
       "guid": "CO-1234-1234-1234-1234-1234-1234",  
+
       "name": "SimulatorConnector A",  
+
       "adapter": "Simulator",  
+
       "method": "Creditcard",  
+
       "apiKey": "sim-connector-a",  
+
       "publicIntegrationKey": "4nhDxztY3bBeozkyd7Zs",  
+
       "sharedSecret": "OsEPpNrSr8hxYR3BO0F73YXMvMdDsM",  
+
       "archived": true,  
+
       "businessCountry": "AT",  
+
       "config": {  
+
         "username": "asmith",  
+
         "password": "supersecure1",  
+
         "apiSecret": "ljkllLkklmKLlk3",  
+
         "extraData": {},  
+
         "language": "de",  
+
         "testMode": true,  
+
         "vault": {}  
+
       },  
+
       "createdAt": "2001-02-03T04:05:06+02:00",  
+
       "customerProfileContainer": 0,  
+
       "defaultRiskRuleSet": 0,  
+
       "description": "string",  
+
       "disabled": false,  
+
       "disabledTransactionTypes": [  
+
         "initial_debit"  
+
       ],  
+
       "merchantGuid": "ME-1234-1234-1234-1234-1234-1234",  
+
       "isMetaConnector": false,  
+
       "postbackFormat": "inherit",  
+
       "provider": "string",  
+
       "scheduleApiAvailable": true,  
+
       "virtualTerminalAvailable": true,  
+
       "vtRiskRuleSet": 0,  
+
       "settings": {  
+
         "tx:expiration-minutes": "900",  
+
         "refund:ui-enabled": "1"  
+
       },  
+
       "alias": "string",  
+
       "terminals": [  
+
         {  
+
           "terminalId": "string",  
+
           "disabled": true  
+
         }  
+
       ],  
+
       "routingMetaConnector": {  
+
         "defaultConnector": "string",  
+
         "reRouteRecurring": false  
+
       },  
+
       "multiMethodMetaConnector": {  
+
         "defaultActionDisableConnector": true,  
+
         "retries": 0,  
+
         "expiry": 0  
+
       }  
+
     }  
+
   ]  
+
 }  
 
 ```
-
-Unauthorized, see [authentication](https://documentation.ixopay.com/api/provisioning/provisioning-api#generating-a-provisioning-api-key).
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1000
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unauthorized (1000)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1000,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Unprocessable entity.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unprocessable entity (1001)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1001,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Internal server error.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Internal server error (9999)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 9999,  
+
   "errorMessage": "Internal server error"  
+
 }  
 
 ```
-
-#### Authorization: http
-
 ```
 **name:** basicAuth[](https://documentation.ixopay.com/api/provisioning/provisioning-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API key and password must be sent as BASIC Authentication in the `Authorization` header,
 as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
@@ -962,472 +741,218 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 6. It is crucial to securely store the provided password upon creation, as this will be the only opportunity it will be visible to you. Once you navigate away from the page, you'll only have the option to reset the password, not view the existing one.
 
 ```
-
-  * curl
-  * python
-  * go
-  * nodejs
-  * php
-  * java
-
-
-  * CURL
-
-
-
 ```
 curl -L 'https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
 ```
-
-RequestCollapse all
-Base URL
-Edit
-https://gateway.ixopay.com/api/provisioning
-Auth
-Username
-Password
-Parameters
-merchantGuid — pathrequired
-# List
-
 ```
 GET 
 ## https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid
 
 ```
-
-Returns the connectors of the given merchant.
-## Request[​](https://documentation.ixopay.com/api/provisioning/list-connectors#request "Direct link to request")
-### Path Parameters
-**merchantGuid** stringrequired
-Identifier of the merchant.
-
-
-## Responses[​](https://documentation.ixopay.com/api/provisioning/list-connectors#responses "Direct link to Responses")
-  * 200
-  * 401
-  * 422
-  * 500
-
-
-The connectors of the given tenant.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-
-
-**Schema**
-**success** booleanrequired
-Whether the request was successful or not.
-**connectors** object[]
-List of connectors of a merchant.
-  * Array [
-**guid** string
-Identifier.
-**Example:**`CO-1234-1234-1234-1234-1234-1234`
-**name** stringrequired
-**Possible values:** `>= 3 characters`
-**Example:**`SimulatorConnector A`
-**adapter** stringrequired
-Adapter identifier.
-**Example:**`Simulator`
-**method** stringrequired
-Method identifier.
-**Example:**`Creditcard`
-**apiKey** stringrequired
-Connector API key.
-**Example:**`sim-connector-a`
-**publicIntegrationKey** string
-Connector public integration key, user for payment.js.
-**Example:**`4nhDxztY3bBeozkyd7Zs`
-**sharedSecret** string
-Connector shared secret.
-If left empty the sharedSecret will be generated automatically.
-**Possible values:** `<= 50 characters`
-**Example:**`OsEPpNrSr8hxYR3BO0F73YXMvMdDsM`
-**archived** boolean
-**businessCountry** Country (string)
-[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-**Possible values:** Value must match regular expression `^[A-Z]{2}$`
-**Example:**`AT`
-**config** object
-Connector configuration.
-**username** string
-**Example:**`asmith`
-**password** string
-**Example:**`supersecure1`
-**apiSecret** string
-**Example:**`ljkllLkklmKLlk3`
-**extraData** object
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**property name*** any
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**language** Language (string)
-[ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
-**Possible values:** Value must match regular expression `^[a-z]{2}$`
-**Example:**`de`
-**testMode** boolean
-Whether the connector is in test mode.
-**Example:**`true`
-**vault** object
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Connector configuration.
-**createdAt** string<date-time>
-**Example:**`2001-02-03T04:05:06+02:00`
-**customerProfileContainer** integer<int64>
-Customer profile Container ID.
-**defaultRiskRuleSet** integer<int64>
-**description** string
-**disabled** boolean
-**Example:**`false`
-**disabledTransactionTypes** TransactionType (string)[]
-List of transaction type disabled for this connector.
-**Possible values:** [`initial_debit`, `initial_preauthorize`, `capture`, `partial_capture`, `refund`, `partial_refund`, `register`, `deregister`, `payout`, `recurring_debit`, `recurring_preauthorize`]
-**merchantGuid** string
-Merchant identifier.
-**Example:**`ME-1234-1234-1234-1234-1234-1234`
-**isMetaConnector** boolean
-Whether the connector is a meta-connector.
-**Example:**`false`
-**postbackFormat** PostbackFormat (string)
-**Possible values:** [`inherit`, `json`, `xml`]
-**Default value:**`inherit`
-**provider** string
-Provider identifier.
-**scheduleApiAvailable** boolean
-Whether the scheduler is enabled.
-**virtualTerminalAvailable** boolean
-Whether the virtual terminal is enabled.
-**vtRiskRuleSet** integer<int64>
-Identifier of risk rule profile for virtual terminal.
-**settings** object
-**account-updater:connector-guid** string
-**adapter-id:use-merchant-txid-as-customerid** string
-**api:request-signing-enabled** string
-**backdirect:loading-screen** string
-**batch-capture:pessimistic** string
-**batch-capture:time** string
-**cb-reveral:inform-email** string
-**cb-reversal:no-conflict** string
-**cb:create-representment** string
-**email:sender-address** string
-**email:sender-name** string
-**fees:calculate-register-for-combined-tx** string
-**handler:anti-fraud-stack** string
-**hooks:transaction-success** string
-**intermediate-redirect:enabled** string
-**kount:api_key** string
-**kount:enable-update-call** string
-**kount:fields** string
-**kount:init-scripts-automatically** string
-**kount:merchant_id** string
-**kount:test-mode-enabled** string
-**manipulation:prepend-uuid** string
-**merchant-settlement:no-rolling-reserve** string
-**meta-connector:reroute-refund** string
-**migration:connector-guids** string
-**postback-queue:max-retries** string
-**postback-sharing:projects** string
-**postback:old-service-name** string
-**postback:override-api-key** string
-**postback:send-on-capture** string
-**postback:send-on-pending** string
-**postback:send-test-plain-header** string
-**postback:send-useragent-header** string
-**postback:suppress-outgoing** string
-**postback:use-rfc-compliant-tz** string
-**postback:with-adapter-reference** string
-**postback:with-auth-code** string
-**postback:with-connector-info** string
-**preemptive-rendering:enabled** string
-**processing:convert-register-to-debit** string
-**processing:copy-customer-data-from-customer-profile-transaction** string
-**processing:copy-customer-data-from-related** string
-**processing:overwrite-customer-billing-country** string
-**processing:set-customer-identification** string
-**reconciliation:returns-processor-id** string
-**redirect:type-for-html** string
-**refund:ui-enabled** string
-**refund:with-chargeback** string
-**registration-sharing:projects** string
-**risk-engine:manual-review-delay** string
-**risk-engine:manual-review-for-recurring** string
-**risk-engine:review-requirements** string
-**risk-engine:show-risk-check-data-in-api-result** string
-**risk-engine:store-test-tx** string
-**settlement:create-unknown-transaction** string
-**threedsecure:check** string
-**tx:expiration-minutes** string
-**vault:external-vault-connector-guid** string
-**view:allow-merchant-upload** string
-**view:legacy** string
-**view:merchant-defined** string
-**view:no-country-dropdown** string
-**view:no-expiration-dropdown** string
-**virtual-terminal:pan-only** string
-**alias** string
-Set connector alias for global routing.
-**terminals** object[]
-  * Array [
-**terminalId** string
-Unique terminal identifier.
-**disabled** boolean
-  * ]
-**routingMetaConnector** object
-On create/update add this to create a classic routing meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultConnector** string
-Identifier of the default connector to route to.
-**reRouteRecurring** boolean
-Whether to re-route recurring transactions to the original connector.
-**Default value:**`false`
-**multiMethodMetaConnector** object
-On create/update add this to create a multi-method meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultActionDisableConnector** boolean
-If no action is configured (rules), the default action is to disable the connector.
-**retries** integer<int32>
-How many retries should be allowed if possible.
-**Possible values:** `<= 9`
-**expiry** integer<int64>
-Expiry time in hours.
-  * ]
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "connectors": [  
+
     {  
+
       "guid": "CO-1234-1234-1234-1234-1234-1234",  
+
       "name": "SimulatorConnector A",  
+
       "adapter": "Simulator",  
+
       "method": "Creditcard",  
+
       "apiKey": "sim-connector-a",  
+
       "publicIntegrationKey": "4nhDxztY3bBeozkyd7Zs",  
+
       "sharedSecret": "OsEPpNrSr8hxYR3BO0F73YXMvMdDsM",  
+
       "archived": true,  
+
       "businessCountry": "AT",  
+
       "config": {  
+
         "username": "asmith",  
+
         "password": "supersecure1",  
+
         "apiSecret": "ljkllLkklmKLlk3",  
+
         "extraData": {},  
+
         "language": "de",  
+
         "testMode": true,  
+
         "vault": {}  
+
       },  
+
       "createdAt": "2001-02-03T04:05:06+02:00",  
+
       "customerProfileContainer": 0,  
+
       "defaultRiskRuleSet": 0,  
+
       "description": "string",  
+
       "disabled": false,  
+
       "disabledTransactionTypes": [  
+
         "initial_debit"  
+
       ],  
+
       "merchantGuid": "ME-1234-1234-1234-1234-1234-1234",  
+
       "isMetaConnector": false,  
+
       "postbackFormat": "inherit",  
+
       "provider": "string",  
+
       "scheduleApiAvailable": true,  
+
       "virtualTerminalAvailable": true,  
+
       "vtRiskRuleSet": 0,  
+
       "settings": {  
+
         "tx:expiration-minutes": "900",  
+
         "refund:ui-enabled": "1"  
+
       },  
+
       "alias": "string",  
+
       "terminals": [  
+
         {  
+
           "terminalId": "string",  
+
           "disabled": true  
+
         }  
+
       ],  
+
       "routingMetaConnector": {  
+
         "defaultConnector": "string",  
+
         "reRouteRecurring": false  
+
       },  
+
       "multiMethodMetaConnector": {  
+
         "defaultActionDisableConnector": true,  
+
         "retries": 0,  
+
         "expiry": 0  
+
       }  
+
     }  
+
   ]  
+
 }  
 
 ```
-
-Unauthorized, see [authentication](https://documentation.ixopay.com/api/provisioning/provisioning-api#generating-a-provisioning-api-key).
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1000
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unauthorized (1000)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1000,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Unprocessable entity.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unprocessable entity (1001)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1001,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Internal server error.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Internal server error (9999)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 9999,  
+
   "errorMessage": "Internal server error"  
+
 }  
 
 ```
-
-#### Authorization: http
-
 ```
 **name:** basicAuth[](https://documentation.ixopay.com/api/provisioning/provisioning-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API key and password must be sent as BASIC Authentication in the `Authorization` header,
 as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
@@ -1455,479 +980,229 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 6. It is crucial to securely store the provided password upon creation, as this will be the only opportunity it will be visible to you. Once you navigate away from the page, you'll only have the option to reset the password, not view the existing one.
 
 ```
-
-  * curl
-  * python
-  * go
-  * nodejs
-  * php
-  * java
-
-
-  * CURL
-
-
-
 ```
 curl -L 'https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
-```
-
-RequestCollapse all
+```RequestCollapse all
 Base URL
 Edit
-https://gateway.ixopay.com/api/provisioning
 Auth
 Username
 Password
 Parameters
 merchantGuid — pathrequired
-  * [](https://documentation.ixopay.com/)
   * [Enterprise](https://documentation.ixopay.com/api/enterprise)
   * Provisioning API
   * [Connector](https://documentation.ixopay.com/api/provisioning/connector)
   * List
-
-
-# List
-
 ```
 GET 
 ## https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid
 
 ```
-
-Returns the connectors of the given merchant.
-## Request[​](https://documentation.ixopay.com/api/provisioning/list-connectors#request "Direct link to request")
-### Path Parameters
-**merchantGuid** stringrequired
-Identifier of the merchant.
-
-
-## Responses[​](https://documentation.ixopay.com/api/provisioning/list-connectors#responses "Direct link to Responses")
-  * 200
-  * 401
-  * 422
-  * 500
-
-
-The connectors of the given tenant.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-
-
-**Schema**
-**success** booleanrequired
-Whether the request was successful or not.
-**connectors** object[]
-List of connectors of a merchant.
-  * Array [
-**guid** string
-Identifier.
-**Example:**`CO-1234-1234-1234-1234-1234-1234`
-**name** stringrequired
-**Possible values:** `>= 3 characters`
-**Example:**`SimulatorConnector A`
-**adapter** stringrequired
-Adapter identifier.
-**Example:**`Simulator`
-**method** stringrequired
-Method identifier.
-**Example:**`Creditcard`
-**apiKey** stringrequired
-Connector API key.
-**Example:**`sim-connector-a`
-**publicIntegrationKey** string
-Connector public integration key, user for payment.js.
-**Example:**`4nhDxztY3bBeozkyd7Zs`
-**sharedSecret** string
-Connector shared secret.
-If left empty the sharedSecret will be generated automatically.
-**Possible values:** `<= 50 characters`
-**Example:**`OsEPpNrSr8hxYR3BO0F73YXMvMdDsM`
-**archived** boolean
-**businessCountry** Country (string)
-[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-**Possible values:** Value must match regular expression `^[A-Z]{2}$`
-**Example:**`AT`
-**config** object
-Connector configuration.
-**username** string
-**Example:**`asmith`
-**password** string
-**Example:**`supersecure1`
-**apiSecret** string
-**Example:**`ljkllLkklmKLlk3`
-**extraData** object
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**property name*** any
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**language** Language (string)
-[ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
-**Possible values:** Value must match regular expression `^[a-z]{2}$`
-**Example:**`de`
-**testMode** boolean
-Whether the connector is in test mode.
-**Example:**`true`
-**vault** object
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Connector configuration.
-**createdAt** string<date-time>
-**Example:**`2001-02-03T04:05:06+02:00`
-**customerProfileContainer** integer<int64>
-Customer profile Container ID.
-**defaultRiskRuleSet** integer<int64>
-**description** string
-**disabled** boolean
-**Example:**`false`
-**disabledTransactionTypes** TransactionType (string)[]
-List of transaction type disabled for this connector.
-**Possible values:** [`initial_debit`, `initial_preauthorize`, `capture`, `partial_capture`, `refund`, `partial_refund`, `register`, `deregister`, `payout`, `recurring_debit`, `recurring_preauthorize`]
-**merchantGuid** string
-Merchant identifier.
-**Example:**`ME-1234-1234-1234-1234-1234-1234`
-**isMetaConnector** boolean
-Whether the connector is a meta-connector.
-**Example:**`false`
-**postbackFormat** PostbackFormat (string)
-**Possible values:** [`inherit`, `json`, `xml`]
-**Default value:**`inherit`
-**provider** string
-Provider identifier.
-**scheduleApiAvailable** boolean
-Whether the scheduler is enabled.
-**virtualTerminalAvailable** boolean
-Whether the virtual terminal is enabled.
-**vtRiskRuleSet** integer<int64>
-Identifier of risk rule profile for virtual terminal.
-**settings** object
-**account-updater:connector-guid** string
-**adapter-id:use-merchant-txid-as-customerid** string
-**api:request-signing-enabled** string
-**backdirect:loading-screen** string
-**batch-capture:pessimistic** string
-**batch-capture:time** string
-**cb-reveral:inform-email** string
-**cb-reversal:no-conflict** string
-**cb:create-representment** string
-**email:sender-address** string
-**email:sender-name** string
-**fees:calculate-register-for-combined-tx** string
-**handler:anti-fraud-stack** string
-**hooks:transaction-success** string
-**intermediate-redirect:enabled** string
-**kount:api_key** string
-**kount:enable-update-call** string
-**kount:fields** string
-**kount:init-scripts-automatically** string
-**kount:merchant_id** string
-**kount:test-mode-enabled** string
-**manipulation:prepend-uuid** string
-**merchant-settlement:no-rolling-reserve** string
-**meta-connector:reroute-refund** string
-**migration:connector-guids** string
-**postback-queue:max-retries** string
-**postback-sharing:projects** string
-**postback:old-service-name** string
-**postback:override-api-key** string
-**postback:send-on-capture** string
-**postback:send-on-pending** string
-**postback:send-test-plain-header** string
-**postback:send-useragent-header** string
-**postback:suppress-outgoing** string
-**postback:use-rfc-compliant-tz** string
-**postback:with-adapter-reference** string
-**postback:with-auth-code** string
-**postback:with-connector-info** string
-**preemptive-rendering:enabled** string
-**processing:convert-register-to-debit** string
-**processing:copy-customer-data-from-customer-profile-transaction** string
-**processing:copy-customer-data-from-related** string
-**processing:overwrite-customer-billing-country** string
-**processing:set-customer-identification** string
-**reconciliation:returns-processor-id** string
-**redirect:type-for-html** string
-**refund:ui-enabled** string
-**refund:with-chargeback** string
-**registration-sharing:projects** string
-**risk-engine:manual-review-delay** string
-**risk-engine:manual-review-for-recurring** string
-**risk-engine:review-requirements** string
-**risk-engine:show-risk-check-data-in-api-result** string
-**risk-engine:store-test-tx** string
-**settlement:create-unknown-transaction** string
-**threedsecure:check** string
-**tx:expiration-minutes** string
-**vault:external-vault-connector-guid** string
-**view:allow-merchant-upload** string
-**view:legacy** string
-**view:merchant-defined** string
-**view:no-country-dropdown** string
-**view:no-expiration-dropdown** string
-**virtual-terminal:pan-only** string
-**alias** string
-Set connector alias for global routing.
-**terminals** object[]
-  * Array [
-**terminalId** string
-Unique terminal identifier.
-**disabled** boolean
-  * ]
-**routingMetaConnector** object
-On create/update add this to create a classic routing meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultConnector** string
-Identifier of the default connector to route to.
-**reRouteRecurring** boolean
-Whether to re-route recurring transactions to the original connector.
-**Default value:**`false`
-**multiMethodMetaConnector** object
-On create/update add this to create a multi-method meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultActionDisableConnector** boolean
-If no action is configured (rules), the default action is to disable the connector.
-**retries** integer<int32>
-How many retries should be allowed if possible.
-**Possible values:** `<= 9`
-**expiry** integer<int64>
-Expiry time in hours.
-  * ]
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "connectors": [  
+
     {  
+
       "guid": "CO-1234-1234-1234-1234-1234-1234",  
+
       "name": "SimulatorConnector A",  
+
       "adapter": "Simulator",  
+
       "method": "Creditcard",  
+
       "apiKey": "sim-connector-a",  
+
       "publicIntegrationKey": "4nhDxztY3bBeozkyd7Zs",  
+
       "sharedSecret": "OsEPpNrSr8hxYR3BO0F73YXMvMdDsM",  
+
       "archived": true,  
+
       "businessCountry": "AT",  
+
       "config": {  
+
         "username": "asmith",  
+
         "password": "supersecure1",  
+
         "apiSecret": "ljkllLkklmKLlk3",  
+
         "extraData": {},  
+
         "language": "de",  
+
         "testMode": true,  
+
         "vault": {}  
+
       },  
+
       "createdAt": "2001-02-03T04:05:06+02:00",  
+
       "customerProfileContainer": 0,  
+
       "defaultRiskRuleSet": 0,  
+
       "description": "string",  
+
       "disabled": false,  
+
       "disabledTransactionTypes": [  
+
         "initial_debit"  
+
       ],  
+
       "merchantGuid": "ME-1234-1234-1234-1234-1234-1234",  
+
       "isMetaConnector": false,  
+
       "postbackFormat": "inherit",  
+
       "provider": "string",  
+
       "scheduleApiAvailable": true,  
+
       "virtualTerminalAvailable": true,  
+
       "vtRiskRuleSet": 0,  
+
       "settings": {  
+
         "tx:expiration-minutes": "900",  
+
         "refund:ui-enabled": "1"  
+
       },  
+
       "alias": "string",  
+
       "terminals": [  
+
         {  
+
           "terminalId": "string",  
+
           "disabled": true  
+
         }  
+
       ],  
+
       "routingMetaConnector": {  
+
         "defaultConnector": "string",  
+
         "reRouteRecurring": false  
+
       },  
+
       "multiMethodMetaConnector": {  
+
         "defaultActionDisableConnector": true,  
+
         "retries": 0,  
+
         "expiry": 0  
+
       }  
+
     }  
+
   ]  
+
 }  
 
 ```
-
-Unauthorized, see [authentication](https://documentation.ixopay.com/api/provisioning/provisioning-api#generating-a-provisioning-api-key).
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1000
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unauthorized (1000)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1000,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Unprocessable entity.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unprocessable entity (1001)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1001,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Internal server error.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Internal server error (9999)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 9999,  
+
   "errorMessage": "Internal server error"  
+
 }  
 
 ```
-
-#### Authorization: http
-
 ```
 **name:** basicAuth[](https://documentation.ixopay.com/api/provisioning/provisioning-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API key and password must be sent as BASIC Authentication in the `Authorization` header,
 as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
@@ -1955,480 +1230,218 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 6. It is crucial to securely store the provided password upon creation, as this will be the only opportunity it will be visible to you. Once you navigate away from the page, you'll only have the option to reset the password, not view the existing one.
 
 ```
-
-  * curl
-  * python
-  * go
-  * nodejs
-  * php
-  * java
-
-
-  * CURL
-
-
-
 ```
 curl -L 'https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
 ```
-
-RequestCollapse all
-Base URL
-Edit
-https://gateway.ixopay.com/api/provisioning
-Auth
-Username
-Password
-Parameters
-merchantGuid — pathrequired
-[Previous Connector](https://documentation.ixopay.com/api/provisioning/connector)[Next Create](https://documentation.ixopay.com/api/provisioning/create-connector)
-  * [](https://documentation.ixopay.com/)
-  * [Enterprise](https://documentation.ixopay.com/api/enterprise)
-  * Provisioning API
-  * [Connector](https://documentation.ixopay.com/api/provisioning/connector)
-  * List
-
-
-# List
-
 ```
 GET 
 ## https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid
 
 ```
-
-Returns the connectors of the given merchant.
-## Request[​](https://documentation.ixopay.com/api/provisioning/list-connectors#request "Direct link to request")
-### Path Parameters
-**merchantGuid** stringrequired
-Identifier of the merchant.
-
-
-## Responses[​](https://documentation.ixopay.com/api/provisioning/list-connectors#responses "Direct link to Responses")
-  * 200
-  * 401
-  * 422
-  * 500
-
-
-The connectors of the given tenant.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-
-
-**Schema**
-**success** booleanrequired
-Whether the request was successful or not.
-**connectors** object[]
-List of connectors of a merchant.
-  * Array [
-**guid** string
-Identifier.
-**Example:**`CO-1234-1234-1234-1234-1234-1234`
-**name** stringrequired
-**Possible values:** `>= 3 characters`
-**Example:**`SimulatorConnector A`
-**adapter** stringrequired
-Adapter identifier.
-**Example:**`Simulator`
-**method** stringrequired
-Method identifier.
-**Example:**`Creditcard`
-**apiKey** stringrequired
-Connector API key.
-**Example:**`sim-connector-a`
-**publicIntegrationKey** string
-Connector public integration key, user for payment.js.
-**Example:**`4nhDxztY3bBeozkyd7Zs`
-**sharedSecret** string
-Connector shared secret.
-If left empty the sharedSecret will be generated automatically.
-**Possible values:** `<= 50 characters`
-**Example:**`OsEPpNrSr8hxYR3BO0F73YXMvMdDsM`
-**archived** boolean
-**businessCountry** Country (string)
-[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-**Possible values:** Value must match regular expression `^[A-Z]{2}$`
-**Example:**`AT`
-**config** object
-Connector configuration.
-**username** string
-**Example:**`asmith`
-**password** string
-**Example:**`supersecure1`
-**apiSecret** string
-**Example:**`ljkllLkklmKLlk3`
-**extraData** object
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**property name*** any
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**language** Language (string)
-[ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
-**Possible values:** Value must match regular expression `^[a-z]{2}$`
-**Example:**`de`
-**testMode** boolean
-Whether the connector is in test mode.
-**Example:**`true`
-**vault** object
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Connector configuration.
-**createdAt** string<date-time>
-**Example:**`2001-02-03T04:05:06+02:00`
-**customerProfileContainer** integer<int64>
-Customer profile Container ID.
-**defaultRiskRuleSet** integer<int64>
-**description** string
-**disabled** boolean
-**Example:**`false`
-**disabledTransactionTypes** TransactionType (string)[]
-List of transaction type disabled for this connector.
-**Possible values:** [`initial_debit`, `initial_preauthorize`, `capture`, `partial_capture`, `refund`, `partial_refund`, `register`, `deregister`, `payout`, `recurring_debit`, `recurring_preauthorize`]
-**merchantGuid** string
-Merchant identifier.
-**Example:**`ME-1234-1234-1234-1234-1234-1234`
-**isMetaConnector** boolean
-Whether the connector is a meta-connector.
-**Example:**`false`
-**postbackFormat** PostbackFormat (string)
-**Possible values:** [`inherit`, `json`, `xml`]
-**Default value:**`inherit`
-**provider** string
-Provider identifier.
-**scheduleApiAvailable** boolean
-Whether the scheduler is enabled.
-**virtualTerminalAvailable** boolean
-Whether the virtual terminal is enabled.
-**vtRiskRuleSet** integer<int64>
-Identifier of risk rule profile for virtual terminal.
-**settings** object
-**account-updater:connector-guid** string
-**adapter-id:use-merchant-txid-as-customerid** string
-**api:request-signing-enabled** string
-**backdirect:loading-screen** string
-**batch-capture:pessimistic** string
-**batch-capture:time** string
-**cb-reveral:inform-email** string
-**cb-reversal:no-conflict** string
-**cb:create-representment** string
-**email:sender-address** string
-**email:sender-name** string
-**fees:calculate-register-for-combined-tx** string
-**handler:anti-fraud-stack** string
-**hooks:transaction-success** string
-**intermediate-redirect:enabled** string
-**kount:api_key** string
-**kount:enable-update-call** string
-**kount:fields** string
-**kount:init-scripts-automatically** string
-**kount:merchant_id** string
-**kount:test-mode-enabled** string
-**manipulation:prepend-uuid** string
-**merchant-settlement:no-rolling-reserve** string
-**meta-connector:reroute-refund** string
-**migration:connector-guids** string
-**postback-queue:max-retries** string
-**postback-sharing:projects** string
-**postback:old-service-name** string
-**postback:override-api-key** string
-**postback:send-on-capture** string
-**postback:send-on-pending** string
-**postback:send-test-plain-header** string
-**postback:send-useragent-header** string
-**postback:suppress-outgoing** string
-**postback:use-rfc-compliant-tz** string
-**postback:with-adapter-reference** string
-**postback:with-auth-code** string
-**postback:with-connector-info** string
-**preemptive-rendering:enabled** string
-**processing:convert-register-to-debit** string
-**processing:copy-customer-data-from-customer-profile-transaction** string
-**processing:copy-customer-data-from-related** string
-**processing:overwrite-customer-billing-country** string
-**processing:set-customer-identification** string
-**reconciliation:returns-processor-id** string
-**redirect:type-for-html** string
-**refund:ui-enabled** string
-**refund:with-chargeback** string
-**registration-sharing:projects** string
-**risk-engine:manual-review-delay** string
-**risk-engine:manual-review-for-recurring** string
-**risk-engine:review-requirements** string
-**risk-engine:show-risk-check-data-in-api-result** string
-**risk-engine:store-test-tx** string
-**settlement:create-unknown-transaction** string
-**threedsecure:check** string
-**tx:expiration-minutes** string
-**vault:external-vault-connector-guid** string
-**view:allow-merchant-upload** string
-**view:legacy** string
-**view:merchant-defined** string
-**view:no-country-dropdown** string
-**view:no-expiration-dropdown** string
-**virtual-terminal:pan-only** string
-**alias** string
-Set connector alias for global routing.
-**terminals** object[]
-  * Array [
-**terminalId** string
-Unique terminal identifier.
-**disabled** boolean
-  * ]
-**routingMetaConnector** object
-On create/update add this to create a classic routing meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultConnector** string
-Identifier of the default connector to route to.
-**reRouteRecurring** boolean
-Whether to re-route recurring transactions to the original connector.
-**Default value:**`false`
-**multiMethodMetaConnector** object
-On create/update add this to create a multi-method meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultActionDisableConnector** boolean
-If no action is configured (rules), the default action is to disable the connector.
-**retries** integer<int32>
-How many retries should be allowed if possible.
-**Possible values:** `<= 9`
-**expiry** integer<int64>
-Expiry time in hours.
-  * ]
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "connectors": [  
+
     {  
+
       "guid": "CO-1234-1234-1234-1234-1234-1234",  
+
       "name": "SimulatorConnector A",  
+
       "adapter": "Simulator",  
+
       "method": "Creditcard",  
+
       "apiKey": "sim-connector-a",  
+
       "publicIntegrationKey": "4nhDxztY3bBeozkyd7Zs",  
+
       "sharedSecret": "OsEPpNrSr8hxYR3BO0F73YXMvMdDsM",  
+
       "archived": true,  
+
       "businessCountry": "AT",  
+
       "config": {  
+
         "username": "asmith",  
+
         "password": "supersecure1",  
+
         "apiSecret": "ljkllLkklmKLlk3",  
+
         "extraData": {},  
+
         "language": "de",  
+
         "testMode": true,  
+
         "vault": {}  
+
       },  
+
       "createdAt": "2001-02-03T04:05:06+02:00",  
+
       "customerProfileContainer": 0,  
+
       "defaultRiskRuleSet": 0,  
+
       "description": "string",  
+
       "disabled": false,  
+
       "disabledTransactionTypes": [  
+
         "initial_debit"  
+
       ],  
+
       "merchantGuid": "ME-1234-1234-1234-1234-1234-1234",  
+
       "isMetaConnector": false,  
+
       "postbackFormat": "inherit",  
+
       "provider": "string",  
+
       "scheduleApiAvailable": true,  
+
       "virtualTerminalAvailable": true,  
+
       "vtRiskRuleSet": 0,  
+
       "settings": {  
+
         "tx:expiration-minutes": "900",  
+
         "refund:ui-enabled": "1"  
+
       },  
+
       "alias": "string",  
+
       "terminals": [  
+
         {  
+
           "terminalId": "string",  
+
           "disabled": true  
+
         }  
+
       ],  
+
       "routingMetaConnector": {  
+
         "defaultConnector": "string",  
+
         "reRouteRecurring": false  
+
       },  
+
       "multiMethodMetaConnector": {  
+
         "defaultActionDisableConnector": true,  
+
         "retries": 0,  
+
         "expiry": 0  
+
       }  
+
     }  
+
   ]  
+
 }  
 
 ```
-
-Unauthorized, see [authentication](https://documentation.ixopay.com/api/provisioning/provisioning-api#generating-a-provisioning-api-key).
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1000
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unauthorized (1000)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1000,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Unprocessable entity.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unprocessable entity (1001)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1001,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Internal server error.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Internal server error (9999)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 9999,  
+
   "errorMessage": "Internal server error"  
+
 }  
 
 ```
-
-#### Authorization: http
-
 ```
 **name:** basicAuth[](https://documentation.ixopay.com/api/provisioning/provisioning-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API key and password must be sent as BASIC Authentication in the `Authorization` header,
 as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
@@ -2456,472 +1469,218 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 6. It is crucial to securely store the provided password upon creation, as this will be the only opportunity it will be visible to you. Once you navigate away from the page, you'll only have the option to reset the password, not view the existing one.
 
 ```
-
-  * curl
-  * python
-  * go
-  * nodejs
-  * php
-  * java
-
-
-  * CURL
-
-
-
 ```
 curl -L 'https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
 ```
-
-RequestCollapse all
-Base URL
-Edit
-https://gateway.ixopay.com/api/provisioning
-Auth
-Username
-Password
-Parameters
-merchantGuid — pathrequired
-# List
-
 ```
 GET 
 ## https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid
 
 ```
-
-Returns the connectors of the given merchant.
-## Request[​](https://documentation.ixopay.com/api/provisioning/list-connectors#request "Direct link to request")
-### Path Parameters
-**merchantGuid** stringrequired
-Identifier of the merchant.
-
-
-## Responses[​](https://documentation.ixopay.com/api/provisioning/list-connectors#responses "Direct link to Responses")
-  * 200
-  * 401
-  * 422
-  * 500
-
-
-The connectors of the given tenant.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-
-
-**Schema**
-**success** booleanrequired
-Whether the request was successful or not.
-**connectors** object[]
-List of connectors of a merchant.
-  * Array [
-**guid** string
-Identifier.
-**Example:**`CO-1234-1234-1234-1234-1234-1234`
-**name** stringrequired
-**Possible values:** `>= 3 characters`
-**Example:**`SimulatorConnector A`
-**adapter** stringrequired
-Adapter identifier.
-**Example:**`Simulator`
-**method** stringrequired
-Method identifier.
-**Example:**`Creditcard`
-**apiKey** stringrequired
-Connector API key.
-**Example:**`sim-connector-a`
-**publicIntegrationKey** string
-Connector public integration key, user for payment.js.
-**Example:**`4nhDxztY3bBeozkyd7Zs`
-**sharedSecret** string
-Connector shared secret.
-If left empty the sharedSecret will be generated automatically.
-**Possible values:** `<= 50 characters`
-**Example:**`OsEPpNrSr8hxYR3BO0F73YXMvMdDsM`
-**archived** boolean
-**businessCountry** Country (string)
-[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
-**Possible values:** Value must match regular expression `^[A-Z]{2}$`
-**Example:**`AT`
-**config** object
-Connector configuration.
-**username** string
-**Example:**`asmith`
-**password** string
-**Example:**`supersecure1`
-**apiSecret** string
-**Example:**`ljkllLkklmKLlk3`
-**extraData** object
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**property name*** any
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**language** Language (string)
-[ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
-**Possible values:** Value must match regular expression `^[a-z]{2}$`
-**Example:**`de`
-**testMode** boolean
-Whether the connector is in test mode.
-**Example:**`true`
-**vault** object
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Configuration values for vault connectors.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
-**property name*** any
-Connector configuration.
-**createdAt** string<date-time>
-**Example:**`2001-02-03T04:05:06+02:00`
-**customerProfileContainer** integer<int64>
-Customer profile Container ID.
-**defaultRiskRuleSet** integer<int64>
-**description** string
-**disabled** boolean
-**Example:**`false`
-**disabledTransactionTypes** TransactionType (string)[]
-List of transaction type disabled for this connector.
-**Possible values:** [`initial_debit`, `initial_preauthorize`, `capture`, `partial_capture`, `refund`, `partial_refund`, `register`, `deregister`, `payout`, `recurring_debit`, `recurring_preauthorize`]
-**merchantGuid** string
-Merchant identifier.
-**Example:**`ME-1234-1234-1234-1234-1234-1234`
-**isMetaConnector** boolean
-Whether the connector is a meta-connector.
-**Example:**`false`
-**postbackFormat** PostbackFormat (string)
-**Possible values:** [`inherit`, `json`, `xml`]
-**Default value:**`inherit`
-**provider** string
-Provider identifier.
-**scheduleApiAvailable** boolean
-Whether the scheduler is enabled.
-**virtualTerminalAvailable** boolean
-Whether the virtual terminal is enabled.
-**vtRiskRuleSet** integer<int64>
-Identifier of risk rule profile for virtual terminal.
-**settings** object
-**account-updater:connector-guid** string
-**adapter-id:use-merchant-txid-as-customerid** string
-**api:request-signing-enabled** string
-**backdirect:loading-screen** string
-**batch-capture:pessimistic** string
-**batch-capture:time** string
-**cb-reveral:inform-email** string
-**cb-reversal:no-conflict** string
-**cb:create-representment** string
-**email:sender-address** string
-**email:sender-name** string
-**fees:calculate-register-for-combined-tx** string
-**handler:anti-fraud-stack** string
-**hooks:transaction-success** string
-**intermediate-redirect:enabled** string
-**kount:api_key** string
-**kount:enable-update-call** string
-**kount:fields** string
-**kount:init-scripts-automatically** string
-**kount:merchant_id** string
-**kount:test-mode-enabled** string
-**manipulation:prepend-uuid** string
-**merchant-settlement:no-rolling-reserve** string
-**meta-connector:reroute-refund** string
-**migration:connector-guids** string
-**postback-queue:max-retries** string
-**postback-sharing:projects** string
-**postback:old-service-name** string
-**postback:override-api-key** string
-**postback:send-on-capture** string
-**postback:send-on-pending** string
-**postback:send-test-plain-header** string
-**postback:send-useragent-header** string
-**postback:suppress-outgoing** string
-**postback:use-rfc-compliant-tz** string
-**postback:with-adapter-reference** string
-**postback:with-auth-code** string
-**postback:with-connector-info** string
-**preemptive-rendering:enabled** string
-**processing:convert-register-to-debit** string
-**processing:copy-customer-data-from-customer-profile-transaction** string
-**processing:copy-customer-data-from-related** string
-**processing:overwrite-customer-billing-country** string
-**processing:set-customer-identification** string
-**reconciliation:returns-processor-id** string
-**redirect:type-for-html** string
-**refund:ui-enabled** string
-**refund:with-chargeback** string
-**registration-sharing:projects** string
-**risk-engine:manual-review-delay** string
-**risk-engine:manual-review-for-recurring** string
-**risk-engine:review-requirements** string
-**risk-engine:show-risk-check-data-in-api-result** string
-**risk-engine:store-test-tx** string
-**settlement:create-unknown-transaction** string
-**threedsecure:check** string
-**tx:expiration-minutes** string
-**vault:external-vault-connector-guid** string
-**view:allow-merchant-upload** string
-**view:legacy** string
-**view:merchant-defined** string
-**view:no-country-dropdown** string
-**view:no-expiration-dropdown** string
-**virtual-terminal:pan-only** string
-**alias** string
-Set connector alias for global routing.
-**terminals** object[]
-  * Array [
-**terminalId** string
-Unique terminal identifier.
-**disabled** boolean
-  * ]
-**routingMetaConnector** object
-On create/update add this to create a classic routing meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultConnector** string
-Identifier of the default connector to route to.
-**reRouteRecurring** boolean
-Whether to re-route recurring transactions to the original connector.
-**Default value:**`false`
-**multiMethodMetaConnector** object
-On create/update add this to create a multi-method meta-connector (adapter and method must be set to `MetaConnector`).
-**defaultActionDisableConnector** boolean
-If no action is configured (rules), the default action is to disable the connector.
-**retries** integer<int32>
-How many retries should be allowed if possible.
-**Possible values:** `<= 9`
-**expiry** integer<int64>
-Expiry time in hours.
-  * ]
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "connectors": [  
+
     {  
+
       "guid": "CO-1234-1234-1234-1234-1234-1234",  
+
       "name": "SimulatorConnector A",  
+
       "adapter": "Simulator",  
+
       "method": "Creditcard",  
+
       "apiKey": "sim-connector-a",  
+
       "publicIntegrationKey": "4nhDxztY3bBeozkyd7Zs",  
+
       "sharedSecret": "OsEPpNrSr8hxYR3BO0F73YXMvMdDsM",  
+
       "archived": true,  
+
       "businessCountry": "AT",  
+
       "config": {  
+
         "username": "asmith",  
+
         "password": "supersecure1",  
+
         "apiSecret": "ljkllLkklmKLlk3",  
+
         "extraData": {},  
+
         "language": "de",  
+
         "testMode": true,  
+
         "vault": {}  
+
       },  
+
       "createdAt": "2001-02-03T04:05:06+02:00",  
+
       "customerProfileContainer": 0,  
+
       "defaultRiskRuleSet": 0,  
+
       "description": "string",  
+
       "disabled": false,  
+
       "disabledTransactionTypes": [  
+
         "initial_debit"  
+
       ],  
+
       "merchantGuid": "ME-1234-1234-1234-1234-1234-1234",  
+
       "isMetaConnector": false,  
+
       "postbackFormat": "inherit",  
+
       "provider": "string",  
+
       "scheduleApiAvailable": true,  
+
       "virtualTerminalAvailable": true,  
+
       "vtRiskRuleSet": 0,  
+
       "settings": {  
+
         "tx:expiration-minutes": "900",  
+
         "refund:ui-enabled": "1"  
+
       },  
+
       "alias": "string",  
+
       "terminals": [  
+
         {  
+
           "terminalId": "string",  
+
           "disabled": true  
+
         }  
+
       ],  
+
       "routingMetaConnector": {  
+
         "defaultConnector": "string",  
+
         "reRouteRecurring": false  
+
       },  
+
       "multiMethodMetaConnector": {  
+
         "defaultActionDisableConnector": true,  
+
         "retries": 0,  
+
         "expiry": 0  
+
       }  
+
     }  
+
   ]  
+
 }  
 
 ```
-
-Unauthorized, see [authentication](https://documentation.ixopay.com/api/provisioning/provisioning-api#generating-a-provisioning-api-key).
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1000
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unauthorized (1000)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1000,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Unprocessable entity.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Unprocessable entity (1001)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 1001,  
+
   "errorMessage": "Unauthorized"  
+
 }  
 
 ```
-
-Internal server error.
-  * application/json
-
-
-  * Schema
-  * Example (auto)
-  * 1001
-
-
-**Schema**
-**success** booleanrequired
-`true` if successful.
-**errorCode** integer<int64>required
-Error code.
-    * `1000` - Unauthorized, e.g. invalid credentials
-    * `1001` - The request is invalid
-    * `1002` - The value does not comply to the requirements, e.g. pre-defined values
-    * `1003` - The format is invalid
-    * `1004` - The value contains invalid characters
-    * `1005` - Mandatory parameters are missing
-    * `1006` - Some parameters are not applicable in given request scenario
-    * `1007` - The provided entity does not exist
-    * `9999` - Internal system error
-**Example:**`1004`
-**errorMessage** stringrequired
-Human readable error message.
-:::info While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`. :::
-**Example:**`name: nameInvalid characters`
-**property name*** any
-
-
-
 ```
+
 {  
+
   "success": true,  
+
   "errorCode": 1004,  
+
   "errorMessage": "name: nameInvalid characters"  
+
 }  
 
 ```
-
-Internal server error (9999)
-
 ```
+
 {  
+
   "success": false,  
+
   "errorCode": 9999,  
+
   "errorMessage": "Internal server error"  
+
 }  
 
 ```
-
-#### Authorization: http
-
 ```
 **name:** basicAuth[](https://documentation.ixopay.com/api/provisioning/provisioning-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API key and password must be sent as BASIC Authentication in the `Authorization` header,
 as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
@@ -2949,30 +1708,14 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 6. It is crucial to securely store the provided password upon creation, as this will be the only opportunity it will be visible to you. Once you navigate away from the page, you'll only have the option to reset the password, not view the existing one.
 
 ```
-
-  * curl
-  * python
-  * go
-  * nodejs
-  * php
-  * java
-
-
-  * CURL
-
-
-
 ```
 curl -L 'https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
-```
-
-RequestCollapse all
+```RequestCollapse all
 Base URL
 Edit
-https://gateway.ixopay.com/api/provisioning
 Auth
 Username
 Password

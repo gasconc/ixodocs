@@ -5,9 +5,9 @@ summary: ' Advanced Configurationhttps://documentation.ixopay.com/manual/docs/co
 tags:
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/convert-register-to-debit-transaction
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

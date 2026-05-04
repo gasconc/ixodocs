@@ -7,9 +7,9 @@ tags:
 - api
 - tokenex
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/api/tokenex/account-updater
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

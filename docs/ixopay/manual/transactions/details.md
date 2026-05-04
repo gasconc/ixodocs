@@ -12,9 +12,9 @@ tags:
 - attached-schedules-https-documentation-ixopay-com-manual-docs-transactions-details-attached-schedules-direct-link-attached-schedules
 - post-processing-data-https-documentation-ixopay-com-manual-docs-transactions-details-post-processing-data-direct-link-post-processing-data
 - comments-https-documentation-ixopay-com-manual-docs-transactions-details-comments-direct-link-comments
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/transactions/details
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -141,7 +141,7 @@ This includes:
 
 ![Post-Processing](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-overview.5e0d23a.1280.png)Post-Processing
 File retention
-Files are retained for 12 months and permanently deleted thereafter. 
+Files are retained for 12 months and permanently deleted thereafter.
 ## Comments[​](https://documentation.ixopay.com/manual/docs/transactions/details#comments "Direct link to Comments")
 In this section you have the possibility to add internal comments to the individual Transactions. Follow these steps to leave a comment:
   1. Select **Add comment**

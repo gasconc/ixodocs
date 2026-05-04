@@ -5,9 +5,10 @@ tags:
 - interface-overview-dashboard-displays-customizable-view-overall-transactions-providing-insights-today-yesterday-monthly-counts-volumes-current-merchants-informs-well-existing-conflicts-https-documentation-ixopay-com-manual-docs-administrative-tools-platform-overview-account-settings-itemshttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-dashboard-widgets-itemshttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-manage-visualize-alerts-platform-notifies-administrators-attention-required-alerts-notifications-show-directly-platform-dashboard-desired-alerts-sent-via-email-https-documentation-ixopay-com-manual-docs-administrative-tools-manage-visualize-alerts
 - interface-overview-dashboard-displays-customizable-view-overall-transactions-providing-insights-today-yesterday-monthly-counts-volumes-current-merchants-informs-well-existing-conflicts-https-documentation-ixopay-com-manual-docs-administrative-tools-platform-overview-account-settings-itemshttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-dashboard-widgets-itemshttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-manage-visualize-alerts-platform-notifies-administrators-attention-required-alerts-notifications-show-directly-platform-dashboard-desired-alerts-sent-via-email-https-documentation-ixopay-com-manual-docs-administrative-tools-manage-visualize-alerts-interface-overview-dashboard-displays-customizable-view-overall-transactions-providing-insights-today-yesterday-monthly-counts-volumes-current-merchants-informs-well-existing-conflicts-https-documentation-ixopay-com-manual-docs-administrative-tools-platform-overview-account-settings-itemshttps-documentation-ixopay-com-manual-docs-administrative-tools-account-settings-dashboard-widgets-itemshttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-manage-visualize-alerts-platform-notifies-administrators-attention-required-alerts-notifications-show-directly-platform-dashboard-desired-alerts-sent-via-email-https-documentation-ixopay-com-manual-docs-administrative-tools-manage-visualize-alerts
 - ixopay
-source_url: ''
+- dashboard
+source_url: https://documentation.ixopay.com/manual/docs/administrative-tools
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

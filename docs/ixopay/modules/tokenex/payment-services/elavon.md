@@ -6,16 +6,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-elavon-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-elavon-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-elavon-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-elavon-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-elavon-responses-direct-link-responses
 - api
 - xml
 - 3ds
 - tokenization
 - tokenex
-source_url: ''
+- ixopay
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -115,113 +115,204 @@ False = Tax Exempted Sale ("N")  |
   * ACH Purchase
   * ACH Refund
   * ACH Void
-
 ```
+
 {  
+
   "gateway": "Elavon",  
+
   "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
   "username": "<Your Converge User Id>",  
+
   "password": "<Your Terminal Id>",  
+
   "amount": 1200,  
+
   "creditCard": {  
+
     "number": "4000000000000002",  
+
     "expMonth": 6,  
+
     "expYear": 2026,  
+
     "cvv": "123"  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "shippingAddress": {  
+
     "phone": "555-555-5555",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   }  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
   "username": "<Your Converge User Id>",  
+
   "password": "<Your Terminal Id>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
   "amount": 123,  
+
   "gateway": "Elavon"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
   "username": "<Your Converge User Id>",  
+
   "password": "<Your Terminal Id>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase/Capture call>",  
+
   "gateway": "Elavon"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
   "username": "<Your Converge User Id>",  
+
   "password": "<Your Terminal Id>",  
+
   "agreementIndicator": "1",  
+
   "processingOption": "PPD",  
+
   "check": {  
+
     "accountNumber": "987654321",  
+
     "routingNumber": "021000021",  
+
     "checkNumber": "123456789",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "accountType": 1  
+
   },  
+
   "billingAddress": {  
+
     "phone": "555-555-5555",  
+
     "fax": "555-555-6666",  
+
     "email": "john@doe.dev",  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "name": "John Doe",  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": null,  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "amount": 1200,  
+
   "gateway": "Elavon"  
+
 }  
 
-warning
+```warning
 Operation Not Supported By Elavon Gateway
 ```
+
 {  
+
   "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
   "username": "<Your Converge User Id>",  
+
   "password": "<Your Terminal Id>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
   "gateway": "Elavon"  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | TokenEx Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approvalCode`  | string  | `ssl_approval_code`  | Elavon approval code  |  
@@ -237,138 +328,2498 @@ An `ssl_result` not equal to 0 indicates a declined and unauthorized transaction
   * Card Void
   * Gateway Error
   * Processor Error
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:35:09 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMQ==",  
+
     "approvalCode": "577569",  
+
     "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120515350834240943",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012261712052136280000047554200000000000577582333921122617</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223O2D-0FD06834-4C92-475D-B152-BA598A511770</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577582</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:36:28 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>SALE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397778837215330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MDUxMjIzTzJELTBGRDA2ODM0LTRDOTItNDc1RC1CMTUyLUJBNTk4QTUxMTc3MDswMg==",  
+
     "approvalCode": "577582",  
+
     "providerTransactionCode": "051223O2D-0FD06834-4C92-475D-B152-BA598A511770",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120515362622855439",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response></ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 04:37:56 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>COMPLETE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMw==",  
+
     "approvalCode": "577569",  
+
     "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120515375553139508",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>0</ssl_result><ssl_txn_id>051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>577597</ssl_approval_code><ssl_email></ssl_email><ssl_amount>0.00</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:38:39 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>RETURN</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MDUxMjIzTzJDLTA5Q0NBMjBCLTVDMDItNEJEOS1CQjg3LTIxOTNERDY0OEE3NDswNQ==",  
+
     "approvalCode": "577597",  
+
     "providerTransactionCode": "051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120515383830534050",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_card_number>40**********0002</ssl_card_number><ssl_result>0</ssl_result><ssl_txn_id>081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:41:32 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description></ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>VOID</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MDgxMjIzQzQ0LUQ3N0VGM0U2LTkwNTYtNDAzMC04NkJFLTA5NUU0QzA1REM4ODswNA==",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120815414651883010",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><errorCode>4025</errorCode><errorName>Invalid Credentials</errorName><errorMessage>The credentials supplied in the authorization request are invalid.</errorMessage></txn>",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "4025",  
+
         "message": "Invalid Credentials - The credentials supplied in the authorization request are invalid."  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "23120815390035123637",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>51</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>1</ssl_result><ssl_txn_id>081223C45-FCAC6E28-6345-43B7-B098-068845603BBE</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.51</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:36:17 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>DECLINED: NSF</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "51",  
+
         "message": "DECLINED: NSF"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "MDgxMjIzQzQ1LUZDQUM2RTI4LTYzNDUtNDNCNy1CMDk4LTA2ODg0NTYwM0JCRTswMQ==",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "081223C45-FCAC6E28-6345-43B7-B098-068845603BBE",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "2312081536172028805",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon#overview)
+```
+```
+
+{  
+
+  "gateway": "Elavon",  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "amount": 1200,  
+
+  "creditCard": {  
+
+    "number": "4000000000000002",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "shippingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase/Capture call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "agreementIndicator": "1",  
+
+  "processingOption": "PPD",  
+
+  "check": {  
+
+    "accountNumber": "987654321",  
+
+    "routingNumber": "021000021",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": 1  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:35:09 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMQ==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515350834240943",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012261712052136280000047554200000000000577582333921122617</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223O2D-0FD06834-4C92-475D-B152-BA598A511770</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577582</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:36:28 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>SALE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397778837215330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJELTBGRDA2ODM0LTRDOTItNDc1RC1CMTUyLUJBNTk4QTUxMTc3MDswMg==",  
+
+    "approvalCode": "577582",  
+
+    "providerTransactionCode": "051223O2D-0FD06834-4C92-475D-B152-BA598A511770",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515362622855439",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response></ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 04:37:56 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>COMPLETE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMw==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515375553139508",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>0</ssl_result><ssl_txn_id>051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>577597</ssl_approval_code><ssl_email></ssl_email><ssl_amount>0.00</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:38:39 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>RETURN</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJDLTA5Q0NBMjBCLTVDMDItNEJEOS1CQjg3LTIxOTNERDY0OEE3NDswNQ==",  
+
+    "approvalCode": "577597",  
+
+    "providerTransactionCode": "051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515383830534050",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_card_number>40**********0002</ssl_card_number><ssl_result>0</ssl_result><ssl_txn_id>081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:41:32 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description></ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>VOID</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ0LUQ3N0VGM0U2LTkwNTYtNDAzMC04NkJFLTA5NUU0QzA1REM4ODswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120815414651883010",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><errorCode>4025</errorCode><errorName>Invalid Credentials</errorName><errorMessage>The credentials supplied in the authorization request are invalid.</errorMessage></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "4025",  
+
+        "message": "Invalid Credentials - The credentials supplied in the authorization request are invalid."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120815390035123637",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>51</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>1</ssl_result><ssl_txn_id>081223C45-FCAC6E28-6345-43B7-B098-068845603BBE</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.51</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:36:17 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>DECLINED: NSF</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "51",  
+
+        "message": "DECLINED: NSF"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ1LUZDQUM2RTI4LTYzNDUtNDNCNy1CMDk4LTA2ODg0NTYwM0JCRTswMQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C45-FCAC6E28-6345-43B7-B098-068845603BBE",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081536172028805",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Elavon",  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "amount": 1200,  
+
+  "creditCard": {  
+
+    "number": "4000000000000002",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "shippingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase/Capture call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "agreementIndicator": "1",  
+
+  "processingOption": "PPD",  
+
+  "check": {  
+
+    "accountNumber": "987654321",  
+
+    "routingNumber": "021000021",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": 1  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:35:09 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMQ==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515350834240943",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012261712052136280000047554200000000000577582333921122617</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223O2D-0FD06834-4C92-475D-B152-BA598A511770</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577582</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:36:28 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>SALE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397778837215330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJELTBGRDA2ODM0LTRDOTItNDc1RC1CMTUyLUJBNTk4QTUxMTc3MDswMg==",  
+
+    "approvalCode": "577582",  
+
+    "providerTransactionCode": "051223O2D-0FD06834-4C92-475D-B152-BA598A511770",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515362622855439",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response></ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 04:37:56 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>COMPLETE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMw==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515375553139508",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>0</ssl_result><ssl_txn_id>051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>577597</ssl_approval_code><ssl_email></ssl_email><ssl_amount>0.00</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:38:39 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>RETURN</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJDLTA5Q0NBMjBCLTVDMDItNEJEOS1CQjg3LTIxOTNERDY0OEE3NDswNQ==",  
+
+    "approvalCode": "577597",  
+
+    "providerTransactionCode": "051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515383830534050",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_card_number>40**********0002</ssl_card_number><ssl_result>0</ssl_result><ssl_txn_id>081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:41:32 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description></ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>VOID</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ0LUQ3N0VGM0U2LTkwNTYtNDAzMC04NkJFLTA5NUU0QzA1REM4ODswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120815414651883010",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><errorCode>4025</errorCode><errorName>Invalid Credentials</errorName><errorMessage>The credentials supplied in the authorization request are invalid.</errorMessage></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "4025",  
+
+        "message": "Invalid Credentials - The credentials supplied in the authorization request are invalid."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120815390035123637",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>51</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>1</ssl_result><ssl_txn_id>081223C45-FCAC6E28-6345-43B7-B098-068845603BBE</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.51</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:36:17 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>DECLINED: NSF</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "51",  
+
+        "message": "DECLINED: NSF"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ1LUZDQUM2RTI4LTYzNDUtNDNCNy1CMDk4LTA2ODg0NTYwM0JCRTswMQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C45-FCAC6E28-6345-43B7-B098-068845603BBE",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081536172028805",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Elavon",  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "amount": 1200,  
+
+  "creditCard": {  
+
+    "number": "4000000000000002",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "shippingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase/Capture call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "agreementIndicator": "1",  
+
+  "processingOption": "PPD",  
+
+  "check": {  
+
+    "accountNumber": "987654321",  
+
+    "routingNumber": "021000021",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": 1  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:35:09 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMQ==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515350834240943",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012261712052136280000047554200000000000577582333921122617</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223O2D-0FD06834-4C92-475D-B152-BA598A511770</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577582</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:36:28 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>SALE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397778837215330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJELTBGRDA2ODM0LTRDOTItNDc1RC1CMTUyLUJBNTk4QTUxMTc3MDswMg==",  
+
+    "approvalCode": "577582",  
+
+    "providerTransactionCode": "051223O2D-0FD06834-4C92-475D-B152-BA598A511770",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515362622855439",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response></ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 04:37:56 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>COMPLETE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMw==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515375553139508",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>0</ssl_result><ssl_txn_id>051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>577597</ssl_approval_code><ssl_email></ssl_email><ssl_amount>0.00</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:38:39 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>RETURN</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJDLTA5Q0NBMjBCLTVDMDItNEJEOS1CQjg3LTIxOTNERDY0OEE3NDswNQ==",  
+
+    "approvalCode": "577597",  
+
+    "providerTransactionCode": "051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515383830534050",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_card_number>40**********0002</ssl_card_number><ssl_result>0</ssl_result><ssl_txn_id>081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:41:32 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description></ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>VOID</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ0LUQ3N0VGM0U2LTkwNTYtNDAzMC04NkJFLTA5NUU0QzA1REM4ODswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120815414651883010",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><errorCode>4025</errorCode><errorName>Invalid Credentials</errorName><errorMessage>The credentials supplied in the authorization request are invalid.</errorMessage></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "4025",  
+
+        "message": "Invalid Credentials - The credentials supplied in the authorization request are invalid."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120815390035123637",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>51</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>1</ssl_result><ssl_txn_id>081223C45-FCAC6E28-6345-43B7-B098-068845603BBE</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.51</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:36:17 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>DECLINED: NSF</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "51",  
+
+        "message": "DECLINED: NSF"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ1LUZDQUM2RTI4LTYzNDUtNDNCNy1CMDk4LTA2ODg0NTYwM0JCRTswMQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C45-FCAC6E28-6345-43B7-B098-068845603BBE",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081536172028805",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/elavon#example-responses)
+```
+
+{  
+
+  "gateway": "Elavon",  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "amount": 1200,  
+
+  "creditCard": {  
+
+    "number": "4000000000000002",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "shippingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase/Capture call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "agreementIndicator": "1",  
+
+  "processingOption": "PPD",  
+
+  "check": {  
+
+    "accountNumber": "987654321",  
+
+    "routingNumber": "021000021",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": 1  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:35:09 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMQ==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515350834240943",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012261712052136280000047554200000000000577582333921122617</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223O2D-0FD06834-4C92-475D-B152-BA598A511770</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577582</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:36:28 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>SALE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397778837215330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJELTBGRDA2ODM0LTRDOTItNDc1RC1CMTUyLUJBNTk4QTUxMTc3MDswMg==",  
+
+    "approvalCode": "577582",  
+
+    "providerTransactionCode": "051223O2D-0FD06834-4C92-475D-B152-BA598A511770",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515362622855439",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response></ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 04:37:56 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>COMPLETE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMw==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515375553139508",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>0</ssl_result><ssl_txn_id>051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>577597</ssl_approval_code><ssl_email></ssl_email><ssl_amount>0.00</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:38:39 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>RETURN</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJDLTA5Q0NBMjBCLTVDMDItNEJEOS1CQjg3LTIxOTNERDY0OEE3NDswNQ==",  
+
+    "approvalCode": "577597",  
+
+    "providerTransactionCode": "051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515383830534050",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_card_number>40**********0002</ssl_card_number><ssl_result>0</ssl_result><ssl_txn_id>081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:41:32 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description></ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>VOID</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ0LUQ3N0VGM0U2LTkwNTYtNDAzMC04NkJFLTA5NUU0QzA1REM4ODswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120815414651883010",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><errorCode>4025</errorCode><errorName>Invalid Credentials</errorName><errorMessage>The credentials supplied in the authorization request are invalid.</errorMessage></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "4025",  
+
+        "message": "Invalid Credentials - The credentials supplied in the authorization request are invalid."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120815390035123637",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>51</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>1</ssl_result><ssl_txn_id>081223C45-FCAC6E28-6345-43B7-B098-068845603BBE</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.51</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:36:17 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>DECLINED: NSF</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "51",  
+
+        "message": "DECLINED: NSF"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ1LUZDQUM2RTI4LTYzNDUtNDNCNy1CMDk4LTA2ODg0NTYwM0JCRTswMQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C45-FCAC6E28-6345-43B7-B098-068845603BBE",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081536172028805",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Elavon",  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "amount": 1200,  
+
+  "creditCard": {  
+
+    "number": "4000000000000002",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "shippingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "amount": 123,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase/Capture call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "agreementIndicator": "1",  
+
+  "processingOption": "PPD",  
+
+  "check": {  
+
+    "accountNumber": "987654321",  
+
+    "routingNumber": "021000021",  
+
+    "checkNumber": "123456789",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "accountType": 1  
+
+  },  
+
+  "billingAddress": {  
+
+    "phone": "555-555-5555",  
+
+    "fax": "555-555-6666",  
+
+    "email": "john@doe.dev",  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "name": "John Doe",  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": null,  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantId": "<Your Elavon-assigned Converge account Id>",  
+
+  "username": "<Your Converge User Id>",  
+
+  "password": "<Your Terminal Id>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode provided by Authorize/Purchase call>",  
+
+  "gateway": "Elavon"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:35:09 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMQ==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515350834240943",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_oar_data>010012261712052136280000047554200000000000577582333921122617</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223O2D-0FD06834-4C92-475D-B152-BA598A511770</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>577582</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:36:28 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>SALE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397778837215330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJELTBGRDA2ODM0LTRDOTItNDc1RC1CMTUyLUJBNTk4QTUxMTc3MDswMg==",  
+
+    "approvalCode": "577582",  
+
+    "providerTransactionCode": "051223O2D-0FD06834-4C92-475D-B152-BA598A511770",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515362622855439",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_oar_data>010012263012052135090000047554200000000000577569333921122630</ssl_oar_data><ssl_result>0</ssl_result><ssl_txn_id>051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4</ssl_txn_id><ssl_avs_response></ssl_avs_response><ssl_approval_code>577569</ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 04:37:56 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>COMPLETE</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_ps2000_data>W7533397770937155330A</ssl_ps2000_data><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzQzQ0LTY3RkI3QkI2LTc0QjgtNDFBOC05ODFCLTdBQTQ0QzhBOTJCNDswMw==",  
+
+    "approvalCode": "577569",  
+
+    "providerTransactionCode": "051223C44-67FB7BB6-74B8-41A8-981B-7AA44C8A92B4",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515375553139508",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>0</ssl_result><ssl_txn_id>051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>577597</ssl_approval_code><ssl_email></ssl_email><ssl_amount>0.00</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/05/2023 03:38:39 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>RETURN</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDUxMjIzTzJDLTA5Q0NBMjBCLTVDMDItNEJEOS1CQjg3LTIxOTNERDY0OEE3NDswNQ==",  
+
+    "approvalCode": "577597",  
+
+    "providerTransactionCode": "051223O2C-09CCA20B-5C02-4BD9-BB87-2193DD648A74",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120515383830534050",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>00</ssl_issuer_response><ssl_last_name>Pumpkinseed</ssl_last_name><ssl_company></ssl_company><ssl_card_number>40**********0002</ssl_card_number><ssl_result>0</ssl_result><ssl_txn_id>081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88</ssl_txn_id><ssl_avs_response> </ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.01</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:41:32 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description></ssl_card_short_description><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>VOID</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>APPROVAL</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response></ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ0LUQ3N0VGM0U2LTkwNTYtNDAzMC04NkJFLTA5NUU0QzA1REM4ODswNA==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C44-D77EF3E6-9056-4030-86BE-095E4C05DC88",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120815414651883010",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><errorCode>4025</errorCode><errorName>Invalid Credentials</errorName><errorMessage>The credentials supplied in the authorization request are invalid.</errorMessage></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "4025",  
+
+        "message": "Invalid Credentials - The credentials supplied in the authorization request are invalid."  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120815390035123637",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<txn><ssl_issuer_response>51</ssl_issuer_response><ssl_last_name>Appleseed</ssl_last_name><ssl_company></ssl_company><ssl_phone>555-555-5555</ssl_phone><ssl_card_number>40**********0002</ssl_card_number><ssl_departure_date></ssl_departure_date><ssl_result>1</ssl_result><ssl_txn_id>081223C45-FCAC6E28-6345-43B7-B098-068845603BBE</ssl_txn_id><ssl_avs_response>R</ssl_avs_response><ssl_approval_code>      </ssl_approval_code><ssl_email></ssl_email><ssl_amount>4.51</ssl_amount><ssl_avs_zip>74111</ssl_avs_zip><ssl_transaction_currency>USD</ssl_transaction_currency><ssl_txn_time>12/08/2023 03:36:17 PM</ssl_txn_time><ssl_description></ssl_description><ssl_exp_date>0825</ssl_exp_date><ssl_card_short_description>VISA</ssl_card_short_description><ssl_completion_date></ssl_completion_date><ssl_address2></ssl_address2><ssl_get_token>N</ssl_get_token><ssl_customer_code></ssl_customer_code><ssl_country>USA</ssl_country><ssl_card_type>CREDITCARD</ssl_card_type><ssl_transaction_type>AUTHONLY</ssl_transaction_type><ssl_salestax></ssl_salestax><ssl_avs_address>123 Someplace Lane</ssl_avs_address><ssl_account_balance>0.00</ssl_account_balance><ssl_state>OK</ssl_state><ssl_ship_to_zip></ssl_ship_to_zip><ssl_city>Tulsa</ssl_city><ssl_result_message>DECLINED: NSF</ssl_result_message><ssl_first_name>Johnny`</ssl_first_name><ssl_invoice_number></ssl_invoice_number><ssl_ship_to_address1></ssl_ship_to_address1><ssl_cvv2_response>N</ssl_cvv2_response><ssl_partner_app_id>01</ssl_partner_app_id></txn>",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "51",  
+
+        "message": "DECLINED: NSF"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "MDgxMjIzQzQ1LUZDQUM2RTI4LTYzNDUtNDNCNy1CMDk4LTA2ODg0NTYwM0JCRTswMQ==",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "081223C45-FCAC6E28-6345-43B7-B098-068845603BBE",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "2312081536172028805",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```

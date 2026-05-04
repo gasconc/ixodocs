@@ -6,15 +6,15 @@ tags:
 - request-https-documentation-ixopay-com-api-pci-deregister-request-direct-link-request
 - path-parameters
 - bodyrequired
-- responses-https-documentation-ixopay-com-api-pci-deregister-responses-direct-link-responses
 - api
 - json
 - 3d-secure
 - pci
 - ixopay
-source_url: ''
+- psp
+source_url: https://documentation.ixopay.com/api/pci/deregister
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -23,13 +23,12 @@ related: []
   * [Transaction](https://documentation.ixopay.com/api/pci/transaction)
   * Deregister
 
-# Deregister```
+# Deregister
+```
 POST 
 ## https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister
 
-```
-
-A deregister transaction allows the deletion of a previously registered payment instrument.
+```A deregister transaction allows the deletion of a previously registered payment instrument.
 ## Request[​](https://documentation.ixopay.com/api/pci/deregister#request "Direct link to request")
 ### Path Parameters
 **apiKey** stringrequired
@@ -38,24 +37,27 @@ API Key of Connector
 
   * application/json
 
+  * Body
+  * Typical
+
 ### Body**required**
 Data which is required to process deregister transactions.
 Either the `referenceUuid` or the `transactionToken` MUST be provided.
   * For deregistering transactions, use the `referenceUuid`.
   * If you're working with customer profiles, you can also deregister a payment instrument by providing its `paymentToken` within the `transactionToken` field.
 
-**merchantTransactionId** MerchantTransactionId (string)required
+**merchantTransactionId** MerchantTransactionIdrequired
 A unique identifier supplied by the merchant to track transactions within their own systems.
 This field links the platform’s transaction back to the merchant’s system, allowing for easy tracking and reconciliation. Note that while this ID is used within the platform, there is no guarantee that it will be forwarded to the Payment Service Provider (PSP).
 **Possible values:** `non-empty` and `<= 50 characters`
 **Example:**`c5f2accd-2c37-4b2c-bb03-22d168c25a74`
 **transactionToken** string
 **Possible values:** `<= 8192 characters`
-**additionalId1** AdditionalId1 (string)
+**additionalId1** AdditionalId1
 A supplementary identifier dependent on the used adapter.
 This field provides additional information that can be used based on the specific adapter and their field mappings. The usage of `additionalId1` is contingent upon the support provided by the PSP, which is detailed in the adapter-specific documentation. If this field is supported, its proper usage will be outlined there. If it is not mentioned, it should not be used to avoid integration issues. Always refer to the adapter-specific documentation for guidance on using this additional identifier correctly.
 **Possible values:** `non-empty` and `<= 50 characters`
-**additionalId2** AdditionalId2 (string)
+**additionalId2** AdditionalId2
 A supplementary identifier dependent on the used adapter.
 This field provides additional information that can be used based on the specific adapter and their field mappings. The usage of `additionalId2` is contingent upon the support provided by the PSP, which is detailed in the adapter-specific documentation. If this field is supported, its proper usage will be outlined there. If it is not mentioned, it should not be used to avoid integration issues. Always refer to the adapter-specific documentation for guidance on using this additional identifier correctly.
 **Possible values:** `non-empty` and `<= 50 characters`
@@ -65,12 +67,14 @@ Object containing key-value pairs (string-to-string), to be used by either the u
 **Property name:** `<= 64 characters`.  
 **Property value:** `<= 8192 characters`.
 **property name*** string
+**Possible values:** `<= 8192 characters`
 **pspPassthroughData** object
 Object containing key-value pars (string-to-string) to be passed to the PSP.
 **Possible values:** `<= 64`.  
 **Property name:** `<= 64 characters`.  
 **Property value:** `<= 8192 characters`.
 **property name*** string
+**Possible values:** `<= 4096 characters`
 **merchantMetaData** string
 **Possible values:** `<= 255 characters`
 **referenceUuid** string
@@ -80,7 +84,20 @@ Which token type should be deregistered.
 **Possible values:** [`ALL`, `PAN`, `NT`]
 **Default value:**`ALL`
 
-## Responses[​](https://documentation.ixopay.com/api/pci/deregister#responses "Direct link to Responses")
+Typical request data
+```
+
+{  
+
+  "merchantTransactionId": "2019-09-02-0006",  
+
+  "merchantMetaData": "merchantRelevantData",  
+
+  "referenceUuid": "bcdef23456bcdef23456"  
+
+}  
+
+```## Responses[​](https://documentation.ixopay.com/api/pci/deregister#responses "Direct link to Responses")
   * 200
   * 400
   * 422
@@ -126,7 +143,7 @@ Depending on the payment method, this can take from seconds up to several days.
 **redirectType** string
 Depending on the `redirectType` the URL from `redirectUrl` should be displayed either in an ``, in a full page (e.g. via a `HTTP 302` redirect with a `Location` header).
 **Possible values:** [`iframe`, `fullpage`]
-**redirectUrl** string
+**redirectUrl** uri
 URL the customer must be redirected to, only set if `"returnType": "REDIRECT"`.
 **Possible values:** `<= 255 characters`
 **redirectQRCode** string
@@ -137,7 +154,7 @@ HTML content the customer must be shown, only set if `"returnType": "HTML"`.
 **paymentMethod** string
 Payment method used - if it has already been determined.
 **returnData** object
-**_TYPE** ReturnDataType (string)required
+**_TYPE** ReturnDataTyperequired
 **Possible values:** [`cardData`, `phoneData`, `ibanData`, `walletData`, `achData`]
     * cardData
     * phoneData
@@ -148,7 +165,7 @@ Payment method used - if it has already been determined.
 Type of credit card
 **firstName** string
 **lastName** string
-**country** Country (string)
+**country** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -178,7 +195,7 @@ Shows the complete BIN entry used for the transaction
 Identifies the BIN entry data structure
 **data** object
 **property name*** any
-**threeDSecure** ThreeDSecureType (string)
+**threeDSecure** ThreeDSecureType
 Triggers the 3D Secure authentication for this transaction.
 **Possible values:** [`OFF`, `OPTIONAL`, `MANDATORY`]
 **eci** string
@@ -197,18 +214,18 @@ It is also referred to as the 'scheme reference ID,' 'scheme transaction ID,' 't
 Status of the last account updater run.
 Only non-null if the account updater is enabled and has run at least once.
 **Possible values:** [`updated`, `contact`, `new-expiry`, `closed`]
-**cardUpdatedAt** stringnullable
+**cardUpdatedAt** datetimenullable
 Last run of the account updater.
 Only non-null if the account updater is enabled and has run at least once. [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date " " time` without `timespec-second`, `time-fraction`, and `time-zone`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1])) (([0-1][0-9])|([2][0-3])):([0-5][0-9])$`
 **Example:**`2001-02-03 04:05:06`
-**cardUpdatePausedUntil** string
+**cardUpdatePausedUntil** date (string)
 Updates paused until this date.
 Only non-null if the account updater is enabled. [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
 **phoneNumber** string
-**country** Country (string)
+**country** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -217,13 +234,13 @@ Only non-null if the account updater is enabled. [RFC 3339](https://datatracker.
 **iban** string
 **bic** string
 **mandateId** string
-**mandateDate** string
+**mandateDate** date (string)
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
 **bankName** string
 **bankBranchName** string
-**country** Country (string)
+**country** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -248,15 +265,15 @@ UUID of the transaction that initially registered this wallet.
 **Possible values:** [`checking`, `savings`]
 **accountNumber** string
 **Possible values:** `<= 17 characters`
-**routingNumber** integer
+**routingNumber** int32
 **Possible values:** `>= 9 characters` and `<= 9 characters`
 **scheduleData** object
 **scheduleId** string
 ID of schedule which was started with the transaction.
-**scheduleStatus** ScheduleStatus (string)
+**scheduleStatus** ScheduleStatus
 Status of the schedule.
 **Possible values:** [`ACTIVE`, `PAUSED`, `CANCELLED`, `ERROR`, `CREATE-PENDING`, `NON-EXISTING`]
-**scheduledAt** string
+**scheduledAt** date-time
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])\+[0-9]{2}\:[0-9]{2}$`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -283,7 +300,7 @@ Whether this payment instrument was marked as preferred for the customer.
 **errorMessage** string
 Error message.
 While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`.
-**errorCode** integer
+**errorCode** int32
 Error code.
 For a complete list of error codes and their meanings, please see the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
 **adapterMessage** stringnullable
@@ -301,21 +318,22 @@ Object containing key-value pairs (string-to-string), to be used by either the u
 **Property name:** `<= 64 characters`.  
 **Property value:** `<= 8192 characters`.
 **property name*** string
+**Possible values:** `<= 8192 characters`
 **dccData** object
 **uuid** string
-**originalAmount** Amount (string)
+**originalAmount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**originalCurrency** Currency (string)
+**originalCurrency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
-**convertedAmount** Amount (string)
+**convertedAmount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**convertedCurrency** Currency (string)
+**convertedCurrency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
@@ -327,16 +345,16 @@ Decimal amount separated by `.`, maximum of 3 decimals.
 `true` if this transaction was a Pay-by-Link transaction.
 **sendViaEmail** boolean
 `true` if this Pay-by-Link was sent to the transaction customer via email.
-**cancelUrl** string
+**cancelUrl** uri
 Endpoint to call to cancel a Pay-by-Link transaction.
 For details, see [Pay-by-Link API reference](https://documentation.ixopay.com/api/pay-by-link/cancel).
-**expiresAt** string
+**expiresAt** date-time
 Indicates at what date time the Pay-by-Link transaction expires.
 **property name*** any
 **errorMessage** string
 Error message.
 While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`.
-**errorCode** integer
+**errorCode** int32
 Error code.
 For a complete list of error codes and their meanings, please see the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
 **adapterMessage** stringnullable
@@ -351,7 +369,7 @@ Adapter specific error code, passed verbatim from the upstream Adapter.
 **errorMessage** string
 Error message.
 While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`.
-**errorCode** integer
+**errorCode** int32
 Error code.
 For a complete list of error codes and their meanings, please see the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
 **adapterMessage** stringnullable
@@ -362,61 +380,113 @@ Adapter specific error code, passed verbatim from the upstream Adapter.
 General errors, such as authentication errors or validation errors will return an appropriate JSON response body containing an error message and error code.
   * ]
 ```
+
 {  
+
   "success": true  
+
 }  
 
-`"returnType": "FINISHED"` indicates a successfully completed deregister transaction.
+````"returnType": "FINISHED"` indicates a successfully completed deregister transaction.
 ```
+
 {  
+
   "success": true,  
+
   "uuid": "abcde12345abcde12345",  
+
   "purchaseId": "20190927-abcde12345abcde12345",  
+
   "returnType": "FINISHED",  
+
   "paymentMethod": "Creditcard"  
+
 }  
 
-An error occurred on the PSPs side.```
+```An error occurred on the PSPs side.
+```
+
 {  
+
   "success": false,  
+
   "uuid": "abcde12345abcde12345",  
+
   "purchaseId": "20200924-abcde12345abcde12345",  
+
   "returnType": "ERROR",  
+
   "paymentMethod": "Dummy",  
+
   "errors": [  
+
     {  
+
       "errorMessage": "Dummy error",  
+
       "errorCode": 1003,  
+
       "adapterMessage": "Dummy adapter error"  
+
     }  
+
   ]  
+
 }  
 
-Transaction error response
+```Transaction error response
   * application/json
 
   * Schema
   * Example (auto)
   * General error, e.g. duplicate
-
 ```
+
 {  
-  "success": false,  
-  "errorMessage": "The transaction ID '20190823062178' already exists!",  
-  "errorCode": 3004  
+
+  "success": true  
+
 }  
 
-  * Schema
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The transaction ID '20190823062178' already exists!",  
+
+  "errorCode": 3004  
+
+}  
+
+```  * Schema
   * Example (auto)
   * General error, e.g. validation
 ```
+
 {  
-  "success": false,  
-  "errorMessage": "amount: 'amount' is required",  
-  "errorCode": 1002  
+
+  "success": true  
+
 }  
 
-#### Authorization: http
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "amount: 'amount' is required",  
+
+  "errorCode": 1002  
+
+}  
+
+```#### Authorization: http
 ```
 **name:** basicAuth[](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
 as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
@@ -432,7 +502,7 @@ and the resulting string is then Base64 encoded. Here is an example of how this 
 Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
 :::
 
-  * curl
+```  * curl
   * python
   * go
   * nodejs
@@ -457,12 +527,11 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister' \
   "tokenType": "ALL"  
 }'  
 
-RequestCollapse all
+```RequestCollapse all
 Base URL
 Edit
 Auth
-Security Scheme
-basicAuth basicAuth and signature
+Security SchemebasicAuth basicAuth and signature
 Username
 Password
 Parameters
@@ -470,7 +539,6 @@ apiKey — pathrequired
 Body required
   * Example (from schema)
   * Typical
-
 ```
 {
   "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
@@ -483,3 +551,840 @@ Body required
   "referenceUuid": "string",
   "tokenType": "ALL"
 }
+
+```
+```
+POST 
+## https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "2019-09-02-0006",  
+
+  "merchantMetaData": "merchantRelevantData",  
+
+  "referenceUuid": "bcdef23456bcdef23456"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20190927-abcde12345abcde12345",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20200924-abcde12345abcde12345",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Dummy",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Dummy error",  
+
+      "errorCode": 1003,  
+
+      "adapterMessage": "Dummy adapter error"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The transaction ID '20190823062178' already exists!",  
+
+  "errorCode": 3004  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "amount: 'amount' is required",  
+
+  "errorCode": 1002  
+
+}  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "transactionToken": "string",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "extraData": {},  
+  "pspPassthroughData": {},  
+  "merchantMetaData": "string",  
+  "referenceUuid": "string",  
+  "tokenType": "ALL"  
+}'  
+
+```
+```
+{
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "transactionToken": "string",
+  "additionalId1": "string",
+  "additionalId2": "string",
+  "extraData": {},
+  "pspPassthroughData": {},
+  "merchantMetaData": "string",
+  "referenceUuid": "string",
+  "tokenType": "ALL"
+}
+
+```
+```
+POST 
+## https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "2019-09-02-0006",  
+
+  "merchantMetaData": "merchantRelevantData",  
+
+  "referenceUuid": "bcdef23456bcdef23456"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20190927-abcde12345abcde12345",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20200924-abcde12345abcde12345",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Dummy",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Dummy error",  
+
+      "errorCode": 1003,  
+
+      "adapterMessage": "Dummy adapter error"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The transaction ID '20190823062178' already exists!",  
+
+  "errorCode": 3004  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "amount: 'amount' is required",  
+
+  "errorCode": 1002  
+
+}  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "transactionToken": "string",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "extraData": {},  
+  "pspPassthroughData": {},  
+  "merchantMetaData": "string",  
+  "referenceUuid": "string",  
+  "tokenType": "ALL"  
+}'  
+
+```
+```
+{
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "transactionToken": "string",
+  "additionalId1": "string",
+  "additionalId2": "string",
+  "extraData": {},
+  "pspPassthroughData": {},
+  "merchantMetaData": "string",
+  "referenceUuid": "string",
+  "tokenType": "ALL"
+}
+
+```
+```
+POST 
+## https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "2019-09-02-0006",  
+
+  "merchantMetaData": "merchantRelevantData",  
+
+  "referenceUuid": "bcdef23456bcdef23456"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20190927-abcde12345abcde12345",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20200924-abcde12345abcde12345",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Dummy",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Dummy error",  
+
+      "errorCode": 1003,  
+
+      "adapterMessage": "Dummy adapter error"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The transaction ID '20190823062178' already exists!",  
+
+  "errorCode": 3004  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "amount: 'amount' is required",  
+
+  "errorCode": 1002  
+
+}  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "transactionToken": "string",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "extraData": {},  
+  "pspPassthroughData": {},  
+  "merchantMetaData": "string",  
+  "referenceUuid": "string",  
+  "tokenType": "ALL"  
+}'  
+
+```
+```
+{
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "transactionToken": "string",
+  "additionalId1": "string",
+  "additionalId2": "string",
+  "extraData": {},
+  "pspPassthroughData": {},
+  "merchantMetaData": "string",
+  "referenceUuid": "string",
+  "tokenType": "ALL"
+}
+
+```
+```
+POST 
+## https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "2019-09-02-0006",  
+
+  "merchantMetaData": "merchantRelevantData",  
+
+  "referenceUuid": "bcdef23456bcdef23456"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20190927-abcde12345abcde12345",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20200924-abcde12345abcde12345",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Dummy",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Dummy error",  
+
+      "errorCode": 1003,  
+
+      "adapterMessage": "Dummy adapter error"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The transaction ID '20190823062178' already exists!",  
+
+  "errorCode": 3004  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "amount: 'amount' is required",  
+
+  "errorCode": 1002  
+
+}  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "transactionToken": "string",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "extraData": {},  
+  "pspPassthroughData": {},  
+  "merchantMetaData": "string",  
+  "referenceUuid": "string",  
+  "tokenType": "ALL"  
+}'  
+
+```
+```
+{
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "transactionToken": "string",
+  "additionalId1": "string",
+  "additionalId2": "string",
+  "extraData": {},
+  "pspPassthroughData": {},
+  "merchantMetaData": "string",
+  "referenceUuid": "string",
+  "tokenType": "ALL"
+}
+
+```
+```
+POST 
+## https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "2019-09-02-0006",  
+
+  "merchantMetaData": "merchantRelevantData",  
+
+  "referenceUuid": "bcdef23456bcdef23456"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20190927-abcde12345abcde12345",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20200924-abcde12345abcde12345",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Dummy",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Dummy error",  
+
+      "errorCode": 1003,  
+
+      "adapterMessage": "Dummy adapter error"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The transaction ID '20190823062178' already exists!",  
+
+  "errorCode": 3004  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "amount: 'amount' is required",  
+
+  "errorCode": 1002  
+
+}  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/deregister' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "transactionToken": "string",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "extraData": {},  
+  "pspPassthroughData": {},  
+  "merchantMetaData": "string",  
+  "referenceUuid": "string",  
+  "tokenType": "ALL"  
+}'  
+
+```
+```
+{
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "transactionToken": "string",
+  "additionalId1": "string",
+  "additionalId2": "string",
+  "extraData": {},
+  "pspPassthroughData": {},
+  "merchantMetaData": "string",
+  "referenceUuid": "string",
+  "tokenType": "ALL"
+}
+
+```

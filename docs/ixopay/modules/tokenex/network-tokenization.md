@@ -12,9 +12,9 @@ tags:
 - state-network-token-https-documentation-ixopay-com-modules-docs-tokenex-network-tokenization-state-network-token-direct-link-state-network-token
 - network-token-lifecycle-management-https-documentation-ixopay-com-modules-docs-tokenex-network-tokenization-network-token-lifecycle-management-direct-link-network-token-lifecycle-management
 - card-metadata-updates-https-documentation-ixopay-com-modules-docs-tokenex-network-tokenization-card-metadata-updates-direct-link-card-metadata-updates
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/network-tokenization
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

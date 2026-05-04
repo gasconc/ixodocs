@@ -13,9 +13,9 @@ tags:
 - understanding-success-transactionresult-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-payment-services-basics-understanding-success-transactionresult-direct-link-understanding-success-transactionresult
 - cvv-injection-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-payment-services-basics-cvv-injection-direct-link-cvv-injection
 - common-transaction-flows-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-payment-services-basics-common-transaction-flows-direct-link-common-transaction-flows
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -33,8 +33,7 @@ The ProcessTransaction API offers several advantages for payment processing:
   * **Flexible tokenization** — Use existing tokens or tokenize new cards during the transaction
   * **CVV injection** — Include previously collected CVV values without storing them yourself
 
-Why ProcessTransaction API?
-For most integrations, the ProcessTransaction API provides the best balance of gateway coverage, ease of integration, and response consistency. Choose the [Card/Check/Wallet API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-v2-the-basics) only if you need access to complete, raw gateway responses.
+:::note Why ProcessTransaction API? For most integrations, the ProcessTransaction API provides the best balance of gateway coverage, ease of integration, and response consistency. Choose the [Card/Check/Wallet API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-v2-the-basics) only if you need access to complete, raw gateway responses. :::
 ## How It Works[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#how-it-works "Direct link to How It Works")
 When you send a transaction request, Payment Services:
   1. **Receives your request** with the TokenEx token and gateway-specific parameters
@@ -48,8 +47,7 @@ When you send a transaction request, Payment Services:
 | --- | --- | --- |  
 | `ProcessTransaction`  | `/PaymentServices.svc/REST/ProcessTransaction`  | Use with existing TokenEx tokens: recurring billing, follow-up transactions (capture, refund, void)  |  
 | `ProcessTransactionAndTokenize`  | `/PaymentServices.svc/REST/ProcessTransactionAndTokenize`  | Use with PANs or encrypted PANs: first-time transactions, guest checkout, card data migration  |  
-Choosing between endpoints
-If you're using TokenEx iFrame or mobile SDK, cards are typically tokenized during collection—use `ProcessTransaction`. If you're receiving PANs directly (from a migration or encrypted source), use `ProcessTransactionAndTokenize` to tokenize and transact in one call.
+:::tip Choosing between endpoints If you're using TokenEx iFrame or mobile SDK, cards are typically tokenized during collection—use `ProcessTransaction`. If you're receiving PANs directly (from a migration or encrypted source), use `ProcessTransactionAndTokenize` to tokenize and transact in one call. :::
 ## Authentication[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#authentication "Direct link to Authentication")
 Both endpoints use request body authentication. Include your credentials in every request:  
 | Parameter  | Type  | Required  | Description  |  
@@ -57,19 +55,24 @@ Both endpoints use request body authentication. Include your credentials in ever
 | `APIKey`  | string  | Yes  | Your TokenEx API key  |  
 | `TokenExID`  | string  | Yes  | Your TokenEx account ID  |  
 ```
+
 {  
+
   "APIKey": "your-api-key",  
+
   "TokenExID": "your-tokenex-id",  
+
   "TransactionType": 1,  
+
   "TransactionRequest": {  
+
     // ... gateway and transaction parameters  
+
   }  
+
 }  
 
-```
-
-Keep credentials secure
-Never expose your `APIKey` in client-side code. All Payment Services requests should originate from your server.
+```:::warning Keep credentials secure Never expose your `APIKey` in client-side code. All Payment Services requests should originate from your server. :::
 ## Transaction Types[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#transaction-types "Direct link to Transaction Types")
 Specify the type of transaction using the `TransactionType` parameter:  
 | Value  | Type  | Description  | When to Use  |  
@@ -80,42 +83,70 @@ Specify the type of transaction using the `TransactionType` parameter:
 | `4`  | Refund  | Returns funds to the customer  | Use to return money for completed transactions  |  
 | `5`  | Void  | Cancels a transaction before settlement  | Use to cancel authorizations or same-day transactions  |  
 | `6`  | Reverse  | Attempts void, falls back to refund if settled  | Use when unsure if transaction has settled  |  
-Authorize vs Purchase
-Use **Authorize** (1) followed by **Capture** (2) when there's a delay between order placement and fulfillment—this is common for physical goods. Use **Purchase** (3) for immediate transactions like digital downloads or in-person sales.
+:::info Authorize vs Purchase Use **Authorize** (1) followed by **Capture** (2) when there's a delay between order placement and fulfillment—this is common for physical goods. Use **Purchase** (3) for immediate transactions like digital downloads or in-person sales. :::
 ## Request Structure[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#request-structure "Direct link to Request Structure")
 Both endpoints use the same request format. The `TransactionRequest` object contains nested objects for gateway credentials, card data, and transaction details.
 ```
+
 {  
+
   "APIKey": "your-api-key",  
+
   "TokenExID": "your-tokenex-id",  
+
   "TransactionType": 1,  
+
   "TransactionRequest": {  
+
     "gateway": {  
+
       "name": "YourGatewayName",  
+
       "login": "your-gateway-login",  
+
       "password": "your-gateway-password"  
+
     },  
+
     "credit_card": {  
+
       "number": "your-tokenex-token",  
+
       "month": "12",  
+
       "year": "2029",  
+
       "verification_value": "cvv"  
+
     },  
+
     "transaction": {  
+
       "amount": 999,  
+
       "order_id": "order-12345",  
+
       "billing_address": {  
+
         "name": "Alex Smith",  
+
         "address1": "123 Main Street",  
+
         "city": "Tulsa",  
+
         "state": "OK",  
+
         "zip": "74119"  
+
       }  
+
     }  
+
   }  
+
 }  
 
-**Request Parameters:**  
+```**Request Parameters:**  
 | Parameter  | Type  | Required  | Description  |  
 | --- | --- | --- | --- |  
 | `APIKey`  | string  | Yes  | Your TokenEx API key  |  
@@ -127,44 +158,73 @@ Both endpoints use the same request format. The `TransactionRequest` object cont
 | --- | --- | --- | --- |  
 | `TokenScheme`  | string  | Yes  | The token format to generate. See [Token Schemes](https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes)  |  
 | `Encrypted`  | boolean  | No  | Set to `true` if the PAN is encrypted. Default: `false`  |  
-Token vs PAN
-Use `ProcessTransaction` when `credit_card.number` contains a TokenEx token. Use `ProcessTransactionAndTokenize` when it contains a PAN (or encrypted PAN) that needs tokenization.
+:::tip Token vs PAN Use `ProcessTransaction` when `credit_card.number` contains a TokenEx token. Use `ProcessTransactionAndTokenize` when it contains a PAN (or encrypted PAN) that needs tokenization. :::
 The exact fields within each nested object vary by gateway. See [Gateway Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/gateway-parameters) for the specific structure required by your payment processor.
 ## Response Structure[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#response-structure "Direct link to Response Structure")
 Both endpoints return the same response structure:
 ```
+
 {  
+
   "Success": true,  
+
   "TransactionResult": true,  
+
   "ReferenceNumber": "15102913382030662954",  
+
   "Authorization": "123456;A",  
+
   "Message": "Transaction Approved",  
+
   "Error": "",  
+
   "AVS_Result": {  
+
     "Code": "Y",  
+
     "Message": "Street address and postal code match",  
+
     "PostalMatch": "Y",  
+
     "StreetMatch": "Y"  
+
   },  
+
   "CVV_Result": {  
+
     "Code": "M",  
+
     "Message": "CVV matches"  
+
   },  
+
   "Params": [  
+
     {  
+
       "Key": "AuthorizationCode",  
+
       "Value": "A12345"  
+
     },  
+
     {  
+
       "Key": "TransactionID",  
+
       "Value": "7891011121314"  
+
     }  
+
   ],  
+
   "Token": "411111XXXXXX1111",  
+
   "Test": false  
+
 }  
 
-**Response Parameters:**  
+```**Response Parameters:**  
 | Parameter  | Type  | Description  |  
 | --- | --- | --- |  
 | `Success`  | boolean  |  `true` if TokenEx successfully communicated with the gateway. `false` indicates a connectivity or configuration issue—check `Error` for details.  |  
@@ -190,147 +250,1309 @@ The response contains two boolean fields that indicate different things:
 | `true`  | `true`  | Transaction approved  |  
 | `true`  | `false`  | Transaction declined by gateway (check `Message`)  |  
 | `false`  | `false`  | Communication error with gateway (check `Error`)  |  
-Always save the Authorization
-When `TransactionResult` is `true`, save the `Authorization` value. You'll need it for any follow-up transactions like captures, voids, or refunds.
+:::warning Always save the Authorization When `TransactionResult` is `true`, save the `Authorization` value. You'll need it for any follow-up transactions like captures, voids, or refunds. :::
 ## CVV Injection[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#cvv-injection "Direct link to CVV Injection")
 If you collected the CVV separately using TokenEx (for example, through the iFrame with CVV-only collection), you can inject it into the transaction without handling the value directly.
 To use CVV injection, set the `verification_value` field to the literal string `"cvv"`:
 ```
+
 {  
+
   "APIKey": "your-api-key",  
+
   "TokenExID": "your-tokenex-id",  
+
   "TransactionType": 1,  
+
   "TransactionRequest": {  
+
     "gateway": {  
+
       "name": "YourGatewayName",  
+
       "login": "your-gateway-login",  
+
       "password": "your-gateway-password"  
+
     },  
+
     "credit_card": {  
+
       "number": "your-tokenex-token",  
+
       "month": "12",  
+
       "year": "2029",  
+
       "verification_value": "cvv"  
+
     },  
+
     "transaction": {  
+
       "amount": 999,  
+
       "order_id": "order-12345"  
+
     }  
+
   }  
+
 }  
 
-Payment Services will replace `"cvv"` with the actual CVV value associated with the token before sending to the gateway.
-CVV storage duration
-CVV values are stored temporarily and associated with the token during collection. Check with TokenEx support for CVV retention policies in your configuration.
+```Payment Services will replace `"cvv"` with the actual CVV value associated with the token before sending to the gateway.
+:::info CVV storage duration CVV values are stored temporarily and associated with the token during collection. Check with TokenEx support for CVV retention policies in your configuration. :::
 ## Common Transaction Flows[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#common-transaction-flows "Direct link to Common Transaction Flows")
 ### Authorize Then Capture[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#authorize-then-capture "Direct link to Authorize Then Capture")
 For orders where fulfillment is delayed (e.g., physical goods):
 **Step 1: Authorize**
 ```
+
 {  
+
   "APIKey": "your-api-key",  
+
   "TokenExID": "your-tokenex-id",  
+
   "TransactionType": 1,  
+
   "TransactionRequest": {  
+
     "gateway": {  
+
       "name": "YourGatewayName",  
+
       "login": "your-gateway-login",  
+
       "password": "your-gateway-password"  
+
     },  
+
     "credit_card": {  
+
       "number": "your-tokenex-token",  
+
       "month": "12",  
+
       "year": "2029",  
+
       "verification_value": "cvv"  
+
     },  
+
     "transaction": {  
+
       "amount": 9999,  
+
       "order_id": "order-12345"  
+
     }  
+
   }  
+
 }  
 
-**Step 2: Capture** (when ready to ship)
+```**Step 2: Capture** (when ready to ship)
 ```
+
 {  
+
   "APIKey": "your-api-key",  
+
   "TokenExID": "your-tokenex-id",  
+
   "TransactionType": 2,  
+
   "TransactionRequest": {  
+
     "gateway": {  
+
       "name": "YourGatewayName",  
+
       "login": "your-gateway-login",  
+
       "password": "your-gateway-password"  
+
     },  
+
     "transaction": {  
+
       "authorization": "123456;A",  
+
       "amount": 9999  
+
     }  
+
   }  
+
 }  
 
-### Purchase with New Card[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#purchase-with-new-card "Direct link to Purchase with New Card")
+```### Purchase with New Card[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#purchase-with-new-card "Direct link to Purchase with New Card")
 For immediate transactions with a new card (tokenize and purchase together):
 ```
+
 {  
+
   "APIKey": "your-api-key",  
+
   "TokenExID": "your-tokenex-id",  
+
   "TransactionType": 3,  
+
   "TokenScheme": "sixTOKENfour",  
+
   "TransactionRequest": {  
+
     "gateway": {  
+
       "name": "YourGatewayName",  
+
       "login": "your-gateway-login",  
+
       "password": "your-gateway-password"  
+
     },  
+
     "credit_card": {  
+
       "number": "4111111111111111",  
+
       "month": "12",  
+
       "year": "2029",  
+
       "verification_value": "123"  
+
     },  
+
     "transaction": {  
+
       "amount": 999,  
+
       "order_id": "order-12345"  
+
     }  
+
   }  
+
 }  
 
-The response includes both the transaction result and a `Token` for future use.
+```The response includes both the transaction result and a `Token` for future use.
 ### Refund a Transaction[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#refund-a-transaction "Direct link to Refund a Transaction")
 To return funds after settlement:
 ```
+
 {  
+
   "APIKey": "your-api-key",  
+
   "TokenExID": "your-tokenex-id",  
+
   "TransactionType": 4,  
+
   "TransactionRequest": {  
+
     "gateway": {  
+
       "name": "YourGatewayName",  
+
       "login": "your-gateway-login",  
+
       "password": "your-gateway-password"  
+
     },  
+
     "transaction": {  
+
       "authorization": "123456;A",  
+
       "amount": 999  
+
     }  
+
   }  
+
 }  
 
-## Testing[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#testing "Direct link to Testing")
+```## Testing[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#testing "Direct link to Testing")
 Use your gateway's test/sandbox environment during development:
   1. Configure your Payment Services request for the test environment
   2. Use test card numbers and any specific values provided by your gateway
 
-Test mode indicator
-When processing test transactions, the response will include `"Test": true`. Always verify this field is `false` before going live.
+:::tip Test mode indicator When processing test transactions, the response will include `"Test": true`. Always verify this field is `false` before going live. :::
 ## Next Steps[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#next-steps "Direct link to Next Steps")
   * **[Gateway Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/gateway-parameters)** — Find the specific parameters required for your payment processor
   * **[Token Schemes](https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes)** — Learn about available token formats for ProcessTransactionAndTokenize
   * **[API Authentication](https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1#authentication-and-authorization)** — Detailed authentication documentation
   * **[Card/Check/Wallet API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-v2-the-basics)** — Alternative API for raw gateway responses
+```
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#overview)
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    // ... gateway and transaction parameters  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345",  
+
+      "billing_address": {  
+
+        "name": "Alex Smith",  
+
+        "address1": "123 Main Street",  
+
+        "city": "Tulsa",  
+
+        "state": "OK",  
+
+        "zip": "74119"  
+
+      }  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "Success": true,  
+
+  "TransactionResult": true,  
+
+  "ReferenceNumber": "15102913382030662954",  
+
+  "Authorization": "123456;A",  
+
+  "Message": "Transaction Approved",  
+
+  "Error": "",  
+
+  "AVS_Result": {  
+
+    "Code": "Y",  
+
+    "Message": "Street address and postal code match",  
+
+    "PostalMatch": "Y",  
+
+    "StreetMatch": "Y"  
+
+  },  
+
+  "CVV_Result": {  
+
+    "Code": "M",  
+
+    "Message": "CVV matches"  
+
+  },  
+
+  "Params": [  
+
+    {  
+
+      "Key": "AuthorizationCode",  
+
+      "Value": "A12345"  
+
+    },  
+
+    {  
+
+      "Key": "TransactionID",  
+
+      "Value": "7891011121314"  
+
+    }  
+
+  ],  
+
+  "Token": "411111XXXXXX1111",  
+
+  "Test": false  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 9999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 2,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 9999  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 3,  
+
+  "TokenScheme": "sixTOKENfour",  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111111111111111",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "123"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 4,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 999  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    // ... gateway and transaction parameters  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345",  
+
+      "billing_address": {  
+
+        "name": "Alex Smith",  
+
+        "address1": "123 Main Street",  
+
+        "city": "Tulsa",  
+
+        "state": "OK",  
+
+        "zip": "74119"  
+
+      }  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "Success": true,  
+
+  "TransactionResult": true,  
+
+  "ReferenceNumber": "15102913382030662954",  
+
+  "Authorization": "123456;A",  
+
+  "Message": "Transaction Approved",  
+
+  "Error": "",  
+
+  "AVS_Result": {  
+
+    "Code": "Y",  
+
+    "Message": "Street address and postal code match",  
+
+    "PostalMatch": "Y",  
+
+    "StreetMatch": "Y"  
+
+  },  
+
+  "CVV_Result": {  
+
+    "Code": "M",  
+
+    "Message": "CVV matches"  
+
+  },  
+
+  "Params": [  
+
+    {  
+
+      "Key": "AuthorizationCode",  
+
+      "Value": "A12345"  
+
+    },  
+
+    {  
+
+      "Key": "TransactionID",  
+
+      "Value": "7891011121314"  
+
+    }  
+
+  ],  
+
+  "Token": "411111XXXXXX1111",  
+
+  "Test": false  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 9999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 2,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 9999  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 3,  
+
+  "TokenScheme": "sixTOKENfour",  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111111111111111",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "123"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 4,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 999  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    // ... gateway and transaction parameters  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345",  
+
+      "billing_address": {  
+
+        "name": "Alex Smith",  
+
+        "address1": "123 Main Street",  
+
+        "city": "Tulsa",  
+
+        "state": "OK",  
+
+        "zip": "74119"  
+
+      }  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "Success": true,  
+
+  "TransactionResult": true,  
+
+  "ReferenceNumber": "15102913382030662954",  
+
+  "Authorization": "123456;A",  
+
+  "Message": "Transaction Approved",  
+
+  "Error": "",  
+
+  "AVS_Result": {  
+
+    "Code": "Y",  
+
+    "Message": "Street address and postal code match",  
+
+    "PostalMatch": "Y",  
+
+    "StreetMatch": "Y"  
+
+  },  
+
+  "CVV_Result": {  
+
+    "Code": "M",  
+
+    "Message": "CVV matches"  
+
+  },  
+
+  "Params": [  
+
+    {  
+
+      "Key": "AuthorizationCode",  
+
+      "Value": "A12345"  
+
+    },  
+
+    {  
+
+      "Key": "TransactionID",  
+
+      "Value": "7891011121314"  
+
+    }  
+
+  ],  
+
+  "Token": "411111XXXXXX1111",  
+
+  "Test": false  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 9999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 2,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 9999  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 3,  
+
+  "TokenScheme": "sixTOKENfour",  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111111111111111",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "123"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 4,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 999  
+
+    }  
+
+  }  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#overview)
   * [How It Works](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#how-it-works)
   * [Endpoints](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#endpoints)
   * [Authentication](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#authentication)
@@ -345,3 +1567,715 @@ When processing test transactions, the response will include `"Test": true`. Alw
     * [Refund a Transaction](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#refund-a-transaction)
   * [Testing](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#testing)
   * [Next Steps](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#next-steps)
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    // ... gateway and transaction parameters  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345",  
+
+      "billing_address": {  
+
+        "name": "Alex Smith",  
+
+        "address1": "123 Main Street",  
+
+        "city": "Tulsa",  
+
+        "state": "OK",  
+
+        "zip": "74119"  
+
+      }  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "Success": true,  
+
+  "TransactionResult": true,  
+
+  "ReferenceNumber": "15102913382030662954",  
+
+  "Authorization": "123456;A",  
+
+  "Message": "Transaction Approved",  
+
+  "Error": "",  
+
+  "AVS_Result": {  
+
+    "Code": "Y",  
+
+    "Message": "Street address and postal code match",  
+
+    "PostalMatch": "Y",  
+
+    "StreetMatch": "Y"  
+
+  },  
+
+  "CVV_Result": {  
+
+    "Code": "M",  
+
+    "Message": "CVV matches"  
+
+  },  
+
+  "Params": [  
+
+    {  
+
+      "Key": "AuthorizationCode",  
+
+      "Value": "A12345"  
+
+    },  
+
+    {  
+
+      "Key": "TransactionID",  
+
+      "Value": "7891011121314"  
+
+    }  
+
+  ],  
+
+  "Token": "411111XXXXXX1111",  
+
+  "Test": false  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 9999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 2,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 9999  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 3,  
+
+  "TokenScheme": "sixTOKENfour",  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111111111111111",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "123"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 4,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 999  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    // ... gateway and transaction parameters  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345",  
+
+      "billing_address": {  
+
+        "name": "Alex Smith",  
+
+        "address1": "123 Main Street",  
+
+        "city": "Tulsa",  
+
+        "state": "OK",  
+
+        "zip": "74119"  
+
+      }  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "Success": true,  
+
+  "TransactionResult": true,  
+
+  "ReferenceNumber": "15102913382030662954",  
+
+  "Authorization": "123456;A",  
+
+  "Message": "Transaction Approved",  
+
+  "Error": "",  
+
+  "AVS_Result": {  
+
+    "Code": "Y",  
+
+    "Message": "Street address and postal code match",  
+
+    "PostalMatch": "Y",  
+
+    "StreetMatch": "Y"  
+
+  },  
+
+  "CVV_Result": {  
+
+    "Code": "M",  
+
+    "Message": "CVV matches"  
+
+  },  
+
+  "Params": [  
+
+    {  
+
+      "Key": "AuthorizationCode",  
+
+      "Value": "A12345"  
+
+    },  
+
+    {  
+
+      "Key": "TransactionID",  
+
+      "Value": "7891011121314"  
+
+    }  
+
+  ],  
+
+  "Token": "411111XXXXXX1111",  
+
+  "Test": false  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "your-tokenex-token",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "cvv"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 9999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 2,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 9999  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 3,  
+
+  "TokenScheme": "sixTOKENfour",  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111111111111111",  
+
+      "month": "12",  
+
+      "year": "2029",  
+
+      "verification_value": "123"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 999,  
+
+      "order_id": "order-12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "your-api-key",  
+
+  "TokenExID": "your-tokenex-id",  
+
+  "TransactionType": 4,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "YourGatewayName",  
+
+      "login": "your-gateway-login",  
+
+      "password": "your-gateway-password"  
+
+    },  
+
+    "transaction": {  
+
+      "authorization": "123456;A",  
+
+      "amount": 999  
+
+    }  
+
+  }  
+
+}  
+
+```

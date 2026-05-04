@@ -12,9 +12,9 @@ tags:
 - test-card-metadata-assets-getcardmetadata-endpoint-within-network-token-api-https-documentation-ixopay-com-modules-docs-tokenex-network-tokenization-test-cases-test-card-metadata-assets-getcardmetadata-endpoint-within-network-token-api-direct-link-test-card-metadata-assets-getcardmetadata-endpoint-within-network-token-api
 - test-delete-active-token-lifecyclemanagement-endpoint-within-network-token-api-https-documentation-ixopay-com-modules-docs-tokenex-network-tokenization-test-cases-test-delete-active-token-lifecyclemanagement-endpoint-within-network-token-api-direct-link-test-delete-active-token-lifecyclemanagement-endpoint-within-network-token-api
 - api
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/network-tokenization-test-cases
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

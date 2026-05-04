@@ -7,16 +7,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-worldpay-native-raft-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-worldpay-native-raft-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-worldpay-native-raft-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-worldpay-native-raft-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-worldpay-native-raft-responses-direct-link-responses
 - api
 - json
 - 3ds
 - 3d-secure
 - tokenex
-source_url: ''
+- ixopay
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -460,216 +460,413 @@ In contrast with other Payment Services gateways, Worldpay Native RAFT refunds d
   * Card Capture
   * Card Refund
   * Card Void/Reversal
-
 ```
+
 {  
+
   "gateway": "WorldpayNativeRaft",  
+
   "merchantId": "<Merchant ID assigned by Worldpay>",  
+
   "licenseKey": "<License Key assigned by Worldpay>",  
+
   "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
   "apiTransactionId": "16-AN-Characters",  
+
   "testMode": true,  
+
   "amount": 1000,  
+
   "creditCard": {  
+
     "number": "Token or PAN",  
+
     "expMonth": 6,  
+
     "expYear": 2028,  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "fullName": "John Allen Doe",  
+
     "cvv": "382"  
+
   },  
+
   "billingAddress": {  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "orderInfo": {  
+
     "ecommerceIndicator": "07"  
+
   },  
+
   "terminalData": {  
+
     "entryMode": "KEYED",  
+
     "posConditionCode": "59",  
+
     "terminalEntryCap": "0"  
+
   }  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "gateway": "WorldpayNativeRaft",  
+
   "merchantId": "<Merchant ID assigned by Worldpay>",  
+
   "licenseKey": "<License Key assigned by Worldpay>",  
+
   "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
   "apiTransactionId": "16-AN-Characters",  
+
   "testMode": true,  
+
   "amount": 1000,  
+
   "creditCard": {  
+
     "number": "Token or PAN",  
+
     "expMonth": 6,  
+
     "expYear": 2024,  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "fullName": "John Allen Doe",  
+
     "cvv": "382"  
+
   },  
+
   "billingAddress": {  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "threeDSecure": {  
+
     "dsTransId": "378a925e-66b2-414d-b4c4-10a573ea9e17",  
+
     "eci": "05",  
+
     "cavv": "xgQYYgZVAAAAAAAAAAAAAAAAAAAA", // Mapped from threeDSecureResponse.authenticationValue.  
+
     "programProtocol": "2"  
+
   },  
+
   "terminalData": {  
+
     "terminalNumber": "01",  
+
     "entryMode": "E-COMM",  
+
     "posConditionCode": "59",  
+
     "terminalEntryCap": "8"  
+
   }  
+
 }  
 
 ```
+```
+
 {  
+
   "gateway": "WorldpayNativeRaft",  
+
   "merchantId": "<Merchant ID assigned by Worldpay>",  
+
   "licenseKey": "<License Key assigned by Worldpay>",  
+
   "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
   "testMode": true,  
+
   "amount": 1000,  
+
   "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
   "MiscAmountsBalances": {  
+
     "PreAuthorizedAmount": 1000  
+
   },  
+
   "AuthorizationType": "FP",  
+
   "ReferenceTraceNumbers": {  
+
     "AuthorizationNumber": "approval code from prior transaction"  
+
   },  
+
   "ProcFlagsIndicators": {  
+
     "PriorAuth": "Y"  
+
   },  
+
   "creditCard": {  
+
     "number": "Token or PAN",  
+
     "expMonth": 6,  
+
     "expYear": 2028,  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "fullName": "John Allen Doe",  
+
     "cvv": "382"  
+
   },  
+
   "billingAddress": {  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "orderInfo": {  
+
     "ecommerceIndicator": "07"  
+
   },  
+
   "terminalData": {  
+
     "entryMode": "KEYED",  
+
     "terminalEntryCap": "0",  
+
     "posConditionCode": "06"  
+
   }  
+
 }  
 
 ```
+```
+
 {  
+
   "gateway": "WorldpayNativeRaft",  
+
   "merchantId": "<Merchant ID assigned by Worldpay>",  
+
   "licenseKey": "<License Key assigned by Worldpay>",  
+
   "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
   "apiTransactionId": "16-AN-Characters",  
+
   "testMode": true,  
+
   "amount": 1000,  
+
   "ReferenceTraceNumbers": {  
+
     "AuthorizationNumber": "approval code from prior transaction"  
+
   },  
+
   "creditCard": {  
+
     "number": "Token or PAN",  
+
     "expMonth": 6,  
+
     "expYear": 2028,  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "fullName": "John Allen Doe",  
+
     "cvv": "382"  
+
   },  
+
   "billingAddress": {  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "orderInfo": {  
+
     "ecommerceIndicator": "07"  
+
   },  
+
   "terminalData": {  
+
     "entryMode": "KEYED",  
+
     "posConditionCode": "59",  
+
     "terminalEntryCap": "0"  
+
   }  
+
 }  
 
 ```
+```
+
 {  
+
   "gateway": "WorldpayNativeRaft",  
+
   "merchantId": "<Merchant ID assigned by Worldpay>",  
+
   "licenseKey": "<License Key assigned by Worldpay>",  
+
   "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
   "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, Purchase, or Refund response>",  
+
   "testMode": true,  
+
   "amount": 1000,  
+
   "reversalAdviceReasonCd": "000",  
+
   "ReferenceTraceNumbers": {  
+
     "AuthorizationNumber": "approval code from prior transaction"  
+
   },  
+
   "creditCard": {  
+
     "number": "Token or PAN",  
+
     "expMonth": 6,  
+
     "expYear": 2028,  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "fullName": "John Allen Doe",  
+
     "cvv": "382"  
+
   },  
+
   "billingAddress": {  
+
     "company": "Test Co.",  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Tulsa",  
+
     "state": "OK",  
+
     "zip": "74111",  
+
     "country": "USA"  
+
   },  
+
   "orderInfo": {  
+
     "ecommerceIndicator": "07"  
+
   },  
+
   "terminalData": {  
+
     "entryMode": "KEYED",  
+
     "posConditionCode": "59",  
+
     "terminalEntryCap": "0"  
+
   }  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | Worldpay Native RAFT Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approvalCode`  | String  | `ReferenceTraceNumbers.AuthorizationNumber`  | The authorization code granted by the card issuing bank for this transaction.  |  
@@ -684,150 +881,3692 @@ The field is true if the gateway's raw response Response Code equals "000" (full
   * Card Void
   * Gateway Error
   * Processor Error
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BPVS\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171206846\",\n\"VisaAuthCharId\":\"N\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117120748\",\n\"NetworkRefNumber\":\"334117120748\",\n\"SystemTraceNumber\":\"023636\",\n\"AuthorizationNumber\":\"752006\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171206cdji\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MjMxMjA3MTcxMjA2Y2RqaTsx",  
+
     "approvalCode": "752006",  
+
     "providerTransactionCode": "231207171206cdji",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120717120578419227",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"C2WU\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171227118\",\n\"VisaAuthCharId\":\"V\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117122802\",\n\"NetworkRefNumber\":\"334117122802\",\n\"SystemTraceNumber\":\"023650\",\n\"AuthorizationNumber\":\"064942\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsy",  
+
     "approvalCode": "064942",  
+
     "providerTransactionCode": "231207171227g7Sy",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120717122656700974",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{ \"creditcompletionresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"023748\",\n\"AuthorizationNumber\":\"002848\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsz",  
+
     "approvalCode": "002848",  
+
     "providerTransactionCode": "231207171227g7Sy",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120717150999000795",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{ \"creditrefundresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\",\n\"AvailableBALFromAcct\":\"2008.53\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BR3Z\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171650180\",\n\"VisaAuthCharId\":\"A\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117165110\",\n\"PaymentAcctREFNumber\":\"43215678901234567890123456789\",\n\"NetworkRefNumber\":\"334117165110\",\n\"SystemTraceNumber\":\"023802\",\n\"AuthorizationNumber\":\"909926\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312071716507a4G\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MjMxMjA3MTcxNjUwN2E0Rzs0",  
+
     "approvalCode": "909926",  
+
     "providerTransactionCode": "2312071716507a4G",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120717165018883760",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BM3V\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171530662\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117153059\",\n\"NetworkRefNumber\":\"334117153059\",\n\"SystemTraceNumber\":\"023777\",\n\"AuthorizationNumber\":\"405534\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171530saoo\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MjMxMjA3MTcxNTMwc2Fvbzsx",  
+
     "approvalCode": "405534",  
+
     "providerTransactionCode": "231207171530saoo",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120717161496243964",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000E\",\n\"ReturnText\":\"EXPIRATION DATE IS INCORRECT FORMAT (YYMM)\",\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"007889\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231208091922nlP5\",\n\"ResponseCode\":\"030\",\n\"ErrorInformation\": \n{ \"ErrorText\":\"2623\",\n\"FieldInError\":\"ExpirationDate\" }\n}\n}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "0004",  
+
         "message": "Edit error on input - EXPIRATION DATE IS INCORRECT FORMAT (YYMM)"  
+
       },  
+
       {  
+
         "code": "030",  
+
         "message": "FORMAT ERROR"  
+
       },  
+
       {  
+
         "code": "0004",  
+
         "message": "ExpirationDate - 2623"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "231208091922nlP5",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "23120809192152157008",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000F\",\n\"ReturnText\":\"STOLEN CARD, PICK UP\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"43\",\n\"VisaValidationCode\":\"EJTS\",\n\"VisaTransactionId\":\"233420091805332\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334209180631\",\n\"NetworkRefNumber\":\"334209180631\",\n\"SystemTraceNumber\":\"007806\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"DCCEligibleBin\":\"Y\",\n\"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312080918052t7G\",\n\"ResponseCode\":\"022\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "0004",  
+
         "message": "Edit error on input - STOLEN CARD, PICK UP"  
+
       },  
+
       {  
+
         "code": "022",  
+
         "message": "DECLINE - PICK UP STOLEN CARD"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "2312080918052t7G",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "23120809180524271095",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft#overview)
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "dsTransId": "378a925e-66b2-414d-b4c4-10a573ea9e17",  
+
+    "eci": "05",  
+
+    "cavv": "xgQYYgZVAAAAAAAAAAAAAAAAAAAA", // Mapped from threeDSecureResponse.authenticationValue.  
+
+    "programProtocol": "2"  
+
+  },  
+
+  "terminalData": {  
+
+    "terminalNumber": "01",  
+
+    "entryMode": "E-COMM",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "8"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "MiscAmountsBalances": {  
+
+    "PreAuthorizedAmount": 1000  
+
+  },  
+
+  "AuthorizationType": "FP",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "ProcFlagsIndicators": {  
+
+    "PriorAuth": "Y"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "terminalEntryCap": "0",  
+
+    "posConditionCode": "06"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, Purchase, or Refund response>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "reversalAdviceReasonCd": "000",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BPVS\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171206846\",\n\"VisaAuthCharId\":\"N\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117120748\",\n\"NetworkRefNumber\":\"334117120748\",\n\"SystemTraceNumber\":\"023636\",\n\"AuthorizationNumber\":\"752006\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171206cdji\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjA2Y2RqaTsx",  
+
+    "approvalCode": "752006",  
+
+    "providerTransactionCode": "231207171206cdji",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717120578419227",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"C2WU\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171227118\",\n\"VisaAuthCharId\":\"V\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117122802\",\n\"NetworkRefNumber\":\"334117122802\",\n\"SystemTraceNumber\":\"023650\",\n\"AuthorizationNumber\":\"064942\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsy",  
+
+    "approvalCode": "064942",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717122656700974",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditcompletionresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"023748\",\n\"AuthorizationNumber\":\"002848\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsz",  
+
+    "approvalCode": "002848",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717150999000795",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditrefundresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\",\n\"AvailableBALFromAcct\":\"2008.53\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BR3Z\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171650180\",\n\"VisaAuthCharId\":\"A\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117165110\",\n\"PaymentAcctREFNumber\":\"43215678901234567890123456789\",\n\"NetworkRefNumber\":\"334117165110\",\n\"SystemTraceNumber\":\"023802\",\n\"AuthorizationNumber\":\"909926\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312071716507a4G\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNjUwN2E0Rzs0",  
+
+    "approvalCode": "909926",  
+
+    "providerTransactionCode": "2312071716507a4G",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717165018883760",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BM3V\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171530662\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117153059\",\n\"NetworkRefNumber\":\"334117153059\",\n\"SystemTraceNumber\":\"023777\",\n\"AuthorizationNumber\":\"405534\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171530saoo\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNTMwc2Fvbzsx",  
+
+    "approvalCode": "405534",  
+
+    "providerTransactionCode": "231207171530saoo",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717161496243964",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000E\",\n\"ReturnText\":\"EXPIRATION DATE IS INCORRECT FORMAT (YYMM)\",\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"007889\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231208091922nlP5\",\n\"ResponseCode\":\"030\",\n\"ErrorInformation\": \n{ \"ErrorText\":\"2623\",\n\"FieldInError\":\"ExpirationDate\" }\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - EXPIRATION DATE IS INCORRECT FORMAT (YYMM)"  
+
+      },  
+
+      {  
+
+        "code": "030",  
+
+        "message": "FORMAT ERROR"  
+
+      },  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "ExpirationDate - 2623"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "231208091922nlP5",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809192152157008",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000F\",\n\"ReturnText\":\"STOLEN CARD, PICK UP\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"43\",\n\"VisaValidationCode\":\"EJTS\",\n\"VisaTransactionId\":\"233420091805332\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334209180631\",\n\"NetworkRefNumber\":\"334209180631\",\n\"SystemTraceNumber\":\"007806\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"DCCEligibleBin\":\"Y\",\n\"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312080918052t7G\",\n\"ResponseCode\":\"022\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - STOLEN CARD, PICK UP"  
+
+      },  
+
+      {  
+
+        "code": "022",  
+
+        "message": "DECLINE - PICK UP STOLEN CARD"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2312080918052t7G",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809180524271095",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "dsTransId": "378a925e-66b2-414d-b4c4-10a573ea9e17",  
+
+    "eci": "05",  
+
+    "cavv": "xgQYYgZVAAAAAAAAAAAAAAAAAAAA", // Mapped from threeDSecureResponse.authenticationValue.  
+
+    "programProtocol": "2"  
+
+  },  
+
+  "terminalData": {  
+
+    "terminalNumber": "01",  
+
+    "entryMode": "E-COMM",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "8"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "MiscAmountsBalances": {  
+
+    "PreAuthorizedAmount": 1000  
+
+  },  
+
+  "AuthorizationType": "FP",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "ProcFlagsIndicators": {  
+
+    "PriorAuth": "Y"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "terminalEntryCap": "0",  
+
+    "posConditionCode": "06"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, Purchase, or Refund response>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "reversalAdviceReasonCd": "000",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BPVS\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171206846\",\n\"VisaAuthCharId\":\"N\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117120748\",\n\"NetworkRefNumber\":\"334117120748\",\n\"SystemTraceNumber\":\"023636\",\n\"AuthorizationNumber\":\"752006\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171206cdji\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjA2Y2RqaTsx",  
+
+    "approvalCode": "752006",  
+
+    "providerTransactionCode": "231207171206cdji",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717120578419227",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"C2WU\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171227118\",\n\"VisaAuthCharId\":\"V\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117122802\",\n\"NetworkRefNumber\":\"334117122802\",\n\"SystemTraceNumber\":\"023650\",\n\"AuthorizationNumber\":\"064942\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsy",  
+
+    "approvalCode": "064942",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717122656700974",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditcompletionresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"023748\",\n\"AuthorizationNumber\":\"002848\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsz",  
+
+    "approvalCode": "002848",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717150999000795",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditrefundresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\",\n\"AvailableBALFromAcct\":\"2008.53\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BR3Z\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171650180\",\n\"VisaAuthCharId\":\"A\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117165110\",\n\"PaymentAcctREFNumber\":\"43215678901234567890123456789\",\n\"NetworkRefNumber\":\"334117165110\",\n\"SystemTraceNumber\":\"023802\",\n\"AuthorizationNumber\":\"909926\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312071716507a4G\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNjUwN2E0Rzs0",  
+
+    "approvalCode": "909926",  
+
+    "providerTransactionCode": "2312071716507a4G",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717165018883760",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BM3V\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171530662\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117153059\",\n\"NetworkRefNumber\":\"334117153059\",\n\"SystemTraceNumber\":\"023777\",\n\"AuthorizationNumber\":\"405534\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171530saoo\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNTMwc2Fvbzsx",  
+
+    "approvalCode": "405534",  
+
+    "providerTransactionCode": "231207171530saoo",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717161496243964",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000E\",\n\"ReturnText\":\"EXPIRATION DATE IS INCORRECT FORMAT (YYMM)\",\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"007889\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231208091922nlP5\",\n\"ResponseCode\":\"030\",\n\"ErrorInformation\": \n{ \"ErrorText\":\"2623\",\n\"FieldInError\":\"ExpirationDate\" }\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - EXPIRATION DATE IS INCORRECT FORMAT (YYMM)"  
+
+      },  
+
+      {  
+
+        "code": "030",  
+
+        "message": "FORMAT ERROR"  
+
+      },  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "ExpirationDate - 2623"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "231208091922nlP5",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809192152157008",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000F\",\n\"ReturnText\":\"STOLEN CARD, PICK UP\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"43\",\n\"VisaValidationCode\":\"EJTS\",\n\"VisaTransactionId\":\"233420091805332\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334209180631\",\n\"NetworkRefNumber\":\"334209180631\",\n\"SystemTraceNumber\":\"007806\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"DCCEligibleBin\":\"Y\",\n\"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312080918052t7G\",\n\"ResponseCode\":\"022\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - STOLEN CARD, PICK UP"  
+
+      },  
+
+      {  
+
+        "code": "022",  
+
+        "message": "DECLINE - PICK UP STOLEN CARD"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2312080918052t7G",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809180524271095",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "dsTransId": "378a925e-66b2-414d-b4c4-10a573ea9e17",  
+
+    "eci": "05",  
+
+    "cavv": "xgQYYgZVAAAAAAAAAAAAAAAAAAAA", // Mapped from threeDSecureResponse.authenticationValue.  
+
+    "programProtocol": "2"  
+
+  },  
+
+  "terminalData": {  
+
+    "terminalNumber": "01",  
+
+    "entryMode": "E-COMM",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "8"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "MiscAmountsBalances": {  
+
+    "PreAuthorizedAmount": 1000  
+
+  },  
+
+  "AuthorizationType": "FP",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "ProcFlagsIndicators": {  
+
+    "PriorAuth": "Y"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "terminalEntryCap": "0",  
+
+    "posConditionCode": "06"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, Purchase, or Refund response>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "reversalAdviceReasonCd": "000",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BPVS\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171206846\",\n\"VisaAuthCharId\":\"N\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117120748\",\n\"NetworkRefNumber\":\"334117120748\",\n\"SystemTraceNumber\":\"023636\",\n\"AuthorizationNumber\":\"752006\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171206cdji\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjA2Y2RqaTsx",  
+
+    "approvalCode": "752006",  
+
+    "providerTransactionCode": "231207171206cdji",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717120578419227",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"C2WU\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171227118\",\n\"VisaAuthCharId\":\"V\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117122802\",\n\"NetworkRefNumber\":\"334117122802\",\n\"SystemTraceNumber\":\"023650\",\n\"AuthorizationNumber\":\"064942\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsy",  
+
+    "approvalCode": "064942",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717122656700974",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditcompletionresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"023748\",\n\"AuthorizationNumber\":\"002848\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsz",  
+
+    "approvalCode": "002848",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717150999000795",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditrefundresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\",\n\"AvailableBALFromAcct\":\"2008.53\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BR3Z\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171650180\",\n\"VisaAuthCharId\":\"A\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117165110\",\n\"PaymentAcctREFNumber\":\"43215678901234567890123456789\",\n\"NetworkRefNumber\":\"334117165110\",\n\"SystemTraceNumber\":\"023802\",\n\"AuthorizationNumber\":\"909926\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312071716507a4G\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNjUwN2E0Rzs0",  
+
+    "approvalCode": "909926",  
+
+    "providerTransactionCode": "2312071716507a4G",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717165018883760",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BM3V\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171530662\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117153059\",\n\"NetworkRefNumber\":\"334117153059\",\n\"SystemTraceNumber\":\"023777\",\n\"AuthorizationNumber\":\"405534\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171530saoo\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNTMwc2Fvbzsx",  
+
+    "approvalCode": "405534",  
+
+    "providerTransactionCode": "231207171530saoo",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717161496243964",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000E\",\n\"ReturnText\":\"EXPIRATION DATE IS INCORRECT FORMAT (YYMM)\",\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"007889\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231208091922nlP5\",\n\"ResponseCode\":\"030\",\n\"ErrorInformation\": \n{ \"ErrorText\":\"2623\",\n\"FieldInError\":\"ExpirationDate\" }\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - EXPIRATION DATE IS INCORRECT FORMAT (YYMM)"  
+
+      },  
+
+      {  
+
+        "code": "030",  
+
+        "message": "FORMAT ERROR"  
+
+      },  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "ExpirationDate - 2623"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "231208091922nlP5",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809192152157008",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000F\",\n\"ReturnText\":\"STOLEN CARD, PICK UP\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"43\",\n\"VisaValidationCode\":\"EJTS\",\n\"VisaTransactionId\":\"233420091805332\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334209180631\",\n\"NetworkRefNumber\":\"334209180631\",\n\"SystemTraceNumber\":\"007806\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"DCCEligibleBin\":\"Y\",\n\"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312080918052t7G\",\n\"ResponseCode\":\"022\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - STOLEN CARD, PICK UP"  
+
+      },  
+
+      {  
+
+        "code": "022",  
+
+        "message": "DECLINE - PICK UP STOLEN CARD"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2312080918052t7G",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809180524271095",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft#example-responses)
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "dsTransId": "378a925e-66b2-414d-b4c4-10a573ea9e17",  
+
+    "eci": "05",  
+
+    "cavv": "xgQYYgZVAAAAAAAAAAAAAAAAAAAA", // Mapped from threeDSecureResponse.authenticationValue.  
+
+    "programProtocol": "2"  
+
+  },  
+
+  "terminalData": {  
+
+    "terminalNumber": "01",  
+
+    "entryMode": "E-COMM",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "8"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "MiscAmountsBalances": {  
+
+    "PreAuthorizedAmount": 1000  
+
+  },  
+
+  "AuthorizationType": "FP",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "ProcFlagsIndicators": {  
+
+    "PriorAuth": "Y"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "terminalEntryCap": "0",  
+
+    "posConditionCode": "06"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, Purchase, or Refund response>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "reversalAdviceReasonCd": "000",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BPVS\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171206846\",\n\"VisaAuthCharId\":\"N\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117120748\",\n\"NetworkRefNumber\":\"334117120748\",\n\"SystemTraceNumber\":\"023636\",\n\"AuthorizationNumber\":\"752006\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171206cdji\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjA2Y2RqaTsx",  
+
+    "approvalCode": "752006",  
+
+    "providerTransactionCode": "231207171206cdji",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717120578419227",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"C2WU\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171227118\",\n\"VisaAuthCharId\":\"V\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117122802\",\n\"NetworkRefNumber\":\"334117122802\",\n\"SystemTraceNumber\":\"023650\",\n\"AuthorizationNumber\":\"064942\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsy",  
+
+    "approvalCode": "064942",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717122656700974",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditcompletionresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"023748\",\n\"AuthorizationNumber\":\"002848\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsz",  
+
+    "approvalCode": "002848",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717150999000795",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditrefundresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\",\n\"AvailableBALFromAcct\":\"2008.53\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BR3Z\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171650180\",\n\"VisaAuthCharId\":\"A\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117165110\",\n\"PaymentAcctREFNumber\":\"43215678901234567890123456789\",\n\"NetworkRefNumber\":\"334117165110\",\n\"SystemTraceNumber\":\"023802\",\n\"AuthorizationNumber\":\"909926\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312071716507a4G\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNjUwN2E0Rzs0",  
+
+    "approvalCode": "909926",  
+
+    "providerTransactionCode": "2312071716507a4G",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717165018883760",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BM3V\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171530662\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117153059\",\n\"NetworkRefNumber\":\"334117153059\",\n\"SystemTraceNumber\":\"023777\",\n\"AuthorizationNumber\":\"405534\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171530saoo\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNTMwc2Fvbzsx",  
+
+    "approvalCode": "405534",  
+
+    "providerTransactionCode": "231207171530saoo",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717161496243964",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000E\",\n\"ReturnText\":\"EXPIRATION DATE IS INCORRECT FORMAT (YYMM)\",\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"007889\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231208091922nlP5\",\n\"ResponseCode\":\"030\",\n\"ErrorInformation\": \n{ \"ErrorText\":\"2623\",\n\"FieldInError\":\"ExpirationDate\" }\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - EXPIRATION DATE IS INCORRECT FORMAT (YYMM)"  
+
+      },  
+
+      {  
+
+        "code": "030",  
+
+        "message": "FORMAT ERROR"  
+
+      },  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "ExpirationDate - 2623"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "231208091922nlP5",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809192152157008",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000F\",\n\"ReturnText\":\"STOLEN CARD, PICK UP\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"43\",\n\"VisaValidationCode\":\"EJTS\",\n\"VisaTransactionId\":\"233420091805332\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334209180631\",\n\"NetworkRefNumber\":\"334209180631\",\n\"SystemTraceNumber\":\"007806\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"DCCEligibleBin\":\"Y\",\n\"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312080918052t7G\",\n\"ResponseCode\":\"022\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - STOLEN CARD, PICK UP"  
+
+      },  
+
+      {  
+
+        "code": "022",  
+
+        "message": "DECLINE - PICK UP STOLEN CARD"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2312080918052t7G",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809180524271095",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2024,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "threeDSecure": {  
+
+    "dsTransId": "378a925e-66b2-414d-b4c4-10a573ea9e17",  
+
+    "eci": "05",  
+
+    "cavv": "xgQYYgZVAAAAAAAAAAAAAAAAAAAA", // Mapped from threeDSecureResponse.authenticationValue.  
+
+    "programProtocol": "2"  
+
+  },  
+
+  "terminalData": {  
+
+    "terminalNumber": "01",  
+
+    "entryMode": "E-COMM",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "8"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>",  
+
+  "MiscAmountsBalances": {  
+
+    "PreAuthorizedAmount": 1000  
+
+  },  
+
+  "AuthorizationType": "FP",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "ProcFlagsIndicators": {  
+
+    "PriorAuth": "Y"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "terminalEntryCap": "0",  
+
+    "posConditionCode": "06"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "apiTransactionId": "16-AN-Characters",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "WorldpayNativeRaft",  
+
+  "merchantId": "<Merchant ID assigned by Worldpay>",  
+
+  "licenseKey": "<License Key assigned by Worldpay>",  
+
+  "localDateTime": "<YYYY-MM-DDTHH:mm:ss>",  
+
+  "TokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize, Capture, Purchase, or Refund response>",  
+
+  "testMode": true,  
+
+  "amount": 1000,  
+
+  "reversalAdviceReasonCd": "000",  
+
+  "ReferenceTraceNumbers": {  
+
+    "AuthorizationNumber": "approval code from prior transaction"  
+
+  },  
+
+  "creditCard": {  
+
+    "number": "Token or PAN",  
+
+    "expMonth": 6,  
+
+    "expYear": 2028,  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "fullName": "John Allen Doe",  
+
+    "cvv": "382"  
+
+  },  
+
+  "billingAddress": {  
+
+    "company": "Test Co.",  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Tulsa",  
+
+    "state": "OK",  
+
+    "zip": "74111",  
+
+    "country": "USA"  
+
+  },  
+
+  "orderInfo": {  
+
+    "ecommerceIndicator": "07"  
+
+  },  
+
+  "terminalData": {  
+
+    "entryMode": "KEYED",  
+
+    "posConditionCode": "59",  
+
+    "terminalEntryCap": "0"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BPVS\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171206846\",\n\"VisaAuthCharId\":\"N\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117120748\",\n\"NetworkRefNumber\":\"334117120748\",\n\"SystemTraceNumber\":\"023636\",\n\"AuthorizationNumber\":\"752006\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171206cdji\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjA2Y2RqaTsx",  
+
+    "approvalCode": "752006",  
+
+    "providerTransactionCode": "231207171206cdji",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717120578419227",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"C2WU\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171227118\",\n\"VisaAuthCharId\":\"V\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117122802\",\n\"NetworkRefNumber\":\"334117122802\",\n\"SystemTraceNumber\":\"023650\",\n\"AuthorizationNumber\":\"064942\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsy",  
+
+    "approvalCode": "064942",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717122656700974",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditcompletionresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"023748\",\n\"AuthorizationNumber\":\"002848\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171227g7Sy\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxMjI3ZzdTeTsz",  
+
+    "approvalCode": "002848",  
+
+    "providerTransactionCode": "231207171227g7Sy",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717150999000795",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditrefundresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\",\n\"AvailableBALFromAcct\":\"2008.53\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BR3Z\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171650180\",\n\"VisaAuthCharId\":\"A\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117165110\",\n\"PaymentAcctREFNumber\":\"43215678901234567890123456789\",\n\"NetworkRefNumber\":\"334117165110\",\n\"SystemTraceNumber\":\"023802\",\n\"AuthorizationNumber\":\"909926\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312071716507a4G\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNjUwN2E0Rzs0",  
+
+    "approvalCode": "909926",  
+
+    "providerTransactionCode": "2312071716507a4G",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717165018883760",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditauthresponse\": \n { \"ReturnCode\":\"0000\",\n\"ReasonCode\":\"0000\",\n\"MiscAmountsBalances\": \n{ \"OriginalAuthAmount\":\"10.00\" },\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"00\",\n\"VisaValidationCode\":\"BM3V\",\n\"VisaCardLevelResults\":\"A \",\n\"VisaTransactionId\":\"233410171530662\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334117153059\",\n\"NetworkRefNumber\":\"334117153059\",\n\"SystemTraceNumber\":\"023777\",\n\"AuthorizationNumber\":\"405534\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231207\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231207171530saoo\",\n\"ResponseCode\":\"000\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MjMxMjA3MTcxNTMwc2Fvbzsx",  
+
+    "approvalCode": "405534",  
+
+    "providerTransactionCode": "231207171530saoo",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717161496243964",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000E\",\n\"ReturnText\":\"EXPIRATION DATE IS INCORRECT FORMAT (YYMM)\",\n\"ReferenceTraceNumbers\": \n{ \"SystemTraceNumber\":\"007889\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"231208091922nlP5\",\n\"ResponseCode\":\"030\",\n\"ErrorInformation\": \n{ \"ErrorText\":\"2623\",\n\"FieldInError\":\"ExpirationDate\" }\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - EXPIRATION DATE IS INCORRECT FORMAT (YYMM)"  
+
+      },  
+
+      {  
+
+        "code": "030",  
+
+        "message": "FORMAT ERROR"  
+
+      },  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "ExpirationDate - 2623"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "231208091922nlP5",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809192152157008",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{ \"creditpurchaseresponse\": \n { \"ReturnCode\":\"0004\",\n\"ReasonCode\":\"000F\",\n\"ReturnText\":\"STOLEN CARD, PICK UP\",\n\"CardInfo\": \n{ \"CardProductCode\":\"A C\" },\n\"VisaSpecificData\": \n{ \"VisaSpendQualifier\":\"Q\",\n\"VisaResponseCode\":\"43\",\n\"VisaValidationCode\":\"EJTS\",\n\"VisaTransactionId\":\"233420091805332\",\n\"VisaAuthCharId\":\"E\" },\n\"ReferenceTraceNumbers\": \n{ \"RetrievalREFNumber\":\"334209180631\",\n\"NetworkRefNumber\":\"334209180631\",\n\"SystemTraceNumber\":\"007806\" },\n\"CustomerInformation\": \n{ \"IssuerCountryCode\":\"752\" },\n\"SettlementData\": \n{ \"SettlementDate\":\"20231208\",\n\"SettlementNetwork\":\"OMPS\",\n\"RegulationIndicator\":\"0\" },\n\"WorldPayRoutingData\": \n{ \"DCCEligibleBin\":\"Y\",\n\"NetworkId\":\"BASE\" },\n\"APITransactionID\":\"2312080918052t7G\",\n\"ResponseCode\":\"022\",\n\"AuthorizationSource\":\"5\"\n}\n}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "0004",  
+
+        "message": "Edit error on input - STOLEN CARD, PICK UP"  
+
+      },  
+
+      {  
+
+        "code": "022",  
+
+        "message": "DECLINE - PICK UP STOLEN CARD"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2312080918052t7G",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809180524271095",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```

@@ -12,9 +12,9 @@ tags:
 - routing-rules-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-routing-rules-direct-link-routing-rules
 - advanced-configuration-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-advanced-configuration-direct-link-advanced-configuration
 - retries-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-retries-direct-link-retries
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/connector/multi-method-connector
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -198,68 +198,369 @@ Advanced configurations can either be set up during the initial Connector Creati
 Using **Retries** you can allow the customers to retry the payment with a different payment method in case the payment has failed. In this case, the customer is redirected back to the payment selection page. You can configure the max. number of retries (max. 9).
 You may also want to adopt the payment selection page in this case to inform the customer about the failed attempt. Insert the following [placeholder](https://documentation.ixopay.com/manual/docs/fast) into your payment template:
 ```
+
 {{ isRetry }}  
 
+```or alternatively use:
 ```
 
-or alternatively use:
-```
 {% if isRetry %}  
 
-In addition you might want to show the customer previous transaction errors (only available for retries) using the `{{ previousTransactionErrors }}` array of all previous transaction error objects:
+```In addition you might want to show the customer previous transaction errors (only available for retries) using the `{{ previousTransactionErrors }}` array of all previous transaction error objects:
 ```
+
  "previousTransactionErrors" => [  
+
     0 => [  
+
       "code" => "2006"  
+
       "message" => "The card has insufficient funds"  
+
       "adapter_code" => "insufficient_funds"  
+
       "adapter_message" => "Insufficient funds"  
+
     ]  
+
     1 => [  
+
       "code" => "2003"  
+
       "message" => "The transaction was declined"  
+
       "adapter_code" => "transaction_declined"  
+
       "adapter_message" => "Test decline"  
+
     ]  
+
     // ...  
+
   ]  
 
-You can loop through the array to show all previous errors to the customer:
+```You can loop through the array to show all previous errors to the customer:
 ```
+
 {% for err in previousTransactionErrors %}  
+
   <pre>  
+
     Code: {{ err.code }}  
+
     Message: {{ err.message }}  
+
     Adapter Code: {{ err.adapter_code }}  
+
     Adapter Message: {{ err.adapter_message }}  
+
   </pre>  
+
 {% endfor %}  
 
-Or even changing or translating the error message, based on the error code (refer to [/docs/reference/appendix/error-codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes))
+```Or even changing or translating the error message, based on the error code (refer to [/docs/reference/appendix/error-codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes))
 ```
+
 {% if err.code == '2003' %}  
+
   Transaction declined  
+
 {% endif %}  
 
-In case you just want to retrieve the last error, simply use
+```In case you just want to retrieve the last error, simply use
 ```
+
 {% set lastErr = previousTransactionErrors|last %}  
 
-### Expiry time[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#expiry-time "Direct link to Expiry time")
+```### Expiry time[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#expiry-time "Direct link to Expiry time")
 Lastly, you can define an expiry time in hours. The payment selection page will be valid and can be accessed within the given time frame.
 You may also want to adopt the payment selection page in this case to inform the customer about the remaining time. Insert the following placeholder into your payment template:
 ```
+
 {{ expirationDate }}  
 
-tip
+```tip
 The expiration date will be a string containing the date and time of expiry in the given format: `YYYY-MM-DD hh:mm:ss Timezone`, e.g. 2020-01-01 00:00:00 UTC.
 Once the the payment selection page is expired, it is recommended to add an expiry check inside the payment template to display an appropriate error screen to customers, e.g.
 ```
+
 {% if isExpired %}  
+
   This page has expired.  
+
 {% endif %}  
 
-  * [Video: Meta Connector](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#video-meta-connector)
+```
+```
+
+{{ isRetry }}  
+
+```
+```
+
+{% if isRetry %}  
+
+```
+```
+
+ "previousTransactionErrors" => [  
+
+    0 => [  
+
+      "code" => "2006"  
+
+      "message" => "The card has insufficient funds"  
+
+      "adapter_code" => "insufficient_funds"  
+
+      "adapter_message" => "Insufficient funds"  
+
+    ]  
+
+    1 => [  
+
+      "code" => "2003"  
+
+      "message" => "The transaction was declined"  
+
+      "adapter_code" => "transaction_declined"  
+
+      "adapter_message" => "Test decline"  
+
+    ]  
+
+    // ...  
+
+  ]  
+
+```
+```
+
+{% for err in previousTransactionErrors %}  
+
+  <pre>  
+
+    Code: {{ err.code }}  
+
+    Message: {{ err.message }}  
+
+    Adapter Code: {{ err.adapter_code }}  
+
+    Adapter Message: {{ err.adapter_message }}  
+
+  </pre>  
+
+{% endfor %}  
+
+```
+```
+
+{% if err.code == '2003' %}  
+
+  Transaction declined  
+
+{% endif %}  
+
+```
+```
+
+{% set lastErr = previousTransactionErrors|last %}  
+
+```
+```
+
+{{ expirationDate }}  
+
+```
+```
+
+{% if isExpired %}  
+
+  This page has expired.  
+
+{% endif %}  
+
+```
+```
+
+{{ isRetry }}  
+
+```
+```
+
+{% if isRetry %}  
+
+```
+```
+
+ "previousTransactionErrors" => [  
+
+    0 => [  
+
+      "code" => "2006"  
+
+      "message" => "The card has insufficient funds"  
+
+      "adapter_code" => "insufficient_funds"  
+
+      "adapter_message" => "Insufficient funds"  
+
+    ]  
+
+    1 => [  
+
+      "code" => "2003"  
+
+      "message" => "The transaction was declined"  
+
+      "adapter_code" => "transaction_declined"  
+
+      "adapter_message" => "Test decline"  
+
+    ]  
+
+    // ...  
+
+  ]  
+
+```
+```
+
+{% for err in previousTransactionErrors %}  
+
+  <pre>  
+
+    Code: {{ err.code }}  
+
+    Message: {{ err.message }}  
+
+    Adapter Code: {{ err.adapter_code }}  
+
+    Adapter Message: {{ err.adapter_message }}  
+
+  </pre>  
+
+{% endfor %}  
+
+```
+```
+
+{% if err.code == '2003' %}  
+
+  Transaction declined  
+
+{% endif %}  
+
+```
+```
+
+{% set lastErr = previousTransactionErrors|last %}  
+
+```
+```
+
+{{ expirationDate }}  
+
+```
+```
+
+{% if isExpired %}  
+
+  This page has expired.  
+
+{% endif %}  
+
+```
+```
+
+{{ isRetry }}  
+
+```
+```
+
+{% if isRetry %}  
+
+```
+```
+
+ "previousTransactionErrors" => [  
+
+    0 => [  
+
+      "code" => "2006"  
+
+      "message" => "The card has insufficient funds"  
+
+      "adapter_code" => "insufficient_funds"  
+
+      "adapter_message" => "Insufficient funds"  
+
+    ]  
+
+    1 => [  
+
+      "code" => "2003"  
+
+      "message" => "The transaction was declined"  
+
+      "adapter_code" => "transaction_declined"  
+
+      "adapter_message" => "Test decline"  
+
+    ]  
+
+    // ...  
+
+  ]  
+
+```
+```
+
+{% for err in previousTransactionErrors %}  
+
+  <pre>  
+
+    Code: {{ err.code }}  
+
+    Message: {{ err.message }}  
+
+    Adapter Code: {{ err.adapter_code }}  
+
+    Adapter Message: {{ err.adapter_message }}  
+
+  </pre>  
+
+{% endfor %}  
+
+```
+```
+
+{% if err.code == '2003' %}  
+
+  Transaction declined  
+
+{% endif %}  
+
+```
+```
+
+{% set lastErr = previousTransactionErrors|last %}  
+
+```
+```
+
+{{ expirationDate }}  
+
+```
+```
+
+{% if isExpired %}  
+
+  This page has expired.  
+
+{% endif %}  
+
+```  * [Video: Meta Connector](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#video-meta-connector)
   * [Create Multi-Method (Meta-)Connector](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#create-multi-method-meta-connector)
   * [Connector Configuration - Payment methods](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#connector-configuration---payment-methods)
   * [Availability Rules — Payment methods](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#availability-rules--payment-methods)
@@ -271,3 +572,183 @@ Once the the payment selection page is expired, it is recommended to add an expi
   * [Advanced Configuration](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#advanced-configuration)
     * [Retries](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#retries)
     * [Expiry time](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#expiry-time)
+```
+
+{{ isRetry }}  
+
+```
+```
+
+{% if isRetry %}  
+
+```
+```
+
+ "previousTransactionErrors" => [  
+
+    0 => [  
+
+      "code" => "2006"  
+
+      "message" => "The card has insufficient funds"  
+
+      "adapter_code" => "insufficient_funds"  
+
+      "adapter_message" => "Insufficient funds"  
+
+    ]  
+
+    1 => [  
+
+      "code" => "2003"  
+
+      "message" => "The transaction was declined"  
+
+      "adapter_code" => "transaction_declined"  
+
+      "adapter_message" => "Test decline"  
+
+    ]  
+
+    // ...  
+
+  ]  
+
+```
+```
+
+{% for err in previousTransactionErrors %}  
+
+  <pre>  
+
+    Code: {{ err.code }}  
+
+    Message: {{ err.message }}  
+
+    Adapter Code: {{ err.adapter_code }}  
+
+    Adapter Message: {{ err.adapter_message }}  
+
+  </pre>  
+
+{% endfor %}  
+
+```
+```
+
+{% if err.code == '2003' %}  
+
+  Transaction declined  
+
+{% endif %}  
+
+```
+```
+
+{% set lastErr = previousTransactionErrors|last %}  
+
+```
+```
+
+{{ expirationDate }}  
+
+```
+```
+
+{% if isExpired %}  
+
+  This page has expired.  
+
+{% endif %}  
+
+```
+```
+
+{{ isRetry }}  
+
+```
+```
+
+{% if isRetry %}  
+
+```
+```
+
+ "previousTransactionErrors" => [  
+
+    0 => [  
+
+      "code" => "2006"  
+
+      "message" => "The card has insufficient funds"  
+
+      "adapter_code" => "insufficient_funds"  
+
+      "adapter_message" => "Insufficient funds"  
+
+    ]  
+
+    1 => [  
+
+      "code" => "2003"  
+
+      "message" => "The transaction was declined"  
+
+      "adapter_code" => "transaction_declined"  
+
+      "adapter_message" => "Test decline"  
+
+    ]  
+
+    // ...  
+
+  ]  
+
+```
+```
+
+{% for err in previousTransactionErrors %}  
+
+  <pre>  
+
+    Code: {{ err.code }}  
+
+    Message: {{ err.message }}  
+
+    Adapter Code: {{ err.adapter_code }}  
+
+    Adapter Message: {{ err.adapter_message }}  
+
+  </pre>  
+
+{% endfor %}  
+
+```
+```
+
+{% if err.code == '2003' %}  
+
+  Transaction declined  
+
+{% endif %}  
+
+```
+```
+
+{% set lastErr = previousTransactionErrors|last %}  
+
+```
+```
+
+{{ expirationDate }}  
+
+```
+```
+
+{% if isExpired %}  
+
+  This page has expired.  
+
+{% endif %}  
+
+```

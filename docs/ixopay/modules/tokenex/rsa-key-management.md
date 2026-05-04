@@ -12,9 +12,9 @@ tags:
 - api
 - json
 - tokenex
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -52,17 +52,74 @@ TokenEx provides a way for our clients to retrieve the latest RSA Key generated 
 In the following example, supply the correct TokenExID within the URL in order to retrieve the latest RSA Key.
 ### GET Request[​](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#get-request "Direct link to GET Request")
 ```
+
 GET /api/api/Key/{TokenExID} HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Content-Type: application/json  
+
 Authorization: {Your Authorization Value}  
 
 ```
+```
 
-  * [RSA encryption key rotation](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#rsa-encryption-key-rotation)
+GET /api/api/Key/{TokenExID} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+GET /api/api/Key/{TokenExID} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+GET /api/api/Key/{TokenExID} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+```  * [RSA encryption key rotation](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#rsa-encryption-key-rotation)
     * [Multiple RSA encryption keys](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#multiple-rsa-encryption-keys)
     * [Rolling back new RSA encryption key](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#rolling-back-new-rsa-encryption-key)
     * [RSA Key Portal API](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#rsa-key-portal-api)
   * [Hosts](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#hosts)
   * [Examples](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#examples)
     * [GET Request](https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management#get-request)
+```
+
+GET /api/api/Key/{TokenExID} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+GET /api/api/Key/{TokenExID} HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+```

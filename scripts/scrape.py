@@ -60,6 +60,25 @@ TARGETS = {
         "exclude_patterns": [],
         "description": "Congrify Payment Intelligence",
     },
+    "ixopay-legal": {
+        "base_url": "https://www.ixopay.com/legal/",
+        "output_dir": "docs/ixopay/legal",
+        "exclude_patterns": [],
+        # The corporate site is not Docusaurus; its content container is
+        # `.page-content`, not `article`/`main`/`.markdown`.
+        "css_selector": ".page-content",
+        "seed_urls": [
+            "https://www.ixopay.com/legal/subprocessors",
+            "https://www.ixopay.com/legal/dpa",
+            "https://www.ixopay.com/legal/msa",
+            "https://www.ixopay.com/legal/sla",
+            "https://www.ixopay.com/legal/security-trust",
+            "https://www.ixopay.com/legal/privacy-notice",
+            "https://www.ixopay.com/legal/social-media-privacy-notice",
+            "https://www.ixopay.com/legal/tokenex-legacy",
+        ],
+        "description": "Ixopay Legal & Compliance (subprocessors, DPA, privacy, terms)",
+    },
 }
 
 # ---------------------------------------------------------------------------
@@ -249,8 +268,10 @@ async def scrape_target(
         verbose=False,
     )
 
-    # CSS selectors tried in priority order for content extraction
-    css_selector = "article, .markdown, main"
+    # CSS selectors tried in priority order for content extraction.
+    # Targets can override via `css_selector` when their site uses a
+    # different content container (e.g. the Ixopay corporate site).
+    css_selector = target_cfg.get("css_selector", "article, .markdown, main")
 
     run_cfg = CrawlerRunConfig(
         css_selector=css_selector,
@@ -267,26 +288,28 @@ async def scrape_target(
 
     saved = 0
     failed: list[str] = []
+    seen_urls: set[str] = set()
+    page_num = 0
+
+    # Seeds: the primary start_url plus any explicit extras from target config.
+    # Extras cover sites where BFS from base_url fails to surface pages (e.g. an
+    # index page with no in-site links, or URLs absent from the sitemap).
+    seeds: list[str] = [start_url]
+    for extra in target_cfg.get("seed_urls", []):
+        if extra not in seeds:
+            seeds.append(extra)
 
     async with AsyncWebCrawler(config=browser_cfg) as crawler:
-        # arun returns an async generator when deep_crawl_strategy is set
-        result_iter = await crawler.arun(url=start_url, config=run_cfg)
-
-        # Normalise: result_iter may be a list or an async generator
-        if hasattr(result_iter, "__aiter__"):
-            results = result_iter
-            async_mode = True
-        else:
-            results = result_iter if isinstance(result_iter, list) else [result_iter]
-            async_mode = False
-
-        page_num = 0
 
         async def _process(result):
             nonlocal saved, page_num
-            page_num += 1
 
             url = result.url
+            if url in seen_urls:
+                return
+            seen_urls.add(url)
+            page_num += 1
+
             if _should_skip_url(url):
                 return
 
@@ -308,6 +331,18 @@ async def scrape_target(
                 print(f"    SKIP: empty content")
                 return
 
+            # Ensure the body starts with an H1 so downstream validation
+            # (clean.py requires at least one heading) never rejects pages
+            # whose content is a pure table or paragraph block.
+            title = _extract_title(raw_md, url)
+            if not re.search(r"^\s*#\s+", raw_md, re.MULTILINE):
+                raw_md = f"# {title}\n\n{raw_md}"
+
+            # Prepend a minimal frontmatter with source_url so citations
+            # always work. clean.py preserves existing frontmatter keys.
+            frontmatter_block = f"---\nsource_url: {url}\n---\n\n"
+            raw_md = frontmatter_block + raw_md
+
             # Derive output path
             filepath = _url_to_filepath(url, base_url, output_dir)
             filepath.parent.mkdir(parents=True, exist_ok=True)
@@ -315,7 +350,6 @@ async def scrape_target(
 
             # Update manifest
             sha = hashlib.sha256(raw_md.encode("utf-8")).hexdigest()
-            title = _extract_title(raw_md, url)
             manifest["pages"][url] = {
                 "local_path": str(filepath),
                 "sha256": sha,
@@ -326,12 +360,15 @@ async def scrape_target(
             saved += 1
             print(f"    SAVED → {filepath}  (title: {title!r})")
 
-        if async_mode:
-            async for result in results:
-                await _process(result)
-        else:
-            for result in results:
-                await _process(result)
+        for seed in seeds:
+            result_iter = await crawler.arun(url=seed, config=run_cfg)
+            if hasattr(result_iter, "__aiter__"):
+                async for result in result_iter:
+                    await _process(result)
+            else:
+                iter_results = result_iter if isinstance(result_iter, list) else [result_iter]
+                for result in iter_results:
+                    await _process(result)
 
     if failed:
         print(f"\n  Failed URLs ({len(failed)}):")

@@ -12,9 +12,9 @@ tags:
 - fourantokenfour-https-documentation-ixopay-com-modules-docs-tokenex-universal-token-schemes-fourantokenfour-direct-link-fourantokenfour
 - fourtokenfour-https-documentation-ixopay-com-modules-docs-tokenex-universal-token-schemes-fourtokenfour-direct-link-fourtokenfour
 - fourtokenfournonluhn-https-documentation-ixopay-com-modules-docs-tokenex-universal-token-schemes-fourtokenfournonluhn-direct-link-fourtokenfournonluhn
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

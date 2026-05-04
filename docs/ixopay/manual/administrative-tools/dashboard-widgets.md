@@ -6,9 +6,10 @@ tags:
 - dashboard-widgets-dashboard-provides-overview-processed-transactions-offers-various-filters-widgets-allowing-customize-overview-monitor-transactions-near-realtime-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-dashboard-widgets-customize-dashboards-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-edit-mode-dashboard-tips-best-practice-general-there-rules-structure-dashboards-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-tips-best-practice
 - dashboard-widgets-dashboard-provides-overview-processed-transactions-offers-various-filters-widgets-allowing-customize-overview-monitor-transactions-near-realtime-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-dashboard-widgets-customize-dashboards-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-edit-mode-dashboard-tips-best-practice-general-there-rules-structure-dashboards-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-tips-best-practice-dashboard-widgets-dashboard-provides-overview-processed-transactions-offers-various-filters-widgets-allowing-customize-overview-monitor-transactions-near-realtime-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-dashboard-widgets-customize-dashboards-gallerycolumnhttps-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-edit-mode-dashboard-tips-best-practice-general-there-rules-structure-dashboards-https-documentation-ixopay-com-manual-docs-administrative-tools-dashboard-widgets-tips-best-practice
 - ixopay
-source_url: ''
+- dashboard
+source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

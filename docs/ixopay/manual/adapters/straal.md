@@ -5,9 +5,9 @@ summary: 'Configure the following parameters for the Connector see Connector Con
 tags:
 - api
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/adapters/straal
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

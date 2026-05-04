@@ -12,9 +12,9 @@ tags:
 - converting-single-token-multiple-token-https-documentation-ixopay-com-docs-guides-features-tokenization-converting-single-token-multiple-token-direct-link-converting-single-token-multiple-token
 - customer-profiles-https-documentation-ixopay-com-docs-guides-features-tokenization-customer-profiles-direct-link-customer-profiles
 - api
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/guides/features/tokenization
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

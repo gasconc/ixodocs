@@ -37,10 +37,15 @@ jobs:
       - name: Rebuild index
         run: python scripts/build_index.py
 
+      - name: Coverage audit
+        # Never fails the job — 'missing' URLs are informational so we can
+        # triage them via the report. Run `--strict` locally to gate merges.
+        run: python scripts/audit_coverage.py --output coverage-report.md
+
       - name: Check for changes
         id: changes
         run: |
-          git diff --quiet docs/ index.md docs_manifest.json || echo "has_changes=true" >> $GITHUB_OUTPUT
+          git diff --quiet docs/ index.md docs_manifest.json coverage-report.md || echo "has_changes=true" >> $GITHUB_OUTPUT
 
       - name: Validate documentation quality
         if: steps.changes.outputs.has_changes == 'true'
@@ -66,8 +71,8 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          CHANGED=$(git diff --name-only docs/ index.md docs_manifest.json | wc -l | tr -d ' ')
-          git add docs/ index.md docs_manifest.json
+          CHANGED=$(git diff --name-only docs/ index.md docs_manifest.json coverage-report.md | wc -l | tr -d ' ')
+          git add docs/ index.md docs_manifest.json coverage-report.md
           git commit -m "docs: weekly sync - ${CHANGED} files updated
 
           Automated incremental documentation sync.

@@ -5,9 +5,9 @@ tags:
 - api
 - tokenex
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/token-services-api
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

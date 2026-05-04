@@ -12,9 +12,9 @@ tags:
 - testing-https-documentation-ixopay-com-modules-docs-tokenex-pci-validated-p2pe-overview-testing-direct-link-testing
 - production-key-conveyance-https-documentation-ixopay-com-modules-docs-tokenex-pci-validated-p2pe-overview-production-key-conveyance-direct-link-production-key-conveyance
 - api
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/pci-validated-p2pe-overview
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

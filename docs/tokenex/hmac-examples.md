@@ -11,7 +11,7 @@ tags:
 - gateway
 source_url: ''
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -23,7 +23,6 @@ related: []
 Additional text here
   * Request
   * Response
-
 ```
 POST https://test-api.tokenex.com/TransparentGatewayAPI/Hash?Type=HMACSHA256 HTTP/1.1  
 Content-Type: application/json  
@@ -41,9 +40,7 @@ TX_HMACKey: YourHMACKey
   }  
 }  
 
-```
-
-```
+``````
 HTTP/1.1 200 OK  
 Content-Length: 95  
 Content-Type: application/json; charset=utf-8  

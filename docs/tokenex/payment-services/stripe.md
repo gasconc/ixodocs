@@ -6,16 +6,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-stripe-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-stripe-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-stripe-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-stripe-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-stripe-responses-direct-link-responses
 - api
 - 3ds
 - 3d-secure
 - pci
 - tokenex
-source_url: ''
+- ixopay
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -145,97 +145,176 @@ Each property of this object is mapped to the `name` and `value` fields as passe
   * Card Capture
   * Card Refund
   * Card Void
-
 ```
+
 {  
+
   "amount": 1000,  
+
   "gateway": "Stripe",  
+
   "privateKey": "<Your Stripe secret key>",  
+
   "currencyCode": "USD",  
+
   "idempotencyKey": "<Your per-request idempotency key>",  
+
   "creditCard": {  
+
     "brand": "MasterCard",  
+
     "number": "2223003122003222",  
+
     "expMonth": 11,  
+
     "expYear": 2024,  
+
     "firstName": "Samantha",  
+
     "lastName": "Gottlieb",  
+
     "cvv": "123"  
+
   },  
+
   "billingAddress": {  
+
     "carrier": "FedEx",  
+
     "trackingNumber": "1234567890",  
+
     "phone": "6514219597",  
+
     "fax": null,  
+
     "email": null,  
+
     "firstName": "Fredrick",  
+
     "lastName": "Konopelski",  
+
     "name": null,  
+
     "company": null,  
+
     "address1": "123 Someplace Lane",  
+
     "address2": "Some Place",  
+
     "city": "Theronbury",  
+
     "state": "Idaho",  
+
     "zip": "89105-3085",  
+
     "country": "USA"  
+
   },  
+
   "tax": {  
+
     "exempt": false  
+
   },  
+
   "orderInfo": {  
+
     "customer": {  
+
       "address": {  
+
         "carrier": "FedEx",  
+
         "trackingNumber": "1234567890",  
+
         "phone": "2749063220",  
+
         "firstName": "Bryan",  
+
         "lastName": "Smith",  
+
         "address1": "123 Someplace Lane",  
+
         "address2": "Some Place",  
+
         "city": "Mohammadfurt",  
+
         "state": "Illinois",  
+
         "zip": "27994",  
+
         "country": "USA"  
+
       },  
+
       "email": "Noel34@yahoo.com",  
+
       "name": "Noel Mraz"  
+
     }  
+
   }  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "gateway": "Stripe",  
+
   "privateKey": "<Your Stripe secret key>",  
+
   "idempotencyKey": "<Your per-request idempotency key>",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>",  
+
   "amount": 1000,  
+
   "currencyCode": "USD"  
+
 }  
 
 ```
+```
+
 {  
+
   "amount": 1000,  
+
   "gateway": "Stripe",  
+
   "privateKey": "<Your Stripe secret key>",  
+
   "idempotencyKey": "<Your per-request idempotency key>",  
+
   "refundApplicationFee": true,  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a successful Capture or Purchase>",  
+
   "currencyCode": "USD"  
+
 }  
 
 ```
+```
+
 {  
+
   "gateway": "Stripe",  
+
   "privateKey": "<Your Stripe secret key>",  
+
   "idempotencyKey": "<Your per-request idempotency key>",  
+
   "cancellationReason": "requested_by_customer",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>"  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | Stripe Result Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approved`  | boolean  | `status`  | True if _Status_ indicates a successful transaction or operation.  |  
@@ -252,169 +331,2735 @@ Each property of this object is mapped to the `name` and `value` fields as passe
   * Card Void
   * Gateway Error
   * Processor Error
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 1000,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KIagyasGMgavzi9F9B86LBYHlfIuujeOh5JO1meAOAcX-HbHFLlmzCg-rUFB9vbWELSAO_19-nONKhVv\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"requires_capture\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
     "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {  
+
         "cvvMatch": "pass",  
+
         "streetMatch": "pass",  
+
         "postalCodeMatch": "pass"  
+
       }  
+
     }  
+
   },  
+
   "referenceNumber": "23120717064457542819",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\n  \"id\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"automatic\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqetFlLscTmW3z1GIaeCst\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990427,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 57,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n        \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KJygyasGMga4agf6ZY06LBb9_2hCU6zUUsHLt1rwQ6QXYAVUxAZQKoHIpzGJnuqUjZ2LTo1uSirJ4u05\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqetFlLscTmW3z1nJ6KHFO/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqetFlLscTmW3z16X1Hzqs\"\n  },\n  \"client_secret\": \"pi_3OKqetFlLscTmW3z16X1Hzqs_secret_I6fKn1p8VN0qc4D6aVrqrsGcg\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990427,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "cGlfM09LcWV0RmxMc2NUbVczejE2WDFIenFzO2NoXzNPS3FldEZsTHNjVG1XM3oxbko2S0hGTzs=",  
+
     "providerTransactionCode": "pi_3OKqetFlLscTmW3z16X1Hzqs",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {  
+
         "cvvMatch": "pass",  
+
         "streetMatch": "pass",  
+
         "postalCodeMatch": "pass"  
+
       }  
+
     }  
+
   },  
+
   "referenceNumber": "23120717070641603674",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z10JIwGkG\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KNygyasGMgZ6GbPV_286LBZnE01Z43Xyz_DGO41QFuZNql1BwNp5Wmb7t_wxp2foGuzz0bC3uc6LbZwq\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
     "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {  
+
         "cvvMatch": "pass",  
+
         "streetMatch": "pass",  
+
         "postalCodeMatch": "pass"  
+
       }  
+
     }  
+
   },  
+
   "referenceNumber": "23120717081077986174",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\n  \"id\": \"re_3OKqeXFlLscTmW3z1al2CRFE\",\n  \"object\": \"refund\",\n  \"amount\": 100,\n  \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z1VBfbAmW\",\n  \"charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"created\": 1701990522,\n  \"currency\": \"usd\",\n  \"destination_details\": {\n    \"card\": {\n      \"reference_status\": \"pending\",\n      \"reference_type\": \"acquirer_reference_number\",\n      \"type\": \"refund\"\n    },\n    \"type\": \"card\"\n  },\n  \"metadata\": {},\n  \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"reason\": null,\n  \"receipt_number\": null,\n  \"source_transfer_reversal\": null,\n  \"status\": \"succeeded\",\n  \"transfer_reversal\": null\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTtyZV8zT0txZVhGbExzY1RtVzN6MWFsMkNSRkU=",  
+
     "providerTransactionCode": "re_3OKqeXFlLscTmW3z1al2CRFE",  
+
     "approved": true  
+
   },  
+
   "referenceNumber": "23120717084240403529",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\n  \"id\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": 1701990582,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 1000,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990551,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 10,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n        \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595351,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KLahyasGMgZg5mwXCTw6LBa1mwyOIDsblQCDz-AGmaJWdh_6ZVC8luElfipSCQ7jhtcuLW8cdKgOa1QX\",\n        \"refunded\": true,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [\n            {\n              \"id\": \"re_3OKqgtFlLscTmW3z0PVU1Kzk\",\n              \"object\": \"refund\",\n              \"amount\": 1000,\n              \"balance_transaction\": null,\n              \"charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n              \"created\": 1701990582,\n              \"currency\": \"usd\",\n              \"destination_details\": {\n                \"card\": {\n                  \"reference\": \"669397\",\n                  \"reference_status\": \"available\",\n                  \"reference_type\": \"system_trace_audit_number\",\n                  \"type\": \"reversal\"\n                },\n                \"type\": \"card\"\n              },\n              \"metadata\": {},\n              \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n              \"reason\": null,\n              \"receipt_number\": null,\n              \"source_transfer_reversal\": null,\n              \"status\": \"succeeded\",\n              \"transfer_reversal\": null\n            }\n          ],\n          \"has_more\": false,\n          \"total_count\": 1,\n          \"url\": \"/v1/charges/ch_3OKqgtFlLscTmW3z0Ap0xwWQ/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqgtFlLscTmW3z0bBkBuyr\"\n  },\n  \"client_secret\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr_secret_O43IjplwugctagOrFRQFgZIgD\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990551,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"canceled\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "cGlfM09LcWd0RmxMc2NUbVczejBiQmtCdXlyO2NoXzNPS3FndEZsTHNjVG1XM3owQXAweHdXUTs=",  
+
     "providerTransactionCode": "pi_3OKqgtFlLscTmW3z0bBkBuyr",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {  
+
         "cvvMatch": "pass",  
+
         "streetMatch": "pass",  
+
         "postalCodeMatch": "pass"  
+
       }  
+
     }  
+
   },  
+
   "referenceNumber": "23120717094292467386",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\n  \"error\": {\n    \"code\": \"invalid_expiry_month\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/invalid-expiry-month\",\n    \"message\": \"Your card's expiration month is invalid.\",\n    \"param\": \"exp_month\",\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_xOV9bDtQa9Vnqn?t=1703716629\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "invalid_expiry_month",  
+
         "message": "Your card's expiration month is invalid.",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "023122716370928343763",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "402"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\n  \"error\": {\n    \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n    \"code\": \"card_declined\",\n    \"decline_code\": \"stolen_card\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n    \"message\": \"Your card was declined.\",\n    \"payment_intent\": {\n      \"id\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n      \"object\": \"payment_intent\",\n      \"amount\": 1000,\n      \"amount_capturable\": 0,\n      \"amount_details\": {\n        \"tip\": {\n        }\n      },\n      \"amount_received\": 0,\n      \"application\": null,\n      \"application_fee_amount\": null,\n      \"automatic_payment_methods\": null,\n      \"canceled_at\": null,\n      \"cancellation_reason\": null,\n      \"capture_method\": \"manual\",\n      \"charges\": {\n        \"object\": \"list\",\n        \"data\": [\n          {\n            \"id\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n            \"object\": \"charge\",\n            \"amount\": 1000,\n            \"amount_captured\": 0,\n            \"amount_refunded\": 0,\n            \"application\": null,\n            \"application_fee\": null,\n            \"application_fee_amount\": null,\n            \"balance_transaction\": null,\n            \"billing_details\": {\n              \"address\": {\n                \"city\": \"Tulsa\",\n                \"country\": \"US\",\n                \"line1\": \"123 Someplace Lane\",\n                \"line2\": \"Some Place\",\n                \"postal_code\": \"74111\",\n                \"state\": \"OK\"\n              },\n              \"email\": \"john@doe.dev\",\n              \"name\": \"John Doe\",\n              \"phone\": null\n            },\n            \"calculated_statement_descriptor\": \"TOKENEX\",\n            \"captured\": false,\n            \"created\": 1703716659,\n            \"currency\": \"usd\",\n            \"customer\": null,\n            \"description\": null,\n            \"destination\": null,\n            \"dispute\": null,\n            \"disputed\": false,\n            \"failure_balance_transaction\": null,\n            \"failure_code\": \"card_declined\",\n            \"failure_message\": \"Your card was declined.\",\n            \"fraud_details\": {\n            },\n            \"invoice\": null,\n            \"livemode\": false,\n            \"metadata\": {\n            },\n            \"on_behalf_of\": null,\n            \"order\": null,\n            \"outcome\": {\n              \"network_status\": \"declined_by_network\",\n              \"reason\": \"stolen_card\",\n              \"risk_level\": \"normal\",\n              \"risk_score\": 47,\n              \"seller_message\": \"The bank returned the decline code `stolen_card`.\",\n              \"type\": \"issuer_declined\"\n            },\n            \"paid\": false,\n            \"payment_intent\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n            \"payment_method\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n            \"payment_method_details\": {\n              \"card\": {\n                \"amount_authorized\": null,\n                \"brand\": \"visa\",\n                \"checks\": {\n                  \"address_line1_check\": \"pass\",\n                  \"address_postal_code_check\": \"pass\",\n                  \"cvc_check\": \"pass\"\n                },\n                \"country\": \"US\",\n                \"exp_month\": 3,\n                \"exp_year\": 2025,\n                \"extended_authorization\": {\n                  \"status\": \"disabled\"\n                },\n                \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n                \"funding\": \"credit\",\n                \"incremental_authorization\": {\n                  \"status\": \"unavailable\"\n                },\n                \"installments\": null,\n                \"last4\": \"9979\",\n                \"mandate\": null,\n                \"multicapture\": {\n                  \"status\": \"unavailable\"\n                },\n                \"network\": \"visa\",\n                \"network_token\": {\n                  \"used\": false\n                },\n                \"overcapture\": {\n                  \"maximum_amount_capturable\": 1000,\n                  \"status\": \"unavailable\"\n                },\n                \"three_d_secure\": null,\n                \"wallet\": null\n              },\n              \"type\": \"card\"\n            },\n            \"radar_options\": {\n            },\n            \"receipt_email\": null,\n            \"receipt_number\": null,\n            \"receipt_url\": null,\n            \"refunded\": false,\n            \"refunds\": {\n              \"object\": \"list\",\n              \"data\": [\n\n              ],\n              \"has_more\": false,\n              \"total_count\": 0,\n              \"url\": \"/v1/charges/ch_3OS5jLFlLscTmW3z05iiT5Pz/refunds\"\n            },\n            \"review\": null,\n            \"shipping\": null,\n            \"source\": null,\n            \"source_transfer\": null,\n            \"statement_descriptor\": null,\n            \"statement_descriptor_suffix\": null,\n            \"status\": \"failed\",\n            \"transfer_data\": null,\n            \"transfer_group\": null\n          }\n        ],\n        \"has_more\": false,\n        \"total_count\": 1,\n        \"url\": \"/v1/charges?payment_intent=pi_3OS5jLFlLscTmW3z0CKUnI0r\"\n      },\n      \"client_secret\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r_secret_2yE08BFrW7mYwCPhHWLtYPLZr\",\n      \"confirmation_method\": \"automatic\",\n      \"created\": 1703716659,\n      \"currency\": \"usd\",\n      \"customer\": null,\n      \"description\": null,\n      \"invoice\": null,\n      \"last_payment_error\": {\n        \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n        \"code\": \"card_declined\",\n        \"decline_code\": \"stolen_card\",\n        \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n        \"message\": \"Your card was declined.\",\n        \"payment_method\": {\n          \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n          \"object\": \"payment_method\",\n          \"billing_details\": {\n            \"address\": {\n              \"city\": \"Tulsa\",\n              \"country\": \"US\",\n              \"line1\": \"123 Someplace Lane\",\n              \"line2\": \"Some Place\",\n              \"postal_code\": \"74111\",\n              \"state\": \"OK\"\n            },\n            \"email\": \"john@doe.dev\",\n            \"name\": \"John Doe\",\n            \"phone\": null\n          },\n          \"card\": {\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n            \"funding\": \"credit\",\n            \"generated_from\": null,\n            \"last4\": \"9979\",\n            \"networks\": {\n              \"available\": [\n                \"visa\"\n              ],\n              \"preferred\": null\n            },\n            \"three_d_secure_usage\": {\n              \"supported\": true\n            },\n            \"wallet\": null\n          },\n          \"created\": 1703716659,\n          \"customer\": null,\n          \"livemode\": false,\n          \"metadata\": {\n          },\n          \"type\": \"card\"\n        },\n        \"type\": \"card_error\"\n      },\n      \"latest_charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_action\": null,\n      \"on_behalf_of\": null,\n      \"payment_method\": null,\n      \"payment_method_configuration_details\": null,\n      \"payment_method_options\": {\n        \"card\": {\n          \"installments\": null,\n          \"mandate_options\": null,\n          \"network\": null,\n          \"request_three_d_secure\": \"automatic\"\n        }\n      },\n      \"payment_method_types\": [\n        \"card\"\n      ],\n      \"processing\": null,\n      \"receipt_email\": null,\n      \"review\": null,\n      \"setup_future_usage\": null,\n      \"shipping\": null,\n      \"source\": null,\n      \"statement_descriptor\": null,\n      \"statement_descriptor_suffix\": null,\n      \"status\": \"requires_payment_method\",\n      \"transfer_data\": null,\n      \"transfer_group\": null\n    },\n    \"payment_method\": {\n      \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n      \"object\": \"payment_method\",\n      \"billing_details\": {\n        \"address\": {\n          \"city\": \"Tulsa\",\n          \"country\": \"US\",\n          \"line1\": \"123 Someplace Lane\",\n          \"line2\": \"Some Place\",\n          \"postal_code\": \"74111\",\n          \"state\": \"OK\"\n        },\n        \"email\": \"john@doe.dev\",\n        \"name\": \"John Doe\",\n        \"phone\": null\n      },\n      \"card\": {\n        \"brand\": \"visa\",\n        \"checks\": {\n          \"address_line1_check\": \"pass\",\n          \"address_postal_code_check\": \"pass\",\n          \"cvc_check\": \"pass\"\n        },\n        \"country\": \"US\",\n        \"exp_month\": 3,\n        \"exp_year\": 2025,\n        \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n        \"funding\": \"credit\",\n        \"generated_from\": null,\n        \"last4\": \"9979\",\n        \"networks\": {\n          \"available\": [\n            \"visa\"\n          ],\n          \"preferred\": null\n        },\n        \"three_d_secure_usage\": {\n          \"supported\": true\n        },\n        \"wallet\": null\n      },\n      \"created\": 1703716659,\n      \"customer\": null,\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"type\": \"card\"\n    },\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_fitBuDUWT0kElv?t=1703716659\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "stolen_card",  
+
         "message": "Your card was declined.",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "pi_3OS5jLFlLscTmW3z0CKUnI0r",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "providerParsed": {  
+
         "cvvMatch": "pass",  
+
         "streetMatch": "pass",  
+
         "postalCodeMatch": "pass"  
+
       }  
+
     }  
+
   },  
+
   "referenceNumber": "023122716373915411788",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "402"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe#overview)
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "currencyCode": "USD",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "2223003122003222",  
+
+    "expMonth": 11,  
+
+    "expYear": 2024,  
+
+    "firstName": "Samantha",  
+
+    "lastName": "Gottlieb",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "carrier": "FedEx",  
+
+    "trackingNumber": "1234567890",  
+
+    "phone": "6514219597",  
+
+    "fax": null,  
+
+    "email": null,  
+
+    "firstName": "Fredrick",  
+
+    "lastName": "Konopelski",  
+
+    "name": null,  
+
+    "company": null,  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Theronbury",  
+
+    "state": "Idaho",  
+
+    "zip": "89105-3085",  
+
+    "country": "USA"  
+
+  },  
+
+  "tax": {  
+
+    "exempt": false  
+
+  },  
+
+  "orderInfo": {  
+
+    "customer": {  
+
+      "address": {  
+
+        "carrier": "FedEx",  
+
+        "trackingNumber": "1234567890",  
+
+        "phone": "2749063220",  
+
+        "firstName": "Bryan",  
+
+        "lastName": "Smith",  
+
+        "address1": "123 Someplace Lane",  
+
+        "address2": "Some Place",  
+
+        "city": "Mohammadfurt",  
+
+        "state": "Illinois",  
+
+        "zip": "27994",  
+
+        "country": "USA"  
+
+      },  
+
+      "email": "Noel34@yahoo.com",  
+
+      "name": "Noel Mraz"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "refundApplicationFee": true,  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Capture or Purchase>",  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "cancellationReason": "requested_by_customer",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 1000,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KIagyasGMgavzi9F9B86LBYHlfIuujeOh5JO1meAOAcX-HbHFLlmzCg-rUFB9vbWELSAO_19-nONKhVv\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"requires_capture\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717064457542819",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"automatic\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqetFlLscTmW3z1GIaeCst\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990427,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 57,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n        \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KJygyasGMga4agf6ZY06LBb9_2hCU6zUUsHLt1rwQ6QXYAVUxAZQKoHIpzGJnuqUjZ2LTo1uSirJ4u05\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqetFlLscTmW3z1nJ6KHFO/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqetFlLscTmW3z16X1Hzqs\"\n  },\n  \"client_secret\": \"pi_3OKqetFlLscTmW3z16X1Hzqs_secret_I6fKn1p8VN0qc4D6aVrqrsGcg\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990427,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWV0RmxMc2NUbVczejE2WDFIenFzO2NoXzNPS3FldEZsTHNjVG1XM3oxbko2S0hGTzs=",  
+
+    "providerTransactionCode": "pi_3OKqetFlLscTmW3z16X1Hzqs",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717070641603674",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z10JIwGkG\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KNygyasGMgZ6GbPV_286LBZnE01Z43Xyz_DGO41QFuZNql1BwNp5Wmb7t_wxp2foGuzz0bC3uc6LbZwq\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717081077986174",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"re_3OKqeXFlLscTmW3z1al2CRFE\",\n  \"object\": \"refund\",\n  \"amount\": 100,\n  \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z1VBfbAmW\",\n  \"charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"created\": 1701990522,\n  \"currency\": \"usd\",\n  \"destination_details\": {\n    \"card\": {\n      \"reference_status\": \"pending\",\n      \"reference_type\": \"acquirer_reference_number\",\n      \"type\": \"refund\"\n    },\n    \"type\": \"card\"\n  },\n  \"metadata\": {},\n  \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"reason\": null,\n  \"receipt_number\": null,\n  \"source_transfer_reversal\": null,\n  \"status\": \"succeeded\",\n  \"transfer_reversal\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTtyZV8zT0txZVhGbExzY1RtVzN6MWFsMkNSRkU=",  
+
+    "providerTransactionCode": "re_3OKqeXFlLscTmW3z1al2CRFE",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717084240403529",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": 1701990582,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 1000,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990551,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 10,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n        \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595351,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KLahyasGMgZg5mwXCTw6LBa1mwyOIDsblQCDz-AGmaJWdh_6ZVC8luElfipSCQ7jhtcuLW8cdKgOa1QX\",\n        \"refunded\": true,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [\n            {\n              \"id\": \"re_3OKqgtFlLscTmW3z0PVU1Kzk\",\n              \"object\": \"refund\",\n              \"amount\": 1000,\n              \"balance_transaction\": null,\n              \"charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n              \"created\": 1701990582,\n              \"currency\": \"usd\",\n              \"destination_details\": {\n                \"card\": {\n                  \"reference\": \"669397\",\n                  \"reference_status\": \"available\",\n                  \"reference_type\": \"system_trace_audit_number\",\n                  \"type\": \"reversal\"\n                },\n                \"type\": \"card\"\n              },\n              \"metadata\": {},\n              \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n              \"reason\": null,\n              \"receipt_number\": null,\n              \"source_transfer_reversal\": null,\n              \"status\": \"succeeded\",\n              \"transfer_reversal\": null\n            }\n          ],\n          \"has_more\": false,\n          \"total_count\": 1,\n          \"url\": \"/v1/charges/ch_3OKqgtFlLscTmW3z0Ap0xwWQ/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqgtFlLscTmW3z0bBkBuyr\"\n  },\n  \"client_secret\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr_secret_O43IjplwugctagOrFRQFgZIgD\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990551,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"canceled\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWd0RmxMc2NUbVczejBiQmtCdXlyO2NoXzNPS3FndEZsTHNjVG1XM3owQXAweHdXUTs=",  
+
+    "providerTransactionCode": "pi_3OKqgtFlLscTmW3z0bBkBuyr",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717094292467386",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"code\": \"invalid_expiry_month\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/invalid-expiry-month\",\n    \"message\": \"Your card's expiration month is invalid.\",\n    \"param\": \"exp_month\",\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_xOV9bDtQa9Vnqn?t=1703716629\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "invalid_expiry_month",  
+
+        "message": "Your card's expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "023122716370928343763",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n    \"code\": \"card_declined\",\n    \"decline_code\": \"stolen_card\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n    \"message\": \"Your card was declined.\",\n    \"payment_intent\": {\n      \"id\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n      \"object\": \"payment_intent\",\n      \"amount\": 1000,\n      \"amount_capturable\": 0,\n      \"amount_details\": {\n        \"tip\": {\n        }\n      },\n      \"amount_received\": 0,\n      \"application\": null,\n      \"application_fee_amount\": null,\n      \"automatic_payment_methods\": null,\n      \"canceled_at\": null,\n      \"cancellation_reason\": null,\n      \"capture_method\": \"manual\",\n      \"charges\": {\n        \"object\": \"list\",\n        \"data\": [\n          {\n            \"id\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n            \"object\": \"charge\",\n            \"amount\": 1000,\n            \"amount_captured\": 0,\n            \"amount_refunded\": 0,\n            \"application\": null,\n            \"application_fee\": null,\n            \"application_fee_amount\": null,\n            \"balance_transaction\": null,\n            \"billing_details\": {\n              \"address\": {\n                \"city\": \"Tulsa\",\n                \"country\": \"US\",\n                \"line1\": \"123 Someplace Lane\",\n                \"line2\": \"Some Place\",\n                \"postal_code\": \"74111\",\n                \"state\": \"OK\"\n              },\n              \"email\": \"john@doe.dev\",\n              \"name\": \"John Doe\",\n              \"phone\": null\n            },\n            \"calculated_statement_descriptor\": \"TOKENEX\",\n            \"captured\": false,\n            \"created\": 1703716659,\n            \"currency\": \"usd\",\n            \"customer\": null,\n            \"description\": null,\n            \"destination\": null,\n            \"dispute\": null,\n            \"disputed\": false,\n            \"failure_balance_transaction\": null,\n            \"failure_code\": \"card_declined\",\n            \"failure_message\": \"Your card was declined.\",\n            \"fraud_details\": {\n            },\n            \"invoice\": null,\n            \"livemode\": false,\n            \"metadata\": {\n            },\n            \"on_behalf_of\": null,\n            \"order\": null,\n            \"outcome\": {\n              \"network_status\": \"declined_by_network\",\n              \"reason\": \"stolen_card\",\n              \"risk_level\": \"normal\",\n              \"risk_score\": 47,\n              \"seller_message\": \"The bank returned the decline code `stolen_card`.\",\n              \"type\": \"issuer_declined\"\n            },\n            \"paid\": false,\n            \"payment_intent\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n            \"payment_method\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n            \"payment_method_details\": {\n              \"card\": {\n                \"amount_authorized\": null,\n                \"brand\": \"visa\",\n                \"checks\": {\n                  \"address_line1_check\": \"pass\",\n                  \"address_postal_code_check\": \"pass\",\n                  \"cvc_check\": \"pass\"\n                },\n                \"country\": \"US\",\n                \"exp_month\": 3,\n                \"exp_year\": 2025,\n                \"extended_authorization\": {\n                  \"status\": \"disabled\"\n                },\n                \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n                \"funding\": \"credit\",\n                \"incremental_authorization\": {\n                  \"status\": \"unavailable\"\n                },\n                \"installments\": null,\n                \"last4\": \"9979\",\n                \"mandate\": null,\n                \"multicapture\": {\n                  \"status\": \"unavailable\"\n                },\n                \"network\": \"visa\",\n                \"network_token\": {\n                  \"used\": false\n                },\n                \"overcapture\": {\n                  \"maximum_amount_capturable\": 1000,\n                  \"status\": \"unavailable\"\n                },\n                \"three_d_secure\": null,\n                \"wallet\": null\n              },\n              \"type\": \"card\"\n            },\n            \"radar_options\": {\n            },\n            \"receipt_email\": null,\n            \"receipt_number\": null,\n            \"receipt_url\": null,\n            \"refunded\": false,\n            \"refunds\": {\n              \"object\": \"list\",\n              \"data\": [\n\n              ],\n              \"has_more\": false,\n              \"total_count\": 0,\n              \"url\": \"/v1/charges/ch_3OS5jLFlLscTmW3z05iiT5Pz/refunds\"\n            },\n            \"review\": null,\n            \"shipping\": null,\n            \"source\": null,\n            \"source_transfer\": null,\n            \"statement_descriptor\": null,\n            \"statement_descriptor_suffix\": null,\n            \"status\": \"failed\",\n            \"transfer_data\": null,\n            \"transfer_group\": null\n          }\n        ],\n        \"has_more\": false,\n        \"total_count\": 1,\n        \"url\": \"/v1/charges?payment_intent=pi_3OS5jLFlLscTmW3z0CKUnI0r\"\n      },\n      \"client_secret\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r_secret_2yE08BFrW7mYwCPhHWLtYPLZr\",\n      \"confirmation_method\": \"automatic\",\n      \"created\": 1703716659,\n      \"currency\": \"usd\",\n      \"customer\": null,\n      \"description\": null,\n      \"invoice\": null,\n      \"last_payment_error\": {\n        \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n        \"code\": \"card_declined\",\n        \"decline_code\": \"stolen_card\",\n        \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n        \"message\": \"Your card was declined.\",\n        \"payment_method\": {\n          \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n          \"object\": \"payment_method\",\n          \"billing_details\": {\n            \"address\": {\n              \"city\": \"Tulsa\",\n              \"country\": \"US\",\n              \"line1\": \"123 Someplace Lane\",\n              \"line2\": \"Some Place\",\n              \"postal_code\": \"74111\",\n              \"state\": \"OK\"\n            },\n            \"email\": \"john@doe.dev\",\n            \"name\": \"John Doe\",\n            \"phone\": null\n          },\n          \"card\": {\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n            \"funding\": \"credit\",\n            \"generated_from\": null,\n            \"last4\": \"9979\",\n            \"networks\": {\n              \"available\": [\n                \"visa\"\n              ],\n              \"preferred\": null\n            },\n            \"three_d_secure_usage\": {\n              \"supported\": true\n            },\n            \"wallet\": null\n          },\n          \"created\": 1703716659,\n          \"customer\": null,\n          \"livemode\": false,\n          \"metadata\": {\n          },\n          \"type\": \"card\"\n        },\n        \"type\": \"card_error\"\n      },\n      \"latest_charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_action\": null,\n      \"on_behalf_of\": null,\n      \"payment_method\": null,\n      \"payment_method_configuration_details\": null,\n      \"payment_method_options\": {\n        \"card\": {\n          \"installments\": null,\n          \"mandate_options\": null,\n          \"network\": null,\n          \"request_three_d_secure\": \"automatic\"\n        }\n      },\n      \"payment_method_types\": [\n        \"card\"\n      ],\n      \"processing\": null,\n      \"receipt_email\": null,\n      \"review\": null,\n      \"setup_future_usage\": null,\n      \"shipping\": null,\n      \"source\": null,\n      \"statement_descriptor\": null,\n      \"statement_descriptor_suffix\": null,\n      \"status\": \"requires_payment_method\",\n      \"transfer_data\": null,\n      \"transfer_group\": null\n    },\n    \"payment_method\": {\n      \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n      \"object\": \"payment_method\",\n      \"billing_details\": {\n        \"address\": {\n          \"city\": \"Tulsa\",\n          \"country\": \"US\",\n          \"line1\": \"123 Someplace Lane\",\n          \"line2\": \"Some Place\",\n          \"postal_code\": \"74111\",\n          \"state\": \"OK\"\n        },\n        \"email\": \"john@doe.dev\",\n        \"name\": \"John Doe\",\n        \"phone\": null\n      },\n      \"card\": {\n        \"brand\": \"visa\",\n        \"checks\": {\n          \"address_line1_check\": \"pass\",\n          \"address_postal_code_check\": \"pass\",\n          \"cvc_check\": \"pass\"\n        },\n        \"country\": \"US\",\n        \"exp_month\": 3,\n        \"exp_year\": 2025,\n        \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n        \"funding\": \"credit\",\n        \"generated_from\": null,\n        \"last4\": \"9979\",\n        \"networks\": {\n          \"available\": [\n            \"visa\"\n          ],\n          \"preferred\": null\n        },\n        \"three_d_secure_usage\": {\n          \"supported\": true\n        },\n        \"wallet\": null\n      },\n      \"created\": 1703716659,\n      \"customer\": null,\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"type\": \"card\"\n    },\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_fitBuDUWT0kElv?t=1703716659\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "stolen_card",  
+
+        "message": "Your card was declined.",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "pi_3OS5jLFlLscTmW3z0CKUnI0r",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "023122716373915411788",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "currencyCode": "USD",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "2223003122003222",  
+
+    "expMonth": 11,  
+
+    "expYear": 2024,  
+
+    "firstName": "Samantha",  
+
+    "lastName": "Gottlieb",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "carrier": "FedEx",  
+
+    "trackingNumber": "1234567890",  
+
+    "phone": "6514219597",  
+
+    "fax": null,  
+
+    "email": null,  
+
+    "firstName": "Fredrick",  
+
+    "lastName": "Konopelski",  
+
+    "name": null,  
+
+    "company": null,  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Theronbury",  
+
+    "state": "Idaho",  
+
+    "zip": "89105-3085",  
+
+    "country": "USA"  
+
+  },  
+
+  "tax": {  
+
+    "exempt": false  
+
+  },  
+
+  "orderInfo": {  
+
+    "customer": {  
+
+      "address": {  
+
+        "carrier": "FedEx",  
+
+        "trackingNumber": "1234567890",  
+
+        "phone": "2749063220",  
+
+        "firstName": "Bryan",  
+
+        "lastName": "Smith",  
+
+        "address1": "123 Someplace Lane",  
+
+        "address2": "Some Place",  
+
+        "city": "Mohammadfurt",  
+
+        "state": "Illinois",  
+
+        "zip": "27994",  
+
+        "country": "USA"  
+
+      },  
+
+      "email": "Noel34@yahoo.com",  
+
+      "name": "Noel Mraz"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "refundApplicationFee": true,  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Capture or Purchase>",  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "cancellationReason": "requested_by_customer",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 1000,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KIagyasGMgavzi9F9B86LBYHlfIuujeOh5JO1meAOAcX-HbHFLlmzCg-rUFB9vbWELSAO_19-nONKhVv\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"requires_capture\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717064457542819",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"automatic\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqetFlLscTmW3z1GIaeCst\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990427,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 57,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n        \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KJygyasGMga4agf6ZY06LBb9_2hCU6zUUsHLt1rwQ6QXYAVUxAZQKoHIpzGJnuqUjZ2LTo1uSirJ4u05\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqetFlLscTmW3z1nJ6KHFO/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqetFlLscTmW3z16X1Hzqs\"\n  },\n  \"client_secret\": \"pi_3OKqetFlLscTmW3z16X1Hzqs_secret_I6fKn1p8VN0qc4D6aVrqrsGcg\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990427,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWV0RmxMc2NUbVczejE2WDFIenFzO2NoXzNPS3FldEZsTHNjVG1XM3oxbko2S0hGTzs=",  
+
+    "providerTransactionCode": "pi_3OKqetFlLscTmW3z16X1Hzqs",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717070641603674",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z10JIwGkG\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KNygyasGMgZ6GbPV_286LBZnE01Z43Xyz_DGO41QFuZNql1BwNp5Wmb7t_wxp2foGuzz0bC3uc6LbZwq\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717081077986174",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"re_3OKqeXFlLscTmW3z1al2CRFE\",\n  \"object\": \"refund\",\n  \"amount\": 100,\n  \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z1VBfbAmW\",\n  \"charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"created\": 1701990522,\n  \"currency\": \"usd\",\n  \"destination_details\": {\n    \"card\": {\n      \"reference_status\": \"pending\",\n      \"reference_type\": \"acquirer_reference_number\",\n      \"type\": \"refund\"\n    },\n    \"type\": \"card\"\n  },\n  \"metadata\": {},\n  \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"reason\": null,\n  \"receipt_number\": null,\n  \"source_transfer_reversal\": null,\n  \"status\": \"succeeded\",\n  \"transfer_reversal\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTtyZV8zT0txZVhGbExzY1RtVzN6MWFsMkNSRkU=",  
+
+    "providerTransactionCode": "re_3OKqeXFlLscTmW3z1al2CRFE",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717084240403529",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": 1701990582,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 1000,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990551,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 10,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n        \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595351,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KLahyasGMgZg5mwXCTw6LBa1mwyOIDsblQCDz-AGmaJWdh_6ZVC8luElfipSCQ7jhtcuLW8cdKgOa1QX\",\n        \"refunded\": true,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [\n            {\n              \"id\": \"re_3OKqgtFlLscTmW3z0PVU1Kzk\",\n              \"object\": \"refund\",\n              \"amount\": 1000,\n              \"balance_transaction\": null,\n              \"charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n              \"created\": 1701990582,\n              \"currency\": \"usd\",\n              \"destination_details\": {\n                \"card\": {\n                  \"reference\": \"669397\",\n                  \"reference_status\": \"available\",\n                  \"reference_type\": \"system_trace_audit_number\",\n                  \"type\": \"reversal\"\n                },\n                \"type\": \"card\"\n              },\n              \"metadata\": {},\n              \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n              \"reason\": null,\n              \"receipt_number\": null,\n              \"source_transfer_reversal\": null,\n              \"status\": \"succeeded\",\n              \"transfer_reversal\": null\n            }\n          ],\n          \"has_more\": false,\n          \"total_count\": 1,\n          \"url\": \"/v1/charges/ch_3OKqgtFlLscTmW3z0Ap0xwWQ/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqgtFlLscTmW3z0bBkBuyr\"\n  },\n  \"client_secret\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr_secret_O43IjplwugctagOrFRQFgZIgD\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990551,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"canceled\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWd0RmxMc2NUbVczejBiQmtCdXlyO2NoXzNPS3FndEZsTHNjVG1XM3owQXAweHdXUTs=",  
+
+    "providerTransactionCode": "pi_3OKqgtFlLscTmW3z0bBkBuyr",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717094292467386",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"code\": \"invalid_expiry_month\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/invalid-expiry-month\",\n    \"message\": \"Your card's expiration month is invalid.\",\n    \"param\": \"exp_month\",\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_xOV9bDtQa9Vnqn?t=1703716629\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "invalid_expiry_month",  
+
+        "message": "Your card's expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "023122716370928343763",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n    \"code\": \"card_declined\",\n    \"decline_code\": \"stolen_card\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n    \"message\": \"Your card was declined.\",\n    \"payment_intent\": {\n      \"id\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n      \"object\": \"payment_intent\",\n      \"amount\": 1000,\n      \"amount_capturable\": 0,\n      \"amount_details\": {\n        \"tip\": {\n        }\n      },\n      \"amount_received\": 0,\n      \"application\": null,\n      \"application_fee_amount\": null,\n      \"automatic_payment_methods\": null,\n      \"canceled_at\": null,\n      \"cancellation_reason\": null,\n      \"capture_method\": \"manual\",\n      \"charges\": {\n        \"object\": \"list\",\n        \"data\": [\n          {\n            \"id\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n            \"object\": \"charge\",\n            \"amount\": 1000,\n            \"amount_captured\": 0,\n            \"amount_refunded\": 0,\n            \"application\": null,\n            \"application_fee\": null,\n            \"application_fee_amount\": null,\n            \"balance_transaction\": null,\n            \"billing_details\": {\n              \"address\": {\n                \"city\": \"Tulsa\",\n                \"country\": \"US\",\n                \"line1\": \"123 Someplace Lane\",\n                \"line2\": \"Some Place\",\n                \"postal_code\": \"74111\",\n                \"state\": \"OK\"\n              },\n              \"email\": \"john@doe.dev\",\n              \"name\": \"John Doe\",\n              \"phone\": null\n            },\n            \"calculated_statement_descriptor\": \"TOKENEX\",\n            \"captured\": false,\n            \"created\": 1703716659,\n            \"currency\": \"usd\",\n            \"customer\": null,\n            \"description\": null,\n            \"destination\": null,\n            \"dispute\": null,\n            \"disputed\": false,\n            \"failure_balance_transaction\": null,\n            \"failure_code\": \"card_declined\",\n            \"failure_message\": \"Your card was declined.\",\n            \"fraud_details\": {\n            },\n            \"invoice\": null,\n            \"livemode\": false,\n            \"metadata\": {\n            },\n            \"on_behalf_of\": null,\n            \"order\": null,\n            \"outcome\": {\n              \"network_status\": \"declined_by_network\",\n              \"reason\": \"stolen_card\",\n              \"risk_level\": \"normal\",\n              \"risk_score\": 47,\n              \"seller_message\": \"The bank returned the decline code `stolen_card`.\",\n              \"type\": \"issuer_declined\"\n            },\n            \"paid\": false,\n            \"payment_intent\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n            \"payment_method\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n            \"payment_method_details\": {\n              \"card\": {\n                \"amount_authorized\": null,\n                \"brand\": \"visa\",\n                \"checks\": {\n                  \"address_line1_check\": \"pass\",\n                  \"address_postal_code_check\": \"pass\",\n                  \"cvc_check\": \"pass\"\n                },\n                \"country\": \"US\",\n                \"exp_month\": 3,\n                \"exp_year\": 2025,\n                \"extended_authorization\": {\n                  \"status\": \"disabled\"\n                },\n                \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n                \"funding\": \"credit\",\n                \"incremental_authorization\": {\n                  \"status\": \"unavailable\"\n                },\n                \"installments\": null,\n                \"last4\": \"9979\",\n                \"mandate\": null,\n                \"multicapture\": {\n                  \"status\": \"unavailable\"\n                },\n                \"network\": \"visa\",\n                \"network_token\": {\n                  \"used\": false\n                },\n                \"overcapture\": {\n                  \"maximum_amount_capturable\": 1000,\n                  \"status\": \"unavailable\"\n                },\n                \"three_d_secure\": null,\n                \"wallet\": null\n              },\n              \"type\": \"card\"\n            },\n            \"radar_options\": {\n            },\n            \"receipt_email\": null,\n            \"receipt_number\": null,\n            \"receipt_url\": null,\n            \"refunded\": false,\n            \"refunds\": {\n              \"object\": \"list\",\n              \"data\": [\n\n              ],\n              \"has_more\": false,\n              \"total_count\": 0,\n              \"url\": \"/v1/charges/ch_3OS5jLFlLscTmW3z05iiT5Pz/refunds\"\n            },\n            \"review\": null,\n            \"shipping\": null,\n            \"source\": null,\n            \"source_transfer\": null,\n            \"statement_descriptor\": null,\n            \"statement_descriptor_suffix\": null,\n            \"status\": \"failed\",\n            \"transfer_data\": null,\n            \"transfer_group\": null\n          }\n        ],\n        \"has_more\": false,\n        \"total_count\": 1,\n        \"url\": \"/v1/charges?payment_intent=pi_3OS5jLFlLscTmW3z0CKUnI0r\"\n      },\n      \"client_secret\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r_secret_2yE08BFrW7mYwCPhHWLtYPLZr\",\n      \"confirmation_method\": \"automatic\",\n      \"created\": 1703716659,\n      \"currency\": \"usd\",\n      \"customer\": null,\n      \"description\": null,\n      \"invoice\": null,\n      \"last_payment_error\": {\n        \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n        \"code\": \"card_declined\",\n        \"decline_code\": \"stolen_card\",\n        \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n        \"message\": \"Your card was declined.\",\n        \"payment_method\": {\n          \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n          \"object\": \"payment_method\",\n          \"billing_details\": {\n            \"address\": {\n              \"city\": \"Tulsa\",\n              \"country\": \"US\",\n              \"line1\": \"123 Someplace Lane\",\n              \"line2\": \"Some Place\",\n              \"postal_code\": \"74111\",\n              \"state\": \"OK\"\n            },\n            \"email\": \"john@doe.dev\",\n            \"name\": \"John Doe\",\n            \"phone\": null\n          },\n          \"card\": {\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n            \"funding\": \"credit\",\n            \"generated_from\": null,\n            \"last4\": \"9979\",\n            \"networks\": {\n              \"available\": [\n                \"visa\"\n              ],\n              \"preferred\": null\n            },\n            \"three_d_secure_usage\": {\n              \"supported\": true\n            },\n            \"wallet\": null\n          },\n          \"created\": 1703716659,\n          \"customer\": null,\n          \"livemode\": false,\n          \"metadata\": {\n          },\n          \"type\": \"card\"\n        },\n        \"type\": \"card_error\"\n      },\n      \"latest_charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_action\": null,\n      \"on_behalf_of\": null,\n      \"payment_method\": null,\n      \"payment_method_configuration_details\": null,\n      \"payment_method_options\": {\n        \"card\": {\n          \"installments\": null,\n          \"mandate_options\": null,\n          \"network\": null,\n          \"request_three_d_secure\": \"automatic\"\n        }\n      },\n      \"payment_method_types\": [\n        \"card\"\n      ],\n      \"processing\": null,\n      \"receipt_email\": null,\n      \"review\": null,\n      \"setup_future_usage\": null,\n      \"shipping\": null,\n      \"source\": null,\n      \"statement_descriptor\": null,\n      \"statement_descriptor_suffix\": null,\n      \"status\": \"requires_payment_method\",\n      \"transfer_data\": null,\n      \"transfer_group\": null\n    },\n    \"payment_method\": {\n      \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n      \"object\": \"payment_method\",\n      \"billing_details\": {\n        \"address\": {\n          \"city\": \"Tulsa\",\n          \"country\": \"US\",\n          \"line1\": \"123 Someplace Lane\",\n          \"line2\": \"Some Place\",\n          \"postal_code\": \"74111\",\n          \"state\": \"OK\"\n        },\n        \"email\": \"john@doe.dev\",\n        \"name\": \"John Doe\",\n        \"phone\": null\n      },\n      \"card\": {\n        \"brand\": \"visa\",\n        \"checks\": {\n          \"address_line1_check\": \"pass\",\n          \"address_postal_code_check\": \"pass\",\n          \"cvc_check\": \"pass\"\n        },\n        \"country\": \"US\",\n        \"exp_month\": 3,\n        \"exp_year\": 2025,\n        \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n        \"funding\": \"credit\",\n        \"generated_from\": null,\n        \"last4\": \"9979\",\n        \"networks\": {\n          \"available\": [\n            \"visa\"\n          ],\n          \"preferred\": null\n        },\n        \"three_d_secure_usage\": {\n          \"supported\": true\n        },\n        \"wallet\": null\n      },\n      \"created\": 1703716659,\n      \"customer\": null,\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"type\": \"card\"\n    },\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_fitBuDUWT0kElv?t=1703716659\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "stolen_card",  
+
+        "message": "Your card was declined.",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "pi_3OS5jLFlLscTmW3z0CKUnI0r",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "023122716373915411788",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "currencyCode": "USD",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "2223003122003222",  
+
+    "expMonth": 11,  
+
+    "expYear": 2024,  
+
+    "firstName": "Samantha",  
+
+    "lastName": "Gottlieb",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "carrier": "FedEx",  
+
+    "trackingNumber": "1234567890",  
+
+    "phone": "6514219597",  
+
+    "fax": null,  
+
+    "email": null,  
+
+    "firstName": "Fredrick",  
+
+    "lastName": "Konopelski",  
+
+    "name": null,  
+
+    "company": null,  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Theronbury",  
+
+    "state": "Idaho",  
+
+    "zip": "89105-3085",  
+
+    "country": "USA"  
+
+  },  
+
+  "tax": {  
+
+    "exempt": false  
+
+  },  
+
+  "orderInfo": {  
+
+    "customer": {  
+
+      "address": {  
+
+        "carrier": "FedEx",  
+
+        "trackingNumber": "1234567890",  
+
+        "phone": "2749063220",  
+
+        "firstName": "Bryan",  
+
+        "lastName": "Smith",  
+
+        "address1": "123 Someplace Lane",  
+
+        "address2": "Some Place",  
+
+        "city": "Mohammadfurt",  
+
+        "state": "Illinois",  
+
+        "zip": "27994",  
+
+        "country": "USA"  
+
+      },  
+
+      "email": "Noel34@yahoo.com",  
+
+      "name": "Noel Mraz"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "refundApplicationFee": true,  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Capture or Purchase>",  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "cancellationReason": "requested_by_customer",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 1000,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KIagyasGMgavzi9F9B86LBYHlfIuujeOh5JO1meAOAcX-HbHFLlmzCg-rUFB9vbWELSAO_19-nONKhVv\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"requires_capture\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717064457542819",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"automatic\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqetFlLscTmW3z1GIaeCst\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990427,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 57,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n        \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KJygyasGMga4agf6ZY06LBb9_2hCU6zUUsHLt1rwQ6QXYAVUxAZQKoHIpzGJnuqUjZ2LTo1uSirJ4u05\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqetFlLscTmW3z1nJ6KHFO/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqetFlLscTmW3z16X1Hzqs\"\n  },\n  \"client_secret\": \"pi_3OKqetFlLscTmW3z16X1Hzqs_secret_I6fKn1p8VN0qc4D6aVrqrsGcg\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990427,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWV0RmxMc2NUbVczejE2WDFIenFzO2NoXzNPS3FldEZsTHNjVG1XM3oxbko2S0hGTzs=",  
+
+    "providerTransactionCode": "pi_3OKqetFlLscTmW3z16X1Hzqs",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717070641603674",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z10JIwGkG\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KNygyasGMgZ6GbPV_286LBZnE01Z43Xyz_DGO41QFuZNql1BwNp5Wmb7t_wxp2foGuzz0bC3uc6LbZwq\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717081077986174",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"re_3OKqeXFlLscTmW3z1al2CRFE\",\n  \"object\": \"refund\",\n  \"amount\": 100,\n  \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z1VBfbAmW\",\n  \"charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"created\": 1701990522,\n  \"currency\": \"usd\",\n  \"destination_details\": {\n    \"card\": {\n      \"reference_status\": \"pending\",\n      \"reference_type\": \"acquirer_reference_number\",\n      \"type\": \"refund\"\n    },\n    \"type\": \"card\"\n  },\n  \"metadata\": {},\n  \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"reason\": null,\n  \"receipt_number\": null,\n  \"source_transfer_reversal\": null,\n  \"status\": \"succeeded\",\n  \"transfer_reversal\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTtyZV8zT0txZVhGbExzY1RtVzN6MWFsMkNSRkU=",  
+
+    "providerTransactionCode": "re_3OKqeXFlLscTmW3z1al2CRFE",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717084240403529",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": 1701990582,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 1000,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990551,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 10,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n        \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595351,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KLahyasGMgZg5mwXCTw6LBa1mwyOIDsblQCDz-AGmaJWdh_6ZVC8luElfipSCQ7jhtcuLW8cdKgOa1QX\",\n        \"refunded\": true,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [\n            {\n              \"id\": \"re_3OKqgtFlLscTmW3z0PVU1Kzk\",\n              \"object\": \"refund\",\n              \"amount\": 1000,\n              \"balance_transaction\": null,\n              \"charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n              \"created\": 1701990582,\n              \"currency\": \"usd\",\n              \"destination_details\": {\n                \"card\": {\n                  \"reference\": \"669397\",\n                  \"reference_status\": \"available\",\n                  \"reference_type\": \"system_trace_audit_number\",\n                  \"type\": \"reversal\"\n                },\n                \"type\": \"card\"\n              },\n              \"metadata\": {},\n              \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n              \"reason\": null,\n              \"receipt_number\": null,\n              \"source_transfer_reversal\": null,\n              \"status\": \"succeeded\",\n              \"transfer_reversal\": null\n            }\n          ],\n          \"has_more\": false,\n          \"total_count\": 1,\n          \"url\": \"/v1/charges/ch_3OKqgtFlLscTmW3z0Ap0xwWQ/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqgtFlLscTmW3z0bBkBuyr\"\n  },\n  \"client_secret\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr_secret_O43IjplwugctagOrFRQFgZIgD\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990551,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"canceled\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWd0RmxMc2NUbVczejBiQmtCdXlyO2NoXzNPS3FndEZsTHNjVG1XM3owQXAweHdXUTs=",  
+
+    "providerTransactionCode": "pi_3OKqgtFlLscTmW3z0bBkBuyr",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717094292467386",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"code\": \"invalid_expiry_month\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/invalid-expiry-month\",\n    \"message\": \"Your card's expiration month is invalid.\",\n    \"param\": \"exp_month\",\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_xOV9bDtQa9Vnqn?t=1703716629\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "invalid_expiry_month",  
+
+        "message": "Your card's expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "023122716370928343763",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n    \"code\": \"card_declined\",\n    \"decline_code\": \"stolen_card\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n    \"message\": \"Your card was declined.\",\n    \"payment_intent\": {\n      \"id\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n      \"object\": \"payment_intent\",\n      \"amount\": 1000,\n      \"amount_capturable\": 0,\n      \"amount_details\": {\n        \"tip\": {\n        }\n      },\n      \"amount_received\": 0,\n      \"application\": null,\n      \"application_fee_amount\": null,\n      \"automatic_payment_methods\": null,\n      \"canceled_at\": null,\n      \"cancellation_reason\": null,\n      \"capture_method\": \"manual\",\n      \"charges\": {\n        \"object\": \"list\",\n        \"data\": [\n          {\n            \"id\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n            \"object\": \"charge\",\n            \"amount\": 1000,\n            \"amount_captured\": 0,\n            \"amount_refunded\": 0,\n            \"application\": null,\n            \"application_fee\": null,\n            \"application_fee_amount\": null,\n            \"balance_transaction\": null,\n            \"billing_details\": {\n              \"address\": {\n                \"city\": \"Tulsa\",\n                \"country\": \"US\",\n                \"line1\": \"123 Someplace Lane\",\n                \"line2\": \"Some Place\",\n                \"postal_code\": \"74111\",\n                \"state\": \"OK\"\n              },\n              \"email\": \"john@doe.dev\",\n              \"name\": \"John Doe\",\n              \"phone\": null\n            },\n            \"calculated_statement_descriptor\": \"TOKENEX\",\n            \"captured\": false,\n            \"created\": 1703716659,\n            \"currency\": \"usd\",\n            \"customer\": null,\n            \"description\": null,\n            \"destination\": null,\n            \"dispute\": null,\n            \"disputed\": false,\n            \"failure_balance_transaction\": null,\n            \"failure_code\": \"card_declined\",\n            \"failure_message\": \"Your card was declined.\",\n            \"fraud_details\": {\n            },\n            \"invoice\": null,\n            \"livemode\": false,\n            \"metadata\": {\n            },\n            \"on_behalf_of\": null,\n            \"order\": null,\n            \"outcome\": {\n              \"network_status\": \"declined_by_network\",\n              \"reason\": \"stolen_card\",\n              \"risk_level\": \"normal\",\n              \"risk_score\": 47,\n              \"seller_message\": \"The bank returned the decline code `stolen_card`.\",\n              \"type\": \"issuer_declined\"\n            },\n            \"paid\": false,\n            \"payment_intent\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n            \"payment_method\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n            \"payment_method_details\": {\n              \"card\": {\n                \"amount_authorized\": null,\n                \"brand\": \"visa\",\n                \"checks\": {\n                  \"address_line1_check\": \"pass\",\n                  \"address_postal_code_check\": \"pass\",\n                  \"cvc_check\": \"pass\"\n                },\n                \"country\": \"US\",\n                \"exp_month\": 3,\n                \"exp_year\": 2025,\n                \"extended_authorization\": {\n                  \"status\": \"disabled\"\n                },\n                \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n                \"funding\": \"credit\",\n                \"incremental_authorization\": {\n                  \"status\": \"unavailable\"\n                },\n                \"installments\": null,\n                \"last4\": \"9979\",\n                \"mandate\": null,\n                \"multicapture\": {\n                  \"status\": \"unavailable\"\n                },\n                \"network\": \"visa\",\n                \"network_token\": {\n                  \"used\": false\n                },\n                \"overcapture\": {\n                  \"maximum_amount_capturable\": 1000,\n                  \"status\": \"unavailable\"\n                },\n                \"three_d_secure\": null,\n                \"wallet\": null\n              },\n              \"type\": \"card\"\n            },\n            \"radar_options\": {\n            },\n            \"receipt_email\": null,\n            \"receipt_number\": null,\n            \"receipt_url\": null,\n            \"refunded\": false,\n            \"refunds\": {\n              \"object\": \"list\",\n              \"data\": [\n\n              ],\n              \"has_more\": false,\n              \"total_count\": 0,\n              \"url\": \"/v1/charges/ch_3OS5jLFlLscTmW3z05iiT5Pz/refunds\"\n            },\n            \"review\": null,\n            \"shipping\": null,\n            \"source\": null,\n            \"source_transfer\": null,\n            \"statement_descriptor\": null,\n            \"statement_descriptor_suffix\": null,\n            \"status\": \"failed\",\n            \"transfer_data\": null,\n            \"transfer_group\": null\n          }\n        ],\n        \"has_more\": false,\n        \"total_count\": 1,\n        \"url\": \"/v1/charges?payment_intent=pi_3OS5jLFlLscTmW3z0CKUnI0r\"\n      },\n      \"client_secret\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r_secret_2yE08BFrW7mYwCPhHWLtYPLZr\",\n      \"confirmation_method\": \"automatic\",\n      \"created\": 1703716659,\n      \"currency\": \"usd\",\n      \"customer\": null,\n      \"description\": null,\n      \"invoice\": null,\n      \"last_payment_error\": {\n        \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n        \"code\": \"card_declined\",\n        \"decline_code\": \"stolen_card\",\n        \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n        \"message\": \"Your card was declined.\",\n        \"payment_method\": {\n          \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n          \"object\": \"payment_method\",\n          \"billing_details\": {\n            \"address\": {\n              \"city\": \"Tulsa\",\n              \"country\": \"US\",\n              \"line1\": \"123 Someplace Lane\",\n              \"line2\": \"Some Place\",\n              \"postal_code\": \"74111\",\n              \"state\": \"OK\"\n            },\n            \"email\": \"john@doe.dev\",\n            \"name\": \"John Doe\",\n            \"phone\": null\n          },\n          \"card\": {\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n            \"funding\": \"credit\",\n            \"generated_from\": null,\n            \"last4\": \"9979\",\n            \"networks\": {\n              \"available\": [\n                \"visa\"\n              ],\n              \"preferred\": null\n            },\n            \"three_d_secure_usage\": {\n              \"supported\": true\n            },\n            \"wallet\": null\n          },\n          \"created\": 1703716659,\n          \"customer\": null,\n          \"livemode\": false,\n          \"metadata\": {\n          },\n          \"type\": \"card\"\n        },\n        \"type\": \"card_error\"\n      },\n      \"latest_charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_action\": null,\n      \"on_behalf_of\": null,\n      \"payment_method\": null,\n      \"payment_method_configuration_details\": null,\n      \"payment_method_options\": {\n        \"card\": {\n          \"installments\": null,\n          \"mandate_options\": null,\n          \"network\": null,\n          \"request_three_d_secure\": \"automatic\"\n        }\n      },\n      \"payment_method_types\": [\n        \"card\"\n      ],\n      \"processing\": null,\n      \"receipt_email\": null,\n      \"review\": null,\n      \"setup_future_usage\": null,\n      \"shipping\": null,\n      \"source\": null,\n      \"statement_descriptor\": null,\n      \"statement_descriptor_suffix\": null,\n      \"status\": \"requires_payment_method\",\n      \"transfer_data\": null,\n      \"transfer_group\": null\n    },\n    \"payment_method\": {\n      \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n      \"object\": \"payment_method\",\n      \"billing_details\": {\n        \"address\": {\n          \"city\": \"Tulsa\",\n          \"country\": \"US\",\n          \"line1\": \"123 Someplace Lane\",\n          \"line2\": \"Some Place\",\n          \"postal_code\": \"74111\",\n          \"state\": \"OK\"\n        },\n        \"email\": \"john@doe.dev\",\n        \"name\": \"John Doe\",\n        \"phone\": null\n      },\n      \"card\": {\n        \"brand\": \"visa\",\n        \"checks\": {\n          \"address_line1_check\": \"pass\",\n          \"address_postal_code_check\": \"pass\",\n          \"cvc_check\": \"pass\"\n        },\n        \"country\": \"US\",\n        \"exp_month\": 3,\n        \"exp_year\": 2025,\n        \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n        \"funding\": \"credit\",\n        \"generated_from\": null,\n        \"last4\": \"9979\",\n        \"networks\": {\n          \"available\": [\n            \"visa\"\n          ],\n          \"preferred\": null\n        },\n        \"three_d_secure_usage\": {\n          \"supported\": true\n        },\n        \"wallet\": null\n      },\n      \"created\": 1703716659,\n      \"customer\": null,\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"type\": \"card\"\n    },\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_fitBuDUWT0kElv?t=1703716659\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "stolen_card",  
+
+        "message": "Your card was declined.",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "pi_3OS5jLFlLscTmW3z0CKUnI0r",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "023122716373915411788",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe#example-responses)
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "currencyCode": "USD",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "2223003122003222",  
+
+    "expMonth": 11,  
+
+    "expYear": 2024,  
+
+    "firstName": "Samantha",  
+
+    "lastName": "Gottlieb",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "carrier": "FedEx",  
+
+    "trackingNumber": "1234567890",  
+
+    "phone": "6514219597",  
+
+    "fax": null,  
+
+    "email": null,  
+
+    "firstName": "Fredrick",  
+
+    "lastName": "Konopelski",  
+
+    "name": null,  
+
+    "company": null,  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Theronbury",  
+
+    "state": "Idaho",  
+
+    "zip": "89105-3085",  
+
+    "country": "USA"  
+
+  },  
+
+  "tax": {  
+
+    "exempt": false  
+
+  },  
+
+  "orderInfo": {  
+
+    "customer": {  
+
+      "address": {  
+
+        "carrier": "FedEx",  
+
+        "trackingNumber": "1234567890",  
+
+        "phone": "2749063220",  
+
+        "firstName": "Bryan",  
+
+        "lastName": "Smith",  
+
+        "address1": "123 Someplace Lane",  
+
+        "address2": "Some Place",  
+
+        "city": "Mohammadfurt",  
+
+        "state": "Illinois",  
+
+        "zip": "27994",  
+
+        "country": "USA"  
+
+      },  
+
+      "email": "Noel34@yahoo.com",  
+
+      "name": "Noel Mraz"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "refundApplicationFee": true,  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Capture or Purchase>",  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "cancellationReason": "requested_by_customer",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 1000,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KIagyasGMgavzi9F9B86LBYHlfIuujeOh5JO1meAOAcX-HbHFLlmzCg-rUFB9vbWELSAO_19-nONKhVv\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"requires_capture\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717064457542819",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"automatic\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqetFlLscTmW3z1GIaeCst\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990427,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 57,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n        \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KJygyasGMga4agf6ZY06LBb9_2hCU6zUUsHLt1rwQ6QXYAVUxAZQKoHIpzGJnuqUjZ2LTo1uSirJ4u05\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqetFlLscTmW3z1nJ6KHFO/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqetFlLscTmW3z16X1Hzqs\"\n  },\n  \"client_secret\": \"pi_3OKqetFlLscTmW3z16X1Hzqs_secret_I6fKn1p8VN0qc4D6aVrqrsGcg\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990427,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWV0RmxMc2NUbVczejE2WDFIenFzO2NoXzNPS3FldEZsTHNjVG1XM3oxbko2S0hGTzs=",  
+
+    "providerTransactionCode": "pi_3OKqetFlLscTmW3z16X1Hzqs",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717070641603674",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z10JIwGkG\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KNygyasGMgZ6GbPV_286LBZnE01Z43Xyz_DGO41QFuZNql1BwNp5Wmb7t_wxp2foGuzz0bC3uc6LbZwq\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717081077986174",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"re_3OKqeXFlLscTmW3z1al2CRFE\",\n  \"object\": \"refund\",\n  \"amount\": 100,\n  \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z1VBfbAmW\",\n  \"charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"created\": 1701990522,\n  \"currency\": \"usd\",\n  \"destination_details\": {\n    \"card\": {\n      \"reference_status\": \"pending\",\n      \"reference_type\": \"acquirer_reference_number\",\n      \"type\": \"refund\"\n    },\n    \"type\": \"card\"\n  },\n  \"metadata\": {},\n  \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"reason\": null,\n  \"receipt_number\": null,\n  \"source_transfer_reversal\": null,\n  \"status\": \"succeeded\",\n  \"transfer_reversal\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTtyZV8zT0txZVhGbExzY1RtVzN6MWFsMkNSRkU=",  
+
+    "providerTransactionCode": "re_3OKqeXFlLscTmW3z1al2CRFE",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717084240403529",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": 1701990582,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 1000,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990551,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 10,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n        \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595351,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KLahyasGMgZg5mwXCTw6LBa1mwyOIDsblQCDz-AGmaJWdh_6ZVC8luElfipSCQ7jhtcuLW8cdKgOa1QX\",\n        \"refunded\": true,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [\n            {\n              \"id\": \"re_3OKqgtFlLscTmW3z0PVU1Kzk\",\n              \"object\": \"refund\",\n              \"amount\": 1000,\n              \"balance_transaction\": null,\n              \"charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n              \"created\": 1701990582,\n              \"currency\": \"usd\",\n              \"destination_details\": {\n                \"card\": {\n                  \"reference\": \"669397\",\n                  \"reference_status\": \"available\",\n                  \"reference_type\": \"system_trace_audit_number\",\n                  \"type\": \"reversal\"\n                },\n                \"type\": \"card\"\n              },\n              \"metadata\": {},\n              \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n              \"reason\": null,\n              \"receipt_number\": null,\n              \"source_transfer_reversal\": null,\n              \"status\": \"succeeded\",\n              \"transfer_reversal\": null\n            }\n          ],\n          \"has_more\": false,\n          \"total_count\": 1,\n          \"url\": \"/v1/charges/ch_3OKqgtFlLscTmW3z0Ap0xwWQ/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqgtFlLscTmW3z0bBkBuyr\"\n  },\n  \"client_secret\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr_secret_O43IjplwugctagOrFRQFgZIgD\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990551,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"canceled\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWd0RmxMc2NUbVczejBiQmtCdXlyO2NoXzNPS3FndEZsTHNjVG1XM3owQXAweHdXUTs=",  
+
+    "providerTransactionCode": "pi_3OKqgtFlLscTmW3z0bBkBuyr",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717094292467386",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"code\": \"invalid_expiry_month\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/invalid-expiry-month\",\n    \"message\": \"Your card's expiration month is invalid.\",\n    \"param\": \"exp_month\",\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_xOV9bDtQa9Vnqn?t=1703716629\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "invalid_expiry_month",  
+
+        "message": "Your card's expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "023122716370928343763",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n    \"code\": \"card_declined\",\n    \"decline_code\": \"stolen_card\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n    \"message\": \"Your card was declined.\",\n    \"payment_intent\": {\n      \"id\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n      \"object\": \"payment_intent\",\n      \"amount\": 1000,\n      \"amount_capturable\": 0,\n      \"amount_details\": {\n        \"tip\": {\n        }\n      },\n      \"amount_received\": 0,\n      \"application\": null,\n      \"application_fee_amount\": null,\n      \"automatic_payment_methods\": null,\n      \"canceled_at\": null,\n      \"cancellation_reason\": null,\n      \"capture_method\": \"manual\",\n      \"charges\": {\n        \"object\": \"list\",\n        \"data\": [\n          {\n            \"id\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n            \"object\": \"charge\",\n            \"amount\": 1000,\n            \"amount_captured\": 0,\n            \"amount_refunded\": 0,\n            \"application\": null,\n            \"application_fee\": null,\n            \"application_fee_amount\": null,\n            \"balance_transaction\": null,\n            \"billing_details\": {\n              \"address\": {\n                \"city\": \"Tulsa\",\n                \"country\": \"US\",\n                \"line1\": \"123 Someplace Lane\",\n                \"line2\": \"Some Place\",\n                \"postal_code\": \"74111\",\n                \"state\": \"OK\"\n              },\n              \"email\": \"john@doe.dev\",\n              \"name\": \"John Doe\",\n              \"phone\": null\n            },\n            \"calculated_statement_descriptor\": \"TOKENEX\",\n            \"captured\": false,\n            \"created\": 1703716659,\n            \"currency\": \"usd\",\n            \"customer\": null,\n            \"description\": null,\n            \"destination\": null,\n            \"dispute\": null,\n            \"disputed\": false,\n            \"failure_balance_transaction\": null,\n            \"failure_code\": \"card_declined\",\n            \"failure_message\": \"Your card was declined.\",\n            \"fraud_details\": {\n            },\n            \"invoice\": null,\n            \"livemode\": false,\n            \"metadata\": {\n            },\n            \"on_behalf_of\": null,\n            \"order\": null,\n            \"outcome\": {\n              \"network_status\": \"declined_by_network\",\n              \"reason\": \"stolen_card\",\n              \"risk_level\": \"normal\",\n              \"risk_score\": 47,\n              \"seller_message\": \"The bank returned the decline code `stolen_card`.\",\n              \"type\": \"issuer_declined\"\n            },\n            \"paid\": false,\n            \"payment_intent\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n            \"payment_method\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n            \"payment_method_details\": {\n              \"card\": {\n                \"amount_authorized\": null,\n                \"brand\": \"visa\",\n                \"checks\": {\n                  \"address_line1_check\": \"pass\",\n                  \"address_postal_code_check\": \"pass\",\n                  \"cvc_check\": \"pass\"\n                },\n                \"country\": \"US\",\n                \"exp_month\": 3,\n                \"exp_year\": 2025,\n                \"extended_authorization\": {\n                  \"status\": \"disabled\"\n                },\n                \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n                \"funding\": \"credit\",\n                \"incremental_authorization\": {\n                  \"status\": \"unavailable\"\n                },\n                \"installments\": null,\n                \"last4\": \"9979\",\n                \"mandate\": null,\n                \"multicapture\": {\n                  \"status\": \"unavailable\"\n                },\n                \"network\": \"visa\",\n                \"network_token\": {\n                  \"used\": false\n                },\n                \"overcapture\": {\n                  \"maximum_amount_capturable\": 1000,\n                  \"status\": \"unavailable\"\n                },\n                \"three_d_secure\": null,\n                \"wallet\": null\n              },\n              \"type\": \"card\"\n            },\n            \"radar_options\": {\n            },\n            \"receipt_email\": null,\n            \"receipt_number\": null,\n            \"receipt_url\": null,\n            \"refunded\": false,\n            \"refunds\": {\n              \"object\": \"list\",\n              \"data\": [\n\n              ],\n              \"has_more\": false,\n              \"total_count\": 0,\n              \"url\": \"/v1/charges/ch_3OS5jLFlLscTmW3z05iiT5Pz/refunds\"\n            },\n            \"review\": null,\n            \"shipping\": null,\n            \"source\": null,\n            \"source_transfer\": null,\n            \"statement_descriptor\": null,\n            \"statement_descriptor_suffix\": null,\n            \"status\": \"failed\",\n            \"transfer_data\": null,\n            \"transfer_group\": null\n          }\n        ],\n        \"has_more\": false,\n        \"total_count\": 1,\n        \"url\": \"/v1/charges?payment_intent=pi_3OS5jLFlLscTmW3z0CKUnI0r\"\n      },\n      \"client_secret\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r_secret_2yE08BFrW7mYwCPhHWLtYPLZr\",\n      \"confirmation_method\": \"automatic\",\n      \"created\": 1703716659,\n      \"currency\": \"usd\",\n      \"customer\": null,\n      \"description\": null,\n      \"invoice\": null,\n      \"last_payment_error\": {\n        \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n        \"code\": \"card_declined\",\n        \"decline_code\": \"stolen_card\",\n        \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n        \"message\": \"Your card was declined.\",\n        \"payment_method\": {\n          \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n          \"object\": \"payment_method\",\n          \"billing_details\": {\n            \"address\": {\n              \"city\": \"Tulsa\",\n              \"country\": \"US\",\n              \"line1\": \"123 Someplace Lane\",\n              \"line2\": \"Some Place\",\n              \"postal_code\": \"74111\",\n              \"state\": \"OK\"\n            },\n            \"email\": \"john@doe.dev\",\n            \"name\": \"John Doe\",\n            \"phone\": null\n          },\n          \"card\": {\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n            \"funding\": \"credit\",\n            \"generated_from\": null,\n            \"last4\": \"9979\",\n            \"networks\": {\n              \"available\": [\n                \"visa\"\n              ],\n              \"preferred\": null\n            },\n            \"three_d_secure_usage\": {\n              \"supported\": true\n            },\n            \"wallet\": null\n          },\n          \"created\": 1703716659,\n          \"customer\": null,\n          \"livemode\": false,\n          \"metadata\": {\n          },\n          \"type\": \"card\"\n        },\n        \"type\": \"card_error\"\n      },\n      \"latest_charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_action\": null,\n      \"on_behalf_of\": null,\n      \"payment_method\": null,\n      \"payment_method_configuration_details\": null,\n      \"payment_method_options\": {\n        \"card\": {\n          \"installments\": null,\n          \"mandate_options\": null,\n          \"network\": null,\n          \"request_three_d_secure\": \"automatic\"\n        }\n      },\n      \"payment_method_types\": [\n        \"card\"\n      ],\n      \"processing\": null,\n      \"receipt_email\": null,\n      \"review\": null,\n      \"setup_future_usage\": null,\n      \"shipping\": null,\n      \"source\": null,\n      \"statement_descriptor\": null,\n      \"statement_descriptor_suffix\": null,\n      \"status\": \"requires_payment_method\",\n      \"transfer_data\": null,\n      \"transfer_group\": null\n    },\n    \"payment_method\": {\n      \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n      \"object\": \"payment_method\",\n      \"billing_details\": {\n        \"address\": {\n          \"city\": \"Tulsa\",\n          \"country\": \"US\",\n          \"line1\": \"123 Someplace Lane\",\n          \"line2\": \"Some Place\",\n          \"postal_code\": \"74111\",\n          \"state\": \"OK\"\n        },\n        \"email\": \"john@doe.dev\",\n        \"name\": \"John Doe\",\n        \"phone\": null\n      },\n      \"card\": {\n        \"brand\": \"visa\",\n        \"checks\": {\n          \"address_line1_check\": \"pass\",\n          \"address_postal_code_check\": \"pass\",\n          \"cvc_check\": \"pass\"\n        },\n        \"country\": \"US\",\n        \"exp_month\": 3,\n        \"exp_year\": 2025,\n        \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n        \"funding\": \"credit\",\n        \"generated_from\": null,\n        \"last4\": \"9979\",\n        \"networks\": {\n          \"available\": [\n            \"visa\"\n          ],\n          \"preferred\": null\n        },\n        \"three_d_secure_usage\": {\n          \"supported\": true\n        },\n        \"wallet\": null\n      },\n      \"created\": 1703716659,\n      \"customer\": null,\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"type\": \"card\"\n    },\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_fitBuDUWT0kElv?t=1703716659\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "stolen_card",  
+
+        "message": "Your card was declined.",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "pi_3OS5jLFlLscTmW3z0CKUnI0r",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "023122716373915411788",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "currencyCode": "USD",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "creditCard": {  
+
+    "brand": "MasterCard",  
+
+    "number": "2223003122003222",  
+
+    "expMonth": 11,  
+
+    "expYear": 2024,  
+
+    "firstName": "Samantha",  
+
+    "lastName": "Gottlieb",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "carrier": "FedEx",  
+
+    "trackingNumber": "1234567890",  
+
+    "phone": "6514219597",  
+
+    "fax": null,  
+
+    "email": null,  
+
+    "firstName": "Fredrick",  
+
+    "lastName": "Konopelski",  
+
+    "name": null,  
+
+    "company": null,  
+
+    "address1": "123 Someplace Lane",  
+
+    "address2": "Some Place",  
+
+    "city": "Theronbury",  
+
+    "state": "Idaho",  
+
+    "zip": "89105-3085",  
+
+    "country": "USA"  
+
+  },  
+
+  "tax": {  
+
+    "exempt": false  
+
+  },  
+
+  "orderInfo": {  
+
+    "customer": {  
+
+      "address": {  
+
+        "carrier": "FedEx",  
+
+        "trackingNumber": "1234567890",  
+
+        "phone": "2749063220",  
+
+        "firstName": "Bryan",  
+
+        "lastName": "Smith",  
+
+        "address1": "123 Someplace Lane",  
+
+        "address2": "Some Place",  
+
+        "city": "Mohammadfurt",  
+
+        "state": "Illinois",  
+
+        "zip": "27994",  
+
+        "country": "USA"  
+
+      },  
+
+      "email": "Noel34@yahoo.com",  
+
+      "name": "Noel Mraz"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "amount": 1000,  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "refundApplicationFee": true,  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Capture or Purchase>",  
+
+  "currencyCode": "USD"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "Stripe",  
+
+  "privateKey": "<Your Stripe secret key>",  
+
+  "idempotencyKey": "<Your per-request idempotency key>",  
+
+  "cancellationReason": "requested_by_customer",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a successful Authorize call>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 1000,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KIagyasGMgavzi9F9B86LBYHlfIuujeOh5JO1meAOAcX-HbHFLlmzCg-rUFB9vbWELSAO_19-nONKhVv\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"requires_capture\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717064457542819",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"automatic\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqetFlLscTmW3z1GIaeCst\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990427,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 57,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqetFlLscTmW3z16X1Hzqs\",\n        \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KJygyasGMga4agf6ZY06LBb9_2hCU6zUUsHLt1rwQ6QXYAVUxAZQKoHIpzGJnuqUjZ2LTo1uSirJ4u05\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqetFlLscTmW3z1nJ6KHFO/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqetFlLscTmW3z16X1Hzqs\"\n  },\n  \"client_secret\": \"pi_3OKqetFlLscTmW3z16X1Hzqs_secret_I6fKn1p8VN0qc4D6aVrqrsGcg\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990427,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqetFlLscTmW3z1nJ6KHFO\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqesFlLscTmW3zwIRb3BG0\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWV0RmxMc2NUbVczejE2WDFIenFzO2NoXzNPS3FldEZsTHNjVG1XM3oxbko2S0hGTzs=",  
+
+    "providerTransactionCode": "pi_3OKqetFlLscTmW3z16X1Hzqs",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717070641603674",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 1000,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": null,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 1000,\n        \"amount_refunded\": 0,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z10JIwGkG\",\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": true,\n        \"created\": 1701990405,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 51,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n        \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595205,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KNygyasGMgZ6GbPV_286LBZnE01Z43Xyz_DGO41QFuZNql1BwNp5Wmb7t_wxp2foGuzz0bC3uc6LbZwq\",\n        \"refunded\": false,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [],\n          \"has_more\": false,\n          \"total_count\": 0,\n          \"url\": \"/v1/charges/ch_3OKqeXFlLscTmW3z1LfYRsj1/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqeXFlLscTmW3z1VCZQXdj\"\n  },\n  \"client_secret\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj_secret_gnKvigWKUKTPsL8nUVPWt6DPS\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990405,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqeXFlLscTmW3zd1r3t60r\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"succeeded\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTs=",  
+
+    "providerTransactionCode": "pi_3OKqeXFlLscTmW3z1VCZQXdj",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717081077986174",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"re_3OKqeXFlLscTmW3z1al2CRFE\",\n  \"object\": \"refund\",\n  \"amount\": 100,\n  \"balance_transaction\": \"txn_3OKqeXFlLscTmW3z1VBfbAmW\",\n  \"charge\": \"ch_3OKqeXFlLscTmW3z1LfYRsj1\",\n  \"created\": 1701990522,\n  \"currency\": \"usd\",\n  \"destination_details\": {\n    \"card\": {\n      \"reference_status\": \"pending\",\n      \"reference_type\": \"acquirer_reference_number\",\n      \"type\": \"refund\"\n    },\n    \"type\": \"card\"\n  },\n  \"metadata\": {},\n  \"payment_intent\": \"pi_3OKqeXFlLscTmW3z1VCZQXdj\",\n  \"reason\": null,\n  \"receipt_number\": null,\n  \"source_transfer_reversal\": null,\n  \"status\": \"succeeded\",\n  \"transfer_reversal\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWVYRmxMc2NUbVczejFWQ1pRWGRqO2NoXzNPS3FlWEZsTHNjVG1XM3oxTGZZUnNqMTtyZV8zT0txZVhGbExzY1RtVzN6MWFsMkNSRkU=",  
+
+    "providerTransactionCode": "re_3OKqeXFlLscTmW3z1al2CRFE",  
+
+    "approved": true  
+
+  },  
+
+  "referenceNumber": "23120717084240403529",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"id\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n  \"object\": \"payment_intent\",\n  \"amount\": 1000,\n  \"amount_capturable\": 0,\n  \"amount_details\": {\n    \"tip\": {}\n  },\n  \"amount_received\": 0,\n  \"application\": null,\n  \"application_fee_amount\": null,\n  \"automatic_payment_methods\": null,\n  \"canceled_at\": 1701990582,\n  \"cancellation_reason\": null,\n  \"capture_method\": \"manual\",\n  \"charges\": {\n    \"object\": \"list\",\n    \"data\": [\n      {\n        \"id\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n        \"object\": \"charge\",\n        \"amount\": 1000,\n        \"amount_captured\": 0,\n        \"amount_refunded\": 1000,\n        \"application\": null,\n        \"application_fee\": null,\n        \"application_fee_amount\": null,\n        \"balance_transaction\": null,\n        \"billing_details\": {\n          \"address\": {\n            \"city\": \"Tulsa\",\n            \"country\": \"US\",\n            \"line1\": \"123 Someplace Lane\",\n            \"line2\": \"Some Place\",\n            \"postal_code\": \"74111\",\n            \"state\": \"OK\"\n          },\n          \"email\": \"john@doe.dev\",\n          \"name\": \"John Doe\",\n          \"phone\": null\n        },\n        \"calculated_statement_descriptor\": \"TOKENEX\",\n        \"captured\": false,\n        \"created\": 1701990551,\n        \"currency\": \"usd\",\n        \"customer\": null,\n        \"description\": null,\n        \"destination\": null,\n        \"dispute\": null,\n        \"disputed\": false,\n        \"failure_balance_transaction\": null,\n        \"failure_code\": null,\n        \"failure_message\": null,\n        \"fraud_details\": {},\n        \"invoice\": null,\n        \"livemode\": false,\n        \"metadata\": {},\n        \"on_behalf_of\": null,\n        \"order\": null,\n        \"outcome\": {\n          \"network_status\": \"approved_by_network\",\n          \"reason\": null,\n          \"risk_level\": \"normal\",\n          \"risk_score\": 10,\n          \"seller_message\": \"Payment complete.\",\n          \"type\": \"authorized\"\n        },\n        \"paid\": true,\n        \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n        \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n        \"payment_method_details\": {\n          \"card\": {\n            \"amount_authorized\": 1000,\n            \"brand\": \"visa\",\n            \"capture_before\": 1702595351,\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"extended_authorization\": {\n              \"status\": \"disabled\"\n            },\n            \"fingerprint\": \"76aWJWQ8jkWogfAg\",\n            \"funding\": \"credit\",\n            \"incremental_authorization\": {\n              \"status\": \"unavailable\"\n            },\n            \"installments\": null,\n            \"last4\": \"4242\",\n            \"mandate\": null,\n            \"multicapture\": {\n              \"status\": \"unavailable\"\n            },\n            \"network\": \"visa\",\n            \"network_token\": {\n              \"used\": false\n            },\n            \"overcapture\": {\n              \"maximum_amount_capturable\": 1000,\n              \"status\": \"unavailable\"\n            },\n            \"three_d_secure\": null,\n            \"wallet\": null\n          },\n          \"type\": \"card\"\n        },\n        \"receipt_email\": null,\n        \"receipt_number\": null,\n        \"receipt_url\": \"https://pay.stripe.com/receipts/payment/CAcaFwoVYWNjdF8xSHoxTk5GbExzY1RtVzN6KLahyasGMgZg5mwXCTw6LBa1mwyOIDsblQCDz-AGmaJWdh_6ZVC8luElfipSCQ7jhtcuLW8cdKgOa1QX\",\n        \"refunded\": true,\n        \"refunds\": {\n          \"object\": \"list\",\n          \"data\": [\n            {\n              \"id\": \"re_3OKqgtFlLscTmW3z0PVU1Kzk\",\n              \"object\": \"refund\",\n              \"amount\": 1000,\n              \"balance_transaction\": null,\n              \"charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n              \"created\": 1701990582,\n              \"currency\": \"usd\",\n              \"destination_details\": {\n                \"card\": {\n                  \"reference\": \"669397\",\n                  \"reference_status\": \"available\",\n                  \"reference_type\": \"system_trace_audit_number\",\n                  \"type\": \"reversal\"\n                },\n                \"type\": \"card\"\n              },\n              \"metadata\": {},\n              \"payment_intent\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr\",\n              \"reason\": null,\n              \"receipt_number\": null,\n              \"source_transfer_reversal\": null,\n              \"status\": \"succeeded\",\n              \"transfer_reversal\": null\n            }\n          ],\n          \"has_more\": false,\n          \"total_count\": 1,\n          \"url\": \"/v1/charges/ch_3OKqgtFlLscTmW3z0Ap0xwWQ/refunds\"\n        },\n        \"review\": null,\n        \"shipping\": null,\n        \"source\": null,\n        \"source_transfer\": null,\n        \"statement_descriptor\": null,\n        \"statement_descriptor_suffix\": null,\n        \"status\": \"succeeded\",\n        \"transfer_data\": null,\n        \"transfer_group\": null\n      }\n    ],\n    \"has_more\": false,\n    \"total_count\": 1,\n    \"url\": \"/v1/charges?payment_intent=pi_3OKqgtFlLscTmW3z0bBkBuyr\"\n  },\n  \"client_secret\": \"pi_3OKqgtFlLscTmW3z0bBkBuyr_secret_O43IjplwugctagOrFRQFgZIgD\",\n  \"confirmation_method\": \"automatic\",\n  \"created\": 1701990551,\n  \"currency\": \"usd\",\n  \"customer\": null,\n  \"description\": null,\n  \"invoice\": null,\n  \"last_payment_error\": null,\n  \"latest_charge\": \"ch_3OKqgtFlLscTmW3z0Ap0xwWQ\",\n  \"livemode\": false,\n  \"metadata\": {},\n  \"next_action\": null,\n  \"on_behalf_of\": null,\n  \"payment_method\": \"pm_1OKqgtFlLscTmW3zd1dVm355\",\n  \"payment_method_configuration_details\": null,\n  \"payment_method_options\": {\n    \"card\": {\n      \"installments\": null,\n      \"mandate_options\": null,\n      \"network\": null,\n      \"request_three_d_secure\": \"automatic\"\n    }\n  },\n  \"payment_method_types\": [\n    \"card\"\n  ],\n  \"processing\": null,\n  \"receipt_email\": null,\n  \"review\": null,\n  \"setup_future_usage\": null,\n  \"shipping\": null,\n  \"source\": null,\n  \"statement_descriptor\": null,\n  \"statement_descriptor_suffix\": null,\n  \"status\": \"canceled\",\n  \"transfer_data\": null,\n  \"transfer_group\": null\n}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "cGlfM09LcWd0RmxMc2NUbVczejBiQmtCdXlyO2NoXzNPS3FndEZsTHNjVG1XM3owQXAweHdXUTs=",  
+
+    "providerTransactionCode": "pi_3OKqgtFlLscTmW3z0bBkBuyr",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120717094292467386",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"code\": \"invalid_expiry_month\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/invalid-expiry-month\",\n    \"message\": \"Your card's expiration month is invalid.\",\n    \"param\": \"exp_month\",\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_xOV9bDtQa9Vnqn?t=1703716629\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "invalid_expiry_month",  
+
+        "message": "Your card's expiration month is invalid.",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "023122716370928343763",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\n  \"error\": {\n    \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n    \"code\": \"card_declined\",\n    \"decline_code\": \"stolen_card\",\n    \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n    \"message\": \"Your card was declined.\",\n    \"payment_intent\": {\n      \"id\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n      \"object\": \"payment_intent\",\n      \"amount\": 1000,\n      \"amount_capturable\": 0,\n      \"amount_details\": {\n        \"tip\": {\n        }\n      },\n      \"amount_received\": 0,\n      \"application\": null,\n      \"application_fee_amount\": null,\n      \"automatic_payment_methods\": null,\n      \"canceled_at\": null,\n      \"cancellation_reason\": null,\n      \"capture_method\": \"manual\",\n      \"charges\": {\n        \"object\": \"list\",\n        \"data\": [\n          {\n            \"id\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n            \"object\": \"charge\",\n            \"amount\": 1000,\n            \"amount_captured\": 0,\n            \"amount_refunded\": 0,\n            \"application\": null,\n            \"application_fee\": null,\n            \"application_fee_amount\": null,\n            \"balance_transaction\": null,\n            \"billing_details\": {\n              \"address\": {\n                \"city\": \"Tulsa\",\n                \"country\": \"US\",\n                \"line1\": \"123 Someplace Lane\",\n                \"line2\": \"Some Place\",\n                \"postal_code\": \"74111\",\n                \"state\": \"OK\"\n              },\n              \"email\": \"john@doe.dev\",\n              \"name\": \"John Doe\",\n              \"phone\": null\n            },\n            \"calculated_statement_descriptor\": \"TOKENEX\",\n            \"captured\": false,\n            \"created\": 1703716659,\n            \"currency\": \"usd\",\n            \"customer\": null,\n            \"description\": null,\n            \"destination\": null,\n            \"dispute\": null,\n            \"disputed\": false,\n            \"failure_balance_transaction\": null,\n            \"failure_code\": \"card_declined\",\n            \"failure_message\": \"Your card was declined.\",\n            \"fraud_details\": {\n            },\n            \"invoice\": null,\n            \"livemode\": false,\n            \"metadata\": {\n            },\n            \"on_behalf_of\": null,\n            \"order\": null,\n            \"outcome\": {\n              \"network_status\": \"declined_by_network\",\n              \"reason\": \"stolen_card\",\n              \"risk_level\": \"normal\",\n              \"risk_score\": 47,\n              \"seller_message\": \"The bank returned the decline code `stolen_card`.\",\n              \"type\": \"issuer_declined\"\n            },\n            \"paid\": false,\n            \"payment_intent\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r\",\n            \"payment_method\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n            \"payment_method_details\": {\n              \"card\": {\n                \"amount_authorized\": null,\n                \"brand\": \"visa\",\n                \"checks\": {\n                  \"address_line1_check\": \"pass\",\n                  \"address_postal_code_check\": \"pass\",\n                  \"cvc_check\": \"pass\"\n                },\n                \"country\": \"US\",\n                \"exp_month\": 3,\n                \"exp_year\": 2025,\n                \"extended_authorization\": {\n                  \"status\": \"disabled\"\n                },\n                \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n                \"funding\": \"credit\",\n                \"incremental_authorization\": {\n                  \"status\": \"unavailable\"\n                },\n                \"installments\": null,\n                \"last4\": \"9979\",\n                \"mandate\": null,\n                \"multicapture\": {\n                  \"status\": \"unavailable\"\n                },\n                \"network\": \"visa\",\n                \"network_token\": {\n                  \"used\": false\n                },\n                \"overcapture\": {\n                  \"maximum_amount_capturable\": 1000,\n                  \"status\": \"unavailable\"\n                },\n                \"three_d_secure\": null,\n                \"wallet\": null\n              },\n              \"type\": \"card\"\n            },\n            \"radar_options\": {\n            },\n            \"receipt_email\": null,\n            \"receipt_number\": null,\n            \"receipt_url\": null,\n            \"refunded\": false,\n            \"refunds\": {\n              \"object\": \"list\",\n              \"data\": [\n\n              ],\n              \"has_more\": false,\n              \"total_count\": 0,\n              \"url\": \"/v1/charges/ch_3OS5jLFlLscTmW3z05iiT5Pz/refunds\"\n            },\n            \"review\": null,\n            \"shipping\": null,\n            \"source\": null,\n            \"source_transfer\": null,\n            \"statement_descriptor\": null,\n            \"statement_descriptor_suffix\": null,\n            \"status\": \"failed\",\n            \"transfer_data\": null,\n            \"transfer_group\": null\n          }\n        ],\n        \"has_more\": false,\n        \"total_count\": 1,\n        \"url\": \"/v1/charges?payment_intent=pi_3OS5jLFlLscTmW3z0CKUnI0r\"\n      },\n      \"client_secret\": \"pi_3OS5jLFlLscTmW3z0CKUnI0r_secret_2yE08BFrW7mYwCPhHWLtYPLZr\",\n      \"confirmation_method\": \"automatic\",\n      \"created\": 1703716659,\n      \"currency\": \"usd\",\n      \"customer\": null,\n      \"description\": null,\n      \"invoice\": null,\n      \"last_payment_error\": {\n        \"charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n        \"code\": \"card_declined\",\n        \"decline_code\": \"stolen_card\",\n        \"doc_url\": \"https://stripe.com/docs/error-codes/card-declined\",\n        \"message\": \"Your card was declined.\",\n        \"payment_method\": {\n          \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n          \"object\": \"payment_method\",\n          \"billing_details\": {\n            \"address\": {\n              \"city\": \"Tulsa\",\n              \"country\": \"US\",\n              \"line1\": \"123 Someplace Lane\",\n              \"line2\": \"Some Place\",\n              \"postal_code\": \"74111\",\n              \"state\": \"OK\"\n            },\n            \"email\": \"john@doe.dev\",\n            \"name\": \"John Doe\",\n            \"phone\": null\n          },\n          \"card\": {\n            \"brand\": \"visa\",\n            \"checks\": {\n              \"address_line1_check\": \"pass\",\n              \"address_postal_code_check\": \"pass\",\n              \"cvc_check\": \"pass\"\n            },\n            \"country\": \"US\",\n            \"exp_month\": 3,\n            \"exp_year\": 2025,\n            \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n            \"funding\": \"credit\",\n            \"generated_from\": null,\n            \"last4\": \"9979\",\n            \"networks\": {\n              \"available\": [\n                \"visa\"\n              ],\n              \"preferred\": null\n            },\n            \"three_d_secure_usage\": {\n              \"supported\": true\n            },\n            \"wallet\": null\n          },\n          \"created\": 1703716659,\n          \"customer\": null,\n          \"livemode\": false,\n          \"metadata\": {\n          },\n          \"type\": \"card\"\n        },\n        \"type\": \"card_error\"\n      },\n      \"latest_charge\": \"ch_3OS5jLFlLscTmW3z05iiT5Pz\",\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"next_action\": null,\n      \"on_behalf_of\": null,\n      \"payment_method\": null,\n      \"payment_method_configuration_details\": null,\n      \"payment_method_options\": {\n        \"card\": {\n          \"installments\": null,\n          \"mandate_options\": null,\n          \"network\": null,\n          \"request_three_d_secure\": \"automatic\"\n        }\n      },\n      \"payment_method_types\": [\n        \"card\"\n      ],\n      \"processing\": null,\n      \"receipt_email\": null,\n      \"review\": null,\n      \"setup_future_usage\": null,\n      \"shipping\": null,\n      \"source\": null,\n      \"statement_descriptor\": null,\n      \"statement_descriptor_suffix\": null,\n      \"status\": \"requires_payment_method\",\n      \"transfer_data\": null,\n      \"transfer_group\": null\n    },\n    \"payment_method\": {\n      \"id\": \"pm_1OS5jLFlLscTmW3z9Ftrg7rC\",\n      \"object\": \"payment_method\",\n      \"billing_details\": {\n        \"address\": {\n          \"city\": \"Tulsa\",\n          \"country\": \"US\",\n          \"line1\": \"123 Someplace Lane\",\n          \"line2\": \"Some Place\",\n          \"postal_code\": \"74111\",\n          \"state\": \"OK\"\n        },\n        \"email\": \"john@doe.dev\",\n        \"name\": \"John Doe\",\n        \"phone\": null\n      },\n      \"card\": {\n        \"brand\": \"visa\",\n        \"checks\": {\n          \"address_line1_check\": \"pass\",\n          \"address_postal_code_check\": \"pass\",\n          \"cvc_check\": \"pass\"\n        },\n        \"country\": \"US\",\n        \"exp_month\": 3,\n        \"exp_year\": 2025,\n        \"fingerprint\": \"cq6VLEnp3CY4mOju\",\n        \"funding\": \"credit\",\n        \"generated_from\": null,\n        \"last4\": \"9979\",\n        \"networks\": {\n          \"available\": [\n            \"visa\"\n          ],\n          \"preferred\": null\n        },\n        \"three_d_secure_usage\": {\n          \"supported\": true\n        },\n        \"wallet\": null\n      },\n      \"created\": 1703716659,\n      \"customer\": null,\n      \"livemode\": false,\n      \"metadata\": {\n      },\n      \"type\": \"card\"\n    },\n    \"request_log_url\": \"https://dashboard.stripe.com/test/logs/req_fitBuDUWT0kElv?t=1703716659\",\n    \"type\": \"card_error\"\n  }\n}\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "stolen_card",  
+
+        "message": "Your card was declined.",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "pi_3OS5jLFlLscTmW3z0CKUnI0r",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {  
+
+        "cvvMatch": "pass",  
+
+        "streetMatch": "pass",  
+
+        "postalCodeMatch": "pass"  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "023122716373915411788",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "402"  
+
+}  
+
+```

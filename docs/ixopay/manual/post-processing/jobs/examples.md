@@ -13,9 +13,9 @@ tags:
 - mark-fraudulent-transactions-report-https-documentation-ixopay-com-manual-docs-post-processing-jobs-examples-mark-fraudulent-transactions-report-direct-link-mark-fraudulent-transactions-report
 - configure-job-type-collect-transaction-uploaded-csv-https-documentation-ixopay-com-manual-docs-post-processing-jobs-examples-configure-job-type-collect-transaction-uploaded-csv-direct-link-configure-job-type-collect-transaction-uploaded-csv
 - schedule-job-https-documentation-ixopay-com-manual-docs-post-processing-jobs-examples-schedule-job-direct-link-schedule-job
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/post-processing/jobs/examples
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

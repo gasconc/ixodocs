@@ -12,9 +12,9 @@ tags:
 - ixopay
 - transaction
 - merchant
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/integration/callbacks/response-handling
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -53,15 +53,18 @@ For detailed step-by-step instructions on implementing callback handling, refer 
 ## Acknowledging callback receipt[​](https://documentation.ixopay.com/docs/reference/integration/callbacks/response-handling#acknowledging-callback-receipt "Direct link to Acknowledging callback receipt")
 When your system receives a callback from IXOPAY platform, it is essential to acknowledge the receipt of the notification by responding with an HTTP status code `200` and a response body of `OK`:
 ```
+
 HTTP/1.1 200 OK  
+
 Server: api.example.org  
+
 Content-Type: text/plain; charset=UTF-8  
+
   
+
 OK  
 
-```
-
-The initial callback from [IXOPAY](https://www.ixopay.com) has a _timeout of 10 seconds_ , which means your system's response should not take longer than this. Subsequent callbacks have a _timeout of 30 seconds_. Please note that these timeout durations might change in the future, and this page will be updated if that happens.
+```The initial callback from [IXOPAY](https://www.ixopay.com) has a _timeout of 10 seconds_ , which means your system's response should not take longer than this. Subsequent callbacks have a _timeout of 30 seconds_. Please note that these timeout durations might change in the future, and this page will be updated if that happens.
 If your system does not provide a confirmation response with an HTTP status code `200` and content `OK`, IXOPAY will continue to retry sending the notification at increasing intervals according to the following schedule:  
 | Retry Number  | Interval  |  
 | --- | --- |  
@@ -87,3 +90,68 @@ Upon reaching a final status (either successful or erroneous), the IXOPAY platfo
 ## Processing callback data[​](https://documentation.ixopay.com/docs/reference/integration/callbacks/response-handling#processing-callback-data "Direct link to Processing callback data")
 The callback data received from the IXOPAY platform contains important information about the transaction's status and other relevant details. Ensure that your system processes this data according to your business logic.
 Refer to the [Callback Data](https://documentation.ixopay.com/docs/reference/integration/callbacks/callback-data) article for detailed information on the structure of callback data, including how to include additional data and verify its authenticity.
+```
+
+HTTP/1.1 200 OK  
+
+Server: api.example.org  
+
+Content-Type: text/plain; charset=UTF-8  
+
+  
+
+OK  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Server: api.example.org  
+
+Content-Type: text/plain; charset=UTF-8  
+
+  
+
+OK  
+
+```For more detailed instructions on how to compute and validate signatures, refer to the [Guides: Additional security](https://documentation.ixopay.com/docs/guides/production/additional-security) article. The article provides comprehensive information on signature computation, validation, and other security measures you can implement.
+```
+
+HTTP/1.1 200 OK  
+
+Server: api.example.org  
+
+Content-Type: text/plain; charset=UTF-8  
+
+  
+
+OK  
+
+```For more detailed instructions on how to compute and validate signatures, refer to the [Guides: Additional security](https://documentation.ixopay.com/docs/guides/production/additional-security) article. The article provides comprehensive information on signature computation, validation, and other security measures you can implement.
+```
+
+HTTP/1.1 200 OK  
+
+Server: api.example.org  
+
+Content-Type: text/plain; charset=UTF-8  
+
+  
+
+OK  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Server: api.example.org  
+
+Content-Type: text/plain; charset=UTF-8  
+
+  
+
+OK  
+
+```For more detailed instructions on how to compute and validate signatures, refer to the [Guides: Additional security](https://documentation.ixopay.com/docs/guides/production/additional-security) article. The article provides comprehensive information on signature computation, validation, and other security measures you can implement.

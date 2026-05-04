@@ -6,9 +6,9 @@ tags:
 - tokenex
 - ixopay
 - iframe
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/putting-it-all-together
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -20,10 +20,80 @@ related: []
 Now that you've built your configuration object, the last step is to render the iFrame on your form. Reference the Test TokenEx iFrame JS Library located at  and invoke the **TokenEx.Iframe()** method to generate a new iframe object. This method accepts two parameters: the ID of the container in which you want to render the iframe and the **iFrame Configuration Object** you created.
 JavaScript
 ```
+
 var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
   
+
 // Add event listeners here  
+
   
+
+iframe.load();  
+
+```
+```
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+// Add event listeners here  
+
+  
+
+iframe.load();  
+
+```
+```
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+// Add event listeners here  
+
+  
+
+iframe.load();  
+
+```
+```
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+// Add event listeners here  
+
+  
+
+iframe.load();  
+
+```
+```
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+// Add event listeners here  
+
+  
+
+iframe.load();  
+
+```
+```
+
+var iframe = new TokenEx.Iframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+// Add event listeners here  
+
+  
+
 iframe.load();  
 
 ```

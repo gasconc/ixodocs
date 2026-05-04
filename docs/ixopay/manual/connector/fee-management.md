@@ -6,9 +6,9 @@ tags:
 - fee-entities-video-create-fee-entity-feeshttps-documentation-ixopay-com-manual-docs-connector-fee-management-fee-entities-fees-order-able-fees-connector-level-fee-entities-created-sub-tenant-level-first-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees-fee-entities-video-create-fee-entity-feeshttps-documentation-ixopay-com-manual-docs-connector-fee-management-fee-entities-fees-order-able-fees-connector-level-fee-entities-created-sub-tenant-level-first-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees
 - ixopay
 - merchant
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/connector/fee-management
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -8,9 +8,9 @@ tags:
 - tokenex
 - ixopay
 - iframe
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/non-pci-configuration
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -30,13 +30,116 @@ The following are the minimum required parameters for Non-PCI mode.
 | pci  | bool  | false  | Must be set to false to enable this mode.  |  
 JavaScript
 ```
+
 var iframeConfig = {  
+
   origin: "https://mysite.com",  
+
   timestamp: "20180109161437",  
+
   tokenExID: "123456789",  
+
   tokenScheme: "ASCII",  
+
   authenticationKey: "QmFzZTY0KEhNQRNTSEEyNTYoIlRva2VuRXhJRHxPcmlnaW58VGltZXN0YW1wfFRva2VuU2NoZW1lKSk=",  
+
   pci: false,  
+
+};  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "123456789",  
+
+  tokenScheme: "ASCII",  
+
+  authenticationKey: "QmFzZTY0KEhNQRNTSEEyNTYoIlRva2VuRXhJRHxPcmlnaW58VGltZXN0YW1wfFRva2VuU2NoZW1lKSk=",  
+
+  pci: false,  
+
+};  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "123456789",  
+
+  tokenScheme: "ASCII",  
+
+  authenticationKey: "QmFzZTY0KEhNQRNTSEEyNTYoIlRva2VuRXhJRHxPcmlnaW58VGltZXN0YW1wfFRva2VuU2NoZW1lKSk=",  
+
+  pci: false,  
+
+};  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "123456789",  
+
+  tokenScheme: "ASCII",  
+
+  authenticationKey: "QmFzZTY0KEhNQRNTSEEyNTYoIlRva2VuRXhJRHxPcmlnaW58VGltZXN0YW1wfFRva2VuU2NoZW1lKSk=",  
+
+  pci: false,  
+
+};  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "123456789",  
+
+  tokenScheme: "ASCII",  
+
+  authenticationKey: "QmFzZTY0KEhNQRNTSEEyNTYoIlRva2VuRXhJRHxPcmlnaW58VGltZXN0YW1wfFRva2VuU2NoZW1lKSk=",  
+
+  pci: false,  
+
+};  
+
+```
+```
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20180109161437",  
+
+  tokenExID: "123456789",  
+
+  tokenScheme: "ASCII",  
+
+  authenticationKey: "QmFzZTY0KEhNQRNTSEEyNTYoIlRva2VuRXhJRHxPcmlnaW58VGltZXN0YW1wfFRva2VuU2NoZW1lKSk=",  
+
+  pci: false,  
+
 };  
 
 ```

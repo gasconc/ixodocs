@@ -4,7 +4,6 @@ summary: ' Transaction API'
 tags:
 - request-https-documentation-ixopay-com-api-transaction-callback-request-direct-link-request
 - bodyrequired
-- responses-https-documentation-ixopay-com-api-transaction-callback-responses-direct-link-responses
 - api
 - json
 - webhook
@@ -12,9 +11,10 @@ tags:
 - ixopay
 - psp
 - chargeback
-source_url: ''
+- refund
+source_url: https://documentation.ixopay.com/api/transaction/callback
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -22,19 +22,21 @@ related: []
   * [Transaction](https://documentation.ixopay.com/api/transaction/transaction)
   * Callback
 
-# Callback```
-Webhook 
+# Callback
 ```
-
-Receive status updates about transactions.
+Webhook 
+```Receive status updates about transactions.
 See the [Callbacks](https://documentation.ixopay.com/docs/reference/integration/callbacks) reference for further information about callbacks.
 ## Request[​](https://documentation.ixopay.com/api/transaction/callback#request "Direct link to request")
   * application/json
 
+  * Body
+  * Example (auto)
+
 ### Body**required**
 **uuid** string
 UUID of the transaction.
-**merchantTransactionId** MerchantTransactionId (string)
+**merchantTransactionId** MerchantTransactionId
 A unique identifier supplied by the merchant to track transactions within their own systems.
 This field links the platform’s transaction back to the merchant’s system, allowing for easy tracking and reconciliation. Note that while this ID is used within the platform, there is no guarantee that it will be forwarded to the Payment Service Provider (PSP).
 **Possible values:** `non-empty` and `<= 50 characters`
@@ -42,45 +44,45 @@ This field links the platform’s transaction back to the merchant’s system, a
 **purchaseId** string
 Purchase ID of the transaction.
 **Possible values:** `<= 50 characters`
-**transactionType** TransactionType (string)
+**transactionType** TransactionType
 **Possible values:** [`DEBIT`, `CAPTURE`, `DEREGISTER`, `PREAUTHORIZE`, `REFUND`, `REGISTER`, `VOID`, `CHARGEBACK`, `CHARGEBACK-REVERSAL`, `PAYOUT`, `INCREMENTAL-AUTHORIZATION`]
-**transactionSubType** TransactionSubType (string)
+**transactionSubType** TransactionSubType
 Only present if transaction has a `subType`.
 **Possible values:** [`cb-resolved`, `cb-reversal-resolved`]
 **paymentMethod** string
 Payment method.
-**amount** Amount (string)
+**amount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**currency** Currency (string)
+**currency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
-**surchargeAmount** Amount (string)
+**surchargeAmount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**totalAmount** Amount (string)
+**totalAmount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
 **dccData** object
 **remoteIdentifier** string
 **Possible values:** `<= 128 characters`
-**originalAmount** Amount (string)
+**originalAmount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**originalCurrency** Currency (string)
+**originalCurrency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
-**convertedAmount** Amount (string)
+**convertedAmount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**convertedCurrency** Currency (string)
+**convertedCurrency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
@@ -110,16 +112,16 @@ When `transactionType` is `CHARGEBACK` this field contains information on the ch
 **originalUuid** string
 **originalMerchantTransactionId** string
 **Possible values:** `non-empty` and `<= 50 characters`
-**amount** Amount (string)
+**amount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**currency** Currency (string)
+**currency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
 **reason** string
-**chargebackDateTime** string
+**chargebackDateTime** date-time
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])\+[0-9]{2}\:[0-9]{2}$`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -131,16 +133,16 @@ When `transactionType` is `CHARGEBACK-REVERSAL` this field contains information 
 **originalMerchantTransactionId** string
 **Possible values:** `non-empty` and `<= 50 characters`
 **chargebackUuid** string
-**amount** Amount (string)
+**amount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**currency** Currency (string)
+**currency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
 **reason** string
-**reversalDateTime** string
+**reversalDateTime** date-time
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])\+[0-9]{2}\:[0-9]{2}$`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -152,9 +154,10 @@ Object containing key-value pairs (string-to-string), to be used by either the u
 **Property name:** `<= 64 characters`.  
 **Property value:** `<= 8192 characters`.
 **property name*** string
+**Possible values:** `<= 8192 characters`
 **merchantMetaData** string
 **returnData** object
-**_TYPE** ReturnDataType (string)required
+**_TYPE** ReturnDataTyperequired
 **Possible values:** [`cardData`, `phoneData`, `ibanData`, `walletData`, `achData`]
     * cardData
     * phoneData
@@ -165,7 +168,7 @@ Object containing key-value pairs (string-to-string), to be used by either the u
 Type of credit card
 **firstName** string
 **lastName** string
-**country** Country (string)
+**country** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -195,7 +198,7 @@ Shows the complete BIN entry used for the transaction
 Identifies the BIN entry data structure
 **data** object
 **property name*** any
-**threeDSecure** ThreeDSecureType (string)
+**threeDSecure** ThreeDSecureType
 Triggers the 3D Secure authentication for this transaction.
 **Possible values:** [`OFF`, `OPTIONAL`, `MANDATORY`]
 **eci** string
@@ -214,18 +217,18 @@ It is also referred to as the 'scheme reference ID,' 'scheme transaction ID,' 't
 Status of the last account updater run.
 Only non-null if the account updater is enabled and has run at least once.
 **Possible values:** [`updated`, `contact`, `new-expiry`, `closed`]
-**cardUpdatedAt** stringnullable
+**cardUpdatedAt** datetimenullable
 Last run of the account updater.
 Only non-null if the account updater is enabled and has run at least once. [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date " " time` without `timespec-second`, `time-fraction`, and `time-zone`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1])) (([0-1][0-9])|([2][0-3])):([0-5][0-9])$`
 **Example:**`2001-02-03 04:05:06`
-**cardUpdatePausedUntil** string
+**cardUpdatePausedUntil** date (string)
 Updates paused until this date.
 Only non-null if the account updater is enabled. [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
 **phoneNumber** string
-**country** Country (string)
+**country** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -234,13 +237,13 @@ Only non-null if the account updater is enabled. [RFC 3339](https://datatracker.
 **iban** string
 **bic** string
 **mandateId** string
-**mandateDate** string
+**mandateDate** date (string)
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
 **bankName** string
 **bankBranchName** string
-**country** Country (string)
+**country** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -265,17 +268,17 @@ UUID of the transaction that initially registered this wallet.
 **Possible values:** [`checking`, `savings`]
 **accountNumber** string
 **Possible values:** `<= 17 characters`
-**routingNumber** integer
+**routingNumber** int32
 **Possible values:** `>= 9 characters` and `<= 9 characters`
 **payByLinkData** object
 **payByLink** booleandeprecated
 `true` if this transaction was a Pay-by-Link transaction.
 **sendViaEmail** boolean
 `true` if this Pay-by-Link was sent to the transaction customer via email.
-**cancelUrl** string
+**cancelUrl** uri
 Endpoint to call to cancel a Pay-by-Link transaction.
 For details, see [Pay-by-Link API reference](https://documentation.ixopay.com/api/pay-by-link/cancel).
-**expiresAt** string
+**expiresAt** date-time
 Indicates at what date time the Pay-by-Link transaction expires.
 **property name*** any
 **customer** object
@@ -285,7 +288,7 @@ Indicates at what date time the Pay-by-Link transaction expires.
 **Possible values:** `<= 50 characters`
 **lastName** string
 **Possible values:** `<= 50 characters`
-**birthDate** string
+**birthDate** date (string)
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
@@ -301,7 +304,7 @@ Indicates at what date time the Pay-by-Link transaction expires.
 **Possible values:** `<= 16 characters`
 **billingState** string
 **Possible values:** `<= 30 characters`
-**billingCountry** Country (string)
+**billingCountry** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -324,7 +327,7 @@ Indicates at what date time the Pay-by-Link transaction expires.
 **Possible values:** `<= 16 characters`
 **shippingState** string
 **Possible values:** `<= 30 characters`
-**shippingCountry** Country (string)
+**shippingCountry** string
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
@@ -346,6 +349,7 @@ Object containing key-value pairs (string-to-string), to be used by either the u
 **Property name:** `<= 64 characters`.  
 **Property value:** `<= 8192 characters`.
 **property name*** string
+**Possible values:** `<= 8192 characters`
 **paymentData** object
 oneOf
     * PaymentIbanData
@@ -357,7 +361,7 @@ oneOf
 **Possible values:** `<= 11 characters`
 **mandateId** string
 **Possible values:** `<= 50 characters`
-**mandateDate** string
+**mandateDate** date (string)
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
@@ -377,11 +381,11 @@ Whether this payment instrument was marked as preferred for the customer.
   * Array [
 **identification** string
 **Possible values:** `<= 11 characters`
-**amount** Amount (string)
+**amount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**currency** Currency (string)
+**currency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
@@ -390,11 +394,11 @@ Decimal amount separated by `.`, maximum of 3 decimals.
 **sellerMerchantExternalId** string
 **Possible values:** `<= 128 characters`
 **commissionFee** object
-**amount** Amount (string)
+**amount** string
 Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
 **Example:**`9.99`
-**currency** Currency (string)
+**currency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
@@ -407,7 +411,7 @@ Present only if tracing was enabled in the request.
 **transactions** object[]
   * Array [
 **uuid** string
-**sequence_number** number
+**sequence_number** int32
 Indicates the transaction's order in the processing sequence
 **status** string
 Current status of the transaction
@@ -436,10 +440,10 @@ Adapter specific error code, passed verbatim from the upstream Adapter.
   * Array [
 **scheduleId** string
 ID of schedule which was started with the transaction.
-**scheduleStatus** CallbackScheduleStatus (string)
+**scheduleStatus** CallbackScheduleStatus
 Status of the schedule.
 **Possible values:** [`active`, `paused`, `cancelled`, `error`, `create-pending`, `non-existing`]
-**scheduledAt** string
+**scheduledAt** date-time
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])\+[0-9]{2}\:[0-9]{2}$`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -457,8 +461,295 @@ In case the transaction currency has been changed after reconciliation the is pa
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
+```
 
-## Responses[​](https://documentation.ixopay.com/api/transaction/callback#responses "Direct link to Responses")
+{  
+
+  "uuid": "string",  
+
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+
+  "purchaseId": "string",  
+
+  "transactionType": "DEBIT",  
+
+  "transactionSubType": "cb-resolved",  
+
+  "paymentMethod": "string",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "surchargeAmount": "9.99",  
+
+  "totalAmount": "9.99",  
+
+  "dccData": {  
+
+    "remoteIdentifier": "string",  
+
+    "originalAmount": "9.99",  
+
+    "originalCurrency": "EUR",  
+
+    "convertedAmount": "9.99",  
+
+    "convertedCurrency": "EUR",  
+
+    "conversionRate": 0,  
+
+    "selectedCurrency": "string",  
+
+    "markUp": 0  
+
+  },  
+
+  "referenceUuid": "string",  
+
+  "errors": [  
+
+    {  
+
+      "message": "string",  
+
+      "code": "string",  
+
+      "adapterMessage": "string",  
+
+      "adapterCode": "string"  
+
+    }  
+
+  ],  
+
+  "chargebackData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "chargebackReversalData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "chargebackUuid": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "extraData": {},  
+
+  "merchantMetaData": "string",  
+
+  "returnData": {  
+
+    "_TYPE": "cardData"  
+
+  },  
+
+  "payByLinkData": {  
+
+    "sendViaEmail": true,  
+
+    "cancelUrl": "string",  
+
+    "expiresAt": "2024-07-29T15:51:28.071Z"  
+
+  },  
+
+  "customer": {  
+
+    "identification": "string",  
+
+    "firstName": "string",  
+
+    "lastName": "string",  
+
+    "birthDate": "2001-02-03",  
+
+    "gender": "M",  
+
+    "billingAddress1": "string",  
+
+    "billingAddress2": "string",  
+
+    "billingCity": "string",  
+
+    "billingPostcode": "string",  
+
+    "billingState": "string",  
+
+    "billingCountry": "AT",  
+
+    "billingPhone": "+XX 1234567890",  
+
+    "shippingFirstName": "string",  
+
+    "shippingLastName": "string",  
+
+    "shippingCompany": "string",  
+
+    "shippingAddress1": "string",  
+
+    "shippingAddress2": "string",  
+
+    "shippingCity": "string",  
+
+    "shippingPostcode": "string",  
+
+    "shippingState": "string",  
+
+    "shippingCountry": "AT",  
+
+    "shippingPhone": "+XX 1234567890",  
+
+    "company": "string",  
+
+    "email": "string",  
+
+    "emailVerified": true,  
+
+    "ipAddress": "string",  
+
+    "nationalId": "string",  
+
+    "extraData": {},  
+
+    "paymentData": {  
+
+      "ibanData": {  
+
+        "iban": "string",  
+
+        "bic": "string",  
+
+        "mandateId": "string",  
+
+        "mandateDate": "2001-02-03"  
+
+      }  
+
+    }  
+
+  },  
+
+  "customerProfileData": {  
+
+    "profileGuid": "string",  
+
+    "customerIdentification": "string",  
+
+    "paymentToken": "string",  
+
+    "markAsPreferred": true  
+
+  },  
+
+  "splits": [  
+
+    {  
+
+      "identification": "string",  
+
+      "amount": "9.99",  
+
+      "currency": "EUR",  
+
+      "sellerMerchantGuid": "string",  
+
+      "sellerMerchantExternalId": "string",  
+
+      "commissionFee": {  
+
+        "amount": "9.99",  
+
+        "currency": "EUR"  
+
+      }  
+
+    }  
+
+  ],  
+
+  "tracingData": {  
+
+    "transactions": [  
+
+      {  
+
+        "uuid": "string",  
+
+        "sequence_number": 0,  
+
+        "status": "SUCCESS",  
+
+        "connector": {  
+
+          "guid": "string"  
+
+        }  
+
+      }  
+
+    ]  
+
+  },  
+
+  "message": "string",  
+
+  "code": "string",  
+
+  "adapterMessage": "string",  
+
+  "adapterCode": "string",  
+
+  "result": "OK",  
+
+  "scheduleData": [  
+
+    {  
+
+      "scheduleId": "string",  
+
+      "scheduleStatus": "active",  
+
+      "scheduledAt": "2001-02-03T04:05:06+02:00",  
+
+      "merchantMetaData": "string"  
+
+    }  
+
+  ],  
+
+  "notificationSource": "reconciliation",  
+
+  "originalAmount": "string",  
+
+  "originalCurrency": "EUR"  
+
+}  
+
+```## Responses[​](https://documentation.ixopay.com/api/transaction/callback#responses "Direct link to Responses")
   * 200
 
 Reply with status 200 and body `OK` if you have received the callback successfully.
@@ -471,11 +762,11 @@ Reply with status 200 and body `OK` if you have received the callback successful
 **string** string
 **Possible values:** [`OK`]
 ```
+
 "OK"  
 
+```#### Authorization: http
 ```
-
-#### Authorization: http```
 **name:** basicAuth[](https://documentation.ixopay.com/api/transaction/transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
 as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
 To achieve this, the username and password are first concatenated with a `:` (colon) separator,
@@ -490,10 +781,9 @@ and the resulting string is then Base64 encoded. Here is an example of how this 
 Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
 :::
 
-RequestCollapse all
+```RequestCollapse all
 Auth
-Security Scheme
-basicAuth basicAuth and signature
+Security SchemebasicAuth basicAuth and signature
 Username
 Password
 Body required
@@ -641,3 +931,2300 @@ Body required
   "originalAmount": "string",
   "originalCurrency": "EUR"
 }
+
+```
+```
+Webhook 
+```
+```
+
+{  
+
+  "uuid": "string",  
+
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+
+  "purchaseId": "string",  
+
+  "transactionType": "DEBIT",  
+
+  "transactionSubType": "cb-resolved",  
+
+  "paymentMethod": "string",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "surchargeAmount": "9.99",  
+
+  "totalAmount": "9.99",  
+
+  "dccData": {  
+
+    "remoteIdentifier": "string",  
+
+    "originalAmount": "9.99",  
+
+    "originalCurrency": "EUR",  
+
+    "convertedAmount": "9.99",  
+
+    "convertedCurrency": "EUR",  
+
+    "conversionRate": 0,  
+
+    "selectedCurrency": "string",  
+
+    "markUp": 0  
+
+  },  
+
+  "referenceUuid": "string",  
+
+  "errors": [  
+
+    {  
+
+      "message": "string",  
+
+      "code": "string",  
+
+      "adapterMessage": "string",  
+
+      "adapterCode": "string"  
+
+    }  
+
+  ],  
+
+  "chargebackData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "chargebackReversalData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "chargebackUuid": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "extraData": {},  
+
+  "merchantMetaData": "string",  
+
+  "returnData": {  
+
+    "_TYPE": "cardData"  
+
+  },  
+
+  "payByLinkData": {  
+
+    "sendViaEmail": true,  
+
+    "cancelUrl": "string",  
+
+    "expiresAt": "2024-07-29T15:51:28.071Z"  
+
+  },  
+
+  "customer": {  
+
+    "identification": "string",  
+
+    "firstName": "string",  
+
+    "lastName": "string",  
+
+    "birthDate": "2001-02-03",  
+
+    "gender": "M",  
+
+    "billingAddress1": "string",  
+
+    "billingAddress2": "string",  
+
+    "billingCity": "string",  
+
+    "billingPostcode": "string",  
+
+    "billingState": "string",  
+
+    "billingCountry": "AT",  
+
+    "billingPhone": "+XX 1234567890",  
+
+    "shippingFirstName": "string",  
+
+    "shippingLastName": "string",  
+
+    "shippingCompany": "string",  
+
+    "shippingAddress1": "string",  
+
+    "shippingAddress2": "string",  
+
+    "shippingCity": "string",  
+
+    "shippingPostcode": "string",  
+
+    "shippingState": "string",  
+
+    "shippingCountry": "AT",  
+
+    "shippingPhone": "+XX 1234567890",  
+
+    "company": "string",  
+
+    "email": "string",  
+
+    "emailVerified": true,  
+
+    "ipAddress": "string",  
+
+    "nationalId": "string",  
+
+    "extraData": {},  
+
+    "paymentData": {  
+
+      "ibanData": {  
+
+        "iban": "string",  
+
+        "bic": "string",  
+
+        "mandateId": "string",  
+
+        "mandateDate": "2001-02-03"  
+
+      }  
+
+    }  
+
+  },  
+
+  "customerProfileData": {  
+
+    "profileGuid": "string",  
+
+    "customerIdentification": "string",  
+
+    "paymentToken": "string",  
+
+    "markAsPreferred": true  
+
+  },  
+
+  "splits": [  
+
+    {  
+
+      "identification": "string",  
+
+      "amount": "9.99",  
+
+      "currency": "EUR",  
+
+      "sellerMerchantGuid": "string",  
+
+      "sellerMerchantExternalId": "string",  
+
+      "commissionFee": {  
+
+        "amount": "9.99",  
+
+        "currency": "EUR"  
+
+      }  
+
+    }  
+
+  ],  
+
+  "tracingData": {  
+
+    "transactions": [  
+
+      {  
+
+        "uuid": "string",  
+
+        "sequence_number": 0,  
+
+        "status": "SUCCESS",  
+
+        "connector": {  
+
+          "guid": "string"  
+
+        }  
+
+      }  
+
+    ]  
+
+  },  
+
+  "message": "string",  
+
+  "code": "string",  
+
+  "adapterMessage": "string",  
+
+  "adapterCode": "string",  
+
+  "result": "OK",  
+
+  "scheduleData": [  
+
+    {  
+
+      "scheduleId": "string",  
+
+      "scheduleStatus": "active",  
+
+      "scheduledAt": "2001-02-03T04:05:06+02:00",  
+
+      "merchantMetaData": "string"  
+
+    }  
+
+  ],  
+
+  "notificationSource": "reconciliation",  
+
+  "originalAmount": "string",  
+
+  "originalCurrency": "EUR"  
+
+}  
+
+```
+```
+
+"OK"  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/transaction/transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+{
+  "uuid": "string",
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "purchaseId": "string",
+  "transactionType": "DEBIT",
+  "transactionSubType": "cb-resolved",
+  "paymentMethod": "string",
+  "amount": "9.99",
+  "currency": "EUR",
+  "surchargeAmount": "9.99",
+  "totalAmount": "9.99",
+  "dccData": {
+    "remoteIdentifier": "string",
+    "originalAmount": "9.99",
+    "originalCurrency": "EUR",
+    "convertedAmount": "9.99",
+    "convertedCurrency": "EUR",
+    "conversionRate": 0,
+    "selectedCurrency": "string",
+    "markUp": 0
+  },
+  "referenceUuid": "string",
+  "errors": [
+    {
+      "message": "string",
+      "code": "string",
+      "adapterMessage": "string",
+      "adapterCode": "string"
+    }
+  ],
+  "chargebackData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "chargebackReversalData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "chargebackUuid": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "extraData": {},
+  "merchantMetaData": "string",
+  "returnData": {
+    "_TYPE": "cardData"
+  },
+  "payByLinkData": {
+    "sendViaEmail": true,
+    "cancelUrl": "string",
+    "expiresAt": "2024-07-29T15:51:28.071Z"
+  },
+  "customer": {
+    "identification": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "birthDate": "2001-02-03",
+    "gender": "M",
+    "billingAddress1": "string",
+    "billingAddress2": "string",
+    "billingCity": "string",
+    "billingPostcode": "string",
+    "billingState": "string",
+    "billingCountry": "AT",
+    "billingPhone": "+XX 1234567890",
+    "shippingFirstName": "string",
+    "shippingLastName": "string",
+    "shippingCompany": "string",
+    "shippingAddress1": "string",
+    "shippingAddress2": "string",
+    "shippingCity": "string",
+    "shippingPostcode": "string",
+    "shippingState": "string",
+    "shippingCountry": "AT",
+    "shippingPhone": "+XX 1234567890",
+    "company": "string",
+    "email": "string",
+    "emailVerified": true,
+    "ipAddress": "string",
+    "nationalId": "string",
+    "extraData": {},
+    "paymentData": {
+      "ibanData": {
+        "iban": "string",
+        "bic": "string",
+        "mandateId": "string",
+        "mandateDate": "2001-02-03"
+      }
+    }
+  },
+  "customerProfileData": {
+    "profileGuid": "string",
+    "customerIdentification": "string",
+    "paymentToken": "string",
+    "markAsPreferred": true
+  },
+  "splits": [
+    {
+      "identification": "string",
+      "amount": "9.99",
+      "currency": "EUR",
+      "sellerMerchantGuid": "string",
+      "sellerMerchantExternalId": "string",
+      "commissionFee": {
+        "amount": "9.99",
+        "currency": "EUR"
+      }
+    }
+  ],
+  "tracingData": {
+    "transactions": [
+      {
+        "uuid": "string",
+        "sequence_number": 0,
+        "status": "SUCCESS",
+        "connector": {
+          "guid": "string"
+        }
+      }
+    ]
+  },
+  "message": "string",
+  "code": "string",
+  "adapterMessage": "string",
+  "adapterCode": "string",
+  "result": "OK",
+  "scheduleData": [
+    {
+      "scheduleId": "string",
+      "scheduleStatus": "active",
+      "scheduledAt": "2001-02-03T04:05:06+02:00",
+      "merchantMetaData": "string"
+    }
+  ],
+  "notificationSource": "reconciliation",
+  "originalAmount": "string",
+  "originalCurrency": "EUR"
+}
+
+```
+```
+Webhook 
+```
+```
+
+{  
+
+  "uuid": "string",  
+
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+
+  "purchaseId": "string",  
+
+  "transactionType": "DEBIT",  
+
+  "transactionSubType": "cb-resolved",  
+
+  "paymentMethod": "string",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "surchargeAmount": "9.99",  
+
+  "totalAmount": "9.99",  
+
+  "dccData": {  
+
+    "remoteIdentifier": "string",  
+
+    "originalAmount": "9.99",  
+
+    "originalCurrency": "EUR",  
+
+    "convertedAmount": "9.99",  
+
+    "convertedCurrency": "EUR",  
+
+    "conversionRate": 0,  
+
+    "selectedCurrency": "string",  
+
+    "markUp": 0  
+
+  },  
+
+  "referenceUuid": "string",  
+
+  "errors": [  
+
+    {  
+
+      "message": "string",  
+
+      "code": "string",  
+
+      "adapterMessage": "string",  
+
+      "adapterCode": "string"  
+
+    }  
+
+  ],  
+
+  "chargebackData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "chargebackReversalData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "chargebackUuid": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "extraData": {},  
+
+  "merchantMetaData": "string",  
+
+  "returnData": {  
+
+    "_TYPE": "cardData"  
+
+  },  
+
+  "payByLinkData": {  
+
+    "sendViaEmail": true,  
+
+    "cancelUrl": "string",  
+
+    "expiresAt": "2024-07-29T15:51:28.071Z"  
+
+  },  
+
+  "customer": {  
+
+    "identification": "string",  
+
+    "firstName": "string",  
+
+    "lastName": "string",  
+
+    "birthDate": "2001-02-03",  
+
+    "gender": "M",  
+
+    "billingAddress1": "string",  
+
+    "billingAddress2": "string",  
+
+    "billingCity": "string",  
+
+    "billingPostcode": "string",  
+
+    "billingState": "string",  
+
+    "billingCountry": "AT",  
+
+    "billingPhone": "+XX 1234567890",  
+
+    "shippingFirstName": "string",  
+
+    "shippingLastName": "string",  
+
+    "shippingCompany": "string",  
+
+    "shippingAddress1": "string",  
+
+    "shippingAddress2": "string",  
+
+    "shippingCity": "string",  
+
+    "shippingPostcode": "string",  
+
+    "shippingState": "string",  
+
+    "shippingCountry": "AT",  
+
+    "shippingPhone": "+XX 1234567890",  
+
+    "company": "string",  
+
+    "email": "string",  
+
+    "emailVerified": true,  
+
+    "ipAddress": "string",  
+
+    "nationalId": "string",  
+
+    "extraData": {},  
+
+    "paymentData": {  
+
+      "ibanData": {  
+
+        "iban": "string",  
+
+        "bic": "string",  
+
+        "mandateId": "string",  
+
+        "mandateDate": "2001-02-03"  
+
+      }  
+
+    }  
+
+  },  
+
+  "customerProfileData": {  
+
+    "profileGuid": "string",  
+
+    "customerIdentification": "string",  
+
+    "paymentToken": "string",  
+
+    "markAsPreferred": true  
+
+  },  
+
+  "splits": [  
+
+    {  
+
+      "identification": "string",  
+
+      "amount": "9.99",  
+
+      "currency": "EUR",  
+
+      "sellerMerchantGuid": "string",  
+
+      "sellerMerchantExternalId": "string",  
+
+      "commissionFee": {  
+
+        "amount": "9.99",  
+
+        "currency": "EUR"  
+
+      }  
+
+    }  
+
+  ],  
+
+  "tracingData": {  
+
+    "transactions": [  
+
+      {  
+
+        "uuid": "string",  
+
+        "sequence_number": 0,  
+
+        "status": "SUCCESS",  
+
+        "connector": {  
+
+          "guid": "string"  
+
+        }  
+
+      }  
+
+    ]  
+
+  },  
+
+  "message": "string",  
+
+  "code": "string",  
+
+  "adapterMessage": "string",  
+
+  "adapterCode": "string",  
+
+  "result": "OK",  
+
+  "scheduleData": [  
+
+    {  
+
+      "scheduleId": "string",  
+
+      "scheduleStatus": "active",  
+
+      "scheduledAt": "2001-02-03T04:05:06+02:00",  
+
+      "merchantMetaData": "string"  
+
+    }  
+
+  ],  
+
+  "notificationSource": "reconciliation",  
+
+  "originalAmount": "string",  
+
+  "originalCurrency": "EUR"  
+
+}  
+
+```
+```
+
+"OK"  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/transaction/transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+{
+  "uuid": "string",
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "purchaseId": "string",
+  "transactionType": "DEBIT",
+  "transactionSubType": "cb-resolved",
+  "paymentMethod": "string",
+  "amount": "9.99",
+  "currency": "EUR",
+  "surchargeAmount": "9.99",
+  "totalAmount": "9.99",
+  "dccData": {
+    "remoteIdentifier": "string",
+    "originalAmount": "9.99",
+    "originalCurrency": "EUR",
+    "convertedAmount": "9.99",
+    "convertedCurrency": "EUR",
+    "conversionRate": 0,
+    "selectedCurrency": "string",
+    "markUp": 0
+  },
+  "referenceUuid": "string",
+  "errors": [
+    {
+      "message": "string",
+      "code": "string",
+      "adapterMessage": "string",
+      "adapterCode": "string"
+    }
+  ],
+  "chargebackData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "chargebackReversalData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "chargebackUuid": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "extraData": {},
+  "merchantMetaData": "string",
+  "returnData": {
+    "_TYPE": "cardData"
+  },
+  "payByLinkData": {
+    "sendViaEmail": true,
+    "cancelUrl": "string",
+    "expiresAt": "2024-07-29T15:51:28.071Z"
+  },
+  "customer": {
+    "identification": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "birthDate": "2001-02-03",
+    "gender": "M",
+    "billingAddress1": "string",
+    "billingAddress2": "string",
+    "billingCity": "string",
+    "billingPostcode": "string",
+    "billingState": "string",
+    "billingCountry": "AT",
+    "billingPhone": "+XX 1234567890",
+    "shippingFirstName": "string",
+    "shippingLastName": "string",
+    "shippingCompany": "string",
+    "shippingAddress1": "string",
+    "shippingAddress2": "string",
+    "shippingCity": "string",
+    "shippingPostcode": "string",
+    "shippingState": "string",
+    "shippingCountry": "AT",
+    "shippingPhone": "+XX 1234567890",
+    "company": "string",
+    "email": "string",
+    "emailVerified": true,
+    "ipAddress": "string",
+    "nationalId": "string",
+    "extraData": {},
+    "paymentData": {
+      "ibanData": {
+        "iban": "string",
+        "bic": "string",
+        "mandateId": "string",
+        "mandateDate": "2001-02-03"
+      }
+    }
+  },
+  "customerProfileData": {
+    "profileGuid": "string",
+    "customerIdentification": "string",
+    "paymentToken": "string",
+    "markAsPreferred": true
+  },
+  "splits": [
+    {
+      "identification": "string",
+      "amount": "9.99",
+      "currency": "EUR",
+      "sellerMerchantGuid": "string",
+      "sellerMerchantExternalId": "string",
+      "commissionFee": {
+        "amount": "9.99",
+        "currency": "EUR"
+      }
+    }
+  ],
+  "tracingData": {
+    "transactions": [
+      {
+        "uuid": "string",
+        "sequence_number": 0,
+        "status": "SUCCESS",
+        "connector": {
+          "guid": "string"
+        }
+      }
+    ]
+  },
+  "message": "string",
+  "code": "string",
+  "adapterMessage": "string",
+  "adapterCode": "string",
+  "result": "OK",
+  "scheduleData": [
+    {
+      "scheduleId": "string",
+      "scheduleStatus": "active",
+      "scheduledAt": "2001-02-03T04:05:06+02:00",
+      "merchantMetaData": "string"
+    }
+  ],
+  "notificationSource": "reconciliation",
+  "originalAmount": "string",
+  "originalCurrency": "EUR"
+}
+
+```
+```
+Webhook 
+```
+```
+
+{  
+
+  "uuid": "string",  
+
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+
+  "purchaseId": "string",  
+
+  "transactionType": "DEBIT",  
+
+  "transactionSubType": "cb-resolved",  
+
+  "paymentMethod": "string",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "surchargeAmount": "9.99",  
+
+  "totalAmount": "9.99",  
+
+  "dccData": {  
+
+    "remoteIdentifier": "string",  
+
+    "originalAmount": "9.99",  
+
+    "originalCurrency": "EUR",  
+
+    "convertedAmount": "9.99",  
+
+    "convertedCurrency": "EUR",  
+
+    "conversionRate": 0,  
+
+    "selectedCurrency": "string",  
+
+    "markUp": 0  
+
+  },  
+
+  "referenceUuid": "string",  
+
+  "errors": [  
+
+    {  
+
+      "message": "string",  
+
+      "code": "string",  
+
+      "adapterMessage": "string",  
+
+      "adapterCode": "string"  
+
+    }  
+
+  ],  
+
+  "chargebackData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "chargebackReversalData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "chargebackUuid": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "extraData": {},  
+
+  "merchantMetaData": "string",  
+
+  "returnData": {  
+
+    "_TYPE": "cardData"  
+
+  },  
+
+  "payByLinkData": {  
+
+    "sendViaEmail": true,  
+
+    "cancelUrl": "string",  
+
+    "expiresAt": "2024-07-29T15:51:28.071Z"  
+
+  },  
+
+  "customer": {  
+
+    "identification": "string",  
+
+    "firstName": "string",  
+
+    "lastName": "string",  
+
+    "birthDate": "2001-02-03",  
+
+    "gender": "M",  
+
+    "billingAddress1": "string",  
+
+    "billingAddress2": "string",  
+
+    "billingCity": "string",  
+
+    "billingPostcode": "string",  
+
+    "billingState": "string",  
+
+    "billingCountry": "AT",  
+
+    "billingPhone": "+XX 1234567890",  
+
+    "shippingFirstName": "string",  
+
+    "shippingLastName": "string",  
+
+    "shippingCompany": "string",  
+
+    "shippingAddress1": "string",  
+
+    "shippingAddress2": "string",  
+
+    "shippingCity": "string",  
+
+    "shippingPostcode": "string",  
+
+    "shippingState": "string",  
+
+    "shippingCountry": "AT",  
+
+    "shippingPhone": "+XX 1234567890",  
+
+    "company": "string",  
+
+    "email": "string",  
+
+    "emailVerified": true,  
+
+    "ipAddress": "string",  
+
+    "nationalId": "string",  
+
+    "extraData": {},  
+
+    "paymentData": {  
+
+      "ibanData": {  
+
+        "iban": "string",  
+
+        "bic": "string",  
+
+        "mandateId": "string",  
+
+        "mandateDate": "2001-02-03"  
+
+      }  
+
+    }  
+
+  },  
+
+  "customerProfileData": {  
+
+    "profileGuid": "string",  
+
+    "customerIdentification": "string",  
+
+    "paymentToken": "string",  
+
+    "markAsPreferred": true  
+
+  },  
+
+  "splits": [  
+
+    {  
+
+      "identification": "string",  
+
+      "amount": "9.99",  
+
+      "currency": "EUR",  
+
+      "sellerMerchantGuid": "string",  
+
+      "sellerMerchantExternalId": "string",  
+
+      "commissionFee": {  
+
+        "amount": "9.99",  
+
+        "currency": "EUR"  
+
+      }  
+
+    }  
+
+  ],  
+
+  "tracingData": {  
+
+    "transactions": [  
+
+      {  
+
+        "uuid": "string",  
+
+        "sequence_number": 0,  
+
+        "status": "SUCCESS",  
+
+        "connector": {  
+
+          "guid": "string"  
+
+        }  
+
+      }  
+
+    ]  
+
+  },  
+
+  "message": "string",  
+
+  "code": "string",  
+
+  "adapterMessage": "string",  
+
+  "adapterCode": "string",  
+
+  "result": "OK",  
+
+  "scheduleData": [  
+
+    {  
+
+      "scheduleId": "string",  
+
+      "scheduleStatus": "active",  
+
+      "scheduledAt": "2001-02-03T04:05:06+02:00",  
+
+      "merchantMetaData": "string"  
+
+    }  
+
+  ],  
+
+  "notificationSource": "reconciliation",  
+
+  "originalAmount": "string",  
+
+  "originalCurrency": "EUR"  
+
+}  
+
+```
+```
+
+"OK"  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/transaction/transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+{
+  "uuid": "string",
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "purchaseId": "string",
+  "transactionType": "DEBIT",
+  "transactionSubType": "cb-resolved",
+  "paymentMethod": "string",
+  "amount": "9.99",
+  "currency": "EUR",
+  "surchargeAmount": "9.99",
+  "totalAmount": "9.99",
+  "dccData": {
+    "remoteIdentifier": "string",
+    "originalAmount": "9.99",
+    "originalCurrency": "EUR",
+    "convertedAmount": "9.99",
+    "convertedCurrency": "EUR",
+    "conversionRate": 0,
+    "selectedCurrency": "string",
+    "markUp": 0
+  },
+  "referenceUuid": "string",
+  "errors": [
+    {
+      "message": "string",
+      "code": "string",
+      "adapterMessage": "string",
+      "adapterCode": "string"
+    }
+  ],
+  "chargebackData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "chargebackReversalData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "chargebackUuid": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "extraData": {},
+  "merchantMetaData": "string",
+  "returnData": {
+    "_TYPE": "cardData"
+  },
+  "payByLinkData": {
+    "sendViaEmail": true,
+    "cancelUrl": "string",
+    "expiresAt": "2024-07-29T15:51:28.071Z"
+  },
+  "customer": {
+    "identification": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "birthDate": "2001-02-03",
+    "gender": "M",
+    "billingAddress1": "string",
+    "billingAddress2": "string",
+    "billingCity": "string",
+    "billingPostcode": "string",
+    "billingState": "string",
+    "billingCountry": "AT",
+    "billingPhone": "+XX 1234567890",
+    "shippingFirstName": "string",
+    "shippingLastName": "string",
+    "shippingCompany": "string",
+    "shippingAddress1": "string",
+    "shippingAddress2": "string",
+    "shippingCity": "string",
+    "shippingPostcode": "string",
+    "shippingState": "string",
+    "shippingCountry": "AT",
+    "shippingPhone": "+XX 1234567890",
+    "company": "string",
+    "email": "string",
+    "emailVerified": true,
+    "ipAddress": "string",
+    "nationalId": "string",
+    "extraData": {},
+    "paymentData": {
+      "ibanData": {
+        "iban": "string",
+        "bic": "string",
+        "mandateId": "string",
+        "mandateDate": "2001-02-03"
+      }
+    }
+  },
+  "customerProfileData": {
+    "profileGuid": "string",
+    "customerIdentification": "string",
+    "paymentToken": "string",
+    "markAsPreferred": true
+  },
+  "splits": [
+    {
+      "identification": "string",
+      "amount": "9.99",
+      "currency": "EUR",
+      "sellerMerchantGuid": "string",
+      "sellerMerchantExternalId": "string",
+      "commissionFee": {
+        "amount": "9.99",
+        "currency": "EUR"
+      }
+    }
+  ],
+  "tracingData": {
+    "transactions": [
+      {
+        "uuid": "string",
+        "sequence_number": 0,
+        "status": "SUCCESS",
+        "connector": {
+          "guid": "string"
+        }
+      }
+    ]
+  },
+  "message": "string",
+  "code": "string",
+  "adapterMessage": "string",
+  "adapterCode": "string",
+  "result": "OK",
+  "scheduleData": [
+    {
+      "scheduleId": "string",
+      "scheduleStatus": "active",
+      "scheduledAt": "2001-02-03T04:05:06+02:00",
+      "merchantMetaData": "string"
+    }
+  ],
+  "notificationSource": "reconciliation",
+  "originalAmount": "string",
+  "originalCurrency": "EUR"
+}
+
+```
+```
+Webhook 
+```
+```
+
+{  
+
+  "uuid": "string",  
+
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+
+  "purchaseId": "string",  
+
+  "transactionType": "DEBIT",  
+
+  "transactionSubType": "cb-resolved",  
+
+  "paymentMethod": "string",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "surchargeAmount": "9.99",  
+
+  "totalAmount": "9.99",  
+
+  "dccData": {  
+
+    "remoteIdentifier": "string",  
+
+    "originalAmount": "9.99",  
+
+    "originalCurrency": "EUR",  
+
+    "convertedAmount": "9.99",  
+
+    "convertedCurrency": "EUR",  
+
+    "conversionRate": 0,  
+
+    "selectedCurrency": "string",  
+
+    "markUp": 0  
+
+  },  
+
+  "referenceUuid": "string",  
+
+  "errors": [  
+
+    {  
+
+      "message": "string",  
+
+      "code": "string",  
+
+      "adapterMessage": "string",  
+
+      "adapterCode": "string"  
+
+    }  
+
+  ],  
+
+  "chargebackData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "chargebackReversalData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "chargebackUuid": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "extraData": {},  
+
+  "merchantMetaData": "string",  
+
+  "returnData": {  
+
+    "_TYPE": "cardData"  
+
+  },  
+
+  "payByLinkData": {  
+
+    "sendViaEmail": true,  
+
+    "cancelUrl": "string",  
+
+    "expiresAt": "2024-07-29T15:51:28.071Z"  
+
+  },  
+
+  "customer": {  
+
+    "identification": "string",  
+
+    "firstName": "string",  
+
+    "lastName": "string",  
+
+    "birthDate": "2001-02-03",  
+
+    "gender": "M",  
+
+    "billingAddress1": "string",  
+
+    "billingAddress2": "string",  
+
+    "billingCity": "string",  
+
+    "billingPostcode": "string",  
+
+    "billingState": "string",  
+
+    "billingCountry": "AT",  
+
+    "billingPhone": "+XX 1234567890",  
+
+    "shippingFirstName": "string",  
+
+    "shippingLastName": "string",  
+
+    "shippingCompany": "string",  
+
+    "shippingAddress1": "string",  
+
+    "shippingAddress2": "string",  
+
+    "shippingCity": "string",  
+
+    "shippingPostcode": "string",  
+
+    "shippingState": "string",  
+
+    "shippingCountry": "AT",  
+
+    "shippingPhone": "+XX 1234567890",  
+
+    "company": "string",  
+
+    "email": "string",  
+
+    "emailVerified": true,  
+
+    "ipAddress": "string",  
+
+    "nationalId": "string",  
+
+    "extraData": {},  
+
+    "paymentData": {  
+
+      "ibanData": {  
+
+        "iban": "string",  
+
+        "bic": "string",  
+
+        "mandateId": "string",  
+
+        "mandateDate": "2001-02-03"  
+
+      }  
+
+    }  
+
+  },  
+
+  "customerProfileData": {  
+
+    "profileGuid": "string",  
+
+    "customerIdentification": "string",  
+
+    "paymentToken": "string",  
+
+    "markAsPreferred": true  
+
+  },  
+
+  "splits": [  
+
+    {  
+
+      "identification": "string",  
+
+      "amount": "9.99",  
+
+      "currency": "EUR",  
+
+      "sellerMerchantGuid": "string",  
+
+      "sellerMerchantExternalId": "string",  
+
+      "commissionFee": {  
+
+        "amount": "9.99",  
+
+        "currency": "EUR"  
+
+      }  
+
+    }  
+
+  ],  
+
+  "tracingData": {  
+
+    "transactions": [  
+
+      {  
+
+        "uuid": "string",  
+
+        "sequence_number": 0,  
+
+        "status": "SUCCESS",  
+
+        "connector": {  
+
+          "guid": "string"  
+
+        }  
+
+      }  
+
+    ]  
+
+  },  
+
+  "message": "string",  
+
+  "code": "string",  
+
+  "adapterMessage": "string",  
+
+  "adapterCode": "string",  
+
+  "result": "OK",  
+
+  "scheduleData": [  
+
+    {  
+
+      "scheduleId": "string",  
+
+      "scheduleStatus": "active",  
+
+      "scheduledAt": "2001-02-03T04:05:06+02:00",  
+
+      "merchantMetaData": "string"  
+
+    }  
+
+  ],  
+
+  "notificationSource": "reconciliation",  
+
+  "originalAmount": "string",  
+
+  "originalCurrency": "EUR"  
+
+}  
+
+```
+```
+
+"OK"  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/transaction/transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+{
+  "uuid": "string",
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "purchaseId": "string",
+  "transactionType": "DEBIT",
+  "transactionSubType": "cb-resolved",
+  "paymentMethod": "string",
+  "amount": "9.99",
+  "currency": "EUR",
+  "surchargeAmount": "9.99",
+  "totalAmount": "9.99",
+  "dccData": {
+    "remoteIdentifier": "string",
+    "originalAmount": "9.99",
+    "originalCurrency": "EUR",
+    "convertedAmount": "9.99",
+    "convertedCurrency": "EUR",
+    "conversionRate": 0,
+    "selectedCurrency": "string",
+    "markUp": 0
+  },
+  "referenceUuid": "string",
+  "errors": [
+    {
+      "message": "string",
+      "code": "string",
+      "adapterMessage": "string",
+      "adapterCode": "string"
+    }
+  ],
+  "chargebackData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "chargebackReversalData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "chargebackUuid": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "extraData": {},
+  "merchantMetaData": "string",
+  "returnData": {
+    "_TYPE": "cardData"
+  },
+  "payByLinkData": {
+    "sendViaEmail": true,
+    "cancelUrl": "string",
+    "expiresAt": "2024-07-29T15:51:28.071Z"
+  },
+  "customer": {
+    "identification": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "birthDate": "2001-02-03",
+    "gender": "M",
+    "billingAddress1": "string",
+    "billingAddress2": "string",
+    "billingCity": "string",
+    "billingPostcode": "string",
+    "billingState": "string",
+    "billingCountry": "AT",
+    "billingPhone": "+XX 1234567890",
+    "shippingFirstName": "string",
+    "shippingLastName": "string",
+    "shippingCompany": "string",
+    "shippingAddress1": "string",
+    "shippingAddress2": "string",
+    "shippingCity": "string",
+    "shippingPostcode": "string",
+    "shippingState": "string",
+    "shippingCountry": "AT",
+    "shippingPhone": "+XX 1234567890",
+    "company": "string",
+    "email": "string",
+    "emailVerified": true,
+    "ipAddress": "string",
+    "nationalId": "string",
+    "extraData": {},
+    "paymentData": {
+      "ibanData": {
+        "iban": "string",
+        "bic": "string",
+        "mandateId": "string",
+        "mandateDate": "2001-02-03"
+      }
+    }
+  },
+  "customerProfileData": {
+    "profileGuid": "string",
+    "customerIdentification": "string",
+    "paymentToken": "string",
+    "markAsPreferred": true
+  },
+  "splits": [
+    {
+      "identification": "string",
+      "amount": "9.99",
+      "currency": "EUR",
+      "sellerMerchantGuid": "string",
+      "sellerMerchantExternalId": "string",
+      "commissionFee": {
+        "amount": "9.99",
+        "currency": "EUR"
+      }
+    }
+  ],
+  "tracingData": {
+    "transactions": [
+      {
+        "uuid": "string",
+        "sequence_number": 0,
+        "status": "SUCCESS",
+        "connector": {
+          "guid": "string"
+        }
+      }
+    ]
+  },
+  "message": "string",
+  "code": "string",
+  "adapterMessage": "string",
+  "adapterCode": "string",
+  "result": "OK",
+  "scheduleData": [
+    {
+      "scheduleId": "string",
+      "scheduleStatus": "active",
+      "scheduledAt": "2001-02-03T04:05:06+02:00",
+      "merchantMetaData": "string"
+    }
+  ],
+  "notificationSource": "reconciliation",
+  "originalAmount": "string",
+  "originalCurrency": "EUR"
+}
+
+```
+```
+Webhook 
+```
+```
+
+{  
+
+  "uuid": "string",  
+
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+
+  "purchaseId": "string",  
+
+  "transactionType": "DEBIT",  
+
+  "transactionSubType": "cb-resolved",  
+
+  "paymentMethod": "string",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "surchargeAmount": "9.99",  
+
+  "totalAmount": "9.99",  
+
+  "dccData": {  
+
+    "remoteIdentifier": "string",  
+
+    "originalAmount": "9.99",  
+
+    "originalCurrency": "EUR",  
+
+    "convertedAmount": "9.99",  
+
+    "convertedCurrency": "EUR",  
+
+    "conversionRate": 0,  
+
+    "selectedCurrency": "string",  
+
+    "markUp": 0  
+
+  },  
+
+  "referenceUuid": "string",  
+
+  "errors": [  
+
+    {  
+
+      "message": "string",  
+
+      "code": "string",  
+
+      "adapterMessage": "string",  
+
+      "adapterCode": "string"  
+
+    }  
+
+  ],  
+
+  "chargebackData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "chargebackReversalData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "chargebackUuid": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "extraData": {},  
+
+  "merchantMetaData": "string",  
+
+  "returnData": {  
+
+    "_TYPE": "cardData"  
+
+  },  
+
+  "payByLinkData": {  
+
+    "sendViaEmail": true,  
+
+    "cancelUrl": "string",  
+
+    "expiresAt": "2024-07-29T15:51:28.071Z"  
+
+  },  
+
+  "customer": {  
+
+    "identification": "string",  
+
+    "firstName": "string",  
+
+    "lastName": "string",  
+
+    "birthDate": "2001-02-03",  
+
+    "gender": "M",  
+
+    "billingAddress1": "string",  
+
+    "billingAddress2": "string",  
+
+    "billingCity": "string",  
+
+    "billingPostcode": "string",  
+
+    "billingState": "string",  
+
+    "billingCountry": "AT",  
+
+    "billingPhone": "+XX 1234567890",  
+
+    "shippingFirstName": "string",  
+
+    "shippingLastName": "string",  
+
+    "shippingCompany": "string",  
+
+    "shippingAddress1": "string",  
+
+    "shippingAddress2": "string",  
+
+    "shippingCity": "string",  
+
+    "shippingPostcode": "string",  
+
+    "shippingState": "string",  
+
+    "shippingCountry": "AT",  
+
+    "shippingPhone": "+XX 1234567890",  
+
+    "company": "string",  
+
+    "email": "string",  
+
+    "emailVerified": true,  
+
+    "ipAddress": "string",  
+
+    "nationalId": "string",  
+
+    "extraData": {},  
+
+    "paymentData": {  
+
+      "ibanData": {  
+
+        "iban": "string",  
+
+        "bic": "string",  
+
+        "mandateId": "string",  
+
+        "mandateDate": "2001-02-03"  
+
+      }  
+
+    }  
+
+  },  
+
+  "customerProfileData": {  
+
+    "profileGuid": "string",  
+
+    "customerIdentification": "string",  
+
+    "paymentToken": "string",  
+
+    "markAsPreferred": true  
+
+  },  
+
+  "splits": [  
+
+    {  
+
+      "identification": "string",  
+
+      "amount": "9.99",  
+
+      "currency": "EUR",  
+
+      "sellerMerchantGuid": "string",  
+
+      "sellerMerchantExternalId": "string",  
+
+      "commissionFee": {  
+
+        "amount": "9.99",  
+
+        "currency": "EUR"  
+
+      }  
+
+    }  
+
+  ],  
+
+  "tracingData": {  
+
+    "transactions": [  
+
+      {  
+
+        "uuid": "string",  
+
+        "sequence_number": 0,  
+
+        "status": "SUCCESS",  
+
+        "connector": {  
+
+          "guid": "string"  
+
+        }  
+
+      }  
+
+    ]  
+
+  },  
+
+  "message": "string",  
+
+  "code": "string",  
+
+  "adapterMessage": "string",  
+
+  "adapterCode": "string",  
+
+  "result": "OK",  
+
+  "scheduleData": [  
+
+    {  
+
+      "scheduleId": "string",  
+
+      "scheduleStatus": "active",  
+
+      "scheduledAt": "2001-02-03T04:05:06+02:00",  
+
+      "merchantMetaData": "string"  
+
+    }  
+
+  ],  
+
+  "notificationSource": "reconciliation",  
+
+  "originalAmount": "string",  
+
+  "originalCurrency": "EUR"  
+
+}  
+
+```
+```
+
+"OK"  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/transaction/transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+{
+  "uuid": "string",
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "purchaseId": "string",
+  "transactionType": "DEBIT",
+  "transactionSubType": "cb-resolved",
+  "paymentMethod": "string",
+  "amount": "9.99",
+  "currency": "EUR",
+  "surchargeAmount": "9.99",
+  "totalAmount": "9.99",
+  "dccData": {
+    "remoteIdentifier": "string",
+    "originalAmount": "9.99",
+    "originalCurrency": "EUR",
+    "convertedAmount": "9.99",
+    "convertedCurrency": "EUR",
+    "conversionRate": 0,
+    "selectedCurrency": "string",
+    "markUp": 0
+  },
+  "referenceUuid": "string",
+  "errors": [
+    {
+      "message": "string",
+      "code": "string",
+      "adapterMessage": "string",
+      "adapterCode": "string"
+    }
+  ],
+  "chargebackData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "chargebackReversalData": {
+    "originalUuid": "string",
+    "originalMerchantTransactionId": "string",
+    "chargebackUuid": "string",
+    "amount": "9.99",
+    "currency": "EUR",
+    "reason": "string",
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"
+  },
+  "extraData": {},
+  "merchantMetaData": "string",
+  "returnData": {
+    "_TYPE": "cardData"
+  },
+  "payByLinkData": {
+    "sendViaEmail": true,
+    "cancelUrl": "string",
+    "expiresAt": "2024-07-29T15:51:28.071Z"
+  },
+  "customer": {
+    "identification": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "birthDate": "2001-02-03",
+    "gender": "M",
+    "billingAddress1": "string",
+    "billingAddress2": "string",
+    "billingCity": "string",
+    "billingPostcode": "string",
+    "billingState": "string",
+    "billingCountry": "AT",
+    "billingPhone": "+XX 1234567890",
+    "shippingFirstName": "string",
+    "shippingLastName": "string",
+    "shippingCompany": "string",
+    "shippingAddress1": "string",
+    "shippingAddress2": "string",
+    "shippingCity": "string",
+    "shippingPostcode": "string",
+    "shippingState": "string",
+    "shippingCountry": "AT",
+    "shippingPhone": "+XX 1234567890",
+    "company": "string",
+    "email": "string",
+    "emailVerified": true,
+    "ipAddress": "string",
+    "nationalId": "string",
+    "extraData": {},
+    "paymentData": {
+      "ibanData": {
+        "iban": "string",
+        "bic": "string",
+        "mandateId": "string",
+        "mandateDate": "2001-02-03"
+      }
+    }
+  },
+  "customerProfileData": {
+    "profileGuid": "string",
+    "customerIdentification": "string",
+    "paymentToken": "string",
+    "markAsPreferred": true
+  },
+  "splits": [
+    {
+      "identification": "string",
+      "amount": "9.99",
+      "currency": "EUR",
+      "sellerMerchantGuid": "string",
+      "sellerMerchantExternalId": "string",
+      "commissionFee": {
+        "amount": "9.99",
+        "currency": "EUR"
+      }
+    }
+  ],
+  "tracingData": {
+    "transactions": [
+      {
+        "uuid": "string",
+        "sequence_number": 0,
+        "status": "SUCCESS",
+        "connector": {
+          "guid": "string"
+        }
+      }
+    ]
+  },
+  "message": "string",
+  "code": "string",
+  "adapterMessage": "string",
+  "adapterCode": "string",
+  "result": "OK",
+  "scheduleData": [
+    {
+      "scheduleId": "string",
+      "scheduleStatus": "active",
+      "scheduledAt": "2001-02-03T04:05:06+02:00",
+      "merchantMetaData": "string"
+    }
+  ],
+  "notificationSource": "reconciliation",
+  "originalAmount": "string",
+  "originalCurrency": "EUR"
+}
+
+```

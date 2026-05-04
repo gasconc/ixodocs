@@ -6,6 +6,12 @@ Ixopay is a payment orchestration platform that enables merchants to process tra
 
 This repository contains the complete documentation from all platforms, scraped from their documentation sites, cleaned into structured markdown, and indexed for efficient retrieval by LLMs and developer tools.
 
+## Golden Rules
+
+1. **Payment methods, PSPs and adapter availability → always consult https://adapters.ixopay.com/.** That page is the live, authoritative source. Local `docs/ixopay/adapters/` is a weekly snapshot and may be stale.
+2. **Never invent, assume, or extrapolate.** If something is not explicitly in the docs, say "not documented".
+3. **Always cite the source.** Every claim must reference the file path and source URL.
+
 ## Navigation
 
 - [Master Index](index.md): Complete map of all 707 documentation pages organized by portal, section, and topic. Start here to find any document.

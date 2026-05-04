@@ -7,15 +7,15 @@ tags:
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-emerchantpay-supported-request-parameters-direct-link-supported-request-parameters
 - stored-credentials-inference-tables-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-emerchantpay-stored-credentials-inference-tables-direct-link-stored-credentials-inference-tables
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-emerchantpay-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-emerchantpay-gateway-response-parameters-direct-link-gateway-response-parameters
-- responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-emerchantpay-responses-direct-link-responses
 - api
 - xml
 - 3ds
 - 3d-secure
-source_url: ''
+- tokenex
+- ixopay
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -125,69 +125,120 @@ Once `recurring_type` is determined, we proceed to set `recurring_category` base
   * Card Capture
   * Card Refund
   * Card Void
-
 ```
+
 {  
+
   "gateway": "EMerchantPay",  
+
   "password": "<Your EMerchantPay Password>",  
+
   "username": "<Your EMerchantPay Username>",  
+
   "amount": 1000,  
+
   "currencyCode": "EUR",  
+
   "creditCard": {  
+
     "number": "4111111111111111",  
+
     "expMonth": 6,  
+
     "expYear": 2026,  
+
     "fullName": "John Doe",  
+
     "cvv": "123"  
+
   },  
+
   "billingAddress": {  
+
     "firstName": "John",  
+
     "lastName": "Doe",  
+
     "address1": "123 Sesame Street",  
+
     "zip": "10178",  
+
     "city": "Los Angeles",  
+
     "state": "CA",  
+
     "country": "USA",  
+
     "email": "john@doe.dev",  
+
     "phone": "+1987987987987"  
+
   },  
+
   "terminalToken": "<Your EMerchantPay Terminal Token>"  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "gateway": "EMerchantPay",  
+
   "password": "<Your EMerchantPay Password>",  
+
   "username": "<Your EMerchantPay Username>",  
+
   "amount": 1000,  
+
   "currencyCode": "EUR",  
+
   "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
   "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
 }  
 
 ```
+```
+
 {  
+
   "gateway": "EMerchantPay",  
+
   "password": "<Your EMerchantPay Password>",  
+
   "username": "<Your EMerchantPay Username>",  
+
   "amount": 1000,  
+
   "currencyCode": "EUR",  
+
   "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
   "TokenExTransactionCode": "<Your TokenExTransactionCode from Purchase/Capture>"  
+
 }  
 
 ```
+```
+
 {  
+
   "gateway": "EMerchantPay",  
+
   "password": "<Your EMerchantPay Password>",  
+
   "username": "<Your EMerchantPay Username>",  
+
   "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
   "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | EMerchantPay Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `providerTransactionCode`  | string  | `unique_id`  | Unique id defined by gateway (must later be used if capturing, voiding or refunding a transaction)  |  
@@ -204,39 +255,61 @@ Once `recurring_type` is determined, we proceed to set `recurring_category` base
 GatewayErrors Code, Message, and source
   1. If the response from EMerchantPay is formatted in an unanticipated way, the following error will be returned.
 ```
+
 {  
+
   "code": "8012",  
+
   "message": "Could not parse gateway response",  
+
   "source": "TokenEx"  
+
 }  
 
-  2. When the `rawResponse` from EMerchantPay contains a `status` of "declined" and a `code` between 500 and 551, the `gatewayError` will have two objects. `gatewayErrors[0].code` is mapped to `code` , `gatewayErrors[0].message` is mapped to `message` , and `gatewayErrors[0].source` will be set to "Gateway"  
+```  2. When the `rawResponse` from EMerchantPay contains a `status` of "declined" and a `code` between 500 and 551, the `gatewayError` will have two objects. `gatewayErrors[0].code` is mapped to `code` , `gatewayErrors[0].message` is mapped to `message` , and `gatewayErrors[0].source` will be set to "Gateway"  
 For the second object `gatewayErrors[1].code` is mapped to `response_code` , `gatewayErrors[1].message` is mapped to `technical_message` , and `gatewayErrors[1].source` will be set to "Processor".  
 [EMerchantPay - Error Codes](https://emerchantpay.github.io/gateway-api-docs/#error-codes-tables)  
 [EMerchantPay - Issuer Response Codes](https://emerchantpay.github.io/gateway-api-docs/#issuer-response-codes)
 ```
+
 "gatewayErrors": [  
+
   {  
+
     "code": "540",  
+
     "message": "Amount exceeds credit card limit.",  
+
     "source": "Gateway"  
+
   },  
+
   {  
+
     "code": "51",  
+
     "message": "Not sufficient funds",  
+
     "source": "Processor"  
+
   }  
+
 ]  
 
-  3. When the `rawResponse` from EMerchantPay does not contain a `status` of "approved", "error", "refunded", or "voided" `gatewayErrors[0].code` is mapped to `code` , `gatewayErrors[0].message` is mapped to `message` , and `gatewayErrors[0].source` will be set to "Gateway"
+```  3. When the `rawResponse` from EMerchantPay does not contain a `status` of "approved", "error", "refunded", or "voided" `gatewayErrors[0].code` is mapped to `code` , `gatewayErrors[0].message` is mapped to `message` , and `gatewayErrors[0].source` will be set to "Gateway"
 ```
+
 {  
+
   "code": "340",  
+
   "message": "Please check input data for errors!",  
+
   "source": "Gateway"  
+
 }  
 
-## Example Responses[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#example-responses "Direct link to Example Responses")
+```## Example Responses[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#example-responses "Direct link to Example Responses")
   * Card Authorize
   * Card Purchase
   * Card Capture
@@ -245,222 +318,3339 @@ For the second object `gatewayErrors[1].code` is mapped to `response_code` , `ga
   * Gateway Error
   * Processor Error
   * Processor Error — Declined by issuer
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>843655</authorization_code>\n  <retrieval_reference_number>331922006528</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>2c3d6a36542ccd053eefc1e1bad9c12b</unique_id>\n  <transaction_id>4efc3590-58df-4cd4-a5ed-3b6d722c7dc2</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-15T22:35:28Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "MmMzZDZhMzY1NDJjY2QwNTNlZWZjMWUxYmFkOWMxMmI=",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "2c3d6a36542ccd053eefc1e1bad9c12b",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {}  
+
     },  
+
     "networkTransactionId": "234567891234560",  
+
     "merchantReferenceId": "4efc3590-58df-4cd4-a5ed-3b6d722c7dc2"  
+
   },  
+
   "referenceNumber": "23111516261111652474",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>sale</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>738084</authorization_code>\n  <retrieval_reference_number>332118006530</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>a64c47fe5dce63ae3b3a4d4af8442311</unique_id>\n  <transaction_id>3d740e64-6c22-4295-8469-438a927a164a</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:45:18Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "YTY0YzQ3ZmU1ZGNlNjNhZTNiM2E0ZDRhZjg0NDIzMTE=",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "a64c47fe5dce63ae3b3a4d4af8442311",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {}  
+
     },  
+
     "networkTransactionId": "234567891234560",  
+
     "merchantReferenceId": "3d740e64-6c22-4295-8469-438a927a164a"  
+
   },  
+
   "referenceNumber": "23111712355819995218",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>capture</transaction_type>\n  <status>approved</status>\n  <unique_id>f19bba07f5a78dea33658fd47dfa9628</unique_id>\n  <transaction_id>f3aed391-0210-4d14-8e11-0a7d6045bf39</transaction_id>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:46:56Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "ZjE5YmJhMDdmNWE3OGRlYTMzNjU4ZmQ0N2RmYTk2Mjg=",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "f19bba07f5a78dea33658fd47dfa9628",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {}  
+
     },  
+
     "merchantReferenceId": "f3aed391-0210-4d14-8e11-0a7d6045bf39"  
+
   },  
+
   "referenceNumber": "23111712373554010444",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>refund</transaction_type>\n  <status>approved</status>\n  <unique_id>ab7adb00559d7f0d698fe54b7295cea7</unique_id>\n  <transaction_id>92ac47ce-19e4-482c-9d62-2401ee857080</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:47:35Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "YWI3YWRiMDA1NTlkN2YwZDY5OGZlNTRiNzI5NWNlYTc=",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "ab7adb00559d7f0d698fe54b7295cea7",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {}  
+
     },  
+
     "merchantReferenceId": "92ac47ce-19e4-482c-9d62-2401ee857080"  
+
   },  
+
   "referenceNumber": "23111712381582919538",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>void</transaction_type>\n  <status>approved</status>\n  <authorization_code>624834</authorization_code>\n  <retrieval_reference_number>332118006533</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>c2e6dde943f3fd97f9e9da893450f12d</unique_id>\n  <transaction_id>16248646-3f26-4918-aac2-58bee303d7db</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:48:23Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "YzJlNmRkZTk0M2YzZmQ5N2Y5ZTlkYTg5MzQ1MGYxMmQ=",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "c2e6dde943f3fd97f9e9da893450f12d",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {}  
+
     },  
+
     "merchantReferenceId": "16248646-3f26-4918-aac2-58bee303d7db"  
+
   },  
+
   "referenceNumber": "23111712390370582720",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>error</status>\n  <unique_id>cb30b3b55a596ee65666e322c03e962a</unique_id>\n  <transaction_id>74c36d86-4da4-4c39-9e4d-526f8a43c17b</transaction_id>\n  <code>340</code>\n  <technical_message>'card_number' is invalid</technical_message>\n  <message>Please check input data for errors!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:49:03Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>false</sent_to_acquirer>\n</payment_response>\n",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "340",  
+
         "message": "'card_number' is invalid",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "cb30b3b55a596ee65666e322c03e962a",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "providerParsed": {}  
+
     },  
+
     "merchantReferenceId": "74c36d86-4da4-4c39-9e4d-526f8a43c17b"  
+
   },  
+
   "referenceNumber": "23111712394268840908",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>51</scheme_response_code> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>51</response_code> \n  <code>540</code> \n  <technical_message>Not sufficient funds</technical_message> \n  <message>Amount exceeds credit card limit.</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "540",  
+
         "message": "Amount exceeds credit card limit.",  
+
         "source": "Gateway"  
+
       },  
+
       {  
+
         "code": "51",  
+
         "message": "Not sufficient funds",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "unique ID",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {}  
+
     },  
+
     "networkTransactionId": "identifier",  
+
     "gatewayToken": "token",  
+
     "customerProfileId": "consumer Nr",  
+
     "merchantReferenceId": "transaction ID"  
+
   },  
+
   "referenceNumber": "023120516155506635941",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "forwardedRequest": null,  
+
     "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>14</scheme_response_code> \n <recurring_advice_code>22</recurring_advice_code> \n <recurring_advice_text>dis be gotten declined</recurring_advice_text> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>19</response_code> \n  <code>500</code> \n  <technical_message>System Error, Re - enter transaction</technical_message> \n  <message>Transaction declined by issuer</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "500",  
+
         "message": "Transaction declined by issuer",  
+
         "source": "Gateway"  
+
       },  
+
       {  
+
         "code": "19",  
+
         "message": "System Error, Re - enter transaction",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "unique ID",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "cvvRaw": "M",  
+
       "providerParsed": {}  
+
     },  
+
     "networkTransactionId": "identifier",  
+
     "gatewayToken": "token",  
+
     "customerProfileId": "consumer Nr",  
+
     "merchantReferenceId": "transaction ID",  
+
     "brandCategoryCode": "14",  
+
     "recurringAdviceCode": "22",  
+
     "recurringAdviceDescription": "it got declined"  
+
   },  
+
   "referenceNumber": "24092613503857421199",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#overview)
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "address1": "123 Sesame Street",  
+
+    "zip": "10178",  
+
+    "city": "Los Angeles",  
+
+    "state": "CA",  
+
+    "country": "USA",  
+
+    "email": "john@doe.dev",  
+
+    "phone": "+1987987987987"  
+
+  },  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Purchase/Capture>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "code": "8012",  
+
+  "message": "Could not parse gateway response",  
+
+  "source": "TokenEx"  
+
+}  
+
+```
+```
+
+"gatewayErrors": [  
+
+  {  
+
+    "code": "540",  
+
+    "message": "Amount exceeds credit card limit.",  
+
+    "source": "Gateway"  
+
+  },  
+
+  {  
+
+    "code": "51",  
+
+    "message": "Not sufficient funds",  
+
+    "source": "Processor"  
+
+  }  
+
+]  
+
+```
+```
+
+{  
+
+  "code": "340",  
+
+  "message": "Please check input data for errors!",  
+
+  "source": "Gateway"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>843655</authorization_code>\n  <retrieval_reference_number>331922006528</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>2c3d6a36542ccd053eefc1e1bad9c12b</unique_id>\n  <transaction_id>4efc3590-58df-4cd4-a5ed-3b6d722c7dc2</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-15T22:35:28Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MmMzZDZhMzY1NDJjY2QwNTNlZWZjMWUxYmFkOWMxMmI=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2c3d6a36542ccd053eefc1e1bad9c12b",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "4efc3590-58df-4cd4-a5ed-3b6d722c7dc2"  
+
+  },  
+
+  "referenceNumber": "23111516261111652474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>sale</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>738084</authorization_code>\n  <retrieval_reference_number>332118006530</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>a64c47fe5dce63ae3b3a4d4af8442311</unique_id>\n  <transaction_id>3d740e64-6c22-4295-8469-438a927a164a</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:45:18Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YTY0YzQ3ZmU1ZGNlNjNhZTNiM2E0ZDRhZjg0NDIzMTE=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "a64c47fe5dce63ae3b3a4d4af8442311",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "3d740e64-6c22-4295-8469-438a927a164a"  
+
+  },  
+
+  "referenceNumber": "23111712355819995218",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>capture</transaction_type>\n  <status>approved</status>\n  <unique_id>f19bba07f5a78dea33658fd47dfa9628</unique_id>\n  <transaction_id>f3aed391-0210-4d14-8e11-0a7d6045bf39</transaction_id>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:46:56Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZjE5YmJhMDdmNWE3OGRlYTMzNjU4ZmQ0N2RmYTk2Mjg=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "f19bba07f5a78dea33658fd47dfa9628",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "f3aed391-0210-4d14-8e11-0a7d6045bf39"  
+
+  },  
+
+  "referenceNumber": "23111712373554010444",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>refund</transaction_type>\n  <status>approved</status>\n  <unique_id>ab7adb00559d7f0d698fe54b7295cea7</unique_id>\n  <transaction_id>92ac47ce-19e4-482c-9d62-2401ee857080</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:47:35Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YWI3YWRiMDA1NTlkN2YwZDY5OGZlNTRiNzI5NWNlYTc=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "ab7adb00559d7f0d698fe54b7295cea7",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "92ac47ce-19e4-482c-9d62-2401ee857080"  
+
+  },  
+
+  "referenceNumber": "23111712381582919538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>void</transaction_type>\n  <status>approved</status>\n  <authorization_code>624834</authorization_code>\n  <retrieval_reference_number>332118006533</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>c2e6dde943f3fd97f9e9da893450f12d</unique_id>\n  <transaction_id>16248646-3f26-4918-aac2-58bee303d7db</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:48:23Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YzJlNmRkZTk0M2YzZmQ5N2Y5ZTlkYTg5MzQ1MGYxMmQ=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "c2e6dde943f3fd97f9e9da893450f12d",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "16248646-3f26-4918-aac2-58bee303d7db"  
+
+  },  
+
+  "referenceNumber": "23111712390370582720",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>error</status>\n  <unique_id>cb30b3b55a596ee65666e322c03e962a</unique_id>\n  <transaction_id>74c36d86-4da4-4c39-9e4d-526f8a43c17b</transaction_id>\n  <code>340</code>\n  <technical_message>'card_number' is invalid</technical_message>\n  <message>Please check input data for errors!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:49:03Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>false</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "340",  
+
+        "message": "'card_number' is invalid",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "cb30b3b55a596ee65666e322c03e962a",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "74c36d86-4da4-4c39-9e4d-526f8a43c17b"  
+
+  },  
+
+  "referenceNumber": "23111712394268840908",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>51</scheme_response_code> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>51</response_code> \n  <code>540</code> \n  <technical_message>Not sufficient funds</technical_message> \n  <message>Amount exceeds credit card limit.</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "540",  
+
+        "message": "Amount exceeds credit card limit.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "51",  
+
+        "message": "Not sufficient funds",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID"  
+
+  },  
+
+  "referenceNumber": "023120516155506635941",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "forwardedRequest": null,  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>14</scheme_response_code> \n <recurring_advice_code>22</recurring_advice_code> \n <recurring_advice_text>dis be gotten declined</recurring_advice_text> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>19</response_code> \n  <code>500</code> \n  <technical_message>System Error, Re - enter transaction</technical_message> \n  <message>Transaction declined by issuer</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "500",  
+
+        "message": "Transaction declined by issuer",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "19",  
+
+        "message": "System Error, Re - enter transaction",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID",  
+
+    "brandCategoryCode": "14",  
+
+    "recurringAdviceCode": "22",  
+
+    "recurringAdviceDescription": "it got declined"  
+
+  },  
+
+  "referenceNumber": "24092613503857421199",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "address1": "123 Sesame Street",  
+
+    "zip": "10178",  
+
+    "city": "Los Angeles",  
+
+    "state": "CA",  
+
+    "country": "USA",  
+
+    "email": "john@doe.dev",  
+
+    "phone": "+1987987987987"  
+
+  },  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Purchase/Capture>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "code": "8012",  
+
+  "message": "Could not parse gateway response",  
+
+  "source": "TokenEx"  
+
+}  
+
+```
+```
+
+"gatewayErrors": [  
+
+  {  
+
+    "code": "540",  
+
+    "message": "Amount exceeds credit card limit.",  
+
+    "source": "Gateway"  
+
+  },  
+
+  {  
+
+    "code": "51",  
+
+    "message": "Not sufficient funds",  
+
+    "source": "Processor"  
+
+  }  
+
+]  
+
+```
+```
+
+{  
+
+  "code": "340",  
+
+  "message": "Please check input data for errors!",  
+
+  "source": "Gateway"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>843655</authorization_code>\n  <retrieval_reference_number>331922006528</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>2c3d6a36542ccd053eefc1e1bad9c12b</unique_id>\n  <transaction_id>4efc3590-58df-4cd4-a5ed-3b6d722c7dc2</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-15T22:35:28Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MmMzZDZhMzY1NDJjY2QwNTNlZWZjMWUxYmFkOWMxMmI=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2c3d6a36542ccd053eefc1e1bad9c12b",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "4efc3590-58df-4cd4-a5ed-3b6d722c7dc2"  
+
+  },  
+
+  "referenceNumber": "23111516261111652474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>sale</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>738084</authorization_code>\n  <retrieval_reference_number>332118006530</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>a64c47fe5dce63ae3b3a4d4af8442311</unique_id>\n  <transaction_id>3d740e64-6c22-4295-8469-438a927a164a</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:45:18Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YTY0YzQ3ZmU1ZGNlNjNhZTNiM2E0ZDRhZjg0NDIzMTE=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "a64c47fe5dce63ae3b3a4d4af8442311",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "3d740e64-6c22-4295-8469-438a927a164a"  
+
+  },  
+
+  "referenceNumber": "23111712355819995218",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>capture</transaction_type>\n  <status>approved</status>\n  <unique_id>f19bba07f5a78dea33658fd47dfa9628</unique_id>\n  <transaction_id>f3aed391-0210-4d14-8e11-0a7d6045bf39</transaction_id>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:46:56Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZjE5YmJhMDdmNWE3OGRlYTMzNjU4ZmQ0N2RmYTk2Mjg=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "f19bba07f5a78dea33658fd47dfa9628",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "f3aed391-0210-4d14-8e11-0a7d6045bf39"  
+
+  },  
+
+  "referenceNumber": "23111712373554010444",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>refund</transaction_type>\n  <status>approved</status>\n  <unique_id>ab7adb00559d7f0d698fe54b7295cea7</unique_id>\n  <transaction_id>92ac47ce-19e4-482c-9d62-2401ee857080</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:47:35Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YWI3YWRiMDA1NTlkN2YwZDY5OGZlNTRiNzI5NWNlYTc=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "ab7adb00559d7f0d698fe54b7295cea7",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "92ac47ce-19e4-482c-9d62-2401ee857080"  
+
+  },  
+
+  "referenceNumber": "23111712381582919538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>void</transaction_type>\n  <status>approved</status>\n  <authorization_code>624834</authorization_code>\n  <retrieval_reference_number>332118006533</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>c2e6dde943f3fd97f9e9da893450f12d</unique_id>\n  <transaction_id>16248646-3f26-4918-aac2-58bee303d7db</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:48:23Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YzJlNmRkZTk0M2YzZmQ5N2Y5ZTlkYTg5MzQ1MGYxMmQ=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "c2e6dde943f3fd97f9e9da893450f12d",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "16248646-3f26-4918-aac2-58bee303d7db"  
+
+  },  
+
+  "referenceNumber": "23111712390370582720",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>error</status>\n  <unique_id>cb30b3b55a596ee65666e322c03e962a</unique_id>\n  <transaction_id>74c36d86-4da4-4c39-9e4d-526f8a43c17b</transaction_id>\n  <code>340</code>\n  <technical_message>'card_number' is invalid</technical_message>\n  <message>Please check input data for errors!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:49:03Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>false</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "340",  
+
+        "message": "'card_number' is invalid",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "cb30b3b55a596ee65666e322c03e962a",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "74c36d86-4da4-4c39-9e4d-526f8a43c17b"  
+
+  },  
+
+  "referenceNumber": "23111712394268840908",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>51</scheme_response_code> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>51</response_code> \n  <code>540</code> \n  <technical_message>Not sufficient funds</technical_message> \n  <message>Amount exceeds credit card limit.</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "540",  
+
+        "message": "Amount exceeds credit card limit.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "51",  
+
+        "message": "Not sufficient funds",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID"  
+
+  },  
+
+  "referenceNumber": "023120516155506635941",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "forwardedRequest": null,  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>14</scheme_response_code> \n <recurring_advice_code>22</recurring_advice_code> \n <recurring_advice_text>dis be gotten declined</recurring_advice_text> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>19</response_code> \n  <code>500</code> \n  <technical_message>System Error, Re - enter transaction</technical_message> \n  <message>Transaction declined by issuer</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "500",  
+
+        "message": "Transaction declined by issuer",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "19",  
+
+        "message": "System Error, Re - enter transaction",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID",  
+
+    "brandCategoryCode": "14",  
+
+    "recurringAdviceCode": "22",  
+
+    "recurringAdviceDescription": "it got declined"  
+
+  },  
+
+  "referenceNumber": "24092613503857421199",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "address1": "123 Sesame Street",  
+
+    "zip": "10178",  
+
+    "city": "Los Angeles",  
+
+    "state": "CA",  
+
+    "country": "USA",  
+
+    "email": "john@doe.dev",  
+
+    "phone": "+1987987987987"  
+
+  },  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Purchase/Capture>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "code": "8012",  
+
+  "message": "Could not parse gateway response",  
+
+  "source": "TokenEx"  
+
+}  
+
+```
+```
+
+"gatewayErrors": [  
+
+  {  
+
+    "code": "540",  
+
+    "message": "Amount exceeds credit card limit.",  
+
+    "source": "Gateway"  
+
+  },  
+
+  {  
+
+    "code": "51",  
+
+    "message": "Not sufficient funds",  
+
+    "source": "Processor"  
+
+  }  
+
+]  
+
+```
+```
+
+{  
+
+  "code": "340",  
+
+  "message": "Please check input data for errors!",  
+
+  "source": "Gateway"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>843655</authorization_code>\n  <retrieval_reference_number>331922006528</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>2c3d6a36542ccd053eefc1e1bad9c12b</unique_id>\n  <transaction_id>4efc3590-58df-4cd4-a5ed-3b6d722c7dc2</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-15T22:35:28Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MmMzZDZhMzY1NDJjY2QwNTNlZWZjMWUxYmFkOWMxMmI=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2c3d6a36542ccd053eefc1e1bad9c12b",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "4efc3590-58df-4cd4-a5ed-3b6d722c7dc2"  
+
+  },  
+
+  "referenceNumber": "23111516261111652474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>sale</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>738084</authorization_code>\n  <retrieval_reference_number>332118006530</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>a64c47fe5dce63ae3b3a4d4af8442311</unique_id>\n  <transaction_id>3d740e64-6c22-4295-8469-438a927a164a</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:45:18Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YTY0YzQ3ZmU1ZGNlNjNhZTNiM2E0ZDRhZjg0NDIzMTE=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "a64c47fe5dce63ae3b3a4d4af8442311",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "3d740e64-6c22-4295-8469-438a927a164a"  
+
+  },  
+
+  "referenceNumber": "23111712355819995218",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>capture</transaction_type>\n  <status>approved</status>\n  <unique_id>f19bba07f5a78dea33658fd47dfa9628</unique_id>\n  <transaction_id>f3aed391-0210-4d14-8e11-0a7d6045bf39</transaction_id>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:46:56Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZjE5YmJhMDdmNWE3OGRlYTMzNjU4ZmQ0N2RmYTk2Mjg=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "f19bba07f5a78dea33658fd47dfa9628",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "f3aed391-0210-4d14-8e11-0a7d6045bf39"  
+
+  },  
+
+  "referenceNumber": "23111712373554010444",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>refund</transaction_type>\n  <status>approved</status>\n  <unique_id>ab7adb00559d7f0d698fe54b7295cea7</unique_id>\n  <transaction_id>92ac47ce-19e4-482c-9d62-2401ee857080</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:47:35Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YWI3YWRiMDA1NTlkN2YwZDY5OGZlNTRiNzI5NWNlYTc=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "ab7adb00559d7f0d698fe54b7295cea7",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "92ac47ce-19e4-482c-9d62-2401ee857080"  
+
+  },  
+
+  "referenceNumber": "23111712381582919538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>void</transaction_type>\n  <status>approved</status>\n  <authorization_code>624834</authorization_code>\n  <retrieval_reference_number>332118006533</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>c2e6dde943f3fd97f9e9da893450f12d</unique_id>\n  <transaction_id>16248646-3f26-4918-aac2-58bee303d7db</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:48:23Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YzJlNmRkZTk0M2YzZmQ5N2Y5ZTlkYTg5MzQ1MGYxMmQ=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "c2e6dde943f3fd97f9e9da893450f12d",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "16248646-3f26-4918-aac2-58bee303d7db"  
+
+  },  
+
+  "referenceNumber": "23111712390370582720",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>error</status>\n  <unique_id>cb30b3b55a596ee65666e322c03e962a</unique_id>\n  <transaction_id>74c36d86-4da4-4c39-9e4d-526f8a43c17b</transaction_id>\n  <code>340</code>\n  <technical_message>'card_number' is invalid</technical_message>\n  <message>Please check input data for errors!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:49:03Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>false</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "340",  
+
+        "message": "'card_number' is invalid",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "cb30b3b55a596ee65666e322c03e962a",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "74c36d86-4da4-4c39-9e4d-526f8a43c17b"  
+
+  },  
+
+  "referenceNumber": "23111712394268840908",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>51</scheme_response_code> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>51</response_code> \n  <code>540</code> \n  <technical_message>Not sufficient funds</technical_message> \n  <message>Amount exceeds credit card limit.</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "540",  
+
+        "message": "Amount exceeds credit card limit.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "51",  
+
+        "message": "Not sufficient funds",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID"  
+
+  },  
+
+  "referenceNumber": "023120516155506635941",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "forwardedRequest": null,  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>14</scheme_response_code> \n <recurring_advice_code>22</recurring_advice_code> \n <recurring_advice_text>dis be gotten declined</recurring_advice_text> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>19</response_code> \n  <code>500</code> \n  <technical_message>System Error, Re - enter transaction</technical_message> \n  <message>Transaction declined by issuer</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "500",  
+
+        "message": "Transaction declined by issuer",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "19",  
+
+        "message": "System Error, Re - enter transaction",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID",  
+
+    "brandCategoryCode": "14",  
+
+    "recurringAdviceCode": "22",  
+
+    "recurringAdviceDescription": "it got declined"  
+
+  },  
+
+  "referenceNumber": "24092613503857421199",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#supported-request-parameters)
   * [Stored Credentials Inference Tables](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#stored-credentials-inference-tables)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay#example-responses)
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "address1": "123 Sesame Street",  
+
+    "zip": "10178",  
+
+    "city": "Los Angeles",  
+
+    "state": "CA",  
+
+    "country": "USA",  
+
+    "email": "john@doe.dev",  
+
+    "phone": "+1987987987987"  
+
+  },  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Purchase/Capture>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "code": "8012",  
+
+  "message": "Could not parse gateway response",  
+
+  "source": "TokenEx"  
+
+}  
+
+```
+```
+
+"gatewayErrors": [  
+
+  {  
+
+    "code": "540",  
+
+    "message": "Amount exceeds credit card limit.",  
+
+    "source": "Gateway"  
+
+  },  
+
+  {  
+
+    "code": "51",  
+
+    "message": "Not sufficient funds",  
+
+    "source": "Processor"  
+
+  }  
+
+]  
+
+```
+```
+
+{  
+
+  "code": "340",  
+
+  "message": "Please check input data for errors!",  
+
+  "source": "Gateway"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>843655</authorization_code>\n  <retrieval_reference_number>331922006528</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>2c3d6a36542ccd053eefc1e1bad9c12b</unique_id>\n  <transaction_id>4efc3590-58df-4cd4-a5ed-3b6d722c7dc2</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-15T22:35:28Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MmMzZDZhMzY1NDJjY2QwNTNlZWZjMWUxYmFkOWMxMmI=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2c3d6a36542ccd053eefc1e1bad9c12b",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "4efc3590-58df-4cd4-a5ed-3b6d722c7dc2"  
+
+  },  
+
+  "referenceNumber": "23111516261111652474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>sale</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>738084</authorization_code>\n  <retrieval_reference_number>332118006530</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>a64c47fe5dce63ae3b3a4d4af8442311</unique_id>\n  <transaction_id>3d740e64-6c22-4295-8469-438a927a164a</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:45:18Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YTY0YzQ3ZmU1ZGNlNjNhZTNiM2E0ZDRhZjg0NDIzMTE=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "a64c47fe5dce63ae3b3a4d4af8442311",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "3d740e64-6c22-4295-8469-438a927a164a"  
+
+  },  
+
+  "referenceNumber": "23111712355819995218",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>capture</transaction_type>\n  <status>approved</status>\n  <unique_id>f19bba07f5a78dea33658fd47dfa9628</unique_id>\n  <transaction_id>f3aed391-0210-4d14-8e11-0a7d6045bf39</transaction_id>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:46:56Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZjE5YmJhMDdmNWE3OGRlYTMzNjU4ZmQ0N2RmYTk2Mjg=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "f19bba07f5a78dea33658fd47dfa9628",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "f3aed391-0210-4d14-8e11-0a7d6045bf39"  
+
+  },  
+
+  "referenceNumber": "23111712373554010444",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>refund</transaction_type>\n  <status>approved</status>\n  <unique_id>ab7adb00559d7f0d698fe54b7295cea7</unique_id>\n  <transaction_id>92ac47ce-19e4-482c-9d62-2401ee857080</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:47:35Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YWI3YWRiMDA1NTlkN2YwZDY5OGZlNTRiNzI5NWNlYTc=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "ab7adb00559d7f0d698fe54b7295cea7",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "92ac47ce-19e4-482c-9d62-2401ee857080"  
+
+  },  
+
+  "referenceNumber": "23111712381582919538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>void</transaction_type>\n  <status>approved</status>\n  <authorization_code>624834</authorization_code>\n  <retrieval_reference_number>332118006533</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>c2e6dde943f3fd97f9e9da893450f12d</unique_id>\n  <transaction_id>16248646-3f26-4918-aac2-58bee303d7db</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:48:23Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YzJlNmRkZTk0M2YzZmQ5N2Y5ZTlkYTg5MzQ1MGYxMmQ=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "c2e6dde943f3fd97f9e9da893450f12d",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "16248646-3f26-4918-aac2-58bee303d7db"  
+
+  },  
+
+  "referenceNumber": "23111712390370582720",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>error</status>\n  <unique_id>cb30b3b55a596ee65666e322c03e962a</unique_id>\n  <transaction_id>74c36d86-4da4-4c39-9e4d-526f8a43c17b</transaction_id>\n  <code>340</code>\n  <technical_message>'card_number' is invalid</technical_message>\n  <message>Please check input data for errors!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:49:03Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>false</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "340",  
+
+        "message": "'card_number' is invalid",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "cb30b3b55a596ee65666e322c03e962a",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "74c36d86-4da4-4c39-9e4d-526f8a43c17b"  
+
+  },  
+
+  "referenceNumber": "23111712394268840908",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>51</scheme_response_code> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>51</response_code> \n  <code>540</code> \n  <technical_message>Not sufficient funds</technical_message> \n  <message>Amount exceeds credit card limit.</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "540",  
+
+        "message": "Amount exceeds credit card limit.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "51",  
+
+        "message": "Not sufficient funds",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID"  
+
+  },  
+
+  "referenceNumber": "023120516155506635941",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "forwardedRequest": null,  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>14</scheme_response_code> \n <recurring_advice_code>22</recurring_advice_code> \n <recurring_advice_text>dis be gotten declined</recurring_advice_text> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>19</response_code> \n  <code>500</code> \n  <technical_message>System Error, Re - enter transaction</technical_message> \n  <message>Transaction declined by issuer</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "500",  
+
+        "message": "Transaction declined by issuer",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "19",  
+
+        "message": "System Error, Re - enter transaction",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID",  
+
+    "brandCategoryCode": "14",  
+
+    "recurringAdviceCode": "22",  
+
+    "recurringAdviceDescription": "it got declined"  
+
+  },  
+
+  "referenceNumber": "24092613503857421199",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "creditCard": {  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 6,  
+
+    "expYear": 2026,  
+
+    "fullName": "John Doe",  
+
+    "cvv": "123"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "John",  
+
+    "lastName": "Doe",  
+
+    "address1": "123 Sesame Street",  
+
+    "zip": "10178",  
+
+    "city": "Los Angeles",  
+
+    "state": "CA",  
+
+    "country": "USA",  
+
+    "email": "john@doe.dev",  
+
+    "phone": "+1987987987987"  
+
+  },  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "amount": 1000,  
+
+  "currencyCode": "EUR",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Purchase/Capture>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gateway": "EMerchantPay",  
+
+  "password": "<Your EMerchantPay Password>",  
+
+  "username": "<Your EMerchantPay Username>",  
+
+  "terminalToken": "<Your EMerchantPay Terminal Token>",  
+
+  "TokenExTransactionCode": "<Your TokenExTransactionCode from Authorize>"  
+
+}  
+
+```
+```
+
+{  
+
+  "code": "8012",  
+
+  "message": "Could not parse gateway response",  
+
+  "source": "TokenEx"  
+
+}  
+
+```
+```
+
+"gatewayErrors": [  
+
+  {  
+
+    "code": "540",  
+
+    "message": "Amount exceeds credit card limit.",  
+
+    "source": "Gateway"  
+
+  },  
+
+  {  
+
+    "code": "51",  
+
+    "message": "Not sufficient funds",  
+
+    "source": "Processor"  
+
+  }  
+
+]  
+
+```
+```
+
+{  
+
+  "code": "340",  
+
+  "message": "Please check input data for errors!",  
+
+  "source": "Gateway"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>843655</authorization_code>\n  <retrieval_reference_number>331922006528</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>2c3d6a36542ccd053eefc1e1bad9c12b</unique_id>\n  <transaction_id>4efc3590-58df-4cd4-a5ed-3b6d722c7dc2</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-15T22:35:28Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "MmMzZDZhMzY1NDJjY2QwNTNlZWZjMWUxYmFkOWMxMmI=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "2c3d6a36542ccd053eefc1e1bad9c12b",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "4efc3590-58df-4cd4-a5ed-3b6d722c7dc2"  
+
+  },  
+
+  "referenceNumber": "23111516261111652474",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>sale</transaction_type>\n  <status>approved</status>\n  <cvv_result_code>M</cvv_result_code>\n  <authorization_code>738084</authorization_code>\n  <retrieval_reference_number>332118006530</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>a64c47fe5dce63ae3b3a4d4af8442311</unique_id>\n  <transaction_id>3d740e64-6c22-4295-8469-438a927a164a</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:45:18Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n  <scheme_transaction_identifier>234567891234560</scheme_transaction_identifier>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YTY0YzQ3ZmU1ZGNlNjNhZTNiM2E0ZDRhZjg0NDIzMTE=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "a64c47fe5dce63ae3b3a4d4af8442311",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "234567891234560",  
+
+    "merchantReferenceId": "3d740e64-6c22-4295-8469-438a927a164a"  
+
+  },  
+
+  "referenceNumber": "23111712355819995218",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>capture</transaction_type>\n  <status>approved</status>\n  <unique_id>f19bba07f5a78dea33658fd47dfa9628</unique_id>\n  <transaction_id>f3aed391-0210-4d14-8e11-0a7d6045bf39</transaction_id>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:46:56Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "ZjE5YmJhMDdmNWE3OGRlYTMzNjU4ZmQ0N2RmYTk2Mjg=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "f19bba07f5a78dea33658fd47dfa9628",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "f3aed391-0210-4d14-8e11-0a7d6045bf39"  
+
+  },  
+
+  "referenceNumber": "23111712373554010444",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>refund</transaction_type>\n  <status>approved</status>\n  <unique_id>ab7adb00559d7f0d698fe54b7295cea7</unique_id>\n  <transaction_id>92ac47ce-19e4-482c-9d62-2401ee857080</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:47:35Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YWI3YWRiMDA1NTlkN2YwZDY5OGZlNTRiNzI5NWNlYTc=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "ab7adb00559d7f0d698fe54b7295cea7",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "92ac47ce-19e4-482c-9d62-2401ee857080"  
+
+  },  
+
+  "referenceNumber": "23111712381582919538",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>void</transaction_type>\n  <status>approved</status>\n  <authorization_code>624834</authorization_code>\n  <retrieval_reference_number>332118006533</retrieval_reference_number>\n  <scheme_response_code>00</scheme_response_code>\n  <unique_id>c2e6dde943f3fd97f9e9da893450f12d</unique_id>\n  <transaction_id>16248646-3f26-4918-aac2-58bee303d7db</transaction_id>\n  <response_code>00</response_code>\n  <technical_message>TESTMODE: No real money will be transferred!</technical_message>\n  <message>TESTMODE: No real money will be transferred!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:48:23Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <sent_to_acquirer>true</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "YzJlNmRkZTk0M2YzZmQ5N2Y5ZTlkYTg5MzQ1MGYxMmQ=",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "c2e6dde943f3fd97f9e9da893450f12d",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "16248646-3f26-4918-aac2-58bee303d7db"  
+
+  },  
+
+  "referenceNumber": "23111712390370582720",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response>\n  <transaction_type>authorize</transaction_type>\n  <status>error</status>\n  <unique_id>cb30b3b55a596ee65666e322c03e962a</unique_id>\n  <transaction_id>74c36d86-4da4-4c39-9e4d-526f8a43c17b</transaction_id>\n  <code>340</code>\n  <technical_message>'card_number' is invalid</technical_message>\n  <message>Please check input data for errors!</message>\n  <mode>test</mode>\n  <timestamp>2023-11-17T18:49:03Z</timestamp>\n  <descriptor>TokenEx</descriptor>\n  <amount>1000</amount>\n  <currency>EUR</currency>\n  <sent_to_acquirer>false</sent_to_acquirer>\n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "340",  
+
+        "message": "'card_number' is invalid",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "cb30b3b55a596ee65666e322c03e962a",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "74c36d86-4da4-4c39-9e4d-526f8a43c17b"  
+
+  },  
+
+  "referenceNumber": "23111712394268840908",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>51</scheme_response_code> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>51</response_code> \n  <code>540</code> \n  <technical_message>Not sufficient funds</technical_message> \n  <message>Amount exceeds credit card limit.</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "540",  
+
+        "message": "Amount exceeds credit card limit.",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "51",  
+
+        "message": "Not sufficient funds",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID"  
+
+  },  
+
+  "referenceNumber": "023120516155506635941",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "forwardedRequest": null,  
+
+    "rawResponse": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<payment_response> \n  <transaction_type>authorize</transaction_type> \n  <status>declined</status> \n  <cvv_result_code>M</cvv_result_code> \n  <retrieval_reference_number>333500197910</retrieval_reference_number> \n  <scheme_response_code>14</scheme_response_code> \n <recurring_advice_code>22</recurring_advice_code> \n <recurring_advice_text>dis be gotten declined</recurring_advice_text> \n  <unique_id>unique ID</unique_id> \n  <transaction_id>transaction ID</transaction_id> \n  <consumer_id>consumer Nr</consumer_id> \n  <token>token</token> \n  <response_code>19</response_code> \n  <code>500</code> \n  <technical_message>System Error, Re - enter transaction</technical_message> \n  <message>Transaction declined by issuer</message> \n  <mode>live</mode> \n  <timestamp>2023-11-05T11:26:26Z</timestamp> \n  <descriptor>descriptor</descriptor> \n  <amount>2000</amount> \n  <currency>USD</currency> \n  <sent_to_acquirer>true</sent_to_acquirer> \n  <scheme_transaction_identifier>identifier</scheme_transaction_identifier> \n</payment_response>\n",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "500",  
+
+        "message": "Transaction declined by issuer",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "19",  
+
+        "message": "System Error, Re - enter transaction",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "unique ID",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {}  
+
+    },  
+
+    "networkTransactionId": "identifier",  
+
+    "gatewayToken": "token",  
+
+    "customerProfileId": "consumer Nr",  
+
+    "merchantReferenceId": "transaction ID",  
+
+    "brandCategoryCode": "14",  
+
+    "recurringAdviceCode": "22",  
+
+    "recurringAdviceDescription": "it got declined"  
+
+  },  
+
+  "referenceNumber": "24092613503857421199",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```

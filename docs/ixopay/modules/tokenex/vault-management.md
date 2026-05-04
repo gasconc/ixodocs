@@ -5,16 +5,14 @@ tags:
 - actions-https-documentation-ixopay-com-modules-docs-tokenex-vault-management-actions-direct-link-actions
 - examples-https-documentation-ixopay-com-modules-docs-tokenex-vault-management-examples-direct-link-examples
 - create-vault-https-documentation-ixopay-com-modules-docs-tokenex-vault-management-create-vault-direct-link-create-vault
-- vaults-https-documentation-ixopay-com-modules-docs-tokenex-vault-management-vaults-direct-link-vaults
-- vault-details-https-documentation-ixopay-com-modules-docs-tokenex-vault-management-vault-details-direct-link-vault-details
-- update-vault-https-documentation-ixopay-com-modules-docs-tokenex-vault-management-update-vault-direct-link-update-vault
-- delete-vault-https-documentation-ixopay-com-modules-docs-tokenex-vault-management-delete-vault-direct-link-delete-vault
 - api
 - json
 - tokenex
-source_url: ''
+- ixopay
+- authorization
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/vault-management
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -38,123 +36,1098 @@ Vault management includes the ability to Create, Read, Update and Delete vaults.
 ### Create Vault[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#create-vault "Direct link to Create Vault")
   * Request
   * Response
-
 ```
+
 POST /api/api/vault/ HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Content-Type: application/json  
+
 Authorization: {Your Authorization Value}  
+
   
+
 {  
+
   "Name": "string"  
+
   // Optional. Given a Vaultless Company, any Valid Vaultless Token Scheme.  
+
   "VaultlessTokenScheme": "string"  
+
 }  
 
-```
-
-Vaultless Token Schemes
+```Vaultless Token Schemes
 For more information on `VaultlessTokenScheme` see [Universal Token Schemes — Vaultless](https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes#vaultless).
 ```
+
 HTTP/1.1 200 OK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Vault": {  
+
     "TokenExId": "string",  
+
     "Name": "string",  
+
     "Add_Date": "string"  
+
   },  
+
   "ApiKeys": ["string"],  
+
   "Summary": {  
+
     "TotalVaults": number,  
+
     "VaultsCreatedInLastThirtyDays": number  
+
   }  
+
 }  
 
-### Get Vaults[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#get-vaults "Direct link to Get Vaults")
+```### Get Vaults[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#get-vaults "Direct link to Get Vaults")
   * Request
   * Response
-
 ```
+
 GET /api/api/vault HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Authorization: {Your Authorization Value}  
 
 ```
+```
+
 HTTP/1.1 200 OK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Vaults": [  
+
     {  
+
       "TokenExId": "string",  
+
       "Name": "string",  
+
       "Add_Date": "string"  
+
     }  
+
   ],  
+
   "Summary": {  
+
     "TotalVaults": number,  
+
     "VaultsCreatedInLastThirtyDays": number  
+
   }  
+
 }  
 
-### Get Vault Details[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#get-vault-details "Direct link to Get Vault Details")
+```### Get Vault Details[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#get-vault-details "Direct link to Get Vault Details")
   * Request
   * Response
-
 ```
+
 GET /api/api/vault/12345 HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Authorization: {Your Authorization Value}  
 
 ```
+```
+
 HTTP/1.1 200 OK  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "Vault": {  
+
     "TokenExId": "string",  
+
     "Name": "string",  
+
     "Add_Date": "string"  
+
   },  
+
   "ApiKeys": ["string"],  
+
   "Summary": {  
+
     "TotalVaults": number,  
+
     "VaultsCreatedInLastThirtyDays": number  
+
   }  
+
 }  
 
-### Update Vault[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#update-vault "Direct link to Update Vault")
+```### Update Vault[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#update-vault "Direct link to Update Vault")
   * Request
   * Response
-
 ```
+
 PUT /api/api/vault/12345  
+
 Host: test-my.tokenex.com  
+
 Content-Type: application/json  
+
 Authorization: {Your Authorization Value}  
+
   
+
 {  
+
   "name": "string"  
+
 }  
 
 ```
+```
+
 HTTP/1.1 200 OK  
 
-### Delete Vault[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#delete-vault "Direct link to Delete Vault")
+```### Delete Vault[​](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#delete-vault "Direct link to Delete Vault")
   * Request
   * Response
-
 ```
+
 DELETE /api/api/vault/12345 HTTP/1.1  
+
 Host: test-my.tokenex.com  
+
 Authorization: {Your Authorization Value}  
 
-  * [Actions](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#actions)
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+POST /api/api/vault/ HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "Name": "string"  
+
+  // Optional. Given a Vaultless Company, any Valid Vaultless Token Scheme.  
+
+  "VaultlessTokenScheme": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vaults": [  
+
+    {  
+
+      "TokenExId": "string",  
+
+      "Name": "string",  
+
+      "Add_Date": "string"  
+
+    }  
+
+  ],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+PUT /api/api/vault/12345  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "name": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+POST /api/api/vault/ HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "Name": "string"  
+
+  // Optional. Given a Vaultless Company, any Valid Vaultless Token Scheme.  
+
+  "VaultlessTokenScheme": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vaults": [  
+
+    {  
+
+      "TokenExId": "string",  
+
+      "Name": "string",  
+
+      "Add_Date": "string"  
+
+    }  
+
+  ],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+PUT /api/api/vault/12345  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "name": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+POST /api/api/vault/ HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "Name": "string"  
+
+  // Optional. Given a Vaultless Company, any Valid Vaultless Token Scheme.  
+
+  "VaultlessTokenScheme": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vaults": [  
+
+    {  
+
+      "TokenExId": "string",  
+
+      "Name": "string",  
+
+      "Add_Date": "string"  
+
+    }  
+
+  ],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+PUT /api/api/vault/12345  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "name": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```  * [Actions](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#actions)
   * [Examples](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#examples)
     * [Create Vault](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#create-vault)
     * [Get Vaults](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#get-vaults)
     * [Get Vault Details](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#get-vault-details)
     * [Update Vault](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#update-vault)
     * [Delete Vault](https://documentation.ixopay.com/modules/docs/tokenex/vault-management#delete-vault)
+```
+
+POST /api/api/vault/ HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "Name": "string"  
+
+  // Optional. Given a Vaultless Company, any Valid Vaultless Token Scheme.  
+
+  "VaultlessTokenScheme": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vaults": [  
+
+    {  
+
+      "TokenExId": "string",  
+
+      "Name": "string",  
+
+      "Add_Date": "string"  
+
+    }  
+
+  ],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+PUT /api/api/vault/12345  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "name": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+POST /api/api/vault/ HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "Name": "string"  
+
+  // Optional. Given a Vaultless Company, any Valid Vaultless Token Scheme.  
+
+  "VaultlessTokenScheme": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vaults": [  
+
+    {  
+
+      "TokenExId": "string",  
+
+      "Name": "string",  
+
+      "Add_Date": "string"  
+
+    }  
+
+  ],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+GET /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "Vault": {  
+
+    "TokenExId": "string",  
+
+    "Name": "string",  
+
+    "Add_Date": "string"  
+
+  },  
+
+  "ApiKeys": ["string"],  
+
+  "Summary": {  
+
+    "TotalVaults": number,  
+
+    "VaultsCreatedInLastThirtyDays": number  
+
+  }  
+
+}  
+
+```
+```
+
+PUT /api/api/vault/12345  
+
+Host: test-my.tokenex.com  
+
+Content-Type: application/json  
+
+Authorization: {Your Authorization Value}  
+
+  
+
+{  
+
+  "name": "string"  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```
+```
+
+DELETE /api/api/vault/12345 HTTP/1.1  
+
+Host: test-my.tokenex.com  
+
+Authorization: {Your Authorization Value}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+```

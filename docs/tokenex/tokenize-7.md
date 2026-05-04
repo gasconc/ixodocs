@@ -11,9 +11,9 @@ tags:
 - ixopay
 - authorization
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenize-7
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -200,124 +200,1419 @@ For your convenience, here are the possible verification code values and their d
 | `networkResponse.cardMetaData.cardAssets\[].pixelWidth`  | int  | The width of the image in pixels. Set to zero for non-image MIME-types.  |  
   * Request
   * Response
-
 ```
+
 POST /v2/NetworkToken/Tokenize HTTP/1.1  
+
 Host: test-api.tokenex.com  
+
 tx-apikey: YourAPIKey  
+
 tx-tokenex-id: YourTokenExID  
+
 tx-tokenize: true  
+
 tx-token-scheme: PCI  
+
 Content-Type: application/json  
+
   
+
 {  
+
   "PanSource": "KEYENTERED",  
+
   "ConsumerId": "235468794",  
+
   "PresentationMode": ["ECOM"],  
+
   "AccountType": "WALLET",  
+
   "ExpirationDate": "2212",  
+
   "Data": "4761209980007718",  
+
   "DeviceData": {  
+
     "locale": "en-US",  
+
     "walletAccountEmailAddress": "test@visa.com"  
+
   }  
+
 }  
 
 ```
+```
+
+{  
+
+  "networkResponse": {  
+
+    "encData": {  
+
+      "paymentBundle": {  
+
+        "bundleMetadata": "ECOM_TOKEN",  
+
+        "bundleElements": [  
+
+          {  
+
+            "type": "TOKEN",  
+
+            "value": "4761209400161814"  
+
+          },  
+
+          {  
+
+            "type": "TOKEN_EXP",  
+
+            "value": "2212"  
+
+          }  
+
+        ]  
+
+      },  
+
+      "cardData": {  
+
+        "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+        "paymentAccountReference": "V0010013021211750239575607559",  
+
+        "cardSuffix": "7718",  
+
+        "panExpDate": "2212",  
+
+        "cardHolderEmbossedName": null,  
+
+        "cardCountryCode": null,  
+
+        "cardName": null,  
+
+        "cardType": null,  
+
+        "cardLongDescription": "long",  
+
+        "cardShortDescription": "short",  
+
+        "coBranded": false,  
+
+        "coBrandName": null,  
+
+        "cardTypeIndicator": null,  
+
+        "expDataPrinted": true,  
+
+        "cvv2Printed": true  
+
+      }  
+
+    },  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
+    "tokenizationDecision": "APPROVED",  
+
+    "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+    "tokenState": "ACTIVE",  
+
+    "cvv2VerificationCode": "M",  
+
+    "addressVerificationCode": "Y",  
+
+    "userValidationMethods": null,  
+
+    "cardMetaData": {  
+
+      "termsAndConditionsId": "893426c8-9bfa-4b51-b7da-b625106a89c5",  
+
+      "termsAndConditionsUrl": null,  
+
+      "cardArtUrl": null,  
+
+      "cardBackgroundColor": "RGB(122,55,84)",  
+
+      "cardForegroundColor": "RGB(22,55,94)",  
+
+      "labelColor": "RGB(122,255,84)",  
+
+      "longDescription": "long",  
+
+      "shortDescription": "short",  
+
+      "issuerData": {  
+
+        "issuerName": "INTL HDQTRS-CENTER OWNED",  
+
+        "issuerAddress": null,  
+
+        "issuerEmail": null,  
+
+        "issuerWebsite": "https://test.com",  
+
+        "customerServiceTelephone": "123-456-7899",  
+
+        "onlineBankingUrl": null,  
+
+        "issuerPrivacyUrl": null,  
+
+        "issuerNotificationIcon": null,  
+
+        "issuerLogoUrl": null  
+
+      },  
+
+      "issuerAppData": {  
+
+        "issuerAppOSType": null,  
+
+        "issuerAppName": null,  
+
+        "issuerAppAddress": null  
+
+      },  
+
+      "cardAssets": [  
+
+        {  
+
+          "guid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
+          "assetType": "ICON_ISSUER",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 100,  
+
+          "pixelWidth": 100  
+
+        },  
+
+        {  
+
+          "guid": "bdf425c0-704c-4de0-aa05-94f897c18087",  
+
+          "assetType": "COMBINED_BACKGROUND",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 969,  
+
+          "pixelWidth": 1536  
+
+        }  
+
+      ]  
+
+    },  
+
+    "messageId": "a3159291-c092-4faf-b0c1-913977a40446",  
+
+    "conversationId": "8e6dc13c-66d2-4c87-b3c5-cc51edaa409a",  
+
+    "statusCode": "0000",  
+
+    "statusMessage": null  
+
+  },  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082311414552807381",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "Network Tokenization Get Token Successful!"  
+
+}  
 
 ```
+```
+
+POST /v2/NetworkToken/Tokenize HTTP/1.1  
+
+Host: test-api.tokenex.com  
+
+tx-apikey: YourAPIKey  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-tokenize: true  
+
+tx-token-scheme: PCI  
+
+Content-Type: application/json  
+
+  
+
 {  
+
+  "PanSource": "KEYENTERED",  
+
+  "ConsumerId": "235468794",  
+
+  "PresentationMode": ["ECOM"],  
+
+  "AccountType": "WALLET",  
+
+  "ExpirationDate": "2212",  
+
+  "Data": "4761209980007718",  
+
+  "DeviceData": {  
+
+    "locale": "en-US",  
+
+    "walletAccountEmailAddress": "test@visa.com"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
   "networkResponse": {  
+
     "encData": {  
+
       "paymentBundle": {  
+
         "bundleMetadata": "ECOM_TOKEN",  
+
         "bundleElements": [  
+
           {  
+
             "type": "TOKEN",  
+
             "value": "4761209400161814"  
+
           },  
+
           {  
+
             "type": "TOKEN_EXP",  
+
             "value": "2212"  
+
           }  
+
         ]  
+
       },  
+
       "cardData": {  
+
         "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
         "paymentAccountReference": "V0010013021211750239575607559",  
+
         "cardSuffix": "7718",  
+
         "panExpDate": "2212",  
+
         "cardHolderEmbossedName": null,  
+
         "cardCountryCode": null,  
+
         "cardName": null,  
+
         "cardType": null,  
+
         "cardLongDescription": "long",  
+
         "cardShortDescription": "short",  
+
         "coBranded": false,  
+
         "coBrandName": null,  
+
         "cardTypeIndicator": null,  
+
         "expDataPrinted": true,  
+
         "cvv2Printed": true  
+
       }  
+
     },  
+
     "tokenRequestorId": "12345678901",  
+
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
     "tokenizationDecision": "APPROVED",  
+
     "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
     "tokenState": "ACTIVE",  
+
     "cvv2VerificationCode": "M",  
+
     "addressVerificationCode": "Y",  
+
     "userValidationMethods": null,  
+
     "cardMetaData": {  
+
       "termsAndConditionsId": "893426c8-9bfa-4b51-b7da-b625106a89c5",  
+
       "termsAndConditionsUrl": null,  
+
       "cardArtUrl": null,  
+
       "cardBackgroundColor": "RGB(122,55,84)",  
+
       "cardForegroundColor": "RGB(22,55,94)",  
+
       "labelColor": "RGB(122,255,84)",  
+
       "longDescription": "long",  
+
       "shortDescription": "short",  
+
       "issuerData": {  
+
         "issuerName": "INTL HDQTRS-CENTER OWNED",  
+
         "issuerAddress": null,  
+
         "issuerEmail": null,  
+
         "issuerWebsite": "https://test.com",  
+
         "customerServiceTelephone": "123-456-7899",  
+
         "onlineBankingUrl": null,  
+
         "issuerPrivacyUrl": null,  
+
         "issuerNotificationIcon": null,  
+
         "issuerLogoUrl": null  
+
       },  
+
       "issuerAppData": {  
+
         "issuerAppOSType": null,  
+
         "issuerAppName": null,  
+
         "issuerAppAddress": null  
+
       },  
+
       "cardAssets": [  
+
         {  
+
           "guid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
           "assetType": "ICON_ISSUER",  
+
           "mimeType": "IMAGE/PNG",  
+
           "pixelHeight": 100,  
+
           "pixelWidth": 100  
+
         },  
+
         {  
+
           "guid": "bdf425c0-704c-4de0-aa05-94f897c18087",  
+
           "assetType": "COMBINED_BACKGROUND",  
+
           "mimeType": "IMAGE/PNG",  
+
           "pixelHeight": 969,  
+
           "pixelWidth": 1536  
+
         }  
+
       ]  
+
     },  
+
     "messageId": "a3159291-c092-4faf-b0c1-913977a40446",  
+
     "conversationId": "8e6dc13c-66d2-4c87-b3c5-cc51edaa409a",  
+
     "statusCode": "0000",  
+
     "statusMessage": null  
+
   },  
+
   "token": "476120FDallZ7718",  
+
   "referenceNumber": "21082311414552807381",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "Network Tokenization Get Token Successful!"  
-}
+
+}  
+
+```
+```
+
+POST /v2/NetworkToken/Tokenize HTTP/1.1  
+
+Host: test-api.tokenex.com  
+
+tx-apikey: YourAPIKey  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-tokenize: true  
+
+tx-token-scheme: PCI  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "PanSource": "KEYENTERED",  
+
+  "ConsumerId": "235468794",  
+
+  "PresentationMode": ["ECOM"],  
+
+  "AccountType": "WALLET",  
+
+  "ExpirationDate": "2212",  
+
+  "Data": "4761209980007718",  
+
+  "DeviceData": {  
+
+    "locale": "en-US",  
+
+    "walletAccountEmailAddress": "test@visa.com"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "networkResponse": {  
+
+    "encData": {  
+
+      "paymentBundle": {  
+
+        "bundleMetadata": "ECOM_TOKEN",  
+
+        "bundleElements": [  
+
+          {  
+
+            "type": "TOKEN",  
+
+            "value": "4761209400161814"  
+
+          },  
+
+          {  
+
+            "type": "TOKEN_EXP",  
+
+            "value": "2212"  
+
+          }  
+
+        ]  
+
+      },  
+
+      "cardData": {  
+
+        "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+        "paymentAccountReference": "V0010013021211750239575607559",  
+
+        "cardSuffix": "7718",  
+
+        "panExpDate": "2212",  
+
+        "cardHolderEmbossedName": null,  
+
+        "cardCountryCode": null,  
+
+        "cardName": null,  
+
+        "cardType": null,  
+
+        "cardLongDescription": "long",  
+
+        "cardShortDescription": "short",  
+
+        "coBranded": false,  
+
+        "coBrandName": null,  
+
+        "cardTypeIndicator": null,  
+
+        "expDataPrinted": true,  
+
+        "cvv2Printed": true  
+
+      }  
+
+    },  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
+    "tokenizationDecision": "APPROVED",  
+
+    "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+    "tokenState": "ACTIVE",  
+
+    "cvv2VerificationCode": "M",  
+
+    "addressVerificationCode": "Y",  
+
+    "userValidationMethods": null,  
+
+    "cardMetaData": {  
+
+      "termsAndConditionsId": "893426c8-9bfa-4b51-b7da-b625106a89c5",  
+
+      "termsAndConditionsUrl": null,  
+
+      "cardArtUrl": null,  
+
+      "cardBackgroundColor": "RGB(122,55,84)",  
+
+      "cardForegroundColor": "RGB(22,55,94)",  
+
+      "labelColor": "RGB(122,255,84)",  
+
+      "longDescription": "long",  
+
+      "shortDescription": "short",  
+
+      "issuerData": {  
+
+        "issuerName": "INTL HDQTRS-CENTER OWNED",  
+
+        "issuerAddress": null,  
+
+        "issuerEmail": null,  
+
+        "issuerWebsite": "https://test.com",  
+
+        "customerServiceTelephone": "123-456-7899",  
+
+        "onlineBankingUrl": null,  
+
+        "issuerPrivacyUrl": null,  
+
+        "issuerNotificationIcon": null,  
+
+        "issuerLogoUrl": null  
+
+      },  
+
+      "issuerAppData": {  
+
+        "issuerAppOSType": null,  
+
+        "issuerAppName": null,  
+
+        "issuerAppAddress": null  
+
+      },  
+
+      "cardAssets": [  
+
+        {  
+
+          "guid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
+          "assetType": "ICON_ISSUER",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 100,  
+
+          "pixelWidth": 100  
+
+        },  
+
+        {  
+
+          "guid": "bdf425c0-704c-4de0-aa05-94f897c18087",  
+
+          "assetType": "COMBINED_BACKGROUND",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 969,  
+
+          "pixelWidth": 1536  
+
+        }  
+
+      ]  
+
+    },  
+
+    "messageId": "a3159291-c092-4faf-b0c1-913977a40446",  
+
+    "conversationId": "8e6dc13c-66d2-4c87-b3c5-cc51edaa409a",  
+
+    "statusCode": "0000",  
+
+    "statusMessage": null  
+
+  },  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082311414552807381",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "Network Tokenization Get Token Successful!"  
+
+}  
+
+```
+```
+
+POST /v2/NetworkToken/Tokenize HTTP/1.1  
+
+Host: test-api.tokenex.com  
+
+tx-apikey: YourAPIKey  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-tokenize: true  
+
+tx-token-scheme: PCI  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "PanSource": "KEYENTERED",  
+
+  "ConsumerId": "235468794",  
+
+  "PresentationMode": ["ECOM"],  
+
+  "AccountType": "WALLET",  
+
+  "ExpirationDate": "2212",  
+
+  "Data": "4761209980007718",  
+
+  "DeviceData": {  
+
+    "locale": "en-US",  
+
+    "walletAccountEmailAddress": "test@visa.com"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "networkResponse": {  
+
+    "encData": {  
+
+      "paymentBundle": {  
+
+        "bundleMetadata": "ECOM_TOKEN",  
+
+        "bundleElements": [  
+
+          {  
+
+            "type": "TOKEN",  
+
+            "value": "4761209400161814"  
+
+          },  
+
+          {  
+
+            "type": "TOKEN_EXP",  
+
+            "value": "2212"  
+
+          }  
+
+        ]  
+
+      },  
+
+      "cardData": {  
+
+        "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+        "paymentAccountReference": "V0010013021211750239575607559",  
+
+        "cardSuffix": "7718",  
+
+        "panExpDate": "2212",  
+
+        "cardHolderEmbossedName": null,  
+
+        "cardCountryCode": null,  
+
+        "cardName": null,  
+
+        "cardType": null,  
+
+        "cardLongDescription": "long",  
+
+        "cardShortDescription": "short",  
+
+        "coBranded": false,  
+
+        "coBrandName": null,  
+
+        "cardTypeIndicator": null,  
+
+        "expDataPrinted": true,  
+
+        "cvv2Printed": true  
+
+      }  
+
+    },  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
+    "tokenizationDecision": "APPROVED",  
+
+    "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+    "tokenState": "ACTIVE",  
+
+    "cvv2VerificationCode": "M",  
+
+    "addressVerificationCode": "Y",  
+
+    "userValidationMethods": null,  
+
+    "cardMetaData": {  
+
+      "termsAndConditionsId": "893426c8-9bfa-4b51-b7da-b625106a89c5",  
+
+      "termsAndConditionsUrl": null,  
+
+      "cardArtUrl": null,  
+
+      "cardBackgroundColor": "RGB(122,55,84)",  
+
+      "cardForegroundColor": "RGB(22,55,94)",  
+
+      "labelColor": "RGB(122,255,84)",  
+
+      "longDescription": "long",  
+
+      "shortDescription": "short",  
+
+      "issuerData": {  
+
+        "issuerName": "INTL HDQTRS-CENTER OWNED",  
+
+        "issuerAddress": null,  
+
+        "issuerEmail": null,  
+
+        "issuerWebsite": "https://test.com",  
+
+        "customerServiceTelephone": "123-456-7899",  
+
+        "onlineBankingUrl": null,  
+
+        "issuerPrivacyUrl": null,  
+
+        "issuerNotificationIcon": null,  
+
+        "issuerLogoUrl": null  
+
+      },  
+
+      "issuerAppData": {  
+
+        "issuerAppOSType": null,  
+
+        "issuerAppName": null,  
+
+        "issuerAppAddress": null  
+
+      },  
+
+      "cardAssets": [  
+
+        {  
+
+          "guid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
+          "assetType": "ICON_ISSUER",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 100,  
+
+          "pixelWidth": 100  
+
+        },  
+
+        {  
+
+          "guid": "bdf425c0-704c-4de0-aa05-94f897c18087",  
+
+          "assetType": "COMBINED_BACKGROUND",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 969,  
+
+          "pixelWidth": 1536  
+
+        }  
+
+      ]  
+
+    },  
+
+    "messageId": "a3159291-c092-4faf-b0c1-913977a40446",  
+
+    "conversationId": "8e6dc13c-66d2-4c87-b3c5-cc51edaa409a",  
+
+    "statusCode": "0000",  
+
+    "statusMessage": null  
+
+  },  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082311414552807381",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "Network Tokenization Get Token Successful!"  
+
+}  
+
+```
+```
+
+POST /v2/NetworkToken/Tokenize HTTP/1.1  
+
+Host: test-api.tokenex.com  
+
+tx-apikey: YourAPIKey  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-tokenize: true  
+
+tx-token-scheme: PCI  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "PanSource": "KEYENTERED",  
+
+  "ConsumerId": "235468794",  
+
+  "PresentationMode": ["ECOM"],  
+
+  "AccountType": "WALLET",  
+
+  "ExpirationDate": "2212",  
+
+  "Data": "4761209980007718",  
+
+  "DeviceData": {  
+
+    "locale": "en-US",  
+
+    "walletAccountEmailAddress": "test@visa.com"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "networkResponse": {  
+
+    "encData": {  
+
+      "paymentBundle": {  
+
+        "bundleMetadata": "ECOM_TOKEN",  
+
+        "bundleElements": [  
+
+          {  
+
+            "type": "TOKEN",  
+
+            "value": "4761209400161814"  
+
+          },  
+
+          {  
+
+            "type": "TOKEN_EXP",  
+
+            "value": "2212"  
+
+          }  
+
+        ]  
+
+      },  
+
+      "cardData": {  
+
+        "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+        "paymentAccountReference": "V0010013021211750239575607559",  
+
+        "cardSuffix": "7718",  
+
+        "panExpDate": "2212",  
+
+        "cardHolderEmbossedName": null,  
+
+        "cardCountryCode": null,  
+
+        "cardName": null,  
+
+        "cardType": null,  
+
+        "cardLongDescription": "long",  
+
+        "cardShortDescription": "short",  
+
+        "coBranded": false,  
+
+        "coBrandName": null,  
+
+        "cardTypeIndicator": null,  
+
+        "expDataPrinted": true,  
+
+        "cvv2Printed": true  
+
+      }  
+
+    },  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
+    "tokenizationDecision": "APPROVED",  
+
+    "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+    "tokenState": "ACTIVE",  
+
+    "cvv2VerificationCode": "M",  
+
+    "addressVerificationCode": "Y",  
+
+    "userValidationMethods": null,  
+
+    "cardMetaData": {  
+
+      "termsAndConditionsId": "893426c8-9bfa-4b51-b7da-b625106a89c5",  
+
+      "termsAndConditionsUrl": null,  
+
+      "cardArtUrl": null,  
+
+      "cardBackgroundColor": "RGB(122,55,84)",  
+
+      "cardForegroundColor": "RGB(22,55,94)",  
+
+      "labelColor": "RGB(122,255,84)",  
+
+      "longDescription": "long",  
+
+      "shortDescription": "short",  
+
+      "issuerData": {  
+
+        "issuerName": "INTL HDQTRS-CENTER OWNED",  
+
+        "issuerAddress": null,  
+
+        "issuerEmail": null,  
+
+        "issuerWebsite": "https://test.com",  
+
+        "customerServiceTelephone": "123-456-7899",  
+
+        "onlineBankingUrl": null,  
+
+        "issuerPrivacyUrl": null,  
+
+        "issuerNotificationIcon": null,  
+
+        "issuerLogoUrl": null  
+
+      },  
+
+      "issuerAppData": {  
+
+        "issuerAppOSType": null,  
+
+        "issuerAppName": null,  
+
+        "issuerAppAddress": null  
+
+      },  
+
+      "cardAssets": [  
+
+        {  
+
+          "guid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
+          "assetType": "ICON_ISSUER",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 100,  
+
+          "pixelWidth": 100  
+
+        },  
+
+        {  
+
+          "guid": "bdf425c0-704c-4de0-aa05-94f897c18087",  
+
+          "assetType": "COMBINED_BACKGROUND",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 969,  
+
+          "pixelWidth": 1536  
+
+        }  
+
+      ]  
+
+    },  
+
+    "messageId": "a3159291-c092-4faf-b0c1-913977a40446",  
+
+    "conversationId": "8e6dc13c-66d2-4c87-b3c5-cc51edaa409a",  
+
+    "statusCode": "0000",  
+
+    "statusMessage": null  
+
+  },  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082311414552807381",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "Network Tokenization Get Token Successful!"  
+
+}  
+
+```
+```
+
+POST /v2/NetworkToken/Tokenize HTTP/1.1  
+
+Host: test-api.tokenex.com  
+
+tx-apikey: YourAPIKey  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-tokenize: true  
+
+tx-token-scheme: PCI  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "PanSource": "KEYENTERED",  
+
+  "ConsumerId": "235468794",  
+
+  "PresentationMode": ["ECOM"],  
+
+  "AccountType": "WALLET",  
+
+  "ExpirationDate": "2212",  
+
+  "Data": "4761209980007718",  
+
+  "DeviceData": {  
+
+    "locale": "en-US",  
+
+    "walletAccountEmailAddress": "test@visa.com"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "networkResponse": {  
+
+    "encData": {  
+
+      "paymentBundle": {  
+
+        "bundleMetadata": "ECOM_TOKEN",  
+
+        "bundleElements": [  
+
+          {  
+
+            "type": "TOKEN",  
+
+            "value": "4761209400161814"  
+
+          },  
+
+          {  
+
+            "type": "TOKEN_EXP",  
+
+            "value": "2212"  
+
+          }  
+
+        ]  
+
+      },  
+
+      "cardData": {  
+
+        "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+        "paymentAccountReference": "V0010013021211750239575607559",  
+
+        "cardSuffix": "7718",  
+
+        "panExpDate": "2212",  
+
+        "cardHolderEmbossedName": null,  
+
+        "cardCountryCode": null,  
+
+        "cardName": null,  
+
+        "cardType": null,  
+
+        "cardLongDescription": "long",  
+
+        "cardShortDescription": "short",  
+
+        "coBranded": false,  
+
+        "coBrandName": null,  
+
+        "cardTypeIndicator": null,  
+
+        "expDataPrinted": true,  
+
+        "cvv2Printed": true  
+
+      }  
+
+    },  
+
+    "tokenRequestorId": "12345678901",  
+
+    "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
+
+    "tokenizationDecision": "APPROVED",  
+
+    "panReferenceId": "f7f4a607-f696-4936-9c99-0ec0b72fd140",  
+
+    "tokenState": "ACTIVE",  
+
+    "cvv2VerificationCode": "M",  
+
+    "addressVerificationCode": "Y",  
+
+    "userValidationMethods": null,  
+
+    "cardMetaData": {  
+
+      "termsAndConditionsId": "893426c8-9bfa-4b51-b7da-b625106a89c5",  
+
+      "termsAndConditionsUrl": null,  
+
+      "cardArtUrl": null,  
+
+      "cardBackgroundColor": "RGB(122,55,84)",  
+
+      "cardForegroundColor": "RGB(22,55,94)",  
+
+      "labelColor": "RGB(122,255,84)",  
+
+      "longDescription": "long",  
+
+      "shortDescription": "short",  
+
+      "issuerData": {  
+
+        "issuerName": "INTL HDQTRS-CENTER OWNED",  
+
+        "issuerAddress": null,  
+
+        "issuerEmail": null,  
+
+        "issuerWebsite": "https://test.com",  
+
+        "customerServiceTelephone": "123-456-7899",  
+
+        "onlineBankingUrl": null,  
+
+        "issuerPrivacyUrl": null,  
+
+        "issuerNotificationIcon": null,  
+
+        "issuerLogoUrl": null  
+
+      },  
+
+      "issuerAppData": {  
+
+        "issuerAppOSType": null,  
+
+        "issuerAppName": null,  
+
+        "issuerAppAddress": null  
+
+      },  
+
+      "cardAssets": [  
+
+        {  
+
+          "guid": "ff46730d-0288-4d96-aaf7-e6352a726118",  
+
+          "assetType": "ICON_ISSUER",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 100,  
+
+          "pixelWidth": 100  
+
+        },  
+
+        {  
+
+          "guid": "bdf425c0-704c-4de0-aa05-94f897c18087",  
+
+          "assetType": "COMBINED_BACKGROUND",  
+
+          "mimeType": "IMAGE/PNG",  
+
+          "pixelHeight": 969,  
+
+          "pixelWidth": 1536  
+
+        }  
+
+      ]  
+
+    },  
+
+    "messageId": "a3159291-c092-4faf-b0c1-913977a40446",  
+
+    "conversationId": "8e6dc13c-66d2-4c87-b3c5-cc51edaa409a",  
+
+    "statusCode": "0000",  
+
+    "statusMessage": null  
+
+  },  
+
+  "token": "476120FDallZ7718",  
+
+  "referenceNumber": "21082311414552807381",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "Network Tokenization Get Token Successful!"  
+
+}  
+
+```

@@ -12,9 +12,10 @@ tags:
 - ixopay
 - settlement
 - credit-card
-source_url: ''
+- reconciliation
+source_url: https://documentation.ixopay.com/manual/adapters/scalapay
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

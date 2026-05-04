@@ -7,9 +7,9 @@ tags:
 - error-codes-world-payment-processing-errors-occur-transactions-https-documentation-ixopay-com-docs-reference-appendix-error-codes
 - error-codes-world-payment-processing-errors-occur-transactions-https-documentation-ixopay-com-docs-reference-appendix-error-codes-error-codes-world-payment-processing-errors-occur-transactions-https-documentation-ixopay-com-docs-reference-appendix-error-codes
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/appendix
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

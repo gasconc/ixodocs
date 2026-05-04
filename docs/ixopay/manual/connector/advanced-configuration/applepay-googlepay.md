@@ -7,15 +7,15 @@ tags:
 - hosted-payment-hpp-configuration-applepay-button-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-hosted-payment-hpp-configuration-applepay-button-direct-link-hosted-payment-hpp-configuration-applepay-button
 - applepay-browsers-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-applepay-browsers-direct-link-applepay-browsers
 - hosted-payment-adjustments-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-hosted-payment-adjustments-direct-link-hosted-payment-adjustments
-- googlepay-configuration-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-googlepay-configuration-direct-link-googlepay-configuration
 - hosted-payment-hpp-configuration-googlepay-button-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-hosted-payment-hpp-configuration-googlepay-button-direct-link-hosted-payment-hpp-configuration-googlepay-button
 - passthrough-tokens-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-passthrough-tokens-direct-link-passthrough-tokens
 - applepay-merchant-setup-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-applepay-merchant-setup-direct-link-applepay-merchant-setup
 - create-merchant-identifier-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-create-merchant-identifier-direct-link-create-merchant-identifier
 - create-payment-processing-certificate-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-create-payment-processing-certificate-direct-link-create-payment-processing-certificate
-source_url: ''
+- create-merchant-identity-certificate-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-create-merchant-identity-certificate-direct-link-create-merchant-identity-certificate
+source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -53,37 +53,78 @@ To activate the ApplePay Button in the IXOPAY platform hosted payment page, the 
 
 ![Example HPP with ApplePay Button](https://documentation.ixopay.com/manual/assets/ideal-img/example-hpp-with-applepay-button.83951cd.1164.png)Example HPP with ApplePay Button
 ```
+
 <!-- Apple Pay -->  
+
   
+
 <div id="apple-pay-div">  
-  <button id="btn-applepay" class="apple-pay-button apple-pay-button-black" style="cursor: pointer; opacity: 0.3;" type="button" disabled="disabled">&nbsp;</button>  
+
+  <button  
+
+    id="btn-applepay"  
+
+    class="apple-pay-button apple-pay-button-black"  
+
+    style="cursor: pointer; opacity: 0.3;"  
+
+    type="button"  
+
+    disabled="disabled"  
+
+  >  
+
+    &nbsp;  
+
+  </button>  
+
 </div>  
+
   
+
 <script>  
-/* The JavaScript Logic to define custom callback functions */  
-/* Apple Pay Logic */  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Apple Pay Logic */  
+
   
-/* Remove comment if ApplePay is properly configured on connector */  
-PaymentFormApplePay.initialize(  
-  "btn-applepay",  
-  function() {  
-    $("#btn-applepay").get(0).style.opacity = 1.0;  
-    $("#btn-applepay").attr("disabled", null);  
-  },  
-  function() {  
-    //Success Function  
-    $(".form-group-card").hide();  
-  },  
-  function() {  
-   //Cancelled Function  
-   $(".form-group-card").show();  
-  }  
-);  
+
+  /* Remove comment if ApplePay is properly configured on connector */  
+
+  PaymentFormApplePay.initialize(  
+
+    "btn-applepay",  
+
+    function () {  
+
+      $("#btn-applepay").get(0).style.opacity = 1.0;  
+
+      $("#btn-applepay").attr("disabled", null);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
 </script>  
 
-```
-
-note
+```note
 When adding new payment template and activate the **Prefill template** option, the required code snipped is include in the template by default. Simply uncomment the relevant code lines to use it.
 info
 The ApplePay Button is only visible using Safari on MacOS devices.
@@ -91,31 +132,48 @@ The ApplePay Button is only visible using Safari on MacOS devices.
 To support Apple Pay for other browsers, some adjustments can be made on the HPP.
 ### Hosted Payment Page Adjustments[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#hosted-payment-page-adjustments "Direct link to Hosted Payment Page Adjustments")
 ```
+
 <!-- Replace the ApplePay button code in the HPP with following snippet -->  
+
 <div id="apple-pay-div">  
-    <apple-pay-button id="apple-pay-button"  
-        buttonstyle="black"  
-        type="buy"  
-        locale="en">  
-    </apple-pay-button>  
-    <script src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js" nonce="{{ head.nonce }}"></script>  
+
+  <apple-pay-button id="apple-pay-button" buttonstyle="black" type="buy" locale="en"> </apple-pay-button>  
+
+  <script src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js" nonce="{{ head.nonce }}"></script>  
+
 </div>  
+
   
+
 <!-- The style of the button can be changed as described here: https://developer.apple.com/documentation/applepayontheweb/displaying-apple-pay-buttons-using-javascript -->  
+
   
+
 <!-- Replace the id in the script part of the HPP template -->  
-PaymentFormApplePay.initialize(  
-             "apple-pay-button",  
-              ...  
+
+PaymentFormApplePay.initialize( "apple-pay-button", ...  
+
   
+
 <!-- If the HPP is loaded in an iframe, the ApplePay SDK needs to be additionally included on the site containing the iframe -->  
+
 <head>  
-    <script crossorigin  
-        src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js" integrity="sha384-DZRWMZLyVXr+7shJfal8pIG2v4KisLoSWFjZQMUv0+GWaCwoa82qeHsWrbBIUDPU" crossorigin="anonymous">  
-    </script>  
+
+  <script  
+
+    crossorigin  
+
+    src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js"  
+
+    integrity="sha384-DZRWMZLyVXr+7shJfal8pIG2v4KisLoSWFjZQMUv0+GWaCwoa82qeHsWrbBIUDPU"  
+
+    crossorigin="anonymous"  
+
+  ></script>  
+
 </head>  
 
-## GooglePay Configuration[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#googlepay-configuration "Direct link to GooglePay Configuration")
+```## GooglePay Configuration[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#googlepay-configuration "Direct link to GooglePay Configuration")
 In case a connector supports GooglePay Token Processing, you will be presented with the following configuration under the **Vault Configuration** tab (see Image GooglePay connector configuration). Configure the following parameters:
   * Select **Enabled** to enable GooglePay Token Processing
   * Fill in the mandatory **Merchant Identifier** - GooglePay Gateway Merchant Identifier provided by Google (refer to ) for Production usage - in order to perform Google registration test cases you can use any string to configure connectors in the IXOPAY platform Sandbox environments, we recommend to use merchant’s GUID.
@@ -142,41 +200,74 @@ To activate the GooglePay button in the IXOPAY HPP the following code snippets n
 
 ![Example HPP with GooglePay Button](https://documentation.ixopay.com/manual/assets/ideal-img/example-hpp-with-googlepay-button.557a9ee.904.png)Example HPP with GooglePay Button
 ```
+
 <!-- Google Pay -->  
+
   
+
 <div class="form-group">  
+
   <div id="google-pay-div">  
+
     <script src="https://pay.google.com/gp/p/js/pay.js"></script>  
+
   </div>  
+
 </div>  
+
   
+
 <script>  
-/* The JavaScript Logic to define custom callback functions */  
-/* Google Pay Logic */  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Google Pay Logic */  
+
   
-/* Remove comment if GooglePay is properly configured on connector */  
+
+  /* Remove comment if GooglePay is properly configured on connector */  
+
   
-PaymentFormGooglePay.initialize(  
-  "google-pay-div",  
-  function() {  
-    $('#google-pay-div').get(0).style.opacity = 1.0;  
-    $('#google-pay-div').attr('disabled', null);  
-  },  
-  function(err) {  
-    console.log(err);  
-  },  
-  function() {  
-    //Success Function  
-    $('.form-group-card').hide();  
-  },  
-  function() {  
-    //Cancelled Function  
-    $('.form-group-card').show();  
-  }  
-);  
+
+  PaymentFormGooglePay.initialize(  
+
+    "google-pay-div",  
+
+    function () {  
+
+      $("#google-pay-div").get(0).style.opacity = 1.0;  
+
+      $("#google-pay-div").attr("disabled", null);  
+
+    },  
+
+    function (err) {  
+
+      console.log(err);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
 </script>  
 
-note
+```note
 When adding new payment template and activate the **Prefill template** option, the required code snipped is include in the template by default. Simply uncomment the relevant code lines to use it.
 ## Passthrough Tokens[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#passthrough-tokens "Direct link to Passthrough Tokens")
 The IXOPAY platform is able to either decrypt GooglePay and ApplePay tokens and pass the decrypted data or to pass the tokens through to a provider for decryption.
@@ -211,18 +302,24 @@ If a banner appears at the top of the page saying that you need to accept an agr
 ![ApplePay Developer - Upload](https://documentation.ixopay.com/manual/assets/ideal-img/applepay-developer-upload.3574d45.1280.png)ApplePay Developer - Upload![ApplePay Developer - Download](https://documentation.ixopay.com/manual/assets/ideal-img/applepay-developer-download.9c06f79.1280.png)ApplePay Developer - Download
   * CLI — Command I
   * CLI — Command II (example)
-
 ```
+
 openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
 openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
   -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
 
 ```
+```
+
 openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
 openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
   -subj '/O=IXOPAY/C=AT'  
 
-### Register a merchant domain[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#register-a-merchant-domain "Direct link to Register a merchant domain")
+```### Register a merchant domain[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#register-a-merchant-domain "Direct link to Register a merchant domain")
   * In **Certificates, Identifiers & Profiles**, click **Identifiers** in the sidebar, select **Merchant IDs** using the filter on the top right. (see ApplePay Developer - Certificates, Identifiers & Profiles II)
   * Select your created **Merchant ID**
   * Under **Merchant Domains** , select **Add Domain** (see ApplePay Developer - Merchant ID configuration III)
@@ -248,22 +345,29 @@ Even though we recommend using native ApplePay buttons in apps, it is possible t
 ![ApplePay Developer - Merchant Identity Certificate](https://documentation.ixopay.com/manual/assets/ideal-img/applepay-developer-merchant-identity-certificate.0abe5e4.1280.png)ApplePay Developer - Merchant Identity Certificate![ApplePay Developer - Upload II](https://documentation.ixopay.com/manual/assets/ideal-img/applepay-developer-upload-ii.73656ab.1280.png)ApplePay Developer - Upload II
   * CLI — Command III
   * CLI — Command IV (example)
-
 ```
+
 openssl genrsa -out merchantPrivateKey.key 2048  
+
 openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
   -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
 
 ```
+```
+
 openssl genrsa -out merchantPrivateKey.key 2048  
+
 openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
   -subj '/O=IXOPAY/C=AT'  
 
-Convert certificate format
+```Convert certificate format
 ```
+
 openssl x509 -inform der -in merchant_id.cer -out merchant_id.pem  
 
-tip
+```tip
 Note that the creation of this privateKey and CSR is different to the “payment processing certificate”.
 ### Create a Apple Sandbox Test Account[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#create-a-apple-sandbox-test-account "Direct link to Create a Apple Sandbox Test Account")
   1. Create an ApplePay Sandbox Tester (apple ID only for testing) (see Sandbox Account)
@@ -275,21 +379,787 @@ Example ApplePay “transactionToken” for the transaction payload (using payme
 ![Sandbox Account](https://documentation.ixopay.com/manual/assets/ideal-img/sandbox-account.c9ffd5c.1280.png)Sandbox Account
 Short form
 ```
+
 {  
+
   // ...  
-  "transactionToken": "applepay:{YOURTOKEN}"  
+
+  transactionToken: "applepay:{YOURTOKEN}",  
+
   // ...  
+
 }  
 
-Long form
+```Long form
 ```
+
 {  
+
   // ...  
-	"transactionToken": "applepay:{\"token\":{\"paymentData\":{\"data\":\"mYd5Oo2cefxSqQo6Z4Nj7OFLh50HkW9mB7esTf6oZo4Gt1pzLHmGXSrm4rd4OGUSetDlBnieesdfadfJ96RUWtymK3cyxqSRufMelUV6g746dtus5SeqFBMVN957boP0s6CyzqSlZRqpwUtsW65NmlvGi2XGgIPLqmEY4P4tFRsdxqv\/RfgGrt\/DcfcvNRO12asdfasdfa231328zU4zxzkSK5wF2cTcCG1s4Rs1XzPfeKlrZpKSf94zKmJ7ztoCpZHxgi47rEPxINvI0SPuK+evusrfy0HMR4qpY3faG\/+fkpBBDLP3No+EoFTRGwt1Yt9n7Cu0fEs3X\/k\/+h7YH4KZGmp9pTwQD+V2BC6MaFDrRlfaOymJT9qJKD6uJ1p1l882LJtfWDD9wmLvZjORdyA==\",\"signature\":\"MIAGCSqGSIb3DQEHAqCAMIACAQExDTALBglghkgBZQMEAgEwgAYJKoZIhvcNAQcBAACggDCCA+MwggOIoAMCAQICCEwwQUlRnVQ2MAoGCCqGSM49BAMCMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xOTA1MTgASDFGBSDFSDFASTAjBgNVBAMMHGVjYy1zbXAtYnJva2VyLXNpZ25fVUM0LVBST0QxFDASBgNVBAsMC2lPUyBTeXN0ZW1zMRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMIVd+3r1seyIY9o3XCQoSGNx7C9bywoPYRgldlK9KVBG4NCDtgR80B+gzMfHFTD9+syINa61dTv9JKJiT58DxOjggIRMIICDTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFCPyScRPk+TvJ+bE9ihsP6K7\/S5LMEUGCCsGAQUFBwEBBDkwNzA1BggrBgEFBQcwAYYpaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZWFpY2EzMDIwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB\/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlYWljYTMuY3JsMB0GA1UdDgQWBBSUV9tv1XSBhomJdi9+V4UH55tYJDAOBgNVHQ8BAf8EBAMCB4AwDwYJKoZIhvdjZAYdBAIFADAKBggqhkjOPQQDAgNJADBGAiEAvglXH+ceHnNbVeWvrLTHL+tEXzAYUiLHJRACth69b1UCIQDRizUKXdbdbrF0YDWxHrLOh8+j5q9svYOAiQ3ILN2qYzCCAu4wggJ1oAMCAQICCEltL786mNqXMAoGCCqGSM49BAMCMGcxGzAZBgNVBAMMEkFwcGxlIFJvb3QgQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE0MDUwNjIzNDYzMFoXDTI5MDUwNjIzNDYzMFowejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8BcRhBnXZIXVGl4lgQd26ICi795123123asdfasfaDFgASdfYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDQtYXBwbGVyb290Y2FnMzAdBgNVHQ4EFgQUI\/JJxE+T5O8n5sT2KGw\/orv9LkswDwYDVR0TAQH\/BAUwAwEB\/zAfBgNVHSMEGDAWgBS7sN6hWDOImqSKmd6+veuv2sskqzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFwcGxlLmNvbS9hcHBsZXJvb3RjYWczLmNybDAOBgNVHQ8BAf8EBAMCAQYwEAYKKoZIhvdjZAYCDgQCBQAwCgYIKoZIzj0EAwIDZwAwZAIwOs9yg1EWmbGG+zXDVspiv\/QX7dkPdU2ijr7xnIFeQreJ+Jj3m1mfmNVBDY+d6cL+AjAyLdVEIbCjBXdsXfM4O5Bn\/Rd8LCFtlk\/GcmmCEm9U+Hp9G5nLmwmJIWEGmQ8Jkh0AADGCAYkwggGFAgEBMIGGMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUwIITDBBSVGdVDYwCwYJYIZIAWUDBAIBoIGTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIzMDgwMzEyMzIzMlowKAYJKoZIhvcNAQk0MRswGTALBglghkgBZQMEAgGhCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIJHjEUt3D3kVbh2c4oGoYvsadfsadfDASDFADF8cxAzsMAoGCCqGSM49BAMCBEgwRgIhAJ1a13ITgNDXpg3JciNzbLvqXbxYfeph9yR4RLXJRuiSAiEAhq9M7DYVeYZw+hKUct5dAS7PHy+pa9Y9gxBAq+10D1sAAAAAAAA=\",\"header\":{\"publicKeyHash\":\"Nl+banL5XgejSWXhPNuncDYkTOAEZmGYZvUfbb4bOko=\",\"ephemeralPublicKey\":\"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvqH9aA84DGT2nk59fSDHhcYYlFEETc5Ep1KwcYPG6h97jnLnuQhoZS5349mxJBteWDKJocAcQbP\/3\/Oqa0AThw==\",\"transactionId\":\"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d\"},\"version\":\"EC_v1\"},\"paymentMethod\":{\"displayName\":\"Visa 0326\",\"network\":\"Visa\",\"type\":\"debit\"},\"transactionIdentifier\":\"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d\"}}"  
+
+  transactionToken: 'applepay:{"token":{"paymentData":{"data":"mYd5Oo2cefxSqQo6Z4Nj7OFLh50HkW9mB7esTf6oZo4Gt1pzLHmGXSrm4rd4OGUSetDlBnieesdfadfJ96RUWtymK3cyxqSRufMelUV6g746dtus5SeqFBMVN957boP0s6CyzqSlZRqpwUtsW65NmlvGi2XGgIPLqmEY4P4tFRsdxqv\/RfgGrt\/DcfcvNRO12asdfasdfa231328zU4zxzkSK5wF2cTcCG1s4Rs1XzPfeKlrZpKSf94zKmJ7ztoCpZHxgi47rEPxINvI0SPuK+evusrfy0HMR4qpY3faG\/+fkpBBDLP3No+EoFTRGwt1Yt9n7Cu0fEs3X\/k\/+h7YH4KZGmp9pTwQD+V2BC6MaFDrRlfaOymJT9qJKD6uJ1p1l882LJtfWDD9wmLvZjORdyA==","signature":"MIAGCSqGSIb3DQEHAqCAMIACAQExDTALBglghkgBZQMEAgEwgAYJKoZIhvcNAQcBAACggDCCA+MwggOIoAMCAQICCEwwQUlRnVQ2MAoGCCqGSM49BAMCMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xOTA1MTgASDFGBSDFSDFASTAjBgNVBAMMHGVjYy1zbXAtYnJva2VyLXNpZ25fVUM0LVBST0QxFDASBgNVBAsMC2lPUyBTeXN0ZW1zMRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMIVd+3r1seyIY9o3XCQoSGNx7C9bywoPYRgldlK9KVBG4NCDtgR80B+gzMfHFTD9+syINa61dTv9JKJiT58DxOjggIRMIICDTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFCPyScRPk+TvJ+bE9ihsP6K7\/S5LMEUGCCsGAQUFBwEBBDkwNzA1BggrBgEFBQcwAYYpaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZWFpY2EzMDIwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB\/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlYWljYTMuY3JsMB0GA1UdDgQWBBSUV9tv1XSBhomJdi9+V4UH55tYJDAOBgNVHQ8BAf8EBAMCB4AwDwYJKoZIhvdjZAYdBAIFADAKBggqhkjOPQQDAgNJADBGAiEAvglXH+ceHnNbVeWvrLTHL+tEXzAYUiLHJRACth69b1UCIQDRizUKXdbdbrF0YDWxHrLOh8+j5q9svYOAiQ3ILN2qYzCCAu4wggJ1oAMCAQICCEltL786mNqXMAoGCCqGSM49BAMCMGcxGzAZBgNVBAMMEkFwcGxlIFJvb3QgQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE0MDUwNjIzNDYzMFoXDTI5MDUwNjIzNDYzMFowejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8BcRhBnXZIXVGl4lgQd26ICi795123123asdfasfaDFgASdfYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDQtYXBwbGVyb290Y2FnMzAdBgNVHQ4EFgQUI\/JJxE+T5O8n5sT2KGw\/orv9LkswDwYDVR0TAQH\/BAUwAwEB\/zAfBgNVHSMEGDAWgBS7sN6hWDOImqSKmd6+veuv2sskqzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFwcGxlLmNvbS9hcHBsZXJvb3RjYWczLmNybDAOBgNVHQ8BAf8EBAMCAQYwEAYKKoZIhvdjZAYCDgQCBQAwCgYIKoZIzj0EAwIDZwAwZAIwOs9yg1EWmbGG+zXDVspiv\/QX7dkPdU2ijr7xnIFeQreJ+Jj3m1mfmNVBDY+d6cL+AjAyLdVEIbCjBXdsXfM4O5Bn\/Rd8LCFtlk\/GcmmCEm9U+Hp9G5nLmwmJIWEGmQ8Jkh0AADGCAYkwggGFAgEBMIGGMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUwIITDBBSVGdVDYwCwYJYIZIAWUDBAIBoIGTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIzMDgwMzEyMzIzMlowKAYJKoZIhvcNAQk0MRswGTALBglghkgBZQMEAgGhCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIJHjEUt3D3kVbh2c4oGoYvsadfsadfDASDFADF8cxAzsMAoGCCqGSM49BAMCBEgwRgIhAJ1a13ITgNDXpg3JciNzbLvqXbxYfeph9yR4RLXJRuiSAiEAhq9M7DYVeYZw+hKUct5dAS7PHy+pa9Y9gxBAq+10D1sAAAAAAAA=","header":{"publicKeyHash":"Nl+banL5XgejSWXhPNuncDYkTOAEZmGYZvUfbb4bOko=","ephemeralPublicKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvqH9aA84DGT2nk59fSDHhcYYlFEETc5Ep1KwcYPG6h97jnLnuQhoZS5349mxJBteWDKJocAcQbP\/3\/Oqa0AThw==","transactionId":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"},"version":"EC_v1"},"paymentMethod":{"displayName":"Visa 0326","network":"Visa","type":"debit"},"transactionIdentifier":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"}}',  
+
   // ...  
+
 }  
 
-  * [ApplePay Configuration](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#applepay-configuration)
+```
+```
+
+<!-- Apple Pay -->  
+
+  
+
+<div id="apple-pay-div">  
+
+  <button  
+
+    id="btn-applepay"  
+
+    class="apple-pay-button apple-pay-button-black"  
+
+    style="cursor: pointer; opacity: 0.3;"  
+
+    type="button"  
+
+    disabled="disabled"  
+
+  >  
+
+    &nbsp;  
+
+  </button>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Apple Pay Logic */  
+
+  
+
+  /* Remove comment if ApplePay is properly configured on connector */  
+
+  PaymentFormApplePay.initialize(  
+
+    "btn-applepay",  
+
+    function () {  
+
+      $("#btn-applepay").get(0).style.opacity = 1.0;  
+
+      $("#btn-applepay").attr("disabled", null);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+<!-- Replace the ApplePay button code in the HPP with following snippet -->  
+
+<div id="apple-pay-div">  
+
+  <apple-pay-button id="apple-pay-button" buttonstyle="black" type="buy" locale="en"> </apple-pay-button>  
+
+  <script src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js" nonce="{{ head.nonce }}"></script>  
+
+</div>  
+
+  
+
+<!-- The style of the button can be changed as described here: https://developer.apple.com/documentation/applepayontheweb/displaying-apple-pay-buttons-using-javascript -->  
+
+  
+
+<!-- Replace the id in the script part of the HPP template -->  
+
+PaymentFormApplePay.initialize( "apple-pay-button", ...  
+
+  
+
+<!-- If the HPP is loaded in an iframe, the ApplePay SDK needs to be additionally included on the site containing the iframe -->  
+
+<head>  
+
+  <script  
+
+    crossorigin  
+
+    src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js"  
+
+    integrity="sha384-DZRWMZLyVXr+7shJfal8pIG2v4KisLoSWFjZQMUv0+GWaCwoa82qeHsWrbBIUDPU"  
+
+    crossorigin="anonymous"  
+
+  ></script>  
+
+</head>  
+
+```
+```
+
+<!-- Google Pay -->  
+
+  
+
+<div class="form-group">  
+
+  <div id="google-pay-div">  
+
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>  
+
+  </div>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Google Pay Logic */  
+
+  
+
+  /* Remove comment if GooglePay is properly configured on connector */  
+
+  
+
+  PaymentFormGooglePay.initialize(  
+
+    "google-pay-div",  
+
+    function () {  
+
+      $("#google-pay-div").get(0).style.opacity = 1.0;  
+
+      $("#google-pay-div").attr("disabled", null);  
+
+    },  
+
+    function (err) {  
+
+      console.log(err);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl x509 -inform der -in merchant_id.cer -out merchant_id.pem  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: "applepay:{YOURTOKEN}",  
+
+  // ...  
+
+}  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: 'applepay:{"token":{"paymentData":{"data":"mYd5Oo2cefxSqQo6Z4Nj7OFLh50HkW9mB7esTf6oZo4Gt1pzLHmGXSrm4rd4OGUSetDlBnieesdfadfJ96RUWtymK3cyxqSRufMelUV6g746dtus5SeqFBMVN957boP0s6CyzqSlZRqpwUtsW65NmlvGi2XGgIPLqmEY4P4tFRsdxqv\/RfgGrt\/DcfcvNRO12asdfasdfa231328zU4zxzkSK5wF2cTcCG1s4Rs1XzPfeKlrZpKSf94zKmJ7ztoCpZHxgi47rEPxINvI0SPuK+evusrfy0HMR4qpY3faG\/+fkpBBDLP3No+EoFTRGwt1Yt9n7Cu0fEs3X\/k\/+h7YH4KZGmp9pTwQD+V2BC6MaFDrRlfaOymJT9qJKD6uJ1p1l882LJtfWDD9wmLvZjORdyA==","signature":"MIAGCSqGSIb3DQEHAqCAMIACAQExDTALBglghkgBZQMEAgEwgAYJKoZIhvcNAQcBAACggDCCA+MwggOIoAMCAQICCEwwQUlRnVQ2MAoGCCqGSM49BAMCMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xOTA1MTgASDFGBSDFSDFASTAjBgNVBAMMHGVjYy1zbXAtYnJva2VyLXNpZ25fVUM0LVBST0QxFDASBgNVBAsMC2lPUyBTeXN0ZW1zMRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMIVd+3r1seyIY9o3XCQoSGNx7C9bywoPYRgldlK9KVBG4NCDtgR80B+gzMfHFTD9+syINa61dTv9JKJiT58DxOjggIRMIICDTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFCPyScRPk+TvJ+bE9ihsP6K7\/S5LMEUGCCsGAQUFBwEBBDkwNzA1BggrBgEFBQcwAYYpaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZWFpY2EzMDIwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB\/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlYWljYTMuY3JsMB0GA1UdDgQWBBSUV9tv1XSBhomJdi9+V4UH55tYJDAOBgNVHQ8BAf8EBAMCB4AwDwYJKoZIhvdjZAYdBAIFADAKBggqhkjOPQQDAgNJADBGAiEAvglXH+ceHnNbVeWvrLTHL+tEXzAYUiLHJRACth69b1UCIQDRizUKXdbdbrF0YDWxHrLOh8+j5q9svYOAiQ3ILN2qYzCCAu4wggJ1oAMCAQICCEltL786mNqXMAoGCCqGSM49BAMCMGcxGzAZBgNVBAMMEkFwcGxlIFJvb3QgQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE0MDUwNjIzNDYzMFoXDTI5MDUwNjIzNDYzMFowejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8BcRhBnXZIXVGl4lgQd26ICi795123123asdfasfaDFgASdfYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDQtYXBwbGVyb290Y2FnMzAdBgNVHQ4EFgQUI\/JJxE+T5O8n5sT2KGw\/orv9LkswDwYDVR0TAQH\/BAUwAwEB\/zAfBgNVHSMEGDAWgBS7sN6hWDOImqSKmd6+veuv2sskqzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFwcGxlLmNvbS9hcHBsZXJvb3RjYWczLmNybDAOBgNVHQ8BAf8EBAMCAQYwEAYKKoZIhvdjZAYCDgQCBQAwCgYIKoZIzj0EAwIDZwAwZAIwOs9yg1EWmbGG+zXDVspiv\/QX7dkPdU2ijr7xnIFeQreJ+Jj3m1mfmNVBDY+d6cL+AjAyLdVEIbCjBXdsXfM4O5Bn\/Rd8LCFtlk\/GcmmCEm9U+Hp9G5nLmwmJIWEGmQ8Jkh0AADGCAYkwggGFAgEBMIGGMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUwIITDBBSVGdVDYwCwYJYIZIAWUDBAIBoIGTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIzMDgwMzEyMzIzMlowKAYJKoZIhvcNAQk0MRswGTALBglghkgBZQMEAgGhCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIJHjEUt3D3kVbh2c4oGoYvsadfsadfDASDFADF8cxAzsMAoGCCqGSM49BAMCBEgwRgIhAJ1a13ITgNDXpg3JciNzbLvqXbxYfeph9yR4RLXJRuiSAiEAhq9M7DYVeYZw+hKUct5dAS7PHy+pa9Y9gxBAq+10D1sAAAAAAAA=","header":{"publicKeyHash":"Nl+banL5XgejSWXhPNuncDYkTOAEZmGYZvUfbb4bOko=","ephemeralPublicKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvqH9aA84DGT2nk59fSDHhcYYlFEETc5Ep1KwcYPG6h97jnLnuQhoZS5349mxJBteWDKJocAcQbP\/3\/Oqa0AThw==","transactionId":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"},"version":"EC_v1"},"paymentMethod":{"displayName":"Visa 0326","network":"Visa","type":"debit"},"transactionIdentifier":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"}}',  
+
+  // ...  
+
+}  
+
+```
+```
+
+<!-- Apple Pay -->  
+
+  
+
+<div id="apple-pay-div">  
+
+  <button  
+
+    id="btn-applepay"  
+
+    class="apple-pay-button apple-pay-button-black"  
+
+    style="cursor: pointer; opacity: 0.3;"  
+
+    type="button"  
+
+    disabled="disabled"  
+
+  >  
+
+    &nbsp;  
+
+  </button>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Apple Pay Logic */  
+
+  
+
+  /* Remove comment if ApplePay is properly configured on connector */  
+
+  PaymentFormApplePay.initialize(  
+
+    "btn-applepay",  
+
+    function () {  
+
+      $("#btn-applepay").get(0).style.opacity = 1.0;  
+
+      $("#btn-applepay").attr("disabled", null);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+<!-- Replace the ApplePay button code in the HPP with following snippet -->  
+
+<div id="apple-pay-div">  
+
+  <apple-pay-button id="apple-pay-button" buttonstyle="black" type="buy" locale="en"> </apple-pay-button>  
+
+  <script src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js" nonce="{{ head.nonce }}"></script>  
+
+</div>  
+
+  
+
+<!-- The style of the button can be changed as described here: https://developer.apple.com/documentation/applepayontheweb/displaying-apple-pay-buttons-using-javascript -->  
+
+  
+
+<!-- Replace the id in the script part of the HPP template -->  
+
+PaymentFormApplePay.initialize( "apple-pay-button", ...  
+
+  
+
+<!-- If the HPP is loaded in an iframe, the ApplePay SDK needs to be additionally included on the site containing the iframe -->  
+
+<head>  
+
+  <script  
+
+    crossorigin  
+
+    src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js"  
+
+    integrity="sha384-DZRWMZLyVXr+7shJfal8pIG2v4KisLoSWFjZQMUv0+GWaCwoa82qeHsWrbBIUDPU"  
+
+    crossorigin="anonymous"  
+
+  ></script>  
+
+</head>  
+
+```
+```
+
+<!-- Google Pay -->  
+
+  
+
+<div class="form-group">  
+
+  <div id="google-pay-div">  
+
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>  
+
+  </div>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Google Pay Logic */  
+
+  
+
+  /* Remove comment if GooglePay is properly configured on connector */  
+
+  
+
+  PaymentFormGooglePay.initialize(  
+
+    "google-pay-div",  
+
+    function () {  
+
+      $("#google-pay-div").get(0).style.opacity = 1.0;  
+
+      $("#google-pay-div").attr("disabled", null);  
+
+    },  
+
+    function (err) {  
+
+      console.log(err);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl x509 -inform der -in merchant_id.cer -out merchant_id.pem  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: "applepay:{YOURTOKEN}",  
+
+  // ...  
+
+}  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: 'applepay:{"token":{"paymentData":{"data":"mYd5Oo2cefxSqQo6Z4Nj7OFLh50HkW9mB7esTf6oZo4Gt1pzLHmGXSrm4rd4OGUSetDlBnieesdfadfJ96RUWtymK3cyxqSRufMelUV6g746dtus5SeqFBMVN957boP0s6CyzqSlZRqpwUtsW65NmlvGi2XGgIPLqmEY4P4tFRsdxqv\/RfgGrt\/DcfcvNRO12asdfasdfa231328zU4zxzkSK5wF2cTcCG1s4Rs1XzPfeKlrZpKSf94zKmJ7ztoCpZHxgi47rEPxINvI0SPuK+evusrfy0HMR4qpY3faG\/+fkpBBDLP3No+EoFTRGwt1Yt9n7Cu0fEs3X\/k\/+h7YH4KZGmp9pTwQD+V2BC6MaFDrRlfaOymJT9qJKD6uJ1p1l882LJtfWDD9wmLvZjORdyA==","signature":"MIAGCSqGSIb3DQEHAqCAMIACAQExDTALBglghkgBZQMEAgEwgAYJKoZIhvcNAQcBAACggDCCA+MwggOIoAMCAQICCEwwQUlRnVQ2MAoGCCqGSM49BAMCMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xOTA1MTgASDFGBSDFSDFASTAjBgNVBAMMHGVjYy1zbXAtYnJva2VyLXNpZ25fVUM0LVBST0QxFDASBgNVBAsMC2lPUyBTeXN0ZW1zMRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMIVd+3r1seyIY9o3XCQoSGNx7C9bywoPYRgldlK9KVBG4NCDtgR80B+gzMfHFTD9+syINa61dTv9JKJiT58DxOjggIRMIICDTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFCPyScRPk+TvJ+bE9ihsP6K7\/S5LMEUGCCsGAQUFBwEBBDkwNzA1BggrBgEFBQcwAYYpaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZWFpY2EzMDIwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB\/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlYWljYTMuY3JsMB0GA1UdDgQWBBSUV9tv1XSBhomJdi9+V4UH55tYJDAOBgNVHQ8BAf8EBAMCB4AwDwYJKoZIhvdjZAYdBAIFADAKBggqhkjOPQQDAgNJADBGAiEAvglXH+ceHnNbVeWvrLTHL+tEXzAYUiLHJRACth69b1UCIQDRizUKXdbdbrF0YDWxHrLOh8+j5q9svYOAiQ3ILN2qYzCCAu4wggJ1oAMCAQICCEltL786mNqXMAoGCCqGSM49BAMCMGcxGzAZBgNVBAMMEkFwcGxlIFJvb3QgQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE0MDUwNjIzNDYzMFoXDTI5MDUwNjIzNDYzMFowejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8BcRhBnXZIXVGl4lgQd26ICi795123123asdfasfaDFgASdfYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDQtYXBwbGVyb290Y2FnMzAdBgNVHQ4EFgQUI\/JJxE+T5O8n5sT2KGw\/orv9LkswDwYDVR0TAQH\/BAUwAwEB\/zAfBgNVHSMEGDAWgBS7sN6hWDOImqSKmd6+veuv2sskqzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFwcGxlLmNvbS9hcHBsZXJvb3RjYWczLmNybDAOBgNVHQ8BAf8EBAMCAQYwEAYKKoZIhvdjZAYCDgQCBQAwCgYIKoZIzj0EAwIDZwAwZAIwOs9yg1EWmbGG+zXDVspiv\/QX7dkPdU2ijr7xnIFeQreJ+Jj3m1mfmNVBDY+d6cL+AjAyLdVEIbCjBXdsXfM4O5Bn\/Rd8LCFtlk\/GcmmCEm9U+Hp9G5nLmwmJIWEGmQ8Jkh0AADGCAYkwggGFAgEBMIGGMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUwIITDBBSVGdVDYwCwYJYIZIAWUDBAIBoIGTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIzMDgwMzEyMzIzMlowKAYJKoZIhvcNAQk0MRswGTALBglghkgBZQMEAgGhCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIJHjEUt3D3kVbh2c4oGoYvsadfsadfDASDFADF8cxAzsMAoGCCqGSM49BAMCBEgwRgIhAJ1a13ITgNDXpg3JciNzbLvqXbxYfeph9yR4RLXJRuiSAiEAhq9M7DYVeYZw+hKUct5dAS7PHy+pa9Y9gxBAq+10D1sAAAAAAAA=","header":{"publicKeyHash":"Nl+banL5XgejSWXhPNuncDYkTOAEZmGYZvUfbb4bOko=","ephemeralPublicKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvqH9aA84DGT2nk59fSDHhcYYlFEETc5Ep1KwcYPG6h97jnLnuQhoZS5349mxJBteWDKJocAcQbP\/3\/Oqa0AThw==","transactionId":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"},"version":"EC_v1"},"paymentMethod":{"displayName":"Visa 0326","network":"Visa","type":"debit"},"transactionIdentifier":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"}}',  
+
+  // ...  
+
+}  
+
+```
+```
+
+<!-- Apple Pay -->  
+
+  
+
+<div id="apple-pay-div">  
+
+  <button  
+
+    id="btn-applepay"  
+
+    class="apple-pay-button apple-pay-button-black"  
+
+    style="cursor: pointer; opacity: 0.3;"  
+
+    type="button"  
+
+    disabled="disabled"  
+
+  >  
+
+    &nbsp;  
+
+  </button>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Apple Pay Logic */  
+
+  
+
+  /* Remove comment if ApplePay is properly configured on connector */  
+
+  PaymentFormApplePay.initialize(  
+
+    "btn-applepay",  
+
+    function () {  
+
+      $("#btn-applepay").get(0).style.opacity = 1.0;  
+
+      $("#btn-applepay").attr("disabled", null);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+<!-- Replace the ApplePay button code in the HPP with following snippet -->  
+
+<div id="apple-pay-div">  
+
+  <apple-pay-button id="apple-pay-button" buttonstyle="black" type="buy" locale="en"> </apple-pay-button>  
+
+  <script src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js" nonce="{{ head.nonce }}"></script>  
+
+</div>  
+
+  
+
+<!-- The style of the button can be changed as described here: https://developer.apple.com/documentation/applepayontheweb/displaying-apple-pay-buttons-using-javascript -->  
+
+  
+
+<!-- Replace the id in the script part of the HPP template -->  
+
+PaymentFormApplePay.initialize( "apple-pay-button", ...  
+
+  
+
+<!-- If the HPP is loaded in an iframe, the ApplePay SDK needs to be additionally included on the site containing the iframe -->  
+
+<head>  
+
+  <script  
+
+    crossorigin  
+
+    src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js"  
+
+    integrity="sha384-DZRWMZLyVXr+7shJfal8pIG2v4KisLoSWFjZQMUv0+GWaCwoa82qeHsWrbBIUDPU"  
+
+    crossorigin="anonymous"  
+
+  ></script>  
+
+</head>  
+
+```
+```
+
+<!-- Google Pay -->  
+
+  
+
+<div class="form-group">  
+
+  <div id="google-pay-div">  
+
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>  
+
+  </div>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Google Pay Logic */  
+
+  
+
+  /* Remove comment if GooglePay is properly configured on connector */  
+
+  
+
+  PaymentFormGooglePay.initialize(  
+
+    "google-pay-div",  
+
+    function () {  
+
+      $("#google-pay-div").get(0).style.opacity = 1.0;  
+
+      $("#google-pay-div").attr("disabled", null);  
+
+    },  
+
+    function (err) {  
+
+      console.log(err);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl x509 -inform der -in merchant_id.cer -out merchant_id.pem  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: "applepay:{YOURTOKEN}",  
+
+  // ...  
+
+}  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: 'applepay:{"token":{"paymentData":{"data":"mYd5Oo2cefxSqQo6Z4Nj7OFLh50HkW9mB7esTf6oZo4Gt1pzLHmGXSrm4rd4OGUSetDlBnieesdfadfJ96RUWtymK3cyxqSRufMelUV6g746dtus5SeqFBMVN957boP0s6CyzqSlZRqpwUtsW65NmlvGi2XGgIPLqmEY4P4tFRsdxqv\/RfgGrt\/DcfcvNRO12asdfasdfa231328zU4zxzkSK5wF2cTcCG1s4Rs1XzPfeKlrZpKSf94zKmJ7ztoCpZHxgi47rEPxINvI0SPuK+evusrfy0HMR4qpY3faG\/+fkpBBDLP3No+EoFTRGwt1Yt9n7Cu0fEs3X\/k\/+h7YH4KZGmp9pTwQD+V2BC6MaFDrRlfaOymJT9qJKD6uJ1p1l882LJtfWDD9wmLvZjORdyA==","signature":"MIAGCSqGSIb3DQEHAqCAMIACAQExDTALBglghkgBZQMEAgEwgAYJKoZIhvcNAQcBAACggDCCA+MwggOIoAMCAQICCEwwQUlRnVQ2MAoGCCqGSM49BAMCMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xOTA1MTgASDFGBSDFSDFASTAjBgNVBAMMHGVjYy1zbXAtYnJva2VyLXNpZ25fVUM0LVBST0QxFDASBgNVBAsMC2lPUyBTeXN0ZW1zMRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMIVd+3r1seyIY9o3XCQoSGNx7C9bywoPYRgldlK9KVBG4NCDtgR80B+gzMfHFTD9+syINa61dTv9JKJiT58DxOjggIRMIICDTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFCPyScRPk+TvJ+bE9ihsP6K7\/S5LMEUGCCsGAQUFBwEBBDkwNzA1BggrBgEFBQcwAYYpaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZWFpY2EzMDIwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB\/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlYWljYTMuY3JsMB0GA1UdDgQWBBSUV9tv1XSBhomJdi9+V4UH55tYJDAOBgNVHQ8BAf8EBAMCB4AwDwYJKoZIhvdjZAYdBAIFADAKBggqhkjOPQQDAgNJADBGAiEAvglXH+ceHnNbVeWvrLTHL+tEXzAYUiLHJRACth69b1UCIQDRizUKXdbdbrF0YDWxHrLOh8+j5q9svYOAiQ3ILN2qYzCCAu4wggJ1oAMCAQICCEltL786mNqXMAoGCCqGSM49BAMCMGcxGzAZBgNVBAMMEkFwcGxlIFJvb3QgQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE0MDUwNjIzNDYzMFoXDTI5MDUwNjIzNDYzMFowejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8BcRhBnXZIXVGl4lgQd26ICi795123123asdfasfaDFgASdfYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDQtYXBwbGVyb290Y2FnMzAdBgNVHQ4EFgQUI\/JJxE+T5O8n5sT2KGw\/orv9LkswDwYDVR0TAQH\/BAUwAwEB\/zAfBgNVHSMEGDAWgBS7sN6hWDOImqSKmd6+veuv2sskqzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFwcGxlLmNvbS9hcHBsZXJvb3RjYWczLmNybDAOBgNVHQ8BAf8EBAMCAQYwEAYKKoZIhvdjZAYCDgQCBQAwCgYIKoZIzj0EAwIDZwAwZAIwOs9yg1EWmbGG+zXDVspiv\/QX7dkPdU2ijr7xnIFeQreJ+Jj3m1mfmNVBDY+d6cL+AjAyLdVEIbCjBXdsXfM4O5Bn\/Rd8LCFtlk\/GcmmCEm9U+Hp9G5nLmwmJIWEGmQ8Jkh0AADGCAYkwggGFAgEBMIGGMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUwIITDBBSVGdVDYwCwYJYIZIAWUDBAIBoIGTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIzMDgwMzEyMzIzMlowKAYJKoZIhvcNAQk0MRswGTALBglghkgBZQMEAgGhCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIJHjEUt3D3kVbh2c4oGoYvsadfsadfDASDFADF8cxAzsMAoGCCqGSM49BAMCBEgwRgIhAJ1a13ITgNDXpg3JciNzbLvqXbxYfeph9yR4RLXJRuiSAiEAhq9M7DYVeYZw+hKUct5dAS7PHy+pa9Y9gxBAq+10D1sAAAAAAAA=","header":{"publicKeyHash":"Nl+banL5XgejSWXhPNuncDYkTOAEZmGYZvUfbb4bOko=","ephemeralPublicKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvqH9aA84DGT2nk59fSDHhcYYlFEETc5Ep1KwcYPG6h97jnLnuQhoZS5349mxJBteWDKJocAcQbP\/3\/Oqa0AThw==","transactionId":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"},"version":"EC_v1"},"paymentMethod":{"displayName":"Visa 0326","network":"Visa","type":"debit"},"transactionIdentifier":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"}}',  
+
+  // ...  
+
+}  
+
+```  * [ApplePay Configuration](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#applepay-configuration)
   * [Hosted Payment Page (HPP) Configuration for ApplePay Button](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#hosted-payment-page-hpp-configuration-for-applepay-button)
   * [ApplePay for other Browsers](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#applepay-for-other-browsers)
     * [Hosted Payment Page Adjustments](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#hosted-payment-page-adjustments)
@@ -302,3 +1172,507 @@ Long form
     * [Register a merchant domain](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#register-a-merchant-domain)
     * [Create a merchant identity certificate](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#create-a-merchant-identity-certificate)
     * [Create a Apple Sandbox Test Account](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay#create-a-apple-sandbox-test-account)
+```
+
+<!-- Apple Pay -->  
+
+  
+
+<div id="apple-pay-div">  
+
+  <button  
+
+    id="btn-applepay"  
+
+    class="apple-pay-button apple-pay-button-black"  
+
+    style="cursor: pointer; opacity: 0.3;"  
+
+    type="button"  
+
+    disabled="disabled"  
+
+  >  
+
+    &nbsp;  
+
+  </button>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Apple Pay Logic */  
+
+  
+
+  /* Remove comment if ApplePay is properly configured on connector */  
+
+  PaymentFormApplePay.initialize(  
+
+    "btn-applepay",  
+
+    function () {  
+
+      $("#btn-applepay").get(0).style.opacity = 1.0;  
+
+      $("#btn-applepay").attr("disabled", null);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+<!-- Replace the ApplePay button code in the HPP with following snippet -->  
+
+<div id="apple-pay-div">  
+
+  <apple-pay-button id="apple-pay-button" buttonstyle="black" type="buy" locale="en"> </apple-pay-button>  
+
+  <script src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js" nonce="{{ head.nonce }}"></script>  
+
+</div>  
+
+  
+
+<!-- The style of the button can be changed as described here: https://developer.apple.com/documentation/applepayontheweb/displaying-apple-pay-buttons-using-javascript -->  
+
+  
+
+<!-- Replace the id in the script part of the HPP template -->  
+
+PaymentFormApplePay.initialize( "apple-pay-button", ...  
+
+  
+
+<!-- If the HPP is loaded in an iframe, the ApplePay SDK needs to be additionally included on the site containing the iframe -->  
+
+<head>  
+
+  <script  
+
+    crossorigin  
+
+    src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js"  
+
+    integrity="sha384-DZRWMZLyVXr+7shJfal8pIG2v4KisLoSWFjZQMUv0+GWaCwoa82qeHsWrbBIUDPU"  
+
+    crossorigin="anonymous"  
+
+  ></script>  
+
+</head>  
+
+```
+```
+
+<!-- Google Pay -->  
+
+  
+
+<div class="form-group">  
+
+  <div id="google-pay-div">  
+
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>  
+
+  </div>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Google Pay Logic */  
+
+  
+
+  /* Remove comment if GooglePay is properly configured on connector */  
+
+  
+
+  PaymentFormGooglePay.initialize(  
+
+    "google-pay-div",  
+
+    function () {  
+
+      $("#google-pay-div").get(0).style.opacity = 1.0;  
+
+      $("#google-pay-div").attr("disabled", null);  
+
+    },  
+
+    function (err) {  
+
+      console.log(err);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl x509 -inform der -in merchant_id.cer -out merchant_id.pem  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: "applepay:{YOURTOKEN}",  
+
+  // ...  
+
+}  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: 'applepay:{"token":{"paymentData":{"data":"mYd5Oo2cefxSqQo6Z4Nj7OFLh50HkW9mB7esTf6oZo4Gt1pzLHmGXSrm4rd4OGUSetDlBnieesdfadfJ96RUWtymK3cyxqSRufMelUV6g746dtus5SeqFBMVN957boP0s6CyzqSlZRqpwUtsW65NmlvGi2XGgIPLqmEY4P4tFRsdxqv\/RfgGrt\/DcfcvNRO12asdfasdfa231328zU4zxzkSK5wF2cTcCG1s4Rs1XzPfeKlrZpKSf94zKmJ7ztoCpZHxgi47rEPxINvI0SPuK+evusrfy0HMR4qpY3faG\/+fkpBBDLP3No+EoFTRGwt1Yt9n7Cu0fEs3X\/k\/+h7YH4KZGmp9pTwQD+V2BC6MaFDrRlfaOymJT9qJKD6uJ1p1l882LJtfWDD9wmLvZjORdyA==","signature":"MIAGCSqGSIb3DQEHAqCAMIACAQExDTALBglghkgBZQMEAgEwgAYJKoZIhvcNAQcBAACggDCCA+MwggOIoAMCAQICCEwwQUlRnVQ2MAoGCCqGSM49BAMCMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xOTA1MTgASDFGBSDFSDFASTAjBgNVBAMMHGVjYy1zbXAtYnJva2VyLXNpZ25fVUM0LVBST0QxFDASBgNVBAsMC2lPUyBTeXN0ZW1zMRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMIVd+3r1seyIY9o3XCQoSGNx7C9bywoPYRgldlK9KVBG4NCDtgR80B+gzMfHFTD9+syINa61dTv9JKJiT58DxOjggIRMIICDTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFCPyScRPk+TvJ+bE9ihsP6K7\/S5LMEUGCCsGAQUFBwEBBDkwNzA1BggrBgEFBQcwAYYpaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZWFpY2EzMDIwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB\/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlYWljYTMuY3JsMB0GA1UdDgQWBBSUV9tv1XSBhomJdi9+V4UH55tYJDAOBgNVHQ8BAf8EBAMCB4AwDwYJKoZIhvdjZAYdBAIFADAKBggqhkjOPQQDAgNJADBGAiEAvglXH+ceHnNbVeWvrLTHL+tEXzAYUiLHJRACth69b1UCIQDRizUKXdbdbrF0YDWxHrLOh8+j5q9svYOAiQ3ILN2qYzCCAu4wggJ1oAMCAQICCEltL786mNqXMAoGCCqGSM49BAMCMGcxGzAZBgNVBAMMEkFwcGxlIFJvb3QgQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE0MDUwNjIzNDYzMFoXDTI5MDUwNjIzNDYzMFowejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8BcRhBnXZIXVGl4lgQd26ICi795123123asdfasfaDFgASdfYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDQtYXBwbGVyb290Y2FnMzAdBgNVHQ4EFgQUI\/JJxE+T5O8n5sT2KGw\/orv9LkswDwYDVR0TAQH\/BAUwAwEB\/zAfBgNVHSMEGDAWgBS7sN6hWDOImqSKmd6+veuv2sskqzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFwcGxlLmNvbS9hcHBsZXJvb3RjYWczLmNybDAOBgNVHQ8BAf8EBAMCAQYwEAYKKoZIhvdjZAYCDgQCBQAwCgYIKoZIzj0EAwIDZwAwZAIwOs9yg1EWmbGG+zXDVspiv\/QX7dkPdU2ijr7xnIFeQreJ+Jj3m1mfmNVBDY+d6cL+AjAyLdVEIbCjBXdsXfM4O5Bn\/Rd8LCFtlk\/GcmmCEm9U+Hp9G5nLmwmJIWEGmQ8Jkh0AADGCAYkwggGFAgEBMIGGMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUwIITDBBSVGdVDYwCwYJYIZIAWUDBAIBoIGTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIzMDgwMzEyMzIzMlowKAYJKoZIhvcNAQk0MRswGTALBglghkgBZQMEAgGhCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIJHjEUt3D3kVbh2c4oGoYvsadfsadfDASDFADF8cxAzsMAoGCCqGSM49BAMCBEgwRgIhAJ1a13ITgNDXpg3JciNzbLvqXbxYfeph9yR4RLXJRuiSAiEAhq9M7DYVeYZw+hKUct5dAS7PHy+pa9Y9gxBAq+10D1sAAAAAAAA=","header":{"publicKeyHash":"Nl+banL5XgejSWXhPNuncDYkTOAEZmGYZvUfbb4bOko=","ephemeralPublicKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvqH9aA84DGT2nk59fSDHhcYYlFEETc5Ep1KwcYPG6h97jnLnuQhoZS5349mxJBteWDKJocAcQbP\/3\/Oqa0AThw==","transactionId":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"},"version":"EC_v1"},"paymentMethod":{"displayName":"Visa 0326","network":"Visa","type":"debit"},"transactionIdentifier":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"}}',  
+
+  // ...  
+
+}  
+
+```
+```
+
+<!-- Apple Pay -->  
+
+  
+
+<div id="apple-pay-div">  
+
+  <button  
+
+    id="btn-applepay"  
+
+    class="apple-pay-button apple-pay-button-black"  
+
+    style="cursor: pointer; opacity: 0.3;"  
+
+    type="button"  
+
+    disabled="disabled"  
+
+  >  
+
+    &nbsp;  
+
+  </button>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Apple Pay Logic */  
+
+  
+
+  /* Remove comment if ApplePay is properly configured on connector */  
+
+  PaymentFormApplePay.initialize(  
+
+    "btn-applepay",  
+
+    function () {  
+
+      $("#btn-applepay").get(0).style.opacity = 1.0;  
+
+      $("#btn-applepay").attr("disabled", null);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+<!-- Replace the ApplePay button code in the HPP with following snippet -->  
+
+<div id="apple-pay-div">  
+
+  <apple-pay-button id="apple-pay-button" buttonstyle="black" type="buy" locale="en"> </apple-pay-button>  
+
+  <script src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js" nonce="{{ head.nonce }}"></script>  
+
+</div>  
+
+  
+
+<!-- The style of the button can be changed as described here: https://developer.apple.com/documentation/applepayontheweb/displaying-apple-pay-buttons-using-javascript -->  
+
+  
+
+<!-- Replace the id in the script part of the HPP template -->  
+
+PaymentFormApplePay.initialize( "apple-pay-button", ...  
+
+  
+
+<!-- If the HPP is loaded in an iframe, the ApplePay SDK needs to be additionally included on the site containing the iframe -->  
+
+<head>  
+
+  <script  
+
+    crossorigin  
+
+    src="https://applepay.cdn-apple.com/jsapi/v1.3.2/apple-pay-sdk.js"  
+
+    integrity="sha384-DZRWMZLyVXr+7shJfal8pIG2v4KisLoSWFjZQMUv0+GWaCwoa82qeHsWrbBIUDPU"  
+
+    crossorigin="anonymous"  
+
+  ></script>  
+
+</head>  
+
+```
+```
+
+<!-- Google Pay -->  
+
+  
+
+<div class="form-group">  
+
+  <div id="google-pay-div">  
+
+    <script src="https://pay.google.com/gp/p/js/pay.js"></script>  
+
+  </div>  
+
+</div>  
+
+  
+
+<script>  
+
+  /* The JavaScript Logic to define custom callback functions */  
+
+  /* Google Pay Logic */  
+
+  
+
+  /* Remove comment if GooglePay is properly configured on connector */  
+
+  
+
+  PaymentFormGooglePay.initialize(  
+
+    "google-pay-div",  
+
+    function () {  
+
+      $("#google-pay-div").get(0).style.opacity = 1.0;  
+
+      $("#google-pay-div").attr("disabled", null);  
+
+    },  
+
+    function (err) {  
+
+      console.log(err);  
+
+    },  
+
+    function () {  
+
+      //Success Function  
+
+      $(".form-group-card").hide();  
+
+    },  
+
+    function () {  
+
+      //Cancelled Function  
+
+      $(".form-group-card").show();  
+
+    },  
+
+  );  
+
+</script>  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl ecparam -name prime256v1 -genkey -noout -out privateKey.key  
+
+openssl req -new -key privateKey.key -out certificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=YOURCOMPANYNAME/C=YOURCOMPANYCOUNTRYALPHA2'  
+
+```
+```
+
+openssl genrsa -out merchantPrivateKey.key 2048  
+
+openssl req -new -key merchantPrivateKey.key -out merchantCertificateSigningRequest.csr \  
+
+  -subj '/O=IXOPAY/C=AT'  
+
+```
+```
+
+openssl x509 -inform der -in merchant_id.cer -out merchant_id.pem  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: "applepay:{YOURTOKEN}",  
+
+  // ...  
+
+}  
+
+```
+```
+
+{  
+
+  // ...  
+
+  transactionToken: 'applepay:{"token":{"paymentData":{"data":"mYd5Oo2cefxSqQo6Z4Nj7OFLh50HkW9mB7esTf6oZo4Gt1pzLHmGXSrm4rd4OGUSetDlBnieesdfadfJ96RUWtymK3cyxqSRufMelUV6g746dtus5SeqFBMVN957boP0s6CyzqSlZRqpwUtsW65NmlvGi2XGgIPLqmEY4P4tFRsdxqv\/RfgGrt\/DcfcvNRO12asdfasdfa231328zU4zxzkSK5wF2cTcCG1s4Rs1XzPfeKlrZpKSf94zKmJ7ztoCpZHxgi47rEPxINvI0SPuK+evusrfy0HMR4qpY3faG\/+fkpBBDLP3No+EoFTRGwt1Yt9n7Cu0fEs3X\/k\/+h7YH4KZGmp9pTwQD+V2BC6MaFDrRlfaOymJT9qJKD6uJ1p1l882LJtfWDD9wmLvZjORdyA==","signature":"MIAGCSqGSIb3DQEHAqCAMIACAQExDTALBglghkgBZQMEAgEwgAYJKoZIhvcNAQcBAACggDCCA+MwggOIoAMCAQICCEwwQUlRnVQ2MAoGCCqGSM49BAMCMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzAeFw0xOTA1MTgASDFGBSDFSDFASTAjBgNVBAMMHGVjYy1zbXAtYnJva2VyLXNpZ25fVUM0LVBST0QxFDASBgNVBAsMC2lPUyBTeXN0ZW1zMRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABMIVd+3r1seyIY9o3XCQoSGNx7C9bywoPYRgldlK9KVBG4NCDtgR80B+gzMfHFTD9+syINa61dTv9JKJiT58DxOjggIRMIICDTAMBgNVHRMBAf8EAjAAMB8GA1UdIwQYMBaAFCPyScRPk+TvJ+bE9ihsP6K7\/S5LMEUGCCsGAQUFBwEBBDkwNzA1BggrBgEFBQcwAYYpaHR0cDovL29jc3AuYXBwbGUuY29tL29jc3AwNC1hcHBsZWFpY2EzMDIwggEdBgNVHSAEggEUMIIBEDCCAQwGCSqGSIb3Y2QFATCB\/jCBwwYIKwYBBQUHAgIwgbYMgbNSZWxpYW5jZSBvbiB0aGlzIGNlcnRpZmljYXRlIGJ5IGFueSBwYXJ0eSBhc3N1bWVzIGFjY2VwdGFuY2Ugb2YgdGhlIHRoZW4gYXBwbGljYWJsZSBzdGFuZGFyZCB0ZXJtcyBhbmQgY29uZGl0aW9ucyBvZiB1c2UsIGNlcnRpZmljYXRlIHBvbGljeSBhbmQgY2VydGlmaWNhdGlvbiBwcmFjdGljZSBzdGF0ZW1lbnRzLjA2BggrBgEFBQcCARYqaHR0cDovL3d3dy5hcHBsZS5jb20vY2VydGlmaWNhdGVhdXRob3JpdHkvMDQGA1UdHwQtMCswKaAnoCWGI2h0dHA6Ly9jcmwuYXBwbGUuY29tL2FwcGxlYWljYTMuY3JsMB0GA1UdDgQWBBSUV9tv1XSBhomJdi9+V4UH55tYJDAOBgNVHQ8BAf8EBAMCB4AwDwYJKoZIhvdjZAYdBAIFADAKBggqhkjOPQQDAgNJADBGAiEAvglXH+ceHnNbVeWvrLTHL+tEXzAYUiLHJRACth69b1UCIQDRizUKXdbdbrF0YDWxHrLOh8+j5q9svYOAiQ3ILN2qYzCCAu4wggJ1oAMCAQICCEltL786mNqXMAoGCCqGSM49BAMCMGcxGzAZBgNVBAMMEkFwcGxlIFJvb3QgQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMB4XDTE0MDUwNjIzNDYzMFoXDTI5MDUwNjIzNDYzMFowejEuMCwGA1UEAwwlQXBwbGUgQXBwbGljYXRpb24gSW50ZWdyYXRpb24gQ0EgLSBHMzEmMCQGA1UECwwdQXBwbGUgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkxEzARBgNVBAoMCkFwcGxlIEluYy4xCzAJBgNVBAYTAlVTMFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAE8BcRhBnXZIXVGl4lgQd26ICi795123123asdfasfaDFgASdfYIKwYBBQUHMAGGKmh0dHA6Ly9vY3NwLmFwcGxlLmNvbS9vY3NwMDQtYXBwbGVyb290Y2FnMzAdBgNVHQ4EFgQUI\/JJxE+T5O8n5sT2KGw\/orv9LkswDwYDVR0TAQH\/BAUwAwEB\/zAfBgNVHSMEGDAWgBS7sN6hWDOImqSKmd6+veuv2sskqzA3BgNVHR8EMDAuMCygKqAohiZodHRwOi8vY3JsLmFwcGxlLmNvbS9hcHBsZXJvb3RjYWczLmNybDAOBgNVHQ8BAf8EBAMCAQYwEAYKKoZIhvdjZAYCDgQCBQAwCgYIKoZIzj0EAwIDZwAwZAIwOs9yg1EWmbGG+zXDVspiv\/QX7dkPdU2ijr7xnIFeQreJ+Jj3m1mfmNVBDY+d6cL+AjAyLdVEIbCjBXdsXfM4O5Bn\/Rd8LCFtlk\/GcmmCEm9U+Hp9G5nLmwmJIWEGmQ8Jkh0AADGCAYkwggGFAgEBMIGGMHoxLjAsBgNVBAMMJUFwcGxlIEFwcGxpY2F0aW9uIEludGVncmF0aW9uIENBIC0gRzMxJjAkBgNVBAsMHUFwcGxlIENlcnRpZmljYXRpb24gQXV0aG9yaXR5MRMwEQYDVQQKDApBcHBsZSBJbmMuMQswCQYDVQQGEwJVUwIITDBBSVGdVDYwCwYJYIZIAWUDBAIBoIGTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIzMDgwMzEyMzIzMlowKAYJKoZIhvcNAQk0MRswGTALBglghkgBZQMEAgGhCgYIKoZIzj0EAwIwLwYJKoZIhvcNAQkEMSIEIJHjEUt3D3kVbh2c4oGoYvsadfsadfDASDFADF8cxAzsMAoGCCqGSM49BAMCBEgwRgIhAJ1a13ITgNDXpg3JciNzbLvqXbxYfeph9yR4RLXJRuiSAiEAhq9M7DYVeYZw+hKUct5dAS7PHy+pa9Y9gxBAq+10D1sAAAAAAAA=","header":{"publicKeyHash":"Nl+banL5XgejSWXhPNuncDYkTOAEZmGYZvUfbb4bOko=","ephemeralPublicKey":"MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEvqH9aA84DGT2nk59fSDHhcYYlFEETc5Ep1KwcYPG6h97jnLnuQhoZS5349mxJBteWDKJocAcQbP\/3\/Oqa0AThw==","transactionId":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"},"version":"EC_v1"},"paymentMethod":{"displayName":"Visa 0326","network":"Visa","type":"debit"},"transactionIdentifier":"eb3b94ed7f650d8123d81ab57ecb2f2123448f3cef48e449e3aeb90d8240a24d"}}',  
+
+  // ...  
+
+}  
+
+```

@@ -5,9 +5,9 @@ summary: ' Administrative Toolshttps://documentation.ixopay.com/manual/docs/admi
   Setup'
 tags:
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/two-factor-setup
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

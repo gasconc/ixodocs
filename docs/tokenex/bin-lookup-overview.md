@@ -12,9 +12,9 @@ tags:
 - overlapping-bin-ranges-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-overlapping-bin-ranges-direct-link-overlapping-bin-ranges
 - access-points-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-access-points-direct-link-access-points
 - iframe-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-iframe-direct-link-iframe
-source_url: ''
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

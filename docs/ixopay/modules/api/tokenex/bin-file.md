@@ -7,15 +7,15 @@ tags:
 - request-https-documentation-ixopay-com-modules-api-tokenex-bin-file-request-direct-link-request
 - header-parameters
 - body
-- responses-https-documentation-ixopay-com-modules-api-tokenex-bin-file-responses-direct-link-responses
 - api
 - json
 - pci
 - tokenization
 - tokenex
-source_url: ''
+- ixopay
+source_url: https://documentation.ixopay.com/modules/api/tokenex/bin-file
 portal: ixopay-modules
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -29,9 +29,7 @@ related: []
 GET 
 ## https://test-api.tokenex.com/v2/pci/BinFile
 
-```
-
-info
+```info
 BIN lookup is a subscription service. Contact your Customer Success Manager or sales@ixopay.com to gain access to our BIN lookup product. The endpoint requires an enterprise tier subscription.
 ## Request[​](https://documentation.ixopay.com/modules/api/tokenex/bin-file#request "Direct link to request")
 ### Header Parameters
@@ -42,9 +40,19 @@ Provides access to one or more functions in the TokenEx API.
 
   * application/json
 
-### Body
+  * Body
+  * Request Example
 
-## Responses[​](https://documentation.ixopay.com/modules/api/tokenex/bin-file#responses "Direct link to Responses")
+### Body
+```
+
+{  
+
+  "PAN": "5454545454545454"  
+
+}  
+
+```## Responses[​](https://documentation.ixopay.com/modules/api/tokenex/bin-file#responses "Direct link to Responses")
   * 200
   * 400
 
@@ -71,19 +79,48 @@ Provides access to one or more functions in the TokenEx API.
 **Example:**``
 **message** string
 **Example:**``
-
 ```
+
 {  
+
   "url": "<file download url>",  
+
   "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
   "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
   "referenceNumber": "23102312162553243914",  
+
   "success": true,  
+
   "error": "",  
+
   "message": ""  
+
 }  
 
-400
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```400
   * application/json
 
 No schema
@@ -95,14 +132,13 @@ No schema
   * java
 
   * CURL
-
 ```
 curl -L 'https://test-api.tokenex.com/v2/pci/BinFile' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
 -d ''  
 
-RequestCollapse all
+```RequestCollapse all
 Base URL
 Edit
 Parameters
@@ -112,3 +148,336 @@ tx-apikey — header
 Body
   * Example (from schema)
   * Request Example
+```
+
+```
+```
+GET 
+## https://test-api.tokenex.com/v2/pci/BinFile
+
+```
+```
+
+{  
+
+  "PAN": "5454545454545454"  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/pci/BinFile' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-d ''  
+
+```
+```
+
+```
+```
+GET 
+## https://test-api.tokenex.com/v2/pci/BinFile
+
+```
+```
+
+{  
+
+  "PAN": "5454545454545454"  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/pci/BinFile' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-d ''  
+
+```
+```
+
+```
+```
+GET 
+## https://test-api.tokenex.com/v2/pci/BinFile
+
+```
+```
+
+{  
+
+  "PAN": "5454545454545454"  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/pci/BinFile' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-d ''  
+
+```
+```
+
+```
+```
+GET 
+## https://test-api.tokenex.com/v2/pci/BinFile
+
+```
+```
+
+{  
+
+  "PAN": "5454545454545454"  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/pci/BinFile' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-d ''  
+
+```
+```
+
+```
+```
+GET 
+## https://test-api.tokenex.com/v2/pci/BinFile
+
+```
+```
+
+{  
+
+  "PAN": "5454545454545454"  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+
+{  
+
+  "url": "<file download url>",  
+
+  "fileName": "TokenEx_BINdata_2023-10-17T07:36:30.0599124Z.zip",  
+
+  "fileDateUtc": "2023-10-17T07:36:30.0599124Z",  
+
+  "referenceNumber": "23102312162553243914",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": ""  
+
+}  
+
+```
+```
+curl -L 'https://test-api.tokenex.com/v2/pci/BinFile' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-d ''  
+
+```
+```
+
+```

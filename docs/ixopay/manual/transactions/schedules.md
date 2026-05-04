@@ -6,9 +6,9 @@ tags:
 - schedules-overview-gallerycolumnhttps-documentation-ixopay-com-manual-docs-transactions-schedules-overview-create-schedule-order-able-create-schedule-register-transaction-https-documentation-ixopay-com-manual-docs-transactions-schedules-create-pause-continue-retry-cancel-schedules-gallerycolumnhttps-documentation-ixopay-com-manual-docs-transactions-schedules-pause-continue-retry-cancel-schedules-overview-gallerycolumnhttps-documentation-ixopay-com-manual-docs-transactions-schedules-overview-create-schedule-order-able-create-schedule-register-transaction-https-documentation-ixopay-com-manual-docs-transactions-schedules-create-pause-continue-retry-cancel-schedules-gallerycolumnhttps-documentation-ixopay-com-manual-docs-transactions-schedules-pause-continue-retry-cancel
 - ixopay
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/transactions/schedules
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

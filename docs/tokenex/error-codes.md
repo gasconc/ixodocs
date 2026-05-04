@@ -2,7 +2,6 @@
 title: Error Codes
 summary: ' Error Codes'
 tags:
-- access-error-codes-https-documentation-ixopay-com-modules-docs-tokenex-error-codes-access-error-codes-direct-link-access-error-codes
 - validation-errors-https-documentation-ixopay-com-modules-docs-tokenex-error-codes-validation-errors-direct-link-validation-errors
 - data-errors-https-documentation-ixopay-com-modules-docs-tokenex-error-codes-data-errors-direct-link-data-errors
 - parameter-errors-https-documentation-ixopay-com-modules-docs-tokenex-error-codes-parameter-errors-direct-link-parameter-errors
@@ -12,9 +11,10 @@ tags:
 - p2pe-errors-https-documentation-ixopay-com-modules-docs-tokenex-error-codes-p2pe-errors-direct-link-p2pe-errors
 - unknown-errors-https-documentation-ixopay-com-modules-docs-tokenex-error-codes-unknown-errors-direct-link-unknown-errors
 - api
-source_url: ''
+- json
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/error-codes
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -28,41 +28,64 @@ For the most up to date error codes that are shared across TokenEx v2 APIs, make
   * Request — Production US
   * Request — Production EU
   * Response
-
 ```
+
 GET https://test-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
   
+
 tx-tokenex-id: YourTokenExID  
+
 tx-apikey: YourAPIKey  
 
 ```
-
 ```
+
 GET https://api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
   
+
 tx-tokenex-id: YourTokenExID  
+
 tx-apikey: YourAPIKey  
 
 ```
+```
+
 GET https://eu1-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
   
+
 tx-tokenex-id: YourTokenExID  
+
 tx-apikey: YourAPIKey  
 
 ```
+```
+
 [  
+
   {  
+
     "code": 1000,  
+
     "message": "TokenExID cannot be empty"  
+
   },  
+
   {  
+
     "code": 1001,  
+
     "message": "API Key cannot be empty"  
+
   },  
+
   ...  
+
 ]  
 
-## Access Error Codes[​](https://documentation.ixopay.com/modules/docs/tokenex/error-codes#access-error-codes "Direct link to Access Error Codes")  
+```## Access Error Codes[​](https://documentation.ixopay.com/modules/docs/tokenex/error-codes#access-error-codes "Direct link to Access Error Codes")  
 | Error Code  | Error Message  |  
 | --- | --- |  
 | 1000  | "TokenExID cannot be empty"  |  
@@ -271,4 +294,292 @@ tx-apikey: YourAPIKey
 | Error Code  | Error Message  |  
 | --- | --- |  
 | 9998  | "Internal error, please contact support via the client portal"  |  
-| 9999  | "Internal error, please contact support via the client portal"  |
+| 9999  | "Internal error, please contact support via the client portal"  |  
+```
+
+GET https://test-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://eu1-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+[  
+
+  {  
+
+    "code": 1000,  
+
+    "message": "TokenExID cannot be empty"  
+
+  },  
+
+  {  
+
+    "code": 1001,  
+
+    "message": "API Key cannot be empty"  
+
+  },  
+
+  ...  
+
+]  
+
+```
+```
+
+GET https://test-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://eu1-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+[  
+
+  {  
+
+    "code": 1000,  
+
+    "message": "TokenExID cannot be empty"  
+
+  },  
+
+  {  
+
+    "code": 1001,  
+
+    "message": "API Key cannot be empty"  
+
+  },  
+
+  ...  
+
+]  
+
+``````
+
+GET https://test-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://eu1-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+[  
+
+  {  
+
+    "code": 1000,  
+
+    "message": "TokenExID cannot be empty"  
+
+  },  
+
+  {  
+
+    "code": 1001,  
+
+    "message": "API Key cannot be empty"  
+
+  },  
+
+  ...  
+
+]  
+
+``````
+
+GET https://test-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://eu1-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+[  
+
+  {  
+
+    "code": 1000,  
+
+    "message": "TokenExID cannot be empty"  
+
+  },  
+
+  {  
+
+    "code": 1001,  
+
+    "message": "API Key cannot be empty"  
+
+  },  
+
+  ...  
+
+]  
+
+```
+```
+
+GET https://test-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+GET https://eu1-api.tokenex.com/v2/home/errorcodes HTTP/1.1  
+
+  
+
+tx-tokenex-id: YourTokenExID  
+
+tx-apikey: YourAPIKey  
+
+```
+```
+
+[  
+
+  {  
+
+    "code": 1000,  
+
+    "message": "TokenExID cannot be empty"  
+
+  },  
+
+  {  
+
+    "code": 1001,  
+
+    "message": "API Key cannot be empty"  
+
+  },  
+
+  ...  
+
+]  
+
+```

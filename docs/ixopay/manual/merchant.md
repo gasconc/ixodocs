@@ -9,9 +9,9 @@ tags:
 - merchants-overview-merchants-overview-display-merchants-access-associated-configuration-elements-connectors-users-https-documentation-ixopay-com-manual-docs-merchant-overview-create-edit-merchant-profiles-itemshttps-documentation-ixopay-com-manual-docs-merchant-profiles-merchant-archiving-gallerycolumnhttps-documentation-ixopay-com-manual-docs-merchant-archive-connector-list-routing-connector-listhttps-documentation-ixopay-com-manual-docs-merchant-connector-list-merchants-overview-merchants-overview-display-merchants-access-associated-configuration-elements-connectors-users-https-documentation-ixopay-com-manual-docs-merchant-overview-create-edit-merchant-profiles-itemshttps-documentation-ixopay-com-manual-docs-merchant-profiles-merchant-archiving-gallerycolumnhttps-documentation-ixopay-com-manual-docs-merchant-archive-connector-list-routing-connector-listhttps-documentation-ixopay-com-manual-docs-merchant-connector-list
 - ixopay
 - merchant
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/merchant
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

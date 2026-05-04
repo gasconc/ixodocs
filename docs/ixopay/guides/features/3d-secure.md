@@ -12,9 +12,9 @@ tags:
 - footnotes-https-documentation-ixopay-com-docs-guides-features-secure-footnote-label-direct-link-footnotes
 - api
 - 3ds
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/guides/features/3d-secure
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -55,107 +55,194 @@ The 3-D Secure authentication flow can be controlled for each transaction by set
 
 ### Configuring the 3-D Secure setting of a transaction[​](https://documentation.ixopay.com/docs/guides/features/3d-secure#configuring-the-3-d-secure-setting-of-a-transaction "Direct link to Configuring the 3-D Secure setting of a transaction")
 You can set the 3-D Secure authentication flow at different levels:
-  1. **Transaction level** : To specify the 3-D Secure requirement for a particular transaction, include the `threeDSecureData.3dsecure` field in the API request data and set it to the desired value (`MANDATORY`, `OPTIONAL`, or `OFF`).```
-{  
-  "merchantTransactionId": "your-unique-identifier",  
-  "amount": "155",  
-  "currency": "EUR",  
-  "successUrl": "https://shop.example.org/checkout/success",  
-  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-  "errorUrl": "https://shop.example.org/checkout/error",  
-  "callbackUrl": "https://api.example.org/callback",  
-  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
-  "customer": {  
-    "firstName": "Alex",  
-    "lastName": "Smith",  
-    "company": "Alex's Artisan Goods",  
-    "email": "alex.smith@example.org",  
-    "emailVerified": false,  
-    "ipAddress": "198.51.100.123"  
-  },  
-  "language": "en",  
-  "threeDSecureData": {  
-    "3dsecure": "MANDATORY"  
-    // ...  
-  }  
-}  
-
+  1. **Transaction level** : To specify the 3-D Secure requirement for a particular transaction, include the `threeDSecureData.3dsecure` field in the API request data and set it to the desired value (`MANDATORY`, `OPTIONAL`, or `OFF`).
 ```
 
-  2. **Risk Engine configuration** : The Risk Engine allows you to configure rules and conditions for 3-D Secure authentication based on risk assessment. You can set up rules that trigger 3-D Secure authentication for transactions that meet specific risk criteria.
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY"  
+
+    // ...  
+
+  }  
+
+}  
+
+```  2. **Risk Engine configuration** : The Risk Engine allows you to configure rules and conditions for 3-D Secure authentication based on risk assessment. You can set up rules that trigger 3-D Secure authentication for transactions that meet specific risk criteria.
   3. **Static Connector Setting** : For Connectors supporting Hosted 3-D Secure, you can enable the checkbox _Enabled_ in _3D-Secure 2 Configuration (IXOPAY-hosted)_ to set 3-D Secure to `OPTIONAL` or `MANDATORY` as the default policy.
 
 info
 When there are conflicting settings at different levels, the most stringent setting takes precedence. Specifically, `MANDATORY` has the highest priority, followed by `OPTIONAL`, and finally `OFF`.
 ## Providing 3-D Secure data[​](https://documentation.ixopay.com/docs/guides/features/3d-secure#providing-3-d-secure-data "Direct link to Providing 3-D Secure data")
 Before proceeding with a transaction, it is important to provide the necessary 3-D Secure data. The `threeDSecureData` field in the API request allows you to submit the required information for the authentication process. To find the list of fields and their descriptions for 3-D Secure data submission, you can explore the corresponding API documentation for example for [debit transactions](https://documentation.ixopay.com/api/transaction/debit) by expanding the field `threeDSecureData`.
-During the 3-D Secure authentication process, there are several possible outcomes that can occur based on the provided data and the customer's interaction with the authentication process. These outcomes include frictionless flows and challenge flows. For a detailed explanation of each flow, please refer to our reference on [Authentication flows](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows).```
+During the 3-D Secure authentication process, there are several possible outcomes that can occur based on the provided data and the customer's interaction with the authentication process. These outcomes include frictionless flows and challenge flows. For a detailed explanation of each flow, please refer to our reference on [Authentication flows](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows).
+```
+
 {  
+
   "merchantTransactionId": "your-unique-identifier",  
+
   "amount": "155",  
+
   "currency": "EUR",  
+
   "successUrl": "https://shop.example.org/checkout/success",  
+
   "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
   "errorUrl": "https://shop.example.org/checkout/error",  
+
   "callbackUrl": "https://api.example.org/callback",  
+
   "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
   "customer": {  
+
     "firstName": "Alex",  
+
     "lastName": "Smith",  
+
     "company": "Alex's Artisan Goods",  
+
     "email": "alex.smith@example.org",  
+
     "emailVerified": false,  
+
     "ipAddress": "198.51.100.123"  
+
   },  
+
   "language": "en",  
+
   "threeDSecureData": {  
+
     "3dsecure": "MANDATORY",  
+
     "channel": "02",  
+
     "authenticationIndicator": "01",  
+
     "cardholderAuthenticationMethod": "02",  
-    "cardholderAuthenticationDateTime": "2026-04-10T08:52:36Z",  
+
+    "cardholderAuthenticationDateTime": "2026-04-22T12:42:24Z",  
+
     "challengeIndicator": "01",  
+
     "cardholderAccountType": "03",  
+
     "cardholderAccountAgeIndicator": "05",  
+
     "cardholderAccountDate": "2022-01-01",  
+
     "cardholderAccountChangeIndicator": "04",  
+
     "cardholderAccountLastChange": "2022-01-01",  
+
     "cardholderAccountPasswordChangeIndicator": "05",  
+
     "cardholderAccountLastPasswordChange": "2022-01-01",  
+
     "shippingAddressUsageIndicator": "04",  
+
     "shippingAddressFirstUsage": "2022-01-01",  
+
     "transactionActivityDay": 0,  
+
     "transactionActivityYear": 10,  
+
     "addCardAttemptsDay": 0,  
+
     "purchaseCountSixMonths": 7,  
+
     "suspiciousAccountActivityIndicator": "01",  
+
     "shippingNameEqualIndicator": "01",  
+
     "paymentAccountAgeIndicator": "05",  
+
     "paymentAccountAgeDate": "2022-01-01",  
+
     "billingAddressLine3": "",  
+
     "shippingAddressLine3": "",  
+
     "billingShippingAddressMatch": "Y",  
+
     "homePhoneCountryPrefix": "1", // combined with field below  
+
     "homePhoneNumber": "1234567890", // to make +1 1234567890  
+
     "mobilePhoneCountryPrefix": "1", // combined with field below  
+
     "mobilePhoneNumber": "1234567890", // to make +1 1234567890  
+
     "workPhoneCountryPrefix": "1", // combined with field below  
+
     "workPhoneNumber": "1234567890", // to make +1 1234567890  
+
     "shipIndicator": "01",  
+
     "deliveryTimeframe": "04",  
+
     "reorderItemsIndicator": "01",  
+
     "preOrderPurchaseIndicator": "01",  
+
     "giftCardAmount": 10,  
+
     "giftCardCurrency": "EUR",  
+
     "giftCardCount": 1,  
-    "purchaseDate": "2026-04-10T08:52:36Z",  
+
+    "purchaseDate": "2026-04-22T12:42:24Z",  
+
     "transType": "01",  
+
     "exemptionIndicator": "02"  
+
     // browser* fields are submitted by payment.js or a hosted payment page if used  
+
   }  
+
 }  
 
-The desired outcome for a smooth and seamless customer experience is the frictionless flow. In a frictionless flow, no further customer interaction is required, and the transaction can proceed smoothly without any additional steps. To maximize the chances of a frictionless flow, it is crucial to provide as much data as possible in the `threeDSecureData` field of transaction requests.
+```The desired outcome for a smooth and seamless customer experience is the frictionless flow. In a frictionless flow, no further customer interaction is required, and the transaction can proceed smoothly without any additional steps. To maximize the chances of a frictionless flow, it is crucial to provide as much data as possible in the `threeDSecureData` field of transaction requests.
 Mandatory fields
 The `browser*` fields are mandatory for 3-D Secure 2.0, and including all required browser fields is essential to avoid transaction failures.
 For integrations using [hosted payment pages](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages) or [payment.js](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/payment.js) on the IXOPAY platform, the browser fields are automatically filled, streamlining the authentication process.
@@ -174,29 +261,41 @@ To proceed with the authentication, the customer might be redirected to a secure
 When you receive a `returnType` of `REDIRECT`, you need to redirect the customer's browser to the provided `redirectUrl` for 3-D Secure authentication. For 3-D Secure transactions, the value of the `redirectType` response field will be `iframe`.
 The transaction response would look something like:
 ```
+
 {  
+
   "success": true,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
-  "purchaseId": "20260409-d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
   "returnType": "REDIRECT",  
+
   "redirectUrl": "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890",  
+
   "redirectType": "iframe",  
+
   "paymentMethod": "Creditcard"  
+
 }  
 
-Redirection methods
+```Redirection methods
 Depending on your application's structure, there are various ways to perform this redirection. The two most common methods are via the HTTP `Location` header or using JavaScript.
      * HTTP Location header
      * JavaScript
      * iframe
-To use the HTTP `Location` header for redirection, set the `Location` field to the `redirectUrl`:```
+To use the HTTP `Location` header for redirection, set the `Location` field to the `redirectUrl`:
+```
+
 Location: https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890  
 
-To perform the redirection using Javascript, you can set the `window.location.href` property to the `redirectUrl`:
+```To perform the redirection using Javascript, you can set the `window.location.href` property to the `redirectUrl`:
 ```
+
 window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890";  
 
-You can also show the `redirectUrl` in an iframe, for more details, see the article [Display the challenge flow in an iframe](https://documentation.ixopay.com/docs/reference/features/3d-secure/advanced-guides/challenge-flow-iframe) in our reference.
+```You can also show the `redirectUrl` in an iframe, for more details, see the article [Display the challenge flow in an iframe](https://documentation.ixopay.com/docs/reference/features/3d-secure/advanced-guides/challenge-flow-iframe) in our reference.
 Once the authentication is successful, the customer will be redirected back to the `successUrl`. In the event of authentication failure, they will be redirected to the `errorUrl`. The detailed flow of how to set up these URLs can be found in the [Hosted payment pages](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages) and [Hosted fields — payment.js](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/payment.js) guides.
   3. `ERROR`: 3-D Secure authentication failed, for example this can happen if `threeDSecureData.3dsecure: MANDATORY` and either the issuing bank Access Control Server (ACS) wasn't reachable or the credit card is not enrolled with 3-D Secure[1](https://documentation.ixopay.com/docs/guides/features/3d-secure#user-content-fn-1).
 No further merchant action is required. You can attempt to retry the transaction at a later time or with different data, but pay attention to the [merchant advice code](https://documentation.ixopay.com/docs/guides/production/handling-errors#merchant-advice-codes).
@@ -205,11 +304,1064 @@ No further merchant action is required. You can attempt to retry the transaction
 For detailed information on testing 3-D Secure authentication, including testing scenarios and configurations, please refer to the [Testing 3-D Secure authentication](https://documentation.ixopay.com/docs/reference/features/3d-secure/testing) article in the reference section. This article provides guidance on how to test both hosted and provider 3-D Secure configurations, enabling you to ensure a smooth and secure authentication process.
 ## Footnotes[​](https://documentation.ixopay.com/docs/guides/features/3d-secure#footnote-label "Direct link to Footnotes")
   1. Please note that this guarantee applies exclusively to Hosted 3-D Secure. For Provider 3-D Secure, its availability relies on the Adapters implementation and may be subject to certain restrictions within the PSP's API. In case liability shift is a concern, please reach out to the PSP's support if you want any unauthenticated transaction rejected. [↩](https://documentation.ixopay.com/docs/guides/features/3d-secure#user-content-fnref-1) [↩2](https://documentation.ixopay.com/docs/guides/features/3d-secure#user-content-fnref-1-2) [↩3](https://documentation.ixopay.com/docs/guides/features/3d-secure#user-content-fnref-1-3) [↩4](https://documentation.ixopay.com/docs/guides/features/3d-secure#user-content-fnref-1-4)
+```
 
-  * [Setting-up 3-D Secure authentication](https://documentation.ixopay.com/docs/guides/features/3d-secure#setting-up-3-d-secure-authentication)
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY"  
+
+    // ...  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY",  
+
+    "channel": "02",  
+
+    "authenticationIndicator": "01",  
+
+    "cardholderAuthenticationMethod": "02",  
+
+    "cardholderAuthenticationDateTime": "2026-04-22T12:42:24Z",  
+
+    "challengeIndicator": "01",  
+
+    "cardholderAccountType": "03",  
+
+    "cardholderAccountAgeIndicator": "05",  
+
+    "cardholderAccountDate": "2022-01-01",  
+
+    "cardholderAccountChangeIndicator": "04",  
+
+    "cardholderAccountLastChange": "2022-01-01",  
+
+    "cardholderAccountPasswordChangeIndicator": "05",  
+
+    "cardholderAccountLastPasswordChange": "2022-01-01",  
+
+    "shippingAddressUsageIndicator": "04",  
+
+    "shippingAddressFirstUsage": "2022-01-01",  
+
+    "transactionActivityDay": 0,  
+
+    "transactionActivityYear": 10,  
+
+    "addCardAttemptsDay": 0,  
+
+    "purchaseCountSixMonths": 7,  
+
+    "suspiciousAccountActivityIndicator": "01",  
+
+    "shippingNameEqualIndicator": "01",  
+
+    "paymentAccountAgeIndicator": "05",  
+
+    "paymentAccountAgeDate": "2022-01-01",  
+
+    "billingAddressLine3": "",  
+
+    "shippingAddressLine3": "",  
+
+    "billingShippingAddressMatch": "Y",  
+
+    "homePhoneCountryPrefix": "1", // combined with field below  
+
+    "homePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "mobilePhoneCountryPrefix": "1", // combined with field below  
+
+    "mobilePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "workPhoneCountryPrefix": "1", // combined with field below  
+
+    "workPhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "shipIndicator": "01",  
+
+    "deliveryTimeframe": "04",  
+
+    "reorderItemsIndicator": "01",  
+
+    "preOrderPurchaseIndicator": "01",  
+
+    "giftCardAmount": 10,  
+
+    "giftCardCurrency": "EUR",  
+
+    "giftCardCount": 1,  
+
+    "purchaseDate": "2026-04-22T12:42:24Z",  
+
+    "transType": "01",  
+
+    "exemptionIndicator": "02"  
+
+    // browser* fields are submitted by payment.js or a hosted payment page if used  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "REDIRECT",  
+
+  "redirectUrl": "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890",  
+
+  "redirectType": "iframe",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+Location: https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890  
+
+```
+```
+
+window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890";  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY"  
+
+    // ...  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY",  
+
+    "channel": "02",  
+
+    "authenticationIndicator": "01",  
+
+    "cardholderAuthenticationMethod": "02",  
+
+    "cardholderAuthenticationDateTime": "2026-04-22T12:42:24Z",  
+
+    "challengeIndicator": "01",  
+
+    "cardholderAccountType": "03",  
+
+    "cardholderAccountAgeIndicator": "05",  
+
+    "cardholderAccountDate": "2022-01-01",  
+
+    "cardholderAccountChangeIndicator": "04",  
+
+    "cardholderAccountLastChange": "2022-01-01",  
+
+    "cardholderAccountPasswordChangeIndicator": "05",  
+
+    "cardholderAccountLastPasswordChange": "2022-01-01",  
+
+    "shippingAddressUsageIndicator": "04",  
+
+    "shippingAddressFirstUsage": "2022-01-01",  
+
+    "transactionActivityDay": 0,  
+
+    "transactionActivityYear": 10,  
+
+    "addCardAttemptsDay": 0,  
+
+    "purchaseCountSixMonths": 7,  
+
+    "suspiciousAccountActivityIndicator": "01",  
+
+    "shippingNameEqualIndicator": "01",  
+
+    "paymentAccountAgeIndicator": "05",  
+
+    "paymentAccountAgeDate": "2022-01-01",  
+
+    "billingAddressLine3": "",  
+
+    "shippingAddressLine3": "",  
+
+    "billingShippingAddressMatch": "Y",  
+
+    "homePhoneCountryPrefix": "1", // combined with field below  
+
+    "homePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "mobilePhoneCountryPrefix": "1", // combined with field below  
+
+    "mobilePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "workPhoneCountryPrefix": "1", // combined with field below  
+
+    "workPhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "shipIndicator": "01",  
+
+    "deliveryTimeframe": "04",  
+
+    "reorderItemsIndicator": "01",  
+
+    "preOrderPurchaseIndicator": "01",  
+
+    "giftCardAmount": 10,  
+
+    "giftCardCurrency": "EUR",  
+
+    "giftCardCount": 1,  
+
+    "purchaseDate": "2026-04-22T12:42:24Z",  
+
+    "transType": "01",  
+
+    "exemptionIndicator": "02"  
+
+    // browser* fields are submitted by payment.js or a hosted payment page if used  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "REDIRECT",  
+
+  "redirectUrl": "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890",  
+
+  "redirectType": "iframe",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+Location: https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890  
+
+```
+```
+
+window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890";  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY"  
+
+    // ...  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY",  
+
+    "channel": "02",  
+
+    "authenticationIndicator": "01",  
+
+    "cardholderAuthenticationMethod": "02",  
+
+    "cardholderAuthenticationDateTime": "2026-04-22T12:42:24Z",  
+
+    "challengeIndicator": "01",  
+
+    "cardholderAccountType": "03",  
+
+    "cardholderAccountAgeIndicator": "05",  
+
+    "cardholderAccountDate": "2022-01-01",  
+
+    "cardholderAccountChangeIndicator": "04",  
+
+    "cardholderAccountLastChange": "2022-01-01",  
+
+    "cardholderAccountPasswordChangeIndicator": "05",  
+
+    "cardholderAccountLastPasswordChange": "2022-01-01",  
+
+    "shippingAddressUsageIndicator": "04",  
+
+    "shippingAddressFirstUsage": "2022-01-01",  
+
+    "transactionActivityDay": 0,  
+
+    "transactionActivityYear": 10,  
+
+    "addCardAttemptsDay": 0,  
+
+    "purchaseCountSixMonths": 7,  
+
+    "suspiciousAccountActivityIndicator": "01",  
+
+    "shippingNameEqualIndicator": "01",  
+
+    "paymentAccountAgeIndicator": "05",  
+
+    "paymentAccountAgeDate": "2022-01-01",  
+
+    "billingAddressLine3": "",  
+
+    "shippingAddressLine3": "",  
+
+    "billingShippingAddressMatch": "Y",  
+
+    "homePhoneCountryPrefix": "1", // combined with field below  
+
+    "homePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "mobilePhoneCountryPrefix": "1", // combined with field below  
+
+    "mobilePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "workPhoneCountryPrefix": "1", // combined with field below  
+
+    "workPhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "shipIndicator": "01",  
+
+    "deliveryTimeframe": "04",  
+
+    "reorderItemsIndicator": "01",  
+
+    "preOrderPurchaseIndicator": "01",  
+
+    "giftCardAmount": 10,  
+
+    "giftCardCurrency": "EUR",  
+
+    "giftCardCount": 1,  
+
+    "purchaseDate": "2026-04-22T12:42:24Z",  
+
+    "transType": "01",  
+
+    "exemptionIndicator": "02"  
+
+    // browser* fields are submitted by payment.js or a hosted payment page if used  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "REDIRECT",  
+
+  "redirectUrl": "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890",  
+
+  "redirectType": "iframe",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+Location: https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890  
+
+```
+```
+
+window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890";  
+
+```  * [Setting-up 3-D Secure authentication](https://documentation.ixopay.com/docs/guides/features/3d-secure#setting-up-3-d-secure-authentication)
   * [Controlling when to present 3-D Secure authentication](https://documentation.ixopay.com/docs/guides/features/3d-secure#controlling-when-to-present-3-d-secure-authentication)
     * [3-D Secure setting of a transaction](https://documentation.ixopay.com/docs/guides/features/3d-secure#3-d-secure-setting-of-a-transaction)
     * [Configuring the 3-D Secure setting of a transaction](https://documentation.ixopay.com/docs/guides/features/3d-secure#configuring-the-3-d-secure-setting-of-a-transaction)
   * [Providing 3-D Secure data](https://documentation.ixopay.com/docs/guides/features/3d-secure#providing-3-d-secure-data)
   * [Displaying 3-D Secure authentication](https://documentation.ixopay.com/docs/guides/features/3d-secure#displaying-3-d-secure-authentication)
   * [Testing 3-D Secure authentication](https://documentation.ixopay.com/docs/guides/features/3d-secure#testing-3-d-secure-authentication)
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY"  
+
+    // ...  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY",  
+
+    "channel": "02",  
+
+    "authenticationIndicator": "01",  
+
+    "cardholderAuthenticationMethod": "02",  
+
+    "cardholderAuthenticationDateTime": "2026-04-22T12:42:24Z",  
+
+    "challengeIndicator": "01",  
+
+    "cardholderAccountType": "03",  
+
+    "cardholderAccountAgeIndicator": "05",  
+
+    "cardholderAccountDate": "2022-01-01",  
+
+    "cardholderAccountChangeIndicator": "04",  
+
+    "cardholderAccountLastChange": "2022-01-01",  
+
+    "cardholderAccountPasswordChangeIndicator": "05",  
+
+    "cardholderAccountLastPasswordChange": "2022-01-01",  
+
+    "shippingAddressUsageIndicator": "04",  
+
+    "shippingAddressFirstUsage": "2022-01-01",  
+
+    "transactionActivityDay": 0,  
+
+    "transactionActivityYear": 10,  
+
+    "addCardAttemptsDay": 0,  
+
+    "purchaseCountSixMonths": 7,  
+
+    "suspiciousAccountActivityIndicator": "01",  
+
+    "shippingNameEqualIndicator": "01",  
+
+    "paymentAccountAgeIndicator": "05",  
+
+    "paymentAccountAgeDate": "2022-01-01",  
+
+    "billingAddressLine3": "",  
+
+    "shippingAddressLine3": "",  
+
+    "billingShippingAddressMatch": "Y",  
+
+    "homePhoneCountryPrefix": "1", // combined with field below  
+
+    "homePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "mobilePhoneCountryPrefix": "1", // combined with field below  
+
+    "mobilePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "workPhoneCountryPrefix": "1", // combined with field below  
+
+    "workPhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "shipIndicator": "01",  
+
+    "deliveryTimeframe": "04",  
+
+    "reorderItemsIndicator": "01",  
+
+    "preOrderPurchaseIndicator": "01",  
+
+    "giftCardAmount": 10,  
+
+    "giftCardCurrency": "EUR",  
+
+    "giftCardCount": 1,  
+
+    "purchaseDate": "2026-04-22T12:42:24Z",  
+
+    "transType": "01",  
+
+    "exemptionIndicator": "02"  
+
+    // browser* fields are submitted by payment.js or a hosted payment page if used  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "REDIRECT",  
+
+  "redirectUrl": "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890",  
+
+  "redirectType": "iframe",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+Location: https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890  
+
+```
+```
+
+window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890";  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY"  
+
+    // ...  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "your-unique-identifier",  
+
+  "amount": "155",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "transactionToken": "ix::e5eb9f5158deb7d6b7da44b2334f",  
+
+  "customer": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "company": "Alex's Artisan Goods",  
+
+    "email": "alex.smith@example.org",  
+
+    "emailVerified": false,  
+
+    "ipAddress": "198.51.100.123"  
+
+  },  
+
+  "language": "en",  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY",  
+
+    "channel": "02",  
+
+    "authenticationIndicator": "01",  
+
+    "cardholderAuthenticationMethod": "02",  
+
+    "cardholderAuthenticationDateTime": "2026-04-22T12:42:24Z",  
+
+    "challengeIndicator": "01",  
+
+    "cardholderAccountType": "03",  
+
+    "cardholderAccountAgeIndicator": "05",  
+
+    "cardholderAccountDate": "2022-01-01",  
+
+    "cardholderAccountChangeIndicator": "04",  
+
+    "cardholderAccountLastChange": "2022-01-01",  
+
+    "cardholderAccountPasswordChangeIndicator": "05",  
+
+    "cardholderAccountLastPasswordChange": "2022-01-01",  
+
+    "shippingAddressUsageIndicator": "04",  
+
+    "shippingAddressFirstUsage": "2022-01-01",  
+
+    "transactionActivityDay": 0,  
+
+    "transactionActivityYear": 10,  
+
+    "addCardAttemptsDay": 0,  
+
+    "purchaseCountSixMonths": 7,  
+
+    "suspiciousAccountActivityIndicator": "01",  
+
+    "shippingNameEqualIndicator": "01",  
+
+    "paymentAccountAgeIndicator": "05",  
+
+    "paymentAccountAgeDate": "2022-01-01",  
+
+    "billingAddressLine3": "",  
+
+    "shippingAddressLine3": "",  
+
+    "billingShippingAddressMatch": "Y",  
+
+    "homePhoneCountryPrefix": "1", // combined with field below  
+
+    "homePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "mobilePhoneCountryPrefix": "1", // combined with field below  
+
+    "mobilePhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "workPhoneCountryPrefix": "1", // combined with field below  
+
+    "workPhoneNumber": "1234567890", // to make +1 1234567890  
+
+    "shipIndicator": "01",  
+
+    "deliveryTimeframe": "04",  
+
+    "reorderItemsIndicator": "01",  
+
+    "preOrderPurchaseIndicator": "01",  
+
+    "giftCardAmount": 10,  
+
+    "giftCardCurrency": "EUR",  
+
+    "giftCardCount": 1,  
+
+    "purchaseDate": "2026-04-22T12:42:24Z",  
+
+    "transType": "01",  
+
+    "exemptionIndicator": "02"  
+
+    // browser* fields are submitted by payment.js or a hosted payment page if used  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "d94c0d72f3a36e21f16e",  
+
+  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+
+  "returnType": "REDIRECT",  
+
+  "redirectUrl": "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890",  
+
+  "redirectType": "iframe",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+Location: https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890  
+
+```
+```
+
+window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890";  
+
+```

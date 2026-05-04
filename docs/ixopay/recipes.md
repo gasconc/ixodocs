@@ -5,9 +5,9 @@ summary: Welcome to the IXOPAY platformhttps://www.ixopay.com Recipes. This sect
   IXOPAY platform.
 tags:
 - ixopay
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/recipes
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

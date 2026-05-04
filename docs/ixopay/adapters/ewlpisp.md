@@ -14,9 +14,9 @@ tags:
 - ixopay
 - bank-transfer
 - transaction
-source_url: ''
+source_url: https://documentation.ixopay.com/adapters/ewlpisp
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -45,15 +45,98 @@ In order to get the bank list from reach directory an Options Request is require
 Please use `getBankList` as an identifier e.g. POST /options/{apiKey}/getBankList.
 ### Request Body[​](https://documentation.ixopay.com/adapters/ewlpisp#request-body "Direct link to Request Body")
 ```
+
 {  
+
   "parameters": {  
+
     "countryCode": "FR"  
+
   }  
+
+}  
+
+```You can find more information about the options request here: [Options Request](https://documentation.ixopay.com/api/transaction/options-list)  
+| Name  | Type  | Required  | Description  |  
+| --- | --- | --- | --- |  
+| parameters.countryCode  | string  | false  | The two-character country code  |  
+```
+
+{  
+
+  "parameters": {  
+
+    "countryCode": "FR"  
+
+  }  
+
 }  
 
 ```
+```
 
-You can find more information about the options request here: [Options Request](https://documentation.ixopay.com/api/transaction/options-list)  
+{  
+
+  "parameters": {  
+
+    "countryCode": "FR"  
+
+  }  
+
+}  
+
+```You can find more information about the options request here: [Options Request](https://documentation.ixopay.com/api/transaction/options-list)  
+| Name  | Type  | Required  | Description  |  
+| --- | --- | --- | --- |  
+| parameters.countryCode  | string  | false  | The two-character country code  |  
+  * EwlPISP
+```
+
+{  
+
+  "parameters": {  
+
+    "countryCode": "FR"  
+
+  }  
+
+}  
+
+```You can find more information about the options request here: [Options Request](https://documentation.ixopay.com/api/transaction/options-list)  
+| Name  | Type  | Required  | Description  |  
+| --- | --- | --- | --- |  
+| parameters.countryCode  | string  | false  | The two-character country code  |  
+  * [Payment Methods](https://documentation.ixopay.com/adapters/ewlpisp#payment-methods)
+  * [Additional Parameters](https://documentation.ixopay.com/adapters/ewlpisp#additional-parameters)
+  * [Options Request](https://documentation.ixopay.com/adapters/ewlpisp#options-request)
+    * [Get Bank List from Reach Directory](https://documentation.ixopay.com/adapters/ewlpisp#get-bank-list-from-reach-directory)
+    * [Request Body](https://documentation.ixopay.com/adapters/ewlpisp#request-body)
+```
+
+{  
+
+  "parameters": {  
+
+    "countryCode": "FR"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "parameters": {  
+
+    "countryCode": "FR"  
+
+  }  
+
+}  
+
+```You can find more information about the options request here: [Options Request](https://documentation.ixopay.com/api/transaction/options-list)  
 | Name  | Type  | Required  | Description  |  
 | --- | --- | --- | --- |  
 | parameters.countryCode  | string  | false  | The two-character country code  |

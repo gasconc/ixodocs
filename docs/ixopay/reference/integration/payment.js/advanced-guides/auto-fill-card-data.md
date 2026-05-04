@@ -8,9 +8,9 @@ tags:
 - https-documentation-ixopay-com-docs-reference-integration-payment-advanced-guides-auto-fill-card-data-direct-link
 - ixopay
 - capture
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/auto-fill-card-data
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -26,28 +26,261 @@ Because the browser are autofilling all data only in the scope of one domain, th
 ## How to use[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/auto-fill-card-data#how-to-use "Direct link to How to use")
 Once the complete handler of the [`init`](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#init) method is invoked, call the [`enableAutofill`](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#enableautofill) method to turn it on. Additionally, register a [`onAutofill`](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#onautofill) handler to receive updates on the autofill event.
 ```
+
 const payment = new PaymentJs();  
+
 payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {  
+
   payment.enableAutofill();  
+
   payment.onAutofill((data) => {  
+
     /*  
+
      * "data" contains an object like this:  
+
      *  
+
      * const data = {  
+
      *   card_holder: "Alex Smith",  
+
      *   month: 4,  
+
      *   year: 2031  
+
      * }  
+
      *  
+
      * You should apply them to the input fields on your payment form,for example:  
+
      */  
+
     document.getElementById("field_id_of_cardholder").value = data.card_holder;  
+
     document.getElementById("field_id_of_month").value = data.month;  
+
     document.getElementById("field_id_of_year").value = data.year;  
+
   });  
+
 });  
 
 ```
+```
 
-  * [Known limitations](https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/auto-fill-card-data#known-limitations)
+const payment = new PaymentJs();  
+
+payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {  
+
+  payment.enableAutofill();  
+
+  payment.onAutofill((data) => {  
+
+    /*  
+
+     * "data" contains an object like this:  
+
+     *  
+
+     * const data = {  
+
+     *   card_holder: "Alex Smith",  
+
+     *   month: 4,  
+
+     *   year: 2031  
+
+     * }  
+
+     *  
+
+     * You should apply them to the input fields on your payment form,for example:  
+
+     */  
+
+    document.getElementById("field_id_of_cardholder").value = data.card_holder;  
+
+    document.getElementById("field_id_of_month").value = data.month;  
+
+    document.getElementById("field_id_of_year").value = data.year;  
+
+  });  
+
+});  
+
+```
+```
+
+const payment = new PaymentJs();  
+
+payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {  
+
+  payment.enableAutofill();  
+
+  payment.onAutofill((data) => {  
+
+    /*  
+
+     * "data" contains an object like this:  
+
+     *  
+
+     * const data = {  
+
+     *   card_holder: "Alex Smith",  
+
+     *   month: 4,  
+
+     *   year: 2031  
+
+     * }  
+
+     *  
+
+     * You should apply them to the input fields on your payment form,for example:  
+
+     */  
+
+    document.getElementById("field_id_of_cardholder").value = data.card_holder;  
+
+    document.getElementById("field_id_of_month").value = data.month;  
+
+    document.getElementById("field_id_of_year").value = data.year;  
+
+  });  
+
+});  
+
+```
+```
+
+const payment = new PaymentJs();  
+
+payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {  
+
+  payment.enableAutofill();  
+
+  payment.onAutofill((data) => {  
+
+    /*  
+
+     * "data" contains an object like this:  
+
+     *  
+
+     * const data = {  
+
+     *   card_holder: "Alex Smith",  
+
+     *   month: 4,  
+
+     *   year: 2031  
+
+     * }  
+
+     *  
+
+     * You should apply them to the input fields on your payment form,for example:  
+
+     */  
+
+    document.getElementById("field_id_of_cardholder").value = data.card_holder;  
+
+    document.getElementById("field_id_of_month").value = data.month;  
+
+    document.getElementById("field_id_of_year").value = data.year;  
+
+  });  
+
+});  
+
+```  * [Known limitations](https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/auto-fill-card-data#known-limitations)
   * [How to use](https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/auto-fill-card-data#how-to-use)
+```
+
+const payment = new PaymentJs();  
+
+payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {  
+
+  payment.enableAutofill();  
+
+  payment.onAutofill((data) => {  
+
+    /*  
+
+     * "data" contains an object like this:  
+
+     *  
+
+     * const data = {  
+
+     *   card_holder: "Alex Smith",  
+
+     *   month: 4,  
+
+     *   year: 2031  
+
+     * }  
+
+     *  
+
+     * You should apply them to the input fields on your payment form,for example:  
+
+     */  
+
+    document.getElementById("field_id_of_cardholder").value = data.card_holder;  
+
+    document.getElementById("field_id_of_month").value = data.month;  
+
+    document.getElementById("field_id_of_year").value = data.year;  
+
+  });  
+
+});  
+
+```
+```
+
+const payment = new PaymentJs();  
+
+payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {  
+
+  payment.enableAutofill();  
+
+  payment.onAutofill((data) => {  
+
+    /*  
+
+     * "data" contains an object like this:  
+
+     *  
+
+     * const data = {  
+
+     *   card_holder: "Alex Smith",  
+
+     *   month: 4,  
+
+     *   year: 2031  
+
+     * }  
+
+     *  
+
+     * You should apply them to the input fields on your payment form,for example:  
+
+     */  
+
+    document.getElementById("field_id_of_cardholder").value = data.card_holder;  
+
+    document.getElementById("field_id_of_month").value = data.month;  
+
+    document.getElementById("field_id_of_year").value = data.year;  
+
+  });  
+
+});  
+
+```

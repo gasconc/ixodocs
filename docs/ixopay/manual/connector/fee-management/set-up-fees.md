@@ -13,9 +13,9 @@ tags:
 - fees-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees-fees-direct-link-fees
 - selecting-fee-entity-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees-selecting-fee-entity-direct-link-selecting-fee-entity
 - copy-fees-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees-copy-fees-direct-link-copy-fees
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

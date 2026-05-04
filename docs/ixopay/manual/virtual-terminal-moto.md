@@ -12,9 +12,9 @@ tags:
 - customer-billing-data-https-documentation-ixopay-com-manual-docs-virtual-terminal-moto-customer-billing-data-direct-link-customer-billing-data
 - customer-shipping-data-https-documentation-ixopay-com-manual-docs-virtual-terminal-moto-customer-shipping-data-direct-link-customer-shipping-data
 - item-https-documentation-ixopay-com-manual-docs-virtual-terminal-moto-item-direct-link-item
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/virtual-terminal-moto
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

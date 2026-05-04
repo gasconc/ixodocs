@@ -6,16 +6,16 @@ tags:
 - overview-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-orbital-overview-direct-link-overview
 - supported-request-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-orbital-supported-request-parameters-direct-link-supported-request-parameters
 - requests-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-orbital-requests-direct-link-requests
-- gateway-response-parameters-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-orbital-gateway-response-parameters-direct-link-gateway-response-parameters
 - responses-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-orbital-responses-direct-link-responses
 - api
 - pci
 - tokenex
 - ixopay
 - recurring
-source_url: ''
+- refund
+source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital
 portal: tokenex
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -370,180 +370,338 @@ The following mitMsgTypes are unable to be inferred and should be explicitly sen
   * Check Purchase
   * Check Force Capture
   * Check Refund
-
 ```
+
 {  
+
   "merchantBin": "000001",  
+
   "creditCard": {  
+
     "brand": "Visa",  
+
     "number": "4111111111111111",  
+
     "expMonth": 2,  
+
     "expYear": 2024,  
+
     "cvv": "123"  
+
   },  
+
   "orderInfo": {  
+
     "orderId": "12534",  
+
     "industryType": "EC"  
+
   },  
+
   "storedCredentials": {  
+
     "initiator": "merchant",  
+
     "credentialStored": true,  
+
     "previousNetworkTransactionId": "012227692162172",  
+
     "transactionType": "installment"  
+
   },  
+
   "amount": 1200,  
+
   "gateway": "Orbital",  
+
   "username": "<Your Orbital username>",  
+
   "password": "<Your Orbital password>",  
+
   "merchantId": "<Your Orbital merchant ID>",  
+
   "terminalId": "001"  
+
 }  
 
 ```
-
 ```
+
 {  
+
   "merchantBin": "000001",  
+
   "amount": 1200,  
+
   "gateway": "Orbital",  
+
   "username": "<Your Orbital username>",  
+
   "password": "<Your Orbital password>",  
+
   "merchantId": "<Your Orbital merchant ID>",  
+
   "terminalId": "001",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>"  
+
 }  
 
 ```
+```
+
 {  
+
   "forceCapture": true,  
+
   "merchantBin": "000001",  
+
   "orderInfo": {  
+
     "orderId": "12534",  
+
     "industryType": "EC"  
+
   },  
+
   "creditCard": {  
+
     "brand": "Visa",  
+
     "number": "4111111111111111",  
+
     "expMonth": 2,  
+
     "expYear": 2024,  
+
     "cvv": "123"  
+
   },  
+
   "amount": 1200,  
+
   "gateway": "Orbital",  
+
   "username": "<Your Orbital username>",  
+
   "password": "<Your Orbital password>",  
+
   "merchantId": "<Your Orbital merchant ID>",  
+
   "terminalId": "001",  
+
   "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantBin": "000001",  
+
   "gateway": "Orbital",  
+
   "username": "<Your Orbital username>",  
+
   "password": "<Your Orbital password>",  
+
   "merchantId": "<Your Orbital merchant ID>",  
+
   "terminalId": "001",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantBin": "000001",  
+
   "creditCard": {  
+
     "brand": "Visa",  
+
     "number": "4111111111111111",  
+
     "expMonth": 2,  
+
     "expYear": 2024,  
+
     "cvv": "123"  
+
   },  
+
   "orderInfo": {  
+
     "orderId": "12534",  
+
     "industryType": "EC"  
+
   },  
+
   "amount": 1200,  
+
   "gateway": "Orbital",  
+
   "username": "<Your Orbital username>",  
+
   "password": "<Your Orbital password>",  
+
   "merchantId": "<Your Orbital merchant ID>",  
+
   "terminalId": "001",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>" // see note in parameter chart  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantBin": "000001",  
+
   "orderInfo": {  
+
     "orderId": "18646",  
+
     "industryType": "EC"  
+
   },  
+
   "check": {  
+
     "accountNumber": "12345670",  
+
     "routingNumber": "314074269"  
+
   },  
+
   "billingAddress": {  
+
     "firstName": "Brittany",  
+
     "lastName": "Rath"  
+
   },  
+
   "amount": 1200,  
+
   "gateway": "Orbital",  
+
   "username": "<Your Orbital username>",  
+
   "password": "<Your Orbital password>",  
+
   "merchantId": "<Your Orbital merchant ID>",  
+
   "terminalId": "001"  
+
 }  
 
 ```
+```
+
 {  
+
   "forceCapture": true,  
+
   "merchantBin": "000001",  
+
   "orderInfo": {  
+
     "orderId": "18646",  
+
     "industryType": "EC"  
+
   },  
+
   "check": {  
+
     "accountNumber": "12345670",  
+
     "routingNumber": "314074269"  
+
   },  
+
   "billingAddress": {  
+
     "firstName": "Brittany",  
+
     "lastName": "Rath"  
+
   },  
+
   "amount": 1200,  
+
   "gateway": "Orbital",  
+
   "username": "<Your Orbital username>",  
+
   "password": "<Your Orbital password>",  
+
   "merchantId": "<Your Orbital merchant ID>",  
+
   "terminalId": "001",  
+
   "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
 }  
 
 ```
+```
+
 {  
+
   "merchantBin": "000001",  
+
   "orderInfo": {  
+
     "orderId": "18646",  
+
     "industryType": "EC"  
+
   },  
+
   "check": {  
+
     "accountNumber": "12345670",  
+
     "routingNumber": "314074269"  
+
   },  
+
   "billingAddress": {  
+
     "firstName": "Brittany",  
+
     "lastName": "Rath"  
+
   },  
+
   "amount": 1200,  
+
   "gateway": "Orbital",  
+
   "username": "<Your Orbital username>",  
+
   "password": "<Your Orbital password>",  
+
   "merchantId": "<Your Orbital merchant ID>",  
+
   "terminalId": "001",  
+
   "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
 }  
 
-## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital#gateway-response-parameters "Direct link to Gateway Response Parameters")  
+```## Gateway Response Parameters[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital#gateway-response-parameters "Direct link to Gateway Response Parameters")  
 | Field Name  | Type  | Orbital Result Mapping  | Notes  |  
 | --- | --- | --- | --- |  
 | `approved`  | boolean  | _[see notes]_  | True in the following case:   
@@ -571,187 +729,3761 @@ orderReceivedNetworkTransactionId for Discover cards.  |
   * Card Void
   * Gateway Error
   * Processor Error
-
 ```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231207154655\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
     "approvalCode": "tst933",  
+
     "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "  ",  
+
       "cvvRaw": "M",  
+
       "providerParsed": {  
+
         "cvvMatch": "M",  
+
         "avs": "3 "  
+
       }  
+
     },  
+
     "merchantReferenceId": "2007"  
+
   },  
+
   "referenceNumber": "2312071446547660830",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transType\":\"AC\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F552263F4350000082E0000D75941565359\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207154717\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NjU3MjJGNTUyMjYzRjQzNTAwMDAwODJFMDAwMEQ3NTk0MTU2NTM1OQ==",  
+
     "approvalCode": "tst933",  
+
     "providerTransactionCode": "65722F552263F4350000082E0000D75941565359",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "  ",  
+
       "cvvRaw": "M",  
+
       "providerParsed": {  
+
         "cvvMatch": "M",  
+
         "avs": "3 "  
+
       }  
+
     },  
+
     "merchantReferenceId": "2007"  
+
   },  
+
   "referenceNumber": "23120714471649418713",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"merchant\":{\"bin\":\"000001\",\"terminalID\":\"001\"},\"order\":{\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165211\",\"status\":{\"procStatus\":\"0\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\"}},\"card\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
     "approvalCode": "tst933",  
+
     "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "  ",  
+
       "providerParsed": {  
+
         "avs": "3 "  
+
       }  
+
     }  
+
   },  
+
   "referenceNumber": "23120715521061762585",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transType\":\"FR\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65723F1D1899632F0000082D0000C53E41565398\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165437\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst701\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\" \",\"hostCVVRespCode\":\"  \"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NjU3MjNGMUQxODk5NjMyRjAwMDAwODJEMDAwMEM1M0U0MTU2NTM5OA==",  
+
     "approvalCode": "tst701",  
+
     "providerTransactionCode": "65723F1D1899632F0000082D0000C53E41565398",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "avsRaw": "  ",  
+
       "cvvRaw": "  ",  
+
       "providerParsed": {  
+
         "cvvMatch": " ",  
+
         "avs": "3 "  
+
       }  
+
     },  
+
     "merchantReferenceId": "2007"  
+
   },  
+
   "referenceNumber": "23120715543697763333",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"version\":\"4.3\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"order\":{\"orderID\":\"2007\",\"outstandingAmt\":\"0\",\"txRefNum\":\"65723F41147027A600000FFA0000FA2D415653C2\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165527\",\"status\":{\"procStatus\":\"0\",\"approvalStatus\":\"1\"}},\"emvInfo\":{}}",  
+
     "gatewayErrors": [],  
+
     "tokenExTransactionCode": "NjU3MjNGNDExNDcwMjdBNjAwMDAwRkZBMDAwMEZBMkQ0MTU2NTNDMg==",  
+
     "providerTransactionCode": "65723F41147027A600000FFA0000FA2D415653C2",  
+
     "approved": true,  
+
     "verificationResult": {  
+
       "providerParsed": {}  
+
     },  
+
     "merchantReferenceId": "2007"  
+
   },  
+
   "referenceNumber": "23120715552661900343",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"procStatus\":\"20412\",\"procStatusMessage\":\"Precondition Failed: Security Information is missing\"}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "20412",  
+
         "message": "Precondition Failed: Security Information is missing",  
+
         "source": "Gateway"  
+
       }  
+
     ],  
+
     "tokenExTransactionCode": "",  
+
     "approvalCode": "",  
+
     "providerTransactionCode": "",  
+
     "approved": false  
+
   },  
+
   "referenceNumber": "23120809580921437511",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "412"  
+
 }  
 
 ```
+```
+
 {  
+
   "gatewayResponse": {  
+
     "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65733D2E0748D9E30000082B000097AA415653AC\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231208105838\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Processor Decline\",\"hostRespCode\":\"303\",\"respCode\":\"52\",\"approvalStatus\":\"0\",\"pymtBrandAuthResponseCode\":\"000\",\"pymtBrandResponseCodeCategory\":\"X\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
     "gatewayErrors": [  
+
       {  
+
         "code": "52",  
+
         "message": "Processor Decline",  
+
         "source": "Gateway"  
+
       },  
+
       {  
+
         "code": "303",  
+
         "source": "Processor"  
+
       }  
+
     ],  
+
     "providerTransactionCode": "65733D2E0748D9E30000082B000097AA415653AC",  
+
     "approved": false,  
+
     "verificationResult": {  
+
       "avsRaw": "  ",  
+
       "cvvRaw": "M",  
+
       "providerParsed": {  
+
         "cvvMatch": "M",  
+
         "avs": "3 "  
+
       }  
+
     },  
+
     "merchantReferenceId": "2007"  
+
   },  
+
   "referenceNumber": "23120809583714811160",  
+
   "success": true,  
+
   "error": "",  
+
   "message": "",  
+
   "thirdPartyStatusCode": "200"  
+
 }  
 
-  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital#overview)
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "012227692162172",  
+
+    "transactionType": "installment"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>" // see note in parameter chart  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231207154655\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "2312071446547660830",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"AC\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F552263F4350000082E0000D75941565359\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207154717\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGNTUyMjYzRjQzNTAwMDAwODJFMDAwMEQ3NTk0MTU2NTM1OQ==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F552263F4350000082E0000D75941565359",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120714471649418713",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchant\":{\"bin\":\"000001\",\"terminalID\":\"001\"},\"order\":{\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165211\",\"status\":{\"procStatus\":\"0\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\"}},\"card\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "providerParsed": {  
+
+        "avs": "3 "  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120715521061762585",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"FR\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65723F1D1899632F0000082D0000C53E41565398\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165437\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst701\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\" \",\"hostCVVRespCode\":\"  \"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGMUQxODk5NjMyRjAwMDAwODJEMDAwMEM1M0U0MTU2NTM5OA==",  
+
+    "approvalCode": "tst701",  
+
+    "providerTransactionCode": "65723F1D1899632F0000082D0000C53E41565398",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "  ",  
+
+      "providerParsed": {  
+
+        "cvvMatch": " ",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715543697763333",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"version\":\"4.3\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"order\":{\"orderID\":\"2007\",\"outstandingAmt\":\"0\",\"txRefNum\":\"65723F41147027A600000FFA0000FA2D415653C2\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165527\",\"status\":{\"procStatus\":\"0\",\"approvalStatus\":\"1\"}},\"emvInfo\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGNDExNDcwMjdBNjAwMDAwRkZBMDAwMEZBMkQ0MTU2NTNDMg==",  
+
+    "providerTransactionCode": "65723F41147027A600000FFA0000FA2D415653C2",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715552661900343",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"procStatus\":\"20412\",\"procStatusMessage\":\"Precondition Failed: Security Information is missing\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "20412",  
+
+        "message": "Precondition Failed: Security Information is missing",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809580921437511",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "412"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65733D2E0748D9E30000082B000097AA415653AC\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231208105838\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Processor Decline\",\"hostRespCode\":\"303\",\"respCode\":\"52\",\"approvalStatus\":\"0\",\"pymtBrandAuthResponseCode\":\"000\",\"pymtBrandResponseCodeCategory\":\"X\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "52",  
+
+        "message": "Processor Decline",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "65733D2E0748D9E30000082B000097AA415653AC",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120809583714811160",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "012227692162172",  
+
+    "transactionType": "installment"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>" // see note in parameter chart  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231207154655\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "2312071446547660830",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"AC\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F552263F4350000082E0000D75941565359\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207154717\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGNTUyMjYzRjQzNTAwMDAwODJFMDAwMEQ3NTk0MTU2NTM1OQ==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F552263F4350000082E0000D75941565359",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120714471649418713",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchant\":{\"bin\":\"000001\",\"terminalID\":\"001\"},\"order\":{\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165211\",\"status\":{\"procStatus\":\"0\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\"}},\"card\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "providerParsed": {  
+
+        "avs": "3 "  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120715521061762585",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"FR\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65723F1D1899632F0000082D0000C53E41565398\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165437\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst701\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\" \",\"hostCVVRespCode\":\"  \"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGMUQxODk5NjMyRjAwMDAwODJEMDAwMEM1M0U0MTU2NTM5OA==",  
+
+    "approvalCode": "tst701",  
+
+    "providerTransactionCode": "65723F1D1899632F0000082D0000C53E41565398",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "  ",  
+
+      "providerParsed": {  
+
+        "cvvMatch": " ",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715543697763333",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"version\":\"4.3\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"order\":{\"orderID\":\"2007\",\"outstandingAmt\":\"0\",\"txRefNum\":\"65723F41147027A600000FFA0000FA2D415653C2\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165527\",\"status\":{\"procStatus\":\"0\",\"approvalStatus\":\"1\"}},\"emvInfo\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGNDExNDcwMjdBNjAwMDAwRkZBMDAwMEZBMkQ0MTU2NTNDMg==",  
+
+    "providerTransactionCode": "65723F41147027A600000FFA0000FA2D415653C2",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715552661900343",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"procStatus\":\"20412\",\"procStatusMessage\":\"Precondition Failed: Security Information is missing\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "20412",  
+
+        "message": "Precondition Failed: Security Information is missing",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809580921437511",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "412"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65733D2E0748D9E30000082B000097AA415653AC\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231208105838\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Processor Decline\",\"hostRespCode\":\"303\",\"respCode\":\"52\",\"approvalStatus\":\"0\",\"pymtBrandAuthResponseCode\":\"000\",\"pymtBrandResponseCodeCategory\":\"X\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "52",  
+
+        "message": "Processor Decline",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "65733D2E0748D9E30000082B000097AA415653AC",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120809583714811160",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "012227692162172",  
+
+    "transactionType": "installment"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>" // see note in parameter chart  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231207154655\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "2312071446547660830",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"AC\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F552263F4350000082E0000D75941565359\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207154717\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGNTUyMjYzRjQzNTAwMDAwODJFMDAwMEQ3NTk0MTU2NTM1OQ==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F552263F4350000082E0000D75941565359",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120714471649418713",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchant\":{\"bin\":\"000001\",\"terminalID\":\"001\"},\"order\":{\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165211\",\"status\":{\"procStatus\":\"0\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\"}},\"card\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "providerParsed": {  
+
+        "avs": "3 "  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120715521061762585",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"FR\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65723F1D1899632F0000082D0000C53E41565398\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165437\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst701\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\" \",\"hostCVVRespCode\":\"  \"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGMUQxODk5NjMyRjAwMDAwODJEMDAwMEM1M0U0MTU2NTM5OA==",  
+
+    "approvalCode": "tst701",  
+
+    "providerTransactionCode": "65723F1D1899632F0000082D0000C53E41565398",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "  ",  
+
+      "providerParsed": {  
+
+        "cvvMatch": " ",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715543697763333",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"version\":\"4.3\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"order\":{\"orderID\":\"2007\",\"outstandingAmt\":\"0\",\"txRefNum\":\"65723F41147027A600000FFA0000FA2D415653C2\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165527\",\"status\":{\"procStatus\":\"0\",\"approvalStatus\":\"1\"}},\"emvInfo\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGNDExNDcwMjdBNjAwMDAwRkZBMDAwMEZBMkQ0MTU2NTNDMg==",  
+
+    "providerTransactionCode": "65723F41147027A600000FFA0000FA2D415653C2",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715552661900343",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"procStatus\":\"20412\",\"procStatusMessage\":\"Precondition Failed: Security Information is missing\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "20412",  
+
+        "message": "Precondition Failed: Security Information is missing",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809580921437511",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "412"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65733D2E0748D9E30000082B000097AA415653AC\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231208105838\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Processor Decline\",\"hostRespCode\":\"303\",\"respCode\":\"52\",\"approvalStatus\":\"0\",\"pymtBrandAuthResponseCode\":\"000\",\"pymtBrandResponseCodeCategory\":\"X\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "52",  
+
+        "message": "Processor Decline",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "65733D2E0748D9E30000082B000097AA415653AC",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120809583714811160",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```  * [Overview](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital#overview)
   * [Supported Request Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital#supported-request-parameters)
   * [Example Requests](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital#example-requests)
   * [Gateway Response Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital#gateway-response-parameters)
   * [Example Responses](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital#example-responses)
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "012227692162172",  
+
+    "transactionType": "installment"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>" // see note in parameter chart  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231207154655\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "2312071446547660830",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"AC\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F552263F4350000082E0000D75941565359\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207154717\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGNTUyMjYzRjQzNTAwMDAwODJFMDAwMEQ3NTk0MTU2NTM1OQ==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F552263F4350000082E0000D75941565359",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120714471649418713",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchant\":{\"bin\":\"000001\",\"terminalID\":\"001\"},\"order\":{\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165211\",\"status\":{\"procStatus\":\"0\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\"}},\"card\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "providerParsed": {  
+
+        "avs": "3 "  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120715521061762585",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"FR\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65723F1D1899632F0000082D0000C53E41565398\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165437\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst701\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\" \",\"hostCVVRespCode\":\"  \"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGMUQxODk5NjMyRjAwMDAwODJEMDAwMEM1M0U0MTU2NTM5OA==",  
+
+    "approvalCode": "tst701",  
+
+    "providerTransactionCode": "65723F1D1899632F0000082D0000C53E41565398",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "  ",  
+
+      "providerParsed": {  
+
+        "cvvMatch": " ",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715543697763333",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"version\":\"4.3\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"order\":{\"orderID\":\"2007\",\"outstandingAmt\":\"0\",\"txRefNum\":\"65723F41147027A600000FFA0000FA2D415653C2\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165527\",\"status\":{\"procStatus\":\"0\",\"approvalStatus\":\"1\"}},\"emvInfo\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGNDExNDcwMjdBNjAwMDAwRkZBMDAwMEZBMkQ0MTU2NTNDMg==",  
+
+    "providerTransactionCode": "65723F41147027A600000FFA0000FA2D415653C2",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715552661900343",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"procStatus\":\"20412\",\"procStatusMessage\":\"Precondition Failed: Security Information is missing\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "20412",  
+
+        "message": "Precondition Failed: Security Information is missing",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809580921437511",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "412"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65733D2E0748D9E30000082B000097AA415653AC\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231208105838\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Processor Decline\",\"hostRespCode\":\"303\",\"respCode\":\"52\",\"approvalStatus\":\"0\",\"pymtBrandAuthResponseCode\":\"000\",\"pymtBrandResponseCodeCategory\":\"X\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "52",  
+
+        "message": "Processor Decline",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "65733D2E0748D9E30000082B000097AA415653AC",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120809583714811160",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "storedCredentials": {  
+
+    "initiator": "merchant",  
+
+    "credentialStored": true,  
+
+    "previousNetworkTransactionId": "012227692162172",  
+
+    "transactionType": "installment"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous Authorize response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "creditCard": {  
+
+    "brand": "Visa",  
+
+    "number": "4111111111111111",  
+
+    "expMonth": 2,  
+
+    "expYear": 2024,  
+
+    "cvv": "123"  
+
+  },  
+
+  "orderInfo": {  
+
+    "orderId": "12534",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>" // see note in parameter chart  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001"  
+
+}  
+
+```
+```
+
+{  
+
+  "forceCapture": true,  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<Prior approval code obtained manually or over the phone in Base64 format>"  
+
+}  
+
+```
+```
+
+{  
+
+  "merchantBin": "000001",  
+
+  "orderInfo": {  
+
+    "orderId": "18646",  
+
+    "industryType": "EC"  
+
+  },  
+
+  "check": {  
+
+    "accountNumber": "12345670",  
+
+    "routingNumber": "314074269"  
+
+  },  
+
+  "billingAddress": {  
+
+    "firstName": "Brittany",  
+
+    "lastName": "Rath"  
+
+  },  
+
+  "amount": 1200,  
+
+  "gateway": "Orbital",  
+
+  "username": "<Your Orbital username>",  
+
+  "password": "<Your Orbital password>",  
+
+  "merchantId": "<Your Orbital merchant ID>",  
+
+  "terminalId": "001",  
+
+  "tokenExTransactionCode": "<TokenExTransactionCode from a previous transaction response>"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231207154655\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "2312071446547660830",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"AC\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65722F552263F4350000082E0000D75941565359\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207154717\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGNTUyMjYzRjQzNTAwMDAwODJFMDAwMEQ3NTk0MTU2NTM1OQ==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F552263F4350000082E0000D75941565359",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120714471649418713",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"merchant\":{\"bin\":\"000001\",\"terminalID\":\"001\"},\"order\":{\"txRefNum\":\"65722F3F062E3DAA0000044600000923415653C0\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165211\",\"status\":{\"procStatus\":\"0\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst933\"}},\"card\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjJGM0YwNjJFM0RBQTAwMDAwNDQ2MDAwMDA5MjM0MTU2NTNDMA==",  
+
+    "approvalCode": "tst933",  
+
+    "providerTransactionCode": "65722F3F062E3DAA0000044600000923415653C0",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "providerParsed": {  
+
+        "avs": "3 "  
+
+      }  
+
+    }  
+
+  },  
+
+  "referenceNumber": "23120715521061762585",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"FR\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65723F1D1899632F0000082D0000C53E41565398\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165437\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Approved\",\"hostRespCode\":\"100\",\"respCode\":\"00\",\"approvalStatus\":\"1\",\"authorizationCode\":\"tst701\",\"pymtBrandAuthResponseCode\":\"00\",\"pymtBrandResponseCodeCategory\":\"A\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\" \",\"hostCVVRespCode\":\"  \"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGMUQxODk5NjMyRjAwMDAwODJEMDAwMEM1M0U0MTU2NTM5OA==",  
+
+    "approvalCode": "tst701",  
+
+    "providerTransactionCode": "65723F1D1899632F0000082D0000C53E41565398",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "  ",  
+
+      "providerParsed": {  
+
+        "cvvMatch": " ",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715543697763333",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"version\":\"4.3\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"order\":{\"orderID\":\"2007\",\"outstandingAmt\":\"0\",\"txRefNum\":\"65723F41147027A600000FFA0000FA2D415653C2\",\"txRefIdx\":\"1\",\"respDateTime\":\"20231207165527\",\"status\":{\"procStatus\":\"0\",\"approvalStatus\":\"1\"}},\"emvInfo\":{}}",  
+
+    "gatewayErrors": [],  
+
+    "tokenExTransactionCode": "NjU3MjNGNDExNDcwMjdBNjAwMDAwRkZBMDAwMEZBMkQ0MTU2NTNDMg==",  
+
+    "providerTransactionCode": "65723F41147027A600000FFA0000FA2D415653C2",  
+
+    "approved": true,  
+
+    "verificationResult": {  
+
+      "providerParsed": {}  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120715552661900343",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"procStatus\":\"20412\",\"procStatusMessage\":\"Precondition Failed: Security Information is missing\"}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "20412",  
+
+        "message": "Precondition Failed: Security Information is missing",  
+
+        "source": "Gateway"  
+
+      }  
+
+    ],  
+
+    "tokenExTransactionCode": "",  
+
+    "approvalCode": "",  
+
+    "providerTransactionCode": "",  
+
+    "approved": false  
+
+  },  
+
+  "referenceNumber": "23120809580921437511",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "412"  
+
+}  
+
+```
+```
+
+{  
+
+  "gatewayResponse": {  
+
+    "rawResponse": "{\"transType\":\"A\",\"merchant\":{\"bin\":\"000001\",\"merchantID\":\"445138\",\"terminalID\":\"001\"},\"paymentInstrument\":{\"card\":{\"cardBrand\":\"VI\"},\"eudd\":{}},\"order\":{\"orderID\":\"2007\",\"txRefNum\":\"65733D2E0748D9E30000082B000097AA415653AC\",\"txRefIdx\":\"0\",\"respDateTime\":\"20231208105838\",\"status\":{\"procStatus\":\"0\",\"procStatusMessage\":\"Processor Decline\",\"hostRespCode\":\"303\",\"respCode\":\"52\",\"approvalStatus\":\"0\",\"pymtBrandAuthResponseCode\":\"000\",\"pymtBrandResponseCodeCategory\":\"X\"}},\"emvInfo\":{},\"avsBilling\":{\"avsRespCode\":\"3 \",\"hostAVSRespCode\":\"  \"},\"cardholderVerification\":{\"cvvRespCode\":\"M\",\"hostCVVRespCode\":\"M\"},\"debit\":{},\"cardTypeIndicator\":{},\"earlyWarningSystem\":{},\"foreignExchange\":{},\"realTimeAccountUpdater\":{},\"giftcard\":{},\"profile\":{},\"managedBilling\":{}}",  
+
+    "gatewayErrors": [  
+
+      {  
+
+        "code": "52",  
+
+        "message": "Processor Decline",  
+
+        "source": "Gateway"  
+
+      },  
+
+      {  
+
+        "code": "303",  
+
+        "source": "Processor"  
+
+      }  
+
+    ],  
+
+    "providerTransactionCode": "65733D2E0748D9E30000082B000097AA415653AC",  
+
+    "approved": false,  
+
+    "verificationResult": {  
+
+      "avsRaw": "  ",  
+
+      "cvvRaw": "M",  
+
+      "providerParsed": {  
+
+        "cvvMatch": "M",  
+
+        "avs": "3 "  
+
+      }  
+
+    },  
+
+    "merchantReferenceId": "2007"  
+
+  },  
+
+  "referenceNumber": "23120809583714811160",  
+
+  "success": true,  
+
+  "error": "",  
+
+  "message": "",  
+
+  "thirdPartyStatusCode": "200"  
+
+}  
+
+```

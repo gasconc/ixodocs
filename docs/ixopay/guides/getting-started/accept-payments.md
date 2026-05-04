@@ -8,9 +8,9 @@ tags:
 - choosing-right-integration-method-https-documentation-ixopay-com-docs-guides-getting-started-accept-payments-choosing-right-integration-method-direct-link-choosing-right-integration-method
 - ixopay
 - hosted-payment-page
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/guides/getting-started/accept-payments
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

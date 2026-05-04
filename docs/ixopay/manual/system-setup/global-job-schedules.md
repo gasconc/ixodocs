@@ -12,9 +12,9 @@ tags:
 - exporting-steps-https-documentation-ixopay-com-manual-docs-post-processing-jobs-exporting-steps-direct-link-exporting-steps
 - file-creation-https-documentation-ixopay-com-manual-docs-post-processing-jobs-file-creation-direct-link-file-creation
 - job-steps-https-documentation-ixopay-com-manual-docs-post-processing-jobs-job-steps-direct-link-job-steps
-source_url: ''
+source_url: https://documentation.ixopay.com/manual/docs/system-setup/global-job-schedules
 portal: ixopay-manual
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -143,7 +143,7 @@ Usually, this is used for jobs that process Merchant Settlements to mark those T
 | **Collect Transactions by Uploaded CSV File**  | This step collects all Transactions based on an uploaded CSV File (e.g. during Job Execution)   
 Define which parameter (**Map from field (CSV header column)**) from the CSV File should be **Map**(ped) **to field** and therefore collected. Generally, it considers Transactions of the related entity (the job is scheduled on), but you can configure to **Include Sub-Tenants.**  |  
 File retention
-Files are retained for 12 months and permanently deleted thereafter. 
+Files are retained for 12 months and permanently deleted thereafter.
 ## Processing Steps[​](https://documentation.ixopay.com/manual/docs/post-processing/jobs#processing-steps "Direct link to Processing Steps")
 Processing Steps are the second phase of a job. These steps define calculations done using the collected data (Transactions) from the collecting tab (e.g. summing up volumes, fees etc.). Steps in this phase also include copying of Job line items from the related jobs (e.g. Provider settlement).  
 Every Processing Step creating a **job line item** , will have a configuration field (or multiple) for **Item Type** to configure the name resulting line item to be referenced in the Exporting step.
@@ -246,7 +246,7 @@ Further configure the **Statement Date** and **Settlement Number** as well as ad
 | **Write Settlement Report in camt.053 Format**  | This steps exports the settlement report to a camt.053 file.   
 Configure the **Statement Date** and **Settlement Number.**  |  
 File retention
-Files are retained for 12 months and permanently deleted thereafter. 
+Files are retained for 12 months and permanently deleted thereafter.
 ### Job steps[​](https://documentation.ixopay.com/manual/docs/post-processing/jobs#job-steps "Direct link to Job steps")  
 | Job step  | Description  |  
 | --- | --- |  

@@ -13,9 +13,9 @@ tags:
 - 3d-secure
 - ixopay
 - acquirer
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/features/3d-secure/testing
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 

@@ -31,6 +31,7 @@ PORTAL_ORDER = [
     "ixopay-dev",
     "ixopay-manual",
     "ixopay-modules",
+    "ixopay-legal",
     "tokenex",
     "congrify",
 ]
@@ -39,6 +40,7 @@ PORTAL_LABELS = {
     "ixopay-dev": "Ixopay Developer Hub",
     "ixopay-manual": "Ixopay User Manual",
     "ixopay-modules": "Ixopay Modules",
+    "ixopay-legal": "Ixopay Legal & Compliance",
     "tokenex": "TokenEx Documentation",
     "congrify": "Congrify Payment Intelligence",
 }
@@ -47,6 +49,7 @@ STATS_LABELS = {
     "ixopay-dev": "Ixopay Dev Hub",
     "ixopay-manual": "Ixopay Manual",
     "ixopay-modules": "Ixopay Modules",
+    "ixopay-legal": "Ixopay Legal",
     "tokenex": "TokenEx",
     "congrify": "Congrify",
 }

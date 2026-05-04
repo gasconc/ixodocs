@@ -3,7 +3,6 @@ title: Transaction API
 summary: ' Transaction API'
 tags:
 - request-format-https-documentation-ixopay-com-api-transaction-transaction-api-request-format-direct-link-request-format
-- authentication-https-documentation-ixopay-com-api-transaction-transaction-api-authentication-direct-link-authentication
 - api
 - json
 - tls
@@ -12,9 +11,9 @@ tags:
 - transaction
 - merchant
 - gateway
-source_url: ''
+source_url: https://documentation.ixopay.com/api/transaction/transaction-api
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
@@ -40,14 +39,16 @@ If required by your merchant configuration:
 
 Headers Example
 ```
+
 Content-Type: application/json; charset=utf-8  
+
 Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
 Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
 X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
 
-```
-
-## Authentication[​](https://documentation.ixopay.com/api/transaction/transaction-api#authentication "Direct link to Authentication")
+```## Authentication[​](https://documentation.ixopay.com/api/transaction/transaction-api#authentication "Direct link to Authentication")
   * HTTP: Basic Auth
   * Signature
 
@@ -69,8 +70,61 @@ We highly encourage our users to take advantage of the additional security measu
 Version: 3.0.0
 Export
   * [OpenAPI Spec](https://gateway.ixopay.com/Schema/V3/OpenApiSpecification.yml)
+```
 
-tip
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
 Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
 | Security Scheme Type:  | http  |  
 | --- | --- |  
@@ -81,8 +135,17 @@ We highly encourage our users to take advantage of the additional security measu
 | HTTP Authorization Scheme:  | signature  |  
   * Transaction API
   * Introduction
+```
 
-tip
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
 Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
 | Security Scheme Type:  | http  |  
 | --- | --- |  
@@ -92,8 +155,39 @@ We highly encourage our users to take advantage of the additional security measu
 | --- | --- |  
 | HTTP Authorization Scheme:  | signature  |  
   * [Request format](https://documentation.ixopay.com/api/transaction/transaction-api#request-format)
+```
 
-tip
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```
+```
+
+Content-Type: application/json; charset=utf-8  
+
+Date: Mon, 01 Jan 2018 11:01:36 GMT  
+
+Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk  
+
+X-Signature: DH7MfiGq5QYQusTzWMpWiJpnPz+o1pZbcf7HCiT1+jjc+7UrnmDSpVuHzrRrZ6UxJUYYnOHJfG91zm0VimWXHg==  
+
+```tip
 Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.  
 | Security Scheme Type:  | http  |  
 | --- | --- |  

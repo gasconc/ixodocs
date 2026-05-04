@@ -8,9 +8,9 @@ tags:
 - processing-options-explains-different-types-process-flows-https-documentation-ixopay-com-docs-reference-integration-processing-options-callbacks-callbacks-serve-notifications-system-providing-updates-outcome-payment-requests-https-documentation-ixopay-com-docs-reference-integration-callbacks-hosted-fields-payment-payment-securely-process-credit-card-data-directly-website-https-documentation-ixopay-com-docs-reference-integration-payment-processing-options-explains-different-types-process-flows-https-documentation-ixopay-com-docs-reference-integration-processing-options-callbacks-callbacks-serve-notifications-system-providing-updates-outcome-payment-requests-https-documentation-ixopay-com-docs-reference-integration-callbacks-hosted-fields-payment-payment-securely-process-credit-card-data-directly-website-https-documentation-ixopay-com-docs-reference-integration-payment
 - ixopay
 - credit-card
-source_url: ''
+source_url: https://documentation.ixopay.com/docs/reference/integration
 portal: ixopay-dev
-updated: '2026-04-10'
+updated: '2026-04-28'
 related: []
 ---
 
