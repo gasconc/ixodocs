@@ -21,7 +21,7 @@ Version: 3.0.0
 # Reconciliation API
 Using our Reconciliation API, you may retrieve reconciliations of transactions within a given date range.
 IXOPAY platform Full Version
-The Reconciliation API is an optional feature which is not automatically available for all [IXOPAY platform](https://www.ixopay.com) clients!
+The Reconciliation API is an optional feature which is not automatically available for all IXOPAY platform clients!
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.
 ## Authentication[​](https://documentation.ixopay.com/api/reconciliation/reconciliation-api#authentication "Direct link to Authentication")
   * HTTP: Basic Auth
