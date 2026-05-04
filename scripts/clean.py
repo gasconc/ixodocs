@@ -304,6 +304,19 @@ def _deduplicate_headings(text: str, seen_headings: set[str] | None = None) -> s
     return "\n".join(result)
 
 
+def _repair_fences(text: str) -> str:
+    """Append a closing ``` if the total fence count is odd.
+
+    Scrapers occasionally produce an unclosed code block; the validator rejects
+    the file and process_file skips writing it. Appending one fence balances the
+    count so validation passes and the file is committed.
+    """
+    count = len(re.findall(r"^\s*```", text, re.MULTILINE))
+    if count % 2 != 0:
+        text = text.rstrip() + "\n```\n"
+    return text
+
+
 def clean_content(raw: str) -> str:
     """
     Run the full cleaning pipeline on non-frontmatter content,
@@ -330,6 +343,15 @@ def clean_content(raw: str) -> str:
     text = "".join(cleaned_segments)
     text = _fix_heading_hierarchy(text)
     text = _normalise_whitespace(text)
+    text = _repair_fences(text)
+
+    # Second HTML-strip pass on the repaired text so that HTML surviving inside
+    # malformed-fence segments (classified as code by the first split) gets
+    # cleaned up now that fences are balanced.
+    segments2 = _split_code_blocks(text)
+    text = "".join(seg if is_code else _strip_html_tags(seg)
+                   for is_code, seg in segments2)
+
     return text
 
 
