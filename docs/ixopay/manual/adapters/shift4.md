@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/shift4
 portal: ixopay-manual
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 

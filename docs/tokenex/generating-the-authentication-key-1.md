@@ -8,7 +8,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/generating-the-authentication-key-1
 portal: tokenex
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 

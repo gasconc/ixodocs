@@ -7,7 +7,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/proxy-detokenization-1
 portal: ixopay-modules
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 

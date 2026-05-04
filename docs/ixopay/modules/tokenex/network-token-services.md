@@ -8,7 +8,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/network-token-services
 portal: ixopay-modules
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 

@@ -16,7 +16,7 @@ tags:
 - refund
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-ecomm-cnpapi
 portal: tokenex
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 
@@ -72,7 +72,7 @@ If provided, we convert this value to the Alpha 2 two-character country code.  |
 | `ShippingAddress.Zip`  | string  | `ShipToAddress.Zip`  | Recipient Postal Code  |  
 | `ShippingAddress.Country`  | string  | `ShipToAddress.Country`  | Three-Character Country Code ISO country code.   
 If provided, we convert this value to the Alpha 2 two-character country code.  |  
-| `CreditCard.Brand`  | string  | `Card.Type`  |  [cnpAPI Type Documentation](https://support.worldpay.com/support/CNP-API/content/typeeleasachildparent.htm?)   
+| `CreditCard.Brand`  | string  | `Card.Type`  |  [cnpAPI Type Documentation](https://support.worldpay.com/support/CNP-API/content/typeeleasachildparent.htm)   
 Sending `Visa` results in `VI` being forwarded. Any value not listed below is forwarded unchanged.   
 ‘Visa’ -> ‘VI’   
 ‘Mastercard’ -> ‘MC’   

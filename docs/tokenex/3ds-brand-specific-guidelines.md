@@ -14,7 +14,7 @@ tags:
 - jcb-secure-https-documentation-ixopay-com-modules-docs-tokenex-brand-specific-guidelines-jcb-jsecure-direct-link-jcb-secure
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds-brand-specific-guidelines
 portal: tokenex
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 

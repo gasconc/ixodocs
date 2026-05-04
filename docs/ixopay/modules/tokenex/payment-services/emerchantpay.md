@@ -15,7 +15,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/emerchantpay
 portal: ixopay-modules
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 
@@ -63,7 +63,7 @@ This implementation of EMerchantPay forwards requests to the below endpoints.
 | `threeDSecure.cavv`  | string  | `mpi_params.cavv`  | Verification Id of the authentication. Please note this can be the CAVV for Visa Card or UCAF to identify MasterCard.  |  
 | `threeDSecure.dSTransId`  | string  | `mpi_params.directory_server_id`  | The Directory Server ID used for 3DSecure transactions through the 3DSv2 authentication protocol.  |  
 | `threeDSecure.challengeIndicator`  | string  | `mpi_params.threeds_challenge_indicator`  | The 3DS challenge indicator that represents the exact indicator used during the authentication request to the MPI provider for synchronous 3DS transactions. It is optional but highly recommended for increasing the approval ratio. It can only contain one of the following values no_preference, no_challenge_requested, preference and mandate. The default value is no_preference.  |  
-| `threeDSecure.eci`  | string  | `mpi_params.eci`  | The electronic commerce indicator. See [EMerchantPay Docs](https://emerchantpay.github.io/gateway-api-docs/?#electronic-commerce-indicator).  |  
+| `threeDSecure.eci`  | string  | `mpi_params.eci`  | The electronic commerce indicator. See [EMerchantPay Docs](https://emerchantpay.github.io/gateway-api-docs/#electronic-commerce-indicator).  |  
 | `threeDSecure.programProtocol`  | string  | `mpi_params.protocol_version`  | The used 3DS protocol version.  |  
 | `threeDSecure.threeDSecureVersion`  | string  | `mpi_params.protocol_sub_version`  | The used 3DS protocol sub version.  |  
 | `threeDSecure.aCSTransId`  | string  | `mpi_params.acs_transaction_id`  | The ACS Transaction ID and is optional for 3DS transactions, but highly recommended for increasing the approval ratio.  |  

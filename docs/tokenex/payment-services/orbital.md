@@ -15,7 +15,7 @@ tags:
 - refund
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/orbital
 portal: tokenex
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 

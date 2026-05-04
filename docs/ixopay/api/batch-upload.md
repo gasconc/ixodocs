@@ -14,7 +14,7 @@ tags:
 - result-file-includes-part-successful-transaction-successful-transaction-transaction-error-failed-transaction
 source_url: https://documentation.ixopay.com/api/batch-upload
 portal: ixopay-dev
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/docs/guides/features/tokenization
 portal: ixopay-dev
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 
@@ -45,8 +45,8 @@ Single-use tokens are designed for one-time use and are generated for [customer-
 You can create single-use tokens in two ways:
   1. **payment.js** : ⁮payment.js provides a secure browser-based method for customers to enter their payment information. Detailed instructions on creating a single-use token using payment.js can be found in step 1 of our [Hosted fields — payment.js](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/payment.js#step-1-include-paymentjs) guide.
   2. **Mobile SDKs** : Utilize our mobile SDKs to generate single-use tokens for customers on iOS or Android devices. Access our mobile SDKs here:
-     * [Android Mobile SDK](https://github.com/ixopay/ixopay-tokenization-android#)
-     * [iOS Mobile SDK](https://github.com/ixopay/ixopay-tokenization-ios#)
+     * [Android Mobile SDK](https://github.com/ixopay/ixopay-tokenization-android)
+     * [iOS Mobile SDK](https://github.com/ixopay/ixopay-tokenization-ios)
 
 Token expiration
 Please note that single-use tokens come with a 15-minute expiration window. If a single-use token remains unused beyond this time frame, it will expire. Subsequently, any transaction request that references an expired token will result in an [error code 1002 — Token not found](https://documentation.ixopay.com/docs/reference/appendix/error-codes#general-errors-and-validation-errors).

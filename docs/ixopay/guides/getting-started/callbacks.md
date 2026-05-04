@@ -14,7 +14,7 @@ tags:
 - void
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/callbacks
 portal: ixopay-dev
-updated: '2026-04-28'
+updated: '2026-05-04'
 related: []
 ---
 

@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-04-28 | Total pages: 724
+> Last updated: 2026-05-04 | Total pages: 724
 
 ## Ixopay Developer Hub (192 pages)
 
@@ -169,7 +169,7 @@
 - [Transaction indicators](docs/ixopay/reference/concepts/transactions/indicators.md) — Transaction indicators
 - [Transaction return types](docs/ixopay/reference/concepts/transactions/return-types.md) — Transaction return types
 - [Transaction types](docs/ixopay/reference/concepts/transactions/types.md) — Transaction types
-- [Features](docs/ixopay/reference/features.md) — Welcome to the features section of our IXOPAY platformhttps://www.ixopay.com reference documentation. This section provides comprehensive informati...
+- [Features](docs/ixopay/reference/features.md) — Welcome to the features section of our IXOPAY platform reference documentation. This section provides comprehensive information on the diverse feat...
 - [3-D Secure](docs/ixopay/reference/features/3d-secure.md) — 3-D Secure
 - [Advanced guides](docs/ixopay/reference/features/3d-secure/advanced-guides.md) — 3-D Securehttps://documentation.ixopay.com/docs/reference/features/3d-secure  Advanced guides
 - [Display the challenge flow in an iframe](docs/ixopay/reference/features/3d-secure/advanced-guides/challenge-flow-iframe.md) — 3-D Securehttps://documentation.ixopay.com/docs/reference/features/3d-secure  Advanced guideshttps://documentation.ixopay.com/docs/reference/featur...
