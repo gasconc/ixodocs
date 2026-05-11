@@ -11,7 +11,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/manage-and-visualize-alerts
 portal: ixopay-manual
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -20,7 +20,10 @@ related: []
 
 # Manage and Visualize Alerts
 The [IXOPAY platform](https://www.ixopay.com) notifies Admin users when their attention is required. **Alerts** and **notifications** show up directly on the Dashboard or can be sent via email.
-In the **Alert settings** section you can enable notifications for your user and decide how you would prefer to be informed (e.g. directly on the Dashboard and/ or via email - bundled emails). The IXOPAY platform differentiates between different notification categories: **General, Conflicts, Risk Management, Reconciliation, Scheduler, Chargeback & Chargeback Reversal, Job Conflict and Failed Postback**. Setting for each category can be configured individually. To change your alert settings:
+In the **Alert settings** section you can enable notifications for your user and decide how you would prefer to be informed (e.g. directly on the Dashboard and/ or via email - bundled emails). The IXOPAY platform differentiates between different notification categories: **General, Conflicts, Risk Management, Reconciliation, Scheduler, Chargeback & Chargeback Reversal, Job Conflict and Failed Postback**. Setting for each category can be configured individually.
+Failed Postback alerts require a threshold
+**Failed Postback** alerts are only emitted for connectors that have the [Postback/Notification: Trigger Postback Failed notification after (x) amount of tries](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings#notifications--postback-settings) connector setting configured. Without a threshold, no alert is sent even when postbacks fail.
+To change your alert settings:
   1. Click the **Bell** icon in the top bar (see Alert Settings) to open the drop-down
   2. Click the **Gear** icon to navigate to the **Alert Settings** (Notification Categories)
   3. Edit the individual categories by:

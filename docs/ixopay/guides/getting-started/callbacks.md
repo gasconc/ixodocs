@@ -14,7 +14,7 @@ tags:
 - void
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/callbacks
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -245,7 +245,7 @@ Response response = client.newCall(request).execute();
 To receive callback notifications from IXOPAY platform, you need to set up an endpoint in your system that can receive and process incoming POST requests.
 The callback data is sent as a JSON payload in the body of the POST request. The payload contains information about the transaction, including its current state and any relevant details.
 HTTP response
-Once the callback has been handled by your system, IXOPAY platform expects a HTTP response with status code 200 and a response body of `OK`. If you fail to respond this way, IXOPAY platform will retry sending the callback using an exponential backoff algorithm — see [Reference: Callbacks - Response handling](https://documentation.ixopay.com/docs/reference/integration/callbacks/response-handling#acknowledging-callback-receipt).
+Once the callback has been handled by your system, IXOPAY platform expects a HTTP response with status code 200 and a response body of exactly `OK` (trimmed). Any other response — a non-200 status code **or** a body that is not `OK` — is treated as a failed postback and will cause IXOPAY platform to retry sending the callback using an exponential backoff algorithm — see [Reference: Callbacks - Response handling](https://documentation.ixopay.com/docs/reference/integration/callbacks/response-handling#acknowledging-callback-receipt).
 Here is an example of how you can set up a callback endpoint in your store's backend system:
   * HTTP
   * Python: Flask
@@ -273,7 +273,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -291,7 +291,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -1068,7 +1068,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1086,7 +1086,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -1849,7 +1849,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1867,7 +1867,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -2630,7 +2630,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2648,7 +2648,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -3415,7 +3415,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -3433,7 +3433,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -4196,7 +4196,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -4214,7 +4214,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 

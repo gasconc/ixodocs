@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/production/handling-errors
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -97,7 +97,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -143,7 +143,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -173,7 +173,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -232,7 +232,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -262,7 +262,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -356,7 +356,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -395,7 +395,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -425,7 +425,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -472,7 +472,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -502,7 +502,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -589,7 +589,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -628,7 +628,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -658,7 +658,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -705,7 +705,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -735,7 +735,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -824,7 +824,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -863,7 +863,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -893,7 +893,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -940,7 +940,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -970,7 +970,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -1063,7 +1063,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1102,7 +1102,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1132,7 +1132,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -1179,7 +1179,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1209,7 +1209,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -1296,7 +1296,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1335,7 +1335,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1365,7 +1365,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 
@@ -1412,7 +1412,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1442,7 +1442,7 @@ Content-Type: application/json
 
       "cardHolder": "Alex Smith",  
 
-      "expiryMonth": 4,  
+      "expiryMonth": 5,  
 
       "expiryYear": 2031,  
 

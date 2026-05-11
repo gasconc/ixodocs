@@ -14,7 +14,7 @@ tags:
 - iframe-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-iframe-direct-link-iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview
 portal: ixopay-modules
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 

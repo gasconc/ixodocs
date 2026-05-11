@@ -14,7 +14,7 @@ tags:
 - pci-dss
 source_url: https://documentation.ixopay.com/manual/docs/pci-data-migration
 portal: ixopay-manual
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -64,7 +64,7 @@ The following data fields can be imported during the data transfer processes. Pl
 | Field name  | Description  | Example  |  
 | --- | --- | --- |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
-| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: M or MM  |  `04` (MM)  |  
+| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: M or MM  |  `05` (MM)  |  
 | `creditcard.expiration_year`  | The Credit Card's expiration year (YYYY)  | `2031`  |  
 | `reference_id`  | ID or token representing this card to the Merchant in the former processors system, ideally unique!  | 83389B  |  
 #### Optional Fields[​](https://documentation.ixopay.com/manual/docs/pci-data-migration#optional-fields "Direct link to Optional Fields")  
@@ -107,11 +107,11 @@ The export of your Transaction records will be a PGP-encrypted, UTF-8 encoded CS
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-22T12:41:57Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-08T16:15:24Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
-| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `04` (MM)  |  
+| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `05` (MM)  |  
 | `creditcard.expiration_year`  | The Credit Card's expiration year (YYYY)  | `2031`  |  
 | `customer.identification`  | Any Identification representing the User or customer in your shop or ERP system  | `616c6578-2e73-6d69-7468-406578616d70`  |  
 | `customer.first_name`  | First name of the customer  | `Alex`  |  
@@ -150,11 +150,11 @@ When we exchange sensitive customer data, all cardholder data needs to be sent i
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-22T12:41:57Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-08T16:15:24Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
-| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `04` (MM)  |  
+| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `05` (MM)  |  
 | `creditcard.expiration_year`  | The Credit Card's expiration year (YYYY)  | `2031`  |  
 | `customer.identification`  | Any Identification representing the User or customer in your shop or ERP system  | `616c6578-2e73-6d69-7468-406578616d70`  |  
 | `customer.first_name`  | First name of the customer  | `Alex`  |  
@@ -184,11 +184,11 @@ When we exchange sensitive customer data, all cardholder data needs to be sent i
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-22T12:41:57Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-08T16:15:24Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
-| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `04` (MM)  |  
+| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `05` (MM)  |  
 | `creditcard.expiration_year`  | The Credit Card's expiration year (YYYY)  | `2031`  |  
 | `customer.identification`  | Any Identification representing the User or customer in your shop or ERP system  | `616c6578-2e73-6d69-7468-406578616d70`  |  
 | `customer.first_name`  | First name of the customer  | `Alex`  |  
@@ -225,11 +225,11 @@ When we exchange sensitive customer data, all cardholder data needs to be sent i
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-04-22T12:41:57Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-08T16:15:24Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
-| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `04` (MM)  |  
+| `creditcard.expiration_month`  | The Credit Card's expiration month in the format: MM  |  `05` (MM)  |  
 | `creditcard.expiration_year`  | The Credit Card's expiration year (YYYY)  | `2031`  |  
 | `customer.identification`  | Any Identification representing the User or customer in your shop or ERP system  | `616c6578-2e73-6d69-7468-406578616d70`  |  
 | `customer.first_name`  | First name of the customer  | `Alex`  |  

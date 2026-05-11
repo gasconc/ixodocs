@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/pci/pci-transaction-api
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -43,7 +43,7 @@ Here are the steps to enable the PCI API:
      * The document must not be be expired.
      * The document must be signed.
      * The document must be complete with no pages missing.
-     * The merchant's name used in the document and in the [IXOPAY platform](https://www.ixopay.com) must be the same.
+     * The merchant's name used in the document and in the IXOPAY platform must be the same.
      * It is acceptable if the names do not match in the case where a payment gateway provides your AOC or SAQ-D and sends us transactions on your behalf, as long as you inform us in advance.
 
 Please note that we keep track and document who we've granted the PCI API for and when. We also require to review the SAQ-D or AOC when it expires and reserve the right to revoke the permission for the PCI API.

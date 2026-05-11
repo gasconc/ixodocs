@@ -14,7 +14,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/api/transaction/payout
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -43,7 +43,7 @@ API Key of Connector
   * Typical
 
 ### Body**required**
-Data which is required to process a payout
+Data which is required to process a payout. Depending on the adapter, additional fields may be required to be sent as `extraData` and field restrictions may be stricter.
 **merchantTransactionId** MerchantTransactionIdrequired
 A unique identifier supplied by the merchant to track transactions within their own systems.
 This field links the platform’s transaction back to the merchant’s system, allowing for easy tracking and reconciliation. Note that while this ID is used within the platform, there is no guarantee that it will be forwarded to the Payment Service Provider (PSP).
@@ -65,12 +65,13 @@ Object containing key-value pairs (string-to-string), to be used by either the u
 **property name*** string
 **Possible values:** `<= 8192 characters`
 **pspPassthroughData** object
-Object containing key-value pars (string-to-string) to be passed to the PSP.
+Object containing key-value pairs (string-to-string) to be passed to the PSP without storing.
+_**Note:** Support for this feature varies by adapter._
 **Possible values:** `<= 64`.  
 **Property name:** `<= 64 characters`.  
 **Property value:** `<= 8192 characters`.
 **property name*** string
-**Possible values:** `<= 4096 characters`
+**Possible values:** `<= 8192 characters`
 **merchantMetaData** string
 **Possible values:** `<= 255 characters`
 **referenceUuid** string
@@ -394,7 +395,7 @@ Transaction response
     * true
     * false
 **success** booleanrequired
-Returns `true` or `false` depending on whether the request was successful.
+`true` if the transaction was processed without an error (does not imply it is finished); `false` on failure.
 **uuid** string
 UUID of the transaction.
 **purchaseId** string

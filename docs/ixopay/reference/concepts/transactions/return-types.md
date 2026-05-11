@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/concepts/transactions/return-types
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -36,7 +36,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -48,7 +48,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -77,7 +77,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -98,7 +98,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -110,7 +110,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -137,7 +137,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -176,7 +176,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -188,7 +188,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -229,7 +229,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -241,7 +241,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -266,7 +266,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -285,7 +285,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -297,7 +297,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -322,7 +322,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -357,7 +357,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -369,7 +369,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -410,7 +410,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -422,7 +422,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -447,7 +447,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -466,7 +466,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -478,7 +478,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -503,7 +503,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -538,7 +538,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -550,7 +550,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -591,7 +591,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -603,7 +603,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -628,7 +628,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -647,7 +647,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -659,7 +659,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -684,7 +684,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -719,7 +719,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -731,7 +731,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -776,7 +776,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -788,7 +788,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -813,7 +813,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -832,7 +832,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -844,7 +844,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -869,7 +869,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -904,7 +904,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -916,7 +916,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -957,7 +957,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -969,7 +969,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -994,7 +994,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1013,7 +1013,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -1025,7 +1025,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1050,7 +1050,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -1085,7 +1085,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1097,7 +1097,7 @@ Response example
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 

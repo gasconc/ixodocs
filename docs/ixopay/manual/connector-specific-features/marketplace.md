@@ -14,7 +14,7 @@ tags:
 - marketplace-commission-fees-only-available-marketplace-connector-https-documentation-ixopay-com-manual-docs-connector-specific-features-marketplace-marketplace-commission-fees-only-available-marketplace-connector-direct-link-marketplace-commission-fees-only-available-marketplace-connector
 source_url: https://documentation.ixopay.com/manual/docs/connector-specific-features/marketplace
 portal: ixopay-manual
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 

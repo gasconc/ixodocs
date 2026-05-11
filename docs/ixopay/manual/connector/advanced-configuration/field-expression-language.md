@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/field-expression-language
 portal: ixopay-manual
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 

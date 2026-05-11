@@ -16,7 +16,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -262,7 +262,7 @@ If the IXOPAY platform successfully received your transaction, it will respond w
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -544,7 +544,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -813,7 +813,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1082,7 +1082,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1355,7 +1355,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1624,7 +1624,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 

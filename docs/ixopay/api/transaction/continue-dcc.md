@@ -14,7 +14,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/api/transaction/continue-dcc
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -76,7 +76,7 @@ Transaction response
     * true
     * false
 **success** booleanrequired
-Returns `true` or `false` depending on whether the request was successful.
+`true` if the transaction was processed without an error (does not imply it is finished); `false` on failure.
 **uuid** string
 UUID of the transaction.
 **purchaseId** string

@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-05-04T11:21:57+00:00_
+_Generated at 2026-05-11T07:37:55+00:00_
 
-**338 missing** · **2 stale** across 3 source(s).
+**341 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **858** · Indexed: **520** · Missing: **338** · Stale: **1**
+- Published: **862** · Indexed: **521** · Missing: **341** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -26,11 +26,13 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/amazon
 - https://documentation.ixopay.com/adapters/amazon-payment-services
 - https://documentation.ixopay.com/adapters/amazon-payment-services-pci
+- https://documentation.ixopay.com/adapters/american-express-pci
 - https://documentation.ixopay.com/adapters/applepay
 - https://documentation.ixopay.com/adapters/asiapaypesopay
 - https://documentation.ixopay.com/adapters/atom
 - https://documentation.ixopay.com/adapters/authorize-net
 - https://documentation.ixopay.com/adapters/autopay
+- https://documentation.ixopay.com/adapters/axepta
 - https://documentation.ixopay.com/adapters/banca-intesa
 - https://documentation.ixopay.com/adapters/banco-popular-dominicano
 - https://documentation.ixopay.com/adapters/bank-of-america
@@ -201,6 +203,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/manual/adapters/asiapay
 - https://documentation.ixopay.com/manual/adapters/atom
 - https://documentation.ixopay.com/manual/adapters/authorizenet
+- https://documentation.ixopay.com/manual/adapters/autopay
 - https://documentation.ixopay.com/manual/adapters/bancaintesa
 - https://documentation.ixopay.com/manual/adapters/banquemisr
 - https://documentation.ixopay.com/manual/adapters/bcel
@@ -356,6 +359,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 
 ### Stale (indexed but no longer published)
 
+- https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/payment.js.mdx
 - https://documentation.ixopay.com/manual/adapters/bank-of-america
 
 ## ixopay-corp-legal

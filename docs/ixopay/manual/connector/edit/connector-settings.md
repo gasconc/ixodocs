@@ -15,7 +15,7 @@ tags:
 - expert-settings-migration-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-expert-settings-migration-settings-direct-link-expert-settings-migration-settings
 source_url: https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings
 portal: ixopay-manual
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -149,7 +149,7 @@ Available states:
 | Hide Cardholder in API Response/Notification  | Excludes Cardholder in API Responses and Notifications  | 1  |  
 | Postback: Include 3DS Data  | Includes 3DS Data ( 3DS Version, 3DS Attempted, 3DS Challenge performed, 3DS TransactionStatus codes, Exemption Flag (according to 3DS standard), AuthenticationTimestamp, DateTime, TransStatusReason, ECI, XID/DSTransId, ACSTransId) in postback  | 1  |  
 | Handle unknown transactions postbacks  | Option to determine how to IXOPAY unknown transaction postbacks should be handled  | [various](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/handle-unknown-tx-pb)  |  
-| Postback/Notification: Trigger Postback Failed notification after (x) amount of tries  | Option to trigger a notification and alert to be sent in case the postback notification sending fails more often then the configured number of retries  | number  |  
+| Postback/Notification: Trigger Postback Failed notification after (x) amount of tries  | Sets the failure threshold for [Failed Postback alerts](https://documentation.ixopay.com/manual/docs/administrative-tools/manage-and-visualize-alerts): an alert is sent when postback sending fails more than the configured number of times. Without this threshold, no Failed Postback alert is emitted.  | number  |  
 | Postback: Send Basic-Auth header  | Use a Basic-Authentication header for postbacks.  | Basic-Auth Username (string), Basic-Auth Password (string)  |  
 | Postback/Status: Include schemeTransactionIdentifier in postback/status response  | In case an adapter supports providing the Scheme Reference ID, the parameter can be included in the outgoing postback notification / status response  | 1  |  
 | Postback/Status: Include original adapter reference id in postback request and status response  |   | 1  |  

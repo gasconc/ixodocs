@@ -1,8 +1,8 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-05-04 | Total pages: 724
+> Last updated: 2026-05-11 | Total pages: 727
 
-## Ixopay Developer Hub (192 pages)
+## Ixopay Developer Hub (193 pages)
 
 ### Adapters
 - [Emerchantpay Genesis PCI](docs/ixopay/adapters/emerchantpaygenesis-pci.md) — Emerchantpay Genesis PCI
@@ -135,6 +135,7 @@
 - [Getting started](docs/ixopay/guides/getting-started.md) — Getting started
 - [Accept payments](docs/ixopay/guides/getting-started/accept-payments.md) — Getting startedhttps://documentation.ixopay.com/docs/guides/getting-started  Accept payments
 - [Hosted payment pages](docs/ixopay/guides/getting-started/accept-payments/hosted-payment-pages.md) — Getting startedhttps://documentation.ixopay.com/docs/guides/getting-started  Accept paymentshttps://documentation.ixopay.com/docs/guides/getting-st...
+- [Page Not Found](docs/ixopay/guides/getting-started/accept-payments/payment.js.mdx.md) — We could not find what you were looking for. Please contact the owner of the site that linked you to the original URL and let them know their link...
 - [Callbacks](docs/ixopay/guides/getting-started/callbacks.md) — Getting startedhttps://documentation.ixopay.com/docs/guides/getting-started
 - [Recurring payments](docs/ixopay/guides/getting-started/recurring-payments.md) — Getting startedhttps://documentation.ixopay.com/docs/guides/getting-started  Recurring payments
 - [Setting up your account](docs/ixopay/guides/getting-started/setup.md) — Getting startedhttps://documentation.ixopay.com/docs/guides/getting-started  Setting up your account
@@ -163,7 +164,7 @@
 ### Reference
 - [Appendix](docs/ixopay/reference/appendix.md) — The Appendix section is where you can find additional information and resources related to our documentation. This section contains supplementary m...
 - [Error codes](docs/ixopay/reference/appendix/error-codes.md) — Error codes
-- [Concepts](docs/ixopay/reference/concepts.md) — Welcome to the concepts section of the IXOPAY platformhttps://www.ixopay.com reference documentation. This part provides an overview of important c...
+- [Concepts](docs/ixopay/reference/concepts.md) — Welcome to the concepts section of the IXOPAY platform reference documentation. This part provides an overview of important concepts and terminolog...
 - [Currencies](docs/ixopay/reference/concepts/currencies.md) — The API of the IXOPAY platformhttps://www.ixopay.com supports a wide range of currencies for transactions. However, it’s important to adhere to spe...
 - [Transactions](docs/ixopay/reference/concepts/transactions.md) — Transactions are the fundamental unit of operation in IXOPAY platformhttps://www.ixopay.com. They are used to execute payments, reference for follo...
 - [Transaction indicators](docs/ixopay/reference/concepts/transactions/indicators.md) — Transaction indicators
@@ -317,7 +318,7 @@
 - [API Keys](docs/ixopay/manual/system-setup/api-keys.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  API Keys
 - [Currency Conversion Rates](docs/ixopay/manual/system-setup/currency-conversion-rates.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  Currency Conversion Rates
 - [Fee Entities](docs/ixopay/manual/system-setup/fee-entities.md) — Fee Managementhttps://documentation.ixopay.com/manual/docs/connector/fee-management  Fee Entities
-- [Post Processing Jobs](docs/ixopay/manual/system-setup/global-job-schedules.md) — Post Processing Jobs
+- [Global Job Schedules](docs/ixopay/manual/system-setup/global-job-schedules.md) — Redirecting… Redirecting… Redirecting…
 - [Post Processing Jobs](docs/ixopay/manual/system-setup/job-configuration.md) — Post Processing Jobs
 - [Roles](docs/ixopay/manual/system-setup/roles.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup
 - [Security Center](docs/ixopay/manual/system-setup/security-center.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  Security Center
@@ -348,7 +349,7 @@
 - [Pause, Continue, Retry or Cancel Schedules](docs/ixopay/manual/transactions/schedules/pause-continue-retry-cancel.md) — Transaction Scheduleshttps://documentation.ixopay.com/manual/docs/transactions/schedules  Pause, Continue, Retry or Cancel Schedules
 - [Virtual Terminal (MOTO)](docs/ixopay/manual/virtual-terminal-moto.md) — Virtual Terminal MOTO
 
-## Ixopay Modules (190 pages)
+## Ixopay Modules (191 pages)
 
 ### Modules
 - [Overview](docs/ixopay/modules/api.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com modules API reference. The IXOPAY platform modules offers several APIs to process online payme...
@@ -464,6 +465,7 @@
 - [Payload Hashing](docs/ixopay/modules/tokenex/payload-hashing-2.md) — Transparent Gateway API v2  Payload Hashing
 - [Payload HMAC](docs/ixopay/modules/tokenex/payload-hmac.md) — Transparent Gateway API v1  Payload HMAC
 - [Universal Token Payment Orchestration](docs/ixopay/modules/tokenex/payment-orchestration.md) — Universal Token Payment Orchestration
+- [Universal Token APM Support](docs/ixopay/modules/tokenex/payment-orchestration/alternative-payment-methods.md) — Universal Token Payment Orchestrationhttps://documentation.ixopay.com/modules/docs/tokenex/payment-orchestration  Universal Token APM Support
 - [Payment Services](docs/ixopay/modules/tokenex/payment-services.md) — Payment Services
 - [Adyen Checkout](docs/ixopay/modules/tokenex/payment-services/adyen-direct.md) — Payment Serviceshttps://documentation.ixopay.com/modules/docs/tokenex/payment-services  Card/Check/Wallet API  Gateway Parametershttps://documentat...
 - [Adyen Classic](docs/ixopay/modules/tokenex/payment-services/adyen.md) — Payment Serviceshttps://documentation.ixopay.com/modules/docs/tokenex/payment-services  Card/Check/Wallet API  Gateway Parametershttps://documentat...
@@ -559,7 +561,7 @@
 - [Tokenex Legacy](docs/ixopay/legal/tokenex-legacy.md) — The agreements listed on this page govern relationships that IXOPAY, Inc. f/k/a TokenEx, Inc. “IXOPAY” entered into with customers using an Order F...
 - [Toms](docs/ixopay/legal/toms.md) — According to Article 32 of the General Data Protection Regulation "GDPR" and taking into account the state of the art, the implementation costs and...
 
-## TokenEx Documentation (162 pages)
+## TokenEx Documentation (163 pages)
 
 ### General
 - [3DS Device Fingerprinting](docs/tokenex/3-d-secure-device-fingerprinting.md) — 3-D Secure Authentication  3DS Device Fingerprinting
@@ -699,6 +701,9 @@
 - [Vault Management](docs/tokenex/vault-management.md) — Reseller API  Vault Management
 - [Welcome!](docs/tokenex/welcome.md) — Getting started
 - [What is Tokenization?](docs/tokenex/what-is-tokenization.md) — Getting started  What is Tokenization?
+
+### Payment Orchestration
+- [Universal Token APM Support](docs/tokenex/payment-orchestration/alternative-payment-methods.md) — Universal Token Payment Orchestrationhttps://documentation.ixopay.com/modules/docs/tokenex/payment-orchestration  Universal Token APM Support
 
 ### Payment Services
 - [Adyen Checkout](docs/tokenex/payment-services/adyen-direct.md) — Payment Serviceshttps://documentation.ixopay.com/modules/docs/tokenex/payment-services  Card/Check/Wallet API  Gateway Parametershttps://documentat...

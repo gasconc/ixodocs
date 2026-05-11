@@ -15,7 +15,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/docs/recipes/how-to/dual-psp-failure-safety
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 

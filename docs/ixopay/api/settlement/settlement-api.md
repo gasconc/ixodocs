@@ -10,7 +10,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/api/settlement/settlement-api
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -22,7 +22,7 @@ Version: 3.0.0
 # Settlement API
 Using our Settlement API, you may retrieve settlements of your merchant within a given date range. The response will contain all settlement files of the specified date range.
 IXOPAY platform Full Version
-The Settlement API is an optional feature which is not automatically available for all IXOPAY platform clients!
+The Settlement API is an optional feature which is not automatically available for all [IXOPAY platform](https://www.ixopay.com) clients!
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.
 ## Authentication[​](https://documentation.ixopay.com/api/settlement/settlement-api#authentication "Direct link to Authentication")
   * HTTP: Basic Auth

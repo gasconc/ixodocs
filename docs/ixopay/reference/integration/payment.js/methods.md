@@ -15,7 +15,7 @@ tags:
 - setnumberinputtype-https-documentation-ixopay-com-docs-reference-integration-payment-methods-setnumberinputtype-direct-link-setnumberinputtype
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/methods
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -81,7 +81,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "4",  
+  "month": "5",  
 
   "year": "2031",  
 
@@ -330,7 +330,7 @@ For details, see [Auto-fill card data](https://documentation.ixopay.com/docs/ref
 
   card_holder: "Alex Smith",  
 
-  month: 04,  
+  month: 05,  
 
   year:  2031,  
 
@@ -380,7 +380,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "4",  
+  "month": "5",  
 
   "year": "2031",  
 
@@ -560,7 +560,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 04,  
+  month: 05,  
 
   year:  2031,  
 
@@ -608,7 +608,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "4",  
+  "month": "5",  
 
   "year": "2031",  
 
@@ -788,7 +788,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 04,  
+  month: 05,  
 
   year:  2031,  
 
@@ -839,7 +839,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "4",  
+  "month": "5",  
 
   "year": "2031",  
 
@@ -1019,7 +1019,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 04,  
+  month: 05,  
 
   year:  2031,  
 
@@ -1089,7 +1089,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "4",  
+  "month": "5",  
 
   "year": "2031",  
 
@@ -1269,7 +1269,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 04,  
+  month: 05,  
 
   year:  2031,  
 
@@ -1317,7 +1317,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "4",  
+  "month": "5",  
 
   "year": "2031",  
 
@@ -1497,7 +1497,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 04,  
+  month: 05,  
 
   year:  2031,  
 

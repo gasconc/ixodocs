@@ -15,7 +15,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/stripe
 portal: tokenex
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 

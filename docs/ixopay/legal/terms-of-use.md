@@ -13,7 +13,7 @@ tags:
 - ixopay
 source_url: https://www.ixopay.com/legal/terms-of-use
 portal: ixopay-legal
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 

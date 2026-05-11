@@ -14,7 +14,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/api/provisioning/update-connector
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -75,10 +75,12 @@ Connector configuration.
 **Example:**`ljkllLkklmKLlk3`
 **extraData** object
 Configuration values.
+When no configuration values are set, the field is returned as an empty array `[]` instead of an empty object `{}`. Always handle both cases defensively.
 To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**property name*** any
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
+oneOf
+    * object
+    * undefined[]
+****object
 **language** Language
 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
 **Possible values:** Value must match regular expression `^[a-z]{2}$`
@@ -430,10 +432,12 @@ Connector configuration.
 **Example:**`ljkllLkklmKLlk3`
 **extraData** object
 Configuration values.
+When no configuration values are set, the field is returned as an empty array `[]` instead of an empty object `{}`. Always handle both cases defensively.
 To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
-**property name*** any
-Configuration values.
-To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
+oneOf
+    * object
+    * undefined[]
+****object
 **language** Language
 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
 **Possible values:** Value must match regular expression `^[a-z]{2}$`

@@ -13,7 +13,7 @@ tags:
 - reconciliation
 source_url: https://documentation.ixopay.com/manual/docs/connector
 portal: ixopay-manual
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 

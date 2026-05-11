@@ -15,7 +15,7 @@ tags:
 - transaction-api-xml-https-documentation-ixopay-com-manual-docs-api-testing-transaction-api-transaction-api-xml-direct-link-transaction-api-xml
 source_url: https://documentation.ixopay.com/manual/docs/api-testing/transaction-api
 portal: ixopay-manual
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -81,7 +81,8 @@ In this section you can configure Transaction Details (see Transaction Table).
 | Add to Customer Profile  | Enable this option to add the payment instrument to a Customer Profile (Customer Identification mandatory) or create a new Customer Profile  |  
 | Transaction Indicator  | Select an optional Transaction Indicator from the list  |  
 | Extra Data  | Fill in additional Key-Value Extra Data pairs. Add new Extra Data lines by selecting **+ Add Line** (adapter-specific)  |  
-| PspPassthroughData  | Fill in additional Key-Value PspPassthroughData pairs to be passed through to the PSP. Add new PspPassthroughData lines by selecting **+ Add Line**  |  
+| PspPassthroughData  | Fill in additional Key-Value PspPassthroughData pairs to be passed through to the PSP without storing it. Add new PspPassthroughData lines by selecting **+ Add Line**.   
+_**Note:** Support for this feature varies by adapter._  |  
 | Merchant Meta Data  | Not available by default: Fill in additional Merchant Meta Data (string, max. length of 255 characters)  |  
 | Pay by link  | Not available by default: Enable this option to test the Pay By Link Configuration (adapter-specific)  |  
 | Request DCC  | Not available by default: Enable this option to enable the DCC request (in hosted payment page or directly as DCC request) (adapter-specific).  |  

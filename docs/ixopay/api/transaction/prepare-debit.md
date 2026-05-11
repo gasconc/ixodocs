@@ -15,7 +15,7 @@ tags:
 - 3ds
 source_url: https://documentation.ixopay.com/api/transaction/prepare-debit
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -41,7 +41,7 @@ API Key of Connector
   * Example (auto)
 
 ### Body
-Data which is required to process a Debit
+Data which is required to process a Debit. Depending on the adapter, additional fields may be required to be sent as `extraData` and field restrictions may be stricter.
 **merchantTransactionId** MerchantTransactionId
 A unique identifier supplied by the merchant to track transactions within their own systems.
 This field links the platform’s transaction back to the merchant’s system, allowing for easy tracking and reconciliation. Note that while this ID is used within the platform, there is no guarantee that it will be forwarded to the Payment Service Provider (PSP).

@@ -10,7 +10,7 @@ tags:
 - capture
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/auto-fill-card-data
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -45,7 +45,7 @@ payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {
 
      *   card_holder: "Alex Smith",  
 
-     *   month: 4,  
+     *   month: 5,  
 
      *   year: 2031  
 
@@ -88,7 +88,7 @@ payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {
 
      *   card_holder: "Alex Smith",  
 
-     *   month: 4,  
+     *   month: 5,  
 
      *   year: 2031  
 
@@ -131,7 +131,7 @@ payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {
 
      *   card_holder: "Alex Smith",  
 
-     *   month: 4,  
+     *   month: 5,  
 
      *   year: 2031  
 
@@ -174,7 +174,7 @@ payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {
 
      *   card_holder: "Alex Smith",  
 
-     *   month: 4,  
+     *   month: 5,  
 
      *   year: 2031  
 
@@ -218,7 +218,7 @@ payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {
 
      *   card_holder: "Alex Smith",  
 
-     *   month: 4,  
+     *   month: 5,  
 
      *   year: 2031  
 
@@ -261,7 +261,7 @@ payment.init("$INTEGRATION_KEY", "cc-number", "cc-csc", (payment) => {
 
      *   card_holder: "Alex Smith",  
 
-     *   month: 4,  
+     *   month: 5,  
 
      *   year: 2031  
 

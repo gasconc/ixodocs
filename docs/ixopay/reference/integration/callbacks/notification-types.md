@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/integration/callbacks/notification-types
 portal: ixopay-dev
-updated: '2026-05-04'
+updated: '2026-05-11'
 related: []
 ---
 
@@ -42,7 +42,7 @@ Here's an example of a success notification:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -70,7 +70,7 @@ Here's an example of a success notification:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -119,7 +119,7 @@ Here's an example of an error notification:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -147,7 +147,7 @@ Here's an example of an error notification:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -188,7 +188,7 @@ Here's an example of a chargeback notification:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260421-313f381aef908f4558e3",  
+  "purchaseId": "20260507-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -210,7 +210,7 @@ Here's an example of a chargeback notification:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-04-23T12:42:24Z"  
+    "chargebackDateTime": "2026-05-09T16:14:18Z"  
 
   }  
 
@@ -229,7 +229,7 @@ Here's an example of a chargeback reversal notification:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -253,7 +253,7 @@ Here's an example of a chargeback reversal notification:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-04-22T12:42:24Z"  
+    "reversalDateTime": "2026-05-08T16:14:18Z"  
 
   }  
 
@@ -279,7 +279,7 @@ Here's an example of an account updater notification:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -287,7 +287,7 @@ Here's an example of an account updater notification:
 
   "extraData": {  
 
-    "lastCardUpdateDate": "2021-04-01",  
+    "lastCardUpdateDate": "2021-05-01",  
 
     "lastCardUpdateResult": "updated"  
 
@@ -301,7 +301,7 @@ Here's an example of an account updater notification:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -327,7 +327,7 @@ Here's an example of an account updater notification:
 
 }  
 
-```In the example, the notification indicates that the last card update occurred on `April 1st, 2021`, and the result of the update was `updated`. The `returnData` field of type `cardData` contains the updated card information, such as the card type, cardholder name, expiry date, BIN details, and more.
+```In the example, the notification indicates that the last card update occurred on `May 1st, 2021`, and the result of the update was `updated`. The `returnData` field of type `cardData` contains the updated card information, such as the card type, cardholder name, expiry date, BIN details, and more.
 With account updater notifications, you can stay informed about changes to your customers' stored cards, enabling you to maintain up-to-date payment information and provide seamless transaction experiences.
 ## Network token notification[​](https://documentation.ixopay.com/docs/reference/integration/callbacks/notification-types#network-token-notification "Direct link to Network token notification")
 When a network token is created, you will receive notifications for any updates related to that token. These notifications are important for staying up-to-date with changes to your network tokens.
@@ -371,7 +371,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -389,7 +389,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -446,7 +446,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -464,7 +464,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -494,7 +494,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -513,7 +513,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -531,7 +531,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -561,7 +561,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -580,7 +580,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -608,7 +608,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -655,7 +655,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -683,7 +683,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -722,7 +722,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260421-313f381aef908f4558e3",  
+  "purchaseId": "20260507-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -744,7 +744,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-04-23T12:42:24Z"  
+    "chargebackDateTime": "2026-05-09T16:14:18Z"  
 
   }  
 
@@ -761,7 +761,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -785,7 +785,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-04-22T12:42:24Z"  
+    "reversalDateTime": "2026-05-08T16:14:18Z"  
 
   }  
 
@@ -802,7 +802,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -810,7 +810,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "lastCardUpdateDate": "2021-04-01",  
+    "lastCardUpdateDate": "2021-05-01",  
 
     "lastCardUpdateResult": "updated"  
 
@@ -824,7 +824,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -861,7 +861,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -879,7 +879,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -936,7 +936,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -954,7 +954,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -984,7 +984,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -1003,7 +1003,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1021,7 +1021,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1051,7 +1051,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -1070,7 +1070,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1098,7 +1098,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1145,7 +1145,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1173,7 +1173,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1212,7 +1212,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260421-313f381aef908f4558e3",  
+  "purchaseId": "20260507-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -1234,7 +1234,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-04-23T12:42:24Z"  
+    "chargebackDateTime": "2026-05-09T16:14:18Z"  
 
   }  
 
@@ -1251,7 +1251,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -1275,7 +1275,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-04-22T12:42:24Z"  
+    "reversalDateTime": "2026-05-08T16:14:18Z"  
 
   }  
 
@@ -1292,7 +1292,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -1300,7 +1300,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "lastCardUpdateDate": "2021-04-01",  
+    "lastCardUpdateDate": "2021-05-01",  
 
     "lastCardUpdateResult": "updated"  
 
@@ -1314,7 +1314,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1351,7 +1351,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1369,7 +1369,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1426,7 +1426,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1444,7 +1444,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1474,7 +1474,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -1493,7 +1493,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1511,7 +1511,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1541,7 +1541,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -1560,7 +1560,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1588,7 +1588,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1635,7 +1635,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1663,7 +1663,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1702,7 +1702,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260421-313f381aef908f4558e3",  
+  "purchaseId": "20260507-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -1724,7 +1724,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-04-23T12:42:24Z"  
+    "chargebackDateTime": "2026-05-09T16:14:18Z"  
 
   }  
 
@@ -1741,7 +1741,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -1765,7 +1765,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-04-22T12:42:24Z"  
+    "reversalDateTime": "2026-05-08T16:14:18Z"  
 
   }  
 
@@ -1782,7 +1782,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -1790,7 +1790,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "lastCardUpdateDate": "2021-04-01",  
+    "lastCardUpdateDate": "2021-05-01",  
 
     "lastCardUpdateResult": "updated"  
 
@@ -1804,7 +1804,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1841,7 +1841,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1859,7 +1859,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1916,7 +1916,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1934,7 +1934,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -1964,7 +1964,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -1983,7 +1983,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2001,7 +2001,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2031,7 +2031,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -2055,7 +2055,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2083,7 +2083,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2130,7 +2130,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2158,7 +2158,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2197,7 +2197,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260421-313f381aef908f4558e3",  
+  "purchaseId": "20260507-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -2219,7 +2219,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-04-23T12:42:24Z"  
+    "chargebackDateTime": "2026-05-09T16:14:18Z"  
 
   }  
 
@@ -2236,7 +2236,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -2260,7 +2260,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-04-22T12:42:24Z"  
+    "reversalDateTime": "2026-05-08T16:14:18Z"  
 
   }  
 
@@ -2277,7 +2277,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -2285,7 +2285,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "lastCardUpdateDate": "2021-04-01",  
+    "lastCardUpdateDate": "2021-05-01",  
 
     "lastCardUpdateResult": "updated"  
 
@@ -2299,7 +2299,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2336,7 +2336,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2354,7 +2354,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2411,7 +2411,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2429,7 +2429,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2459,7 +2459,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -2478,7 +2478,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2496,7 +2496,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2526,7 +2526,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -2545,7 +2545,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2573,7 +2573,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2620,7 +2620,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2648,7 +2648,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2687,7 +2687,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260421-313f381aef908f4558e3",  
+  "purchaseId": "20260507-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -2709,7 +2709,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-04-23T12:42:24Z"  
+    "chargebackDateTime": "2026-05-09T16:14:18Z"  
 
   }  
 
@@ -2726,7 +2726,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -2750,7 +2750,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-04-22T12:42:24Z"  
+    "reversalDateTime": "2026-05-08T16:14:18Z"  
 
   }  
 
@@ -2767,7 +2767,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -2775,7 +2775,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "lastCardUpdateDate": "2021-04-01",  
+    "lastCardUpdateDate": "2021-05-01",  
 
     "lastCardUpdateResult": "updated"  
 
@@ -2789,7 +2789,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2826,7 +2826,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2844,7 +2844,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2901,7 +2901,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2919,7 +2919,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -2949,7 +2949,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -2968,7 +2968,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260421-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2986,7 +2986,7 @@ Here are examples of network notifications:
 
     "cardHolder": "Alex Smith",  
 
-    "expiryMonth": "4",  
+    "expiryMonth": "5",  
 
     "expiryYear": "2031",  
 
@@ -3016,7 +3016,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-04-22T12:42:24Z",  
+    "lastNetworkTokenUpdateDate": "2026-05-08T16:14:18Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
