@@ -15,7 +15,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks
 portal: ixopay-manual
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 

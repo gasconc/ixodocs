@@ -11,7 +11,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/tokenex-api-v-2
 portal: ixopay-modules
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 

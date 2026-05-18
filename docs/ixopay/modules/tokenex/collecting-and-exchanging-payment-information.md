@@ -14,7 +14,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/collecting-and-exchanging-payment-information
 portal: ixopay-modules
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - void
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/callbacks
 portal: ixopay-dev
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 
@@ -273,7 +273,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1068,7 +1068,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1849,7 +1849,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2630,7 +2630,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -3415,7 +3415,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -4196,7 +4196,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 

@@ -14,7 +14,7 @@ tags:
 - void
 source_url: https://documentation.ixopay.com/api/push/void
 portal: ixopay-dev
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 

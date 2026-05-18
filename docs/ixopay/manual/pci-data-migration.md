@@ -14,7 +14,7 @@ tags:
 - pci-dss
 source_url: https://documentation.ixopay.com/manual/docs/pci-data-migration
 portal: ixopay-manual
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 
@@ -107,7 +107,7 @@ The export of your Transaction records will be a PGP-encrypted, UTF-8 encoded CS
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-08T16:15:24Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-12T07:46:45Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
@@ -150,7 +150,7 @@ When we exchange sensitive customer data, all cardholder data needs to be sent i
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-08T16:15:24Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-12T07:46:45Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
@@ -184,7 +184,7 @@ When we exchange sensitive customer data, all cardholder data needs to be sent i
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-08T16:15:24Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-12T07:46:45Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  
@@ -225,7 +225,7 @@ When we exchange sensitive customer data, all cardholder data needs to be sent i
 | `merchant_transaction_id`  | A merchant's unique id provided for this transaction  | `your-unique-identifier`  |  
 | `merchant_guid`  | Merchant GUID the transaction belongs to  | `ME-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
 | `connector_guid`  | Connector GUID the transaction was performed with  | `CO-aaaa-bbbb-aaaa-bbbb-aaaa-bbbb`  |  
-| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-08T16:15:24Z`  |  
+| `created_at`  | UTC timestamp in the format YYYY-MM-DD hh:mm:ss  | `2026-05-12T07:46:45Z`  |  
 | `scheme_reference_id`  | Scheme transaction ID. E.g. Visa Transaction ID, Mastercard Trace ID, ... required to provide for MIT transactions.  | `480000000000`  |  
 | `creditcard.cardholder_name`  | The cardholder name of the card (technically this is optional, but usually you will want to know the cardholder name)  | `Alex Smith`  |  
 | `creditcard.number`  | The primary Account number (PAN) of the card  | `4111111111111111`  |  

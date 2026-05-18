@@ -7,7 +7,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/straal
 portal: ixopay-manual
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 

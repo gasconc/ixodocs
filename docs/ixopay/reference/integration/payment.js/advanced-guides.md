@@ -9,7 +9,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides
 portal: ixopay-dev
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 

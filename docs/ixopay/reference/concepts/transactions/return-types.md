@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/concepts/transactions/return-types
 portal: ixopay-dev
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 
@@ -36,7 +36,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -77,7 +77,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -98,7 +98,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -137,7 +137,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -176,7 +176,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -229,7 +229,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -266,7 +266,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -285,7 +285,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -322,7 +322,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -357,7 +357,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -410,7 +410,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -447,7 +447,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -466,7 +466,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -503,7 +503,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -538,7 +538,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -591,7 +591,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -628,7 +628,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -647,7 +647,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -684,7 +684,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -719,7 +719,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -776,7 +776,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -813,7 +813,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -832,7 +832,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -869,7 +869,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -904,7 +904,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -957,7 +957,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -994,7 +994,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1013,7 +1013,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING",  
 
@@ -1050,7 +1050,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -1085,7 +1085,7 @@ Response example
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260507-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 

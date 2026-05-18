@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-05-11 | Total pages: 727
+> Last updated: 2026-05-18 | Total pages: 727
 
 ## Ixopay Developer Hub (193 pages)
 
@@ -164,7 +164,7 @@
 ### Reference
 - [Appendix](docs/ixopay/reference/appendix.md) — The Appendix section is where you can find additional information and resources related to our documentation. This section contains supplementary m...
 - [Error codes](docs/ixopay/reference/appendix/error-codes.md) — Error codes
-- [Concepts](docs/ixopay/reference/concepts.md) — Welcome to the concepts section of the IXOPAY platform reference documentation. This part provides an overview of important concepts and terminolog...
+- [Concepts](docs/ixopay/reference/concepts.md) — Welcome to the concepts section of the IXOPAY platformhttps://www.ixopay.com reference documentation. This part provides an overview of important c...
 - [Currencies](docs/ixopay/reference/concepts/currencies.md) — The API of the IXOPAY platformhttps://www.ixopay.com supports a wide range of currencies for transactions. However, it’s important to adhere to spe...
 - [Transactions](docs/ixopay/reference/concepts/transactions.md) — Transactions are the fundamental unit of operation in IXOPAY platformhttps://www.ixopay.com. They are used to execute payments, reference for follo...
 - [Transaction indicators](docs/ixopay/reference/concepts/transactions/indicators.md) — Transaction indicators
@@ -318,7 +318,7 @@
 - [API Keys](docs/ixopay/manual/system-setup/api-keys.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  API Keys
 - [Currency Conversion Rates](docs/ixopay/manual/system-setup/currency-conversion-rates.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  Currency Conversion Rates
 - [Fee Entities](docs/ixopay/manual/system-setup/fee-entities.md) — Fee Managementhttps://documentation.ixopay.com/manual/docs/connector/fee-management  Fee Entities
-- [Global Job Schedules](docs/ixopay/manual/system-setup/global-job-schedules.md) — Redirecting… Redirecting… Redirecting…
+- [Post Processing Jobs](docs/ixopay/manual/system-setup/global-job-schedules.md) — Post Processing Jobs
 - [Post Processing Jobs](docs/ixopay/manual/system-setup/job-configuration.md) — Post Processing Jobs
 - [Roles](docs/ixopay/manual/system-setup/roles.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup
 - [Security Center](docs/ixopay/manual/system-setup/security-center.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  Security Center

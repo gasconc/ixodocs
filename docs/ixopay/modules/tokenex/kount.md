@@ -12,7 +12,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/kount
 portal: ixopay-modules
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 

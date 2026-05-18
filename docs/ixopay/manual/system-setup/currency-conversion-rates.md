@@ -9,7 +9,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/currency-conversion-rates
 portal: ixopay-manual
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 

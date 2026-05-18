@@ -17,7 +17,7 @@ tags:
 - anomaly-detectionhttps-docs-congrify-com-anomaly-detection
 source_url: https://docs.congrify.com/
 portal: congrify
-updated: '2026-05-11'
+updated: '2026-05-18'
 related: []
 ---
 
