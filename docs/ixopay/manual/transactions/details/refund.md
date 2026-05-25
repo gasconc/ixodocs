@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/refund
 portal: ixopay-manual
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

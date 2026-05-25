@@ -16,7 +16,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-rules
 portal: ixopay-manual
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

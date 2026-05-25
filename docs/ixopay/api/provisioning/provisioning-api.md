@@ -10,7 +10,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/api/provisioning/provisioning-api
 portal: ixopay-dev
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
@@ -20,7 +20,7 @@ related: []
 
 Version: 3.0.0
 # Provisioning API
-The provisioning API allows you to manage your IXOPAY platform entities. You can create, read, update tenants, merchants, merchant users and connectors.
+The provisioning API allows you to manage your [IXOPAY platform](https://www.ixopay.com) entities. You can create, read, update tenants, merchants, merchant users and connectors.
 IXOPAY platform Full Version
 The Provisioning API is an optional feature which is not automatically available for all IXOPAY platform clients!
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.
@@ -39,7 +39,7 @@ Many programming frameworks will automatically handle the BASIC Authentication p
   1. Navigate to "**System Setup** " followed by "**API Keys** " from the main menu.
   2. Click on "**+ New API Key** " located at the top-right corner of the screen.
   3. Make sure to select "**Provisioning API** " in the "**Services** " field.
-  4. Specify any IP addresses that are authorized to access the Provisioning API with this API key.
+  4. Specify any IP addresses that are authorized to access the Provisioning API with this API key. 
      * Enter multiple IP addresses in a comma-separated format, with **no** whitespace in between (for instance, "`12.12.12.12,41.41.41.41`").
      * You can also employ [CIDR notation](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_notation)' for specifying IP addresses (for instance, "`10.0.0.0/28`" includes all IP addresses from `10.0.0.0` to `10.0.0.15`).
   5. Click on "**+ Create** " to generate your new API Key.

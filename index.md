@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-05-18 | Total pages: 727
+> Last updated: 2026-05-25 | Total pages: 727
 
 ## Ixopay Developer Hub (193 pages)
 
@@ -550,7 +550,7 @@
 - [Dpa](docs/ixopay/legal/dpa.md) — This Data Processing Addendum DPA outlines IXOPAY’s obligations and Customer responsibilities under global data protection laws, including GDPR, UK...
 - [Legal](docs/ixopay/legal/index.md) — PUBLISHED BY IXOPAY GmbH 1st Floor Vorgartenstrasse 206c 1020 Vienna Austria CONTACT info@ixopay.com Tel: +43-1-3530505 Website: www.ixopay.comhttp...
 - [Msa](docs/ixopay/legal/msa.md) — This Master Services Agreement MSA defines the legal framework between IXOPAY and the Customer, outlining terms for subscriptions, use of services,...
-- [Privacy Notice](docs/ixopay/legal/privacy-notice.md) — Version: 11 Feb 2026
+- [Privacy Notice](docs/ixopay/legal/privacy-notice.md) — Version: 18 May 2026
 - [Privacy Policy Applicants](docs/ixopay/legal/privacy-policy-applicants.md) — 1.1 This Privacy Notice provides transparent information about the processing of your personal data when you apply for a job at any entity of the I...
 - [Privacy Policy B2B Outdated](docs/ixopay/legal/privacy-policy-b2b-outdated.md) — !404 Imagehttps://www.ixopay.com/generated/img/containers/assets/404-image.png/60a78d7830d4426d73a1e1fce86dad05/404-image.png
 - [Security Trust](docs/ixopay/legal/security-trust.md) — The IXOPAY GRC and security programs operate in compliance with a range of well-known standards and regulations, and our compliance reports are ava...

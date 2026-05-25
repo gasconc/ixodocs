@@ -14,7 +14,7 @@ tags:
 - 3ds
 source_url: https://documentation.ixopay.com/docs/guides/features/3d-secure
 portal: ixopay-dev
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
@@ -160,7 +160,7 @@ During the 3-D Secure authentication process, there are several possible outcome
 
     "cardholderAuthenticationMethod": "02",  
 
-    "cardholderAuthenticationDateTime": "2026-05-12T07:45:53Z",  
+    "cardholderAuthenticationDateTime": "2026-05-21T09:45:09Z",  
 
     "challengeIndicator": "01",  
 
@@ -230,7 +230,7 @@ During the 3-D Secure authentication process, there are several possible outcome
 
     "giftCardCount": 1,  
 
-    "purchaseDate": "2026-05-12T07:45:53Z",  
+    "purchaseDate": "2026-05-21T09:45:09Z",  
 
     "transType": "01",  
 
@@ -268,7 +268,7 @@ The transaction response would look something like:
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260520-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -401,7 +401,7 @@ For detailed information on testing 3-D Secure authentication, including testing
 
     "cardholderAuthenticationMethod": "02",  
 
-    "cardholderAuthenticationDateTime": "2026-05-12T07:45:53Z",  
+    "cardholderAuthenticationDateTime": "2026-05-21T09:45:09Z",  
 
     "challengeIndicator": "01",  
 
@@ -471,7 +471,7 @@ For detailed information on testing 3-D Secure authentication, including testing
 
     "giftCardCount": 1,  
 
-    "purchaseDate": "2026-05-12T07:45:53Z",  
+    "purchaseDate": "2026-05-21T09:45:09Z",  
 
     "transType": "01",  
 
@@ -492,7 +492,7 @@ For detailed information on testing 3-D Secure authentication, including testing
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260520-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -612,7 +612,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
     "cardholderAuthenticationMethod": "02",  
 
-    "cardholderAuthenticationDateTime": "2026-05-12T07:45:53Z",  
+    "cardholderAuthenticationDateTime": "2026-05-21T09:45:09Z",  
 
     "challengeIndicator": "01",  
 
@@ -682,7 +682,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
     "giftCardCount": 1,  
 
-    "purchaseDate": "2026-05-12T07:45:53Z",  
+    "purchaseDate": "2026-05-21T09:45:09Z",  
 
     "transType": "01",  
 
@@ -703,7 +703,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260520-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -823,7 +823,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
     "cardholderAuthenticationMethod": "02",  
 
-    "cardholderAuthenticationDateTime": "2026-05-12T07:45:53Z",  
+    "cardholderAuthenticationDateTime": "2026-05-21T09:45:09Z",  
 
     "challengeIndicator": "01",  
 
@@ -893,7 +893,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
     "giftCardCount": 1,  
 
-    "purchaseDate": "2026-05-12T07:45:53Z",  
+    "purchaseDate": "2026-05-21T09:45:09Z",  
 
     "transType": "01",  
 
@@ -914,7 +914,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260520-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1040,7 +1040,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
     "cardholderAuthenticationMethod": "02",  
 
-    "cardholderAuthenticationDateTime": "2026-05-12T07:45:53Z",  
+    "cardholderAuthenticationDateTime": "2026-05-21T09:45:09Z",  
 
     "challengeIndicator": "01",  
 
@@ -1110,7 +1110,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
     "giftCardCount": 1,  
 
-    "purchaseDate": "2026-05-12T07:45:53Z",  
+    "purchaseDate": "2026-05-21T09:45:09Z",  
 
     "transType": "01",  
 
@@ -1131,7 +1131,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260520-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1251,7 +1251,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
     "cardholderAuthenticationMethod": "02",  
 
-    "cardholderAuthenticationDateTime": "2026-05-12T07:45:53Z",  
+    "cardholderAuthenticationDateTime": "2026-05-21T09:45:09Z",  
 
     "challengeIndicator": "01",  
 
@@ -1321,7 +1321,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
     "giftCardCount": 1,  
 
-    "purchaseDate": "2026-05-12T07:45:53Z",  
+    "purchaseDate": "2026-05-21T09:45:09Z",  
 
     "transType": "01",  
 
@@ -1342,7 +1342,7 @@ window.location.href = "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260511-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260520-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 

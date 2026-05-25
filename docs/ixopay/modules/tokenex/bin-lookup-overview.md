@@ -14,7 +14,7 @@ tags:
 - full-bin-file-download-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-full-bin-file-download-direct-link-full-bin-file-download
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview
 portal: ixopay-modules
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
@@ -22,8 +22,6 @@ related: []
   * BIN Lookup Guide
 
 # BIN Lookup Guide
-Beta
-This API is currently in its beta phase and is provided on an "as is" and "as available" basis. It may contain bugs, errors, or other issues and is subject to changes without prior notice. Thank you for your understanding.
 info
 BIN lookup is a subscription service. Contact your Customer Success Manager or sales@ixopay.com to gain access to our BIN lookup product.
 ## What is BIN Lookup?[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#what-is-bin-lookup "Direct link to What is BIN Lookup?")

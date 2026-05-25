@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/pci-token-servicesv-2-getbinandlastfour
 portal: ixopay-modules
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

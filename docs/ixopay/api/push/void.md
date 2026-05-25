@@ -14,7 +14,7 @@ tags:
 - void
 source_url: https://documentation.ixopay.com/api/push/void
 portal: ixopay-dev
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
@@ -211,33 +211,10 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
   * CURL
 ```
-curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/void' \  
+curl -L -X POST 'https://documentation.ixopay.com/:apiKey/void' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
--d '{  
-  "transactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
-  "referenceTransactionId": "ed0687ad-a876-42fd-bfc2-ce7c91d9700d",  
-  "referenceUuid": "20230315-6d432fb7217843388847",  
-  "status": "success",  
-  "adapterTxId": "string",  
-  "adapterToken": "string",  
-  "createdAt": "2001-02-03T04:05:06+02:00",  
-  "additionalId1": "string",  
-  "additionalId2": "string",  
-  "merchantMetaData": "string",  
-  "description": "My Purchase Order 123",  
-  "extraData": {  
-    "someKey": "someValue"  
-  },  
-  "descriptor": "Order# 123",  
-  "error": {  
-    "message": "Payment could not be processed.",  
-    "code": 1234,  
-    "adapter_error_message": "Processing failed.",  
-    "adapter_error_code": 1000  
-  }  
-}'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
 ```RequestCollapse all
 Base URL
@@ -352,33 +329,10 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/void' \  
+curl -L -X POST 'https://documentation.ixopay.com/:apiKey/void' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
--d '{  
-  "transactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
-  "referenceTransactionId": "ed0687ad-a876-42fd-bfc2-ce7c91d9700d",  
-  "referenceUuid": "20230315-6d432fb7217843388847",  
-  "status": "success",  
-  "adapterTxId": "string",  
-  "adapterToken": "string",  
-  "createdAt": "2001-02-03T04:05:06+02:00",  
-  "additionalId1": "string",  
-  "additionalId2": "string",  
-  "merchantMetaData": "string",  
-  "description": "My Purchase Order 123",  
-  "extraData": {  
-    "someKey": "someValue"  
-  },  
-  "descriptor": "Order# 123",  
-  "error": {  
-    "message": "Payment could not be processed.",  
-    "code": 1234,  
-    "adapter_error_message": "Processing failed.",  
-    "adapter_error_code": 1000  
-  }  
-}'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
 ```
 ```

@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/api/provisioning/merchant-user
 portal: ixopay-dev
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

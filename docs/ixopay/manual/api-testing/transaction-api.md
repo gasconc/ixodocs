@@ -15,7 +15,7 @@ tags:
 - transaction-api-xml-https-documentation-ixopay-com-manual-docs-api-testing-transaction-api-transaction-api-xml-direct-link-transaction-api-xml
 source_url: https://documentation.ixopay.com/manual/docs/api-testing/transaction-api
 portal: ixopay-manual
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

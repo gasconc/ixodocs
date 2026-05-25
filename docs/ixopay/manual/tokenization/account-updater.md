@@ -14,7 +14,7 @@ tags:
 - settlement
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/account-updater
 portal: ixopay-manual
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

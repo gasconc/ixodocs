@@ -14,7 +14,7 @@ tags:
 - card-metadata-updates-https-documentation-ixopay-com-modules-docs-tokenex-network-tokenization-card-metadata-updates-direct-link-card-metadata-updates
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/network-tokenization
 portal: tokenex
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

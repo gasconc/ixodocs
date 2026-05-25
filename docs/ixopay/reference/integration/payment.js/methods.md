@@ -15,7 +15,7 @@ tags:
 - setnumberinputtype-https-documentation-ixopay-com-docs-reference-integration-payment-methods-setnumberinputtype-direct-link-setnumberinputtype
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/methods
 portal: ixopay-dev
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
@@ -31,11 +31,11 @@ Methods for initializing and using `PaymentJs`.
 
 PaymentJs.init(publicIntegrationKey, numberDivId, cvvDivId, completeCallback);  
 
-```Initializes the `PaymentJs` object for PAN and CVV entry.
+```Initializes the `PaymentJs` object for PAN and CVV entry. Pass `null` for `cvvDivId` to collect only the card number (PAN-only mode, no CVV field).
 #### Parameters[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#parameters "Direct link to Parameters")
   * `publicIntegrationKey` — the connector's public integration key (provided to you with your credentials).
   * `numberDivId` — the `id` of the `` which will contain the primary account number (PAN).
-  * `cvvDivId` — the `id` of the `` which will contain the CVV code.
+  * `cvvDivId` — the `id` of the `` which will contain the CVV code, or `null` for PAN-only mode.
   * `completeCallback(PaymentJs)` — a callback function that will receive the initialized `PaymentJs` as first argument.
 
 ### initCvvRefresh[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#initcvvrefresh "Direct link to initCvvRefresh")

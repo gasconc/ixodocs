@@ -6,14 +6,14 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/api/forward-compatibility
 portal: ixopay-dev
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
 * Forward compatibility
 
 # Forward compatibility
-The [IXOPAY platform](https://www.ixopay.com) may expand and enhance its API in an additive and backwards-compatible way. Below, we list the expectations that integrators shall adhere to in order to remain forward compatible with future enhancements.
+The IXOPAY platform may expand and enhance its API in an additive and backwards-compatible way. Below, we list the expectations that integrators shall adhere to in order to remain forward compatible with future enhancements.
   * We reserve the right to extend our API in an additive way.
   * We may add additional, optional fields to our API request.
   * We may add additional fields to our existing API responses and callbacks.

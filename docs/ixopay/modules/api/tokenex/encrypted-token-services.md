@@ -9,7 +9,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/encrypted-token-services
 portal: ixopay-modules
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

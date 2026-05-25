@@ -16,7 +16,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/tips-best-practice
 portal: ixopay-manual
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

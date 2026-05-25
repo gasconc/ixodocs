@@ -17,7 +17,7 @@ tags:
 - vulnerability-management
 source_url: https://www.ixopay.com/legal/security-trust
 portal: ixopay-legal
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
@@ -26,8 +26,8 @@ related: []
 ## GRC and Due Diligence
 The IXOPAY GRC and security programs operate in compliance with a range of well-known standards and regulations, and our compliance reports are available to clients upon request. Additionally, IXOPAY regularly performs due diligence on the security controls we have in place.
 ### Audit Documentation
-[ ISO 27001 Certificate ](https://www.ixopay.com/assets/pdf/legal/certificate-ixopay,-inc.-2025-iso-27001.2022-\(1\).pdf "ISO 27001 Certificate")
-[ SOC3 Certification ](https://www.ixopay.com/assets/pdf/ixopay-2025-type-2-soc-3-final-report-\(1\).pdf "SOC3 Certification")
+[ ISO 27001 Certificate ](https://www.ixopay.com/assets/certificate-ixopay-2026-iso-27001.2022.pdf "ISO 27001 Certificate")
+[ SOC3 Certification ](https://www.ixopay.com/assets/ixopay-2026-type-2-soc-3-final-report.pdf "SOC3 Certification")
 [ PCI DSS Attestation of Compliance (Tokenization Platform) ](https://www.ixopay.com/assets/pdf/ixopay-2025-pci-dss-aoc-final-report-locked.pdf "PCI DSS Attestation of Compliance \(Tokenization Platform\)")
 [ PCI DSS Attestation of Compliance (Payment Orchestration Platform) ](https://www.ixopay.com/assets/20251128-ixopay-pci-dss-v4-0-1-roc-aoc-service-providers_final.pdf "PCI DSS Attestation of Compliance \(Payment Orchestration Platform\)")
 ##  Certifications and Compliance 
@@ -48,7 +48,7 @@ ISO/IEC 27001:2022
 ISO 27001:2022 was developed by the International Organization for Standardization (ISO) and is a recognized and respected information security management standard that specifies best practices and comprehensive security controls for technology platforms and systems.
 This certification process encompassed the people, policies, processes, and technologies used to ensure a sustained focus on information security. After an independent audit, the designation validates the security of the company’s data protection platform and reaffirms its compliance with policies and procedures beyond the security industry and international data protection standards.
 By adding the rigorous ISO 27001:2022 certification to our trust package, Ixopay continues to demonstrate our commitment to protecting clients’ data as a top priority. We continually improve our processes and reaffirm the mission to use our industry-leading platform to support clients in securing sensitive data while enabling their most critical business processes.
-[ Compliance Certificate ](https://www.ixopay.com/assets/pdf/legal/certificate-ixopay,-inc.-2025-iso-27001.2022-\(1\).pdf "Compliance Certificate")
+[ Compliance Certificate ](https://www.ixopay.com/assets/certificate-ixopay-2026-iso-27001.2022.pdf "Compliance Certificate")
 [ ![ISO 27001 Badge](https://www.ixopay.com/generated/img/containers/assets/badge-iso-27001.png/943a144c9a04312578ac6f52e7333abf/badge-iso-27001.png) ](https://www.ixopay.com/generated/img/containers/assets/badge-iso-27001.png/d0e6668b879e5f089434de3f38d5d2f3/badge-iso-27001.png)
 PCI Certified Level 1 Service Provider 
 IXOPAY is a PCI Certified Level 1 Service Provider, and the IXOPAY products are designed to help you achieve PCI compliance.
@@ -61,7 +61,7 @@ An assessment of the IXOPAY control environment is performed by independent serv
   * Availability – the system is available for operation and use as committed or agreed.
   * Confidentiality – information designated as confidential is protected as committed or agreed.
 
-[ Attestation of Compliance ](https://www.ixopay.com/assets/pdf/ixopay-2025-type-2-soc-3-final-report-\(1\).pdf "Attestation of Compliance")
+[ SOC 3 Report ](https://www.ixopay.com/assets/ixopay-2026-type-2-soc-3-final-report.pdf "SOC 3 Report")
 [ ![AICPA SOC Badge](https://www.ixopay.com/generated/img/containers/assets/badge-soc.png/7ab281727b183162051b4e689ca597ae/badge-soc.png) ](https://www.ixopay.com/generated/img/containers/assets/badge-soc.png/322c6ddb187cb5341024b48aa25749a4/badge-soc.png)
 Visa Global Registry of Service Providers 
 The Visa Global Registry allows service providers to broadcast their compliance with Visa Inc. rules and industry security standards and to promote their services to potential clients worldwide. Clients and merchants should reference the site regularly as part of their due diligence process. They should only use service providers listed on the Registry to outsource payment-related services.

@@ -1,6 +1,6 @@
 ---
 title: Privacy Notice
-summary: 'Version: 11 Feb 2026'
+summary: 'Version: 18 May 2026'
 tags:
 - introduction
 - scope-application
@@ -14,14 +14,14 @@ tags:
 - data-aggregation-anonymization
 source_url: https://www.ixopay.com/legal/privacy-notice
 portal: ixopay-legal
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
 # Privacy Notice
 
 [ 1. Introduction ](https://www.ixopay.com/legal/privacy-notice#1-introduction) [ 2. Data Categories We Collect, Purposes and Legal Basis ](https://www.ixopay.com/legal/privacy-notice#2-data-categories-we-collect-purposes-and-legal-basis) [ 3. Data Aggregation and Anonymization ](https://www.ixopay.com/legal/privacy-notice#3-data-aggregation-and-anonymization) [ 4. Disclosure of Personal Data ](https://www.ixopay.com/legal/privacy-notice#4-disclosure-of-personal-data) [ 5. International Data Transfers ](https://www.ixopay.com/legal/privacy-notice#5-international-data-transfers) [ 6. Retention ](https://www.ixopay.com/legal/privacy-notice#6-retention) [ 7. Your Rights ](https://www.ixopay.com/legal/privacy-notice#7-your-rights) [ 8. Notice to California Residents ](https://www.ixopay.com/legal/privacy-notice#8-notice-to-california-residents) [ 9. Contact Information ](https://www.ixopay.com/legal/privacy-notice#9-contact-information) [ 10. Data security ](https://www.ixopay.com/legal/privacy-notice#10-data-security) [ 11. Amendments of our Privacy Notice ](https://www.ixopay.com/legal/privacy-notice#11-amendments-of-our-privacy-notice)
-_Version: 11 Feb 2026_
+_Version: 18 May 2026_
 ## **1. Introduction**
 ### **1.1 Scope of Application**
 This Privacy Notice informs you about the processing of personal data (as defined under the European Union (“EU”) General Data Protection Regulation (“GDPR”), including equivalent terms under applicable international data protection legislation) by the members of the IXOPAY Group listed in Section 1.3 (“**IXOPAY Group** ” or “**IXOPAY** ”, “**we** ”, “**us** ” or “**our** ”) of the following categories of data subjects:
@@ -59,7 +59,7 @@ When you interact with our Website, subscribe for a newsletter, register for a d
   * **Commercial Data:** Information about the Services you have purchased or inquired about, billing details, VAT numbers, and your communication preferences.
   * **Technical Usage Data:** IP address, browser type and version, operating system, referral URLs, device information and other server log file information as well as interaction logs (e.g., pages visited, time spent, clickstream data, see “Cookies & Tracking Technologies” below, analytics of reading habits in newsletters). 
   * **Risk & Compliance Sources:** We may receive information from third-party risk providers (e.g., sanction lists, credit reference agencies) to assist in Know Your Customer KYC obligations and fraud prevention.
-  * **Sales Intelligence:** We may combine information entered on an IXOPAY sales submission form with information we receive from third-party sales intelligence platform vendors (e.g., LinkedIn, ZoomInfo) to enhance our ability to market our Services to prospective customers and to verify the identity of business contacts.
+  * **Sales Intelligence:** We may combine information entered on an IXOPAY sales submission form with information we receive from third-party sales intelligence platform vendors (e.g., [Apollo](https://www.apollo.io/privacy-policy), [LinkedIn](https://www.linkedin.com/legal/privacy-policy), [Clay](https://privacy.clay.com/policies)) to enhance our ability to market our Services to prospective customers and to verify the identity of business contacts.
 
 This data processing is necessary for the performance of a contract (for example, to administer an account, respond to inquiries, provide requested materials) or to take steps prior to entering into a contract. 
 For email marketing (where required) or Tracking Technologies, we process data if we have your consent to do so (which consent can be withdrawn at any time via our Cookie Settings or by unsubscribing).

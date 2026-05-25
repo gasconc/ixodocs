@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/authentication-2
 portal: tokenex
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
@@ -42,7 +42,7 @@ Before you begin using the Transparent Gateway API for client-initiated, outboun
 Want to use an endpoint that requires a non-standard port?
 Communications with 3rd parties that utilize a non-standard port need to be reviewed by our Operations team for approval. Please open a Support Ticket within the TokenEx portal to submit this request.
 TGAPI Endpoint Authorization
-To add an endpoint to the approved host list, please provide the documentation required to authorize any hosts exchanging transactions or content with [IXOPAY](https://www.ixopay.com) in your Test and Production environments.
+To add an endpoint to the approved host list, please provide the documentation required to authorize any hosts exchanging transactions or content with IXOPAY in your Test and Production environments.
 **Initiating your request:**
   1. We require your Named Technical Support Contact (NTSC) to create a request in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support). The submission should include the following:
      * Specification of the target environment (Production or Test)

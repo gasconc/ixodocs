@@ -8,14 +8,14 @@ tags:
 - json
 - xml
 - ixopay
-- psp
 - authorization
 - settlement
 - transaction
 - merchant
+- gateway
 source_url: https://documentation.ixopay.com/docs/guides/payments/after/settling-payments
 portal: ixopay-dev
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
@@ -24,27 +24,12 @@ related: []
   * Settling payments
 
 # Settling payments
-In the payment industry, the process of settling payments refers to the transfer of funds from a customer's account to the merchant's account. This typically occurs after a transaction has been authorized, captured, and/or preauthorized. Settlements can also include fees charged by the [IXOPAY platform](https://www.ixopay.com) or other intermediaries involved in the transaction.
+In the payment industry, the process of settling payments refers to the transfer of funds from a customer's account to the merchant's account. This typically occurs after a transaction has been authorized, captured, and/or preauthorized. Settlements can also include fees charged by the IXOPAY platform or other intermediaries involved in the transaction.
 IXOPAY platform Full Version
 Settlement post-processing is an optional feature which is not automatically available for all IXOPAY platform clients!
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.
 The process of settling payments can present challenges for eCommerce enterprises as different payment service providers (PSPs) handle settlements in different ways. Settlement data can be provided in different formats (JSON, XML, CSV, Fixed-width file, EPPRC, GRRCN, CAMT.054) with varying semantics and granularity depending on the underlying payment method.
 To help developers manage settlements, the IXOPAY platform provides a post-processing engine that standardizes the settlement process and resolves conflicts across different PSPs and payment methods. This simplifies the task for developers and helps ensure that settlements are processed efficiently and accurately.
-IXOPAY platform post-processing engine
-PSP 2 Adapter
-PSP 1 Adapter
-HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3
-Settlement API
-Transaction 1
-Settlement 1 CSV
-...
-Transaction 2
-Settlement 2 XML
-...
-Data fetcher 1
-Data fetcher 2
-Settlement post-processing
-Merchant
 It is important to note that settlement information may not be immediately available and can take different amounts of time to be provided by different PSPs. Developers should be prepared to handle delays in settlement information and ensure that their systems are designed to process settlements as efficiently as possible.
 After the settlement data has been processed, it can be configured to be exported in various ways. Settlement data can be sent to an HTTP endpoint, sent via email, uploaded to SFTP, OneDrive or S3, or pulled via the [Settlement API](https://documentation.ixopay.com/api/settlement/settlement-api). This settlement data can then be imported into the accounting system used by the merchant.
 For more detailed information on managing settlements and resolving conflicts, consult the IXOPAY platform [User Manual](https://docs.ixopay.com/en/platform-user-administration-manual/post-processing/provider-settlements).

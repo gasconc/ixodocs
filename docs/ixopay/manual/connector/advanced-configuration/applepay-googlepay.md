@@ -15,7 +15,7 @@ tags:
 - create-merchant-identity-certificate-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-create-merchant-identity-certificate-direct-link-create-merchant-identity-certificate
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay
 portal: ixopay-manual
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

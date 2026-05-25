@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/challenge-abandonment
 portal: ixopay-modules
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 

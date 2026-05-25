@@ -12,7 +12,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/mastercard-identity-check-insights
 portal: tokenex
-updated: '2026-05-18'
+updated: '2026-05-25'
 related: []
 ---
 
