@@ -15,7 +15,7 @@ tags:
 - hmac
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-parameter-forwarding
 portal: ixopay-modules
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 

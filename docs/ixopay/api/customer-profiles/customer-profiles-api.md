@@ -12,7 +12,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/api/customer-profiles/customer-profiles-api
 portal: ixopay-dev
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 

@@ -7,7 +7,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/select-a-tgapi-endpoint-1
 portal: tokenex
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 
@@ -30,4 +30,6 @@ related: []
 | Tokenize data in an inbound, third-party initiated request and detokenize data in the response.  |  **Test URI** :    
 **Prod URI** :   |  
 | Create a hash or HMAC of a detokenized payload  |  **Test URI** :    
+**Prod URI** :   |  
+| Detokenize a payload and encrypt the result as a JWE compact token  |  **Test URI** :    
 **Prod URI** :   |

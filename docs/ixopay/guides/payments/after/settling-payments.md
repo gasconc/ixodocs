@@ -15,7 +15,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/guides/payments/after/settling-payments
 portal: ixopay-dev
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 
@@ -24,7 +24,7 @@ related: []
   * Settling payments
 
 # Settling payments
-In the payment industry, the process of settling payments refers to the transfer of funds from a customer's account to the merchant's account. This typically occurs after a transaction has been authorized, captured, and/or preauthorized. Settlements can also include fees charged by the IXOPAY platform or other intermediaries involved in the transaction.
+In the payment industry, the process of settling payments refers to the transfer of funds from a customer's account to the merchant's account. This typically occurs after a transaction has been authorized, captured, and/or preauthorized. Settlements can also include fees charged by the [IXOPAY platform](https://www.ixopay.com) or other intermediaries involved in the transaction.
 IXOPAY platform Full Version
 Settlement post-processing is an optional feature which is not automatically available for all IXOPAY platform clients!
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.

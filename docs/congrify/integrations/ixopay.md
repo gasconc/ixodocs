@@ -16,7 +16,7 @@ tags:
 - subscription
 source_url: ''
 portal: congrify
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 

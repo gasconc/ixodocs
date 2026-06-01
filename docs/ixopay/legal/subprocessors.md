@@ -12,7 +12,7 @@ tags:
 - snowflake
 source_url: https://www.ixopay.com/legal/subprocessors
 portal: ixopay-legal
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 
@@ -26,10 +26,10 @@ IXOPAY uses the following third-party entities as Subprocessors for the activiti
 |  Cybersource Corporation (a Visa solution)  |  Network Tokenization  |  Provision of network tokenization services to update or replace credit card information using issuer token systems  |  United States  |  
 |  Cloudflare, Inc.  |  All IXOPAY Products except AI Payments Intelligence  |  Static and dynamic content delivery and caching, DNS and built-in unmetered DDoS protection, limited to provision of bi-directional connectivity for publicly available IXOPAY services in conjunction with DDoS mitigation for IXOPAY infrastructure  |  United States. Cloudflare operates via their Global Anycast Network as set forth here: https://www.cloudflare.com/network/  |  
 |  Datadog France SAS  |  AI Payments Intelligence  |  Platform telemetry and observability services for customer-facing dashboards  |  France  |  
-|  Microsoft Corporation  |  All IXOPAY Products except (i) Payment Orchestration for EU-domiciled Customers, (ii) AI Payments Intelligence, and (iii) Fraud Services  |  Secure hosting services (Microsoft Azure) used for infrastructure and data processing including storage  |  United States / EEA  |  
+|  Microsoft Corporation  |  All IXOPAY Products except (i) AI Payments Intelligence, and (ii) Fraud Services  |  Secure hosting services (Microsoft Azure) used for infrastructure and data processing including storage  |  United States / EEA  |  
 |  Mastercard Europe SA  |  3-D Secure  |  Authentication and fraud detection via 3-D Secure protocol  |  Belgium  |  
 |  Mastercard Inc.  |  3-D Secure  |  Authentication and fraud detection via 3-D Secure protocol  |  United States  |  
-|  Netcetera AG  |  Click to Pay  |  E-commerce checkout technology  |  Switzerland  |  
+|  Netcetera AG  |  (i) Click to Pay & (ii) 3-D Secure via Payment Orchestration Platform  |  (i) E-commerce checkout technology (ii) Authentication and fraud detection via 3-D Secure protocol  |  Switzerland  |  
 |  Okta, Inc. (Auth0)  |  Payment Orchestration Platform  |  Identity and access management and related services, including authentication, login, logout, and monitoring functions to enable secure login and user access management  |  United States  |  
 |  Salesforce, Inc. (Salesforce Service Cloud)  |  All IXOPAY Products  |  Customer support case management services  |  United States  |  
 |  Twilio, Inc. (SendGrid)  |  Payment Orchestration Platform  |  Provision of Transactional Email services, including automated system notifications, alerts, and authentication-related communications  |  United States  |  

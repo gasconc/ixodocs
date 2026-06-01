@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-05-25 | Total pages: 727
+> Last updated: 2026-06-01 | Total pages: 729
 
 ## Ixopay Developer Hub (193 pages)
 
@@ -121,7 +121,7 @@
 
 ### General
 - [Overview](docs/ixopay/api.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com API reference. The IXOPAY platform offers several APIs to process online payments.
-- [Introduction](docs/ixopay/guides.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com integration guide. This guide is designed to help developers understand how to integrate the I...
+- [Introduction](docs/ixopay/guides.md) — Welcome to the IXOPAY platform integration guide. This guide is designed to help developers understand how to integrate the IXOPAY platform into th...
 - [Index](docs/ixopay/index.md) — Guides, recipes, and full API reference for building with the IXOPAY platform.  Pre-made recipes Quick recipes for common payment flows so you can...
 - [Introduction](docs/ixopay/recipes.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com Recipes. This section is designed to serve as a practical guide for software developers workin...
 - [Overview](docs/ixopay/reference.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com reference documentation. This section provides in-depth information on the payment platform an...
@@ -349,7 +349,7 @@
 - [Pause, Continue, Retry or Cancel Schedules](docs/ixopay/manual/transactions/schedules/pause-continue-retry-cancel.md) — Transaction Scheduleshttps://documentation.ixopay.com/manual/docs/transactions/schedules  Pause, Continue, Retry or Cancel Schedules
 - [Virtual Terminal (MOTO)](docs/ixopay/manual/virtual-terminal-moto.md) — Virtual Terminal MOTO
 
-## Ixopay Modules (191 pages)
+## Ixopay Modules (192 pages)
 
 ### Modules
 - [Overview](docs/ixopay/modules/api.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com modules API reference. The IXOPAY platform modules offers several APIs to process online payme...
@@ -450,6 +450,7 @@
 - [BBE Implementation Steps](docs/ixopay/modules/tokenex/integration-steps.md) — Browser based encryption BBE  BBE Implementation Steps
 - [Invoke Functions](docs/ixopay/modules/tokenex/invoke-functions-1.md) — Transparent Gateway API v2  Invoke Functions
 - [IP Addresses](docs/ixopay/modules/tokenex/ip-addresses.md) — Getting started  IP Addresses
+- [JWE Encryption](docs/ixopay/modules/tokenex/jwe-encryption.md) — Transparent Gateway API v2  JWE Encryption
 - [Kount - Data Collector and Risk Inquiry Service (RIS)](docs/ixopay/modules/tokenex/kount-data-collection-and-risk-analysis.md) — TokenEx iFrame  Third Party Integrationshttps://documentation.ixopay.com/modules/docs/tokenex/third-party-integrations  Kount - Data Collector and...
 - [Kount - KHASH](docs/ixopay/modules/tokenex/kount.md) — TokenEx iFrame  Third Party Integrationshttps://documentation.ixopay.com/modules/docs/tokenex/third-party-integrations  Kount - KHASH
 - [Lifecycle Management](docs/ixopay/modules/tokenex/lifecycle-management.md) — Network tokenization  Network Tokenization APIhttps://documentation.ixopay.com/modules/docs/tokenex/network-token-services  Lifecycle Management
@@ -561,7 +562,7 @@
 - [Tokenex Legacy](docs/ixopay/legal/tokenex-legacy.md) — The agreements listed on this page govern relationships that IXOPAY, Inc. f/k/a TokenEx, Inc. “IXOPAY” entered into with customers using an Order F...
 - [Toms](docs/ixopay/legal/toms.md) — According to Article 32 of the General Data Protection Regulation "GDPR" and taking into account the state of the art, the implementation costs and...
 
-## TokenEx Documentation (163 pages)
+## TokenEx Documentation (164 pages)
 
 ### General
 - [3DS Device Fingerprinting](docs/tokenex/3-d-secure-device-fingerprinting.md) — 3-D Secure Authentication  3DS Device Fingerprinting
@@ -631,6 +632,7 @@
 - [BBE Implementation Steps](docs/tokenex/integration-steps.md) — Browser based encryption BBE  BBE Implementation Steps
 - [Invoke Functions](docs/tokenex/invoke-functions-1.md) — Transparent Gateway API v2  Invoke Functions
 - [IP Addresses](docs/tokenex/ip-addresses.md) — Getting started  IP Addresses
+- [JWE Encryption](docs/tokenex/jwe-encryption.md) — Transparent Gateway API v2  JWE Encryption
 - [Kount - Data Collector and Risk Inquiry Service (RIS)](docs/tokenex/kount-data-collection-and-risk-analysis.md) — TokenEx iFrame  Third Party Integrationshttps://documentation.ixopay.com/modules/docs/tokenex/third-party-integrations  Kount - Data Collector and...
 - [Kount - KHASH](docs/tokenex/kount.md) — TokenEx iFrame  Third Party Integrationshttps://documentation.ixopay.com/modules/docs/tokenex/third-party-integrations  Kount - KHASH
 - [Lifecycle Management](docs/tokenex/lifecycle-management.md) — Network tokenization  Network Tokenization APIhttps://documentation.ixopay.com/modules/docs/tokenex/network-token-services  Lifecycle Management

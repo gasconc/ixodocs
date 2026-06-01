@@ -14,7 +14,7 @@ tags:
 - direct-debit
 source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options/server-to-server
 portal: ixopay-dev
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 

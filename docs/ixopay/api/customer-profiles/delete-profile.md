@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/api/customer-profiles/delete-profile
 portal: ixopay-dev
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 
@@ -136,13 +136,10 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
   * CURL
 ```
-curl -L 'https://gateway.ixopay.com/api/v3/customerProfiles/:apiKey/deleteProfile' \  
+curl -L -X POST 'https://documentation.ixopay.com/:apiKey/deleteProfile' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
--d '{  
-  "profileGuid": "CP-91ec-509a-3899-4f4f-a4ad-67fb"  
-}'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
 ```RequestCollapse all
 Base URL
@@ -224,13 +221,10 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L 'https://gateway.ixopay.com/api/v3/customerProfiles/:apiKey/deleteProfile' \  
+curl -L -X POST 'https://documentation.ixopay.com/:apiKey/deleteProfile' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
--d '{  
-  "profileGuid": "CP-91ec-509a-3899-4f4f-a4ad-67fb"  
-}'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
 
 ```
 ```

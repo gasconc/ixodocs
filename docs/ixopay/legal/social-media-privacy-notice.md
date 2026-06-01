@@ -11,7 +11,7 @@ tags:
 - ixopay
 source_url: https://www.ixopay.com/legal/social-media-privacy-notice
 portal: ixopay-legal
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 

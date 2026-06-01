@@ -13,7 +13,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector/edit
 portal: ixopay-manual
-updated: '2026-05-25'
+updated: '2026-06-01'
 related: []
 ---
 
