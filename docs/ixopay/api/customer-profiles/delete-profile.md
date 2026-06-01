@@ -136,10 +136,13 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
   * CURL
 ```
-curl -L -X POST 'https://documentation.ixopay.com/:apiKey/deleteProfile' \  
+curl -L 'https://gateway.ixopay.com/api/v3/customerProfiles/:apiKey/deleteProfile' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "profileGuid": "CP-91ec-509a-3899-4f4f-a4ad-67fb"  
+}'  
 
 ```RequestCollapse all
 Base URL
@@ -221,10 +224,13 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L -X POST 'https://documentation.ixopay.com/:apiKey/deleteProfile' \  
+curl -L 'https://gateway.ixopay.com/api/v3/customerProfiles/:apiKey/deleteProfile' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "profileGuid": "CP-91ec-509a-3899-4f4f-a4ad-67fb"  
+}'  
 
 ```
 ```

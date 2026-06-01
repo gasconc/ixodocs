@@ -1,8 +1,8 @@
 ---
 title: Introduction
-summary: Welcome to the IXOPAY platform integration guide. This guide is designed
-  to help developers understand how to integrate the IXOPAY platform into their online
-  payment systems.
+summary: Welcome to the IXOPAY platformhttps://www.ixopay.com integration guide. This
+  guide is designed to help developers understand how to integrate the IXOPAY platform
+  into their online payment systems.
 tags:
 - structure-guide-https-documentation-ixopay-com-docs-guides-structure-guide-direct-link-structure-guide
 - documentation-https-documentation-ixopay-com-docs-guides-documentation-direct-link-documentation
@@ -23,7 +23,7 @@ related: []
 * Introduction
 
 # Introduction
-Welcome to the IXOPAY platform integration guide. This guide is designed to help developers understand how to integrate the IXOPAY platform into their online payment systems.
+Welcome to the [IXOPAY platform](https://www.ixopay.com) integration guide. This guide is designed to help developers understand how to integrate the IXOPAY platform into their online payment systems.
 ## Structure of this guide[​](https://documentation.ixopay.com/docs/guides#structure-of-this-guide "Direct link to Structure of this guide")
 This documentation is organized into the following sections:
   * [Getting started](https://documentation.ixopay.com/docs/guides/getting-started)

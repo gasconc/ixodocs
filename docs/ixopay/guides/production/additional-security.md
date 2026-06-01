@@ -600,18 +600,18 @@ HTTP method
 Content-Type header
 `application/json; charset=utf-8`
 Date header
-`Mon, 01 Jun 2026 05:38:09 GMT`
+`Mon, 01 Jun 2026 08:06:41 GMT`
 Request URI
 `/api/v3/transaction/YOUR-API-KEY-HERE/debit`
 Hash HMAC Input
 Based on your input, _note the line breaks_.
-`POSTcf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3eapplication/json; charset=utf-8Mon, 01 Jun 2026 05:38:09 GMT/api/v3/transaction/YOUR-API-KEY-HERE/debit`
+`POSTcf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3eapplication/json; charset=utf-8Mon, 01 Jun 2026 08:06:41 GMT/api/v3/transaction/YOUR-API-KEY-HERE/debit`
 Expected signature
 Data is hashed using _HMAC-SHA512_ , and the resulting binary encoded using _Base64_.
-`e9EwsWpVUX8+Ob6dfR/4Hej84h0dzIFxc14CDHW/WKixp8VrLcymNoMVY5Q8M8ugjgw7RBpiSHeBYaHhnkWeLg==`
+`w9gLk0+hPvri5UyKMuSTavxbNVogMAmURmDmGkhMbgjkVchAD9U0FqesLgqN2zOFjeAW+SW4cS/GriUBgUqCjg==`
 Expected headers
-`X-Signature: **e9EwsWpVUX8+Ob6dfR/4Hej84h0dzIFxc14CDHW/WKixp8VrLcymNoMVY5Q8M8ugjgw7RBpiSHeBYaHhnkWeLg==**  
-Date: Mon, 01 Jun 2026 05:38:09 GMT  
+`X-Signature: **w9gLk0+hPvri5UyKMuSTavxbNVogMAmURmDmGkhMbgjkVchAD9U0FqesLgqN2zOFjeAW+SW4cS/GriUBgUqCjg==**  
+Date: Mon, 01 Jun 2026 08:06:41 GMT  
 Content-Type: application/json; charset=utf-8`
 Fix the errors, in order for the signature output to be shown!
 ```

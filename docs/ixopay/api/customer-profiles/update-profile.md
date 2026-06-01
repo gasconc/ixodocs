@@ -376,10 +376,32 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
   * CURL
 ```
-curl -L -X POST 'https://documentation.ixopay.com/:apiKey/updateProfile' \  
+curl -L 'https://gateway.ixopay.com/api/v3/customerProfiles/:apiKey/updateProfile' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "profileGuid": "CP-91ec-509a-3899-4f4f-a4ad-67fb",  
+  "customerData": {  
+    "firstName": "Alex",  
+    "lastName": "Smith",  
+    "birthDate": "1970-01-01",  
+    "gender": "M",  
+    "billingAddress1": "string",  
+    "billingAddress2": "string",  
+    "billingCity": "string",  
+    "billingPostcode": "string",  
+    "billingState": "string",  
+    "billingCountry": "string",  
+    "billingPhone": "+XX 1234567890",  
+    "company": "string",  
+    "email": "string",  
+    "ipAddress": "198.51.100.123",  
+    "nationalId": "string",  
+    "extraData": {}  
+  },  
+  "preferredInstrument": "string"  
+}'  
 
 ```RequestCollapse all
 Base URL
@@ -613,10 +635,32 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L -X POST 'https://documentation.ixopay.com/:apiKey/updateProfile' \  
+curl -L 'https://gateway.ixopay.com/api/v3/customerProfiles/:apiKey/updateProfile' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "profileGuid": "CP-91ec-509a-3899-4f4f-a4ad-67fb",  
+  "customerData": {  
+    "firstName": "Alex",  
+    "lastName": "Smith",  
+    "birthDate": "1970-01-01",  
+    "gender": "M",  
+    "billingAddress1": "string",  
+    "billingAddress2": "string",  
+    "billingCity": "string",  
+    "billingPostcode": "string",  
+    "billingState": "string",  
+    "billingCountry": "string",  
+    "billingPhone": "+XX 1234567890",  
+    "company": "string",  
+    "email": "string",  
+    "ipAddress": "198.51.100.123",  
+    "nationalId": "string",  
+    "extraData": {}  
+  },  
+  "preferredInstrument": "string"  
+}'  
 
 ```
 ```
