@@ -11,7 +11,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/docs/connector/users
 portal: ixopay-manual
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 

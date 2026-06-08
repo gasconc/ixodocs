@@ -9,7 +9,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/transparent-detokenization-and-tokenization-1
 portal: tokenex
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 

@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-06-01T08:14:47+00:00_
+_Generated at 2026-06-08T08:11:09+00:00_
 
-**341 missing** · **3 stale** across 3 source(s).
+**365 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **863** · Indexed: **522** · Missing: **341** · Stale: **2**
+- Published: **900** · Indexed: **535** · Missing: **365** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -331,6 +331,30 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/manual/adapters/zaincash
 - https://documentation.ixopay.com/manual/adapters/zip
 - https://documentation.ixopay.com/manual/adapters/zonavirtual
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/data-pipelines/snowflake
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/data-pipelines/unified-reports
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/adyen
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/barclaycard
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/braintree
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/chargebee
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/chase
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/checkout
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/ixopay
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/iyzico
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/paypal
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/paysafecard
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/payu
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/satispay
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/solidgate
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/stripe
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/worldline
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/worldpay
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/alerts
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/data-explorer
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/transaction-search
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/pre-chargeback-alerts/pre-chargebacks
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/pre-chargeback-alerts/pre-chargebacks-setup
 - https://documentation.ixopay.com/modules/docs/tokenex/account-updater-faq
 - https://documentation.ixopay.com/modules/docs/tokenex/additional-batch-use-cases
 - https://documentation.ixopay.com/modules/docs/tokenex/au-api

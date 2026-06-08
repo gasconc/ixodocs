@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-adding-response-parameters
 portal: tokenex
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 

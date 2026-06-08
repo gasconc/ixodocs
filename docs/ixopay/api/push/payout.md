@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/push/payout
 portal: ixopay-dev
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 
@@ -368,10 +368,53 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
   * CURL
 ```
-curl -L -X POST 'https://documentation.ixopay.com/:apiKey/payout' \  
+curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/payout' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "transactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "referenceTransactionId": "ed0687ad-a876-42fd-bfc2-ce7c91d9700d",  
+  "referenceUuid": "20230315-6d432fb7217843388847",  
+  "amount": "9.99",  
+  "currency": "EUR",  
+  "status": "success",  
+  "adapterTxId": "string",  
+  "adapterToken": "string",  
+  "createdAt": "2001-02-03T04:05:06+02:00",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "merchantMetaData": "string",  
+  "description": "My Purchase Order 123",  
+  "postbackUrl": "string",  
+  "extraData": {  
+    "someKey": "someValue"  
+  },  
+  "descriptor": "Order# 123",  
+  "buyerCountry": "AT",  
+  "customer": {  
+    "firstName": "Alex",  
+    "lastName": "Smith",  
+    "billingAddress1": "123 Main St. Apt. 4B",  
+    "billingCity": "Anytown",  
+    "billingCountry": "US"  
+  },  
+  "creditcard": {  
+    "cardHolder": "Alex Smith",  
+    "country": "US",  
+    "expiryMonth": 6,  
+    "expiryYear": 2027,  
+    "firstSixDigits": 411111,  
+    "lastFourDigits": 1111,  
+    "type": "visa"  
+  },  
+  "error": {  
+    "message": "Payment could not be processed.",  
+    "code": 1234,  
+    "adapter_error_message": "Processing failed.",  
+    "adapter_error_code": 1000  
+  }  
+}'  
 
 ```RequestCollapse all
 Base URL
@@ -532,10 +575,53 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L -X POST 'https://documentation.ixopay.com/:apiKey/payout' \  
+curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/payout' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "transactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "referenceTransactionId": "ed0687ad-a876-42fd-bfc2-ce7c91d9700d",  
+  "referenceUuid": "20230315-6d432fb7217843388847",  
+  "amount": "9.99",  
+  "currency": "EUR",  
+  "status": "success",  
+  "adapterTxId": "string",  
+  "adapterToken": "string",  
+  "createdAt": "2001-02-03T04:05:06+02:00",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "merchantMetaData": "string",  
+  "description": "My Purchase Order 123",  
+  "postbackUrl": "string",  
+  "extraData": {  
+    "someKey": "someValue"  
+  },  
+  "descriptor": "Order# 123",  
+  "buyerCountry": "AT",  
+  "customer": {  
+    "firstName": "Alex",  
+    "lastName": "Smith",  
+    "billingAddress1": "123 Main St. Apt. 4B",  
+    "billingCity": "Anytown",  
+    "billingCountry": "US"  
+  },  
+  "creditcard": {  
+    "cardHolder": "Alex Smith",  
+    "country": "US",  
+    "expiryMonth": 6,  
+    "expiryYear": 2027,  
+    "firstSixDigits": 411111,  
+    "lastFourDigits": 1111,  
+    "type": "visa"  
+  },  
+  "error": {  
+    "message": "Payment could not be processed.",  
+    "code": 1234,  
+    "adapter_error_message": "Processing failed.",  
+    "adapter_error_code": 1000  
+  }  
+}'  
 
 ```
 ```

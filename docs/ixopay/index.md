@@ -7,9 +7,10 @@ tags:
 - api
 - tokenex
 - ixopay
+- observability
 source_url: https://documentation.ixopay.com/
 portal: ixopay-dev
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 
@@ -27,6 +28,7 @@ Operating guides for admins and merchants using the IXOPAY platform.
   * [__Adapters Configure payment adapters and provider-specific settings for IXOPAY.›](https://documentation.ixopay.com/manual/adapters/simulator)
 
 [![](https://documentation.ixopay.com/img/logo-tokenex.svg)Modules Docs ›](https://documentation.ixopay.com/modules/)
-Module-specific docs and API tooling for TokenEx and other integrations.
+Module-specific docs and API tooling for TokenEx, Payments Intelligence, and other integrations.
   * [{}TokenEx documentationGuides and reference for TokenEx integration.›](https://documentation.ixopay.com/modules/docs/tokenex/welcome)
+  * [Payments IntelligenceAI-powered payments observability, analytics, and alerting.›](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments)
   * [__API explorer Explore TokenEx endpoints and try requests in the browser.›](https://documentation.ixopay.com/modules/api)

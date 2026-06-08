@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles
 portal: ixopay-manual
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 
@@ -122,7 +122,7 @@ Credit Card
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 05/2031  
+    expiryDate => 06/2031  
 
     firstSix => 411111  
 
@@ -1765,7 +1765,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 05/2031  
+    expiryDate => 06/2031  
 
     firstSix => 411111  
 
@@ -3397,7 +3397,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 05/2031  
+    expiryDate => 06/2031  
 
     firstSix => 411111  
 
@@ -5034,7 +5034,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 05/2031  
+    expiryDate => 06/2031  
 
     firstSix => 411111  
 
@@ -6677,7 +6677,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 05/2031  
+    expiryDate => 06/2031  
 
     firstSix => 411111  
 
@@ -8309,7 +8309,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 05/2031  
+    expiryDate => 06/2031  
 
     firstSix => 411111  
 

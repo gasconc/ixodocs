@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback
 portal: ixopay-manual
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 

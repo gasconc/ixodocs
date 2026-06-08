@@ -5,7 +5,7 @@ summary: We could not find what you were looking for. Please contact the owner o
 tags: []
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/payment.js.mdx
 portal: ixopay-dev
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 

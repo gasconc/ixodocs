@@ -15,7 +15,7 @@ tags:
 - pci
 source_url: https://documentation.ixopay.com/docs/recipes/how-to/use-tokenex-universal-tokens
 portal: ixopay-dev
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 
@@ -98,7 +98,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -161,7 +161,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031"  
 
@@ -246,7 +246,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -313,7 +313,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -413,7 +413,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -478,7 +478,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031",  
 
@@ -571,7 +571,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -654,7 +654,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -734,7 +734,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -797,7 +797,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031"  
 
@@ -882,7 +882,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -949,7 +949,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -1028,7 +1028,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -1093,7 +1093,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031",  
 
@@ -1186,7 +1186,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -1269,7 +1269,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -1348,7 +1348,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -1411,7 +1411,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031"  
 
@@ -1496,7 +1496,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -1563,7 +1563,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -1642,7 +1642,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -1707,7 +1707,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031",  
 
@@ -1800,7 +1800,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -1883,620 +1883,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
-
-      "\"expirationYear\": \"2031\"" +  
-
-    "}," +  
-
-    "\"description\": \"Purchase description shown on credit card statement.\"," +  
-
-    "\"amount\": \"9.99\"," +  
-
-    "\"currency\": \"EUR\"," +  
-
-    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
-
-    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
-
-    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
-
-  "}"  
-
-);  
-
-String auth = Base64.getEncoder().encodeToString(  
-
-  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
-
-Request request = new Request.Builder()  
-
-  .url("https://paymentservices.tokenex.com/transaction/pci/%s/debit"  
-
-    .format(System.getenv("API_KEY")))  
-
-  .method("POST", body)  
-
-  .addHeader("tx-tokenex-id", System.getenv("TOKENEX_ID"))  
-
-  .addHeader("tx-apikey", System.getenv("TOKENEX_API_KEY"))  
-
-  .addHeader("tx-connector-shared-secret", System.getenv("SHARED_SECRET"))  
-
-  .addHeader("Date", dateFormatter.format(ZonedDateTime.now()))  
-
-  .addHeader("Content-Type", "application/json")  
-
-  .addHeader("Accept", "application/json")  
-
-  .addHeader("Authorization", "Basic %s".format(auth))  
-
-  .build();  
-
-Response response = client.newCall(request).execute();  
-
-``````
-
-curl --request POST -sL \  
-
-  --url "https://secure.ixopay.com/api/v3/transaction/${API_KEY}/debit" \  
-
-  --header 'Content-Type: application/json' \  
-
-  --header 'Accept: application/json' \  
-
-  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
-
-  --data-raw "$(cat <<JSON  
-
-  {  
-
-    "merchantTransactionId": "your-unique-identifier",  
-
-    "cardData": {  
-
-      "cardHolder": "Alex Smith",  
-
-      "pan": "$TOKENEX_TOKEN",  
-
-      "cvv": "-",  
-
-      "expirationMonth": "5",  
-
-      "expirationYear": "2031"  
-
-    },  
-
-    "description": "Purchase description shown on credit card statement.",  
-
-    "amount": "9.99",  
-
-    "currency": "EUR",  
-
-    "successUrl": "https://shop.example.org/checkout/success",  
-
-    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-
-    "errorUrl": "https://shop.example.org/checkout/error"  
-
-  }  
-
-  JSON  
-
-  )"  
-
-```
-```
-
-import requests  
-
-import json  
-
-import base64  
-
-import os  
-
-  
-
-url = "https://secure.ixopay.com/api/v3/transaction/{apiKey}/debit".format(  
-
-    apiKey=os.environ["API_KEY"]  
-
-)  
-
-auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
-
-tokenex_token = os.environ["TOKENEX_TOKEN"]  
-
-  
-
-payload = json.dumps(  
-
-    {  
-
-        "merchantTransactionId": "your-unique-identifier",  
-
-        "cardData": {  
-
-            "cardHolder": "Alex Smith",  
-
-            "pan": "%s" % (tokenex_token),  
-
-            "cvv": "-",  
-
-            "expirationMonth": "5",  
-
-            "expirationYear": "2031"  
-
-        },  
-
-        "description": "Purchase description shown on credit card statement.",  
-
-        "amount": "9.99",  
-
-        "currency": "EUR",  
-
-        "successUrl": "https://shop.example.org/checkout/success",  
-
-        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-
-        "errorUrl": "https://shop.example.org/checkout/error"  
-
-    }  
-
-)  
-
-headers = {  
-
-    "Content-Type": "application/json",  
-
-    "Accept": "application/json",  
-
-    "Authorization": "Basic {auth}".format(auth=auth),  
-
-}  
-
-  
-
-response = requests.request("POST", url, headers=headers, data=payload)  
-
-```
-```
-
-<?php  
-
-  
-
-$curl = curl_init();  
-
-  
-
-$auth = base64_encode("$USERNAME:$PASSWORD");  
-
-$tokenExToken = $_REQUEST['tokenex-token'];  
-
-  
-
-curl_setopt_array($curl, array(  
-
-  CURLOPT_URL => "https://secure.ixopay.com/api/v3/transaction/$API_KEY/debit",  
-
-  CURLOPT_RETURNTRANSFER => true,  
-
-  CURLOPT_ENCODING => '',  
-
-  CURLOPT_MAXREDIRS => 10,  
-
-  CURLOPT_TIMEOUT => 0,  
-
-  CURLOPT_FOLLOWLOCATION => true,  
-
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
-
-  CURLOPT_CUSTOMREQUEST => 'POST',  
-
-  CURLOPT_POSTFIELDS => <<<EOD  
-
-  {  
-
-    "merchantTransactionId": "your-unique-identifier",  
-
-    "cardData": {  
-
-      "cardHolder": "Alex Smith",  
-
-      "pan": "$tokenExToken",  
-
-      "cvv": "-",  
-
-      "expirationMonth": "5",  
-
-      "expirationYear": "2031"  
-
-    },  
-
-    "description": "Purchase description shown on credit card statement.",  
-
-    "amount": "9.99",  
-
-    "currency": "EUR",  
-
-    "successUrl": "https://shop.example.org/checkout/success",  
-
-    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-
-    "errorUrl": "https://shop.example.org/checkout/error"  
-
-  }  
-
-  EOD,  
-
-  CURLOPT_HTTPHEADER => array(  
-
-    'Content-Type: application/json',  
-
-    'Accept: application/json',  
-
-    "Authorization: Basic $auth"  
-
-  ),  
-
-));  
-
-  
-
-$response = curl_exec($curl);  
-
-  
-
-curl_close($curl);  
-
-```
-```
-
-String tokenExToken = req.getParameter("tokenex-token");  
-
-  
-
-OkHttpClient client = new OkHttpClient().newBuilder().build();  
-
-RequestBody body = RequestBody.create(  
-
-  MediaType.parse("application/json"),  
-
-  "{" +  
-
-    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
-
-    "\"cardData\": {" +  
-
-      "\"cardHolder\": \"Alex Smith\"," +  
-
-      "\"pan\": \"" + tokenExToken + "\"," +  
-
-      "\"cvv\": \"-\"," +  
-
-      "\"expirationMonth\": \"5\"," +  
-
-      "\"expirationYear\": \"2031\"" +  
-
-    "}," +  
-
-    "\"description\": \"Purchase description shown on credit card statement.\"," +  
-
-    "\"amount\": \"9.99\"," +  
-
-    "\"currency\": \"EUR\"," +  
-
-    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
-
-    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
-
-    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
-
-  "}"  
-
-);  
-
-String auth = Base64.getEncoder().encodeToString(  
-
-  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
-
-Request request = new Request.Builder()  
-
-  .url("https://secure.ixopay.com/api/v3/transaction/%s/debit"  
-
-    .format(System.getenv("API_KEY")))  
-
-  .method("POST", body)  
-
-  .addHeader("Content-Type", "application/json")  
-
-  .addHeader("Accept", "application/json")  
-
-  .addHeader("Authorization", "Basic %s".format(auth))  
-
-  .build();  
-
-Response response = client.newCall(request).execute();  
-
-```
-```
-
-curl --request POST -sL \  
-
-  --url "https://paymentservices.tokenex.com/transaction/pci/${API_KEY}/debit" \  
-
-  --header "tx-tokenex-id: $TOKENEX_ID" \  
-
-  --header "tx-apikey: $TOKENEX_API_KEY" \  
-
-  --header "tx-connector-shared-secret: $SHARED_SECRET" \  
-
-  --header "Date: $(date -u +'%a, %d %b %Y %H:%M:%S GMT')" \  
-
-  --header 'Content-Type: application/json' \  
-
-  --header 'Accept: application/json' \  
-
-  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
-
-  --data-raw "$(cat <<JSON  
-
-  {  
-
-    "merchantTransactionId": "your-unique-identifier",  
-
-    "cardData": {  
-
-      "cardHolder": "Alex Smith",  
-
-      "pan": "$TOKENEX_TOKEN",  
-
-      "cvv": "-",  
-
-      "expirationMonth": "5",  
-
-      "expirationYear": "2031"  
-
-    },  
-
-    "description": "Purchase description shown on credit card statement.",  
-
-    "amount": "9.99",  
-
-    "currency": "EUR",  
-
-    "successUrl": "https://shop.example.org/checkout/success",  
-
-    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-
-    "errorUrl": "https://shop.example.org/checkout/error"  
-
-  }  
-
-JSON  
-
-)"  
-
-```
-```
-
-import requests  
-
-import json  
-
-import base64  
-
-import os  
-
-from datetime import datetime  
-
-  
-
-url = "https://paymentservices.tokenex.com/transaction/pci/{apiKey}/debit".format(  
-
-    apiKey=os.environ['API_KEY']  
-
-)  
-
-auth = base64.b64encode(f"{os.environ['USERNAME']}:{os.environ['PASSWORD']}")  
-
-tokenex_token = os.environ["TOKENEX_TOKEN"]  
-
-  
-
-payload = json.dumps(  
-
-    {  
-
-        "merchantTransactionId": "your-unique-identifier",  
-
-        "cardData": {  
-
-            "cardHolder": "Alex Smith",  
-
-            "pan": "%s" % (tokenex_token),  
-
-            "cvv": "-",  
-
-            "expirationMonth": "5",  
-
-            "expirationYear": "2031",  
-
-        },  
-
-        "description": "Purchase description shown on credit card statement.",  
-
-        "amount": "9.99",  
-
-        "currency": "EUR",  
-
-        "successUrl": "https://shop.example.org/checkout/success",  
-
-        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-
-        "errorUrl": "https://shop.example.org/checkout/error",  
-
-    }  
-
-)  
-
-headers = {  
-
-    "tx-tokenex-id": os.environ["TOKENEX_ID"],  
-
-    "tx-apikey": os.environ["TOKENEX_API_KEY"],  
-
-    "tx-connector-shared-secret": os.environ["SHARED_SECRET"],  
-
-    "Date": datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT'),  
-
-    "Content-Type": "application/json",  
-
-    "Accept": "application/json",  
-
-    "Authorization": "Basic {auth}".format(auth=auth),  
-
-}  
-
-  
-
-response = requests.request("POST", url, headers=headers, data=payload)  
-
-```
-```
-
-<?php  
-
-  
-
-$curl = curl_init();  
-
-  
-
-$auth = base64_encode("$USERNAME:$PASSWORD");  
-
-$tokenExToken = $_REQUEST['tokenex-token'];  
-
-  
-
-curl_setopt_array($curl, array(  
-
-  CURLOPT_URL => "https://paymentservices.tokenex.com/transaction/pci/$API_KEY/debit",  
-
-  CURLOPT_RETURNTRANSFER => true,  
-
-  CURLOPT_ENCODING => '',  
-
-  CURLOPT_MAXREDIRS => 10,  
-
-  CURLOPT_TIMEOUT => 0,  
-
-  CURLOPT_FOLLOWLOCATION => true,  
-
-  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
-
-  CURLOPT_CUSTOMREQUEST => 'POST',  
-
-  CURLOPT_POSTFIELDS => <<<EOD  
-
-  {  
-
-    "merchantTransactionId": "your-unique-identifier",  
-
-    "cardData": {  
-
-      "cardHolder": "Alex Smith",  
-
-      "pan": "$tokenExToken",  
-
-      "cvv": "-",  
-
-      "expirationMonth": "5",  
-
-      "expirationYear": "2031"  
-
-    },  
-
-    "description": "Purchase description shown on credit card statement.",  
-
-    "amount": "9.99",  
-
-    "currency": "EUR",  
-
-    "successUrl": "https://shop.example.org/checkout/success",  
-
-    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
-
-    "errorUrl": "https://shop.example.org/checkout/error"  
-
-  }  
-
-  EOD,  
-
-  CURLOPT_HTTPHEADER => array(  
-
-    "tx-tokenex-id: $TOKENEX_ID",  
-
-    "tx-apikey: $TOKENEX_API_KEY",  
-
-    "tx-connector-shared-secret: $SHARED_SECRET",  
-
-    "Date: " . gmdate('D, d M Y H:i:s') . ' GMT',  
-
-    'Content-Type: application/json',  
-
-    'Accept: application/json',  
-
-    "Authorization: Basic $auth"  
-
-  ),  
-
-));  
-
-  
-
-$response = curl_exec($curl);  
-
-  
-
-curl_close($curl);  
-
-```
-```
-
-String tokenExToken = req.getParameter("tokenex-token");  
-
-  
-
-DateTimeFormatter dateFormatter = DateTimeFormatter.RFC_1123_DATE_TIME  
-
-  .withLocale(Locale.US)  
-
-  .withZone(java.time.ZoneId.of("GMT"));  
-
-  
-
-OkHttpClient client = new OkHttpClient().newBuilder().build();  
-
-RequestBody body = RequestBody.create(  
-
-  MediaType.parse("application/json"),  
-
-  "{" +  
-
-    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
-
-    "\"cardData\": {" +  
-
-      "\"cardHolder\": \"Alex Smith\"," +  
-
-      "\"pan\": \"" + tokenExToken + "\"," +  
-
-      "\"cvv\": \"-\"," +  
-
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -2574,7 +1961,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -2637,7 +2024,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031"  
 
@@ -2722,7 +2109,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -2789,7 +2176,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -2868,7 +2255,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -2933,7 +2320,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031",  
 
@@ -3026,7 +2413,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -3109,7 +2496,620 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
+
+      "\"expirationYear\": \"2031\"" +  
+
+    "}," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://paymentservices.tokenex.com/transaction/pci/%s/debit"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("tx-tokenex-id", System.getenv("TOKENEX_ID"))  
+
+  .addHeader("tx-apikey", System.getenv("TOKENEX_API_KEY"))  
+
+  .addHeader("tx-connector-shared-secret", System.getenv("SHARED_SECRET"))  
+
+  .addHeader("Date", dateFormatter.format(ZonedDateTime.now()))  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+``````
+
+curl --request POST -sL \  
+
+  --url "https://secure.ixopay.com/api/v3/transaction/${API_KEY}/debit" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw "$(cat <<JSON  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "cardData": {  
+
+      "cardHolder": "Alex Smith",  
+
+      "pan": "$TOKENEX_TOKEN",  
+
+      "cvv": "-",  
+
+      "expirationMonth": "6",  
+
+      "expirationYear": "2031"  
+
+    },  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error"  
+
+  }  
+
+  JSON  
+
+  )"  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+  
+
+url = "https://secure.ixopay.com/api/v3/transaction/{apiKey}/debit".format(  
+
+    apiKey=os.environ["API_KEY"]  
+
+)  
+
+auth = base64.b64encode("%s:%s" % (os.environ["USERNAME"], os.environ["PASSWORD"]))  
+
+tokenex_token = os.environ["TOKENEX_TOKEN"]  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "cardData": {  
+
+            "cardHolder": "Alex Smith",  
+
+            "pan": "%s" % (tokenex_token),  
+
+            "cvv": "-",  
+
+            "expirationMonth": "6",  
+
+            "expirationYear": "2031"  
+
+        },  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error"  
+
+    }  
+
+)  
+
+headers = {  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+$tokenExToken = $_REQUEST['tokenex-token'];  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://secure.ixopay.com/api/v3/transaction/$API_KEY/debit",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "cardData": {  
+
+      "cardHolder": "Alex Smith",  
+
+      "pan": "$tokenExToken",  
+
+      "cvv": "-",  
+
+      "expirationMonth": "6",  
+
+      "expirationYear": "2031"  
+
+    },  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+String tokenExToken = req.getParameter("tokenex-token");  
+
+  
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"cardData\": {" +  
+
+      "\"cardHolder\": \"Alex Smith\"," +  
+
+      "\"pan\": \"" + tokenExToken + "\"," +  
+
+      "\"cvv\": \"-\"," +  
+
+      "\"expirationMonth\": \"6\"," +  
+
+      "\"expirationYear\": \"2031\"" +  
+
+    "}," +  
+
+    "\"description\": \"Purchase description shown on credit card statement.\"," +  
+
+    "\"amount\": \"9.99\"," +  
+
+    "\"currency\": \"EUR\"," +  
+
+    "\"successUrl\": \"https://shop.example.org/checkout/success\"," +  
+
+    "\"cancelUrl\": \"https://shop.example.org/checkout/cancelled\"," +  
+
+    "\"errorUrl\": \"https://shop.example.org/checkout/error\"" +  
+
+  "}"  
+
+);  
+
+String auth = Base64.getEncoder().encodeToString(  
+
+  "%s:%s".format(System.getenv("USERNAME"), System.getenv("PASSWORD")));  
+
+Request request = new Request.Builder()  
+
+  .url("https://secure.ixopay.com/api/v3/transaction/%s/debit"  
+
+    .format(System.getenv("API_KEY")))  
+
+  .method("POST", body)  
+
+  .addHeader("Content-Type", "application/json")  
+
+  .addHeader("Accept", "application/json")  
+
+  .addHeader("Authorization", "Basic %s".format(auth))  
+
+  .build();  
+
+Response response = client.newCall(request).execute();  
+
+```
+```
+
+curl --request POST -sL \  
+
+  --url "https://paymentservices.tokenex.com/transaction/pci/${API_KEY}/debit" \  
+
+  --header "tx-tokenex-id: $TOKENEX_ID" \  
+
+  --header "tx-apikey: $TOKENEX_API_KEY" \  
+
+  --header "tx-connector-shared-secret: $SHARED_SECRET" \  
+
+  --header "Date: $(date -u +'%a, %d %b %Y %H:%M:%S GMT')" \  
+
+  --header 'Content-Type: application/json' \  
+
+  --header 'Accept: application/json' \  
+
+  --header "Authorization: Basic $(echo -n "$USERNAME:$PASSWORD" | base64)" \  
+
+  --data-raw "$(cat <<JSON  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "cardData": {  
+
+      "cardHolder": "Alex Smith",  
+
+      "pan": "$TOKENEX_TOKEN",  
+
+      "cvv": "-",  
+
+      "expirationMonth": "6",  
+
+      "expirationYear": "2031"  
+
+    },  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error"  
+
+  }  
+
+JSON  
+
+)"  
+
+```
+```
+
+import requests  
+
+import json  
+
+import base64  
+
+import os  
+
+from datetime import datetime  
+
+  
+
+url = "https://paymentservices.tokenex.com/transaction/pci/{apiKey}/debit".format(  
+
+    apiKey=os.environ['API_KEY']  
+
+)  
+
+auth = base64.b64encode(f"{os.environ['USERNAME']}:{os.environ['PASSWORD']}")  
+
+tokenex_token = os.environ["TOKENEX_TOKEN"]  
+
+  
+
+payload = json.dumps(  
+
+    {  
+
+        "merchantTransactionId": "your-unique-identifier",  
+
+        "cardData": {  
+
+            "cardHolder": "Alex Smith",  
+
+            "pan": "%s" % (tokenex_token),  
+
+            "cvv": "-",  
+
+            "expirationMonth": "6",  
+
+            "expirationYear": "2031",  
+
+        },  
+
+        "description": "Purchase description shown on credit card statement.",  
+
+        "amount": "9.99",  
+
+        "currency": "EUR",  
+
+        "successUrl": "https://shop.example.org/checkout/success",  
+
+        "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+        "errorUrl": "https://shop.example.org/checkout/error",  
+
+    }  
+
+)  
+
+headers = {  
+
+    "tx-tokenex-id": os.environ["TOKENEX_ID"],  
+
+    "tx-apikey": os.environ["TOKENEX_API_KEY"],  
+
+    "tx-connector-shared-secret": os.environ["SHARED_SECRET"],  
+
+    "Date": datetime.utcnow().strftime('%a, %d %b %Y %H:%M:%S GMT'),  
+
+    "Content-Type": "application/json",  
+
+    "Accept": "application/json",  
+
+    "Authorization": "Basic {auth}".format(auth=auth),  
+
+}  
+
+  
+
+response = requests.request("POST", url, headers=headers, data=payload)  
+
+```
+```
+
+<?php  
+
+  
+
+$curl = curl_init();  
+
+  
+
+$auth = base64_encode("$USERNAME:$PASSWORD");  
+
+$tokenExToken = $_REQUEST['tokenex-token'];  
+
+  
+
+curl_setopt_array($curl, array(  
+
+  CURLOPT_URL => "https://paymentservices.tokenex.com/transaction/pci/$API_KEY/debit",  
+
+  CURLOPT_RETURNTRANSFER => true,  
+
+  CURLOPT_ENCODING => '',  
+
+  CURLOPT_MAXREDIRS => 10,  
+
+  CURLOPT_TIMEOUT => 0,  
+
+  CURLOPT_FOLLOWLOCATION => true,  
+
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,  
+
+  CURLOPT_CUSTOMREQUEST => 'POST',  
+
+  CURLOPT_POSTFIELDS => <<<EOD  
+
+  {  
+
+    "merchantTransactionId": "your-unique-identifier",  
+
+    "cardData": {  
+
+      "cardHolder": "Alex Smith",  
+
+      "pan": "$tokenExToken",  
+
+      "cvv": "-",  
+
+      "expirationMonth": "6",  
+
+      "expirationYear": "2031"  
+
+    },  
+
+    "description": "Purchase description shown on credit card statement.",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "successUrl": "https://shop.example.org/checkout/success",  
+
+    "cancelUrl": "https://shop.example.org/checkout/cancelled",  
+
+    "errorUrl": "https://shop.example.org/checkout/error"  
+
+  }  
+
+  EOD,  
+
+  CURLOPT_HTTPHEADER => array(  
+
+    "tx-tokenex-id: $TOKENEX_ID",  
+
+    "tx-apikey: $TOKENEX_API_KEY",  
+
+    "tx-connector-shared-secret: $SHARED_SECRET",  
+
+    "Date: " . gmdate('D, d M Y H:i:s') . ' GMT',  
+
+    'Content-Type: application/json',  
+
+    'Accept: application/json',  
+
+    "Authorization: Basic $auth"  
+
+  ),  
+
+));  
+
+  
+
+$response = curl_exec($curl);  
+
+  
+
+curl_close($curl);  
+
+```
+```
+
+String tokenExToken = req.getParameter("tokenex-token");  
+
+  
+
+DateTimeFormatter dateFormatter = DateTimeFormatter.RFC_1123_DATE_TIME  
+
+  .withLocale(Locale.US)  
+
+  .withZone(java.time.ZoneId.of("GMT"));  
+
+  
+
+OkHttpClient client = new OkHttpClient().newBuilder().build();  
+
+RequestBody body = RequestBody.create(  
+
+  MediaType.parse("application/json"),  
+
+  "{" +  
+
+    "\"merchantTransactionId\": \"your-unique-identifier\"," +  
+
+    "\"cardData\": {" +  
+
+      "\"cardHolder\": \"Alex Smith\"," +  
+
+      "\"pan\": \"" + tokenExToken + "\"," +  
+
+      "\"cvv\": \"-\"," +  
+
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -3188,7 +3188,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -3251,7 +3251,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031"  
 
@@ -3336,7 +3336,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -3403,7 +3403,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 
@@ -3482,7 +3482,7 @@ curl --request POST -sL \
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -3547,7 +3547,7 @@ payload = json.dumps(
 
             "cvv": "-",  
 
-            "expirationMonth": "5",  
+            "expirationMonth": "6",  
 
             "expirationYear": "2031",  
 
@@ -3640,7 +3640,7 @@ curl_setopt_array($curl, array(
 
       "cvv": "-",  
 
-      "expirationMonth": "5",  
+      "expirationMonth": "6",  
 
       "expirationYear": "2031"  
 
@@ -3723,7 +3723,7 @@ RequestBody body = RequestBody.create(
 
       "\"cvv\": \"-\"," +  
 
-      "\"expirationMonth\": \"5\"," +  
+      "\"expirationMonth\": \"6\"," +  
 
       "\"expirationYear\": \"2031\"" +  
 

@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/transaction/capture
 portal: ixopay-dev
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 
@@ -670,10 +670,89 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
   * CURL
 ```
-curl -L -X POST 'https://documentation.ixopay.com/transaction/:apiKey/capture' \  
+curl -L 'https://gateway.ixopay.com/api/v3/transaction/:apiKey/capture' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "extraData": {},  
+  "pspPassthroughData": {},  
+  "merchantMetaData": "string",  
+  "referenceUuid": "string",  
+  "amount": "9.99",  
+  "currency": "EUR",  
+  "description": "string",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {}  
+    }  
+  ],  
+  "splits": [  
+    {  
+      "identification": "string",  
+      "amount": "9.99",  
+      "currency": "EUR",  
+      "sellerMerchantGuid": "string",  
+      "sellerMerchantExternalId": "string",  
+      "commissionFee": {  
+        "amount": "9.99",  
+        "currency": "EUR"  
+      }  
+    }  
+  ],  
+  "isFinalCapture": true,  
+  "l2l3Data": {  
+    "taxAmount": "string",  
+    "vatRegistrationNumber": "string",  
+    "nationalTaxIncluded": "string",  
+    "discountAmount": "9.99",  
+    "commodityCode": "string",  
+    "freightAmount": "9.99",  
+    "freightTaxAmount": "9.99",  
+    "dutyAmount": "9.99",  
+    "taxDetails": [  
+      {  
+        "type": "string",  
+        "amount": "9.99",  
+        "rate": "9.99",  
+        "code": "string",  
+        "taxId": "string",  
+        "applied": "string",  
+        "exemptionCode": "string"  
+      }  
+    ]  
+  }  
+}'  
 
 ```RequestCollapse all
 Base URL
@@ -907,10 +986,89 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L -X POST 'https://documentation.ixopay.com/transaction/:apiKey/capture' \  
+curl -L 'https://gateway.ixopay.com/api/v3/transaction/:apiKey/capture' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+'  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "extraData": {},  
+  "pspPassthroughData": {},  
+  "merchantMetaData": "string",  
+  "referenceUuid": "string",  
+  "amount": "9.99",  
+  "currency": "EUR",  
+  "description": "string",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {}  
+    }  
+  ],  
+  "splits": [  
+    {  
+      "identification": "string",  
+      "amount": "9.99",  
+      "currency": "EUR",  
+      "sellerMerchantGuid": "string",  
+      "sellerMerchantExternalId": "string",  
+      "commissionFee": {  
+        "amount": "9.99",  
+        "currency": "EUR"  
+      }  
+    }  
+  ],  
+  "isFinalCapture": true,  
+  "l2l3Data": {  
+    "taxAmount": "string",  
+    "vatRegistrationNumber": "string",  
+    "nationalTaxIncluded": "string",  
+    "discountAmount": "9.99",  
+    "commodityCode": "string",  
+    "freightAmount": "9.99",  
+    "freightTaxAmount": "9.99",  
+    "dutyAmount": "9.99",  
+    "taxDetails": [  
+      {  
+        "type": "string",  
+        "amount": "9.99",  
+        "rate": "9.99",  
+        "code": "string",  
+        "taxId": "string",  
+        "applied": "string",  
+        "exemptionCode": "string"  
+      }  
+    ]  
+  }  
+}'  
 
 ```
 ```

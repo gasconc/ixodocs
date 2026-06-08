@@ -16,7 +16,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/worldpay-native-raft
 portal: tokenex
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 
@@ -338,8 +338,7 @@ M - Healthcare  |
 | `CreditCard.FullName`  | String  | `CustomerInformation.CardholderFullName`  | Default value is creditCard.Firstname + creditCard.Lastname  |  
 | `PrestigiousPropertyInd`  | String  | `PrestigiousPropertyIND`  | Prestigious Property Indicator. Valid values are:  
 Blank - Unspecified  
-D - $500 Limit  
-B - $1000 Limit  
+D - 500LimitB−500 Limit B - 500LimitB−1000 Limit  
 S - $1500 Limit  |  
 | `ReversalAdviceReasonCode`  | String  | `ReversalAdviceReasonCd`  |    
 string (ReversalAdviceReasonCd_Type) <= 3 characters  

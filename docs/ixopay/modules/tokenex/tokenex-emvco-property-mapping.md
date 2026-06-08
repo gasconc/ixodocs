@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenex-emvco-property-mapping
 portal: ixopay-modules
-updated: '2026-06-01'
+updated: '2026-06-08'
 related: []
 ---
 
