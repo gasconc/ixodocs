@@ -11,7 +11,7 @@ tags:
 - reconciliation
 source_url: https://documentation.ixopay.com/docs/guides/payments
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

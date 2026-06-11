@@ -6,10 +6,10 @@ summary: The Transaction list provides an overview of all transactions Successfu
   as needed for your reports using the extensive filter optio
 tags:
 - transaction-data-filters-https-documentation-ixopay-com-manual-docs-transactions-overview-transaction-data-filters-direct-link-transaction-data-filters
-- customer-data-filter-https-documentation-ixopay-com-manual-docs-transactions-overview-customer-data-filter-direct-link-customer-data-filter
+- filtering-customer-data-https-documentation-ixopay-com-manual-docs-transactions-overview-customer-data-filter-direct-link-filtering-customer-data
 - advanced-filter-https-documentation-ixopay-com-manual-docs-transactions-overview-advanced-filter-direct-link-advanced-filter
-- transaction-list-filter-result-https-documentation-ixopay-com-manual-docs-transactions-overview-transaction-list-filter-result-direct-link-transaction-list-filter-result
-- export-option-https-documentation-ixopay-com-manual-docs-transactions-overview-export-option-direct-link-export-option
+- filter-results-transaction-list-https-documentation-ixopay-com-manual-docs-transactions-overview-transaction-list-filter-result-direct-link-filter-results-transaction-list
+- exporting-transactions-https-documentation-ixopay-com-manual-docs-transactions-overview-export-option-direct-link-exporting-transactions
 - footnotes-https-documentation-ixopay-com-manual-docs-transactions-overview-footnote-label-direct-link-footnotes
 - api
 - ixopay
@@ -17,7 +17,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/manual/docs/transactions/overview
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -53,7 +53,7 @@ Use the **Transaction Filter** to narrow your results by **filtering according t
 | ARN  | Enter one or multiple Acquirer Reference Numbers  |  
 | RRN  | Enter one or multiple Retrieval Reference Numbers  |  
 | Daterange  | Restrict results to a specific date range by selecting a from and to date. To narrow down the range even more, select the Clock Button to modify the exact time for from and to date  |  
-## Customer Data Filter[​](https://documentation.ixopay.com/manual/docs/transactions/overview#customer-data-filter "Direct link to Customer Data Filter")
+## Filtering by Customer Data[​](https://documentation.ixopay.com/manual/docs/transactions/overview#customer-data-filter "Direct link to Filtering by Customer Data")
 Use this section to filter transactions by customer data. These filter options are useful if a customer contacts your support team regarding a specific transaction. The support team can enter the customer's email address to display all relevant data about transactions involving this email address, etc.  
 | Field  | Description  |  
 | --- | --- |  
@@ -81,9 +81,8 @@ See the example in "Advanced Filter":
 The defined advanced filter first filters for all transactions which have the parameter **initiated by merchant**. If this filter rule is true then the filter checks whether the transaction's **Status** is one of either **success, pending** or **redirected AND** if the transaction was processed by the **Adapter Simulator - SimulatorPCI.**
 You can save your advanced filters using the **Disk** icon. Enter a **Name** in the dialog (see Save Filter). The **Trashcan** icon deletes the advanced filter.
 Select **Apply** to execute your advanced filter.
-## Transaction List / Filter Result[​](https://documentation.ixopay.com/manual/docs/transactions/overview#transaction-list--filter-result "Direct link to Transaction List / Filter Result")
-Depending on the complexity or number of results, the filter is applied in **Mode: BI-Data** , using th
-[BI Data Source](https://documentation.ixopay.com/docs/reference/features/bi-data-source) technology also available to clients, or **Live** (see Filter Mode).
+## Filter Results in the Transaction List[​](https://documentation.ixopay.com/manual/docs/transactions/overview#transaction-list--filter-result "Direct link to Filter Results in the Transaction List")
+Depending on the complexity or number of results, the filter is applied in **Mode: BI-Data** , using the [BI Data Source](https://documentation.ixopay.com/docs/reference/features/bi-data-source) technology also available to clients, or **Live** (see Filter Mode).
 ![Filter Mode](https://documentation.ixopay.com/manual/assets/ideal-img/filter-mode.22ff26c.1280.png)Filter Mode
 note
 Transaction data is not provided in real time (at the time of the transaction), though generally within a maximum of 24 hours in the BI Data Source.
@@ -121,7 +120,7 @@ Once you have **applied the filter** you can customize the results using the **e
 | Card Country  | BIN DB: Country  |  
 | Customer E-Mail  | Customer email address  |  
 | -  | Details Button  |  
-## Export Option[​](https://documentation.ixopay.com/manual/docs/transactions/overview#export-option "Direct link to Export Option")
+## Exporting Transactions[​](https://documentation.ixopay.com/manual/docs/transactions/overview#export-option "Direct link to Exporting Transactions")
 The IXOPAY platform allows you to quickly export the Transactions as displayed in the Transaction List with filters applied. Select the **intermeshing gears** icon on the right corner of the Transaction list (below the **Apply Filter** option) and select the Option **_Export all visible data_**.
 This will create and download a .csv file containing a maximum of 25 Transactions shown on the current page with the previously selected columns. For details on creating a customized .csv export, refer to the [Data Export](https://documentation.ixopay.com/manual/docs/transactions/data-export) and [Job Configuration](https://documentation.ixopay.com/manual/docs/post-processing/jobs) sections.
 ## Footnotes[​](https://documentation.ixopay.com/manual/docs/transactions/overview#footnote-label "Direct link to Footnotes")
@@ -137,7 +136,7 @@ This will create and download a .csv file containing a maximum of 25 Transaction
 [↩](https://documentation.ixopay.com/manual/docs/transactions/overview#user-content-fnref-1)
 
   * [Transaction Data Filters](https://documentation.ixopay.com/manual/docs/transactions/overview#transaction-data-filters)
-  * [Customer Data Filter](https://documentation.ixopay.com/manual/docs/transactions/overview#customer-data-filter)
+  * [Filtering by Customer Data](https://documentation.ixopay.com/manual/docs/transactions/overview#customer-data-filter)
   * [Advanced Filter](https://documentation.ixopay.com/manual/docs/transactions/overview#advanced-filter)
-  * [Transaction List / Filter Result](https://documentation.ixopay.com/manual/docs/transactions/overview#transaction-list--filter-result)
-  * [Export Option](https://documentation.ixopay.com/manual/docs/transactions/overview#export-option)
+  * [Filter Results in the Transaction List](https://documentation.ixopay.com/manual/docs/transactions/overview#transaction-list--filter-result)
+  * [Exporting Transactions](https://documentation.ixopay.com/manual/docs/transactions/overview#export-option)

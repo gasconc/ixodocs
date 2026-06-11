@@ -15,7 +15,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

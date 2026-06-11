@@ -10,7 +10,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/api/provisioning/provisioning-api
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -20,9 +20,9 @@ related: []
 
 Version: 3.0.0
 # Provisioning API
-The provisioning API allows you to manage your [IXOPAY platform](https://www.ixopay.com) entities. You can create, read, update tenants, merchants, merchant users and connectors.
+The provisioning API allows you to manage your IXOPAY entities. You can create, read, update tenants, merchants, merchant users and connectors.
 IXOPAY platform Full Version
-The Provisioning API is an optional feature which is not automatically available for all IXOPAY platform clients!
+The Provisioning API is an optional feature which is not automatically available for all [IXOPAY platform](https://www.ixopay.com) clients!
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.
 ## Authentication[​](https://documentation.ixopay.com/api/provisioning/provisioning-api#authentication "Direct link to Authentication")
   * HTTP: Basic Auth

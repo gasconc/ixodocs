@@ -15,7 +15,7 @@ tags:
 - pci
 source_url: https://documentation.ixopay.com/docs/recipes/how-to/use-tokenex-universal-tokens
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

@@ -2,6 +2,7 @@
 title: TokenEx iFrame - The Basics
 summary: ' TokenEx iFrame  TokenEx iFrame - The Basics'
 tags:
+- integrate-ixopay-iframe-https-documentation-ixopay-com-modules-docs-tokenex-iframe-integrate-ixopay-iframe-direct-link-integrate-ixopay-iframe
 - api
 - pci
 - tokenization
@@ -11,7 +12,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/iframe-new
 portal: tokenex
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -29,3 +30,5 @@ Note
 To obtain your API Key used to generate the [Authentication Key](https://documentation.ixopay.com/modules/docs/tokenex/generating-the-authentication-key), please contact our Support team.
 For a live demo click [HERE](https://tokenexwebdemo.azurewebsites.net/).
 The live demo provides a means to see all the iframe functionality in action. You can view the various modes and modify the CSS options to test the limits of the customizability.
+## How do I integrate the IXOPAY iFrame?[​](https://documentation.ixopay.com/modules/docs/tokenex/iframe-new#how-do-i-integrate-the-ixopay-iframe "Direct link to How do I integrate the IXOPAY iFrame?")
+IXOPAY iFrame integration requires generating an Authentication Key server-side using your API Key, then embedding the iFrame on your page using a JavaScript configuration object that specifies your token scheme, origin, and PCI mode. Once the iFrame captures the sensitive data and tokenizes it, the resulting token is returned to your page via JavaScript events and can be submitted with your form for server-side processing.

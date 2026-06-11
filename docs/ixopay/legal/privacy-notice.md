@@ -14,7 +14,7 @@ tags:
 - data-aggregation-anonymization
 source_url: https://www.ixopay.com/legal/privacy-notice
 portal: ixopay-legal
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -68,6 +68,7 @@ Where we obtain Business Contact data from third parties (for example profession
 ### **2.2 Data Processed via Services**
 In the course of providing our Services, we process data on behalf of and under the instructions of our Customers. While the exact scope is determined by the Customer’s integration and configuration of our Services, this typically includes name, email address, and other contact details, financial & payment instrument data (in accordance with PCI DSS requirements), transaction details (e.g., amount, currency, timestamp, Merchant ID), technical transaction data (e.g., acquirer response codes, 3-D Secure authentication data), and risk & fraud signals (e.g., frequency of transactions, IP geolocation, and shipping/billing address mismatches used for fraud detection), technical logs and diagnostics for support and debugging.
 We operate these processing activities as a processor. Consequently, only our Customers, but not we, establish the purposes and means for the processing.
+This does not prevent IXOPAY from processing limited business contact, support, operational, security, diagnostic, audit, fraud-prevention and compliance data as controller where IXOPAY determines the relevant purposes and means for its own legal obligations, security, incident response, service integrity and customer relationship management.
 ### **2.3 Cookies & Tracking Technologies**
 We use cookies and other information-gathering technologies for a variety of purposes, such as providing us with information about how you interact with our Websites, ensuring the security of our services, and assisting us in our marketing efforts.
 **2.3.1. Managing Your Preferences:** You may view a complete list of cookies & trackers, and change your cookie preferences at any time by using the “**Cookie Settings** ” link in the banner displayed when you first visit or via the gear icon in the bottom left corner of our Website.

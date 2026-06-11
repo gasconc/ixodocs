@@ -6,16 +6,16 @@ tags:
 - authorize-net-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-gateway-parameters-authorizenet-direct-link-authorize-net
 - api
 - xml
+- 3d-secure
 - ssl
 - tokenization
 - tokenex
 - ixopay
 - payment-gateway
 - acquirer
-- refund
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/gateway-parameters
 portal: tokenex
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -42,6 +42,9 @@ Supported gateways within the ProcessTransaction API and high-level information 
 | credit_card  | track_data  | string  | Track 1/Track 2 data  |  
 | credit_card  | track_1_data  | string  | Track 1 data  |  
 | credit_card  | track_2_data  | string  | track 2 data  |  
+| credit_card  | payment_cryptogram  | string  | EMV cryptogram for network token payments (Apple Pay, Google Pay, network tokens). When provided, `isPaymentToken` is set to `true` and the cryptogram is forwarded to Authorize.Net.  |  
+| credit_card  | eci  | string  | Electronic Commerce Indicator for network token transactions. Example: `05`  |  
+| credit_card  | source  | string  | Token origin. Valid values: `apple_pay`, `android_pay`, `google_pay`, `network_token`  |  
 | check  | routing_number  | string  |   |  
 | check  | account_number  | string  | This is your TokenEx Token - Tokenex will replace the Token with the Detokenized number  |  
 | check  | bank_name  | string  |   |  
@@ -166,6 +169,61 @@ Authorize Sample
       "authorization": "359308705#1111",  
 
       "amount": 1000  
+
+    }  
+
+  }  
+
+}  
+
+```Network Token Authorize Sample
+```
+
+{  
+
+  "APIKey": "XXXXXXXXXX",  
+
+  "TokenExID": "XXXXXXXXXX",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "AuthorizeNetGateway",  
+
+      "login": "XXXXXXXXXX",  
+
+      "password": "XXXXXXXXXX"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111114356431111",  
+
+      "month": "9",  
+
+      "year": "2030",  
+
+      "first_name": "John",  
+
+      "last_name": "Smith",  
+
+      "payment_cryptogram": "EHuWW9PiBkWvqE5juRwDzAUFBAk=",  
+
+      "eci": "05",  
+
+      "source": "network_token"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 1000,  
+
+      "order_id": "12345"  
 
     }  
 
@@ -3823,7 +3881,17 @@ Authorize Sample
 | transaction  | authorization  | string  | Required only for capture, refund, and void transactions. Obtained from the authorize or purchase actions  |  
 | transaction  | order_id  | string  |   |  
 | transaction  | customer  | string  |   |  
-| transaction  | moto_ecommerce_ind  | string  |   |  
+| transaction  | moto_ecommerce_ind  | string  | MOTO/eCommerce indicator  |  
+| transaction  | cavv  | string  | Cardholder Authentication Verification Value for 3D Secure (Visa) or UCAF data (Mastercard)  |  
+| transaction  | xid  | string  | 3D Secure transaction identifier  |  
+| transaction  | ucaf_collection_ind  | string  | UCAF Collection Indicator for Mastercard 3D Secure  |  
+| transaction  | ucaf_auth_data  | string  | UCAF Authentication Data for Mastercard 3D Secure  |  
+| transaction  | client_reference_number  | string  | Client-defined reference number for stored credential tracking  |  
+| transaction  | recurring_pmt_num  | string  | Sequence number of the current recurring payment  |  
+| transaction  | recurring_pmt_count  | string  | Total number of recurring payments authorized  |  
+| transaction  | card_on_file  | string  | Indicates a card-on-file transaction  |  
+| transaction  | cit_mit_indicator  | string  | Cardholder-initiated (CIT) or merchant-initiated (MIT) transaction indicator  |  
+| transaction  | account_data_source  | string  | Source of the account data  |  
 | transaction  | billing_address  | hash  |   |  
 | billing_address  | address1  | string  |   |  
 | billing_address  | zip  | string  |   |  
@@ -8262,6 +8330,61 @@ Authorize Sample
 
     "gateway": {  
 
+      "name": "AuthorizeNetGateway",  
+
+      "login": "XXXXXXXXXX",  
+
+      "password": "XXXXXXXXXX"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111114356431111",  
+
+      "month": "9",  
+
+      "year": "2030",  
+
+      "first_name": "John",  
+
+      "last_name": "Smith",  
+
+      "payment_cryptogram": "EHuWW9PiBkWvqE5juRwDzAUFBAk=",  
+
+      "eci": "05",  
+
+      "source": "network_token"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 1000,  
+
+      "order_id": "12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "XXXXXXXXXX",  
+
+  "TokenExID": "XXXXXXXXXX",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
       "name": "BarclaycardSmartpayGateway",  
 
       "login": "XXXXXXXXXX",  
@@ -14180,6 +14303,61 @@ This example is a 'void' transaction.
 
     "gateway": {  
 
+      "name": "AuthorizeNetGateway",  
+
+      "login": "XXXXXXXXXX",  
+
+      "password": "XXXXXXXXXX"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111114356431111",  
+
+      "month": "9",  
+
+      "year": "2030",  
+
+      "first_name": "John",  
+
+      "last_name": "Smith",  
+
+      "payment_cryptogram": "EHuWW9PiBkWvqE5juRwDzAUFBAk=",  
+
+      "eci": "05",  
+
+      "source": "network_token"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 1000,  
+
+      "order_id": "12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "XXXXXXXXXX",  
+
+  "TokenExID": "XXXXXXXXXX",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
       "name": "BarclaycardSmartpayGateway",  
 
       "login": "XXXXXXXXXX",  
@@ -20076,6 +20254,61 @@ This example is a 'void' transaction.
       "authorization": "359308705#1111",  
 
       "amount": 1000  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "XXXXXXXXXX",  
+
+  "TokenExID": "XXXXXXXXXX",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "AuthorizeNetGateway",  
+
+      "login": "XXXXXXXXXX",  
+
+      "password": "XXXXXXXXXX"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111114356431111",  
+
+      "month": "9",  
+
+      "year": "2030",  
+
+      "first_name": "John",  
+
+      "last_name": "Smith",  
+
+      "payment_cryptogram": "EHuWW9PiBkWvqE5juRwDzAUFBAk=",  
+
+      "eci": "05",  
+
+      "source": "network_token"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 1000,  
+
+      "order_id": "12345"  
 
     }  
 
@@ -26074,6 +26307,61 @@ This example is a 'void' transaction.
 
     "gateway": {  
 
+      "name": "AuthorizeNetGateway",  
+
+      "login": "XXXXXXXXXX",  
+
+      "password": "XXXXXXXXXX"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111114356431111",  
+
+      "month": "9",  
+
+      "year": "2030",  
+
+      "first_name": "John",  
+
+      "last_name": "Smith",  
+
+      "payment_cryptogram": "EHuWW9PiBkWvqE5juRwDzAUFBAk=",  
+
+      "eci": "05",  
+
+      "source": "network_token"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 1000,  
+
+      "order_id": "12345"  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "XXXXXXXXXX",  
+
+  "TokenExID": "XXXXXXXXXX",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
       "name": "BarclaycardSmartpayGateway",  
 
       "login": "XXXXXXXXXX",  
@@ -31970,6 +32258,61 @@ This example is a 'void' transaction.
       "authorization": "359308705#1111",  
 
       "amount": 1000  
+
+    }  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "APIKey": "XXXXXXXXXX",  
+
+  "TokenExID": "XXXXXXXXXX",  
+
+  "TransactionType": 1,  
+
+  "TransactionRequest": {  
+
+    "gateway": {  
+
+      "name": "AuthorizeNetGateway",  
+
+      "login": "XXXXXXXXXX",  
+
+      "password": "XXXXXXXXXX"  
+
+    },  
+
+    "credit_card": {  
+
+      "number": "4111114356431111",  
+
+      "month": "9",  
+
+      "year": "2030",  
+
+      "first_name": "John",  
+
+      "last_name": "Smith",  
+
+      "payment_cryptogram": "EHuWW9PiBkWvqE5juRwDzAUFBAk=",  
+
+      "eci": "05",  
+
+      "source": "network_token"  
+
+    },  
+
+    "transaction": {  
+
+      "amount": 1000,  
+
+      "order_id": "12345"  
 
     }  
 

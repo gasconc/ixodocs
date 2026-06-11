@@ -3,18 +3,18 @@ title: Payment Services
 summary: ' Payment Services'
 tags:
 - payment-services-work-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-payment-services-work-direct-link-payment-services-work
-- choosing-api-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-choosing-api-direct-link-choosing-api
+- payment-services-api-choose-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-choosing-api-direct-link-payment-services-api-choose
 - processtransaction-api-recommended-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-processtransaction-api-recommended-direct-link-processtransaction-api-recommended
 - card-check-wallet-api-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-cardcheckwallet-api-direct-link-card-check-wallet-api
-- feature-comparison-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-feature-comparison-direct-link-feature-comparison
-- prerequisites-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-prerequisites-direct-link-prerequisites
-- quick-links-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-quick-links-direct-link-quick-links
+- two-payment-services-apis-compare-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-feature-comparison-direct-link-two-payment-services-apis-compare
+- prerequisites-integrating-payment-services-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-prerequisites-direct-link-prerequisites-integrating-payment-services
+- find-documentation-api-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-quick-links-direct-link-find-documentation-api
 - processtransaction-api-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-processtransaction-api-direct-link-processtransaction-api
 - api
 - sdk
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services
 portal: tokenex
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -35,7 +35,7 @@ Payment Services processes transactions through the following flow:
   2. **Send the transaction** — Call Payment Services with your token, encrypted or plaintext PAN, and the transaction request fields.
   3. **Receive the response** — Payment Services returns the transaction result with parsed fields from the PSP
 
-## Choosing Your API[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#choosing-your-api "Direct link to Choosing Your API")
+## Which Payment Services API should I choose?[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#choosing-your-api "Direct link to Which Payment Services API should I choose?")
 Payment Services offers two APIs. For most integrations, we recommend the ProcessTransaction API.
 ### ProcessTransaction API (Recommended)[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#processtransaction-api-recommended "Direct link to ProcessTransaction API \(Recommended\)")
 The ProcessTransaction API provides the broadest gateway support and a normalized response format that simplifies your integration logic.
@@ -58,7 +58,7 @@ The Card/Check/Wallet API returns complete, unmodified gateway responses for int
   * **Parameter forwarding** — send unmapped parameters to PSPs that accept JSON request bodies
 
 :::note When to use Card/Check/Wallet API Choose this API when you need access to the complete gateway response, require specific response fields that aren't included in normalized responses, or have existing logic built around raw gateway data. :::
-## Feature Comparison[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#feature-comparison "Direct link to Feature Comparison")  
+## How do the two Payment Services APIs compare?[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#feature-comparison "Direct link to How do the two Payment Services APIs compare?")  
 | Feature  | ProcessTransaction API  | Card/Check/Wallet API  |  
 | --- | --- | --- |  
 | **Gateway Coverage**  | Broad gateway support  | Selected gateway support  |  
@@ -70,14 +70,14 @@ The Card/Check/Wallet API returns complete, unmodified gateway responses for int
 | **CVV Injection**  | Supported  | Supported  |  
 | **Custom Parameter Forwarding**  | Not Supported  | Selected PSP integrations not built on SDKs and accept JSON requests  |  
 | **Response Extraction (Regex)**  | Not Applicable  | Supported  |  
-## Prerequisites[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#prerequisites "Direct link to Prerequisites")
+## What are the prerequisites for integrating Payment Services?[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#prerequisites "Direct link to What are the prerequisites for integrating Payment Services?")
 Before integrating Payment Services, ensure you have:
   1. **TokenEx account** — Contact IXOPAY to set up your account
   2. **API credentials** — Your `TokenExID` and `APIKey` for authentication
   3. **Gateway credentials** — Merchant credentials for your chosen payment processors
 
 :::info Getting started If you don't have TokenEx Vault credentials, visit the [Client Portal](https://documentation.ixopay.com/modules/docs/tokenex/welcome#client-portal) or contact your IXOPAY representative. :::
-## Quick Links[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#quick-links "Direct link to Quick Links")
+## Where can I find documentation for each API?[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#quick-links "Direct link to Where can I find documentation for each API?")
 ### ProcessTransaction API[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#processtransaction-api "Direct link to ProcessTransaction API")
   * [The Basics](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics) — Endpoints, transaction types, and request/response structure
   * [Gateway Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/gateway-parameters) — Configuration for each supported gateway
@@ -87,11 +87,11 @@ Before integrating Payment Services, ensure you have:
   * [Gateway Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-gateway-parameters) — Configuration for each supported gateway
 
   * [How Does Payment Services Work?](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#how-does-payment-services-work)
-  * [Choosing Your API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#choosing-your-api)
+  * [Which Payment Services API should I choose?](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#choosing-your-api)
     * [ProcessTransaction API (Recommended)](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#processtransaction-api-recommended)
     * [Card/Check/Wallet API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#cardcheckwallet-api)
-  * [Feature Comparison](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#feature-comparison)
-  * [Prerequisites](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#prerequisites)
-  * [Quick Links](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#quick-links)
+  * [How do the two Payment Services APIs compare?](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#feature-comparison)
+  * [What are the prerequisites for integrating Payment Services?](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#prerequisites)
+  * [Where can I find documentation for each API?](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#quick-links)
     * [ProcessTransaction API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#processtransaction-api)
     * [Card/Check/Wallet API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#cardcheckwallet-api-1)

@@ -2,12 +2,12 @@
 title: Processing options
 summary: ' Processing options'
 tags:
-- structure-https-documentation-ixopay-com-docs-reference-integration-processing-options-structure-direct-link-structure
+- processing-options-available-https-documentation-ixopay-com-docs-reference-integration-processing-options-structure-direct-link-processing-options-available
 - ixopay
 - recurring
 source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -16,7 +16,7 @@ related: []
 
 # Processing options
 Processing options refer to the different methods and approaches available for handling payment transactions within the [IXOPAY platform](https://www.ixopay.com). Each processing option offers specific features and functionalities tailored to meet the diverse needs of merchants and their customers. This section provides an overview of the various processing options available and highlights their key characteristics and use cases.
-## Structure[​](https://documentation.ixopay.com/docs/reference/integration/processing-options#structure "Direct link to Structure")
+## What processing options are available?[​](https://documentation.ixopay.com/docs/reference/integration/processing-options#structure "Direct link to What processing options are available?")
 This reference documentation is organized into separate articles, each focusing on a specific processing option. The articles provide detailed information about the processing option, including its purpose, use cases, and a step-by-step processing flow. The articles in this reference documentation for processing options are as follows:
   * [Full-page redirect](https://documentation.ixopay.com/docs/reference/integration/processing-options/full-page-redirect): A processing option that redirects customers to the payment service provider's payment page, ideal for alternative payment methods and merchants who prefer not to handle the payment process directly.
   * [Hosted payment pages](https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages): A processing option that enables merchants to redirect customers to a payment page hosted by [IXOPAY](https://www.ixopay.com), simplifying the payment integration process and ensuring secure payment information collection.

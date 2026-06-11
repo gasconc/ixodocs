@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/data-dictionary
 portal: ixopay-modules
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -19,6 +19,7 @@ related: []
   * Data Dictionary
 
 # Data Dictionary
+This page defines every field returned by IXOPAY's BIN Lookup API response. Key fields include card brand, funding source, issuer information, country codes, BIN range boundaries, and tokenization-support indicators. Use this reference to understand what data is available for fraud prevention, routing optimization, and payment processing decisions.
 note
 This is mapped to how it appears in the API response. The actual BIN File fields are not in camelCase but rather appear with underscorings eg. `bin_min`  
 | Field  | Type  | Description  |  

@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-06-08 | Total pages: 742
+> Last updated: 2026-06-11 | Total pages: 743
 
 ## Ixopay Developer Hub (194 pages)
 
@@ -183,7 +183,7 @@
 - [BI data source v1 — ElasticSearch](docs/ixopay/reference/features/bi-data-source/legacy.md) — BI data sourcehttps://documentation.ixopay.com/docs/reference/features/bi-data-source  Version 1
 - [Customer profiles](docs/ixopay/reference/features/customer-profiles.md) — Customer profiles
 - [Dynamic currency conversion (DCC)](docs/ixopay/reference/features/dcc.md) — Dynamic currency conversion DCC
-- [Pay-by-Link](docs/ixopay/reference/features/pay-by-link.md) — ⁮IXOPAYhttps://www.ixopay.com's Pay-by-Link feature empowers you to create a secure URL for your customers to access a payment page. The payment pa...
+- [Pay-by-Link](docs/ixopay/reference/features/pay-by-link.md) — IXOPAY's Pay-by-Link feature empowers you to create a secure URL for your customers to access a payment page. The payment page can be customized to...
 - [Payment method selection](docs/ixopay/reference/features/payment-method-selection.md) — Payment method selection
 - [Intermediate redirects](docs/ixopay/reference/features/payment-method-selection/intermediate-redirects.md) — Payment method selectionhttps://documentation.ixopay.com/docs/reference/features/payment-method-selection  Intermediate redirects
 - [Provisioning](docs/ixopay/reference/features/provisioning.md) — The Provisioning APIhttps://documentation.ixopay.com/api/provisioning/provisioning-api is a component of the IXOPAY platformhttps://www.ixopay.com...
@@ -210,7 +210,7 @@
 - [Hosted payment pages](docs/ixopay/reference/integration/processing-options/hosted-payment-pages.md) — Processing optionshttps://documentation.ixopay.com/docs/reference/integration/processing-options  Hosted payment pages
 - [Server-to-server](docs/ixopay/reference/integration/processing-options/server-to-server.md) — Processing optionshttps://documentation.ixopay.com/docs/reference/integration/processing-options
 
-## Ixopay User Manual (136 pages)
+## Ixopay User Manual (137 pages)
 
 ### Manual
 - [Bank Of America](docs/ixopay/manual/adapters/bank-of-america.md) — The Bank of America Adapter in the IXOPAY platformhttps://www.ixopay.com differs in its behavior from an ordinary Adapter. It does not directly com...
@@ -320,6 +320,7 @@
 - [Currency Conversion Rates](docs/ixopay/manual/system-setup/currency-conversion-rates.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  Currency Conversion Rates
 - [Fee Entities](docs/ixopay/manual/system-setup/fee-entities.md) — Fee Managementhttps://documentation.ixopay.com/manual/docs/connector/fee-management  Fee Entities
 - [Post Processing Jobs](docs/ixopay/manual/system-setup/global-job-schedules.md) — Post Processing Jobs
+- [Hosted Payment Page Content-Security Policy Configuration](docs/ixopay/manual/system-setup/hpp-csp-configuration.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  HPP CSP Configuration
 - [Post Processing Jobs](docs/ixopay/manual/system-setup/job-configuration.md) — Post Processing Jobs
 - [Roles](docs/ixopay/manual/system-setup/roles.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup
 - [Security Center](docs/ixopay/manual/system-setup/security-center.md) — System Setuphttps://documentation.ixopay.com/manual/docs/system-setup  Security Center

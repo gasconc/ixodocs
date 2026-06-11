@@ -4,7 +4,7 @@ summary: ' Customer Profiles'
 tags:
 - customer-profile-containers-https-documentation-ixopay-com-manual-docs-tokenization-customer-profiles-customer-profile-containers-direct-link-customer-profile-containers
 - assign-customer-profile-container-https-documentation-ixopay-com-manual-docs-tokenization-customer-profiles-assign-customer-profile-container-direct-link-assign-customer-profile-container
-- customer-profiles-https-documentation-ixopay-com-manual-docs-tokenization-customer-profiles-customer-profiles-direct-link-customer-profiles
+- viewing-customer-profiles-https-documentation-ixopay-com-manual-docs-tokenization-customer-profiles-customer-profiles-direct-link-viewing-customer-profiles
 - customer-profile-details-https-documentation-ixopay-com-manual-docs-tokenization-customer-profiles-customer-profile-details-direct-link-customer-profile-details
 - profile-data-https-documentation-ixopay-com-manual-docs-tokenization-customer-profiles-profile-data-direct-link-profile-data
 - payment-instruments-https-documentation-ixopay-com-manual-docs-tokenization-customer-profiles-payment-instruments-direct-link-payment-instruments
@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -41,7 +41,7 @@ You can assign a Customer Profile Container either in the Connector Base Data (s
 ![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.0f37c39.1280.png)Connector Details Overview![Connector Base Data](https://documentation.ixopay.com/manual/assets/ideal-img/connector-base-data.e6d7f59.1120.png)Connector Base Data
 note
 If your setup uses [Multi-Method Connectors](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector) make sure you also assign the Customer Profile Container there.
-## Customer Profiles[​](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profiles-1 "Direct link to Customer Profiles")
+## Viewing Customer Profiles[​](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profiles-1 "Direct link to Viewing Customer Profiles")
 To access the individual profiles stored in a container, navigate to the Customer Profile Container Overview and click **Show** for the individual container.
 You will be presented with an overview of all Customer Profiles (Profile List) in this container including options to filter by **Profile Data** or **Customer Data**. Click **Show** for the individual profile to see more [details](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profile-details) (stored payment instruments, transaction history, customer data etc.).
 ![Customer Profile Container Overview](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-container-overview.3e92991.1280.png)Customer Profile Container Overview![Overview of all Customer Profiles](https://documentation.ixopay.com/manual/assets/ideal-img/overview-of-all-customer-profiles.b541e0a.1280.png)Overview of all Customer Profiles
@@ -6632,7 +6632,7 @@ Setting up your payment flow using customer profiles
 Customer Profile data can be requested before transaction processing using the [**Get profile**](https://documentation.ixopay.com/api/customer-profiles/get-profile) request against the Customer Profile API (e.g. to be included in the checkout page for customer confirmation). Merchants then must include this customer data in the actual transaction processing using the Payment Token, since profile data is not copied to subsequent transactions.
   * [Customer Profile Containers](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profile-containers)
   * [Assign Customer Profile Container](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#assign-customer-profile-container)
-  * [Customer Profiles](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profiles-1)
+  * [Viewing Customer Profiles](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profiles-1)
   * [Customer Profile Details](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profile-details)
     * [Profile Data](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#profile-data)
     * [Payment Instruments](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#payment-instruments)

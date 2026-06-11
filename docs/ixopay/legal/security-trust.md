@@ -17,7 +17,7 @@ tags:
 - vulnerability-management
 source_url: https://www.ixopay.com/legal/security-trust
 portal: ixopay-legal
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

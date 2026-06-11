@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/features/provisioning/3ds-connector-configuration
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

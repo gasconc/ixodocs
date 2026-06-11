@@ -1,6 +1,6 @@
 # Coverage Audit Report
 
-_Generated at 2026-06-08T08:11:09+00:00_
+_Generated at 2026-06-11T09:14:06+00:00_
 
 **365 missing** · **3 stale** across 3 source(s).
 
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **900** · Indexed: **535** · Missing: **365** · Stale: **2**
+- Published: **901** · Indexed: **536** · Missing: **365** · Stale: **2**
 
 ### Missing (published but not indexed)
 

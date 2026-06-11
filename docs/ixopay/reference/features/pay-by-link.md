@@ -1,8 +1,8 @@
 ---
 title: Pay-by-Link
-summary: ⁮IXOPAYhttps://www.ixopay.com's Pay-by-Link feature empowers you to create
-  a secure URL for your customers to access a payment page. The payment page can be
-  customized to ensure a seamless and branded payment experience.
+summary: IXOPAY's Pay-by-Link feature empowers you to create a secure URL for your
+  customers to access a payment page. The payment page can be customized to ensure
+  a seamless and branded payment experience.
 tags:
 - creating-pay-link-https-documentation-ixopay-com-docs-reference-features-pay-link-creating-pay-link-direct-link-creating-pay-link
 - supported-transaction-types-https-documentation-ixopay-com-docs-reference-features-pay-link-supported-transaction-types-direct-link-supported-transaction-types
@@ -16,7 +16,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/docs/reference/features/pay-by-link
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -24,7 +24,7 @@ related: []
   * Pay-by-Link
 
 # Pay-by-Link
-⁮[IXOPAY](https://www.ixopay.com)'s Pay-by-Link feature empowers you to create a secure URL for your customers to access a payment page. The payment page can be customized to ensure a seamless and branded payment experience. This document provides a comprehensive guide to using the Pay-by-Link feature.
+IXOPAY's Pay-by-Link feature empowers you to create a secure URL for your customers to access a payment page. The payment page can be customized to ensure a seamless and branded payment experience. This document provides a comprehensive guide to using the Pay-by-Link feature.
 Guide
 For a detailed, step-by-step guide on integrating Pay-by-Link, refer to the [Pay-by-Link guide](https://documentation.ixopay.com/docs/guides/features/pay-by-link "Pay-by-Link guide") in our guides section.
 Email Features
@@ -101,7 +101,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -132,7 +132,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -140,13 +140,13 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
     "cancelUrl": "https://gateway.ixopay.com/api/v3/payByLink/d94c0d72f3a36e21f16e/cancel",  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00",  
+    "expiresAt": "2026-06-09T08:18:36+00:00",  
 
   }  
 
@@ -164,7 +164,7 @@ To receive callbacks for transactions in the `pending` state, you need to enable
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -194,7 +194,7 @@ To receive callbacks for transactions in the `pending` state, you need to enable
 
     "sendViaEmail": false,  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00"  
+    "expiresAt": "2026-06-09T08:18:36+00:00"  
 
   }  
 
@@ -277,7 +277,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -285,7 +285,7 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
@@ -376,7 +376,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -407,7 +407,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -415,13 +415,13 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
     "cancelUrl": "https://gateway.ixopay.com/api/v3/payByLink/d94c0d72f3a36e21f16e/cancel",  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00",  
+    "expiresAt": "2026-06-09T08:18:36+00:00",  
 
   }  
 
@@ -438,7 +438,7 @@ Content-Type: application/json
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -468,7 +468,7 @@ Content-Type: application/json
 
     "sendViaEmail": false,  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00"  
+    "expiresAt": "2026-06-09T08:18:36+00:00"  
 
   }  
 
@@ -524,7 +524,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -532,7 +532,7 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
@@ -622,7 +622,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -653,7 +653,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -661,13 +661,13 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
     "cancelUrl": "https://gateway.ixopay.com/api/v3/payByLink/d94c0d72f3a36e21f16e/cancel",  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00",  
+    "expiresAt": "2026-06-09T08:18:36+00:00",  
 
   }  
 
@@ -684,7 +684,7 @@ Content-Type: application/json
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -714,7 +714,7 @@ Content-Type: application/json
 
     "sendViaEmail": false,  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00"  
+    "expiresAt": "2026-06-09T08:18:36+00:00"  
 
   }  
 
@@ -770,7 +770,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -778,7 +778,7 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
@@ -868,7 +868,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -899,7 +899,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -907,13 +907,13 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
     "cancelUrl": "https://gateway.ixopay.com/api/v3/payByLink/d94c0d72f3a36e21f16e/cancel",  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00",  
+    "expiresAt": "2026-06-09T08:18:36+00:00",  
 
   }  
 
@@ -930,7 +930,7 @@ Content-Type: application/json
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -960,7 +960,7 @@ Content-Type: application/json
 
     "sendViaEmail": false,  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00"  
+    "expiresAt": "2026-06-09T08:18:36+00:00"  
 
   }  
 
@@ -1016,7 +1016,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1024,7 +1024,7 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
@@ -1121,7 +1121,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1152,7 +1152,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1160,13 +1160,13 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
     "cancelUrl": "https://gateway.ixopay.com/api/v3/payByLink/d94c0d72f3a36e21f16e/cancel",  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00",  
+    "expiresAt": "2026-06-09T08:18:36+00:00",  
 
   }  
 
@@ -1183,7 +1183,7 @@ Content-Type: application/json
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1213,7 +1213,7 @@ Content-Type: application/json
 
     "sendViaEmail": false,  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00"  
+    "expiresAt": "2026-06-09T08:18:36+00:00"  
 
   }  
 
@@ -1269,7 +1269,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1277,7 +1277,7 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
@@ -1367,7 +1367,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1398,7 +1398,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1406,13 +1406,13 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 
     "cancelUrl": "https://gateway.ixopay.com/api/v3/payByLink/d94c0d72f3a36e21f16e/cancel",  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00",  
+    "expiresAt": "2026-06-09T08:18:36+00:00",  
 
   }  
 
@@ -1429,7 +1429,7 @@ Content-Type: application/json
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1459,7 +1459,7 @@ Content-Type: application/json
 
     "sendViaEmail": false,  
 
-    "expiresAt": "2026-06-02T12:53:43+00:00"  
+    "expiresAt": "2026-06-09T08:18:36+00:00"  
 
   }  
 
@@ -1515,7 +1515,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260601-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1523,7 +1523,7 @@ Content-Type: application/json
 
   "paymentMethod": "Creditcard",  
 
-  "expiresAt": "2026-06-02 12:53:43 UTC",  
+  "expiresAt": "2026-06-09 08:18:36 UTC",  
 
   "payByLinkData": {  
 

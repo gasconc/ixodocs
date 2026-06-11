@@ -2,9 +2,10 @@
 title: What is Tokenization?
 summary: ' Getting started  What is Tokenization?'
 tags:
-- tokenization-overview-https-documentation-ixopay-com-modules-docs-tokenex-tokenization-tokenization-overview-direct-link-tokenization-overview
+- tokenization-https-documentation-ixopay-com-modules-docs-tokenex-tokenization-tokenization-overview-direct-link-tokenization
 - benefits-tokenization-https-documentation-ixopay-com-modules-docs-tokenex-tokenization-benefits-tokenization-direct-link-benefits-tokenization
 - additional-resources-https-documentation-ixopay-com-modules-docs-tokenex-tokenization-additional-resources-direct-link-additional-resources
+- ixopay-tokenization-work-https-documentation-ixopay-com-modules-docs-tokenex-tokenization-ixopay-tokenization-work-direct-link-ixopay-tokenization-work
 - tokenization
 - tokenex
 - ixopay
@@ -12,7 +13,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/what-is-tokenization
 portal: ixopay-modules
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -20,7 +21,7 @@ related: []
   * What is Tokenization?
 
 # What is Tokenization?
-## Tokenization Overview[​](https://documentation.ixopay.com/modules/docs/tokenex/what-is-tokenization#tokenization-overview "Direct link to Tokenization Overview")
+## What is tokenization?[​](https://documentation.ixopay.com/modules/docs/tokenex/what-is-tokenization#tokenization-overview "Direct link to What is tokenization?")
 [Watch "What is Tokenization?" on YouTube](https://www.youtube.com/watch?v=l14zhM8CmHE) Watch   
 
 Tokenization is the process of exchanging sensitive data for non-sensitive data called "tokens" that can be used in a database or internal system without bringing it into scope. Sensitive data could include credit card data, medical information, Social Security numbers, or anything else that requires security and protection.
@@ -41,3 +42,5 @@ The advantage to cloud tokenization is there is no information available to stea
   * [TokenEx Token Schemes](https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes#vaultless)
 
 **Do you have additional questions about Tokenization?** Feel free to [contact us](https://www.ixopay.com/en/contact).
+## How does IXOPAY tokenization work?[​](https://documentation.ixopay.com/modules/docs/tokenex/what-is-tokenization#how-does-ixopay-tokenization-work "Direct link to How does IXOPAY tokenization work?")
+IXOPAY tokenization replaces sensitive data, such as credit card numbers, with a non-sensitive token that has no mathematical relationship to the original value. The original sensitive data is stored securely outside your business systems, so only the IXOPAY tokenization platform can map a token back to the underlying data. Because there is no usable information left in your environment, a breach of a tokenized system cannot expose the original sensitive data.

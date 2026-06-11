@@ -4,17 +4,17 @@ summary: ' BIN Lookup  BIN Lookup Guide'
 tags:
 - bin-lookup-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-bin-lookup-direct-link-bin-lookup
 - bin-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-bin-direct-link-bin
-- data-sources-reliability-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-data-sources-reliability-direct-link-data-sources-reliability
-- leveraging-bin-lookup-data-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-leveraging-bin-lookup-data-direct-link-leveraging-bin-lookup-data
+- data-sources-ixopay-bin-lookup-reliable-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-data-sources-reliability-direct-link-data-sources-ixopay-bin-lookup-reliable
+- leverage-bin-lookup-data-improve-payment-processing-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-leveraging-bin-lookup-data-direct-link-leverage-bin-lookup-data-improve-payment-processing
 - understanding-card-type-funding-source-combo-card-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-understanding-card-type-funding-source-combo-card-direct-link-understanding-card-type-funding-source-combo-card
 - understanding-additional-card-brands-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-understanding-additional-card-brands-direct-link-understanding-additional-card-brands
 - understanding-pan-token-apple-google-pay-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-understanding-pan-token-applegoogle-pay-direct-link-understanding-pan-token-apple-google-pay
 - understanding-issuer-supports-token-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-understanding-issuer-supports-token-direct-link-understanding-issuer-supports-token
-- accessing-bin-lookup-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-accessing-bin-lookup-direct-link-accessing-bin-lookup
+- access-bin-lookup-service-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-accessing-bin-lookup-direct-link-access-bin-lookup-service
 - full-bin-file-download-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-full-bin-file-download-direct-link-full-bin-file-download
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview
 portal: ixopay-modules
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -35,9 +35,9 @@ A **Bank Identification Number (BIN)** consists of the first 4, 6, or 8 digits o
 **The TokenEx Advantage**
 With TokenEx Universal Tokens, you can access enriched card data without needing to manage the raw PAN or BIN yourself. Because TokenEx is a PCI Level 1 service provider, the system **automatically queries the database using the full PAN collected during the tokenization process**. This ensures the highest level of data accuracy while allowing you to access complete card data without expanding your PCI DSS compliance scope.
 This approach also eliminates the common issue of **overlapping BINs**. Traditional lookups often rely on only the first 6 or 8 digits, which can lead to inaccurate results as card ranges become more complex. Since TokenEx processes the full card number, these overlaps become a non-issue, providing precise and unambiguous metadata every time.
-## Data Sources and Reliability[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#data-sources-and-reliability "Direct link to Data Sources and Reliability")
+## What data sources does IXOPAY use for BIN Lookup and how reliable are they?[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#data-sources-and-reliability "Direct link to What data sources does IXOPAY use for BIN Lookup and how reliable are they?")
 TokenEx provides over 70 distinct BIN data points and acts as a **direct pass-through service** for the card brands to ensure maximum data accuracy. To provide enterprise-grade reliability, the data is refreshed weekly. Additionally, **continuity logic** is built in: if a card brand drops a specific range from their active file, we return the last known response for that range. In scenarios where issuers have removed ranges such as moments of reclassification, this prevents unknown responses, ensuring the card remains functional and your data remains consistent.
-## Leveraging BIN Lookup Data[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#leveraging-bin-lookup-data "Direct link to Leveraging BIN Lookup Data")
+## How can I leverage BIN Lookup data to improve payment processing?[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#leveraging-bin-lookup-data "Direct link to How can I leverage BIN Lookup data to improve payment processing?")
 Using BIN Lookup provides direct strategic value for your business by:
   * **Improving Authorization Rates:** Allows you to route transactions to the acquiring processor most likely to approve that specific issuer's card, reducing false declines.
   * **Preventing Fraud:** Helps you cross-reference the card issuer's region with the customer's location to flag risky transactions, or block non-reloadable prepaid cards from initiating recurring subscriptions.
@@ -53,7 +53,7 @@ The **pan_or_token** column identifies whether a transaction uses a traditional 
 When a customer pays via mobile wallet, they use a device-specific **DPAN** (Device Primary Account Number). Our platform is fully equipped to handle these secure identifiers. By analyzing the token's BIN, we identify the real bank and card type associated with that payment. This ensures you maintain full transaction visibility and optimization—such as identifying the **Issuing Bank** and **Funding Source** —without ever needing to see the sensitive physical card data.
 ### Understanding "Issuer Supports Token"[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#understanding-issuer-supports-token "Direct link to Understanding "Issuer Supports Token"")
 The **issuer_supports_tokenization** field indicates whether a bank's infrastructure is technically equipped to handle network tokenization services. This value is set to true when network data confirms the issuing bank supports these services; otherwise, the field remains null. Currently, this capability is exclusive to **Visa** and **Mastercard** networks. For Visa, this information is integrated into their standard network files, while for Mastercard, the data is sourced from quarterly digital enablement files that map specific BIN ranges to tokenization support.
-## Accessing BIN Lookup[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#accessing-bin-lookup "Direct link to Accessing BIN Lookup")
+## How do I access the BIN Lookup service?[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#accessing-bin-lookup "Direct link to How do I access the BIN Lookup service?")
 ### Full BIN File Download[​](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#full-bin-file-download "Direct link to Full BIN File Download")
 BIN Lookup Enterprise subscribers can download a local copy of the full BIN database (provided as a CSV file in a .zip archive). This file is updated every Tuesday at 9:00 AM UTC and is ideal for minimizing latency and enabling offline lookups.
 **Search Logic:** Enterprise customers must build logic to search for a BIN within the provided ranges. For example, to look up BIN "464565", you generate a 19-digit value padded with zeros (4645650000000000000) and search for the rows where this value falls between the bin_min and bin_max fields.
@@ -71,12 +71,12 @@ You can access the BIN Lookup service through three primary methods:
 
   * [What is BIN Lookup?](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#what-is-bin-lookup)
     * [What is a BIN?](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#what-is-a-bin)
-  * [Data Sources and Reliability](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#data-sources-and-reliability)
-  * [Leveraging BIN Lookup Data](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#leveraging-bin-lookup-data)
+  * [What data sources does IXOPAY use for BIN Lookup and how reliable are they?](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#data-sources-and-reliability)
+  * [How can I leverage BIN Lookup data to improve payment processing?](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#leveraging-bin-lookup-data)
     * [Understanding Card "Type" vs. "Funding Source" vs. "Combo Card"](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#understanding-card-type-vs-funding-source-vs-combo-card)
     * [Understanding Additional Card Brands](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#understanding-additional-card-brands)
     * [Understanding "Pan or Token" and Apple/Google Pay](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#understanding-pan-or-token-and-applegoogle-pay)
     * [Understanding "Issuer Supports Token"](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#understanding-issuer-supports-token)
-  * [Accessing BIN Lookup](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#accessing-bin-lookup)
+  * [How do I access the BIN Lookup service?](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#accessing-bin-lookup)
     * [Full BIN File Download](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#full-bin-file-download)
     * [Single BIN Lookup](https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview#single-bin-lookup)

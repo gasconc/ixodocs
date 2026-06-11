@@ -3,10 +3,10 @@ title: Meta-Connector - Routing - Cascading - Balancing - Fallback
 summary: ' Meta-Connector - Routing - Cascading - Balancing - Fallback'
 tags:
 - video-meta-connector-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-video-meta-connector-direct-link-video-meta-connector
-- meta-connector-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-meta-connector-direct-link-meta-connector
+- creating-meta-connector-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-meta-connector-direct-link-creating-meta-connector
 - rule-editor-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-rule-editor-direct-link-rule-editor
 - conditions-actions-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-conditions-actions-direct-link-conditions-actions
-- fallback-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-fallback-direct-link-fallback
+- configuring-fallback-routing-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-fallback-direct-link-configuring-fallback-routing
 - backup-provider-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-backup-provider-direct-link-backup-provider
 - happens-transactions-processed-via-meta-connector-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-happens-transactions-processed-via-meta-connector-direct-link-happens-transactions-processed-via-meta-connector
 - hard-decline-messages-non-recoverable-failures-https-documentation-ixopay-com-manual-docs-connector-routing-cascading-balancing-fallback-hard-decline-messages-non-recoverable-failures-direct-link-hard-decline-messages-non-recoverable-failures
@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -28,7 +28,7 @@ The first step to implementing routing, cascading, balancing and fallback strate
 Learn how to create and set up a Meta-Connector.
 tip
 Before we get started with the Meta-Connector, it is important to note that its setup requires you to have already set up the connector you want to use for routing. The first step is therefore to create connectors for each PSP you want to use. If you already have configured your connectors, you can use those instead of creating new ones. However, it is advisable to create new connectors if you wish to use different connector configurations with the Meta-Connector.
-## Meta-Connector[​](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#meta-connector "Direct link to Meta-Connector")
+## Creating a Meta-Connector[​](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#meta-connector "Direct link to Creating a Meta-Connector")
 Follow these steps to create a Meta-Connector:
   1. Navigate to the **Connectors Overview** of the merchant you want to add the Meta-Connector for.
   2. Open the **New Connector** drop-down and select **+ New Meta-Connector** (see Connector Overview).
@@ -126,7 +126,7 @@ Conditions split into additional branches until ending with an action as the fin
 | Route to Connector  | Select the connector to route the transaction to from the list of available connectors  |  
 tip
 Deleting a node removes all child nodes and branches.
-## Fallback[​](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#fallback "Direct link to Fallback")
+## Configuring Fallback Routing[​](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#fallback "Direct link to Configuring Fallback Routing")
 Certain error codes are considered "recoverable" failures, because the reason for failure is down to either a misconfiguration or a technical issue upstream at the provider level. Non-recoverable errors will occur irrespective of the provider.
 Unlike the smart routing configuration, where you need to define conditions in order to apply routing, fallback routing does not require any conditions. The purpose of fallback routing is to recover transactions declined by one provider (Provider A) and send the same transaction to another provider (Provider B) without any customer interaction. Customers will not notice any issues with the first provider, as the transaction is routed to another PSP by the IXOPAY platform in the background.
 ![Fallback setup](https://documentation.ixopay.com/manual/assets/ideal-img/fallback-setup.37e49c7.1280.png)Fallback setup

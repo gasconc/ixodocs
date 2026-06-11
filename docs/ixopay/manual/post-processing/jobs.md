@@ -14,7 +14,7 @@ tags:
 - job-steps-https-documentation-ixopay-com-manual-docs-post-processing-jobs-job-steps-direct-link-job-steps
 source_url: https://documentation.ixopay.com/manual/docs/post-processing/jobs
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

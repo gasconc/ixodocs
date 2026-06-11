@@ -15,7 +15,7 @@ tags:
 - 3ds
 source_url: https://documentation.ixopay.com/api/transaction/prepare-debit
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -28,7 +28,7 @@ related: []
 POST 
 ## https://gateway.ixopay.com/api/v3/transaction/:apiKey/prepare-debit
 
-```Prepare a debit transaction, will not create a transaction on the [IXOPAY platform](https://www.ixopay.com). Used with very specific payment adapters to prepare a frontend payment widget.
+```Prepare a debit transaction, will not create a transaction on IXOPAY. Used with very specific payment adapters to prepare a frontend payment widget.
 ## Request[​](https://documentation.ixopay.com/api/transaction/prepare-debit#request "Direct link to request")
 ### Path Parameters
 **apiKey** stringrequired

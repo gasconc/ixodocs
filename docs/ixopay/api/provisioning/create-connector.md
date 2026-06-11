@@ -14,7 +14,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/api/provisioning/create-connector
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

@@ -11,7 +11,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/p2pe-tokenize
 portal: ixopay-modules
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

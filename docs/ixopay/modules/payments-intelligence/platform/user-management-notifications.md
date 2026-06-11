@@ -11,7 +11,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/user-management-notifications
 portal: ixopay-modules
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

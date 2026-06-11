@@ -14,7 +14,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/api/transaction/continue-dcc
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

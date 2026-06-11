@@ -14,7 +14,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/completing-a-challenge
 portal: ixopay-modules
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -23,7 +23,7 @@ related: []
 
 # Completing a Challenge
 Implementing a 3DS challenge flow within the client's browser.
-If a transaction is determined to be a high-risk by the ACS, the client will be required to pass an authentication challenge. The challenge is required when an [Authentications](https://documentation.ixopay.com/modules/docs/tokenex/authentications)' `threeDSecureResponse` has a `"transStatus" : "C"`.
+If a transaction is determined to be a high-risk by the Access Control Server (ACS), the client will be required to pass an authentication challenge. The challenge is required when an [Authentications](https://documentation.ixopay.com/modules/docs/tokenex/authentications)' `threeDSecureResponse` has a `"transStatus" : "C"`.
 This challenge can be loaded into an iframe via a form that posts the `encdodedCreq` to the `acsURL` from the Authentications response. The form will return a challenge window (HTML with embedded styling and javascript) with which the client will interact. The challenge could require an OTP (one time passcode), the selection of one or more answers, or some other interaction. When the client completes the challenge, the challenge window posts the answer(s) to the ACS and a summary (notification) of the challenge results is sent to the notification URL provided in the Authentications request. When that notification is received, a request containing the relevant `threeDSServerTransID` can then be sent to [Challenge Results](https://documentation.ixopay.com/modules/docs/tokenex/challenge-results). The response contains the results of that challenge, and if successful, any additional 3DS information (`eci`, `dsTransId`, `acsTransId`, etc.) needed to process the payment.
 ## Authentications Request and Response[​](https://documentation.ixopay.com/modules/docs/tokenex/completing-a-challenge#authentications-request-and-response "Direct link to Authentications Request and Response")
 The Authentications request contains a few fields which influence a potential challenge.

@@ -10,7 +10,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/welcome
 portal: tokenex
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -18,7 +18,7 @@ related: []
   * Welcome!
 
 # Welcome!
-Welcome to TokenEx. Our cloud-based data protection platform helps our clients achieve their business objectives while minimizing risk and compliance scope. The following guides and API documentation will help you successfully integrate with our platform.
+Welcome to IXOPAY. Our cloud-based data protection platform helps our clients achieve their business objectives while minimizing risk and compliance scope. The following guides and API documentation will help you successfully integrate with our platform.
 ## Getting Started[​](https://documentation.ixopay.com/modules/docs/tokenex/welcome#getting-started "Direct link to Getting Started")
 Reading through the following pages will help you to understand the TokenEx platform before you review the specifics of the APIs:
   * [What is Tokenization?](https://documentation.ixopay.com/modules/docs/tokenex/what-is-tokenization)

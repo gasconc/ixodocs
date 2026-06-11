@@ -2,13 +2,13 @@
 title: Fee Management
 summary: ' Fee Management'
 tags:
-- fee-entities-video-create-fee-entity-feeshttps-documentation-ixopay-com-manual-docs-connector-fee-management-fee-entities-fees-order-able-fees-connector-level-fee-entities-created-sub-tenant-level-first-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees
-- fee-entities-video-create-fee-entity-feeshttps-documentation-ixopay-com-manual-docs-connector-fee-management-fee-entities-fees-order-able-fees-connector-level-fee-entities-created-sub-tenant-level-first-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees-fee-entities-video-create-fee-entity-feeshttps-documentation-ixopay-com-manual-docs-connector-fee-management-fee-entities-fees-order-able-fees-connector-level-fee-entities-created-sub-tenant-level-first-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees
+- fee-entities-create-manage-fee-entities-define-group-transactional-periodic-fees-assigned-merchants-connectors-https-documentation-ixopay-com-manual-docs-connector-fee-management-fee-entities-fees-assign-transactional-periodic-fees-connectors-predefined-fee-entities-manage-billing-cost-allocation-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees
+- fee-entities-create-manage-fee-entities-define-group-transactional-periodic-fees-assigned-merchants-connectors-https-documentation-ixopay-com-manual-docs-connector-fee-management-fee-entities-fees-assign-transactional-periodic-fees-connectors-predefined-fee-entities-manage-billing-cost-allocation-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees-fee-entities-create-manage-fee-entities-define-group-transactional-periodic-fees-assigned-merchants-connectors-https-documentation-ixopay-com-manual-docs-connector-fee-management-fee-entities-fees-assign-transactional-periodic-fees-connectors-predefined-fee-entities-manage-billing-cost-allocation-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees
 - ixopay
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector/fee-management
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -21,6 +21,6 @@ The Fee Management Engine configuration is a two step process:
   1. [Create Fee Entities](https://documentation.ixopay.com/manual/docs/connector/fee-management/fee-entities) on (Sub-) Tenant level
   2. [Set up transactional and/or periodic fees](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees) per Fee Entity on Merchant / Connector level.
 
-## [ Fee Entities Video: Create a New Fee Entity and Set Up Fees](https://documentation.ixopay.com/manual/docs/connector/fee-management/fee-entities)## [ Set up Fees In order to be able to set up Fees on Connector level, Fee Entities created on (Sub-)Tenant level first.](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees)
+## [ Fee Entities Create and manage Fee Entities to define and group transactional and periodic fees assigned to merchants and connectors.](https://documentation.ixopay.com/manual/docs/connector/fee-management/fee-entities)## [ Set up Fees Set up and assign transactional and periodic fees on connectors using predefined fee entities to manage billing and cost allocation.](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees)
 
-## [ Fee Entities Video: Create a New Fee Entity and Set Up Fees](https://documentation.ixopay.com/manual/docs/connector/fee-management/fee-entities)## [ Set up Fees In order to be able to set up Fees on Connector level, Fee Entities created on (Sub-)Tenant level first.](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees)## [ Fee Entities Video: Create a New Fee Entity and Set Up Fees](https://documentation.ixopay.com/manual/docs/connector/fee-management/fee-entities)## [ Set up Fees In order to be able to set up Fees on Connector level, Fee Entities created on (Sub-)Tenant level first.](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees)
+## [ Fee Entities Create and manage Fee Entities to define and group transactional and periodic fees assigned to merchants and connectors.](https://documentation.ixopay.com/manual/docs/connector/fee-management/fee-entities)## [ Set up Fees Set up and assign transactional and periodic fees on connectors using predefined fee entities to manage billing and cost allocation.](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees)## [ Fee Entities Create and manage Fee Entities to define and group transactional and periodic fees assigned to merchants and connectors.](https://documentation.ixopay.com/manual/docs/connector/fee-management/fee-entities)## [ Set up Fees Set up and assign transactional and periodic fees on connectors using predefined fee entities to manage billing and cost allocation.](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees)

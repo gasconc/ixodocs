@@ -13,7 +13,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/adapters/emerchantpaygenesis-pci
 portal: ixopay-dev
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 

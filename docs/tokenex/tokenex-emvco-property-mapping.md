@@ -2,6 +2,7 @@
 title: 'TokenEx : EMVCo Property Mapping'
 summary: ' 3-D Secure Authentication  TokenEx : EMVCo Property Mapping'
 tags:
+- api
 - webhook
 - 3ds
 - tokenex
@@ -11,17 +12,17 @@ tags:
 - authorization
 - credit-card
 - transaction
-- merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenex-emvco-property-mapping
 portal: tokenex
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
 * 3-D Secure Authentication
   * TokenEx : EMVCo Property Mapping
 
-# TokenEx : EMVCo Property Mapping  
+# TokenEx : EMVCo Property Mapping
+This page provides a field-by-field mapping between the IXOPAY API property names and their corresponding EMVCo 3DS 2.1/2.2 specification field names. Key fields include DeviceChannel, MessageCategory, MessageVersion, and authentication indicators used when constructing a 3DS authentication request. Use this reference to ensure your integration correctly maps IXOPAY request parameters to the underlying EMVCo standard.  
 | TokenEx Property  | 3DS version 2.1/2.2 EMVCo  | Data Type (TokenEx)  | Description  |  
 | --- | --- | --- | --- |  
 | DeviceChannel  | deviceChannel  | int  | Indicates the type of channel interface being used to initiate the transaction.   

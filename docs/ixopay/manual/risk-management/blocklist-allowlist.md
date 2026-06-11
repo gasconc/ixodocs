@@ -3,15 +3,15 @@ title: Block- & Allowlist
 summary: ' Risk Managementhttps://documentation.ixopay.com/manual/docs/risk-management  Block-
   & Allowlist'
 tags:
-- importing-data-https-documentation-ixopay-com-manual-docs-risk-management-blocklist-allowlist-importing-data-direct-link-importing-data
+- importing-data-bulk-https-documentation-ixopay-com-manual-docs-risk-management-blocklist-allowlist-importing-data-direct-link-importing-data-bulk
 - blocklist-rules-https-documentation-ixopay-com-manual-docs-risk-management-blocklist-allowlist-blocklist-rules-direct-link-blocklist-rules
-- log-export-https-documentation-ixopay-com-manual-docs-risk-management-blocklist-allowlist-log-export-direct-link-log-export
+- exporting-change-logs-https-documentation-ixopay-com-manual-docs-risk-management-blocklist-allowlist-log-export-direct-link-exporting-change-logs
 - ixopay
 - transaction
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -36,7 +36,7 @@ To manage the blocklist and allowlist:
 note
 Blocklist/allowlist entries are only applied to transactions when assigned to the corresponding rule (**Blocklist/Allowlist**) in a risk profile.
 ![Assign Blocklist to Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/assign-blocklist-to-risk-profile.7855961.1280.png)Assign Blocklist to Risk Profile
-## Importing data[​](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#importing-data "Direct link to Importing data")
+## Importing Data in Bulk[​](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#importing-data "Direct link to Importing Data in Bulk")
 You can also import data for the allowlist/blocklist by uploading a file, rather than defining the rules manually in the IXOPAY platform.
 This file should be a simple text file with each line representing a value to import for the specified key. For example, to import a list of email addresses to block, the file could contain following content:
 ```
@@ -71,7 +71,7 @@ Assign the blocklist to a risk profile as described above.
 note
 Blocklist/allowlist entries are only applied to transactions when assigned to the corresponding rule (**Blocklist/Allowlist**) in a risk profile.
 ![Assign Blocklist to Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/assign-blocklist-to-risk-profile.7855961.1280.png)Assign Blocklist to Risk Profile
-## Log Export[​](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#log-export "Direct link to Log Export")
+## Exporting Change Logs[​](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#log-export "Direct link to Exporting Change Logs")
   1. Navigate to the **Blocklist / Allowlist** you want to export the log data for.
   2. Click on **Log** to display the logs.
   3. Click on **Data Export**. You will be redirected to the **Data Export** page for blocklist / allowlist logs.
@@ -122,9 +122,9 @@ Once the export has completed, it is displayed in the Data Export overview with 
 ![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.8b142b6.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.44e9991.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.a33c433.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.dd44609.1280.png)Data Export: Download/Delete
 File retention
 Files are retained for 12 months and permanently deleted thereafter.
-  * [Importing data](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#importing-data)
+  * [Importing Data in Bulk](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#importing-data)
   * [Blocklist Rules](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#blocklist-rules)
-  * [Log Export](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#log-export)
+  * [Exporting Change Logs](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#log-export)
 ```
 
 test@example.com  

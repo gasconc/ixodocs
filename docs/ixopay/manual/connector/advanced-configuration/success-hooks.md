@@ -3,7 +3,7 @@ title: Success Hooks
 summary: ' Advanced Configurationhttps://documentation.ixopay.com/manual/docs/connector/advanced-configuration  Success
   Hooks'
 tags:
-- configuring-hooks-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-success-hooks-configuring-hooks-direct-link-configuring-hooks
+- configuring-success-hooks-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-success-hooks-configuring-hooks-direct-link-configuring-success-hooks
 - send-sendgrid-mail-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-success-hooks-send-sendgrid-mail-direct-link-send-sendgrid-mail
 - send-success-mail-customer-paybylink-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-success-hooks-send-success-mail-customer-paybylink-direct-link-send-success-mail-customer-paybylink
 - send-success-mail-merchant-paybylink-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-success-hooks-send-success-mail-merchant-paybylink-direct-link-send-success-mail-merchant-paybylink
@@ -15,7 +15,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -32,7 +32,7 @@ The following hooks are currently available:
 
 note
 Not all options may be applicable to you.
-## Configuring hooks[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks#configuring-hooks "Direct link to Configuring hooks")
+## Configuring Success Hooks[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks#configuring-hooks "Direct link to Configuring Success Hooks")
 To configure hooks follow this steps:
   1. Go to the **Connector Detail Overview** of the desired Connector
   2. Click **Edit** on the **Settings** section (see Connector Detail Overview)

@@ -2,10 +2,10 @@
 title: Account Updater
 summary: ' Account Updater'
 tags:
-- ixopay-account-updater-permissions-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-ixopay-account-updater-permissions-direct-link-ixopay-account-updater-permissions
-- merchant-configuration-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-merchant-configuration-direct-link-merchant-configuration
-- connector-configuration-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-connector-configuration-direct-link-connector-configuration
-- reporting-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-reporting-direct-link-reporting
+- account-updater-permissions-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-ixopay-account-updater-permissions-direct-link-account-updater-permissions
+- configuring-account-updater-per-merchant-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-merchant-configuration-direct-link-configuring-account-updater-per-merchant
+- excluding-connector-account-updater-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-connector-configuration-direct-link-excluding-connector-account-updater
+- account-updater-reports-update-details-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-reporting-direct-link-account-updater-reports-update-details
 - post-processing-update-fee-count-calculation-https-documentation-ixopay-com-manual-docs-tokenization-account-updater-post-processing-update-fee-count-calculation-direct-link-post-processing-update-fee-count-calculation
 - api
 - tokenization
@@ -14,7 +14,7 @@ tags:
 - settlement
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/account-updater
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -33,10 +33,10 @@ This is done via automatic updates of the cards stored in the IXOPAY platform Va
 Users will be able to see how many cards have been updated in the [Dashboard](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets) as well as detailed overview in the Account Updater List.
 note
 The Account Updater is only available in the Production environment.
-## IXOPAY Account Updater Permissions[​](https://documentation.ixopay.com/manual/docs/tokenization/account-updater#ixopay-account-updater-permissions "Direct link to IXOPAY Account Updater Permissions")
+## Account Updater Permissions[​](https://documentation.ixopay.com/manual/docs/tokenization/account-updater#ixopay-account-updater-permissions "Direct link to Account Updater Permissions")
 To be able to setup the feature, the permission must be enabled for your tenant and activated for your [Admin User Role](https://documentation.ixopay.com/manual/docs/system-setup/roles). This will be done by you Customer Success Manager for you.
 ![Permission Admin User](https://documentation.ixopay.com/manual/assets/ideal-img/permission-admin-user.857c169.1280.png)Permission Admin User
-## Merchant Configuration[​](https://documentation.ixopay.com/manual/docs/tokenization/account-updater#merchant-configuration "Direct link to Merchant Configuration")
+## Configuring the Account Updater per Merchant[​](https://documentation.ixopay.com/manual/docs/tokenization/account-updater#merchant-configuration "Direct link to Configuring the Account Updater per Merchant")
 Once activated for the admin user role, the IXOPAY Account Updater can be configured per merchant. The following parameters have to be configured:
   1. In the Merchant Overview click on **Edit** for the Merchant you want to configure the IXOPAY Account Updater for
   2. Enable the **IXOPAY Account Updater** (see Image Merchant Details)
@@ -53,7 +53,7 @@ Only for cards where one of the above events is true, updates will included in t
 note
 Disabled and archived Connectors are included in the IXOPAY account updater. Make sure to exclude these connectors individually if no updates are desired for these Connectors.
 Connectors which have Test Mode enabled and Adapter Simulator are NOT included at all in the IXOPAY account updater.
-## Connector Configuration[​](https://documentation.ixopay.com/manual/docs/tokenization/account-updater#connector-configuration "Direct link to Connector Configuration")
+## Excluding a Connector from the Account Updater[​](https://documentation.ixopay.com/manual/docs/tokenization/account-updater#connector-configuration "Direct link to Excluding a Connector from the Account Updater")
 Want to exclude the IXOPAY Account Updater for several connectors? Use our Global connector settings feature as described [here](https://documentation.ixopay.com/manual/docs/connector/edit/global-connector-settings).
 To exclude the **IXOPAY Account Updater** for a connector, follow this steps:
   1. Go to the Connectors Overview on the configured merchant and click **Edit**
@@ -65,7 +65,7 @@ After configuration all cards from register, debit+register and preauth+register
 ![Connector overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-overview.78ba70a.1280.png)Connector overview![Connector Detail View](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-view.d21f231.1280.png)Connector Detail View![Setting configured](https://documentation.ixopay.com/manual/assets/ideal-img/setting-configured.8939168.1148.png)Setting configured
 note
 Keep in mind that the IXOPAY Account Updater can only update cards where the Acquirer is providing the update information to the scheme network. Furthermore update information can take up to 5 days.
-## Reporting[​](https://documentation.ixopay.com/manual/docs/tokenization/account-updater#reporting "Direct link to Reporting")
+## Account Updater Reports and Update Details[​](https://documentation.ixopay.com/manual/docs/tokenization/account-updater#reporting "Direct link to Account Updater Reports and Update Details")
 We have created a widget, providing a complete overview of the cards that have been updated. You can update your Dashboard with the widget **Updated Cards** as described [here](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/edit-mode) (see Dashboard Widget).
 ![Dashboard Widget](https://documentation.ixopay.com/manual/assets/ideal-img/dashboard-widget.1f75f03.1280.png)Dashboard Widget
 For each send batch the current **Status** can be seen in the overview. Clicking on **Details** (see Update Details) shows a list of all updated information

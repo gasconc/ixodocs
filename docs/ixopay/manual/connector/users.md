@@ -2,8 +2,8 @@
 title: Create Users (Web & API)
 summary: ' Create Users Web & API'
 tags:
-- web-user-video-web-userhttps-documentation-ixopay-com-manual-docs-connector-users-web-api-user-video-api-userhttps-documentation-ixopay-com-manual-docs-connector-users-api
-- web-user-video-web-userhttps-documentation-ixopay-com-manual-docs-connector-users-web-api-user-video-api-userhttps-documentation-ixopay-com-manual-docs-connector-users-api-web-user-video-web-userhttps-documentation-ixopay-com-manual-docs-connector-users-web-api-user-video-api-userhttps-documentation-ixopay-com-manual-docs-connector-users-api
+- web-user-web-users-provide-dashboard-access-merchants-browser-support-across-devices-configurable-roles-permissions-https-documentation-ixopay-com-manual-docs-connector-users-web-api-user-create-configure-api-users-grant-programmatic-access-payment-apis-appropriate-credentials-user-level-permissions-https-documentation-ixopay-com-manual-docs-connector-users-api
+- web-user-web-users-provide-dashboard-access-merchants-browser-support-across-devices-configurable-roles-permissions-https-documentation-ixopay-com-manual-docs-connector-users-web-api-user-create-configure-api-users-grant-programmatic-access-payment-apis-appropriate-credentials-user-level-permissions-https-documentation-ixopay-com-manual-docs-connector-users-api-web-user-web-users-provide-dashboard-access-merchants-browser-support-across-devices-configurable-roles-permissions-https-documentation-ixopay-com-manual-docs-connector-users-web-api-user-create-configure-api-users-grant-programmatic-access-payment-apis-appropriate-credentials-user-level-permissions-https-documentation-ixopay-com-manual-docs-connector-users-api
 - api
 - ixopay
 - merchant
@@ -11,7 +11,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/docs/connector/users
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -23,6 +23,6 @@ In this section of the manual, you will find instructions on how to create and m
   * **Web User** : for accessing the gateway dashboard
   * **API User** : for accessing the gateway APIs
 
-## [ Web User Video: Web User](https://documentation.ixopay.com/manual/docs/connector/users/web)## [ API User Video: Set Up an API User](https://documentation.ixopay.com/manual/docs/connector/users/api)
+## [ Web User Set up web users to provide dashboard access for merchants, with browser support across devices and configurable roles and permissions.](https://documentation.ixopay.com/manual/docs/connector/users/web)## [ API User Create and configure API users to grant programmatic access to payment APIs with appropriate credentials and user-level permissions.](https://documentation.ixopay.com/manual/docs/connector/users/api)
 
-## [ Web User Video: Web User](https://documentation.ixopay.com/manual/docs/connector/users/web)## [ API User Video: Set Up an API User](https://documentation.ixopay.com/manual/docs/connector/users/api)## [ Web User Video: Web User](https://documentation.ixopay.com/manual/docs/connector/users/web)## [ API User Video: Set Up an API User](https://documentation.ixopay.com/manual/docs/connector/users/api)
+## [ Web User Set up web users to provide dashboard access for merchants, with browser support across devices and configurable roles and permissions.](https://documentation.ixopay.com/manual/docs/connector/users/web)## [ API User Create and configure API users to grant programmatic access to payment APIs with appropriate credentials and user-level permissions.](https://documentation.ixopay.com/manual/docs/connector/users/api)## [ Web User Set up web users to provide dashboard access for merchants, with browser support across devices and configurable roles and permissions.](https://documentation.ixopay.com/manual/docs/connector/users/web)## [ API User Create and configure API users to grant programmatic access to payment APIs with appropriate credentials and user-level permissions.](https://documentation.ixopay.com/manual/docs/connector/users/api)

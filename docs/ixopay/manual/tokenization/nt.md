@@ -2,9 +2,9 @@
 title: Network Token Services
 summary: ' Network Token Services'
 tags:
-- ixopay-network-token-services-permissions-https-documentation-ixopay-com-manual-docs-tokenization-ixopay-network-token-services-permissions-direct-link-ixopay-network-token-services-permissions
-- merchant-enrollment-https-documentation-ixopay-com-manual-docs-tokenization-merchant-enrollment-direct-link-merchant-enrollment
-- connector-configuration-https-documentation-ixopay-com-manual-docs-tokenization-connector-configuration-direct-link-connector-configuration
+- network-token-services-permissions-https-documentation-ixopay-com-manual-docs-tokenization-ixopay-network-token-services-permissions-direct-link-network-token-services-permissions
+- enrolling-merchant-network-token-services-https-documentation-ixopay-com-manual-docs-tokenization-merchant-enrollment-direct-link-enrolling-merchant-network-token-services
+- configuring-network-tokenization-per-connector-https-documentation-ixopay-com-manual-docs-tokenization-connector-configuration-direct-link-configuring-network-tokenization-per-connector
 - transaction-processing-network-tokens-https-documentation-ixopay-com-manual-docs-tokenization-transaction-processing-network-tokens-direct-link-transaction-processing-network-tokens
 - network-token-lifecycle-https-documentation-ixopay-com-manual-docs-tokenization-network-token-lifecycle-direct-link-network-token-lifecycle
 - api
@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/nt
 portal: ixopay-manual
-updated: '2026-06-08'
+updated: '2026-06-11'
 related: []
 ---
 
@@ -39,13 +39,13 @@ The IXOPAY platform provides network token services as a Token Requestor Aggrega
 Furthermore the Analytics and Reporting Capabilities of the IXOPAY platform will be adopted in regards to network tokens.
 note
 The Network Token Services is only available in the Production environment.
-## IXOPAY Network Token Services Permissions[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#ixopay-network-token-services-permissions "Direct link to IXOPAY Network Token Services Permissions")
+## Network Token Services Permissions[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#ixopay-network-token-services-permissions "Direct link to Network Token Services Permissions")
 To be able to setup the feature, the permissions **network-tokenization.enrollment.*** must be enabled for your tenant and activated for your [Admin User Role](https://documentation.ixopay.com/manual/docs/system-setup/roles) (see Network Token Services Permission). This will be done by our Customer Success Team for you.
 ![Network Token Services Permission](https://documentation.ixopay.com/manual/assets/ideal-img/network-token-services-permission.97c61f0.1280.png)Network Token Services Permission
 note
 Testing [IXOPAY](https://www.ixopay.com)'s Network Token Services you can use the SimulatorPCI adapter configured with **useSimulatorNetworkTokenization** set to **True**.
 ![Simulator useSimulatorNetworkTokenization](https://documentation.ixopay.com/manual/assets/ideal-img/simulator-use-simulator-network-tokenization.71a1559.1280.png)Simulator useSimulatorNetworkTokenization
-## Merchant Enrollment[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#merchant-enrollment "Direct link to Merchant Enrollment")
+## Enrolling a Merchant for Network Token Services[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#merchant-enrollment "Direct link to Enrolling a Merchant for Network Token Services")
 Once activated for the admin user role, a so called Token Requester ID (TRID) can be requested for both card schemes upon enrollment for the network token services.
 Enroll a Merchant for the network token services, by:
   1. Navigate to the **Tokenization** section, sub-section **Network Tokenization** (see Merchant Enrollment).
@@ -62,7 +62,7 @@ Network tokenization can be disabled for specific connectors on connector level 
 ![Merchant Enrollment](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-enrollment.01d91db.1280.png)Merchant Enrollment![Additional Merchant Information](https://documentation.ixopay.com/manual/assets/ideal-img/additional-merchant-information.0fb7088.1280.png)Additional Merchant Information
 note
 Keep in mind that it might take up to 3 business days before you will be able to create tokens after successfully enroll your Merchants due to technical scheme restrictions. Merchants sharing a Customer Profile or Tokens stored in the IXOPAY platform PCI Vault need to have the same TRID assigned in order to use Transaction Processing using network tokens.
-## Connector Configuration[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#connector-configuration "Direct link to Connector Configuration")
+## Configuring Network Tokenization per Connector[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#connector-configuration "Direct link to Configuring Network Tokenization per Connector")
 Want to exclude Network Tokenization for several connectors or change the configuration? Use our Global connector settings feature as described [here](https://documentation.ixopay.com/manual/docs/connector/edit/global-connector-settings).
 To change the network tokenization behavior for a connector or exclude the connector, follow this steps:
   1. Go to the Connectors Overview on the configured merchant and click **Edit**.
