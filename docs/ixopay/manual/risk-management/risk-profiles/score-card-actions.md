@@ -13,7 +13,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/score-card-actions
 portal: ixopay-manual
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

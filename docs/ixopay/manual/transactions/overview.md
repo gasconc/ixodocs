@@ -17,7 +17,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/manual/docs/transactions/overview
 portal: ixopay-manual
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

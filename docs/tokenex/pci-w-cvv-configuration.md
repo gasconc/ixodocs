@@ -10,7 +10,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/pci-w-cvv-configuration
 portal: tokenex
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

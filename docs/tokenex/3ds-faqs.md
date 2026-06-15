@@ -14,7 +14,7 @@ tags:
 - end-end-testing-between-providers-sandboxes-https-documentation-ixopay-com-modules-docs-tokenex-faqs-e2e-testing-provider-sandboxes-direct-link-end-end-testing-between-providers-sandboxes
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds-faqs
 portal: tokenex
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

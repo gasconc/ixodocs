@@ -17,7 +17,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/vamp
 portal: ixopay-modules
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 
@@ -42,7 +42,7 @@ The ratio should exclude pre-dispute solutions (e.g. RDR) and cases for Compelli
 The thresholds are being reviewed and adjusted by Visa on regular basis, the latest ones effective from the 1st of April 2026 for EU and US for merchants are **150bps** for the VAMP ratio additionally to a minimal threshold for the count of fraud cases of 1500 **per month**
 The cases for fraud and chargebacks in case there is a tc40 reported case and a chargeback that has been raised are **double counted**.
 ### How to Start monitoring VAMP with IXOPAY Payments Intelligence[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/vamp#how-to-start-monitoring-vamp-with-ixopay-payments-intelligence "Direct link to How to Start monitoring VAMP with IXOPAY Payments Intelligence")
-Getting started is simple. Head to the **“Risk”** section in IXOPAY Payments Intelligence UI and click on the **“VAMP”** tab. If your plan allows you to access it you will see the current numbers displayed in this tab.
+Getting started is simple. Head to the **“Analytics”** section in IXOPAY Payments Intelligence UI and click on the **“VAMP”** tab. If your plan allows you to access it you will see the current numbers displayed in this tab.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_1_Starting_monitoring.b1dc096.1600.png)
 In case the feature is not yet available to you, you can upgrade your plan. For any questions, please get in contact with our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support).
 ### Supported PSPs[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/vamp#supported-psps "Direct link to Supported PSPs")

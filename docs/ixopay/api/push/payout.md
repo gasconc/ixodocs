@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/push/payout
 portal: ixopay-dev
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

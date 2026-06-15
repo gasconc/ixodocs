@@ -10,7 +10,7 @@ tags:
 - capture
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/auto-fill-card-data
 portal: ixopay-dev
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

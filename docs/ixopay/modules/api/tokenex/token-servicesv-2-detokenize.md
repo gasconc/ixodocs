@@ -13,7 +13,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/token-servicesv-2-detokenize
 portal: ixopay-modules
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

@@ -11,7 +11,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/docs/reference/features/3d-secure/advanced-guides
 portal: ixopay-dev
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

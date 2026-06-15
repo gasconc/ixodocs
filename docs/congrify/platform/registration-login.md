@@ -16,7 +16,7 @@ tags:
 - dashboard
 source_url: ''
 portal: congrify
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

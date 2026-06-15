@@ -8,7 +8,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/docs/reference/features/tokenization/pci-data-migration
 portal: ixopay-dev
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

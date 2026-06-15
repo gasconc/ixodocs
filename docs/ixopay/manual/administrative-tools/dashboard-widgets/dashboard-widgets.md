@@ -16,7 +16,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets
 portal: ixopay-manual
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

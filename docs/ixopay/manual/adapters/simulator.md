@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/simulator
 portal: ixopay-manual
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 

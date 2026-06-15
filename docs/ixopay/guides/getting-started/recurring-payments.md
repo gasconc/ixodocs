@@ -15,7 +15,7 @@ tags:
 - subscription
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/recurring-payments
 portal: ixopay-dev
-updated: '2026-06-11'
+updated: '2026-06-15'
 related: []
 ---
 
