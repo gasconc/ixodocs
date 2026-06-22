@@ -1,46 +1,35 @@
 ---
 title: Terms Of Use
-summary: The website is directed at entrepreneurs under the Austrian Commercial Code
-  "UGB", only. The following Terms of Use govern the contractual relationship between
-  you and IXOPAY GmbH "IXOPAY" for the use of the services under the domain www.ixopay.comhttps://www.ixopay.com/.
+summary: 1. Scope and Applicability 1.1.
 tags:
-- scope
-- general-disclaimer
-- liability-links
-- copyright-protection-linking-website
-- applicable-law-exclusive-jurisdiction
-- disclaimer
 - ixopay
 source_url: https://www.ixopay.com/legal/terms-of-use
 portal: ixopay-legal
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
 # Terms Of Use
 
-## 1. Scope
-The website is directed at entrepreneurs under the Austrian Commercial Code ("UGB"), only. The following Terms of Use govern the contractual relationship between you and IXOPAY GmbH ("IXOPAY") for the use of the services under the domain [www.ixopay.com](https://www.ixopay.com/).
-By your use of the Website you accept the Terms of Use. You can download and save the Terms of Use by clicking "print" in your browser. If you do not agree, you may not use the Website any further.
-## 2. General, Disclaimer
-### 2.1 
-We have prepared the content of this Website with due care. Due to the vast amount of data provided and the existing security risks of the internet, it is not possible to entirely avoid errors, infringements by third parties or mistakes. In consideration of these circumstances some information may not be up to date, complete or accurate. Content is provided "as is" with no warranties whatsoever. If you find an error, please report it to info@ixopay.com.
-### 2.2 
-We cannot guarantee that the Website or the services will be available uninterrupted or error-free. Temporary connection interruptions may occur. We can carry out maintenance work at any time. Furthermore we may, without notice, discontinue or expand at any time, temporarily or permanently, any or all of the services offered on the Website.
-## 3. No liability for links
-We cannot control the content and presentation of linked third party websites. The liability for such linked websites rests with the respective service supplier. We do not adopt as our own ("zu Eigen machen") the content of the linked websites. Accordingly, any liability for the content, timeliness, completeness and accuracy of linked internet services is therefore excluded to the fullest extent permitted by law.
-## 4. Copyright protection, Linking to this Website
-### 4.1 
-Content on the Website, such as text, data, pictures, illustrations, as well as design and structure of the Website and links, structure and contents of the database are subject to trademark and copyright protection of IXOPAY. Unless expressly agreed in writing, this content may not be copied, send, made available, presented, performed, modified, translated or utilised. We grant you a limited, non-transferable and non-exclusive permission, revocable at any time, to access and display the content within this Website as a (potential) customer of us provided (i) your use is of non-commercial nature (eg. exploitation of accessed content towards third parties is prohibited) and (ii) you comply with these Terms of Use.
-### 4.2 
-© Copyright IXOPAY GmbH, 2024. Trademark protection: IXOPAY, IXOLIT, IXOCARE, IXOCREATE and IXOPLAN are registered trademarks of IXOPAY GmbH.
-### 4.3 
-We consent to links to this Website as long as they are external links and show the complete page, particularly including the navigation frame displayed at the top of the screen. It is forbidden to implement single sites in external frames ("framing") as well as to provide RSS-Feeds on external websites.
-## 5. Applicable Law, Exclusive Jurisdiction
-### 5.1 
-These Terms of Use shall be governed exclusively by Austrian substantive law, without giving effect to any principles of conflicts of law and to the UN Sales Convention (CISG).
-### 5.2 
-All disputes directly or indirectly relating to or in connection with the Terms of Use, including the question of its applicability, shall be shall be subject to the exclusive jurisdiction of the court competent for 1010-Vienna, Austria.
-The original German version takes precedence over the English translation.
-## _DISCLAIMER_
-_The content on this Website is provided for general information purposes only and is not intended to replace professional advice in the fields of IT and marketing._
+**1. Scope and Applicability**
+1.1. These Terms of Use govern your access to and use of the services under the domain [www.ixopay.com](https://www.ixopay.com/) (the "Website"), operated by the members of the IXOPAY Group listed in our [Privacy Notice](https://www.ixopay.com/legal/privacy-notice) ("IXOPAY", "we", or "us").
+1.2. The Website is directed exclusively at businesses and professionals acting in a commercial capacity.
+1.3. By accessing or using the Website, you agree to these Terms of Use. If you do not agree, you must cease using the Website immediately.
+1.4. These Terms of Use govern solely the use of the Website and do not replace, amend, or modify any Master Services Agreement ("MSA") or other commercial agreement between you and IXOPAY.
+**2. Content and Availability**
+2.1. We provide the Website content with due care for general informational purposes only. The content is provided on an "as is" and "as available" basis without any warranties, express or implied.
+2.2. Due to the inherent risks of the internet, we do not warrant that the information is entirely complete, current, accurate, or free from errors or third-party infringements. If you identify an error, please report it to info@ixopay.com.
+2.3. We do not guarantee uninterrupted or error-free access to the Website. We reserve the right to conduct maintenance, modify, suspend, or permanently discontinue the Website or any part thereof at any time without prior notice.
+**3. Third-Party Links**
+3.1. The Website may contain links to third-party websites. We do not control and are not responsible for the content, presentation, or accuracy of these external sites.
+3.2. Linking to external websites does not imply endorsement or adoption of their content. Any liability for the content, timeliness, or accuracy of linked services is strictly excluded to the fullest extent permitted by law.
+**4. Intellectual Property and Linking**
+4.1. All content on the Website, including text, data, illustrations, software, database structures, and overall design, is the property of IXOPAY and is protected by copyright, trademark, and other intellectual property laws.
+4.2. We grant you a limited, non-exclusive, non-transferable, and revocable permission to access and display the Website content solely for your internal business purposes as a current or potential customer. You must not copy, transmit, modify, translate, or commercially exploit this content without our prior written consent.
+4.3. "IXOPAY" and related product names are registered trademarks of the IXOPAY Group.
+4.4. We consent to external links directing to the Website, provided the link displays the complete page (including the navigation frame). Utilizing framing techniques to enclose any portion of the Website or providing RSS feeds on external websites is strictly prohibited.
+**5. Governing Law and Jurisdiction**
+5.1. The applicable law and jurisdiction governing these Terms of Use depend on your domicile: 5.1.1. If you are domiciled in the United States, Canada, South America, or Latin America, these Terms of Use are governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the competent courts of Delaware. 5.1.2. If you are domiciled in Europe, the United Kingdom, Asia, Africa, Australia, or New Zealand, these Terms of Use are governed exclusively by Austrian substantive law, with exclusive jurisdiction in the competent court for 1010 Vienna, Austria.
+5.2. The application of conflict of law principles and the United Nations Convention on Contracts for the International Sale of Goods (CISG) is expressly excluded in all cases.
+**6. General Disclaimer**
+6.1. The content on this Website is provided for general information purposes only and is not intended to constitute or replace professional advice in the fields of IT, marketing, or law.

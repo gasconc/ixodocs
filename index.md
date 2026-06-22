@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-06-15 | Total pages: 743
+> Last updated: 2026-06-22 | Total pages: 756
 
 ## Ixopay Developer Hub (194 pages)
 
@@ -210,10 +210,23 @@
 - [Hosted payment pages](docs/ixopay/reference/integration/processing-options/hosted-payment-pages.md) — Processing optionshttps://documentation.ixopay.com/docs/reference/integration/processing-options  Hosted payment pages
 - [Server-to-server](docs/ixopay/reference/integration/processing-options/server-to-server.md) — Processing optionshttps://documentation.ixopay.com/docs/reference/integration/processing-options
 
-## Ixopay User Manual (137 pages)
+## Ixopay User Manual (150 pages)
 
 ### Manual
 - [Bank Of America](docs/ixopay/manual/adapters/bank-of-america.md) — The Bank of America Adapter in the IXOPAY platformhttps://www.ixopay.com differs in its behavior from an ordinary Adapter. It does not directly com...
+- [Jazzcash](docs/ixopay/manual/adapters/jazzcash.md) — Adapter Jazzcash The Jazzcash adapter is integrated, but has not been actively used for an extended period, or could not undergo thorough testing....
+- [JCC Payment Systems](docs/ixopay/manual/adapters/jccpaymentsystems.md) — JCC Payment Systems
+- [Kalixa/PXP](docs/ixopay/manual/adapters/kalixa.md) — Configure the following parameters for the Connector see Connector Detail Overview - Kalixa Creditcard - Vault Configuration: 1. Fill in the mandat...
+- [Kassa Compleet](docs/ixopay/manual/adapters/kassacompleet.md) — Kassa Compleet
+- [KeyBS](docs/ixopay/manual/adapters/keybs.md) — Configure the following parameters for the Connector see Connector Config - KeyBS: 1. Fill in the mandatory Username 2.
+- [Khipu](docs/ixopay/manual/adapters/khipu.md) — Configure the following parameters for the Connector see Connector Config - Khipu: 1. Fill in the mandatory Username 2.
+- [Klarna](docs/ixopay/manual/adapters/klarna.md) — Configure the following parameters for the Connector see Connector Config - KlarnaHpp: 1. Fill in the mandatory Username 2.
+- [Laybuy](docs/ixopay/manual/adapters/laybuy.md) — Configure the following parameters for the Connector see Connector Config - Laybuy: 1. Fill in the mandatory Merchant ID Unique ID to identify the...
+- [Luxon Pay](docs/ixopay/manual/adapters/luxonpay.md) — Luxon Pay
+- [Mashreq](docs/ixopay/manual/adapters/mashreq.md) — Configure the following parameters for the Connector see Connector Detail Overview - Mashreq Creditcard - Vault Configuration: 1. Enable Testmode 2.
+- [Mastercard](docs/ixopay/manual/adapters/mastercard.md) — Configure the following parameters for the Connector see Connector Detail Overview - Mastercard Creditcard - Vault Configuration: 1. Select the Env...
+- [Mercado Pago](docs/ixopay/manual/adapters/mercadopago.md) — Mercado Pago
+- [Mocopay](docs/ixopay/manual/adapters/mocopay.md) — Configure the following parameters for the Connector see Connector Config - Mocopay: 1. Fill in the mandatory Username 2.
 - [Scalapay](docs/ixopay/manual/adapters/scalapay.md) — Configure the following parameters for the Connector see Connector Config - Scalapay: 1. Fill in the mandatory Bearer Token provided by Scalapay
 - [SCB](docs/ixopay/manual/adapters/scb.md) — Configure the following parameters for the Connector see Connector Config - SCB: 1. Fill in the mandatory API Key Client ID 2.
 - [Trust Payment / Secure Trading](docs/ixopay/manual/adapters/securetrading.md) — Trust Payment / Secure Trading
@@ -572,7 +585,7 @@
 - [Sla](docs/ixopay/legal/sla.md) —  Service Level Agreement https://www.ixopay.com/assets/pdf/legal/service-level-agreement-combined-4-feb-2026.pdf "Service Level Agreement"
 - [Social Media Privacy Notice](docs/ixopay/legal/social-media-privacy-notice.md) — We operate profiles on various social media networks to communicate with our Customers and prospects. When you visit these pages, we act as joint c...
 - [Subprocessors](docs/ixopay/legal/subprocessors.md) — IXOPAY uses selected Subprocessors to support the provision of our Products. Some of these Subprocessors are IXOPAY Group Affiliates and some are t...
-- [Terms Of Use](docs/ixopay/legal/terms-of-use.md) — The website is directed at entrepreneurs under the Austrian Commercial Code "UGB", only. The following Terms of Use govern the contractual relation...
+- [Terms Of Use](docs/ixopay/legal/terms-of-use.md) — 1. Scope and Applicability 1.1.
 - [Tokenex Legacy](docs/ixopay/legal/tokenex-legacy.md) — The agreements listed on this page govern relationships that IXOPAY, Inc. f/k/a TokenEx, Inc. “IXOPAY” entered into with customers using an Order F...
 - [Toms](docs/ixopay/legal/toms.md) — According to Article 32 of the General Data Protection Regulation "GDPR" and taking into account the state of the art, the implementation costs and...
 

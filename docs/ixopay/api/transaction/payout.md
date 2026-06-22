@@ -14,7 +14,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/api/transaction/payout
 portal: ixopay-dev
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
@@ -1022,7 +1022,11 @@ Status changes are posted as callbacks to the `callbackUrl` defined in the reque
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -1766,7 +1770,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -2477,7 +2485,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -3188,7 +3200,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -3899,7 +3915,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -4610,7 +4630,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 

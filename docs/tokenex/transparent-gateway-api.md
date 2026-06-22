@@ -9,7 +9,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/transparent-gateway-api
 portal: tokenex
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 

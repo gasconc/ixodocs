@@ -17,7 +17,7 @@ tags:
 - vulnerability-management
 source_url: https://www.ixopay.com/legal/security-trust
 portal: ixopay-legal
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
@@ -28,7 +28,7 @@ The IXOPAY GRC and security programs operate in compliance with a range of well-
 ### Audit Documentation
 [ ISO 27001 Certificate ](https://www.ixopay.com/assets/certificate-ixopay-2026-iso-27001.2022.pdf "ISO 27001 Certificate")
 [ SOC3 Certification ](https://www.ixopay.com/assets/ixopay-2026-type-2-soc-3-final-report.pdf "SOC3 Certification")
-[ PCI DSS Attestation of Compliance (Tokenization Platform) ](https://www.ixopay.com/assets/pdf/ixopay-2025-pci-dss-aoc-final-report-locked.pdf "PCI DSS Attestation of Compliance \(Tokenization Platform\)")
+[ PCI DSS Attestation of Compliance (Tokenization Platform) ](https://www.ixopay.com/assets/ixopay-2026-pci-dss-aoc-final-report-locked.pdf "PCI DSS Attestation of Compliance \(Tokenization Platform\)")
 [ PCI DSS Attestation of Compliance (Payment Orchestration Platform) ](https://www.ixopay.com/assets/20251128-ixopay-pci-dss-v4-0-1-roc-aoc-service-providers_final.pdf "PCI DSS Attestation of Compliance \(Payment Orchestration Platform\)")
 ##  Certifications and Compliance 
 Cloud Security Alliance STAR Program 
@@ -52,7 +52,7 @@ By adding the rigorous ISO 27001:2022 certification to our trust package, Ixopay
 [ ![ISO 27001 Badge](https://www.ixopay.com/generated/img/containers/assets/badge-iso-27001.png/943a144c9a04312578ac6f52e7333abf/badge-iso-27001.png) ](https://www.ixopay.com/generated/img/containers/assets/badge-iso-27001.png/d0e6668b879e5f089434de3f38d5d2f3/badge-iso-27001.png)
 PCI Certified Level 1 Service Provider 
 IXOPAY is a PCI Certified Level 1 Service Provider, and the IXOPAY products are designed to help you achieve PCI compliance.
-[ Attestation of Compliance (Tokenization Platform) ](https://www.ixopay.com/assets/pdf/ixopay-2025-pci-dss-aoc-final-report-locked.pdf "Attestation of Compliance \(Tokenization Platform\)")
+[ Attestation of Compliance (Tokenization Platform) ](https://www.ixopay.com/assets/ixopay-2026-pci-dss-aoc-final-report-locked.pdf "Attestation of Compliance \(Tokenization Platform\)")
 [ Attestation of Compliance (Payment Orchestration Platform) ](https://www.ixopay.com/assets/20251128-ixopay-pci-dss-v4-0-1-roc-aoc-service-providers_final.pdf "Attestation of Compliance \(Payment Orchestration Platform\)")
 [ ![PCI DSS Badge](https://www.ixopay.com/generated/img/containers/assets/badge-pci.png/37259669e7fd3a0045ca4e879d3653e0/badge-pci.png) ](https://www.ixopay.com/generated/img/containers/assets/badge-pci.png/be197cb4e91b211eea3c96fcc268643e/badge-pci.png)
 SSAE 18 SOC 2 and 3 

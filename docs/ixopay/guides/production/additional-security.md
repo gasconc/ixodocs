@@ -15,7 +15,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/docs/guides/production/additional-security
 portal: ixopay-dev
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
@@ -600,18 +600,18 @@ HTTP method
 Content-Type header
 `application/json; charset=utf-8`
 Date header
-`Mon, 15 Jun 2026 08:20:26 GMT`
+`Mon, 22 Jun 2026 08:21:07 GMT`
 Request URI
 `/api/v3/transaction/YOUR-API-KEY-HERE/debit`
 Hash HMAC Input
 Based on your input, _note the line breaks_.
-`POSTcf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3eapplication/json; charset=utf-8Mon, 15 Jun 2026 08:20:26 GMT/api/v3/transaction/YOUR-API-KEY-HERE/debit`
+`POSTcf83e1357eefb8bdf1542850d66d8007d620e4050b5715dc83f4a921d36ce9ce47d0d13c5d85f2b0ff8318d2877eec2f63b931bd47417a81a538327af927da3eapplication/json; charset=utf-8Mon, 22 Jun 2026 08:21:07 GMT/api/v3/transaction/YOUR-API-KEY-HERE/debit`
 Expected signature
 Data is hashed using _HMAC-SHA512_ , and the resulting binary encoded using _Base64_.
-`cliMmFHYifKL+VIaTdfYX3xgpf3X5gGcpZ0a/CrDNTpv1xrLETjOBsi2C8fJAG2kxRo6YAD0yryFV7dxqJ2Y9Q==`
+`vsO32QEnKADxRc3r1kZf3dLrp1NMHg316DXqCbOGJPLA6wLQMzmprOmlwRARUYR1irpX1lFkU6SiqHObJAatsA==`
 Expected headers
-`X-Signature: **cliMmFHYifKL+VIaTdfYX3xgpf3X5gGcpZ0a/CrDNTpv1xrLETjOBsi2C8fJAG2kxRo6YAD0yryFV7dxqJ2Y9Q==**  
-Date: Mon, 15 Jun 2026 08:20:26 GMT  
+`X-Signature: **vsO32QEnKADxRc3r1kZf3dLrp1NMHg316DXqCbOGJPLA6wLQMzmprOmlwRARUYR1irpX1lFkU6SiqHObJAatsA==**  
+Date: Mon, 22 Jun 2026 08:21:07 GMT  
 Content-Type: application/json; charset=utf-8`
 Fix the errors, in order for the signature output to be shown!
 ```

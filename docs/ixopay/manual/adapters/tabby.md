@@ -7,7 +7,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/tabby
 portal: ixopay-manual
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 

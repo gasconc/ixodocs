@@ -13,7 +13,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/merchant-settings
 portal: ixopay-modules
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 

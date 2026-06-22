@@ -14,7 +14,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/docs/guides/payments/merchant-initiated
 portal: ixopay-dev
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 

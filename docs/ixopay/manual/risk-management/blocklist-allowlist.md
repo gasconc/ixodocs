@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist
 portal: ixopay-manual
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 

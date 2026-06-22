@@ -15,7 +15,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/manual/docs/connector/create/3d-secure-configuration
 portal: ixopay-manual
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 

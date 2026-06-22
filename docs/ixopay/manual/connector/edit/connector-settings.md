@@ -15,7 +15,7 @@ tags:
 - expert-settings-migration-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-expert-settings-migration-settings-direct-link-expert-settings-migration-settings
 source_url: https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings
 portal: ixopay-manual
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
@@ -68,7 +68,17 @@ Some Settings only need to be activated (no further input needed). In this case 
 | Manipulation: Field Operation  | Add as many Field Operation (e.g. Field truncation) Manipulations as you need  | [various](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/field-operation)  |  
 | Manipulation: Always set withRegister  | Always sets the "withRegister" flag on any debit/preauthorize TX  | 1  |  
 | Transactions: Expire automatically after (x) minutes (min. 5 minutes)  |  **Deprecated** - use _Expire transaction with a given status after given minutes_  
+  
+On expiration, some adapters can additionally expire the transaction on the PSP side. This requires enabling a per-adapter configuration that is unique to each supported adapter. PSP-side expiration is triggered on a best-effort basis and may not coincide exactly with the transaction expiration. Currently supported adapters: 
+  * [KlarnaHpp](https://documentation.ixopay.com/manual/adapters/klarna#klarna-hpp)
+
+ | number  |  
 | Expires pending transactions after given minutes  |  **Deprecated** - use _Expire transaction with a given status after given minutes_  
+  
+On expiration, some adapters can additionally expire the transaction on the PSP side. This requires enabling a per-adapter configuration that is unique to each supported adapter. PSP-side expiration is triggered on a best-effort basis and may not coincide exactly with the transaction expiration. Currently supported adapters: 
+  * [KlarnaHpp](https://documentation.ixopay.com/manual/adapters/klarna#klarna-hpp)
+
+ | number (min. 5)  |  
 | Expire transaction with a given status after given minutes  | Configure a list of transaction states which will change the transaction status to error ("Transaction Expired" with error code 2005) after the configured expiry time. The value is in minutes and must be `> 5`. The setting is used to change a transaction into a final state in situations where an expected update from the upstream PSP is missing, e.g. via webhook.  
   
 Available states:  
@@ -79,6 +89,10 @@ Available states:
   * redirected
   * await_redirect
   * await_completion
+
+  
+On expiration, some adapters can additionally expire the transaction on the PSP side. This requires enabling a per-adapter configuration that is unique to each supported adapter. PSP-side expiration is triggered on a best-effort basis and may not coincide exactly with the transaction expiration. Currently supported adapters: 
+  * [KlarnaHpp](https://documentation.ixopay.com/manual/adapters/klarna#klarna-hpp)
 
  |   |  
 | Batch Capture: Time (HH:MM)  |  **Deprecated** - do not use anymore  |   |  

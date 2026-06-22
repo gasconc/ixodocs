@@ -15,7 +15,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/adapters/finaro
 portal: ixopay-dev
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 

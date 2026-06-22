@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-06-15T08:29:58+00:00_
+_Generated at 2026-06-22T08:30:18+00:00_
 
-**365 missing** · **3 stale** across 3 source(s).
+**352 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **901** · Indexed: **536** · Missing: **365** · Stale: **2**
+- Published: **901** · Indexed: **549** · Missing: **352** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -261,19 +261,6 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/manual/adapters/isignthis
 - https://documentation.ixopay.com/manual/adapters/iso-8583-adapters
 - https://documentation.ixopay.com/manual/adapters/iyzico
-- https://documentation.ixopay.com/manual/adapters/jazzcash
-- https://documentation.ixopay.com/manual/adapters/jccpaymentsystems
-- https://documentation.ixopay.com/manual/adapters/kalixa
-- https://documentation.ixopay.com/manual/adapters/kassacompleet
-- https://documentation.ixopay.com/manual/adapters/keybs
-- https://documentation.ixopay.com/manual/adapters/khipu
-- https://documentation.ixopay.com/manual/adapters/klarna
-- https://documentation.ixopay.com/manual/adapters/laybuy
-- https://documentation.ixopay.com/manual/adapters/luxonpay
-- https://documentation.ixopay.com/manual/adapters/mashreq
-- https://documentation.ixopay.com/manual/adapters/mastercard
-- https://documentation.ixopay.com/manual/adapters/mercadopago
-- https://documentation.ixopay.com/manual/adapters/mocopay
 - https://documentation.ixopay.com/manual/adapters/mollie
 - https://documentation.ixopay.com/manual/adapters/multisafepay
 - https://documentation.ixopay.com/manual/adapters/nagad

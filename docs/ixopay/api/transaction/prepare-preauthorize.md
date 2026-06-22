@@ -15,7 +15,7 @@ tags:
 - 3ds
 source_url: https://documentation.ixopay.com/api/transaction/prepare-preauthorize
 portal: ixopay-dev
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
@@ -1506,6 +1506,10 @@ Current status of the transaction
 **Possible values:** [`SUCCESS`, `PENDING`, `REDIRECT`, `CANCELLED`, `ERROR`]
 **connector** object
 **guid** string
+**adapter_name** string
+The name of the adapter implementation.
+**brand** string
+The payment processor or provider associated with this adapter.
 **property name*** any
 **property name*** any
   * ]
@@ -1793,7 +1797,11 @@ In case the transaction currency has been changed after reconciliation the is pa
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -2929,7 +2937,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -4034,7 +4046,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -5139,7 +5155,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -6244,7 +6264,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 
@@ -7349,7 +7373,11 @@ POST
 
         "connector": {  
 
-          "guid": "string"  
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
 
         }  
 

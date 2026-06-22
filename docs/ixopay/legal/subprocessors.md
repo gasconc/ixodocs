@@ -12,7 +12,7 @@ tags:
 - snowflake
 source_url: https://www.ixopay.com/legal/subprocessors
 portal: ixopay-legal
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
@@ -41,4 +41,4 @@ IXOPAY Group Affiliates act as Subprocessors depending on the Product(s) ordered
 | --- | --- | --- | --- |  
 |  IXOPAY, Inc.  |  Standalone Payment Modules  |  Primary operation of the relevant Product; related support, software development, and professional services  |  United States  |  
 |  IXOPAY GmbH  |  Payment Orchestration; Post Processing; Payment Orchestration Add-On Modules  |  Primary operation of the relevant Product; related support, software development, and professional services  |  Austria  |  
-|  Congrify Payment Intelligence GmbH  |  AI Payments Intelligence  |  Primary operation of AI Payments Intelligence; centralized risk and performance monitoring for providing transactional and performance reporting insights and anomaly detection; related support and software development services  |  Germany  |
+|  Congrify Payment Intelligence GmbH  |  AI Payments Intelligence  |  Primary operation of AI Payments Intelligence; centralized risk and performance monitoring for providing transactional and performance reporting insights and anomaly detection for Payment Orchestration Platform, as well as Universal and Network Tokenization Products; related support and software development services  |  Germany  |

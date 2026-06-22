@@ -14,7 +14,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/docs/reference/features/dcc
 portal: ixopay-dev
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
@@ -112,7 +112,7 @@ The following example illustrates how to send a transaction request with `reques
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260617-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -167,7 +167,7 @@ Following is an example demonstrating the process:
 
   "uuid": "1ed442bdf4f9eb855b1f",  
 
-  "purchaseId": "20260608-1ed442bdf4f9eb855b1f",  
+  "purchaseId": "20260617-1ed442bdf4f9eb855b1f",  
 
   "returnType": "FINISHED",  
 
@@ -257,7 +257,7 @@ Following is an example demonstrating the process:
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260617-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -303,7 +303,7 @@ Following is an example demonstrating the process:
 
   "uuid": "1ed442bdf4f9eb855b1f",  
 
-  "purchaseId": "20260608-1ed442bdf4f9eb855b1f",  
+  "purchaseId": "20260617-1ed442bdf4f9eb855b1f",  
 
   "returnType": "FINISHED",  
 
@@ -393,7 +393,7 @@ Following is an example demonstrating the process:
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260617-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -439,7 +439,7 @@ Following is an example demonstrating the process:
 
   "uuid": "1ed442bdf4f9eb855b1f",  
 
-  "purchaseId": "20260608-1ed442bdf4f9eb855b1f",  
+  "purchaseId": "20260617-1ed442bdf4f9eb855b1f",  
 
   "returnType": "FINISHED",  
 
@@ -529,7 +529,7 @@ Following is an example demonstrating the process:
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260617-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -575,7 +575,7 @@ Following is an example demonstrating the process:
 
   "uuid": "1ed442bdf4f9eb855b1f",  
 
-  "purchaseId": "20260608-1ed442bdf4f9eb855b1f",  
+  "purchaseId": "20260617-1ed442bdf4f9eb855b1f",  
 
   "returnType": "FINISHED",  
 
@@ -671,7 +671,7 @@ Following is an example demonstrating the process:
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260617-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -717,7 +717,7 @@ Following is an example demonstrating the process:
 
   "uuid": "1ed442bdf4f9eb855b1f",  
 
-  "purchaseId": "20260608-1ed442bdf4f9eb855b1f",  
+  "purchaseId": "20260617-1ed442bdf4f9eb855b1f",  
 
   "returnType": "FINISHED",  
 
@@ -807,7 +807,7 @@ Following is an example demonstrating the process:
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260608-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260617-d94c0d72f3a36e21f16e",  
 
   "returnType": "PENDING_DCC",  
 
@@ -853,7 +853,7 @@ Following is an example demonstrating the process:
 
   "uuid": "1ed442bdf4f9eb855b1f",  
 
-  "purchaseId": "20260608-1ed442bdf4f9eb855b1f",  
+  "purchaseId": "20260617-1ed442bdf4f9eb855b1f",  
 
   "returnType": "FINISHED",  
 

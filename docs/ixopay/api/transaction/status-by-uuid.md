@@ -14,7 +14,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/api/transaction/status-by-uuid
 portal: ixopay-dev
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
@@ -449,6 +449,10 @@ Current status of the transaction
 **Possible values:** [`SUCCESS`, `PENDING`, `REDIRECT`, `CANCELLED`, `ERROR`]
 **connector** object
 **guid** string
+**adapter_name** string
+The name of the adapter implementation.
+**brand** string
+The payment processor or provider associated with this adapter.
 **property name*** any
 **property name*** any
   * ]

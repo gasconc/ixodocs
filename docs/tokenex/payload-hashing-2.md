@@ -10,7 +10,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payload-hashing-2
 portal: tokenex
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 

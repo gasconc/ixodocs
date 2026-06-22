@@ -11,7 +11,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/form-styling
 portal: ixopay-dev
-updated: '2026-06-15'
+updated: '2026-06-22'
 related: []
 ---
 
