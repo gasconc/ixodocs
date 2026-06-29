@@ -15,7 +15,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/psv2-testing
 portal: tokenex
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 

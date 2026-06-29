@@ -9,7 +9,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/time-zone-settings
 portal: ixopay-manual
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 

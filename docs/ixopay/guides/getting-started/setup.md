@@ -15,7 +15,7 @@ tags:
 - acquirer
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/setup
 portal: ixopay-dev
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 

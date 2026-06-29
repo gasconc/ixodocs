@@ -15,7 +15,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/review-list/secure-payouts
 portal: ixopay-manual
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 

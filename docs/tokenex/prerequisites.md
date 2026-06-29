@@ -6,7 +6,7 @@ tags:
 - json
 source_url: ''
 portal: tokenex
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 

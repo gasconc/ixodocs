@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/merchant/profiles/line-items
 portal: ixopay-manual
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 

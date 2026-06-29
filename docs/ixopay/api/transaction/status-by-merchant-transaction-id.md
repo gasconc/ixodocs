@@ -14,7 +14,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/api/transaction/status-by-merchant-transaction-id
 portal: ixopay-dev
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 

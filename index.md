@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-06-22 | Total pages: 756
+> Last updated: 2026-06-29 | Total pages: 758
 
 ## Ixopay Developer Hub (194 pages)
 
@@ -364,7 +364,7 @@
 - [Pause, Continue, Retry or Cancel Schedules](docs/ixopay/manual/transactions/schedules/pause-continue-retry-cancel.md) — Transaction Scheduleshttps://documentation.ixopay.com/manual/docs/transactions/schedules  Pause, Continue, Retry or Cancel Schedules
 - [Virtual Terminal (MOTO)](docs/ixopay/manual/virtual-terminal-moto.md) — Virtual Terminal MOTO
 
-## Ixopay Modules (204 pages)
+## Ixopay Modules (205 pages)
 
 ### Modules
 - [Overview](docs/ixopay/modules/api.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com modules API reference. The IXOPAY platform modules offers several APIs to process online payme...
@@ -422,6 +422,7 @@
 - [Version 2 Frictionless](docs/ixopay/modules/tokenex/3ds-version-2-frictionless-test-cases.md) — 3-D Secure Authentication  3DS Test Caseshttps://documentation.ixopay.com/modules/docs/tokenex/3ds-test-cases  Version 2 Frictionless
 - [3DS Overview](docs/ixopay/modules/tokenex/3ds.md) — 3-D Secure Authentication  3DS Overview
 - [8-Digit BINs](docs/ixopay/modules/tokenex/8-digit-bins.md) — 8-Digit BINs
+- [JWE Key Wrapper](docs/ixopay/modules/tokenex/appendix/jwe-key-wrapper.md) — JWE Key Wrapper
 - [AssociateEncryptedCvvWithToken](docs/ixopay/modules/tokenex/associateencryptedcvvwithtoken-1.md) — TokenEx API v1  PCI Token Serviceshttps://documentation.ixopay.com/modules/docs/tokenex/pci-token-services-api
 - [Authentication](docs/ixopay/modules/tokenex/authentication-2.md) — Transparent Gateway API v2
 - [API v1 Authentication](docs/ixopay/modules/tokenex/authentication.md) — TokenEx API v1  API v1 Authentication
@@ -589,7 +590,10 @@
 - [Tokenex Legacy](docs/ixopay/legal/tokenex-legacy.md) — The agreements listed on this page govern relationships that IXOPAY, Inc. f/k/a TokenEx, Inc. “IXOPAY” entered into with customers using an Order F...
 - [Toms](docs/ixopay/legal/toms.md) — According to Article 32 of the General Data Protection Regulation "GDPR" and taking into account the state of the art, the implementation costs and...
 
-## TokenEx Documentation (164 pages)
+## TokenEx Documentation (165 pages)
+
+### Appendix
+- [JWE Key Wrapper](docs/tokenex/appendix/jwe-key-wrapper.md) — JWE Key Wrapper
 
 ### General
 - [3DS Device Fingerprinting](docs/tokenex/3-d-secure-device-fingerprinting.md) — 3-D Secure Authentication  3DS Device Fingerprinting

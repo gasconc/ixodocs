@@ -17,7 +17,7 @@ tags:
 - vulnerability-management
 source_url: https://www.ixopay.com/legal/security-trust
 portal: ixopay-legal
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 
@@ -68,7 +68,7 @@ The Visa Global Registry allows service providers to broadcast their compliance 
 _Registry Entries:_
 [ Payment Orchestration Platform ](https://www.visa.com/splisting/viewSPDetail.do?spId=960&coName=IXOPAY%20GmbH&HeadCountryList=AUSTRIA&reset=yes&pageInfo=1%3B30%3BASC%3BcoName "Payment Orchestration Platform")
 [ Universal Tokenization Platform ](https://www.visa.com/splisting/viewSPDetail.do?spId=4347&coName=TokenEx%2C%20Inc.&HeadCountryList=UNITED%20STATES%20OF%20AMERICA&reset=yes&pageInfo=1%3B30%3BASC%3BcoName "Universal Tokenization Platform")
-[ ![](https://www.ixopay.com/generated/img/containers/assets/service-provider-badge-2025.png/0206ecc78eb66e08abe85c5de713358b/service-provider-badge-2025.png) ](https://www.ixopay.com/generated/img/containers/assets/service-provider-badge-2025.png/a49c0ba29614dddc93d4d706273db5b6/service-provider-badge-2025.png)
+[ ![](https://www.ixopay.com/generated/img/containers/assets/pci-dss-compliance-2026.png/d8cc75a6a6dfd9820af71bc8e8fdb3d9/pci-dss-compliance-2026.png) ](https://www.ixopay.com/generated/img/containers/assets/pci-dss-compliance-2026.png/e07740763beaf85873f2db4932d7080c/pci-dss-compliance-2026.png)
 ## Organizational Security
 Data is only as secure as the platform protecting it. That’s why the IXOPAY platform is built for maximum security and reliability.
 ### Security and Controls

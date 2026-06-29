@@ -15,7 +15,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/api/transaction/prepare-register
 portal: ixopay-dev
-updated: '2026-06-22'
+updated: '2026-06-29'
 related: []
 ---
 
