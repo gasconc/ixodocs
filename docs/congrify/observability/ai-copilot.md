@@ -16,7 +16,7 @@ tags:
 - access-pilot-functionalities-within-analyticshttps-docs-congrify-com-observability-aicopilot-access-pilot-functionalities-within-analytics
 source_url: ''
 portal: congrify
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 

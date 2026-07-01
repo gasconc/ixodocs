@@ -14,7 +14,7 @@ tags:
 - request-body-creation-https-documentation-ixopay-com-modules-docs-tokenex-authentications-request-body-creation-direct-link-request-body-creation
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/authentications
 portal: ixopay-modules
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 

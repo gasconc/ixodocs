@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-06-29 | Total pages: 758
+> Last updated: 2026-07-01 | Total pages: 758
 
 ## Ixopay Developer Hub (194 pages)
 

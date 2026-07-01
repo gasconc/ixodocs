@@ -16,7 +16,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/docs/reference/features/pay-by-link
 portal: ixopay-dev
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 

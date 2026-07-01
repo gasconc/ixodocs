@@ -17,7 +17,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/post-processing/reconciliation
 portal: ixopay-manual
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 

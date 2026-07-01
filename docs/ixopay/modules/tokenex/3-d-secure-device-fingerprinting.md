@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting
 portal: ixopay-modules
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 

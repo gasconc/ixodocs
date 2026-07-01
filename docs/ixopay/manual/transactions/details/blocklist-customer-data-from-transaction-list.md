@@ -7,7 +7,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/blocklist-customer-data-from-transaction-list
 portal: ixopay-manual
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 

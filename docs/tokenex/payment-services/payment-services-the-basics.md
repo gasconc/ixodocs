@@ -15,7 +15,7 @@ tags:
 - common-transaction-flows-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-payment-services-basics-common-transaction-flows-direct-link-common-transaction-flows
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics
 portal: tokenex
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 

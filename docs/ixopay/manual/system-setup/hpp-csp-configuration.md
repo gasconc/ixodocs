@@ -15,7 +15,7 @@ tags:
 - find-fix-violations-https-documentation-ixopay-com-manual-docs-system-setup-hpp-csp-configuration-find-fix-violations-direct-link-find-fix-violations
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration
 portal: ixopay-manual
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 

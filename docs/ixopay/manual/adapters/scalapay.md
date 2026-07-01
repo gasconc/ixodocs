@@ -15,7 +15,7 @@ tags:
 - reconciliation
 source_url: https://documentation.ixopay.com/manual/adapters/scalapay
 portal: ixopay-manual
-updated: '2026-06-29'
+updated: '2026-07-01'
 related: []
 ---
 
