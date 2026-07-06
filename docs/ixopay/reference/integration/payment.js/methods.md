@@ -15,7 +15,7 @@ tags:
 - setnumberinputtype-https-documentation-ixopay-com-docs-reference-integration-payment-methods-setnumberinputtype-direct-link-setnumberinputtype
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/methods
 portal: ixopay-dev
-updated: '2026-07-01'
+updated: '2026-07-06'
 related: []
 ---
 
@@ -81,7 +81,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "6",  
+  "month": "7",  
 
   "year": "2031",  
 
@@ -246,11 +246,32 @@ PaymentJs.setCvvAttribute(attribute, value);
 ### numberOn[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#numberon "Direct link to numberOn")
 ```
 
-PaymentJs.numberOn(event, callbackFunction);  
+PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });  
 
 ```Attach an event listener for the number input field.
 For more details see [Event listening](https://documentation.ixopay.com/docs/reference/integration/payment.js/event-listening).
-#### Parameters[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#parameters-13 "Direct link to Parameters")
+If `getBinData` is set to `true`, the result will be asynchronous (adding a backend call) and the BIN data will be attached as the `binData` key to the response data.
+```
+
+{  
+
+  "binData": {  
+
+    "cardBrand": "VISA",  
+
+    "fundingSource": "CREDIT",  
+
+    "issuer": "VISA Bank 1",  
+
+    "subBrand": null  
+
+  },  
+
+  ...  
+
+}  
+
+```#### Parameters[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#parameters-13 "Direct link to Parameters")
   * `event` (string): the number input event to attach the `callbackFunction` to. One of `input`, `focus`, `blur`, `mouseover`, `mouseout`, `enter`, `esc`, `tab`, or `shift-tab`.
   * `callbackFunction` (function: `(event) => void`): a callback that receives data about the `event`, for example:
 ```
@@ -330,7 +351,7 @@ For details, see [Auto-fill card data](https://documentation.ixopay.com/docs/ref
 
   card_holder: "Alex Smith",  
 
-  month: 06,  
+  month: 07,  
 
   year:  2031,  
 
@@ -380,7 +401,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "6",  
+  "month": "7",  
 
   "year": "2031",  
 
@@ -497,7 +518,28 @@ PaymentJs.setCvvAttribute(attribute, value);
 ```
 ```
 
-PaymentJs.numberOn(event, callbackFunction);  
+PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });  
+
+```
+```
+
+{  
+
+  "binData": {  
+
+    "cardBrand": "VISA",  
+
+    "fundingSource": "CREDIT",  
+
+    "issuer": "VISA Bank 1",  
+
+    "subBrand": null  
+
+  },  
+
+  ...  
+
+}  
 
 ```
 ```
@@ -560,7 +602,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 06,  
+  month: 07,  
 
   year:  2031,  
 
@@ -608,7 +650,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "6",  
+  "month": "7",  
 
   "year": "2031",  
 
@@ -725,7 +767,28 @@ PaymentJs.setCvvAttribute(attribute, value);
 ```
 ```
 
-PaymentJs.numberOn(event, callbackFunction);  
+PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });  
+
+```
+```
+
+{  
+
+  "binData": {  
+
+    "cardBrand": "VISA",  
+
+    "fundingSource": "CREDIT",  
+
+    "issuer": "VISA Bank 1",  
+
+    "subBrand": null  
+
+  },  
+
+  ...  
+
+}  
 
 ```
 ```
@@ -788,7 +851,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 06,  
+  month: 07,  
 
   year:  2031,  
 
@@ -839,7 +902,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "6",  
+  "month": "7",  
 
   "year": "2031",  
 
@@ -956,7 +1019,28 @@ PaymentJs.setCvvAttribute(attribute, value);
 ```
 ```
 
-PaymentJs.numberOn(event, callbackFunction);  
+PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });  
+
+```
+```
+
+{  
+
+  "binData": {  
+
+    "cardBrand": "VISA",  
+
+    "fundingSource": "CREDIT",  
+
+    "issuer": "VISA Bank 1",  
+
+    "subBrand": null  
+
+  },  
+
+  ...  
+
+}  
 
 ```
 ```
@@ -1019,7 +1103,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 06,  
+  month: 07,  
 
   year:  2031,  
 
@@ -1089,7 +1173,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "6",  
+  "month": "7",  
 
   "year": "2031",  
 
@@ -1206,7 +1290,28 @@ PaymentJs.setCvvAttribute(attribute, value);
 ```
 ```
 
-PaymentJs.numberOn(event, callbackFunction);  
+PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });  
+
+```
+```
+
+{  
+
+  "binData": {  
+
+    "cardBrand": "VISA",  
+
+    "fundingSource": "CREDIT",  
+
+    "issuer": "VISA Bank 1",  
+
+    "subBrand": null  
+
+  },  
+
+  ...  
+
+}  
 
 ```
 ```
@@ -1269,7 +1374,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 06,  
+  month: 07,  
 
   year:  2031,  
 
@@ -1317,7 +1422,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "6",  
+  "month": "7",  
 
   "year": "2031",  
 
@@ -1434,7 +1539,28 @@ PaymentJs.setCvvAttribute(attribute, value);
 ```
 ```
 
-PaymentJs.numberOn(event, callbackFunction);  
+PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });  
+
+```
+```
+
+{  
+
+  "binData": {  
+
+    "cardBrand": "VISA",  
+
+    "fundingSource": "CREDIT",  
+
+    "issuer": "VISA Bank 1",  
+
+    "subBrand": null  
+
+  },  
+
+  ...  
+
+}  
 
 ```
 ```
@@ -1497,7 +1623,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 06,  
+  month: 07,  
 
   year:  2031,  
 

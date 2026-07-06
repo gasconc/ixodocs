@@ -16,7 +16,7 @@ tags:
 - snowflake
 source_url: ''
 portal: congrify
-updated: '2026-07-01'
+updated: '2026-07-06'
 related: []
 ---
 

@@ -8,13 +8,13 @@ tags:
 - availability-rules-payment-methods-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-availability-rules-payment-methods-direct-link-availability-rules-payment-methods
 - conditions-actions-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-conditions-actions-direct-link-conditions-actions
 - availability-rules-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-availability-rules-direct-link-availability-rules
+- filter-via-extra-data-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-filter-via-extra-data-direct-link-filter-via-extra-data
 - routing-rules-payment-methods-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-routing-rules-payment-methods-direct-link-routing-rules-payment-methods
 - routing-rules-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-routing-rules-direct-link-routing-rules
 - advanced-configuration-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-advanced-configuration-direct-link-advanced-configuration
-- retries-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-retries-direct-link-retries
 source_url: https://documentation.ixopay.com/manual/docs/connector/multi-method-connector
 portal: ixopay-manual
-updated: '2026-07-01'
+updated: '2026-07-06'
 related: []
 ---
 
@@ -131,6 +131,37 @@ By nesting multiple conditions it is possible to make complex and dynamic decisi
 ![Connector Details Overview - Multi-Method](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview-multi-method.9b7be8d.1280.png)Connector Details Overview - Multi-Method![Availability Rule - Example](https://documentation.ixopay.com/manual/assets/ideal-img/availability-rule-example.a2c40ca.1280.png)Availability Rule - Example![Nested Condition](https://documentation.ixopay.com/manual/assets/ideal-img/nested-condition.d683894.1280.png)Nested Condition![Moving Nodes](https://documentation.ixopay.com/manual/assets/ideal-img/moving-nodes.c8b0a00.1280.png)Moving Nodes![Availability Rule - Example adjusted](https://documentation.ixopay.com/manual/assets/ideal-img/availability-rule-example-adjusted.c83d6d3.1280.png)Availability Rule - Example adjusted
 tip
 Conditions or Actions which are logically invalid are automatically discarded upon saving.
+### Filter via Extra Data[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#filter-via-extra-data "Direct link to Filter via Extra Data")
+You can also narrow the set of visible payment methods at request time by passing a `paymentMethod` or `paymentMethods` key in the `extraData` field of the transaction request — without touching the connector's Availability Rules.
+To show a **single** payment method only:
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethod": "Creditcard"  
+
+  }  
+
+}  
+
+```To show **multiple** payment methods, pass a comma-separated list:
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethods": "Creditcard,BankTransfer,DirectDebit"  
+
+  }  
+
+}  
+
+```The identifier for each payment method (e.g. `Creditcard`, `BankTransfer`) is shown in the **Method** column of the Multi-Method Connector configuration.
+warning
+`extraData` filtering and Availability Rules are both applied. A method is shown only if it passes **both** checks. E.g. if you pass `paymentMethods=DirectDebit` but an Availability Rule disables Direct Debit, Direct Debit will not appear. The two mechanisms do not override each other.
 ## Routing Rules — Payment Methods[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#routing-rules--payment-methods "Direct link to Routing Rules — Payment Methods")
 For all enabled payment methods you have the option to configure rules to define which Connector should be used. Consequently this feature is only useful in case of multiple Connectors configured for the same payment method. Follow these steps to configure Routing Rules:
   1. Click **Routing Rules** for the payment method you wish to configure (see Connector Details Overview - Availability Rules and Routing Rules)
@@ -293,92 +324,28 @@ Once the the payment selection page is expired, it is recommended to add an expi
 ```
 ```
 
-{{ isRetry }}  
+{  
+
+  "extraData": {  
+
+    "paymentMethod": "Creditcard"  
+
+  }  
+
+}  
 
 ```
 ```
 
-{% if isRetry %}  
+{  
 
-```
-```
+  "extraData": {  
 
- "previousTransactionErrors" => [  
+    "paymentMethods": "Creditcard,BankTransfer,DirectDebit"  
 
-    0 => [  
+  }  
 
-      "code" => "2006"  
-
-      "message" => "The card has insufficient funds"  
-
-      "adapter_code" => "insufficient_funds"  
-
-      "adapter_message" => "Insufficient funds"  
-
-    ]  
-
-    1 => [  
-
-      "code" => "2003"  
-
-      "message" => "The transaction was declined"  
-
-      "adapter_code" => "transaction_declined"  
-
-      "adapter_message" => "Test decline"  
-
-    ]  
-
-    // ...  
-
-  ]  
-
-```
-```
-
-{% for err in previousTransactionErrors %}  
-
-  <pre>  
-
-    Code: {{ err.code }}  
-
-    Message: {{ err.message }}  
-
-    Adapter Code: {{ err.adapter_code }}  
-
-    Adapter Message: {{ err.adapter_message }}  
-
-  </pre>  
-
-{% endfor %}  
-
-```
-```
-
-{% if err.code == '2003' %}  
-
-  Transaction declined  
-
-{% endif %}  
-
-```
-```
-
-{% set lastErr = previousTransactionErrors|last %}  
-
-```
-```
-
-{{ expirationDate }}  
-
-```
-```
-
-{% if isExpired %}  
-
-  This page has expired.  
-
-{% endif %}  
+}  
 
 ```
 ```
@@ -469,6 +436,148 @@ Once the the payment selection page is expired, it is recommended to add an expi
   This page has expired.  
 
 {% endif %}  
+
+```
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethod": "Creditcard"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethods": "Creditcard,BankTransfer,DirectDebit"  
+
+  }  
+
+}  
+
+```
+```
+
+{{ isRetry }}  
+
+```
+```
+
+{% if isRetry %}  
+
+```
+```
+
+ "previousTransactionErrors" => [  
+
+    0 => [  
+
+      "code" => "2006"  
+
+      "message" => "The card has insufficient funds"  
+
+      "adapter_code" => "insufficient_funds"  
+
+      "adapter_message" => "Insufficient funds"  
+
+    ]  
+
+    1 => [  
+
+      "code" => "2003"  
+
+      "message" => "The transaction was declined"  
+
+      "adapter_code" => "transaction_declined"  
+
+      "adapter_message" => "Test decline"  
+
+    ]  
+
+    // ...  
+
+  ]  
+
+```
+```
+
+{% for err in previousTransactionErrors %}  
+
+  <pre>  
+
+    Code: {{ err.code }}  
+
+    Message: {{ err.message }}  
+
+    Adapter Code: {{ err.adapter_code }}  
+
+    Adapter Message: {{ err.adapter_message }}  
+
+  </pre>  
+
+{% endfor %}  
+
+```
+```
+
+{% if err.code == '2003' %}  
+
+  Transaction declined  
+
+{% endif %}  
+
+```
+```
+
+{% set lastErr = previousTransactionErrors|last %}  
+
+```
+```
+
+{{ expirationDate }}  
+
+```
+```
+
+{% if isExpired %}  
+
+  This page has expired.  
+
+{% endif %}  
+
+```
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethod": "Creditcard"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethods": "Creditcard,BankTransfer,DirectDebit"  
+
+  }  
+
+}  
 
 ```
 ```
@@ -566,12 +675,39 @@ Once the the payment selection page is expired, it is recommended to add an expi
   * [Availability Rules — Payment methods](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#availability-rules--payment-methods)
     * [Conditions & Actions](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#conditions--actions)
     * [Availability Rules — Example](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#availability-rules--example)
+    * [Filter via Extra Data](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#filter-via-extra-data)
   * [Routing Rules — Payment Methods](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#routing-rules--payment-methods)
     * [Routing Rules — Example](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#routing-rules--example)
     * [Conditions & Actions](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#conditions--actions-1)
   * [Advanced Configuration](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#advanced-configuration)
     * [Retries](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#retries)
     * [Expiry time](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector#expiry-time)
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethod": "Creditcard"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethods": "Creditcard,BankTransfer,DirectDebit"  
+
+  }  
+
+}  
+
+```
 ```
 
 {{ isRetry }}  
@@ -660,6 +796,32 @@ Once the the payment selection page is expired, it is recommended to add an expi
   This page has expired.  
 
 {% endif %}  
+
+```
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethod": "Creditcard"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "extraData": {  
+
+    "paymentMethods": "Creditcard,BankTransfer,DirectDebit"  
+
+  }  
+
+}  
 
 ```
 ```

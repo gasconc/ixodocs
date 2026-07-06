@@ -14,7 +14,7 @@ tags:
 - capture
 source_url: https://documentation.ixopay.com/api/push/capture
 portal: ixopay-dev
-updated: '2026-07-01'
+updated: '2026-07-06'
 related: []
 ---
 
@@ -88,6 +88,78 @@ Additional metadata for the merchant.
 Description of your transaction.
 **Possible values:** `<= 255 characters`
 **Example:**`My Purchase Order 123`
+**items** object[]
+List of items sold.
+**Maximum JSON size:** `<= 32768 bytes`.
+**Possible values:** `<= 128`
+  * Array [
+**identification** string
+**Possible values:** `<= 128 characters`
+**name** string
+**Possible values:** `<= 256 characters`
+**description** string
+**Possible values:** `<= 2048 characters`
+**quantity** integer
+**Possible values:** `>= 1`
+**price** integer
+**Possible values:** `>= 1`
+**currency** string
+[ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
+**Possible values:** Value must match regular expression `^[A-Z]{3}$`
+**Example:**`EUR`
+**l2l3Data** object
+**type** string
+**Possible values:** `<= 32 characters`
+**unit** string
+**Possible values:** `<= 16 characters`
+**unitPrice** string
+Decimal amount separated by `.`, maximum of 3 decimals.
+**Possible values:** Value must match regular expression `^(([0-9]+)|([0-9]+\.[0-9]{1,3}))$`
+**Example:**`9.99`
+**discount** string
+Decimal amount separated by `.`, maximum of 3 decimals.
+**Possible values:** Value must match regular expression `^(([0-9]+)|([0-9]+\.[0-9]{1,3}))$`
+**Example:**`9.99`
+**shippingAmount** string
+Decimal amount separated by `.`, maximum of 3 decimals.
+**Possible values:** Value must match regular expression `^(([0-9]+)|([0-9]+\.[0-9]{1,3}))$`
+**Example:**`9.99`
+**taxAmount** string
+Decimal amount separated by `.`, maximum of 3 decimals.
+**Possible values:** Value must match regular expression `^(([0-9]+)|([0-9]+\.[0-9]{1,3}))$`
+**Example:**`9.99`
+**taxRate** string
+Decimal amount separated by `.`, maximum of 3 decimals.
+**Possible values:** Value must match regular expression `^(([0-9]+)|([0-9]+\.[0-9]{1,3}))$`
+**Example:**`9.99`
+**commodityCode** string
+**Possible values:** `<= 64 characters`
+**taxDetails** object[]
+**Possible values:** `<= 10`
+  * Array [
+**type** string
+**Possible values:** `<= 255 characters`
+**amount** string
+Decimal amount separated by `.`, maximum of 3 decimals.
+**Possible values:** Value must match regular expression `^(([0-9]+)|([0-9]+\.[0-9]{1,3}))$`
+**Example:**`9.99`
+**rate** string
+Decimal amount separated by `.`, maximum of 3 decimals.
+**Possible values:** Value must match regular expression `^(([0-9]+)|([0-9]+\.[0-9]{1,3}))$`
+**Example:**`9.99`
+**code** string
+**Possible values:** `<= 255 characters`
+**taxId** string
+**Possible values:** `<= 255 characters`
+**applied** string
+**Possible values:** `<= 255 characters`
+**exemptionCode** string
+**Possible values:** `<= 255 characters`
+  * ]
+**extraData** object
+Object containing key-value pairs (string-to-string), to be used by either the upstream Adapter, the Risk Engine etc.
+**property name*** string
+  * ]
 **extraData** object
 Object containing key-value pairs (string-to-string), to be used by either the upstream Adapter, the Risk Engine etc.
 **property name*** string
@@ -237,6 +309,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",  
   "merchantMetaData": "string",  
   "description": "My Purchase Order 123",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {  
+        "someKey": "someValue"  
+      }  
+    }  
+  ],  
   "extraData": {  
     "someKey": "someValue"  
   },  
@@ -275,6 +381,40 @@ Body required
   "additionalId2": "string",
   "merchantMetaData": "string",
   "description": "My Purchase Order 123",
+  "items": [
+    {
+      "identification": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": 0,
+      "price": 0,
+      "currency": "EUR",
+      "l2l3Data": {
+        "type": "string",
+        "unit": "string",
+        "unitPrice": "9.99",
+        "discount": "9.99",
+        "shippingAmount": "9.99",
+        "taxAmount": "9.99",
+        "taxRate": "9.99",
+        "commodityCode": "string",
+        "taxDetails": [
+          {
+            "type": "string",
+            "amount": "9.99",
+            "rate": "9.99",
+            "code": "string",
+            "taxId": "string",
+            "applied": "string",
+            "exemptionCode": "string"
+          }
+        ]
+      },
+      "extraData": {
+        "someKey": "someValue"
+      }
+    }
+  ],
   "extraData": {
     "someKey": "someValue"
   },
@@ -382,6 +522,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",  
   "merchantMetaData": "string",  
   "description": "My Purchase Order 123",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {  
+        "someKey": "someValue"  
+      }  
+    }  
+  ],  
   "extraData": {  
     "someKey": "someValue"  
   },  
@@ -410,6 +584,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",
   "merchantMetaData": "string",
   "description": "My Purchase Order 123",
+  "items": [
+    {
+      "identification": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": 0,
+      "price": 0,
+      "currency": "EUR",
+      "l2l3Data": {
+        "type": "string",
+        "unit": "string",
+        "unitPrice": "9.99",
+        "discount": "9.99",
+        "shippingAmount": "9.99",
+        "taxAmount": "9.99",
+        "taxRate": "9.99",
+        "commodityCode": "string",
+        "taxDetails": [
+          {
+            "type": "string",
+            "amount": "9.99",
+            "rate": "9.99",
+            "code": "string",
+            "taxId": "string",
+            "applied": "string",
+            "exemptionCode": "string"
+          }
+        ]
+      },
+      "extraData": {
+        "someKey": "someValue"
+      }
+    }
+  ],
   "extraData": {
     "someKey": "someValue"
   },
@@ -517,6 +725,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",  
   "merchantMetaData": "string",  
   "description": "My Purchase Order 123",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {  
+        "someKey": "someValue"  
+      }  
+    }  
+  ],  
   "extraData": {  
     "someKey": "someValue"  
   },  
@@ -545,6 +787,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",
   "merchantMetaData": "string",
   "description": "My Purchase Order 123",
+  "items": [
+    {
+      "identification": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": 0,
+      "price": 0,
+      "currency": "EUR",
+      "l2l3Data": {
+        "type": "string",
+        "unit": "string",
+        "unitPrice": "9.99",
+        "discount": "9.99",
+        "shippingAmount": "9.99",
+        "taxAmount": "9.99",
+        "taxRate": "9.99",
+        "commodityCode": "string",
+        "taxDetails": [
+          {
+            "type": "string",
+            "amount": "9.99",
+            "rate": "9.99",
+            "code": "string",
+            "taxId": "string",
+            "applied": "string",
+            "exemptionCode": "string"
+          }
+        ]
+      },
+      "extraData": {
+        "someKey": "someValue"
+      }
+    }
+  ],
   "extraData": {
     "someKey": "someValue"
   },
@@ -652,6 +928,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",  
   "merchantMetaData": "string",  
   "description": "My Purchase Order 123",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {  
+        "someKey": "someValue"  
+      }  
+    }  
+  ],  
   "extraData": {  
     "someKey": "someValue"  
   },  
@@ -680,6 +990,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",
   "merchantMetaData": "string",
   "description": "My Purchase Order 123",
+  "items": [
+    {
+      "identification": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": 0,
+      "price": 0,
+      "currency": "EUR",
+      "l2l3Data": {
+        "type": "string",
+        "unit": "string",
+        "unitPrice": "9.99",
+        "discount": "9.99",
+        "shippingAmount": "9.99",
+        "taxAmount": "9.99",
+        "taxRate": "9.99",
+        "commodityCode": "string",
+        "taxDetails": [
+          {
+            "type": "string",
+            "amount": "9.99",
+            "rate": "9.99",
+            "code": "string",
+            "taxId": "string",
+            "applied": "string",
+            "exemptionCode": "string"
+          }
+        ]
+      },
+      "extraData": {
+        "someKey": "someValue"
+      }
+    }
+  ],
   "extraData": {
     "someKey": "someValue"
   },
@@ -787,6 +1131,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",  
   "merchantMetaData": "string",  
   "description": "My Purchase Order 123",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {  
+        "someKey": "someValue"  
+      }  
+    }  
+  ],  
   "extraData": {  
     "someKey": "someValue"  
   },  
@@ -815,6 +1193,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",
   "merchantMetaData": "string",
   "description": "My Purchase Order 123",
+  "items": [
+    {
+      "identification": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": 0,
+      "price": 0,
+      "currency": "EUR",
+      "l2l3Data": {
+        "type": "string",
+        "unit": "string",
+        "unitPrice": "9.99",
+        "discount": "9.99",
+        "shippingAmount": "9.99",
+        "taxAmount": "9.99",
+        "taxRate": "9.99",
+        "commodityCode": "string",
+        "taxDetails": [
+          {
+            "type": "string",
+            "amount": "9.99",
+            "rate": "9.99",
+            "code": "string",
+            "taxId": "string",
+            "applied": "string",
+            "exemptionCode": "string"
+          }
+        ]
+      },
+      "extraData": {
+        "someKey": "someValue"
+      }
+    }
+  ],
   "extraData": {
     "someKey": "someValue"
   },
@@ -922,6 +1334,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",  
   "merchantMetaData": "string",  
   "description": "My Purchase Order 123",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {  
+        "someKey": "someValue"  
+      }  
+    }  
+  ],  
   "extraData": {  
     "someKey": "someValue"  
   },  
@@ -950,6 +1396,40 @@ curl -L 'https://gateway.ixopay.com/api/v3/push/:apiKey/capture' \
   "additionalId2": "string",
   "merchantMetaData": "string",
   "description": "My Purchase Order 123",
+  "items": [
+    {
+      "identification": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": 0,
+      "price": 0,
+      "currency": "EUR",
+      "l2l3Data": {
+        "type": "string",
+        "unit": "string",
+        "unitPrice": "9.99",
+        "discount": "9.99",
+        "shippingAmount": "9.99",
+        "taxAmount": "9.99",
+        "taxRate": "9.99",
+        "commodityCode": "string",
+        "taxDetails": [
+          {
+            "type": "string",
+            "amount": "9.99",
+            "rate": "9.99",
+            "code": "string",
+            "taxId": "string",
+            "applied": "string",
+            "exemptionCode": "string"
+          }
+        ]
+      },
+      "extraData": {
+        "someKey": "someValue"
+      }
+    }
+  ],
   "extraData": {
     "someKey": "someValue"
   },

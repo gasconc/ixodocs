@@ -1,8 +1,8 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-07-01 | Total pages: 758
+> Last updated: 2026-07-06 | Total pages: 760
 
-## Ixopay Developer Hub (194 pages)
+## Ixopay Developer Hub (196 pages)
 
 ### Adapters
 - [Emerchantpay Genesis PCI](docs/ixopay/adapters/emerchantpaygenesis-pci.md) — Emerchantpay Genesis PCI
@@ -62,12 +62,14 @@
 - [Create](docs/ixopay/api/provisioning/create-connector.md) — Provisioning API
 - [Create](docs/ixopay/api/provisioning/create-merchant-user.md) — Provisioning API  Merchant userhttps://documentation.ixopay.com/api/provisioning/merchant-user
 - [Create](docs/ixopay/api/provisioning/create-merchant.md) — Provisioning API
+- [Merchant Network Tokenization enrollment](docs/ixopay/api/provisioning/create-nt-enrollment.md) — Provisioning API  Merchant Network Tokenizationhttps://documentation.ixopay.com/api/provisioning/merchant-network-tokenization  Merchant Network To...
 - [Settings vault](docs/ixopay/api/provisioning/get-connector-settings-vault.md) — Provisioning API  Settings vault
 - [Settings extra-data](docs/ixopay/api/provisioning/get-connector-settings.md) — Provisioning API  Settings extra-data
 - [List](docs/ixopay/api/provisioning/list-connectors.md) — Provisioning API
 - [List](docs/ixopay/api/provisioning/list-merchant-users.md) — Provisioning API  Merchant userhttps://documentation.ixopay.com/api/provisioning/merchant-user
 - [List](docs/ixopay/api/provisioning/list-merchants.md) — Provisioning API
 - [List](docs/ixopay/api/provisioning/list-tenants.md) — Provisioning API
+- [Merchant Network Tokenization](docs/ixopay/api/provisioning/merchant-network-tokenization.md) — Provisioning API  Merchant Network Tokenization
 - [Merchant user](docs/ixopay/api/provisioning/merchant-user.md) — Provisioning API  Merchant user
 - [Merchant](docs/ixopay/api/provisioning/merchant.md) — Provisioning API
 - [Provisioning API](docs/ixopay/api/provisioning/provisioning-api.md) — Provisioning API
@@ -586,7 +588,7 @@
 - [Sla](docs/ixopay/legal/sla.md) —  Service Level Agreement https://www.ixopay.com/assets/pdf/legal/service-level-agreement-combined-4-feb-2026.pdf "Service Level Agreement"
 - [Social Media Privacy Notice](docs/ixopay/legal/social-media-privacy-notice.md) — We operate profiles on various social media networks to communicate with our Customers and prospects. When you visit these pages, we act as joint c...
 - [Subprocessors](docs/ixopay/legal/subprocessors.md) — IXOPAY uses selected Subprocessors to support the provision of our Products. Some of these Subprocessors are IXOPAY Group Affiliates and some are t...
-- [Terms Of Use](docs/ixopay/legal/terms-of-use.md) — 1. Scope and Applicability 1.1.
+- [Terms Of Use](docs/ixopay/legal/terms-of-use.md) — 1.1. These Terms of Use govern your access to and use of the services under the domain www.ixopay.comhttps://www.ixopay.com/ the "Website", operate...
 - [Tokenex Legacy](docs/ixopay/legal/tokenex-legacy.md) — The agreements listed on this page govern relationships that IXOPAY, Inc. f/k/a TokenEx, Inc. “IXOPAY” entered into with customers using an Order F...
 - [Toms](docs/ixopay/legal/toms.md) — According to Article 32 of the General Data Protection Regulation "GDPR" and taking into account the state of the art, the implementation costs and...
 

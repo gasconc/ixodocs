@@ -14,7 +14,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenex-emvco-property-mapping
 portal: tokenex
-updated: '2026-07-01'
+updated: '2026-07-06'
 related: []
 ---
 

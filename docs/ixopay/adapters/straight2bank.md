@@ -9,11 +9,12 @@ tags:
 - additional-parameters-https-documentation-ixopay-com-adapters-straight2bank-additional-parameters-direct-link-additional-parameters
 - api
 - ixopay
+- refund
 - credit-card
 - transaction
 source_url: https://documentation.ixopay.com/adapters/straight2bank
 portal: ixopay-dev
-updated: '2026-07-01'
+updated: '2026-07-06'
 related: []
 ---
 
@@ -38,9 +39,16 @@ This page provides an overview of the payments methods provided by the Straight2
 | VNPAY  | Full-Page Redirect  | Debit  |  
 | VNPAYQR  | Full-Page Redirect  | Debit  |  
 | M-Pesa  | Full-Page Redirect  | Debit  |  
+| QRIS  | Full-Page Redirect  | Debit, Refund  |  
+| VANonSCB  | Full-Page Redirect  | Debit, Refund  |  
+| VASCB  | Full-Page Redirect  | Debit, Refund  |  
 ## Additional Parameters[​](https://documentation.ixopay.com/adapters/straight2bank#additional-parameters "Direct link to Additional Parameters")  
 | Parameter  | Required  | Description  |  
 | --- | --- | --- |  
 | customer.billingCountry  | **conditional**  | Default value can be set on connector config  |  
 | extraData.ref1  | false  | Straight2Bank ref1  |  
-| extraData.ref2  | false  | Straight2Bank ref2  |
+| extraData.ref2  | false  | Straight2Bank ref2  |  
+### Additional Parameters[​](https://documentation.ixopay.com/adapters/straight2bank#additional-parameters-1 "Direct link to Additional Parameters")  
+| Parameter  | Required  | Description  |  
+| --- | --- | --- |  
+| creditcardRedirectPspid  | false  | CreditcardRedirect PSPID override  |

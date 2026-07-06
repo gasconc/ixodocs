@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-06-29T08:12:16+00:00_
+_Generated at 2026-07-06T07:57:52+00:00_
 
-**352 missing** · **3 stale** across 3 source(s).
+**354 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **902** · Indexed: **550** · Missing: **352** · Stale: **2**
+- Published: **906** · Indexed: **552** · Missing: **354** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -19,6 +19,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/advcash
 - https://documentation.ixopay.com/adapters/adyen
 - https://documentation.ixopay.com/adapters/adyenpos
+- https://documentation.ixopay.com/adapters/aeropay
 - https://documentation.ixopay.com/adapters/afterpay
 - https://documentation.ixopay.com/adapters/alignet-pci
 - https://documentation.ixopay.com/adapters/alipay
@@ -54,6 +55,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/cm-telecom
 - https://documentation.ixopay.com/adapters/cmi-pci
 - https://documentation.ixopay.com/adapters/coingate
+- https://documentation.ixopay.com/adapters/connexpay-pci
 - https://documentation.ixopay.com/adapters/cryptonpay
 - https://documentation.ixopay.com/adapters/cybersource-pci
 - https://documentation.ixopay.com/adapters/d-local

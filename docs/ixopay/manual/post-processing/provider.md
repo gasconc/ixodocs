@@ -11,13 +11,13 @@ tags:
 - schedule-job-https-documentation-ixopay-com-manual-docs-post-processing-provider-schedule-job-direct-link-schedule-job
 - settings-https-documentation-ixopay-com-manual-docs-post-processing-provider-settings-direct-link-settings
 - ixopay
+- refund
 - capture
 - settlement
 - transaction
-- merchant
 source_url: https://documentation.ixopay.com/manual/docs/post-processing/provider
 portal: ixopay-manual
-updated: '2026-07-01'
+updated: '2026-07-06'
 related: []
 ---
 
@@ -93,6 +93,7 @@ You can **edit** and **delete** Schedules on the Provider level at any time.
 | Provider Settlement: Do not trigger Jobs automatically  | Setting to prevent Post Processing Jobs from being triggered (e.g. if scheduled "On Provider Settlement") after successful processing of a Provider Settlement  | 1  |  
 | Provider Settlement: Do not create a Provider Settlement if a finished duplicate already exists  | Setting to check for previous Provider Settlements with the same Batch ID / Settlement ID. A Provider Settlement is only created in case no successful Provider Settlement exists in the IXOPAY platform.  | 1  |  
 | Provider Settlement: Do not send a postback if the status of a transaction is changed to success after it is settled  | In case a debit or capture transaction is included in a Provider Settlement the transaction status (e.g. pending, error) is set to success and a postback notification is sent to the Merchant by default. This setting prevents the sending of a postback notification.  | 1  |  
+| Provider Settlement: Settle Unreferenced Refund as Refund Transaction  | In case an Unreferenced Refund transaction is included in a Provider Settlement file as a refund entry, this setting enables the IXOPAY platform to settle it as a Refund Transaction.  | 1  |  
 | Reconciliation: Create Provider Settlement with Recon File  | Setting to create a Provider Settlement from a Reconciliation file (e.g. for payment methods for which Reconciliation equals Settlement)  | 1  |  
 | Reconciliation: Create Unknown Transactions on Connector with this GUID  | In case of unknown Transactions specify the Connector GUID for which Transaction should be created  | Connector GUID  |  
 | Reconciliation: Create Provider Settlement with Conflict Log  | In case of unknown Transactions in settlements provided via reconciliation (e.g. PayPal) a new conflicted Provider Settlement is created  | 1  |
