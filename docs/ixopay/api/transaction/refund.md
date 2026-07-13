@@ -14,7 +14,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/api/transaction/refund
 portal: ixopay-dev
-updated: '2026-07-06'
+updated: '2026-07-13'
 related: []
 ---
 

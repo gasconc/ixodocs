@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-07-06T07:57:52+00:00_
+_Generated at 2026-07-13T09:49:59+00:00_
 
-**354 missing** · **3 stale** across 3 source(s).
+**355 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **906** · Indexed: **552** · Missing: **354** · Stale: **2**
+- Published: **907** · Indexed: **552** · Missing: **355** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -336,6 +336,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/satispay
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/solidgate
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/stripe
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/tokenex
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/worldline
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/worldpay
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace

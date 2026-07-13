@@ -10,7 +10,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/jazzcash
 portal: ixopay-manual
-updated: '2026-07-06'
+updated: '2026-07-13'
 related: []
 ---
 

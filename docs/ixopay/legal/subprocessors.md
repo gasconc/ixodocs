@@ -12,7 +12,7 @@ tags:
 - snowflake
 source_url: https://www.ixopay.com/legal/subprocessors
 portal: ixopay-legal
-updated: '2026-07-06'
+updated: '2026-07-13'
 related: []
 ---
 

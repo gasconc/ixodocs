@@ -14,7 +14,7 @@ tags:
 - anomaly-detection-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-anomaly-detection-direct-link-anomaly-detection
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments
 portal: ixopay-modules
-updated: '2026-07-06'
+updated: '2026-07-13'
 related: []
 ---
 
@@ -68,3 +68,5 @@ Data is kept secure, and the platform is ISO 27001 and SOC2 certified, undergoin
 Additionally, the platform requires MFA access for all users due to the sensitivity of payments data, allows PII anonymization, and has database segregation policies across different customers.
 ### What’s the pricing model?[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#whats-the-pricing-model "Direct link to What’s the pricing model?")
 The pricing model is based on the number of connections and ingested events. For a pricing quote, please reach out to your point of contact or to the support team.
+### As a TokenEx customer, how can I see my tokenization data inside payments intelligence?[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#as-a-tokenex-customer-how-can-i-see-my-tokenization-data-inside-payments-intelligence "Direct link to As a TokenEx customer, how can I see my tokenization data inside payments intelligence?")
+Existing TokenEx customers can enable Ixopay Payments Intelligence modules (as provided under the PI Basic package) - please contact the Ixopay Support team to integrate and enable access to your payments and tokenization data in the Ixopay Payments Intelligence portal.

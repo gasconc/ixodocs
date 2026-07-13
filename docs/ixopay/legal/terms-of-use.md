@@ -12,7 +12,7 @@ tags:
 - merchant
 source_url: https://www.ixopay.com/legal/terms-of-use
 portal: ixopay-legal
-updated: '2026-07-06'
+updated: '2026-07-13'
 related: []
 ---
 
@@ -45,16 +45,16 @@ related: []
 5.2. We grant you a limited, non-exclusive, non-transferable, and revocable permission to access and display the Website content solely for your internal business purposes as a current or potential customer. You must not copy, transmit, modify, translate, or commercially exploit this content without our prior written consent.
 5.3. "IXOPAY" and related product names are registered trademarks of the IXOPAY Group.
 5.4. We consent to external links directing to the Website, provided the link displays the complete page (including the navigation frame). Utilizing framing techniques to enclose any portion of the Website or providing RSS feeds on external websites is strictly prohibited.
-#### 6. General Disclaimer
+#### **6. General Disclaimer**
 6.1. The content on this Website, including IXONav output, is provided for general information purposes only and is not intended to constitute or replace professional advice in the fields of IT, marketing, law, compliance, tax, finance, security, PCI, or payment processing.
 6.2. To the maximum extent permitted by law, IXOPAY excludes all warranties, representations, and conditions relating to the Website, Website content, IXONav, and IXONav output, including any implied warranties of accuracy, completeness, timeliness, availability, non-infringement, merchantability, fitness for a particular purpose, and error-free operation.
 6.3. To the maximum extent permitted by law, IXOPAY is not liable for any loss or damage arising from your access to, use of, or reliance on the Website, Website content, IXONav, IXONav output, or third-party materials referenced on or through the Website. However, nothing in these Terms of Use limits or excludes liability that cannot be limited or excluded under applicable law.
-#### 7. Governing Law and Jurisdiction
+#### **7. Governing Law and Jurisdiction**
 7.1. The applicable law and jurisdiction governing these Terms of Use depend on your domicile.
 7.2. If you are domiciled in the United States, Canada, South America, or Latin America, these Terms of Use are governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the competent courts of Delaware.
 7.3. If you are domiciled in Europe, the United Kingdom, Asia, Africa, Australia, or New Zealand, these Terms of Use are governed exclusively by Austrian substantive law, with exclusive jurisdiction in the competent court for 1010 Vienna, Austria.
 7.4. The application of conflict of law principles and the United Nations Convention on Contracts for the International Sale of Goods is expressly excluded in all cases.
-#### 8. Changes to These Terms of Use
+#### **8. Changes to These Terms of Use**
 8.1. We may update these Terms of Use from time to time to reflect changes to the Website, IXONav, our products, our legal obligations, or our business operations.
 8.2. The updated Terms of Use apply from the date stated above, unless a later effective date is specified.
 8.3. If you do not agree to the updated Terms of Use, you must stop using the Website and IXONav.

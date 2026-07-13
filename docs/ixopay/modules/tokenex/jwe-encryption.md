@@ -14,7 +14,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/jwe-encryption
 portal: ixopay-modules
-updated: '2026-07-06'
+updated: '2026-07-13'
 related: []
 ---
 
