@@ -11,7 +11,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/features/risk-checks/external/forter
 portal: ixopay-dev
-updated: '2026-07-13'
+updated: '2026-07-20'
 related: []
 ---
 

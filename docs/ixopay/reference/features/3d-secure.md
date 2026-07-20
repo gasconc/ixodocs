@@ -14,7 +14,7 @@ tags:
 - debit-card
 source_url: https://documentation.ixopay.com/docs/reference/features/3d-secure
 portal: ixopay-dev
-updated: '2026-07-13'
+updated: '2026-07-20'
 related: []
 ---
 

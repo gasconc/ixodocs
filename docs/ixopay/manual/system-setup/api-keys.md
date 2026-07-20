@@ -8,7 +8,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/api-keys
 portal: ixopay-manual
-updated: '2026-07-13'
+updated: '2026-07-20'
 related: []
 ---
 

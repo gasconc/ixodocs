@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/api/pci/payout
 portal: ixopay-dev
-updated: '2026-07-13'
+updated: '2026-07-20'
 related: []
 ---
 

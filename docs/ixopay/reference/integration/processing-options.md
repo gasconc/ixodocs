@@ -7,7 +7,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options
 portal: ixopay-dev
-updated: '2026-07-13'
+updated: '2026-07-20'
 related: []
 ---
 

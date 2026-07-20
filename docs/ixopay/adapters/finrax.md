@@ -12,7 +12,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/adapters/finrax
 portal: ixopay-dev
-updated: '2026-07-13'
+updated: '2026-07-20'
 related: []
 ---
 

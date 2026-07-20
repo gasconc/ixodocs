@@ -10,7 +10,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/associateencryptedcvvwithtoken-1
 portal: tokenex
-updated: '2026-07-13'
+updated: '2026-07-20'
 related: []
 ---
 
