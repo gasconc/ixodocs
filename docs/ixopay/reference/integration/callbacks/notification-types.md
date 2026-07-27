@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/integration/callbacks/notification-types
 portal: ixopay-dev
-updated: '2026-07-20'
+updated: '2026-07-27'
 related: []
 ---
 

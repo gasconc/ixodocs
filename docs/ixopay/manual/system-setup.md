@@ -12,7 +12,7 @@ tags:
 - hpp
 source_url: https://documentation.ixopay.com/manual/docs/system-setup
 portal: ixopay-manual
-updated: '2026-07-20'
+updated: '2026-07-27'
 related: []
 ---
 

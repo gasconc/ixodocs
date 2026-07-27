@@ -10,7 +10,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/docs/reference/integration
 portal: ixopay-dev
-updated: '2026-07-20'
+updated: '2026-07-27'
 related: []
 ---
 

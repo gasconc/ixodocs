@@ -10,7 +10,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/api/push/push-api
 portal: ixopay-dev
-updated: '2026-07-20'
+updated: '2026-07-27'
 related: []
 ---
 

@@ -16,7 +16,7 @@ tags:
 - hmac
 source_url: ''
 portal: congrify
-updated: '2026-07-20'
+updated: '2026-07-27'
 related: []
 ---
 
