@@ -6,11 +6,12 @@ summary: Callbacks are an integral part of the IXOPAY platformhttps://www.ixopay
 tags:
 - state-changes-follow-transactions-https-documentation-ixopay-com-docs-reference-integration-callbacks-state-changes-follow-transactions-direct-link-state-changes-follow-transactions
 - ixopay
+- psp
 - transaction
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/integration/callbacks
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -32,4 +33,195 @@ Certain payment methods allow for state changes in transactions. This means that
 warning
 Be aware that for some payment methods, a transaction can change from failed to successful. Ensure that your system is capable of handling multiple notifications for the same transaction.
 In addition to notifications about the outcome of a payment, IXOPAY platform also sends notifications regarding any new follow-up transactions or changes in transaction status. These notifications provide valuable updates and insights into the progress of the payment process.
-Sequence diagram for pending payment callback processing PSPIXOPAY platformMerchant par​alt[Merchant transaction flow][Concurrent callback flow]CustomerPurchaseDebitResult with PENDING state"Your payment is being processed …"GET payment pagePayment pageSubmit payment dataTransactionCallback to callback URLStore resultOKResultRedirects back to successUrlGET response URLThank-you or error page
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for pending payment callback processing
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  alt Merchant transaction flow
+    C->>+M: Purchase
+    M->>+G: Debit
+    G->>-M: Result with PENDING state
+    M->>-C: "Your payment is being processed …"
+  else Concurrent callback flow
+    C-->>+PSP: GET payment page
+    PSP-->>-C: Payment page
+
+    C-->>+PSP: Submit payment data
+    par
+      PSP-->>+G: Transaction
+      G-)+M: Callback to callback URL
+      M->>M: Store result
+      M->>-G: OK
+      G-->>-PSP: Result
+    end
+    PSP-->>-C: Redirects back to successUrl
+
+    C->>+M: GET response URL
+    M->>-C: Thank-you or error page
+  end
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for pending payment callback processing
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  alt Merchant transaction flow
+    C->>+M: Purchase
+    M->>+G: Debit
+    G->>-M: Result with PENDING state
+    M->>-C: "Your payment is being processed …"
+  else Concurrent callback flow
+    C-->>+PSP: GET payment page
+    PSP-->>-C: Payment page
+
+    C-->>+PSP: Submit payment data
+    par
+      PSP-->>+G: Transaction
+      G-)+M: Callback to callback URL
+      M->>M: Store result
+      M->>-G: OK
+      G-->>-PSP: Result
+    end
+    PSP-->>-C: Redirects back to successUrl
+
+    C->>+M: GET response URL
+    M->>-C: Thank-you or error page
+  end
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for pending payment callback processing
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  alt Merchant transaction flow
+    C->>+M: Purchase
+    M->>+G: Debit
+    G->>-M: Result with PENDING state
+    M->>-C: "Your payment is being processed …"
+  else Concurrent callback flow
+    C-->>+PSP: GET payment page
+    PSP-->>-C: Payment page
+
+    C-->>+PSP: Submit payment data
+    par
+      PSP-->>+G: Transaction
+      G-)+M: Callback to callback URL
+      M->>M: Store result
+      M->>-G: OK
+      G-->>-PSP: Result
+    end
+    PSP-->>-C: Redirects back to successUrl
+
+    C->>+M: GET response URL
+    M->>-C: Thank-you or error page
+  end
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for pending payment callback processing
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  alt Merchant transaction flow
+    C->>+M: Purchase
+    M->>+G: Debit
+    G->>-M: Result with PENDING state
+    M->>-C: "Your payment is being processed …"
+  else Concurrent callback flow
+    C-->>+PSP: GET payment page
+    PSP-->>-C: Payment page
+
+    C-->>+PSP: Submit payment data
+    par
+      PSP-->>+G: Transaction
+      G-)+M: Callback to callback URL
+      M->>M: Store result
+      M->>-G: OK
+      G-->>-PSP: Result
+    end
+    PSP-->>-C: Redirects back to successUrl
+
+    C->>+M: GET response URL
+    M->>-C: Thank-you or error page
+  end
+```  * [State changes and follow-up transactions](https://documentation.ixopay.com/docs/reference/integration/callbacks#state-changes-and-follow-up-transactions)
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for pending payment callback processing
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  alt Merchant transaction flow
+    C->>+M: Purchase
+    M->>+G: Debit
+    G->>-M: Result with PENDING state
+    M->>-C: "Your payment is being processed …"
+  else Concurrent callback flow
+    C-->>+PSP: GET payment page
+    PSP-->>-C: Payment page
+
+    C-->>+PSP: Submit payment data
+    par
+      PSP-->>+G: Transaction
+      G-)+M: Callback to callback URL
+      M->>M: Store result
+      M->>-G: OK
+      G-->>-PSP: Result
+    end
+    PSP-->>-C: Redirects back to successUrl
+
+    C->>+M: GET response URL
+    M->>-C: Thank-you or error page
+  end
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for pending payment callback processing
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  alt Merchant transaction flow
+    C->>+M: Purchase
+    M->>+G: Debit
+    G->>-M: Result with PENDING state
+    M->>-C: "Your payment is being processed …"
+  else Concurrent callback flow
+    C-->>+PSP: GET payment page
+    PSP-->>-C: Payment page
+
+    C-->>+PSP: Submit payment data
+    par
+      PSP-->>+G: Transaction
+      G-)+M: Callback to callback URL
+      M->>M: Store result
+      M->>-G: OK
+      G-->>-PSP: Result
+    end
+    PSP-->>-C: Redirects back to successUrl
+
+    C->>+M: GET response URL
+    M->>-C: Thank-you or error page
+  end
+```

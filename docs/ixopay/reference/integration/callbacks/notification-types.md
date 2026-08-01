@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/integration/callbacks/notification-types
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -42,7 +42,7 @@ Here's an example of a success notification:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -119,7 +119,7 @@ Here's an example of an error notification:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -188,7 +188,7 @@ Here's an example of a chargeback notification:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260715-313f381aef908f4558e3",  
+  "purchaseId": "20260727-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -210,7 +210,7 @@ Here's an example of a chargeback notification:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-07-17T08:12:29Z"  
+    "chargebackDateTime": "2026-07-29T09:00:47Z"  
 
   }  
 
@@ -229,7 +229,7 @@ Here's an example of a chargeback reversal notification:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -253,7 +253,7 @@ Here's an example of a chargeback reversal notification:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-07-16T08:12:29Z"  
+    "reversalDateTime": "2026-07-28T09:00:47Z"  
 
   }  
 
@@ -279,7 +279,7 @@ Here's an example of an account updater notification:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -343,9 +343,6 @@ The token's status and any associated metadata, such as card art, are reported w
     * `deactivated`: The token is disabled and cannot be used anymore.
     * `pending`: Tokenization is in progress.
     * `error`: Error occurred during tokenization.
-  * `extraData.networkTokenMetadata.assets` (object, optional): An object that contains metadata assets if available. Each **key** represents an asset type and each **value** is the asset's identifier.
-    * **Keys** (string): Name or type of the asset (e.g., "cardArt", "otherArt"). These keys are dynamic and depend on the available assets.
-    * **Values** (string): The unique identifier of the asset.
   * `extraData.lastNetworkTokenUpdateDate` (string, optional): Date of the most recent update notification.
   * `extraData.lastNetworkTokenUpdateResult` (string enum, optional): In the case of a token update, this field indicates the result. Possible values include:
     * `pan_changed`: PAN has changed.
@@ -356,6 +353,12 @@ The token's status and any associated metadata, such as card art, are reported w
     * `suspended`: The token has been suspended and cannot be used at the moment.
     * `deactivated`: The token is disabled and cannot be used anymore.
     * `error`: Error occurred during tokenization.
+
+Removal Notice
+Following field was removed and a replacement will be introduced in the future.
+`extraData.networkTokenMetadata.assets` (object, optional): An object that contains metadata assets if available. Each **key** represents an asset type and each **value** is the asset's identifier.
+  * **Keys** (string): Name or type of the asset (e.g., "cardArt", "otherArt"). These keys are dynamic and depend on the available assets.
+  * **Values** (string): The unique identifier of the asset.
 
 Here are examples of network notifications:
   * Initial notification
@@ -371,7 +374,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -417,19 +420,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "networkTokenStatus": "active",  
-
-    "networkTokenMetadata": {  
-
-      "assets": {  
-
-        "cardSymbol": "aaaa1111bbbb2222cccc3333dddd4444",  
-
-        "digitalCardArt": "eeee5555ffff6666gggg7777hhhh8888"  
-
-      }  
-
-    }  
+    "networkTokenStatus": "active"  
 
   }  
 
@@ -446,7 +437,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -494,7 +485,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -513,7 +504,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -561,7 +552,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -580,7 +571,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -655,7 +646,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -722,7 +713,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260715-313f381aef908f4558e3",  
+  "purchaseId": "20260727-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -744,7 +735,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-07-17T08:12:29Z"  
+    "chargebackDateTime": "2026-07-29T09:00:47Z"  
 
   }  
 
@@ -761,7 +752,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -785,7 +776,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-07-16T08:12:29Z"  
+    "reversalDateTime": "2026-07-28T09:00:47Z"  
 
   }  
 
@@ -802,7 +793,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -861,7 +852,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -907,19 +898,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "networkTokenStatus": "active",  
-
-    "networkTokenMetadata": {  
-
-      "assets": {  
-
-        "cardSymbol": "aaaa1111bbbb2222cccc3333dddd4444",  
-
-        "digitalCardArt": "eeee5555ffff6666gggg7777hhhh8888"  
-
-      }  
-
-    }  
+    "networkTokenStatus": "active"  
 
   }  
 
@@ -936,7 +915,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -984,7 +963,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -1003,7 +982,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1051,7 +1030,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -1070,7 +1049,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1145,7 +1124,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1212,7 +1191,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260715-313f381aef908f4558e3",  
+  "purchaseId": "20260727-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -1234,7 +1213,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-07-17T08:12:29Z"  
+    "chargebackDateTime": "2026-07-29T09:00:47Z"  
 
   }  
 
@@ -1251,7 +1230,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -1275,7 +1254,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-07-16T08:12:29Z"  
+    "reversalDateTime": "2026-07-28T09:00:47Z"  
 
   }  
 
@@ -1292,7 +1271,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -1351,7 +1330,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1397,19 +1376,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "networkTokenStatus": "active",  
-
-    "networkTokenMetadata": {  
-
-      "assets": {  
-
-        "cardSymbol": "aaaa1111bbbb2222cccc3333dddd4444",  
-
-        "digitalCardArt": "eeee5555ffff6666gggg7777hhhh8888"  
-
-      }  
-
-    }  
+    "networkTokenStatus": "active"  
 
   }  
 
@@ -1426,7 +1393,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1474,7 +1441,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -1493,7 +1460,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1541,7 +1508,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -1560,7 +1527,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1635,7 +1602,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1702,7 +1669,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260715-313f381aef908f4558e3",  
+  "purchaseId": "20260727-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -1724,7 +1691,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-07-17T08:12:29Z"  
+    "chargebackDateTime": "2026-07-29T09:00:47Z"  
 
   }  
 
@@ -1741,7 +1708,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -1765,7 +1732,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-07-16T08:12:29Z"  
+    "reversalDateTime": "2026-07-28T09:00:47Z"  
 
   }  
 
@@ -1782,7 +1749,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -1841,7 +1808,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1887,19 +1854,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "networkTokenStatus": "active",  
-
-    "networkTokenMetadata": {  
-
-      "assets": {  
-
-        "cardSymbol": "aaaa1111bbbb2222cccc3333dddd4444",  
-
-        "digitalCardArt": "eeee5555ffff6666gggg7777hhhh8888"  
-
-      }  
-
-    }  
+    "networkTokenStatus": "active"  
 
   }  
 
@@ -1916,7 +1871,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1964,7 +1919,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -1983,7 +1938,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2031,7 +1986,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -2055,7 +2010,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2130,7 +2085,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2197,7 +2152,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260715-313f381aef908f4558e3",  
+  "purchaseId": "20260727-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -2219,7 +2174,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-07-17T08:12:29Z"  
+    "chargebackDateTime": "2026-07-29T09:00:47Z"  
 
   }  
 
@@ -2236,7 +2191,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -2260,7 +2215,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-07-16T08:12:29Z"  
+    "reversalDateTime": "2026-07-28T09:00:47Z"  
 
   }  
 
@@ -2277,7 +2232,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -2336,7 +2291,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2382,19 +2337,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "networkTokenStatus": "active",  
-
-    "networkTokenMetadata": {  
-
-      "assets": {  
-
-        "cardSymbol": "aaaa1111bbbb2222cccc3333dddd4444",  
-
-        "digitalCardArt": "eeee5555ffff6666gggg7777hhhh8888"  
-
-      }  
-
-    }  
+    "networkTokenStatus": "active"  
 
   }  
 
@@ -2411,7 +2354,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2459,7 +2402,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -2478,7 +2421,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2526,7 +2469,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 
@@ -2545,7 +2488,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2620,7 +2563,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "your-unique-identifier",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2687,7 +2630,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-313f381aef908f4558e3",  
 
-  "purchaseId": "20260715-313f381aef908f4558e3",  
+  "purchaseId": "20260727-313f381aef908f4558e3",  
 
   "transactionType": "CHARGEBACK",  
 
@@ -2709,7 +2652,7 @@ Here are examples of network notifications:
 
     "reason": "Unauthorized payment",  
 
-    "chargebackDateTime": "2026-07-17T08:12:29Z"  
+    "chargebackDateTime": "2026-07-29T09:00:47Z"  
 
   }  
 
@@ -2726,7 +2669,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "CHARGEBACK-REVERSAL",  
 
@@ -2750,7 +2693,7 @@ Here are examples of network notifications:
 
     "reason": "Chargeback reversed",  
 
-    "reversalDateTime": "2026-07-16T08:12:29Z"  
+    "reversalDateTime": "2026-07-28T09:00:47Z"  
 
   }  
 
@@ -2767,7 +2710,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "REGISTER",  
 
@@ -2826,7 +2769,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2872,19 +2815,7 @@ Here are examples of network notifications:
 
   "extraData": {  
 
-    "networkTokenStatus": "active",  
-
-    "networkTokenMetadata": {  
-
-      "assets": {  
-
-        "cardSymbol": "aaaa1111bbbb2222cccc3333dddd4444",  
-
-        "digitalCardArt": "eeee5555ffff6666gggg7777hhhh8888"  
-
-      }  
-
-    }  
+    "networkTokenStatus": "active"  
 
   }  
 
@@ -2901,7 +2832,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2949,7 +2880,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "active",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "pan_expiry_changed"  
 
@@ -2968,7 +2899,7 @@ Here are examples of network notifications:
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -3016,7 +2947,7 @@ Here are examples of network notifications:
 
     "networkTokenStatus": "suspended",  
 
-    "lastNetworkTokenUpdateDate": "2026-07-16T08:12:29Z",  
+    "lastNetworkTokenUpdateDate": "2026-07-28T09:00:47Z",  
 
     "lastNetworkTokenUpdateResult": "suspended"  
 

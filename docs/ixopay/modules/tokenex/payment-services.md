@@ -14,7 +14,7 @@ tags:
 - sdk
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services
 portal: ixopay-modules
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -48,7 +48,8 @@ The ProcessTransaction API provides the broadest gateway support and a normalize
     * `ProcessTransaction` — Use your existing TokenEx tokens
     * `ProcessTransactionAndTokenize` — Accept PANs or encrypted PANs and tokenize during the transaction
 
-:::tip When to use ProcessTransaction API Choose this API when you need broad gateway coverage, want consistent response handling across processors, and don't require access to the PSP's raw response. :::
+When to use ProcessTransaction API
+Choose this API when you need broad gateway coverage, want consistent response handling across processors, and don't require access to the PSP's raw response.
 ### Card/Check/Wallet API[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#cardcheckwallet-api "Direct link to Card/Check/Wallet API")
 The Card/Check/Wallet API returns complete, unmodified gateway responses for integrations that need access to every field the processor returns.
 **Key advantages:**
@@ -57,7 +58,8 @@ The Card/Check/Wallet API returns complete, unmodified gateway responses for int
   * **Response extraction** — Use regex patterns to extract specific fields from the raw PSP response into standardized response parameters.
   * **Parameter forwarding** — send unmapped parameters to PSPs that accept JSON request bodies
 
-:::note When to use Card/Check/Wallet API Choose this API when you need access to the complete gateway response, require specific response fields that aren't included in normalized responses, or have existing logic built around raw gateway data. :::
+When to use Card/Check/Wallet API
+Choose this API when you need access to the complete gateway response, require specific response fields that aren't included in normalized responses, or have existing logic built around raw gateway data.
 ## How do the two Payment Services APIs compare?[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#feature-comparison "Direct link to How do the two Payment Services APIs compare?")  
 | Feature  | ProcessTransaction API  | Card/Check/Wallet API  |  
 | --- | --- | --- |  
@@ -76,7 +78,8 @@ Before integrating Payment Services, ensure you have:
   2. **API credentials** — Your `TokenExID` and `APIKey` for authentication
   3. **Gateway credentials** — Merchant credentials for your chosen payment processors
 
-:::info Getting started If you don't have TokenEx Vault credentials, visit the [Client Portal](https://documentation.ixopay.com/modules/docs/tokenex/welcome#client-portal) or contact your IXOPAY representative. :::
+Getting started
+If you don't have TokenEx Vault credentials, visit the [Client Portal](https://documentation.ixopay.com/modules/docs/tokenex/welcome#client-portal) or contact your IXOPAY representative.
 ## Where can I find documentation for each API?[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#quick-links "Direct link to Where can I find documentation for each API?")
 ### ProcessTransaction API[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services#processtransaction-api "Direct link to ProcessTransaction API")
   * [The Basics](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics) — Endpoints, transaction types, and request/response structure

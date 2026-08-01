@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/get-payment-bundle
 portal: tokenex
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 

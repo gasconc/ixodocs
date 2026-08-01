@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/guides/payments/after/reconciliation
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -29,22 +29,28 @@ Reconciliation post-processing is an optional feature which is not automatically
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.
 Different PSPs handle reconciliation in different ways. For example, one PSP may provide reconciliation data within seconds, which can be collected via an API. In contrast, another PSP may provide reconciliation data in a file, which may take several hours or even days to obtain. The format, semantics, and granularity of the data often differ, depending on the underlying payment method.
 The [IXOPAY](https://www.ixopay.com) post-processing engine standardizes the reconciliation process and any resulting conflicts, such as incorrectly calculated fees, missing reconciliation data, and unknown transactions, across your payments landscape, independent of your PSPs and payment methods. All identified conflicts can easily be resolved within IXOPAY platform, simplifying this task for you.
-IXOPAY platform post-processing engine
-PSP 2 Adapter
-PSP 1 Adapter
-HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3
-Reconciliation API
-Transaction 1
-Reconciliation data
-...
-Transaction 2
-Reconciliation data
-...
-Data fetcher 1
-Data fetcher 2
-Reconciliation post-processing
-Merchant
-Callbacks
+```
+graph LR
+  subgraph PSP1 [PSP 1 Adapter]
+    direction LR
+    C1("Transaction 1") --> S1["Reconciliation data"]
+    C2("...") --> S1
+  end
+  subgraph PSP2 [PSP 2 Adapter]
+    direction LR
+    C3("Transaction 2") --> S2["Reconciliation data"]
+    C4("...") --> S2
+  end
+  subgraph PPE [IXOPAY platform post-processing engine]
+    direction LR
+    S1 --> DF1("Data fetcher 1")
+    S2 --> DF2("Data fetcher 2")
+    DF1 --> SP("Reconciliation post-processing")
+    DF2 --> SP("Reconciliation post-processing")
+  end
+  SP -->|"HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3"| M("Merchant")
+  M -->|"Reconciliation API"| SP
+```Callbacks
 If [callbacks](https://documentation.ixopay.com/docs/guides/getting-started/callbacks) are used, reconciliation is not strictly necessary as the latest status of a transaction is already provided via callbacks. However, reconciliation might still be useful if a merchant has multiple shops that run on separate systems but uses one accounting backend that should reconcile all of the shops.
 For more detailed information on managing reconciliation, consult the IXOPAY platform [User Manual](https://docs.ixopay.com/en/platform-user-administration-manual/post-processing/reconciliation).
 ## Use cases[​](https://documentation.ixopay.com/docs/guides/payments/after/reconciliation#use-cases "Direct link to Use cases")
@@ -221,6 +227,28 @@ Response response = client.newCall(request).execute();
 
 ```With the reconciliation API, you can easily retrieve all transaction data and reconcile it with your accounting system. This saves you time and effort compared to manually reconciling each transaction with each PSP or bank.
 ```
+graph LR
+  subgraph PSP1 [PSP 1 Adapter]
+    direction LR
+    C1("Transaction 1") --> S1["Reconciliation data"]
+    C2("...") --> S1
+  end
+  subgraph PSP2 [PSP 2 Adapter]
+    direction LR
+    C3("Transaction 2") --> S2["Reconciliation data"]
+    C4("...") --> S2
+  end
+  subgraph PPE [IXOPAY platform post-processing engine]
+    direction LR
+    S1 --> DF1("Data fetcher 1")
+    S2 --> DF2("Data fetcher 2")
+    DF1 --> SP("Reconciliation post-processing")
+    DF2 --> SP("Reconciliation post-processing")
+  end
+  SP -->|"HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3"| M("Merchant")
+  M -->|"Reconciliation API"| SP
+```
+```
 
 curl --request POST -sL \  
 
@@ -381,6 +409,28 @@ Request request = new Request.Builder()
 
 Response response = client.newCall(request).execute();  
 
+```
+```
+graph LR
+  subgraph PSP1 [PSP 1 Adapter]
+    direction LR
+    C1("Transaction 1") --> S1["Reconciliation data"]
+    C2("...") --> S1
+  end
+  subgraph PSP2 [PSP 2 Adapter]
+    direction LR
+    C3("Transaction 2") --> S2["Reconciliation data"]
+    C4("...") --> S2
+  end
+  subgraph PPE [IXOPAY platform post-processing engine]
+    direction LR
+    S1 --> DF1("Data fetcher 1")
+    S2 --> DF2("Data fetcher 2")
+    DF1 --> SP("Reconciliation post-processing")
+    DF2 --> SP("Reconciliation post-processing")
+  end
+  SP -->|"HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3"| M("Merchant")
+  M -->|"Reconciliation API"| SP
 ```
 ```
 
@@ -548,6 +598,28 @@ Response response = client.newCall(request).execute();
   * [After the payment](https://documentation.ixopay.com/docs/guides/payments/after)
   * Reconciliation
 ```
+graph LR
+  subgraph PSP1 [PSP 1 Adapter]
+    direction LR
+    C1("Transaction 1") --> S1["Reconciliation data"]
+    C2("...") --> S1
+  end
+  subgraph PSP2 [PSP 2 Adapter]
+    direction LR
+    C3("Transaction 2") --> S2["Reconciliation data"]
+    C4("...") --> S2
+  end
+  subgraph PPE [IXOPAY platform post-processing engine]
+    direction LR
+    S1 --> DF1("Data fetcher 1")
+    S2 --> DF2("Data fetcher 2")
+    DF1 --> SP("Reconciliation post-processing")
+    DF2 --> SP("Reconciliation post-processing")
+  end
+  SP -->|"HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3"| M("Merchant")
+  M -->|"Reconciliation API"| SP
+```
+```
 
 curl --request POST -sL \  
 
@@ -712,6 +784,28 @@ Response response = client.newCall(request).execute();
   * [Use cases](https://documentation.ixopay.com/docs/guides/payments/after/reconciliation#use-cases)
   * [Reconciliation API](https://documentation.ixopay.com/docs/guides/payments/after/reconciliation#reconciliation-api)
 ```
+graph LR
+  subgraph PSP1 [PSP 1 Adapter]
+    direction LR
+    C1("Transaction 1") --> S1["Reconciliation data"]
+    C2("...") --> S1
+  end
+  subgraph PSP2 [PSP 2 Adapter]
+    direction LR
+    C3("Transaction 2") --> S2["Reconciliation data"]
+    C4("...") --> S2
+  end
+  subgraph PPE [IXOPAY platform post-processing engine]
+    direction LR
+    S1 --> DF1("Data fetcher 1")
+    S2 --> DF2("Data fetcher 2")
+    DF1 --> SP("Reconciliation post-processing")
+    DF2 --> SP("Reconciliation post-processing")
+  end
+  SP -->|"HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3"| M("Merchant")
+  M -->|"Reconciliation API"| SP
+```
+```
 
 curl --request POST -sL \  
 
@@ -872,6 +966,28 @@ Request request = new Request.Builder()
 
 Response response = client.newCall(request).execute();  
 
+```
+```
+graph LR
+  subgraph PSP1 [PSP 1 Adapter]
+    direction LR
+    C1("Transaction 1") --> S1["Reconciliation data"]
+    C2("...") --> S1
+  end
+  subgraph PSP2 [PSP 2 Adapter]
+    direction LR
+    C3("Transaction 2") --> S2["Reconciliation data"]
+    C4("...") --> S2
+  end
+  subgraph PPE [IXOPAY platform post-processing engine]
+    direction LR
+    S1 --> DF1("Data fetcher 1")
+    S2 --> DF2("Data fetcher 2")
+    DF1 --> SP("Reconciliation post-processing")
+    DF2 --> SP("Reconciliation post-processing")
+  end
+  SP -->|"HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3"| M("Merchant")
+  M -->|"Reconciliation API"| SP
 ```
 ```
 

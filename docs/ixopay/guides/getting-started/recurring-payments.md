@@ -11,11 +11,11 @@ tags:
 - api
 - json
 - ixopay
+- psp
 - recurring
-- subscription
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/recurring-payments
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -24,8 +24,29 @@ related: []
 
 # Recurring payments
 Recurring payments, also known as subscription payments, are transactions that occur on a regular basis. These types of payments are common in industries such as streaming services, subscription boxes, and software as a service (SaaS) providers. With [IXOPAY platform](https://www.ixopay.com), you can easily set up recurring payments for your customers.
-PSPIXOPAY platformMerchant backend loop[IXOPAY platform scheduler]Create initial transaction with schedulePerform paymentPayment completePayment completeHandle the initial transaction response and store uuidFollow-up transactions: callbackUpdate internal stateCallback OK
-Reference
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  M->>G: Create initial transaction with schedule
+  activate M
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  G-->>M: Payment complete
+  deactivate G
+  M->>M: Handle the initial transaction response and store uuid
+  deactivate M
+  loop IXOPAY platform scheduler
+  activate G
+  G->>+M: Follow-up transactions: callback
+  M-->>M: Update internal state
+  M->>-G: Callback OK
+  deactivate G
+  end
+```Reference
 For more details on the  scheduler, check out the in-depth article on the [scheduler](https://documentation.ixopay.com/docs/reference/features/scheduler "Scheduler reference article") in the reference.
 To use recurring payments, follow these simple steps:
 ## Step 1: Creating the initial transaction[​](https://documentation.ixopay.com/docs/guides/getting-started/recurring-payments#step-1-creating-the-initial-transaction "Direct link to Step 1: Creating the initial transaction")
@@ -337,7 +358,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260715-4d40738b1194869734f7",  
+  "purchaseId": "20260727-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -585,6 +606,29 @@ Now that you've integrated IXOPAY platform's recurring payments, you can look in
   * … [testing your setup](https://documentation.ixopay.com/docs/guides/getting-started/testing) to make sure you've set up everything correctly.
   * … checking out the [scheduler reference](https://documentation.ixopay.com/docs/reference/features/scheduler) to understand the intricacies of scheduling recurring payments.
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  M->>G: Create initial transaction with schedule
+  activate M
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  G-->>M: Payment complete
+  deactivate G
+  M->>M: Handle the initial transaction response and store uuid
+  deactivate M
+  loop IXOPAY platform scheduler
+  activate G
+  G->>+M: Follow-up transactions: callback
+  M-->>M: Update internal state
+  M->>-G: Callback OK
+  deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -876,7 +920,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260715-4d40738b1194869734f7",  
+  "purchaseId": "20260727-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -1108,6 +1152,29 @@ Response response = client.newCall(request).execute();
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  M->>G: Create initial transaction with schedule
+  activate M
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  G-->>M: Payment complete
+  deactivate G
+  M->>M: Handle the initial transaction response and store uuid
+  deactivate M
+  loop IXOPAY platform scheduler
+  activate G
+  G->>+M: Follow-up transactions: callback
+  M-->>M: Update internal state
+  M->>-G: Callback OK
+  deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -1399,7 +1466,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260715-4d40738b1194869734f7",  
+  "purchaseId": "20260727-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -1631,6 +1698,29 @@ Response response = client.newCall(request).execute();
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  M->>G: Create initial transaction with schedule
+  activate M
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  G-->>M: Payment complete
+  deactivate G
+  M->>M: Handle the initial transaction response and store uuid
+  deactivate M
+  loop IXOPAY platform scheduler
+  activate G
+  G->>+M: Follow-up transactions: callback
+  M-->>M: Update internal state
+  M->>-G: Callback OK
+  deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -1922,7 +2012,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260715-4d40738b1194869734f7",  
+  "purchaseId": "20260727-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -2159,6 +2249,29 @@ Response response = client.newCall(request).execute();
   * [Conclusion](https://documentation.ixopay.com/docs/guides/getting-started/recurring-payments#conclusion)
   * [Next steps](https://documentation.ixopay.com/docs/guides/getting-started/recurring-payments#next-steps)
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  M->>G: Create initial transaction with schedule
+  activate M
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  G-->>M: Payment complete
+  deactivate G
+  M->>M: Handle the initial transaction response and store uuid
+  deactivate M
+  loop IXOPAY platform scheduler
+  activate G
+  G->>+M: Follow-up transactions: callback
+  M-->>M: Update internal state
+  M->>-G: Callback OK
+  deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -2450,7 +2563,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260715-4d40738b1194869734f7",  
+  "purchaseId": "20260727-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -2682,6 +2795,29 @@ Response response = client.newCall(request).execute();
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  M->>G: Create initial transaction with schedule
+  activate M
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  G-->>M: Payment complete
+  deactivate G
+  M->>M: Handle the initial transaction response and store uuid
+  deactivate M
+  loop IXOPAY platform scheduler
+  activate G
+  G->>+M: Follow-up transactions: callback
+  M-->>M: Update internal state
+  M->>-G: Callback OK
+  deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -2973,7 +3109,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260715-4d40738b1194869734f7",  
+  "purchaseId": "20260727-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 

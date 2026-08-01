@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options/full-page-redirect
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -91,7 +91,44 @@ Merchant
 The merchant displays the appropriate thank-you or error page based on the payment status received in the callback.
 
 Here's a visual representation of the processing flow using a sequence diagram:
-Sequence diagram for full-page redirect processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant Start transactionShow payment pageSubmit formpar​Show final pageCustomerPurchase1Debit2Transaction3Result4Result with redirectUrl5Redirect6GET payment page7Payment page8Submit payment data9Transaction10Callback to callback URL11Store result12OK13Result14Redirects back to successUrl, errorUrl or cancelUrl15Get response URL16Thank-you or error page17
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for full-page redirect processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G-->>+PSP: Transaction
+  PSP-->>-G: Result
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show payment page
+  C-->>+PSP: GET payment page
+  PSP-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+PSP: Submit payment data
+  par
+    PSP-->>+G: Transaction
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+    G-->>-PSP: Result
+  end
+  PSP-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```
 ```
 
 {  
@@ -121,6 +158,44 @@ OK
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for full-page redirect processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G-->>+PSP: Transaction
+  PSP-->>-G: Result
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show payment page
+  C-->>+PSP: GET payment page
+  PSP-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+PSP: Submit payment data
+  par
+    PSP-->>+G: Transaction
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+    G-->>-PSP: Result
+  end
+  PSP-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```
+```
 
 {  
 
@@ -147,11 +222,45 @@ Content-Type: text/plain
 
 OK  
 
-```Here's a visual representation of the processing flow using a sequence diagram:
-Sequence diagram for full-page redirect processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant Start transactionShow payment pageSubmit formpar​Show final pageCustomerPurchase1Debit2Transaction3Result4Result with redirectUrl5Redirect6GET payment page7Payment page8Submit payment data9Transaction10Callback to callback URL11Store result12OK13Result14Redirects back to successUrl, errorUrl or cancelUrl15Get response URL16Thank-you or error page17
-  * [Integration](https://documentation.ixopay.com/docs/reference/integration)
-  * [Processing options](https://documentation.ixopay.com/docs/reference/integration/processing-options)
-  * Full-page redirect
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for full-page redirect processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G-->>+PSP: Transaction
+  PSP-->>-G: Result
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show payment page
+  C-->>+PSP: GET payment page
+  PSP-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+PSP: Submit payment data
+  par
+    PSP-->>+G: Transaction
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+    G-->>-PSP: Result
+  end
+  PSP-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```
 ```
 
 {  
@@ -179,9 +288,45 @@ Content-Type: text/plain
 
 OK  
 
-```Here's a visual representation of the processing flow using a sequence diagram:
-Sequence diagram for full-page redirect processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant Start transactionShow payment pageSubmit formpar​Show final pageCustomerPurchase1Debit2Transaction3Result4Result with redirectUrl5Redirect6GET payment page7Payment page8Submit payment data9Transaction10Callback to callback URL11Store result12OK13Result14Redirects back to successUrl, errorUrl or cancelUrl15Get response URL16Thank-you or error page17
-  * [Use cases](https://documentation.ixopay.com/docs/reference/integration/processing-options/full-page-redirect#use-cases)
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for full-page redirect processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G-->>+PSP: Transaction
+  PSP-->>-G: Result
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show payment page
+  C-->>+PSP: GET payment page
+  PSP-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+PSP: Submit payment data
+  par
+    PSP-->>+G: Transaction
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+    G-->>-PSP: Result
+  end
+  PSP-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```  * [Use cases](https://documentation.ixopay.com/docs/reference/integration/processing-options/full-page-redirect#use-cases)
   * [Processing flow](https://documentation.ixopay.com/docs/reference/integration/processing-options/full-page-redirect#processing-flow)
 ```
 
@@ -212,6 +357,44 @@ OK
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for full-page redirect processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G-->>+PSP: Transaction
+  PSP-->>-G: Result
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show payment page
+  C-->>+PSP: GET payment page
+  PSP-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+PSP: Submit payment data
+  par
+    PSP-->>+G: Transaction
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+    G-->>-PSP: Result
+  end
+  PSP-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```
+```
 
 {  
 
@@ -238,5 +421,42 @@ Content-Type: text/plain
 
 OK  
 
-```Here's a visual representation of the processing flow using a sequence diagram:
-Sequence diagram for full-page redirect processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant Start transactionShow payment pageSubmit formpar​Show final pageCustomerPurchase1Debit2Transaction3Result4Result with redirectUrl5Redirect6GET payment page7Payment page8Submit payment data9Transaction10Callback to callback URL11Store result12OK13Result14Redirects back to successUrl, errorUrl or cancelUrl15Get response URL16Thank-you or error page17
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for full-page redirect processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G-->>+PSP: Transaction
+  PSP-->>-G: Result
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show payment page
+  C-->>+PSP: GET payment page
+  PSP-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+PSP: Submit payment data
+  par
+    PSP-->>+G: Transaction
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+    G-->>-PSP: Result
+  end
+  PSP-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```

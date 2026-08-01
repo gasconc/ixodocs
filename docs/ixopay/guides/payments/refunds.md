@@ -14,7 +14,7 @@ tags:
 - capture
 source_url: https://documentation.ixopay.com/docs/guides/payments/refunds
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -26,12 +26,12 @@ When it comes to online payments, refunds are an essential part of handling tran
 ## Refunding payments[​](https://documentation.ixopay.com/docs/guides/payments/refunds#refunding-payments "Direct link to Refunding payments")
 Merchant-initiated refunds happen when a merchant wants to return funds to a customer, either in part or in full. This can happen for various reasons, such as the customer being dissatisfied with the product or service they received.
 To initiate a refund, the merchant needs to send a request to the IXOPAY platform with the transaction details, including the amount to be refunded and the `referenceUuid` of the transaction that transferred the funds to the merchant's account. You can refund [debit](https://documentation.ixopay.com/api/transaction/debit) and [capture](https://documentation.ixopay.com/api/transaction/capture) transactions. If a [preauthorize](https://documentation.ixopay.com/api/transaction/preauthorize) transaction was used, it has to be [voided](https://documentation.ixopay.com/api/transaction/void), see [Place a hold on a payment](https://documentation.ixopay.com/docs/guides/payments/holding-funds) for details.
-`referenceUuid`
-Capture
-store `uuid`
-Debit
-Refund
-Availability
+```
+graph LR
+  C("Capture") --> S["store <code>uuid</code>"]
+  D("Debit") --> S
+  S -->|"<code>referenceUuid</code>"| R("Refund")
+```Availability
 Some payment methods do not support refunds or don't support partial refunds. Make sure to check the [adapters page](https://adapters.ixopay.com) for details on the supported refund functionality for each payment method.
 Here's an example of a [refund transaction API](https://documentation.ixopay.com/api/transaction/refund) call:
   * curl
@@ -278,6 +278,12 @@ Chargeback reversals are handled in the same way as chargebacks: either using [C
 info
 It is important to note that refunds are generally the preferred method of handling disputes, as they are typically less expensive than chargebacks. However, in cases where chargebacks cannot be avoided, it is important to be aware of the process and have the necessary tools in place to handle them.
 ```
+graph LR
+  C("Capture") --> S["store <code>uuid</code>"]
+  D("Debit") --> S
+  S -->|"<code>referenceUuid</code>"| R("Refund")
+```
+```
 
 curl --request POST -sL \  
 
@@ -508,6 +514,12 @@ Request request = new Request.Builder()
 
 Response response = client.newCall(request).execute();  
 
+```
+```
+graph LR
+  C("Capture") --> S["store <code>uuid</code>"]
+  D("Debit") --> S
+  S -->|"<code>referenceUuid</code>"| R("Refund")
 ```
 ```
 
@@ -741,6 +753,12 @@ Request request = new Request.Builder()
 Response response = client.newCall(request).execute();  
 
 ``````
+graph LR
+  C("Capture") --> S["store <code>uuid</code>"]
+  D("Debit") --> S
+  S -->|"<code>referenceUuid</code>"| R("Refund")
+```
+```
 
 curl --request POST -sL \  
 
@@ -972,6 +990,12 @@ Request request = new Request.Builder()
 Response response = client.newCall(request).execute();  
 
 ``````
+graph LR
+  C("Capture") --> S["store <code>uuid</code>"]
+  D("Debit") --> S
+  S -->|"<code>referenceUuid</code>"| R("Refund")
+```
+```
 
 curl --request POST -sL \  
 
@@ -1202,6 +1226,12 @@ Request request = new Request.Builder()
 
 Response response = client.newCall(request).execute();  
 
+```
+```
+graph LR
+  C("Capture") --> S["store <code>uuid</code>"]
+  D("Debit") --> S
+  S -->|"<code>referenceUuid</code>"| R("Refund")
 ```
 ```
 

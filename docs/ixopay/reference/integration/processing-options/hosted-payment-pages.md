@@ -5,17 +5,17 @@ summary: ' Processing optionshttps://documentation.ixopay.com/docs/reference/int
 tags:
 - cases-https-documentation-ixopay-com-docs-reference-integration-processing-options-hosted-payment-pages-cases-direct-link-cases
 - processing-flow-https-documentation-ixopay-com-docs-reference-integration-processing-options-hosted-payment-pages-processing-flow-direct-link-processing-flow
-- https-documentation-ixopay-com-docs-reference-integration-processing-options-hosted-payment-pages-direct-link
 - api
 - 3d-secure
 - ixopay
 - psp
 - iframe
+- hosted-payment-page
 - transaction
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -102,8 +102,44 @@ tip
 On that page you usually want to notify your top browser frame via JavaScript about the transaction result. Another approach is to let the success page break out of the ``.
 
 Here's a visual representation of the processing flow using a sequence diagram:
-Sequence diagram for hosted payment pages processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant Start transactionShow hosted payment pageSubmit formalt​par​Show final pageCustomerPurchase1Debit2Result with redirectUrl3Redirect4GET payment page5Payment page6Submit payment data7Transaction8Result9Callback to callback URL10Store result11OK12Redirects back to successUrl, errorUrl or cancelUrl13Get response URL14Thank-you or error page15
-## See also[​](https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages#see-also "Direct link to See also")
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for hosted payment pages processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show hosted payment page
+  C-->>+G: GET payment page
+  G-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+G: Submit payment data
+  alt
+    G-->>+PSP: Transaction
+    PSP-->>-G: Result
+  end
+  par
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+  end
+  G-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```## See also[​](https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages#see-also "Direct link to See also")
   * [Guides: Hosted payment pages](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages) – a detailed walkthrough on how to integrate hosted payment pages into your application, with code examples.
 ```
 
@@ -134,6 +170,44 @@ OK
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for hosted payment pages processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show hosted payment page
+  C-->>+G: GET payment page
+  G-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+G: Submit payment data
+  alt
+    G-->>+PSP: Transaction
+    PSP-->>-G: Result
+  end
+  par
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+  end
+  G-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```
+```
 
 {  
 
@@ -162,6 +236,44 @@ OK
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for hosted payment pages processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show hosted payment page
+  C-->>+G: GET payment page
+  G-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+G: Submit payment data
+  alt
+    G-->>+PSP: Transaction
+    PSP-->>-G: Result
+  end
+  par
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+  end
+  G-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```
+```
 
 {  
 
@@ -188,6 +300,44 @@ Content-Type: text/plain
 
 OK  
 
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for hosted payment pages processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show hosted payment page
+  C-->>+G: GET payment page
+  G-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+G: Submit payment data
+  alt
+    G-->>+PSP: Transaction
+    PSP-->>-G: Result
+  end
+  par
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+  end
+  G-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
 ```  * [Use cases](https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages#use-cases)
   * [Processing flow](https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages#processing-flow)
   * [See also](https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages#see-also)
@@ -220,6 +370,44 @@ OK
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for hosted payment pages processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show hosted payment page
+  C-->>+G: GET payment page
+  G-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+G: Submit payment data
+  alt
+    G-->>+PSP: Transaction
+    PSP-->>-G: Result
+  end
+  par
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+  end
+  G-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
+```
+```
 
 {  
 
@@ -246,4 +434,42 @@ Content-Type: text/plain
 
 OK  
 
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  accTitle: Sequence diagram for hosted payment pages processing
+  accDescr: A visual representation of the steps listed above.
+  autonumber
+  actor C as Customer
+  participant M as Merchant
+  participant G as IXOPAY platform
+  participant PSP
+
+  Note over C,PSP: Start transaction
+  C-->>+M: Purchase
+  M->>+G: Debit
+  G->>-M: Result with redirectUrl
+  M->>-C: Redirect
+
+  Note over C,PSP: Show hosted payment page
+  C-->>+G: GET payment page
+  G-->>-C: Payment page
+
+  Note over C,PSP: Submit form
+  C-->>+G: Submit payment data
+  alt
+    G-->>+PSP: Transaction
+    PSP-->>-G: Result
+  end
+  par
+    G-)+M: Callback to callback URL
+    M->>M: Store result
+    M->>-G: OK
+  end
+  G-->>-C: Redirects back to successUrl, errorUrl or cancelUrl
+
+  Note over C,PSP: Show final page
+  C-->>+M: Get response URL
+  M->>-C: Thank-you or error page
 ```

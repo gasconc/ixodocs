@@ -14,7 +14,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/api/pci/transaction
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 

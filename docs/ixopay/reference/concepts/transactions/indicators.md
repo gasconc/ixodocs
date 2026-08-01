@@ -14,7 +14,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -24,14 +24,30 @@ related: []
 
 # Transaction indicators
 Particularly for card payments you have to set the `transactionIndicator` in the transaction's data to indicate the type of CoF or recurring transaction.
-Follow-up transactions
-First transaction
-SINGLE
-FIRST-CARDONFILE
-INITIAL
-CARDONFILE
-CARDONFILE-MERCHANT-INITIATED
-RECURRING  
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  subgraph "First transaction"
+    SINGLE(["SINGLE"])
+    FIRST-COF(["FIRST-CARDONFILE"])
+    INITIAL(["INITIAL"])
+  end
+  subgraph "Follow-up transactions"
+    direction TB
+    COF(["CARDONFILE"])
+    COF-MIT["CARDONFILE-MERCHANT-INITIATED"]
+    RECURRING["RECURRING"]
+  end
+
+  SINGLE --> COF
+  SINGLE --> COF-MIT
+  FIRST-COF --> COF
+  FIRST-COF --> COF-MIT
+
+  SINGLE -.-> INITIAL
+  INITIAL --> RECURRING
+```
+  
 | transactionIndicator  | Category  | Description  | Initiator  |  
 | --- | --- | --- | --- |  
 | [SINGLE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#single)  | Industry practice  | A one-off transaction (without any recurring options).  | Customer  |  
@@ -118,3 +134,148 @@ A `MOTO` transaction indicates the card data is entered by a service agent and n
 | `referenceUuid`  | n/a  | n/a  |  
 | 3DS recommendation  | exempted  | exempted  |  
 _Example_ : call-center purchase.
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  subgraph "First transaction"
+    SINGLE(["SINGLE"])
+    FIRST-COF(["FIRST-CARDONFILE"])
+    INITIAL(["INITIAL"])
+  end
+  subgraph "Follow-up transactions"
+    direction TB
+    COF(["CARDONFILE"])
+    COF-MIT["CARDONFILE-MERCHANT-INITIATED"]
+    RECURRING["RECURRING"]
+  end
+
+  SINGLE --> COF
+  SINGLE --> COF-MIT
+  FIRST-COF --> COF
+  FIRST-COF --> COF-MIT
+
+  SINGLE -.-> INITIAL
+  INITIAL --> RECURRING
+```
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  subgraph "First transaction"
+    SINGLE(["SINGLE"])
+    FIRST-COF(["FIRST-CARDONFILE"])
+    INITIAL(["INITIAL"])
+  end
+  subgraph "Follow-up transactions"
+    direction TB
+    COF(["CARDONFILE"])
+    COF-MIT["CARDONFILE-MERCHANT-INITIATED"]
+    RECURRING["RECURRING"]
+  end
+
+  SINGLE --> COF
+  SINGLE --> COF-MIT
+  FIRST-COF --> COF
+  FIRST-COF --> COF-MIT
+
+  SINGLE -.-> INITIAL
+  INITIAL --> RECURRING
+```
+  
+| transactionIndicator  | Category  | Description  | Initiator  |  
+| --- | --- | --- | --- |  
+| [SINGLE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#single)  | Industry practice  | A one-off transaction (without any recurring options).  | Customer  |  
+| [FIRST-CARDONFILE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#first-card-on-file)  | Industry practice  | A one-off transaction, and the merchant stores the PAN themselves.  | Customer  |  
+| [CARDONFILE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#card-on-file)  | Industry practice  | Card-on-file transaction, initiated by the customer.  | Customer  |  
+| [CARDONFILE-MERCHANT-INITIATED](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#merchant-initiated-card-on-file)  | Industry practice  | Unscheduled card-on-file transaction.  | Merchant  |  
+| [INITIAL](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#initial)  | Recurring  | The first transaction of a recurring series.  | Customer  |  
+| [RECURRING](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#recurring)  | Recurring  | Subsequent transactions of a recurring series, which are usually initiated automatically.  | Merchant  |  
+| [MOTO](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#mail-or-telephone-order)  |   | Mail and telephone order.  |   |  
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  subgraph "First transaction"
+    SINGLE(["SINGLE"])
+    FIRST-COF(["FIRST-CARDONFILE"])
+    INITIAL(["INITIAL"])
+  end
+  subgraph "Follow-up transactions"
+    direction TB
+    COF(["CARDONFILE"])
+    COF-MIT["CARDONFILE-MERCHANT-INITIATED"]
+    RECURRING["RECURRING"]
+  end
+
+  SINGLE --> COF
+  SINGLE --> COF-MIT
+  FIRST-COF --> COF
+  FIRST-COF --> COF-MIT
+
+  SINGLE -.-> INITIAL
+  INITIAL --> RECURRING
+```
+  
+| transactionIndicator  | Category  | Description  | Initiator  |  
+| --- | --- | --- | --- |  
+| [SINGLE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#single)  | Industry practice  | A one-off transaction (without any recurring options).  | Customer  |  
+| [FIRST-CARDONFILE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#first-card-on-file)  | Industry practice  | A one-off transaction, and the merchant stores the PAN themselves.  | Customer  |  
+| [CARDONFILE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#card-on-file)  | Industry practice  | Card-on-file transaction, initiated by the customer.  | Customer  |  
+| [CARDONFILE-MERCHANT-INITIATED](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#merchant-initiated-card-on-file)  | Industry practice  | Unscheduled card-on-file transaction.  | Merchant  |  
+| [INITIAL](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#initial)  | Recurring  | The first transaction of a recurring series.  | Customer  |  
+| [RECURRING](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#recurring)  | Recurring  | Subsequent transactions of a recurring series, which are usually initiated automatically.  | Merchant  |  
+| [MOTO](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#mail-or-telephone-order)  |   | Mail and telephone order.  |   |  
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  subgraph "First transaction"
+    SINGLE(["SINGLE"])
+    FIRST-COF(["FIRST-CARDONFILE"])
+    INITIAL(["INITIAL"])
+  end
+  subgraph "Follow-up transactions"
+    direction TB
+    COF(["CARDONFILE"])
+    COF-MIT["CARDONFILE-MERCHANT-INITIATED"]
+    RECURRING["RECURRING"]
+  end
+
+  SINGLE --> COF
+  SINGLE --> COF-MIT
+  FIRST-COF --> COF
+  FIRST-COF --> COF-MIT
+
+  SINGLE -.-> INITIAL
+  INITIAL --> RECURRING
+```
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  subgraph "First transaction"
+    SINGLE(["SINGLE"])
+    FIRST-COF(["FIRST-CARDONFILE"])
+    INITIAL(["INITIAL"])
+  end
+  subgraph "Follow-up transactions"
+    direction TB
+    COF(["CARDONFILE"])
+    COF-MIT["CARDONFILE-MERCHANT-INITIATED"]
+    RECURRING["RECURRING"]
+  end
+
+  SINGLE --> COF
+  SINGLE --> COF-MIT
+  FIRST-COF --> COF
+  FIRST-COF --> COF-MIT
+
+  SINGLE -.-> INITIAL
+  INITIAL --> RECURRING
+```
+  
+| transactionIndicator  | Category  | Description  | Initiator  |  
+| --- | --- | --- | --- |  
+| [SINGLE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#single)  | Industry practice  | A one-off transaction (without any recurring options).  | Customer  |  
+| [FIRST-CARDONFILE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#first-card-on-file)  | Industry practice  | A one-off transaction, and the merchant stores the PAN themselves.  | Customer  |  
+| [CARDONFILE](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#card-on-file)  | Industry practice  | Card-on-file transaction, initiated by the customer.  | Customer  |  
+| [CARDONFILE-MERCHANT-INITIATED](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#merchant-initiated-card-on-file)  | Industry practice  | Unscheduled card-on-file transaction.  | Merchant  |  
+| [INITIAL](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#initial)  | Recurring  | The first transaction of a recurring series.  | Customer  |  
+| [RECURRING](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#recurring)  | Recurring  | Subsequent transactions of a recurring series, which are usually initiated automatically.  | Merchant  |  
+| [MOTO](https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators#mail-or-telephone-order)  |   | Mail and telephone order.  |   |

@@ -3,7 +3,6 @@ title: Customer profiles
 summary: ' Customer profiles'
 tags:
 - introduction-https-documentation-ixopay-com-docs-reference-features-customer-profiles-introduction-direct-link-introduction
-- cases-https-documentation-ixopay-com-docs-reference-features-customer-profiles-cases-direct-link-cases
 - creating-customer-profile-https-documentation-ixopay-com-docs-reference-features-customer-profiles-creating-customer-profile-direct-link-creating-customer-profile
 - retrieving-profile-information-https-documentation-ixopay-com-docs-reference-features-customer-profiles-retrieving-profile-information-direct-link-retrieving-profile-information
 - updating-profile-information-https-documentation-ixopay-com-docs-reference-features-customer-profiles-updating-profile-information-direct-link-updating-profile-information
@@ -12,9 +11,10 @@ tags:
 - attaching-payment-instrument-https-documentation-ixopay-com-docs-reference-features-customer-profiles-attaching-payment-instrument-direct-link-attaching-payment-instrument
 - detaching-payment-instrument-https-documentation-ixopay-com-docs-reference-features-customer-profiles-detaching-payment-instrument-direct-link-detaching-payment-instrument
 - customer-profile-containers-https-documentation-ixopay-com-docs-reference-features-customer-profiles-customer-profile-containers-direct-link-customer-profile-containers
+- api
 source_url: https://documentation.ixopay.com/docs/reference/features/customer-profiles
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -36,14 +36,12 @@ Typically, using the customer profiles involves the following steps:
   3. **Executing transactions using the customer profile** : A transaction is sent using the `paymentToken` of the selected payment instrument in the customer's profile.
 
 These steps are represented in the following graph:
-1.
-2.
-3.
-Customer
-Create new profile with a transaction call to the desired payment method's connector
-Retrieve profile info with `getProfile` call
-Send transaction with `paymentToken` of the profile's payment instrument
-## Use cases[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#use-cases "Direct link to Use cases")
+```
+graph TD
+  C[Customer] -->|1\.| CP("Create new profile with a transaction call to the desired payment method's connector")
+  C[Customer] -->|2\.| RP("Retrieve profile info with <code>getProfile</code> call")
+  RP -->|3\.| NT("Send transaction with <code>paymentToken</code> of the profile's payment instrument")
+```## Use cases[​](https://documentation.ixopay.com/docs/reference/features/customer-profiles#use-cases "Direct link to Use cases")
 The main use cases for customer profiles are:
   1. **Sharing payment instruments between multiple merchants:** This allows for a seamless checkout experience across different merchants within the same ecosystem.
   2. **[Hosted payment pages](https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages) with payment method selection:** By using stored payment instruments, customers can have a simplified and efficient payment experience, reducing the friction during the checkout process.
@@ -108,7 +106,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -203,7 +201,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-16 08:12:29",  
+      "createdAt": "2031-07-28 09:00:47",  
 
       "method": "card",  
 
@@ -498,6 +496,12 @@ Upon its creation, a customer profile container is not automatically associated 
   1. Implement a [global setting](https://docs.ixopay.com/en/platform-user-administration-manual/connector/edit-connector/global-connector-settings) that assigns the customer profile container to all connectors of a given tenant. This setting is specific to a tenant and is not passed down to sub-tenants.
   2. Associate the customer profile container with each individual connector that should employ the customer profiles.
 ```
+graph TD
+  C[Customer] -->|1\.| CP("Create new profile with a transaction call to the desired payment method's connector")
+  C[Customer] -->|2\.| RP("Retrieve profile info with <code>getProfile</code> call")
+  RP -->|3\.| NT("Send transaction with <code>paymentToken</code> of the profile's payment instrument")
+```
+```
 
 {  
 
@@ -552,7 +556,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -641,7 +645,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-16 08:12:29",  
+      "createdAt": "2031-07-28 09:00:47",  
 
       "method": "card",  
 
@@ -864,6 +868,12 @@ Content-Type: application/json
 
 ```
 ```
+graph TD
+  C[Customer] -->|1\.| CP("Create new profile with a transaction call to the desired payment method's connector")
+  C[Customer] -->|2\.| RP("Retrieve profile info with <code>getProfile</code> call")
+  RP -->|3\.| NT("Send transaction with <code>paymentToken</code> of the profile's payment instrument")
+```
+```
 
 {  
 
@@ -918,7 +928,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1007,7 +1017,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-16 08:12:29",  
+      "createdAt": "2031-07-28 09:00:47",  
 
       "method": "card",  
 
@@ -1230,6 +1240,12 @@ Content-Type: application/json
 
 ```
 ```
+graph TD
+  C[Customer] -->|1\.| CP("Create new profile with a transaction call to the desired payment method's connector")
+  C[Customer] -->|2\.| RP("Retrieve profile info with <code>getProfile</code> call")
+  RP -->|3\.| NT("Send transaction with <code>paymentToken</code> of the profile's payment instrument")
+```
+```
 
 {  
 
@@ -1284,7 +1300,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1373,7 +1389,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-16 08:12:29",  
+      "createdAt": "2031-07-28 09:00:47",  
 
       "method": "card",  
 
@@ -1607,6 +1623,12 @@ Content-Type: application/json
     * [Detaching a payment instrument](https://documentation.ixopay.com/docs/reference/features/customer-profiles#detaching-a-payment-instrument)
   * [Customer profile containers](https://documentation.ixopay.com/docs/reference/features/customer-profiles#customer-profile-containers)
 ```
+graph TD
+  C[Customer] -->|1\.| CP("Create new profile with a transaction call to the desired payment method's connector")
+  C[Customer] -->|2\.| RP("Retrieve profile info with <code>getProfile</code> call")
+  RP -->|3\.| NT("Send transaction with <code>paymentToken</code> of the profile's payment instrument")
+```
+```
 
 {  
 
@@ -1661,7 +1683,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1750,7 +1772,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-16 08:12:29",  
+      "createdAt": "2031-07-28 09:00:47",  
 
       "method": "card",  
 
@@ -1973,6 +1995,12 @@ Content-Type: application/json
 
 ```
 ```
+graph TD
+  C[Customer] -->|1\.| CP("Create new profile with a transaction call to the desired payment method's connector")
+  C[Customer] -->|2\.| RP("Retrieve profile info with <code>getProfile</code> call")
+  RP -->|3\.| NT("Send transaction with <code>paymentToken</code> of the profile's payment instrument")
+```
+```
 
 {  
 
@@ -2027,7 +2055,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -2116,7 +2144,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-16 08:12:29",  
+      "createdAt": "2031-07-28 09:00:47",  
 
       "method": "card",  
 

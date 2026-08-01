@@ -3,7 +3,6 @@ title: Setting up your account
 summary: ' Getting startedhttps://documentation.ixopay.com/docs/guides/getting-started  Setting
   up your account'
 tags:
-- creating-account-https-documentation-ixopay-com-docs-guides-getting-started-setup-creating-account-direct-link-creating-account
 - starter-growth-https-documentation-ixopay-com-docs-guides-getting-started-setup-starter-growth-direct-link-starter-growth
 - enterprise-https-documentation-ixopay-com-docs-guides-getting-started-setup-enterprise-direct-link-enterprise
 - configuring-settings-https-documentation-ixopay-com-docs-guides-getting-started-setup-configuring-settings-direct-link-configuring-settings
@@ -13,9 +12,10 @@ tags:
 - api
 - ixopay
 - acquirer
+- psp
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/setup
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -24,11 +24,12 @@ related: []
 
 # Setting up your account
 To start processing online payments with [IXOPAY platform](https://www.ixopay.com), you will need to set up an account. This page will guide you through the steps of creating and configuring your account.
-Create an account
-Create a merchant profile
-Create an API user
-Create a connector
-## Creating an Account[​](https://documentation.ixopay.com/docs/guides/getting-started/setup#creating-an-account "Direct link to Creating an Account")
+```
+graph LR
+  A(Create an account) --> M(Create a merchant profile)
+  M --> U(Create an API user)
+  M --> C(Create a connector)
+```## Creating an Account[​](https://documentation.ixopay.com/docs/guides/getting-started/setup#creating-an-account "Direct link to Creating an Account")
 ### Starter & Growth[​](https://documentation.ixopay.com/docs/guides/getting-started/setup#starter--growth "Direct link to Starter & Growth")
 To create an account with IXOPAY platform, [click here](https://www.ixopay.com/en/product/ixopay-starter-growth-signup). You will need to provide some basic information such as your name, email address and company details.
 Once you have filled in the required information, you will be asked to verify your email address and company details. Follow the instructions to complete the process.
@@ -95,3 +96,42 @@ Enter your credentials to use your connector with your PSP/acquirer's API.
     5. Click _💾 Create_ to save your settings.
 
 You have now set everything up to start accepting payments in your application.
+```
+graph LR
+  A(Create an account) --> M(Create a merchant profile)
+  M --> U(Create an API user)
+  M --> C(Create a connector)
+```
+```
+graph LR
+  A(Create an account) --> M(Create a merchant profile)
+  M --> U(Create an API user)
+  M --> C(Create a connector)
+```You have now set everything up to start accepting payments in your application.
+  * [Getting started](https://documentation.ixopay.com/docs/guides/getting-started)
+  * Setting up your account
+```
+graph LR
+  A(Create an account) --> M(Create a merchant profile)
+  M --> U(Create an API user)
+  M --> C(Create a connector)
+```You have now set everything up to start accepting payments in your application.
+  * [Creating an Account](https://documentation.ixopay.com/docs/guides/getting-started/setup#creating-an-account)
+    * [Starter & Growth](https://documentation.ixopay.com/docs/guides/getting-started/setup#starter--growth)
+    * [Enterprise](https://documentation.ixopay.com/docs/guides/getting-started/setup#enterprise)
+  * [Configuring your settings](https://documentation.ixopay.com/docs/guides/getting-started/setup#configuring-your-settings)
+    * [Step 1: Create a merchant profile](https://documentation.ixopay.com/docs/guides/getting-started/setup#step-1-create-a-merchant-profile)
+    * [Step 2: Create an API user](https://documentation.ixopay.com/docs/guides/getting-started/setup#step-2-create-an-api-user)
+    * [Step 3: Create a connector](https://documentation.ixopay.com/docs/guides/getting-started/setup#step-3-create-a-connector)
+```
+graph LR
+  A(Create an account) --> M(Create a merchant profile)
+  M --> U(Create an API user)
+  M --> C(Create a connector)
+```
+```
+graph LR
+  A(Create an account) --> M(Create a merchant profile)
+  M --> U(Create an API user)
+  M --> C(Create a connector)
+```You have now set everything up to start accepting payments in your application.

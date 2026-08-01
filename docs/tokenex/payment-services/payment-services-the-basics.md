@@ -15,7 +15,7 @@ tags:
 - common-transaction-flows-https-documentation-ixopay-com-modules-docs-tokenex-payment-services-payment-services-basics-common-transaction-flows-direct-link-common-transaction-flows
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics
 portal: tokenex
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -33,7 +33,8 @@ The ProcessTransaction API offers several advantages for payment processing:
   * **Flexible tokenization** — Use existing tokens or tokenize new cards during the transaction
   * **CVV injection** — Include previously collected CVV values without storing them yourself
 
-:::note Why ProcessTransaction API? For most integrations, the ProcessTransaction API provides the best balance of gateway coverage, ease of integration, and response consistency. Choose the [Card/Check/Wallet API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-v2-the-basics) only if you need access to complete, raw gateway responses. :::
+Why ProcessTransaction API?
+For most integrations, the ProcessTransaction API provides the best balance of gateway coverage, ease of integration, and response consistency. Choose the [Card/Check/Wallet API](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-v2-the-basics) only if you need access to complete, raw gateway responses.
 ## How It Works[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#how-it-works "Direct link to How It Works")
 When you send a transaction request, Payment Services:
   1. **Receives your request** with the TokenEx token and gateway-specific parameters
@@ -47,7 +48,8 @@ When you send a transaction request, Payment Services:
 | --- | --- | --- |  
 | `ProcessTransaction`  | `/PaymentServices.svc/REST/ProcessTransaction`  | Use with existing TokenEx tokens: recurring billing, follow-up transactions (capture, refund, void)  |  
 | `ProcessTransactionAndTokenize`  | `/PaymentServices.svc/REST/ProcessTransactionAndTokenize`  | Use with PANs or encrypted PANs: first-time transactions, guest checkout, card data migration  |  
-:::tip Choosing between endpoints If you're using TokenEx iFrame or mobile SDK, cards are typically tokenized during collection—use `ProcessTransaction`. If you're receiving PANs directly (from a migration or encrypted source), use `ProcessTransactionAndTokenize` to tokenize and transact in one call. :::
+Choosing between endpoints
+If you're using TokenEx iFrame or mobile SDK, cards are typically tokenized during collection—use `ProcessTransaction`. If you're receiving PANs directly (from a migration or encrypted source), use `ProcessTransactionAndTokenize` to tokenize and transact in one call.
 ## Authentication[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#authentication "Direct link to Authentication")
 Both endpoints use request body authentication. Include your credentials in every request:  
 | Parameter  | Type  | Required  | Description  |  
@@ -72,7 +74,8 @@ Both endpoints use request body authentication. Include your credentials in ever
 
 }  
 
-```:::warning Keep credentials secure Never expose your `APIKey` in client-side code. All Payment Services requests should originate from your server. :::
+```Keep credentials secure
+Never expose your `APIKey` in client-side code. All Payment Services requests should originate from your server.
 ## Transaction Types[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#transaction-types "Direct link to Transaction Types")
 Specify the type of transaction using the `TransactionType` parameter:  
 | Value  | Type  | Description  | When to Use  |  
@@ -83,7 +86,8 @@ Specify the type of transaction using the `TransactionType` parameter:
 | `4`  | Refund  | Returns funds to the customer  | Use to return money for completed transactions  |  
 | `5`  | Void  | Cancels a transaction before settlement  | Use to cancel authorizations or same-day transactions  |  
 | `6`  | Reverse  | Attempts void, falls back to refund if settled  | Use when unsure if transaction has settled  |  
-:::info Authorize vs Purchase Use **Authorize** (1) followed by **Capture** (2) when there's a delay between order placement and fulfillment—this is common for physical goods. Use **Purchase** (3) for immediate transactions like digital downloads or in-person sales. :::
+Authorize vs Purchase
+Use **Authorize** (1) followed by **Capture** (2) when there's a delay between order placement and fulfillment—this is common for physical goods. Use **Purchase** (3) for immediate transactions like digital downloads or in-person sales.
 ## Request Structure[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#request-structure "Direct link to Request Structure")
 Both endpoints use the same request format. The `TransactionRequest` object contains nested objects for gateway credentials, card data, and transaction details.
 ```
@@ -158,7 +162,8 @@ Both endpoints use the same request format. The `TransactionRequest` object cont
 | --- | --- | --- | --- |  
 | `TokenScheme`  | string  | Yes  | The token format to generate. See [Token Schemes](https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes)  |  
 | `Encrypted`  | boolean  | No  | Set to `true` if the PAN is encrypted. Default: `false`  |  
-:::tip Token vs PAN Use `ProcessTransaction` when `credit_card.number` contains a TokenEx token. Use `ProcessTransactionAndTokenize` when it contains a PAN (or encrypted PAN) that needs tokenization. :::
+Token vs PAN
+Use `ProcessTransaction` when `credit_card.number` contains a TokenEx token. Use `ProcessTransactionAndTokenize` when it contains a PAN (or encrypted PAN) that needs tokenization.
 The exact fields within each nested object vary by gateway. See [Gateway Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/gateway-parameters) for the specific structure required by your payment processor.
 ## Response Structure[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#response-structure "Direct link to Response Structure")
 Both endpoints return the same response structure:
@@ -250,7 +255,8 @@ The response contains two boolean fields that indicate different things:
 | `true`  | `true`  | Transaction approved  |  
 | `true`  | `false`  | Transaction declined by gateway (check `Message`)  |  
 | `false`  | `false`  | Communication error with gateway (check `Error`)  |  
-:::warning Always save the Authorization When `TransactionResult` is `true`, save the `Authorization` value. You'll need it for any follow-up transactions like captures, voids, or refunds. :::
+Always save the Authorization
+When `TransactionResult` is `true`, save the `Authorization` value. You'll need it for any follow-up transactions like captures, voids, or refunds.
 ## CVV Injection[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#cvv-injection "Direct link to CVV Injection")
 If you collected the CVV separately using TokenEx (for example, through the iFrame with CVV-only collection), you can inject it into the transaction without handling the value directly.
 To use CVV injection, set the `verification_value` field to the literal string `"cvv"`:
@@ -301,7 +307,8 @@ To use CVV injection, set the `verification_value` field to the literal string `
 }  
 
 ```Payment Services will replace `"cvv"` with the actual CVV value associated with the token before sending to the gateway.
-:::info CVV storage duration CVV values are stored temporarily and associated with the token during collection. Check with TokenEx support for CVV retention policies in your configuration. :::
+CVV storage duration
+CVV values are stored temporarily and associated with the token during collection. Check with TokenEx support for CVV retention policies in your configuration.
 ## Common Transaction Flows[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#common-transaction-flows "Direct link to Common Transaction Flows")
 ### Authorize Then Capture[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#authorize-then-capture "Direct link to Authorize Then Capture")
 For orders where fulfillment is delayed (e.g., physical goods):
@@ -479,7 +486,8 @@ Use your gateway's test/sandbox environment during development:
   1. Configure your Payment Services request for the test environment
   2. Use test card numbers and any specific values provided by your gateway
 
-:::tip Test mode indicator When processing test transactions, the response will include `"Test": true`. Always verify this field is `false` before going live. :::
+Test mode indicator
+When processing test transactions, the response will include `"Test": true`. Always verify this field is `false` before going live.
 ## Next Steps[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/payment-services-the-basics#next-steps "Direct link to Next Steps")
   * **[Gateway Parameters](https://documentation.ixopay.com/modules/docs/tokenex/payment-services/gateway-parameters)** — Find the specific parameters required for your payment processor
   * **[Token Schemes](https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes)** — Learn about available token formats for ProcessTransactionAndTokenize

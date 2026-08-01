@@ -4,7 +4,6 @@ summary: ' Getting production readyhttps://documentation.ixopay.com/docs/guides/
   errors'
 tags:
 - api-responses-https-documentation-ixopay-com-docs-guides-production-handling-errors-api-responses-direct-link-api-responses
-- system-errors-https-documentation-ixopay-com-docs-guides-production-handling-errors-system-errors-direct-link-system-errors
 - api
 - json
 - ixopay
@@ -14,7 +13,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/production/handling-errors
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -25,19 +24,15 @@ related: []
 When working with payment transactions, errors can occur at various stages. Properly handling errors is crucial to ensure a smooth payment processing experience and provide customers with the best possible service.
 ## API responses[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#api-responses "Direct link to API responses")
 Response objects in the payment APIs include a `success` flag to indicate if the request was successful or not. If the flag is `false`, the API response indicates an error. These errors can be either system errors, which are caused by the client-server interaction, or processing errors, which are caused by an error while processing the request, for example caused by the PSP. For a complete list of error codes and their meanings, please see the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
-`true`
-`false`
-200
-4xx or 5xx
-`extraData.doNotResubmit`
-Response
-`success`
-Success
-HTTP Status
-Processing error
-System error
-Merchant advice:\ndo not resubmit
-### System errors[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#system-errors "Direct link to System errors")
+```
+graph LR
+  R((Response)) --> S{"<code>success</code>"}
+  S -->|"<code>true</code>"| RS[Success]
+  S -->|"<code>false</code>"| H{"HTTP Status"}
+  H -->|"200"| PE["Processing error"]
+  H -->|"4xx or 5xx"| SE["System error"]
+  PE -->|"<code>extraData.doNotResubmit</code>"| PMAC["Merchant advice:\ndo not resubmit"]
+```### System errors[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#system-errors "Direct link to System errors")
 If the `success` flag is `false` and the HTTP status code is not 200, there was a system error. In this case, the response will include the `errorMessage`, `errorType`, and `details` fields. The HTTP status code being in the 4xx range indicates a client error, which means the request shouldn't be retried without making some changes. If the HTTP status code is in the 5xx range, it indicates a server-side error.
 Example system error
 ```
@@ -97,7 +92,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -143,7 +138,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -232,7 +227,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -305,6 +300,15 @@ Here are some best practices to help you handle payment errors efficiently:
 
 By following these best practices, you can minimize the impact of payment errors and provide a better customer experience.
 ```
+graph LR
+  R((Response)) --> S{"<code>success</code>"}
+  S -->|"<code>true</code>"| RS[Success]
+  S -->|"<code>false</code>"| H{"HTTP Status"}
+  H -->|"200"| PE["Processing error"]
+  H -->|"4xx or 5xx"| SE["System error"]
+  PE -->|"<code>extraData.doNotResubmit</code>"| PMAC["Merchant advice:\ndo not resubmit"]
+```
+```
 
 HTTP/1.1 500 Internal Server Error  
 
@@ -356,7 +360,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -395,7 +399,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -472,7 +476,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -538,6 +542,15 @@ Content-Type: application/json
 
 ```
 ```
+graph LR
+  R((Response)) --> S{"<code>success</code>"}
+  S -->|"<code>true</code>"| RS[Success]
+  S -->|"<code>false</code>"| H{"HTTP Status"}
+  H -->|"200"| PE["Processing error"]
+  H -->|"4xx or 5xx"| SE["System error"]
+  PE -->|"<code>extraData.doNotResubmit</code>"| PMAC["Merchant advice:\ndo not resubmit"]
+```
+```
 
 HTTP/1.1 500 Internal Server Error  
 
@@ -589,7 +602,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -628,7 +641,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -705,7 +718,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -773,6 +786,15 @@ Content-Type: application/json
   * [Getting production ready](https://documentation.ixopay.com/docs/guides/production)
   * Handling errors
 ```
+graph LR
+  R((Response)) --> S{"<code>success</code>"}
+  S -->|"<code>true</code>"| RS[Success]
+  S -->|"<code>false</code>"| H{"HTTP Status"}
+  H -->|"200"| PE["Processing error"]
+  H -->|"4xx or 5xx"| SE["System error"]
+  PE -->|"<code>extraData.doNotResubmit</code>"| PMAC["Merchant advice:\ndo not resubmit"]
+```
+```
 
 HTTP/1.1 500 Internal Server Error  
 
@@ -824,7 +846,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -863,7 +885,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -940,7 +962,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1012,6 +1034,15 @@ Content-Type: application/json
     * [Parsed merchant advice codes](https://documentation.ixopay.com/docs/guides/production/handling-errors#parsed-merchant-advice-codes)
   * [Best practices for error handling](https://documentation.ixopay.com/docs/guides/production/handling-errors#best-practices-for-error-handling)
 ```
+graph LR
+  R((Response)) --> S{"<code>success</code>"}
+  S -->|"<code>true</code>"| RS[Success]
+  S -->|"<code>false</code>"| H{"HTTP Status"}
+  H -->|"200"| PE["Processing error"]
+  H -->|"4xx or 5xx"| SE["System error"]
+  PE -->|"<code>extraData.doNotResubmit</code>"| PMAC["Merchant advice:\ndo not resubmit"]
+```
+```
 
 HTTP/1.1 500 Internal Server Error  
 
@@ -1063,7 +1094,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1102,7 +1133,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1179,7 +1210,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1245,6 +1276,15 @@ Content-Type: application/json
 
 ```
 ```
+graph LR
+  R((Response)) --> S{"<code>success</code>"}
+  S -->|"<code>true</code>"| RS[Success]
+  S -->|"<code>false</code>"| H{"HTTP Status"}
+  H -->|"200"| PE["Processing error"]
+  H -->|"4xx or 5xx"| SE["System error"]
+  PE -->|"<code>extraData.doNotResubmit</code>"| PMAC["Merchant advice:\ndo not resubmit"]
+```
+```
 
 HTTP/1.1 500 Internal Server Error  
 
@@ -1296,7 +1336,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1335,7 +1375,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1412,7 +1452,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 

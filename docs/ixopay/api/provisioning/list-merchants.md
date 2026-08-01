@@ -9,12 +9,12 @@ tags:
 - generating-provisioning-api-key
 - api
 - json
+- tokenization
 - ixopay
 - refund
-- authorization
 source_url: https://documentation.ixopay.com/api/provisioning/list-merchants
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -85,6 +85,13 @@ Transaction types that are disabled for the merchant.
 **externalId** string
 **homepage** urlrequired
 **isPciEnabled** boolean
+**networkTokenizationEnabled** string
+Whether network tokenization is enabled for the merchant.
+**Possible values:** [`enabled`, `not_enabled`]
+**trids** object
+Token Requestor IDs used for network tokenization, keyed by card scheme. Only present when `networkTokenizationEnabled` is `enabled`.
+**visa** stringnullable
+**mastercard** stringnullable
 **riskAlertEmail** email
 **schedulerAlertEmail** email
 **technicalEmail** email
@@ -144,6 +151,16 @@ Callback URL where a merchant will be notified about network token and account u
       "homepage": "https://www.example.org",  
 
       "isPciEnabled": false,  
+
+      "networkTokenizationEnabled": "enabled",  
+
+      "trids": {  
+
+        "visa": "40010005027",  
+
+        "mastercard": "51234567890"  
+
+      },  
 
       "riskAlertEmail": "risk@example.org",  
 
@@ -374,6 +391,16 @@ GET
 
       "isPciEnabled": false,  
 
+      "networkTokenizationEnabled": "enabled",  
+
+      "trids": {  
+
+        "visa": "40010005027",  
+
+        "mastercard": "51234567890"  
+
+      },  
+
       "riskAlertEmail": "risk@example.org",  
 
       "schedulerAlertEmail": "scheduler@example.org",  
@@ -556,6 +583,16 @@ GET
       "homepage": "https://www.example.org",  
 
       "isPciEnabled": false,  
+
+      "networkTokenizationEnabled": "enabled",  
+
+      "trids": {  
+
+        "visa": "40010005027",  
+
+        "mastercard": "51234567890"  
+
+      },  
 
       "riskAlertEmail": "risk@example.org",  
 
@@ -751,6 +788,16 @@ GET
 
       "isPciEnabled": false,  
 
+      "networkTokenizationEnabled": "enabled",  
+
+      "trids": {  
+
+        "visa": "40010005027",  
+
+        "mastercard": "51234567890"  
+
+      },  
+
       "riskAlertEmail": "risk@example.org",  
 
       "schedulerAlertEmail": "scheduler@example.org",  
@@ -934,6 +981,16 @@ GET
 
       "isPciEnabled": false,  
 
+      "networkTokenizationEnabled": "enabled",  
+
+      "trids": {  
+
+        "visa": "40010005027",  
+
+        "mastercard": "51234567890"  
+
+      },  
+
       "riskAlertEmail": "risk@example.org",  
 
       "schedulerAlertEmail": "scheduler@example.org",  
@@ -1116,6 +1173,16 @@ GET
       "homepage": "https://www.example.org",  
 
       "isPciEnabled": false,  
+
+      "networkTokenizationEnabled": "enabled",  
+
+      "trids": {  
+
+        "visa": "40010005027",  
+
+        "mastercard": "51234567890"  
+
+      },  
 
       "riskAlertEmail": "risk@example.org",  
 

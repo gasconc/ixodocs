@@ -3,7 +3,6 @@ title: Authentication flows
 summary: ' 3-D Securehttps://documentation.ixopay.com/docs/reference/features/3d-secure  Authentication
   flows'
 tags:
-- available-authentication-flows-https-documentation-ixopay-com-docs-reference-features-secure-authentication-flows-available-authentication-flows-direct-link-available-authentication-flows
 - frictionless-flow-https-documentation-ixopay-com-docs-reference-features-secure-authentication-flows-frictionless-flow-direct-link-frictionless-flow
 - challenge-flow-https-documentation-ixopay-com-docs-reference-features-secure-authentication-flows-challenge-flow-direct-link-challenge-flow
 - error-flow-https-documentation-ixopay-com-docs-reference-features-secure-authentication-flows-error-flow-direct-link-error-flow
@@ -13,9 +12,10 @@ tags:
 - 3ds
 - 3d-secure
 - ixopay
+- authorization
 source_url: https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -25,13 +25,31 @@ related: []
 
 # Authentication flows
 When using 3-D Secure for transaction requests, the authentication process can lead to various outcomes, depending on the provided data and the customer's interaction. Here are the different authentication flows that may occur during the 3-D Secure process:
-Authentication\nrequest
-Frictionless flow
-Challenge flow
-Error flow
-Error result
-Success result
-## Available authentication flows[​](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#available-authentication-flows "Direct link to Available authentication flows")
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  I{"Authentication\nrequest"} --> Flow_Frictionless(Frictionless flow)
+  I --> Flow_Challenge(Challenge flow)
+  I --> Flow_Error(Error flow)
+
+  Flow_Error --> Error[Error result]
+
+%%  subgraph Success
+%%    direction TB
+%%    A[Attempts,\nprocessing performed]
+%%    Y[Authentication,\naccount verification successful]
+%%  end
+  Flow_Challenge --> Success[Success result]
+  Flow_Frictionless --> Success
+
+%%  subgraph Error
+%%    direction TB
+%%    N[Not authenticated,\naccount not verified]
+%%    R[Authentication,\naccount verification rejected]
+%%    U[Authentication,\naccount verification could not be performed]
+%%  end
+  Flow_Challenge --> Error
+```## Available authentication flows[​](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#available-authentication-flows "Direct link to Available authentication flows")
 In the 3-D Secure authentication process, several distinct flows can occur, each with specific characteristics. Familiarize yourself with these authentication flows to understand how they influence transaction processing.
 ### Frictionless flow[​](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#frictionless-flow "Direct link to Frictionless flow")
 In the frictionless flow, all necessary 3-D Secure data is provided, and the authentication is successfully completed without any additional steps required from the customer. This smooth and seamless process allows the transaction to proceed without any interruptions or challenges.
@@ -58,3 +76,138 @@ There are instances where errors may occur during the 3-D Secure authentication 
   * **Authentication, account verification could not be performed** (`transStatus: U`): Technical or other problem, for example issuer was not reachable.
 
 Depending on the value of the `threeDSecureData.3dsecure` field, the IXOPAY platform sets the transaction status to `ERROR` or continues with the authorization (for example if `threeDSecureData.3dsecure` was `OPTIONAL`).
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  I{"Authentication\nrequest"} --> Flow_Frictionless(Frictionless flow)
+  I --> Flow_Challenge(Challenge flow)
+  I --> Flow_Error(Error flow)
+
+  Flow_Error --> Error[Error result]
+
+%%  subgraph Success
+%%    direction TB
+%%    A[Attempts,\nprocessing performed]
+%%    Y[Authentication,\naccount verification successful]
+%%  end
+  Flow_Challenge --> Success[Success result]
+  Flow_Frictionless --> Success
+
+%%  subgraph Error
+%%    direction TB
+%%    N[Not authenticated,\naccount not verified]
+%%    R[Authentication,\naccount verification rejected]
+%%    U[Authentication,\naccount verification could not be performed]
+%%  end
+  Flow_Challenge --> Error
+```
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  I{"Authentication\nrequest"} --> Flow_Frictionless(Frictionless flow)
+  I --> Flow_Challenge(Challenge flow)
+  I --> Flow_Error(Error flow)
+
+  Flow_Error --> Error[Error result]
+
+%%  subgraph Success
+%%    direction TB
+%%    A[Attempts,\nprocessing performed]
+%%    Y[Authentication,\naccount verification successful]
+%%  end
+  Flow_Challenge --> Success[Success result]
+  Flow_Frictionless --> Success
+
+%%  subgraph Error
+%%    direction TB
+%%    N[Not authenticated,\naccount not verified]
+%%    R[Authentication,\naccount verification rejected]
+%%    U[Authentication,\naccount verification could not be performed]
+%%  end
+  Flow_Challenge --> Error
+```Depending on the value of the `threeDSecureData.3dsecure` field, the IXOPAY platform sets the transaction status to `ERROR` or continues with the authorization (for example if `threeDSecureData.3dsecure` was `OPTIONAL`).
+  * [Features](https://documentation.ixopay.com/docs/reference/features)
+  * [3-D Secure](https://documentation.ixopay.com/docs/reference/features/3d-secure)
+  * Authentication flows
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  I{"Authentication\nrequest"} --> Flow_Frictionless(Frictionless flow)
+  I --> Flow_Challenge(Challenge flow)
+  I --> Flow_Error(Error flow)
+
+  Flow_Error --> Error[Error result]
+
+%%  subgraph Success
+%%    direction TB
+%%    A[Attempts,\nprocessing performed]
+%%    Y[Authentication,\naccount verification successful]
+%%  end
+  Flow_Challenge --> Success[Success result]
+  Flow_Frictionless --> Success
+
+%%  subgraph Error
+%%    direction TB
+%%    N[Not authenticated,\naccount not verified]
+%%    R[Authentication,\naccount verification rejected]
+%%    U[Authentication,\naccount verification could not be performed]
+%%  end
+  Flow_Challenge --> Error
+```Depending on the value of the `threeDSecureData.3dsecure` field, the IXOPAY platform sets the transaction status to `ERROR` or continues with the authorization (for example if `threeDSecureData.3dsecure` was `OPTIONAL`).
+  * [Available authentication flows](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#available-authentication-flows)
+    * [Frictionless flow](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#frictionless-flow)
+    * [Challenge flow](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#challenge-flow)
+    * [Error flow](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#error-flow)
+  * [Results of the authentication flows](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#results-of-the-authentication-flows)
+    * [Success results](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#success-results)
+    * [Error results](https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows#error-results)
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  I{"Authentication\nrequest"} --> Flow_Frictionless(Frictionless flow)
+  I --> Flow_Challenge(Challenge flow)
+  I --> Flow_Error(Error flow)
+
+  Flow_Error --> Error[Error result]
+
+%%  subgraph Success
+%%    direction TB
+%%    A[Attempts,\nprocessing performed]
+%%    Y[Authentication,\naccount verification successful]
+%%  end
+  Flow_Challenge --> Success[Success result]
+  Flow_Frictionless --> Success
+
+%%  subgraph Error
+%%    direction TB
+%%    N[Not authenticated,\naccount not verified]
+%%    R[Authentication,\naccount verification rejected]
+%%    U[Authentication,\naccount verification could not be performed]
+%%  end
+  Flow_Challenge --> Error
+```
+```
+%%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
+flowchart LR
+  I{"Authentication\nrequest"} --> Flow_Frictionless(Frictionless flow)
+  I --> Flow_Challenge(Challenge flow)
+  I --> Flow_Error(Error flow)
+
+  Flow_Error --> Error[Error result]
+
+%%  subgraph Success
+%%    direction TB
+%%    A[Attempts,\nprocessing performed]
+%%    Y[Authentication,\naccount verification successful]
+%%  end
+  Flow_Challenge --> Success[Success result]
+  Flow_Frictionless --> Success
+
+%%  subgraph Error
+%%    direction TB
+%%    N[Not authenticated,\naccount not verified]
+%%    R[Authentication,\naccount verification rejected]
+%%    U[Authentication,\naccount verification could not be performed]
+%%  end
+  Flow_Challenge --> Error
+```Depending on the value of the `threeDSecureData.3dsecure` field, the IXOPAY platform sets the transaction status to `ERROR` or continues with the authorization (for example if `threeDSecureData.3dsecure` was `OPTIONAL`).

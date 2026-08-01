@@ -4,7 +4,6 @@ summary: ' Payment method selectionhttps://documentation.ixopay.com/docs/referen
   redirects'
 tags:
 - process-flow-https-documentation-ixopay-com-docs-reference-features-payment-method-selection-intermediate-redirects-process-flow-direct-link-process-flow
-- technical-details-https-documentation-ixopay-com-docs-reference-features-payment-method-selection-intermediate-redirects-technical-details-direct-link-technical-details
 - api
 - ixopay
 - psp
@@ -13,7 +12,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/features/payment-method-selection/intermediate-redirects
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -42,8 +41,30 @@ Please be aware that this feature needs to be manually enabled on your merchant 
   14. **Merchant** : Displays the "Thank you for your purchase" page.
 
 Here's a visual representation of the process flow using a sequence diagram:
-CustomerIXOPAY platformMerchant Sends transaction with intermediateUrl1Redirects customer to redirectUrl2Presents payment selection page3Chooses payment method4Sends callback with state PENDING & continueUrl5Redirects customer to intermediateUrl with continueUrl GET parameter6Presents checkout finalization7Clicks "Finalize purchase now"8Redirects customer to continueUrl9Presents actual payment page10Finalizes payment at the PSP11Sends final callback to merchant's callbackUrl12Redirects customer to successUrl (or errorUrl if payment failed)13Presents "Thank you for your purchase" page14
-## Technical details[​](https://documentation.ixopay.com/docs/reference/features/payment-method-selection/intermediate-redirects#technical-details "Direct link to Technical details")
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+    autonumber
+
+    participant M as Merchant
+    participant P as IXOPAY platform
+    participant C as Customer
+
+    M->>P: Sends transaction with intermediateUrl
+    M->>C: Redirects customer to redirectUrl
+    P->>C: Presents payment selection page
+    C->>P: Chooses payment method
+    P->>M: Sends callback with state PENDING & continueUrl
+    P->>C: Redirects customer to intermediateUrl with continueUrl GET parameter
+    M->>C: Presents checkout finalization
+    C->>M: Clicks "Finalize purchase now"
+    M->>C: Redirects customer to continueUrl
+    P->>C: Presents actual payment page
+    C->>P: Finalizes payment at the PSP
+    P->>M: Sends final callback to merchant's callbackUrl
+    P->>C: Redirects customer to successUrl (or errorUrl if payment failed)
+    M->>C: Presents "Thank you for your purchase" page
+```## Technical details[​](https://documentation.ixopay.com/docs/reference/features/payment-method-selection/intermediate-redirects#technical-details "Direct link to Technical details")
 Apart from the standard transaction details, you should also pay attention to the following:
   * Send the `extraData` value for the `intermediateUrl` key: This URL is where we'll redirect the customer after they have chosen a payment method.
 For example:
@@ -86,38 +107,28 @@ In the callback:
     * Extract the `continueUrl` parameter, which we append to your `intermediateUrl`.
 Example: If you provided `https://shop.example.org/checkout/finalize`, we would redirected to `https://shop.example.org/checkout/finalize?continueUrl=https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890`.
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+    autonumber
 
-{  
+    participant M as Merchant
+    participant P as IXOPAY platform
+    participant C as Customer
 
-  // ...  
-
-  "extraData": {  
-
-    "intermediateUrl": "https://shop.example.org/checkout/finalize"  
-
-  }  
-
-  // ...  
-
-}  
-
-```
-```
-
-{  
-
-  // ...  
-
-  "extraData": {  
-
-    "continueUrl": "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890"  
-
-  }  
-
-  // ...  
-
-}  
-
+    M->>P: Sends transaction with intermediateUrl
+    M->>C: Redirects customer to redirectUrl
+    P->>C: Presents payment selection page
+    C->>P: Chooses payment method
+    P->>M: Sends callback with state PENDING & continueUrl
+    P->>C: Redirects customer to intermediateUrl with continueUrl GET parameter
+    M->>C: Presents checkout finalization
+    C->>M: Clicks "Finalize purchase now"
+    M->>C: Redirects customer to continueUrl
+    P->>C: Presents actual payment page
+    C->>P: Finalizes payment at the PSP
+    P->>M: Sends final callback to merchant's callbackUrl
+    P->>C: Redirects customer to successUrl (or errorUrl if payment failed)
+    M->>C: Presents "Thank you for your purchase" page
 ```
 ```
 
@@ -152,6 +163,88 @@ Example: If you provided `https://shop.example.org/checkout/finalize`, we would 
 
 }  
 
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+    autonumber
+
+    participant M as Merchant
+    participant P as IXOPAY platform
+    participant C as Customer
+
+    M->>P: Sends transaction with intermediateUrl
+    M->>C: Redirects customer to redirectUrl
+    P->>C: Presents payment selection page
+    C->>P: Chooses payment method
+    P->>M: Sends callback with state PENDING & continueUrl
+    P->>C: Redirects customer to intermediateUrl with continueUrl GET parameter
+    M->>C: Presents checkout finalization
+    C->>M: Clicks "Finalize purchase now"
+    M->>C: Redirects customer to continueUrl
+    P->>C: Presents actual payment page
+    C->>P: Finalizes payment at the PSP
+    P->>M: Sends final callback to merchant's callbackUrl
+    P->>C: Redirects customer to successUrl (or errorUrl if payment failed)
+    M->>C: Presents "Thank you for your purchase" page
+```
+```
+
+{  
+
+  // ...  
+
+  "extraData": {  
+
+    "intermediateUrl": "https://shop.example.org/checkout/finalize"  
+
+  }  
+
+  // ...  
+
+}  
+
+```
+```
+
+{  
+
+  // ...  
+
+  "extraData": {  
+
+    "continueUrl": "https://gateway.ixopay.com/redirect/d94c0d72f3a36e21f16e/ABCDEF01234567890ABCDEF01234567890"  
+
+  }  
+
+  // ...  
+
+}  
+
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+    autonumber
+
+    participant M as Merchant
+    participant P as IXOPAY platform
+    participant C as Customer
+
+    M->>P: Sends transaction with intermediateUrl
+    M->>C: Redirects customer to redirectUrl
+    P->>C: Presents payment selection page
+    C->>P: Chooses payment method
+    P->>M: Sends callback with state PENDING & continueUrl
+    P->>C: Redirects customer to intermediateUrl with continueUrl GET parameter
+    M->>C: Presents checkout finalization
+    C->>M: Clicks "Finalize purchase now"
+    M->>C: Redirects customer to continueUrl
+    P->>C: Presents actual payment page
+    C->>P: Finalizes payment at the PSP
+    P->>M: Sends final callback to merchant's callbackUrl
+    P->>C: Redirects customer to successUrl (or errorUrl if payment failed)
+    M->>C: Presents "Thank you for your purchase" page
 ```
 ```
 
@@ -189,6 +282,30 @@ Example: If you provided `https://shop.example.org/checkout/finalize`, we would 
 ```  * [Process flow](https://documentation.ixopay.com/docs/reference/features/payment-method-selection/intermediate-redirects#process-flow)
   * [Technical details](https://documentation.ixopay.com/docs/reference/features/payment-method-selection/intermediate-redirects#technical-details)
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+    autonumber
+
+    participant M as Merchant
+    participant P as IXOPAY platform
+    participant C as Customer
+
+    M->>P: Sends transaction with intermediateUrl
+    M->>C: Redirects customer to redirectUrl
+    P->>C: Presents payment selection page
+    C->>P: Chooses payment method
+    P->>M: Sends callback with state PENDING & continueUrl
+    P->>C: Redirects customer to intermediateUrl with continueUrl GET parameter
+    M->>C: Presents checkout finalization
+    C->>M: Clicks "Finalize purchase now"
+    M->>C: Redirects customer to continueUrl
+    P->>C: Presents actual payment page
+    C->>P: Finalizes payment at the PSP
+    P->>M: Sends final callback to merchant's callbackUrl
+    P->>C: Redirects customer to successUrl (or errorUrl if payment failed)
+    M->>C: Presents "Thank you for your purchase" page
+```
+```
 
 {  
 
@@ -221,6 +338,30 @@ Example: If you provided `https://shop.example.org/checkout/finalize`, we would 
 
 }  
 
+```
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+    autonumber
+
+    participant M as Merchant
+    participant P as IXOPAY platform
+    participant C as Customer
+
+    M->>P: Sends transaction with intermediateUrl
+    M->>C: Redirects customer to redirectUrl
+    P->>C: Presents payment selection page
+    C->>P: Chooses payment method
+    P->>M: Sends callback with state PENDING & continueUrl
+    P->>C: Redirects customer to intermediateUrl with continueUrl GET parameter
+    M->>C: Presents checkout finalization
+    C->>M: Clicks "Finalize purchase now"
+    M->>C: Redirects customer to continueUrl
+    P->>C: Presents actual payment page
+    C->>P: Finalizes payment at the PSP
+    P->>M: Sends final callback to merchant's callbackUrl
+    P->>C: Redirects customer to successUrl (or errorUrl if payment failed)
+    M->>C: Presents "Thank you for your purchase" page
 ```
 ```
 

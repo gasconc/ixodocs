@@ -6,15 +6,15 @@ tags:
 - enrolling-merchant-network-token-services-https-documentation-ixopay-com-manual-docs-tokenization-merchant-enrollment-direct-link-enrolling-merchant-network-token-services
 - configuring-network-tokenization-per-connector-https-documentation-ixopay-com-manual-docs-tokenization-connector-configuration-direct-link-configuring-network-tokenization-per-connector
 - transaction-processing-network-tokens-https-documentation-ixopay-com-manual-docs-tokenization-transaction-processing-network-tokens-direct-link-transaction-processing-network-tokens
+- scheme-rules-https-documentation-ixopay-com-manual-docs-tokenization-scheme-rules-direct-link-scheme-rules
+- processing-transactions-https-documentation-ixopay-com-manual-docs-tokenization-processing-transactions-direct-link-processing-transactions
 - network-token-lifecycle-https-documentation-ixopay-com-manual-docs-tokenization-network-token-lifecycle-direct-link-network-token-lifecycle
 - api
+- 3ds
 - pci
-- tokenization
-- ixopay
-- authorization
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/nt
 portal: ixopay-manual
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -74,10 +74,16 @@ To change the network tokenization behavior for a connector or exclude the conne
 note
 Clients with already stored PAN data need to contact our Customer Success Management team to initialize the tokenization of the existing data.
 ## Transaction Processing using Network Tokens[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#transaction-processing-using-network-tokens "Direct link to Transaction Processing using Network Tokens")
+### Scheme Rules[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#scheme-rules "Direct link to Scheme Rules")
+When processing payments with network tokens, merchants must comply with card network scheme regulations based on the transaction type:
+  * Merchant Initiated Recurring (RECURRING): The initial transaction must have a valid **Scheme Reference ID**.
+  * Merchant Initiated Unscheduled (MIT / CARDONFILE_MERCHANT): The initial transaction must have a valid **Scheme Reference ID** and be successfully 3DS authenticated (**ECI 05** for Visa or **ECI 02** for Mastercard).
+
+### Processing Transactions[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#processing-transactions "Direct link to Processing Transactions")
 Network tokens will be used for transaction processing in case the adapter supports it. Depending on your connector configuration either starting from the initial register, debit+register and preauth+register transactions or the first transaction made by return customers (card on file) after that initial transaction (see Transaction Details - Additional Data).
 ![Transaction Details - Additional Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-additional-data.c145b43.704.png)Transaction Details - Additional Data
 note
-Depending on your business case it might make sense either to select the option to tokenize card data before (potential for lower processing fees) or after (shorter processing times) transaction processing. Keep in mind, that network tokens can only be used with adapters that support transaction processing using network tokens This is indicated in IXOPAY’s Adapter Catalog under the adapter’s capabilities ("Network Tokens (IXO-based)").
+Depending on your business case it might make sense either to select the option to tokenize card data before (potential for lower processing fees) or after (shorter processing times) transaction processing. Keep in mind, that network tokens can only be used with adapters that support transaction processing using network tokens. This is indicated in IXOPAY’s Adapter Catalog under the adapter’s capabilities ("Network Tokens (IXO-based)").
 ## Network Token Lifecycle[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#network-token-lifecycle "Direct link to Network Token Lifecycle")
 Network Tokens Lifecycle Events received from the card schemes, such as:
   * Token active

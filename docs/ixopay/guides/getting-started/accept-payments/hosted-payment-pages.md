@@ -12,11 +12,11 @@ tags:
 - json
 - 3d-secure
 - ixopay
+- psp
 - recurring
-- authorization
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -26,8 +26,24 @@ related: []
 
 # Hosted payment pages
 Hosted payment pages are a simple way to start accepting payments without requiring any front-end development experience. With hosted payment pages, your customer is redirected to [IXOPAY platform](https://www.ixopay.com)'s secure hosted payment page to enter their payment details. After the payment is complete, the customer is redirected back to your website.
-PSPIXOPAY platformMerchant backend CustomerCheckoutInitialize transactionInstruct redirectRedirect your customerSubmit payment detailsPerform paymentPayment completeShow success page
-Reference
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  actor C as Customer
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  C-->>M: Checkout
+  M->>+G: Initialize transaction
+  activate G
+  G-->>-M: Instruct redirect
+  M->>+C: Redirect your customer
+  C-->>-G: Submit payment details
+  G-->>+PSP: Perform payment
+  PSP->>-G: Payment complete
+  G-->>M: Show success page
+  deactivate G
+```Reference
 For more details on  hosted payment pages, check out the in-depth article on [hosted payment pages](https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages "Hosted payment pages reference article") in the reference.
 ## How to use hosted payment pages[​](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages#how-to-use-hosted-payment-pages "Direct link to How to use hosted payment pages")
 ### Step 1: Initialize a transaction[​](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages#step-1-initialize-a-transaction "Direct link to Step 1: Initialize a transaction")
@@ -262,7 +278,7 @@ If the IXOPAY platform successfully received your transaction, it will respond w
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -325,6 +341,24 @@ Now that you've integrated IXOPAY platform via a hosted payement page, you can l
   * … [recurring payments](https://documentation.ixopay.com/docs/guides/getting-started/recurring-payments) to generate recurring revenue.
   * … making your code production ready by [handling errors](https://documentation.ixopay.com/docs/guides/production/handling-errors).
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  actor C as Customer
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  C-->>M: Checkout
+  M->>+G: Initialize transaction
+  activate G
+  G-->>-M: Instruct redirect
+  M->>+C: Redirect your customer
+  C-->>-G: Submit payment details
+  G-->>+PSP: Perform payment
+  PSP->>-G: Payment complete
+  G-->>M: Show success page
+  deactivate G
+```
+```
 
 curl --request POST -sL \  
 
@@ -544,7 +578,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -594,6 +628,24 @@ resp.setHeader("Location", json.getString("redirectUrl"));
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  actor C as Customer
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  C-->>M: Checkout
+  M->>+G: Initialize transaction
+  activate G
+  G-->>-M: Instruct redirect
+  M->>+C: Redirect your customer
+  C-->>-G: Submit payment details
+  G-->>+PSP: Perform payment
+  PSP->>-G: Payment complete
+  G-->>M: Show success page
+  deactivate G
+```
+```
 
 curl --request POST -sL \  
 
@@ -813,7 +865,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -863,6 +915,24 @@ resp.setHeader("Location", json.getString("redirectUrl"));
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  actor C as Customer
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  C-->>M: Checkout
+  M->>+G: Initialize transaction
+  activate G
+  G-->>-M: Instruct redirect
+  M->>+C: Redirect your customer
+  C-->>-G: Submit payment details
+  G-->>+PSP: Perform payment
+  PSP->>-G: Payment complete
+  G-->>M: Show success page
+  deactivate G
+```
+```
 
 curl --request POST -sL \  
 
@@ -1082,7 +1152,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1136,6 +1206,24 @@ resp.setHeader("Location", json.getString("redirectUrl"));
     * [Step 3: Payment complete](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages#step-3-payment-complete)
   * [Next steps](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages#next-steps)
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  actor C as Customer
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  C-->>M: Checkout
+  M->>+G: Initialize transaction
+  activate G
+  G-->>-M: Instruct redirect
+  M->>+C: Redirect your customer
+  C-->>-G: Submit payment details
+  G-->>+PSP: Perform payment
+  PSP->>-G: Payment complete
+  G-->>M: Show success page
+  deactivate G
+```
+```
 
 curl --request POST -sL \  
 
@@ -1355,7 +1443,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1405,6 +1493,24 @@ resp.setHeader("Location", json.getString("redirectUrl"));
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  actor C as Customer
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  C-->>M: Checkout
+  M->>+G: Initialize transaction
+  activate G
+  G-->>-M: Instruct redirect
+  M->>+C: Redirect your customer
+  C-->>-G: Submit payment details
+  G-->>+PSP: Perform payment
+  PSP->>-G: Payment complete
+  G-->>M: Show success page
+  deactivate G
+```
+```
 
 curl --request POST -sL \  
 
@@ -1624,7 +1730,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 

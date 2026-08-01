@@ -15,7 +15,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/testing
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -26,15 +26,18 @@ related: []
 Before going live with [IXOPAY platform](https://www.ixopay.com), it is important to thoroughly test your payment integration in a controlled environment. Testing ensures that your payment flow is functioning properly and can help you catch and resolve any issues before they impact your customers.
 In this guide, we will cover how to test your payment integration using the sandbox environment, test mode settings, and API testing tool provided by IXOPAY platform.
 ## Using the sandbox environment[​](https://documentation.ixopay.com/docs/guides/getting-started/testing#using-the-sandbox-environment "Direct link to Using the sandbox environment")
-Sandbox
-Create merchant
-Sandbox credentials
-Create API user
-Create connector
-Use `sandbox.ixopay.com` in your integration
-Test your integration
-Switch back to production
-The IXOPAY platform provides a sandbox environment for merchants to test their payment integration before going live with the production environment. The sandbox has the same features and functionality as the production environment, but all transactions are simulated or sent to test environments of PSPs and no actual payments are processed.
+```
+graph LR
+  subgraph Sandbox
+    direction TB
+    M(Create merchant) --> Cred(Sandbox credentials)
+    U(Create API user) --> Cred
+    C(Create connector) --> Cred
+  end
+  Cred --> I("Use <code>sandbox.ixopay.com</code> in your integration")
+  I --> T(Test your integration)
+  T --> P(Switch back to production)
+```The IXOPAY platform provides a sandbox environment for merchants to test their payment integration before going live with the production environment. The sandbox has the same features and functionality as the production environment, but all transactions are simulated or sent to test environments of PSPs and no actual payments are processed.
 To test your payment integration using the sandbox:
   1. Create a duplicate of your merchant, merchant API user, and connector on the [sandbox environment](https://sandbox.ixopay.com). This is necessary because the sandbox environment is completely separate from the production environment, so your existing credentials will not work. To do this, follow the [Setting up your account](https://documentation.ixopay.com/docs/guides/getting-started/setup) guide on the [sandbox environment](https://sandbox.ixopay.com).
   2. Once you have your sandbox credentials, you can use the sandbox API URL in your integration, which is `sandbox.ixopay.com`, instead of the production API URL (`gateway.ixopay.com`).
@@ -52,12 +55,12 @@ To test your PCI transactions using the sandbox:
   5. Upon satisfaction with your PCI integration in the sandbox environment, proceed to switch to the production environment. Utilize your production credentials and PCI API URL (`secure.ixopay.com`), removing the `X-Environment: sandbox` request header for PCI transactions in the production environment.
 
 ## Enabling test mode on a connector[​](https://documentation.ixopay.com/docs/guides/getting-started/testing#enabling-test-mode-on-a-connector "Direct link to Enabling test mode on a connector")
-Activate test mode
-Save
-Admin UI
-Connector settings
-Test your integration
-Some connectors provide a test mode setting that can be enabled in the production environment. This can be useful for testing your integration in a real-world environment without risking any actual transactions or charges.
+```
+graph LR
+  A(Admin UI) --> C(Connector settings)
+  C -->|Activate test mode| C
+  C -->|Save| T(Test your integration)
+```Some connectors provide a test mode setting that can be enabled in the production environment. This can be useful for testing your integration in a real-world environment without risking any actual transactions or charges.
 To enable test mode on the IXOPAY platform production environment:
   1. Log in to your IXOPAY platform account on the production environment.
   2. Navigate to the [connector settings](https://docs.ixopay.com/en/platform-user-administration-manual/connector/edit-connector) of the connector you want to enable test mode for.
@@ -68,12 +71,12 @@ Once test mode is enabled, transactions will be processed as if they were real, 
 note
 Not all connectors support test mode, and enabling it may affect other aspects of your integration.
 ## API testing tool[​](https://documentation.ixopay.com/docs/guides/getting-started/testing#api-testing-tool "Direct link to API testing tool")
-Fill form
-Submit
-Admin UI
-API Testing
-Review response
-The IXOPAY platform provides API testing tools that allow you to build and test API calls to the [Transaction API](https://documentation.ixopay.com/api/transaction/transaction), the [Status API](https://documentation.ixopay.com/api/transaction/status), and the [Schedule API](https://documentation.ixopay.com/api/transaction/schedule). These tools can be accessed through the IXOPAY platform web interface and help you ensure that your integration is properly configured and working correctly.
+```
+graph LR
+  A(Admin UI) --> APIT(API Testing)
+  APIT -->|Fill form| APIT
+  APIT -->|Submit| R(Review response)
+```The IXOPAY platform provides API testing tools that allow you to build and test API calls to the [Transaction API](https://documentation.ixopay.com/api/transaction/transaction), the [Status API](https://documentation.ixopay.com/api/transaction/status), and the [Schedule API](https://documentation.ixopay.com/api/transaction/schedule). These tools can be accessed through the IXOPAY platform web interface and help you ensure that your integration is properly configured and working correctly.
 To use the API testing tools on IXOPAY platform:
   1. Log in to your IXOPAY platform account.
   2. Navigate to the "API Testing" section.
@@ -84,4 +87,133 @@ To use the API testing tools on IXOPAY platform:
   7. Review the response from IXOPAY platform to ensure that the API call was processed correctly.
 
 The API testing tools provided by IXOPAY platform are very useful for debugging and testing your integration. They allow you to simulate various scenarios and configurations, and to see how IXOPAY platform responds to different input parameters.
+For more details on the API testing tool see the API Testing section in the [User manual](https://docs.ixopay.com/en/platform-user-administration-manual/api-testing).
+```
+graph LR
+  subgraph Sandbox
+    direction TB
+    M(Create merchant) --> Cred(Sandbox credentials)
+    U(Create API user) --> Cred
+    C(Create connector) --> Cred
+  end
+  Cred --> I("Use <code>sandbox.ixopay.com</code> in your integration")
+  I --> T(Test your integration)
+  T --> P(Switch back to production)
+```
+```
+graph LR
+  A(Admin UI) --> C(Connector settings)
+  C -->|Activate test mode| C
+  C -->|Save| T(Test your integration)
+```
+```
+graph LR
+  A(Admin UI) --> APIT(API Testing)
+  APIT -->|Fill form| APIT
+  APIT -->|Submit| R(Review response)
+```
+```
+graph LR
+  subgraph Sandbox
+    direction TB
+    M(Create merchant) --> Cred(Sandbox credentials)
+    U(Create API user) --> Cred
+    C(Create connector) --> Cred
+  end
+  Cred --> I("Use <code>sandbox.ixopay.com</code> in your integration")
+  I --> T(Test your integration)
+  T --> P(Switch back to production)
+```
+```
+graph LR
+  A(Admin UI) --> C(Connector settings)
+  C -->|Activate test mode| C
+  C -->|Save| T(Test your integration)
+```
+```
+graph LR
+  A(Admin UI) --> APIT(API Testing)
+  APIT -->|Fill form| APIT
+  APIT -->|Submit| R(Review response)
+```The API testing tools provided by IXOPAY platform are very useful for debugging and testing your integration. They allow you to simulate various scenarios and configurations, and to see how IXOPAY platform responds to different input parameters.
+For more details on the API testing tool see the API Testing section in the [User manual](https://docs.ixopay.com/en/platform-user-administration-manual/api-testing).
+  * [Getting started](https://documentation.ixopay.com/docs/guides/getting-started)
+  * Testing your setup
+```
+graph LR
+  subgraph Sandbox
+    direction TB
+    M(Create merchant) --> Cred(Sandbox credentials)
+    U(Create API user) --> Cred
+    C(Create connector) --> Cred
+  end
+  Cred --> I("Use <code>sandbox.ixopay.com</code> in your integration")
+  I --> T(Test your integration)
+  T --> P(Switch back to production)
+```
+```
+graph LR
+  A(Admin UI) --> C(Connector settings)
+  C -->|Activate test mode| C
+  C -->|Save| T(Test your integration)
+```
+```
+graph LR
+  A(Admin UI) --> APIT(API Testing)
+  APIT -->|Fill form| APIT
+  APIT -->|Submit| R(Review response)
+```The API testing tools provided by IXOPAY platform are very useful for debugging and testing your integration. They allow you to simulate various scenarios and configurations, and to see how IXOPAY platform responds to different input parameters.
+For more details on the API testing tool see the API Testing section in the [User manual](https://docs.ixopay.com/en/platform-user-administration-manual/api-testing).
+  * [Using the sandbox environment](https://documentation.ixopay.com/docs/guides/getting-started/testing#using-the-sandbox-environment)
+  * [Using the sandbox environment with PCI transactions](https://documentation.ixopay.com/docs/guides/getting-started/testing#using-the-sandbox-environment-with-pci-transactions)
+  * [Enabling test mode on a connector](https://documentation.ixopay.com/docs/guides/getting-started/testing#enabling-test-mode-on-a-connector)
+  * [API testing tool](https://documentation.ixopay.com/docs/guides/getting-started/testing#api-testing-tool)
+```
+graph LR
+  subgraph Sandbox
+    direction TB
+    M(Create merchant) --> Cred(Sandbox credentials)
+    U(Create API user) --> Cred
+    C(Create connector) --> Cred
+  end
+  Cred --> I("Use <code>sandbox.ixopay.com</code> in your integration")
+  I --> T(Test your integration)
+  T --> P(Switch back to production)
+```
+```
+graph LR
+  A(Admin UI) --> C(Connector settings)
+  C -->|Activate test mode| C
+  C -->|Save| T(Test your integration)
+```
+```
+graph LR
+  A(Admin UI) --> APIT(API Testing)
+  APIT -->|Fill form| APIT
+  APIT -->|Submit| R(Review response)
+```
+```
+graph LR
+  subgraph Sandbox
+    direction TB
+    M(Create merchant) --> Cred(Sandbox credentials)
+    U(Create API user) --> Cred
+    C(Create connector) --> Cred
+  end
+  Cred --> I("Use <code>sandbox.ixopay.com</code> in your integration")
+  I --> T(Test your integration)
+  T --> P(Switch back to production)
+```
+```
+graph LR
+  A(Admin UI) --> C(Connector settings)
+  C -->|Activate test mode| C
+  C -->|Save| T(Test your integration)
+```
+```
+graph LR
+  A(Admin UI) --> APIT(API Testing)
+  APIT -->|Fill form| APIT
+  APIT -->|Submit| R(Review response)
+```The API testing tools provided by IXOPAY platform are very useful for debugging and testing your integration. They allow you to simulate various scenarios and configurations, and to see how IXOPAY platform responds to different input parameters.
 For more details on the API testing tool see the API Testing section in the [User manual](https://docs.ixopay.com/en/platform-user-administration-manual/api-testing).

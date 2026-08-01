@@ -9,12 +9,12 @@ tags:
 - api
 - json
 - ixopay
+- psp
 - recurring
 - authorization
-- void
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/callbacks
 portal: ixopay-dev
-updated: '2026-07-27'
+updated: '2026-08-01'
 related: []
 ---
 
@@ -23,8 +23,36 @@ related: []
 
 # Callbacks
 The [IXOPAY platform](https://www.ixopay.com) provides a callback mechanism that allows you to receive real-time updates on the status of your payment transactions. This is useful for keeping your own system in sync with the status of your payments, and for triggering other actions based on the status of a payment (e.g. sending a confirmation email to your customer).
-PSPIXOPAY platformMerchant backend par​loop[State changes]Perform transaction: setting a callback URLPerform paymentPayment completeCallbackUpdate internal stateCallback OKPayment completePayment state changeOKCallbackUpdate internal stateCallback OK
-Reference
+```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  activate M
+  M->>G: Perform transaction: setting a callback URL
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  par
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+  and
+    G-->>M: Payment complete
+  end
+  deactivate M
+  deactivate G
+  loop State changes
+    PSP-->>G: Payment state change
+    activate G
+    G-->>PSP: OK
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+    deactivate G
+  end
+```Reference
 For more details on  callbacks, check out the in-depth article on [callbacks](https://documentation.ixopay.com/docs/reference/integration/callbacks "Callbacks reference article") in the reference.
 To use callbacks, follow these simple steps:
 ## Step 1: Setting a callback URL[​](https://documentation.ixopay.com/docs/guides/getting-started/callbacks#step-1-setting-a-callback-url "Direct link to Step 1: Setting a callback URL")
@@ -273,7 +301,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -841,6 +869,36 @@ Now that you have integrated IXOPAY platform's callbacks, you can look into …
   * … [testing your setup](https://documentation.ixopay.com/docs/guides/getting-started/testing) to make sure you've set up everything correctly.
   * … exploring the [callback reference](https://documentation.ixopay.com/docs/reference/integration/callbacks) for detailed information on callback structure and usage.
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  activate M
+  M->>G: Perform transaction: setting a callback URL
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  par
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+  and
+    G-->>M: Payment complete
+  end
+  deactivate M
+  deactivate G
+  loop State changes
+    PSP-->>G: Payment state change
+    activate G
+    G-->>PSP: OK
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+    deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -1068,7 +1126,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1622,6 +1680,36 @@ public class Application {
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  activate M
+  M->>G: Perform transaction: setting a callback URL
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  par
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+  and
+    G-->>M: Payment complete
+  end
+  deactivate M
+  deactivate G
+  loop State changes
+    PSP-->>G: Payment state change
+    activate G
+    G-->>PSP: OK
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+    deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -1849,7 +1937,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2403,6 +2491,36 @@ public class Application {
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  activate M
+  M->>G: Perform transaction: setting a callback URL
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  par
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+  and
+    G-->>M: Payment complete
+  end
+  deactivate M
+  deactivate G
+  loop State changes
+    PSP-->>G: Payment state change
+    activate G
+    G-->>PSP: OK
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+    deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -2630,7 +2748,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -3188,6 +3306,36 @@ public class Application {
   * [Conclusion](https://documentation.ixopay.com/docs/guides/getting-started/callbacks#conclusion)
   * [Next steps](https://documentation.ixopay.com/docs/guides/getting-started/callbacks#next-steps)
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  activate M
+  M->>G: Perform transaction: setting a callback URL
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  par
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+  and
+    G-->>M: Payment complete
+  end
+  deactivate M
+  deactivate G
+  loop State changes
+    PSP-->>G: Payment state change
+    activate G
+    G-->>PSP: OK
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+    deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -3415,7 +3563,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -3969,6 +4117,36 @@ public class Application {
 
 ```
 ```
+%%{ init: { "sequence": {"mirrorActors": false} } }%%
+sequenceDiagram
+  participant M as Merchant backend
+  participant G as IXOPAY platform
+  participant PSP
+  activate M
+  M->>G: Perform transaction: setting a callback URL
+  activate G
+  G-->>+PSP: Perform payment
+  PSP-->>-G: Payment complete
+  par
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+  and
+    G-->>M: Payment complete
+  end
+  deactivate M
+  deactivate G
+  loop State changes
+    PSP-->>G: Payment state change
+    activate G
+    G-->>PSP: OK
+    G->>+M: Callback
+    M->>M: Update internal state
+    M-->>-G: Callback OK
+    deactivate G
+  end
+```
+```
 
 curl --request POST -sL \  
 
@@ -4196,7 +4374,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260715-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
