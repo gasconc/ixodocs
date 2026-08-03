@@ -10,7 +10,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tgapi-v2-the-basics
 portal: ixopay-modules
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

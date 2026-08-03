@@ -7,7 +7,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/detokenization
 portal: tokenex
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

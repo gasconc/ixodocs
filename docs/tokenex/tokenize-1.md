@@ -12,7 +12,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenize-1
 portal: tokenex
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

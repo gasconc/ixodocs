@@ -14,7 +14,7 @@ tags:
 - direct-debit
 source_url: https://documentation.ixopay.com/adapters/simulator
 portal: ixopay-dev
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

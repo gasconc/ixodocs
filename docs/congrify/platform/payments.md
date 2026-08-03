@@ -16,7 +16,7 @@ tags:
 - pre-chargebacks-alertshttps-docs-congrify-com-fintech-payments-pre-chargebacks-alerts
 source_url: ''
 portal: congrify
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows
 portal: ixopay-dev
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

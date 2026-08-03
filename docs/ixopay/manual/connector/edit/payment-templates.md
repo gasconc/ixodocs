@@ -12,7 +12,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/connector/edit/payment-templates
 portal: ixopay-manual
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

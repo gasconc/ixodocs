@@ -10,7 +10,7 @@ tags:
 - ixopay
 source_url: https://www.ixopay.com/legal/tokenex-legacy
 portal: ixopay-legal
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

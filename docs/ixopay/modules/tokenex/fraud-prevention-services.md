@@ -6,7 +6,7 @@ tags:
 - tokenex
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/fraud-prevention-services
 portal: ixopay-modules
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

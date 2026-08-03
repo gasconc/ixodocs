@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/api/provisioning/update-tenant
 portal: ixopay-dev
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 

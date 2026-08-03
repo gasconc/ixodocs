@@ -10,7 +10,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets
 portal: ixopay-manual
-updated: '2026-08-01'
+updated: '2026-08-03'
 related: []
 ---
 
