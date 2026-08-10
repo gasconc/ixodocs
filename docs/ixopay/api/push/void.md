@@ -14,7 +14,7 @@ tags:
 - void
 source_url: https://documentation.ixopay.com/api/push/void
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -63,7 +63,7 @@ PSP's reference of Transaction.
 **adapterToken** string
 Token given by the adapter.
 **Possible values:** `<= 50 characters`
-**createdAt** date-time
+**createdAt** string
 Date/Time of transaction processing, defaults to `now()`.
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -105,7 +105,7 @@ Error message of PSP.
 Error code of PSP.
 **Possible values:** `<= 20 characters`
 **Example:**`5`
-**created** date-time
+**created** string
 Date and time of error, defaults to `now()`.
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`.
 **Example:**`2001-02-03T04:05:06+02:00`

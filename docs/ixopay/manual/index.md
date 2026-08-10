@@ -10,7 +10,7 @@ tags:
 - observability
 source_url: https://documentation.ixopay.com/manual/
 portal: ixopay-manual
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 

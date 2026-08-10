@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/api/transaction/schedule-pause
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -81,14 +81,14 @@ Status of the schedule.
 **newStatus** ScheduleStatus
 Status of the schedule.
 **Possible values:** [`ACTIVE`, `PAUSED`, `CANCELLED`, `ERROR`, `CREATE-PENDING`, `NON-EXISTING`]
-**scheduledAt** date-time
+**scheduledAt** string
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])\+[0-9]{2}\:[0-9]{2}$`
 **Example:**`2001-02-03T04:05:06+02:00`
 **errorMessage** string
 Error message.
 While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`.
-**errorCode** int32
+**errorCode** integer
 Error code.
 For a complete list of error codes and their meanings, please see the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
 **adapterMessage** stringnullable
@@ -151,7 +151,7 @@ Returns `true` or `false` depending on whether the request was successful.
 **errorMessage** string
 Error message.
 While the `errorMessage` field provides useful context for understanding the nature of the error, it's important to note that the content of this message can vary based on specific circumstances. For consistent and reliable error handling in your application, always base your logic on the `errorCode` field, not the `errorMessage`.
-**errorCode** int32
+**errorCode** integer
 **details** stringnullable
 **property name*** any
 ```

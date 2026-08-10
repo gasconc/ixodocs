@@ -13,7 +13,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/token-servicesv-2-validatetoken
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -117,6 +117,8 @@ The token to validate.
 curl -L 'https://test-api.tokenex.com/v2/Token/ValidateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -184,6 +186,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ValidateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -243,6 +247,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ValidateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -302,6 +308,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ValidateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -361,6 +369,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ValidateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -420,6 +430,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ValidateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  

@@ -12,7 +12,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/api/provisioning/list-tenants
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -53,8 +53,8 @@ Identifier.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
 **mailSenderName** string
-**mailSenderAddress** email
-**domain** domain
+**mailSenderAddress** string
+**domain** string
   * ]
 **property name*** any
 **Example:**`{"success":true,"tenants":[{"guid":"TE-1234-1234-1234-1234-1234-1234","name":"Tenant A","defaultCurrency":"EUR","mailSenderName":"Tenant A","mailSenderAddress":"noreply@tenant-a.example.org","domain":"tenant-a.example.org"},{"guid":"TE-4321-4321-4321-4321-4321","name":"Tenant B","defaultCurrency":"EUR","mailSenderName":"Tenant B","mailSenderAddress":"noreply@tenant-b.example.org","domain":"tenant-b.example.org"}]}`
@@ -112,7 +112,7 @@ Identifier.
 **Schema**
 **success** booleanrequired
 `true` if successful.
-**errorCode** int64required
+**errorCode** integerrequired
 Error code.
     * `1000` - Unauthorized, e.g. invalid credentials
     * `1001` - The request is invalid

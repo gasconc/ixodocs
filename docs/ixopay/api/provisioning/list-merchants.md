@@ -14,7 +14,7 @@ tags:
 - refund
 source_url: https://documentation.ixopay.com/api/provisioning/list-merchants
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -67,15 +67,15 @@ Whether the merchant is archived.
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
-**createdAt** date-time
+**createdAt** string
 **Example:**`2001-02-03T04:05:06+02:00`
 **defaultCurrency** string
 [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217) three-letter currency code.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
-**defaultRiskRuleSet** int64
+**defaultRiskRuleSet** integer
 ID of merchant's default risk rule set.
-**defaultVtRiskRuleSet** int64
+**defaultVtRiskRuleSet** integer
 ID of merchant's default virtual terminal risk rule set.
 **disabled** boolean
 Whether the merchant is disabled.
@@ -83,7 +83,7 @@ Whether the merchant is disabled.
 Transaction types that are disabled for the merchant.
 **Possible values:** [`initial_debit`, `initial_preauthorize`, `capture`, `partial_capture`, `refund`, `partial_refund`, `register`, `deregister`, `payout`, `recurring_debit`, `recurring_preauthorize`]
 **externalId** string
-**homepage** urlrequired
+**homepage** stringrequired
 **isPciEnabled** boolean
 **networkTokenizationEnabled** string
 Whether network tokenization is enabled for the merchant.
@@ -92,10 +92,10 @@ Whether network tokenization is enabled for the merchant.
 Token Requestor IDs used for network tokenization, keyed by card scheme. Only present when `networkTokenizationEnabled` is `enabled`.
 **visa** stringnullable
 **mastercard** stringnullable
-**riskAlertEmail** email
-**schedulerAlertEmail** email
-**technicalEmail** email
-**eventNotificationUrl** uri
+**riskAlertEmail** string
+**schedulerAlertEmail** string
+**technicalEmail** string
+**eventNotificationUrl** string
 Merchant event notification URL.
 Callback URL where a merchant will be notified about network token and account updater changes where no connector is available.
 **Possible values:** `<= 65535 characters`
@@ -190,7 +190,7 @@ Callback URL where a merchant will be notified about network token and account u
 **Schema**
 **success** booleanrequired
 `true` if successful.
-**errorCode** int64required
+**errorCode** integerrequired
 Error code.
     * `1000` - Unauthorized, e.g. invalid credentials
     * `1001` - The request is invalid

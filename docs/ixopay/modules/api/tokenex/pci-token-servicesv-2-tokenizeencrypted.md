@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/pci-token-servicesv-2-tokenizeencrypted
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -121,6 +121,9 @@ This field is ignored if Padding is set to PKCS1. If Padding is set to OAEP, the
 curl -L 'https://test-api.tokenex.com/v2/Pci/TokenizeEncrypted' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "encryptedData": "LV76mIP0zQ2vf//T7bUKVDVNzThtmdpdt2vufurABIwrleNDK9BV55cL9FNSrHmvC+57JDl/K1P9ivIsDOpU1vk815vKhrqP1jTX1MxgpZ7LFOFHF1a8RFEpkL94bxcySCcAZXi+p7WT3j+FzCvqu2Lm6P7KuKk8aJEoYA7oZ6ZWbDSggAeqHRyGnDLE5bUk6ofTDgl8BUkUkR+OvxrsBVL/HPGZzV6DXG7ICWkt66Rf+HB8IXUu1/jw46wnGnvthOaZjGCdrcHovojxJhh/2fDI6oA9/KUd6kF+sqgTldwE60ux/oBxSggXMLX8JnJXrPI8DC3MTw0iAIzOu3/0eA==",  
   "encryptedCvv": "QvVi2g9KQqJS427Upm8I6cDzF0ea6Fc1/zG6p9Y4WX4DZqVe1VjFvWRamibd1h0uhBozra2+OhsHiPfKAz+rXKTsExDME5WaDO9AL3CYhrqYseNZZACUnf42BfhuzVMOO3fRbvW5lLNYfAa561PpGDL8qru6DeDnpI0YVXNSo4p9G90j8dmNnUFSZimERNShb5dhnPefkp12NxClqUBeym8yMotDRGyAX5nWATpFN17WFxL8Snm9mTglNknnUvPnlrqOvY8fZCA5dTvE2HFBqsdPPIdhiWa3P6lWWP5EmMvopmFkGAK2YuIRlhGRibooOOmXyDxOZYiXD2sV27+R0w==",  
@@ -187,6 +190,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/TokenizeEncrypted' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "encryptedData": "LV76mIP0zQ2vf//T7bUKVDVNzThtmdpdt2vufurABIwrleNDK9BV55cL9FNSrHmvC+57JDl/K1P9ivIsDOpU1vk815vKhrqP1jTX1MxgpZ7LFOFHF1a8RFEpkL94bxcySCcAZXi+p7WT3j+FzCvqu2Lm6P7KuKk8aJEoYA7oZ6ZWbDSggAeqHRyGnDLE5bUk6ofTDgl8BUkUkR+OvxrsBVL/HPGZzV6DXG7ICWkt66Rf+HB8IXUu1/jw46wnGnvthOaZjGCdrcHovojxJhh/2fDI6oA9/KUd6kF+sqgTldwE60ux/oBxSggXMLX8JnJXrPI8DC3MTw0iAIzOu3/0eA==",  
   "encryptedCvv": "QvVi2g9KQqJS427Upm8I6cDzF0ea6Fc1/zG6p9Y4WX4DZqVe1VjFvWRamibd1h0uhBozra2+OhsHiPfKAz+rXKTsExDME5WaDO9AL3CYhrqYseNZZACUnf42BfhuzVMOO3fRbvW5lLNYfAa561PpGDL8qru6DeDnpI0YVXNSo4p9G90j8dmNnUFSZimERNShb5dhnPefkp12NxClqUBeym8yMotDRGyAX5nWATpFN17WFxL8Snm9mTglNknnUvPnlrqOvY8fZCA5dTvE2HFBqsdPPIdhiWa3P6lWWP5EmMvopmFkGAK2YuIRlhGRibooOOmXyDxOZYiXD2sV27+R0w==",  
@@ -244,6 +250,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/TokenizeEncrypted' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "encryptedData": "LV76mIP0zQ2vf//T7bUKVDVNzThtmdpdt2vufurABIwrleNDK9BV55cL9FNSrHmvC+57JDl/K1P9ivIsDOpU1vk815vKhrqP1jTX1MxgpZ7LFOFHF1a8RFEpkL94bxcySCcAZXi+p7WT3j+FzCvqu2Lm6P7KuKk8aJEoYA7oZ6ZWbDSggAeqHRyGnDLE5bUk6ofTDgl8BUkUkR+OvxrsBVL/HPGZzV6DXG7ICWkt66Rf+HB8IXUu1/jw46wnGnvthOaZjGCdrcHovojxJhh/2fDI6oA9/KUd6kF+sqgTldwE60ux/oBxSggXMLX8JnJXrPI8DC3MTw0iAIzOu3/0eA==",  
   "encryptedCvv": "QvVi2g9KQqJS427Upm8I6cDzF0ea6Fc1/zG6p9Y4WX4DZqVe1VjFvWRamibd1h0uhBozra2+OhsHiPfKAz+rXKTsExDME5WaDO9AL3CYhrqYseNZZACUnf42BfhuzVMOO3fRbvW5lLNYfAa561PpGDL8qru6DeDnpI0YVXNSo4p9G90j8dmNnUFSZimERNShb5dhnPefkp12NxClqUBeym8yMotDRGyAX5nWATpFN17WFxL8Snm9mTglNknnUvPnlrqOvY8fZCA5dTvE2HFBqsdPPIdhiWa3P6lWWP5EmMvopmFkGAK2YuIRlhGRibooOOmXyDxOZYiXD2sV27+R0w==",  
@@ -301,6 +310,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/TokenizeEncrypted' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "encryptedData": "LV76mIP0zQ2vf//T7bUKVDVNzThtmdpdt2vufurABIwrleNDK9BV55cL9FNSrHmvC+57JDl/K1P9ivIsDOpU1vk815vKhrqP1jTX1MxgpZ7LFOFHF1a8RFEpkL94bxcySCcAZXi+p7WT3j+FzCvqu2Lm6P7KuKk8aJEoYA7oZ6ZWbDSggAeqHRyGnDLE5bUk6ofTDgl8BUkUkR+OvxrsBVL/HPGZzV6DXG7ICWkt66Rf+HB8IXUu1/jw46wnGnvthOaZjGCdrcHovojxJhh/2fDI6oA9/KUd6kF+sqgTldwE60ux/oBxSggXMLX8JnJXrPI8DC3MTw0iAIzOu3/0eA==",  
   "encryptedCvv": "QvVi2g9KQqJS427Upm8I6cDzF0ea6Fc1/zG6p9Y4WX4DZqVe1VjFvWRamibd1h0uhBozra2+OhsHiPfKAz+rXKTsExDME5WaDO9AL3CYhrqYseNZZACUnf42BfhuzVMOO3fRbvW5lLNYfAa561PpGDL8qru6DeDnpI0YVXNSo4p9G90j8dmNnUFSZimERNShb5dhnPefkp12NxClqUBeym8yMotDRGyAX5nWATpFN17WFxL8Snm9mTglNknnUvPnlrqOvY8fZCA5dTvE2HFBqsdPPIdhiWa3P6lWWP5EmMvopmFkGAK2YuIRlhGRibooOOmXyDxOZYiXD2sV27+R0w==",  
@@ -358,6 +370,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/TokenizeEncrypted' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "encryptedData": "LV76mIP0zQ2vf//T7bUKVDVNzThtmdpdt2vufurABIwrleNDK9BV55cL9FNSrHmvC+57JDl/K1P9ivIsDOpU1vk815vKhrqP1jTX1MxgpZ7LFOFHF1a8RFEpkL94bxcySCcAZXi+p7WT3j+FzCvqu2Lm6P7KuKk8aJEoYA7oZ6ZWbDSggAeqHRyGnDLE5bUk6ofTDgl8BUkUkR+OvxrsBVL/HPGZzV6DXG7ICWkt66Rf+HB8IXUu1/jw46wnGnvthOaZjGCdrcHovojxJhh/2fDI6oA9/KUd6kF+sqgTldwE60ux/oBxSggXMLX8JnJXrPI8DC3MTw0iAIzOu3/0eA==",  
   "encryptedCvv": "QvVi2g9KQqJS427Upm8I6cDzF0ea6Fc1/zG6p9Y4WX4DZqVe1VjFvWRamibd1h0uhBozra2+OhsHiPfKAz+rXKTsExDME5WaDO9AL3CYhrqYseNZZACUnf42BfhuzVMOO3fRbvW5lLNYfAa561PpGDL8qru6DeDnpI0YVXNSo4p9G90j8dmNnUFSZimERNShb5dhnPefkp12NxClqUBeym8yMotDRGyAX5nWATpFN17WFxL8Snm9mTglNknnUvPnlrqOvY8fZCA5dTvE2HFBqsdPPIdhiWa3P6lWWP5EmMvopmFkGAK2YuIRlhGRibooOOmXyDxOZYiXD2sV27+R0w==",  
@@ -415,6 +430,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/TokenizeEncrypted' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "encryptedData": "LV76mIP0zQ2vf//T7bUKVDVNzThtmdpdt2vufurABIwrleNDK9BV55cL9FNSrHmvC+57JDl/K1P9ivIsDOpU1vk815vKhrqP1jTX1MxgpZ7LFOFHF1a8RFEpkL94bxcySCcAZXi+p7WT3j+FzCvqu2Lm6P7KuKk8aJEoYA7oZ6ZWbDSggAeqHRyGnDLE5bUk6ofTDgl8BUkUkR+OvxrsBVL/HPGZzV6DXG7ICWkt66Rf+HB8IXUu1/jw46wnGnvthOaZjGCdrcHovojxJhh/2fDI6oA9/KUd6kF+sqgTldwE60ux/oBxSggXMLX8JnJXrPI8DC3MTw0iAIzOu3/0eA==",  
   "encryptedCvv": "QvVi2g9KQqJS427Upm8I6cDzF0ea6Fc1/zG6p9Y4WX4DZqVe1VjFvWRamibd1h0uhBozra2+OhsHiPfKAz+rXKTsExDME5WaDO9AL3CYhrqYseNZZACUnf42BfhuzVMOO3fRbvW5lLNYfAa561PpGDL8qru6DeDnpI0YVXNSo4p9G90j8dmNnUFSZimERNShb5dhnPefkp12NxClqUBeym8yMotDRGyAX5nWATpFN17WFxL8Snm9mTglNknnUvPnlrqOvY8fZCA5dTvE2HFBqsdPPIdhiWa3P6lWWP5EmMvopmFkGAK2YuIRlhGRibooOOmXyDxOZYiXD2sV27+R0w==",  

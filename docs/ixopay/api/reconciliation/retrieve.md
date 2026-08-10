@@ -14,7 +14,7 @@ tags:
 - refund
 source_url: https://documentation.ixopay.com/api/reconciliation/retrieve
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -47,15 +47,15 @@ API key of connector.
   * Example (auto)
 
 ### Bodyrequired
-**from** date-timerequired
+**from** stringrequired
 Date range start, must be before `to` and the duration between `from`—`to` cannot be more than 30 days.
 Use the [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) `date-time` format, but replace `"T"` with a space (`" "`) and exclude the timezone.
 **Example:**`2001-02-03T 04:05:06`
-**to** date-timerequired
+**to** stringrequired
 Date range end, must be after `from` and the duration between `from`—`to` cannot be more than 30 days.
 Use the [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) `date-time` format, but replace `"T"` with a space (`" "`) and exclude the timezone.
 **Example:**`2001-02-03 04:05:06`
-**page** int64required
+**page** integerrequired
 Page number.
 **Possible values:** `>= 1`
 **Example:**`1`
@@ -82,16 +82,16 @@ A paged response of reconciled transactions.
   * Example (auto)
 
 **Schema**
-**total_entry_count** int64
+**total_entry_count** integer
 Total number of entries.
 **Possible values:** `>= 0`
-**page_count** int64
+**page_count** integer
 Total number of pages.
 **Possible values:** `>= 0`
-**current_page** int64
+**current_page** integer
 Current page of data set.
 **Possible values:** `>= 0`
-**current_page_entry_count** int64
+**current_page_entry_count** integer
 Entry count of current page.
 **Possible values:** `>= 0` and `<= 100`
 **next_page_exists** boolean
@@ -118,7 +118,7 @@ Transaction type.
 **status** stringnullable
 **Default value:**`null`
 **Example:**`success`
-**createdAt** date-timenullable
+**createdAt** stringnullable
 Transaction creation date.
 **Default value:**`null`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -278,7 +278,7 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
   * CURL
 ```
-curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey' \  
+curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey?retrieve=' \  
 -H 'Content-Type: application/x-www-form-urlencoded' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
@@ -411,7 +411,7 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey' \  
+curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey?retrieve=' \  
 -H 'Content-Type: application/x-www-form-urlencoded' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
@@ -528,7 +528,7 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey' \  
+curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey?retrieve=' \  
 -H 'Content-Type: application/x-www-form-urlencoded' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
@@ -651,7 +651,7 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey' \  
+curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey?retrieve=' \  
 -H 'Content-Type: application/x-www-form-urlencoded' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
@@ -768,7 +768,7 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey' \  
+curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey?retrieve=' \  
 -H 'Content-Type: application/x-www-form-urlencoded' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
@@ -885,7 +885,7 @@ Many programming frameworks will automatically handle the BASIC Authentication p
 
 ```
 ```
-curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey' \  
+curl -L 'https://gateway.ixopay.com/api/reconciliation/retrieve/:apiKey?retrieve=' \  
 -H 'Content-Type: application/x-www-form-urlencoded' \  
 -H 'Accept: application/json' \  
 -H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  

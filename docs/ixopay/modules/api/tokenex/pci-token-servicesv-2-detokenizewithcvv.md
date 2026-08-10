@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/pci-token-servicesv-2-detokenizewithcvv
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -137,6 +137,8 @@ Specify `true` to retain the CVV for use with a future API call.
 curl -L 'https://test-api.tokenex.com/v2/Pci/DetokenizeWithCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cacheCvv": false  
@@ -216,6 +218,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/DetokenizeWithCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cacheCvv": false  
@@ -287,6 +291,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/DetokenizeWithCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cacheCvv": false  
@@ -358,6 +364,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/DetokenizeWithCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cacheCvv": false  
@@ -429,6 +437,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/DetokenizeWithCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cacheCvv": false  
@@ -500,6 +510,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/DetokenizeWithCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cacheCvv": false  

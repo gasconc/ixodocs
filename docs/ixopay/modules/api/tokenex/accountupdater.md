@@ -14,7 +14,7 @@ tags:
 - json
 source_url: https://documentation.ixopay.com/modules/api/tokenex/accountupdater
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/push/chargeback
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -71,7 +71,7 @@ PSP's reference of Transaction.
 **adapterToken** string
 Token given by the adapter.
 **Possible values:** `<= 50 characters`
-**createdAt** date-time
+**createdAt** string
 Date/Time of transaction processing, defaults to `now()`.
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -113,7 +113,7 @@ First name of the customer.
 Last name of the customer.
 **Possible values:** `<= 50 characters`
 **Example:**`Smith`
-**birthDate** date (string)
+**birthDate** string
 Birthdate of customer.
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Example:**`2001-02-03`
@@ -195,11 +195,11 @@ Name printed on card.
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
-**expiryMonth** int32
+**expiryMonth** integer
 Expiration date - month.
 **Possible values:** `>= 1` and `<= 12`
 **Example:**`4`
-**expiryYear** int32
+**expiryYear** integer
 Expiration date - year.
 **Possible values:** `>= 0` and `<= 9999`
 **Example:**`2028`
@@ -233,7 +233,7 @@ Error message of PSP.
 Error code of PSP.
 **Possible values:** `<= 20 characters`
 **Example:**`5`
-**created** date-time
+**created** string
 Date and time of error, defaults to `now()`.
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`.
 **Example:**`2001-02-03T04:05:06+02:00`

@@ -15,7 +15,7 @@ tags:
 - schedule-job-https-documentation-ixopay-com-manual-docs-post-processing-jobs-examples-schedule-job-direct-link-schedule-job
 source_url: https://documentation.ixopay.com/manual/docs/post-processing/jobs/examples
 portal: ixopay-manual
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 

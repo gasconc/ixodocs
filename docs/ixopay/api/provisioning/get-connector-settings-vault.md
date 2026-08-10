@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/api/provisioning/get-connector-settings-vault
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -648,7 +648,7 @@ When [creating a connector](https://documentation.ixopay.com/api/provisioning/cr
 **Schema**
 **success** booleanrequired
 `true` if successful.
-**errorCode** int64required
+**errorCode** integerrequired
 Error code.
     * `1000` - Unauthorized, e.g. invalid credentials
     * `1001` - The request is invalid

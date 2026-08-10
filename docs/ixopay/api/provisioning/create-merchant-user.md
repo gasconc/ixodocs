@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/provisioning/create-merchant-user
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -45,7 +45,7 @@ The merchant user to create.
 **Possible values:** `>= 3 characters`
 **type** MerchantUserTyperequired
 **Possible values:** [`web`, `api`]
-**email** email
+**email** string
 Mandatory for `web` users.
 **password** string
 Mandatory for
@@ -53,7 +53,7 @@ Mandatory for
     * `web` users if `sendInitialPassword` is `false`
 **firstName** string
 **lastName** string
-**validUntil** date-time
+**validUntil** string
 **Example:**`2001-02-03T04:05:06+02:00`
 **disabled** boolean
 **Default value:**`false`
@@ -141,17 +141,17 @@ Identifier.
 **Possible values:** `>= 3 characters`
 **type** MerchantUserTyperequired
 **Possible values:** [`web`, `api`]
-**email** email
+**email** string
 Mandatory for `web` users.
-**createdAt** date-time
+**createdAt** string
 **Example:**`2001-02-03T04:05:06+02:00`
 **requirePasswordChange** boolean
 Whether a password change is required.
-**passwordValidUntil** date-time
+**passwordValidUntil** string
 **Example:**`2050-01-01 00:00:00`
 **firstName** string
 **lastName** string
-**validUntil** date-time
+**validUntil** string
 **Example:**`2001-02-03T04:05:06+02:00`
 **disabled** boolean
 **Default value:**`false`
@@ -316,7 +316,7 @@ oneOf
 **Schema**
 **success** booleanrequired
 `true` if successful.
-**errorCode** int64required
+**errorCode** integerrequired
 Error code.
     * `1000` - Unauthorized, e.g. invalid credentials
     * `1001` - The request is invalid

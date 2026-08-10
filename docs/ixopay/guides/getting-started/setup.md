@@ -15,7 +15,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/setup
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -92,7 +92,7 @@ Enter your credentials to use your connector with your PSP/acquirer's API.
     1. _Adapter_ : Choose the adapter you want to configure from the list.
     2. _Method_ : Select the payment method you want to configure.
     3. _Interface Type_ : This field is only displayed if the chosen adapter and payment method offer multiple API connections. Select your chosen API.
-    4. Enter the credentials needed to connect with the PSP/acquirer to process transactions. Each adapter needs its own individual settings. To find out which settings to enter for your connector, refer to the information about your adapter on the [Adapters](https://documentation.ixopay.com/adapters/simulator) page.
+    4. Enter the credentials needed to connect with the PSP/acquirer to process transactions. Each adapter needs its own individual settings. To find out which settings to enter for your connector, refer to the information about your adapter in the [Adapters](https://documentation.ixopay.com/adapters/simulator) documentation.
     5. Click _💾 Create_ to save your settings.
 
 You have now set everything up to start accepting payments in your application.

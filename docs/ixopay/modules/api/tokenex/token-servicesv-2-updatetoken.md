@@ -13,7 +13,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/token-servicesv-2-updatetoken
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -112,6 +112,8 @@ The new data the token should represent.
 curl -L 'https://test-api.tokenex.com/v2/Token/UpdateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "693008da-9a73-4918-a1f5-03b6fb867c1c",  
   "newData": "NewDataValue"  
@@ -171,6 +173,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/UpdateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "693008da-9a73-4918-a1f5-03b6fb867c1c",  
   "newData": "NewDataValue"  
@@ -222,6 +226,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/UpdateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "693008da-9a73-4918-a1f5-03b6fb867c1c",  
   "newData": "NewDataValue"  
@@ -273,6 +279,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/UpdateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "693008da-9a73-4918-a1f5-03b6fb867c1c",  
   "newData": "NewDataValue"  
@@ -324,6 +332,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/UpdateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "693008da-9a73-4918-a1f5-03b6fb867c1c",  
   "newData": "NewDataValue"  
@@ -375,6 +385,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/UpdateToken' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: YourVaultedTokenExID' \  
+-H 'tx-apikey: APIKeyAssociatedWithYourVaultedTokenExID' \  
 -d '{  
   "token": "693008da-9a73-4918-a1f5-03b6fb867c1c",  
   "newData": "NewDataValue"  

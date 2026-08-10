@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/device-services-v-2-tokenizeemv
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -168,6 +168,9 @@ The encrypted Track data from the device (DFDF59 Tag).
 curl -L 'https://test-api.tokenex.com/v2/Device/TokenizeEMV' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "KSNValue",  
@@ -268,6 +271,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/TokenizeEMV' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "KSNValue",  
@@ -359,6 +365,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/TokenizeEMV' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "KSNValue",  
@@ -450,6 +459,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/TokenizeEMV' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "KSNValue",  
@@ -541,6 +553,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/TokenizeEMV' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "KSNValue",  
@@ -632,6 +647,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/TokenizeEMV' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "KSNValue",  

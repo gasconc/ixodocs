@@ -14,7 +14,7 @@ tags:
 - refund
 source_url: https://documentation.ixopay.com/api/transaction/callback
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -121,7 +121,7 @@ Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
 **reason** string
-**chargebackDateTime** date-time
+**chargebackDateTime** string
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])\+[0-9]{2}\:[0-9]{2}$`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -142,7 +142,7 @@ Decimal amount separated by `.`, maximum of 3 decimals.
 **Possible values:** Value must match regular expression `^[A-Z]{3}$`
 **Example:**`EUR`
 **reason** string
-**reversalDateTime** date-time
+**reversalDateTime** string
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])\+[0-9]{2}\:[0-9]{2}$`
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -217,12 +217,12 @@ It is also referred to as the 'scheme reference ID,' 'scheme transaction ID,' 't
 Status of the last account updater run.
 Only non-null if the account updater is enabled and has run at least once.
 **Possible values:** [`updated`, `contact`, `new-expiry`, `closed`]
-**cardUpdatedAt** datetimenullable
+**cardUpdatedAt** stringnullable
 Last run of the account updater.
 Only non-null if the account updater is enabled and has run at least once. [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date " " time` without `timespec-second`, `time-fraction`, and `time-zone`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1])) (([0-1][0-9])|([2][0-3])):([0-5][0-9])$`
 **Example:**`2001-02-03 04:05:06`
-**cardUpdatePausedUntil** date (string)
+**cardUpdatePausedUntil** string
 Updates paused until this date.
 Only non-null if the account updater is enabled. [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
@@ -237,7 +237,7 @@ Only non-null if the account updater is enabled. [RFC 3339](https://datatracker.
 **iban** string
 **bic** string
 **mandateId** string
-**mandateDate** date (string)
+**mandateDate** string
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
@@ -268,17 +268,17 @@ UUID of the transaction that initially registered this wallet.
 **Possible values:** [`checking`, `savings`]
 **accountNumber** string
 **Possible values:** `<= 17 characters`
-**routingNumber** int32
+**routingNumber** integer
 **Possible values:** `>= 9 characters` and `<= 9 characters`
 **payByLinkData** object
 **payByLink** booleandeprecated
 `true` if this transaction was a Pay-by-Link transaction.
 **sendViaEmail** boolean
 `true` if this Pay-by-Link was sent to the transaction customer via email.
-**cancelUrl** uri
+**cancelUrl** string
 Endpoint to call to cancel a Pay-by-Link transaction.
 For details, see [Pay-by-Link API reference](https://documentation.ixopay.com/api/pay-by-link/cancel).
-**expiresAt** date-time
+**expiresAt** string
 Indicates at what date time the Pay-by-Link transaction expires.
 **property name*** any
 **customer** object
@@ -288,7 +288,7 @@ Indicates at what date time the Pay-by-Link transaction expires.
 **Possible values:** `<= 50 characters`
 **lastName** string
 **Possible values:** `<= 50 characters`
-**birthDate** date (string)
+**birthDate** string
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
@@ -361,7 +361,7 @@ oneOf
 **Possible values:** `<= 11 characters`
 **mandateId** string
 **Possible values:** `<= 50 characters`
-**mandateDate** date (string)
+**mandateDate** string
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `full-date`.
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))$`
 **Example:**`2001-02-03`
@@ -411,7 +411,7 @@ Present only if tracing was enabled in the request.
 **transactions** object[]
   * Array [
 **uuid** string
-**sequence_number** int32
+**sequence_number** number
 Indicates the transaction's order in the processing sequence
 **status** string
 Current status of the transaction
@@ -447,7 +447,7 @@ ID of schedule which was started with the transaction.
 **scheduleStatus** CallbackScheduleStatus
 Status of the schedule.
 **Possible values:** [`active`, `paused`, `cancelled`, `error`, `create-pending`, `non-existing`]
-**scheduledAt** date-time
+**scheduledAt** string
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`
 **Possible values:** Value must match regular expression `^[0-9]{4}-((0[1-9])|(1[0-2]))-((0[1-9])|([1-2][0-9])|(3[0-1]))T(([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])\+[0-9]{2}\:[0-9]{2}$`
 **Example:**`2001-02-03T04:05:06+02:00`

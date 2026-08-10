@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/encrypted-token-services-v-2-tokenize
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -142,6 +142,9 @@ This field is ignored if Padding is set to PKCS1. If Padding is set to OAEP, the
 curl -L 'https://test-api.tokenex.com/v2/EncryptedToken/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptedData": "dTD+matJePdp5+zjno537R1DXMLMr073LfH3Ko+4J76v5jcurGVDsicPrqqn6u3garNpTZrS6Rft0tUfQ90A+wo8jOjDMKnm4B9H9uaLriaCiGwjCUN1e+RcaOoigTveq7f90M+iWygGrOr5xvPmn0sAQAB9PJc/DOptjx96VI5PyimagOHj1LMMJEX50t81bWPkQHsfALlmZ7/jhwwSXb1G1Qsn16HVFiLWAZnRauaRPON5BWvp/QF57XyEyewXu9q+DPTuAC9y50j7fFQhAnrWkpJseT3fiO0NL8+LKu9is7JXXR9WCrlQHW9qMHgKr1JUyeEfYXfNpisq0gMgDw==",  
   "padding": "PKCS1",  
@@ -226,6 +229,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/EncryptedToken/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptedData": "dTD+matJePdp5+zjno537R1DXMLMr073LfH3Ko+4J76v5jcurGVDsicPrqqn6u3garNpTZrS6Rft0tUfQ90A+wo8jOjDMKnm4B9H9uaLriaCiGwjCUN1e+RcaOoigTveq7f90M+iWygGrOr5xvPmn0sAQAB9PJc/DOptjx96VI5PyimagOHj1LMMJEX50t81bWPkQHsfALlmZ7/jhwwSXb1G1Qsn16HVFiLWAZnRauaRPON5BWvp/QF57XyEyewXu9q+DPTuAC9y50j7fFQhAnrWkpJseT3fiO0NL8+LKu9is7JXXR9WCrlQHW9qMHgKr1JUyeEfYXfNpisq0gMgDw==",  
   "padding": "PKCS1",  
@@ -301,6 +307,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/EncryptedToken/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptedData": "dTD+matJePdp5+zjno537R1DXMLMr073LfH3Ko+4J76v5jcurGVDsicPrqqn6u3garNpTZrS6Rft0tUfQ90A+wo8jOjDMKnm4B9H9uaLriaCiGwjCUN1e+RcaOoigTveq7f90M+iWygGrOr5xvPmn0sAQAB9PJc/DOptjx96VI5PyimagOHj1LMMJEX50t81bWPkQHsfALlmZ7/jhwwSXb1G1Qsn16HVFiLWAZnRauaRPON5BWvp/QF57XyEyewXu9q+DPTuAC9y50j7fFQhAnrWkpJseT3fiO0NL8+LKu9is7JXXR9WCrlQHW9qMHgKr1JUyeEfYXfNpisq0gMgDw==",  
   "padding": "PKCS1",  
@@ -376,6 +385,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/EncryptedToken/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptedData": "dTD+matJePdp5+zjno537R1DXMLMr073LfH3Ko+4J76v5jcurGVDsicPrqqn6u3garNpTZrS6Rft0tUfQ90A+wo8jOjDMKnm4B9H9uaLriaCiGwjCUN1e+RcaOoigTveq7f90M+iWygGrOr5xvPmn0sAQAB9PJc/DOptjx96VI5PyimagOHj1LMMJEX50t81bWPkQHsfALlmZ7/jhwwSXb1G1Qsn16HVFiLWAZnRauaRPON5BWvp/QF57XyEyewXu9q+DPTuAC9y50j7fFQhAnrWkpJseT3fiO0NL8+LKu9is7JXXR9WCrlQHW9qMHgKr1JUyeEfYXfNpisq0gMgDw==",  
   "padding": "PKCS1",  
@@ -451,6 +463,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/EncryptedToken/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptedData": "dTD+matJePdp5+zjno537R1DXMLMr073LfH3Ko+4J76v5jcurGVDsicPrqqn6u3garNpTZrS6Rft0tUfQ90A+wo8jOjDMKnm4B9H9uaLriaCiGwjCUN1e+RcaOoigTveq7f90M+iWygGrOr5xvPmn0sAQAB9PJc/DOptjx96VI5PyimagOHj1LMMJEX50t81bWPkQHsfALlmZ7/jhwwSXb1G1Qsn16HVFiLWAZnRauaRPON5BWvp/QF57XyEyewXu9q+DPTuAC9y50j7fFQhAnrWkpJseT3fiO0NL8+LKu9is7JXXR9WCrlQHW9qMHgKr1JUyeEfYXfNpisq0gMgDw==",  
   "padding": "PKCS1",  
@@ -526,6 +541,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/EncryptedToken/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "encryptedData": "dTD+matJePdp5+zjno537R1DXMLMr073LfH3Ko+4J76v5jcurGVDsicPrqqn6u3garNpTZrS6Rft0tUfQ90A+wo8jOjDMKnm4B9H9uaLriaCiGwjCUN1e+RcaOoigTveq7f90M+iWygGrOr5xvPmn0sAQAB9PJc/DOptjx96VI5PyimagOHj1LMMJEX50t81bWPkQHsfALlmZ7/jhwwSXb1G1Qsn16HVFiLWAZnRauaRPON5BWvp/QF57XyEyewXu9q+DPTuAC9y50j7fFQhAnrWkpJseT3fiO0NL8+LKu9is7JXXR9WCrlQHW9qMHgKr1JUyeEfYXfNpisq0gMgDw==",  
   "padding": "PKCS1",  

@@ -13,7 +13,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/token-servicesv-2-detokenize
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -121,6 +121,8 @@ The token that corresponds to the data element to be returned.
 curl -L 'https://test-api.tokenex.com/v2/Token/Detokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -192,6 +194,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Detokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -255,6 +259,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Detokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -318,6 +324,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Detokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -381,6 +389,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Detokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  
@@ -444,6 +454,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Detokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "token": "TphDRnymQzVHWnYH6S"  
 }'  

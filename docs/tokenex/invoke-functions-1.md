@@ -12,7 +12,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/invoke-functions-1
 portal: tokenex
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -21,7 +21,7 @@ related: []
 
 # Invoke Functions
 The Transparent Gateway API supports functions which allow for additional processing beyond detokenization and tokenization within the request body.
-**Function Notation** – The function region is defined as the area between four sets of curly brackets (i.e. `{{{{FUNCTION_SPACE}}}}`) including the curly brakcets.
+**Function Notation** – The function region is defined as the area between four sets of curly brackets (i.e. `{{{{FUNCTION_SPACE}}}}`) including the curly brackets.
 To invoke a function, pass the required parameters as key value pairs within the function space. Once processed, the resulting data will completely replace the function space.
 To view detailed information about all available functions, please refer to the function-specific documentation pages:
 ## [ CVV Function IXOPAY's TGAPI v2 CVV Function inserts a previously associated CVV security code into the request body during transparent detokenization for payment processing.](https://documentation.ixopay.com/modules/docs/tokenex/cvv-function)## [ Encrypt Function IXOPAY's TGAPI v2 Encrypt Function encrypts detokenized data in the request body using RSA or AES/Rijndael before forwarding to the destination endpoint.](https://documentation.ixopay.com/modules/docs/tokenex/encrypt-function)## [ Decrypt Function IXOPAY's TGAPI v2 Decrypt Function decrypts RSA, AES, or Rijndael ciphertext in the request body before passing the plaintext to the destination API endpoint.](https://documentation.ixopay.com/modules/docs/tokenex/decrypt-function)## [ Use Network Token Function IXOPAY's TGAPI v2 Use Network Token Function inserts a network token and optional expiration date into the request body for payment transactions to a PSP or third-party API.](https://documentation.ixopay.com/modules/docs/tokenex/use-network-token-function)## [ P2PE Decrypt Function IXOPAY's TGAPI v2 P2PE Decrypt Function decrypts DUKPT-encrypted POI device data and parses PAN, expiry, track data, and CVV fields into the outbound request body.](https://documentation.ixopay.com/modules/docs/tokenex/p2pe-decrypt-function)

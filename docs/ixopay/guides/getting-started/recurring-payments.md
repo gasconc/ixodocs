@@ -15,7 +15,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/recurring-payments
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -358,7 +358,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260727-4d40738b1194869734f7",  
+  "purchaseId": "20260805-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -920,7 +920,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260727-4d40738b1194869734f7",  
+  "purchaseId": "20260805-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -1466,7 +1466,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260727-4d40738b1194869734f7",  
+  "purchaseId": "20260805-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -2012,7 +2012,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260727-4d40738b1194869734f7",  
+  "purchaseId": "20260805-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -2563,7 +2563,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260727-4d40738b1194869734f7",  
+  "purchaseId": "20260805-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -3109,7 +3109,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260727-4d40738b1194869734f7",  
+  "purchaseId": "20260805-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 

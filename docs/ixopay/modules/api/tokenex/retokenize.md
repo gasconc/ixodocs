@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/retokenize
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -136,6 +136,12 @@ The data to be tokenized
 curl -L 'https://test-api.tokenex.com/v2/Token/ReTokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
+-H 'tx-destination-tokenex-id: 8149339711073860' \  
+-H 'tx-destination-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-destination-token-scheme: PCI' \  
 -d '{  
   "token": "123456789"  
 }'  
@@ -212,6 +218,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ReTokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
+-H 'tx-destination-tokenex-id: 8149339711073860' \  
+-H 'tx-destination-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-destination-token-scheme: PCI' \  
 -d '{  
   "token": "123456789"  
 }'  
@@ -275,6 +287,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ReTokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
+-H 'tx-destination-tokenex-id: 8149339711073860' \  
+-H 'tx-destination-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-destination-token-scheme: PCI' \  
 -d '{  
   "token": "123456789"  
 }'  
@@ -338,6 +356,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ReTokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
+-H 'tx-destination-tokenex-id: 8149339711073860' \  
+-H 'tx-destination-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-destination-token-scheme: PCI' \  
 -d '{  
   "token": "123456789"  
 }'  
@@ -401,6 +425,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ReTokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
+-H 'tx-destination-tokenex-id: 8149339711073860' \  
+-H 'tx-destination-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-destination-token-scheme: PCI' \  
 -d '{  
   "token": "123456789"  
 }'  
@@ -464,6 +494,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/ReTokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
+-H 'tx-destination-tokenex-id: 8149339711073860' \  
+-H 'tx-destination-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-destination-token-scheme: PCI' \  
 -d '{  
   "token": "123456789"  
 }'  

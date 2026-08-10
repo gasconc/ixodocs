@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/device-services-v-2-tokenize
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -172,6 +172,12 @@ oneOf
 curl -L 'https://test-api.tokenex.com/v2/Device/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-dual-decryption: false' \  
+-H 'tx-include-track-details: false' \  
+-H 'tx-use-pin-variant: false' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "string",  
@@ -281,6 +287,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-dual-decryption: false' \  
+-H 'tx-include-track-details: false' \  
+-H 'tx-use-pin-variant: false' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "string",  
@@ -377,6 +389,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-dual-decryption: false' \  
+-H 'tx-include-track-details: false' \  
+-H 'tx-use-pin-variant: false' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "string",  
@@ -473,6 +491,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-dual-decryption: false' \  
+-H 'tx-include-track-details: false' \  
+-H 'tx-use-pin-variant: false' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "string",  
@@ -569,6 +593,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-dual-decryption: false' \  
+-H 'tx-include-track-details: false' \  
+-H 'tx-use-pin-variant: false' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "string",  
@@ -665,6 +695,12 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Device/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
+-H 'tx-dual-decryption: false' \  
+-H 'tx-include-track-details: false' \  
+-H 'tx-use-pin-variant: false' \  
 -d '{  
   "encryptionProfile": "EncryptionProfileName",  
   "ksn": "string",  

@@ -15,7 +15,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/api/provisioning/create-nt-enrollment
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -53,7 +53,7 @@ Identifier of the merchant user recorded as the actor for this enrollment. Used 
 **companyName** stringrequired
 Legal name of the company.
 **Possible values:** `non-empty` and `<= 75 characters`, Value must match regular expression `^[^;%()]*$`
-**websiteUrl** urirequired
+**websiteUrl** stringrequired
 URL of the merchant website.
 **Possible values:** `non-empty` and `<= 100 characters`
 **businessIdentificationType** stringrequired
@@ -69,7 +69,7 @@ City of the company primary address.
 [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
-**contactEmail** emailrequired
+**contactEmail** stringrequired
 Email address of the company primary contact.
 **Possible values:** `non-empty` and `<= 256 characters`
 **duns** string
@@ -182,7 +182,7 @@ Identifier of the created enrollment request.
 **Schema**
 **success** booleanrequired
 `true` if successful.
-**errorCode** int64required
+**errorCode** integerrequired
 Error code.
     * `1000` - Unauthorized, e.g. invalid credentials
     * `1001` - The request is invalid

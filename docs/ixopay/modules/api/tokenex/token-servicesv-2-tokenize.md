@@ -13,7 +13,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/token-servicesv-2-tokenize
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -124,6 +124,9 @@ The data to be tokenized
 curl -L 'https://test-api.tokenex.com/v2/Token/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "data": "123456789"  
 }'  
@@ -196,6 +199,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "data": "123456789"  
 }'  
@@ -259,6 +265,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "data": "123456789"  
 }'  
@@ -322,6 +331,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "data": "123456789"  
 }'  
@@ -385,6 +397,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "data": "123456789"  
 }'  
@@ -448,6 +463,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Token/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-token-scheme: ASCII' \  
+-H 'tx-tokenex-id: 9829959239157803' \  
+-H 'tx-apikey: cg2gOPDzVE9i0QYrMOKGUPYapoTnmxYtoYxllN3r' \  
 -d '{  
   "data": "123456789"  
 }'  

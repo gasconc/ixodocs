@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/api/settlement/get-settlement-files
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -44,11 +44,11 @@ Settlement files are retained for a period of **365 days**. Files older than 365
   * Example (auto)
 
 ### Body**required**
-**fromDate** date-timerequired
+**fromDate** stringrequired
 Date range start, must be before `toDate`.
 Use the [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) `date-time` format.
 **Example:**`2001-02-03T04:05:06Z`
-**toDate** date-timerequired
+**toDate** stringrequired
 Date range end, must be after `fromDate`.
 Use the [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) `date-time` format.
 **Example:**`2001-02-03T04:05:06Z`
@@ -80,7 +80,7 @@ Push transaction response.
 **Schema**
 **success** booleanrequired
 Success indicator.
-**numFiles** int64
+**numFiles** integer
 Total number of pages.
 **Possible values:** `>= 0`
 **Example:**`2`
@@ -94,7 +94,7 @@ Type of file.
 **filename** string
 Name of the file.
 **Example:**`file.csv`
-**creationDate** date-time
+**creationDate** string
 Date the file was created.
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`.
 **Example:**`2001-02-03T04:05:06+02:00`
@@ -107,9 +107,11 @@ Depending on `format` this will either be
     * the `base64` encoded content of the file, or
     * a URL to download the contents of the file
 **Example:**`https://gateway.ixopay.com/link-to-file`
-**relatedFiles** undefined[]
+**relatedFiles** []
 Files related to this file.
-**Default value:**`[]`
+  * Array [
+****circular(SettlementFile)
+  * ]
 **property name*** any
 **Example:**`{"_TYPE":"settlement-file","filename":"file.csv","creationDate":"2019-04-01T00:00:00","format":"link","content":"https://gateway.ixopay.com/link-to-file.csv","relatedFiles":[{"_TYPE":"settlement-file","filename":"filename.xslx","format":"link","content":"https://gateway.ixopay.com/link-to-file.xlsx","relatedFiles":[]},{"_TYPE":"settlement-file","filename":"filename.pdf","format":"link","content":"https://gateway.ixopay.com/link-to-file.pdf","relatedFiles":[]}]}`
   * ]

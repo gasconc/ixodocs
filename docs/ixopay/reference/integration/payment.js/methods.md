@@ -15,7 +15,7 @@ tags:
 - setnumberinputtype-https-documentation-ixopay-com-docs-reference-integration-payment-methods-setnumberinputtype-direct-link-setnumberinputtype
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/methods
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -52,9 +52,8 @@ info
 The selected connector, identified by the `publicIntegrationKey`,
     * must use the same [customer profile container](https://documentation.ixopay.com/docs/reference/features/customer-profiles#customer-profile-containers) as the used `paymentToken`, or
     * must belong to the same merchant as the connector identified by the `referenceTransactionId`.
-  * Reference to a [register or debit with register transaction](https://documentation.ixopay.com/docs/reference/concepts/transactions/types) for which the CVV will be refreshed. The reference can be either:
-    * `referenceTransactionId` (string): the referenced transaction ID.
-    * `paymentToken` (string): the [customer profile](https://documentation.ixopay.com/docs/reference/features/customer-profiles#creating-a-customer-profile) payment token.
+  * Reference to a [register or debit with register transaction](https://documentation.ixopay.com/docs/reference/concepts/transactions/types) for which the CVV will be refreshed:
+    * `referenceTransactionId` (string): the referenced transaction ID. - `paymentToken` (string): the [customer profile](https://documentation.ixopay.com/docs/reference/features/customer-profiles#creating-a-customer-profile) payment token.
   * `cvvDivId` (string): the `id` of the `` which will contain the CVV code.
   * `completeCallback` (function: `(PaymentJs) => void`): a callback function that will receive the initialized `PaymentJs` as first argument.
 
@@ -81,7 +80,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "7",  
+  "month": "8",  
 
   "year": "2031",  
 
@@ -109,7 +108,7 @@ PaymentJs.refreshCvv(successCallback, errorCallback);
 
 PaymentJs.initRiskScript(options, completeCallback);  
 
-```Initialize [Risk Scripts](https://documentation.ixopay.com/docs/reference/features/risk-checks/external). Required for certain types of risk checks, see [External risk checks](https://documentation.ixopay.com/docs/reference/features/risk-checks/external) for more details.
+```Initialize [Risk Scripts](https://documentation.ixopay.com/docs/reference/features/risk-checks). Required for certain types of risk checks, see [External risk checks](https://documentation.ixopay.com/docs/reference/features/risk-checks) for more details.
 #### Parameters[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#parameters-4 "Direct link to Parameters")
   * `options` (object): An object including the type, e.g. `{ type: 'forter' }`. `type` can currently only be `forter`.
   * `completeCallback` (function `(...) => void`): will be called upon successful completion, parameters depend on `type` from `options`.
@@ -351,7 +350,7 @@ For details, see [Auto-fill card data](https://documentation.ixopay.com/docs/ref
 
   card_holder: "Alex Smith",  
 
-  month: 07,  
+  month: 08,  
 
   year:  2031,  
 
@@ -401,7 +400,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "7",  
+  "month": "8",  
 
   "year": "2031",  
 
@@ -602,7 +601,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 07,  
+  month: 08,  
 
   year:  2031,  
 
@@ -650,7 +649,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "7",  
+  "month": "8",  
 
   "year": "2031",  
 
@@ -851,7 +850,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 07,  
+  month: 08,  
 
   year:  2031,  
 
@@ -902,7 +901,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "7",  
+  "month": "8",  
 
   "year": "2031",  
 
@@ -1103,7 +1102,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 07,  
+  month: 08,  
 
   year:  2031,  
 
@@ -1173,7 +1172,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "7",  
+  "month": "8",  
 
   "year": "2031",  
 
@@ -1374,7 +1373,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 07,  
+  month: 08,  
 
   year:  2031,  
 
@@ -1422,7 +1421,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "7",  
+  "month": "8",  
 
   "year": "2031",  
 
@@ -1623,7 +1622,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 07,  
+  month: 08,  
 
   year:  2031,  
 

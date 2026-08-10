@@ -15,7 +15,7 @@ tags:
 - refund
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/kpis
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/fraud-preventionv-2-tokenize
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -138,6 +138,9 @@ Is the credit card PAN encrypted with the TokenEx public RSA key?
 curl -L 'https://test-api.tokenex.com/v2/FraudPrevention/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "data": "4111111111111111",  
   "encrypted": false  
@@ -218,6 +221,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/FraudPrevention/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "data": "4111111111111111",  
   "encrypted": false  
@@ -289,6 +295,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/FraudPrevention/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "data": "4111111111111111",  
   "encrypted": false  
@@ -360,6 +369,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/FraudPrevention/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "data": "4111111111111111",  
   "encrypted": false  
@@ -431,6 +443,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/FraudPrevention/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "data": "4111111111111111",  
   "encrypted": false  
@@ -502,6 +517,9 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/FraudPrevention/Tokenize' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
+-H 'tx-token-scheme: PCI' \  
 -d '{  
   "data": "4111111111111111",  
   "encrypted": false  

@@ -14,7 +14,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/api/customer-profiles/get-profile
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -152,15 +152,16 @@ Payment method of the payment instrument. Same as `paymentInstrument._TYPE`.
     * paymentData.card
     * paymentData.iban
     * paymentData.wallet
+Credit card payment data.
 **brand** string
 Brand of the credit card.
 **Example:**`visa`
 **cardHolder** string
 Cardholder of the credit card.
 **Example:**`Alex Smith`
-**expiryMonth** int32
+**expiryMonth** integer
 Expiry month of the credit card.
-**expiryYear** int32
+**expiryYear** integer
 Expiry year of the credit card.
 **firstSixDigits** string
 First six digits of the credit card.
@@ -170,6 +171,7 @@ Last four digits of the credit card.
 **Example:**`1111`
 **property name*** any
 Credit card payment data.
+IBAN payment data.
 **iban** string
 IBAN.
 **Example:**`AT483200000012345864`
@@ -182,6 +184,7 @@ Mandate id.
 [RFC 3339](https://datatracker.ietf.org/doc/html/rfc3339#section-5.6) Internet Date/Time Format `date-time`.
 **property name*** any
 IBAN payment data.
+Wallet payment data.
 **walletReferenceId** string
 **walletType** string
 **walletOwner** stringnullable

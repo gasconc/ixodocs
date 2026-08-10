@@ -14,7 +14,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/api/provisioning/list-connectors
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -94,7 +94,7 @@ When no configuration values are set, the field is returned as an empty array `[
 To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter.
 oneOf
     * object
-    * undefined[]
+    * []
 ****object
 **language** Language
 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
@@ -111,11 +111,11 @@ Configuration values for vault connectors.
 To obtain valid configuration values, use the `/api/provisioning/getConnectorSettings/:adapterId/:merchantGuid` endpoint. This endpoint provides the necessary configuration values tailored to the specific adapter and merchant in use.
 **property name*** any
 Connector configuration.
-**createdAt** date-time
+**createdAt** string
 **Example:**`2001-02-03T04:05:06+02:00`
-**customerProfileContainer** int64
+**customerProfileContainer** integer
 Customer profile Container ID.
-**defaultRiskRuleSet** int64
+**defaultRiskRuleSet** integer
 **description** string
 **disabled** boolean
 **Example:**`false`
@@ -137,7 +137,7 @@ Provider identifier.
 Whether the scheduler is enabled.
 **virtualTerminalAvailable** boolean
 Whether the virtual terminal is enabled.
-**vtRiskRuleSet** int64
+**vtRiskRuleSet** integer
 Identifier of risk rule profile for virtual terminal.
 **settings** object
 **account-updater:connector-guid** string
@@ -213,7 +213,8 @@ Unique terminal identifier.
 **disabled** boolean
   * ]
 **routingMetaConnector** object
-On create/update add this to create a classic routing meta-connector (adapter and method must be set to `MetaConnector`).
+On create/update add this to create a routing meta-connector (adapter and method must be set to `MetaConnector`).
+After creating the meta-connector, author its routing rule tree with [Set routing](https://documentation.ixopay.com/api/provisioning/set-connector-routing).
 **defaultConnector** string
 Identifier of the default connector to route to.
 **reRouteRecurring** boolean
@@ -221,12 +222,13 @@ Whether to re-route recurring transactions to the original connector.
 **Default value:**`false`
 **multiMethodMetaConnector** object
 On create/update add this to create a multi-method meta-connector (adapter and method must be set to `MetaConnector`).
+After creating the meta-connector and linking its payment methods, author the per-method availability and routing rules with [Set multi-method routing](https://documentation.ixopay.com/api/provisioning/set-connector-multi-method-routing).
 **defaultActionDisableConnector** boolean
 If no action is configured (rules), the default action is to disable the connector.
-**retries** int32
+**retries** integer
 How many retries should be allowed if possible.
 **Possible values:** `<= 9`
-**expiry** int64
+**expiry** integer
 Expiry time in hours.
   * ]
 **property name*** any
@@ -362,7 +364,7 @@ Expiry time in hours.
 **Schema**
 **success** booleanrequired
 `true` if successful.
-**errorCode** int64required
+**errorCode** integerrequired
 Error code.
     * `1000` - Unauthorized, e.g. invalid credentials
     * `1001` - The request is invalid

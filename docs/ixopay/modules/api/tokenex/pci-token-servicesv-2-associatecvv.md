@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/pci-token-servicesv-2-associatecvv
 portal: ixopay-modules
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -139,6 +139,8 @@ The value of the CVV you wish to associate with the token.
 curl -L 'https://test-api.tokenex.com/v2/Pci/AssociateCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cvv": "123"  
@@ -222,6 +224,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/AssociateCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cvv": "123"  
@@ -297,6 +301,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/AssociateCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cvv": "123"  
@@ -372,6 +378,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/AssociateCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cvv": "123"  
@@ -447,6 +455,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/AssociateCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cvv": "123"  
@@ -522,6 +532,8 @@ POST
 curl -L 'https://test-api.tokenex.com/v2/Pci/AssociateCvv' \  
 -H 'Content-Type: application/json' \  
 -H 'Accept: application/json' \  
+-H 'tx-tokenex-id: 8149339711073860' \  
+-H 'tx-apikey: 9nRH8CsmeV0hxjV4EFqlyzycGMuRjJsqksTY9BEv' \  
 -d '{  
   "token": "411111245ShO1111",  
   "cvv": "123"  

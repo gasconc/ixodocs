@@ -14,7 +14,7 @@ tags:
 - fourtokenfournonluhn-https-documentation-ixopay-com-modules-docs-tokenex-universal-token-schemes-fourtokenfournonluhn-direct-link-fourtokenfournonluhn
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes
 portal: tokenex
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 

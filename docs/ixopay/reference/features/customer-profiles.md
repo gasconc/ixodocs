@@ -14,7 +14,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/docs/reference/features/customer-profiles
 portal: ixopay-dev
-updated: '2026-08-03'
+updated: '2026-08-10'
 related: []
 ---
 
@@ -106,7 +106,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -201,7 +201,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-28 09:00:47",  
+      "createdAt": "2031-08-06 15:01:16",  
 
       "method": "card",  
 
@@ -213,7 +213,7 @@ Content-Type: application/json
 
         "cardHolder": "Alex Smith",  
 
-        "expiryMonth": 7,  
+        "expiryMonth": 8,  
 
         "expiryYear": 2031,  
 
@@ -556,7 +556,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -645,7 +645,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-28 09:00:47",  
+      "createdAt": "2031-08-06 15:01:16",  
 
       "method": "card",  
 
@@ -657,7 +657,7 @@ Content-Type: application/json
 
         "cardHolder": "Alex Smith",  
 
-        "expiryMonth": 7,  
+        "expiryMonth": 8,  
 
         "expiryYear": 2031,  
 
@@ -928,7 +928,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1017,7 +1017,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-28 09:00:47",  
+      "createdAt": "2031-08-06 15:01:16",  
 
       "method": "card",  
 
@@ -1029,7 +1029,7 @@ Content-Type: application/json
 
         "cardHolder": "Alex Smith",  
 
-        "expiryMonth": 7,  
+        "expiryMonth": 8,  
 
         "expiryYear": 2031,  
 
@@ -1300,7 +1300,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1389,7 +1389,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-28 09:00:47",  
+      "createdAt": "2031-08-06 15:01:16",  
 
       "method": "card",  
 
@@ -1401,7 +1401,7 @@ Content-Type: application/json
 
         "cardHolder": "Alex Smith",  
 
-        "expiryMonth": 7,  
+        "expiryMonth": 8,  
 
         "expiryYear": 2031,  
 
@@ -1683,7 +1683,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1772,7 +1772,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-28 09:00:47",  
+      "createdAt": "2031-08-06 15:01:16",  
 
       "method": "card",  
 
@@ -1784,7 +1784,7 @@ Content-Type: application/json
 
         "cardHolder": "Alex Smith",  
 
-        "expiryMonth": 7,  
+        "expiryMonth": 8,  
 
         "expiryYear": 2031,  
 
@@ -2055,7 +2055,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260727-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -2144,7 +2144,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-07-28 09:00:47",  
+      "createdAt": "2031-08-06 15:01:16",  
 
       "method": "card",  
 
@@ -2156,7 +2156,7 @@ Content-Type: application/json
 
         "cardHolder": "Alex Smith",  
 
-        "expiryMonth": 7,  
+        "expiryMonth": 8,  
 
         "expiryYear": 2031,  
 
