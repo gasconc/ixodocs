@@ -14,7 +14,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/docs/reference/features/customer-profiles
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -36,6 +36,13 @@ Typically, using the customer profiles involves the following steps:
   3. **Executing transactions using the customer profile** : A transaction is sent using the `paymentToken` of the selected payment instrument in the customer's profile.
 
 These steps are represented in the following graph:
+1.
+2.
+3.
+Customer
+Create new profile with a transaction call to the desired payment method's connector
+Retrieve profile info with `getProfile` call
+Send transaction with `paymentToken` of the profile's payment instrument
 ```
 graph TD
   C[Customer] -->|1\.| CP("Create new profile with a transaction call to the desired payment method's connector")
@@ -106,7 +113,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -201,7 +208,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-06 15:01:16",  
+      "createdAt": "2031-08-14 11:25:28",  
 
       "method": "card",  
 
@@ -556,7 +563,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -645,7 +652,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-06 15:01:16",  
+      "createdAt": "2031-08-14 11:25:28",  
 
       "method": "card",  
 
@@ -928,7 +935,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1017,7 +1024,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-06 15:01:16",  
+      "createdAt": "2031-08-14 11:25:28",  
 
       "method": "card",  
 
@@ -1300,7 +1307,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1389,7 +1396,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-06 15:01:16",  
+      "createdAt": "2031-08-14 11:25:28",  
 
       "method": "card",  
 
@@ -1683,7 +1690,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1772,7 +1779,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-06 15:01:16",  
+      "createdAt": "2031-08-14 11:25:28",  
 
       "method": "card",  
 
@@ -2055,7 +2062,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -2144,7 +2151,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-06 15:01:16",  
+      "createdAt": "2031-08-14 11:25:28",  
 
       "method": "card",  
 

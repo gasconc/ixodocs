@@ -1,8 +1,8 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-08-10 | Total pages: 811
+> Last updated: 2026-08-17 | Total pages: 812
 
-## Ixopay Developer Hub (233 pages)
+## Ixopay Developer Hub (234 pages)
 
 ### Adapters
 - [Emerchantpay Genesis PCI](docs/ixopay/adapters/emerchantpaygenesis-pci.md) — Emerchantpay Genesis PCI
@@ -230,6 +230,7 @@
 - [Risk checks](docs/ixopay/reference/features/risk-checks.md) — Risk checks
 - [External risk checks](docs/ixopay/reference/features/risk-checks/external.md) — Risk checkshttps://documentation.ixopay.com/docs/reference/features/risk-checks  External risk checks
 - [Forter](docs/ixopay/reference/features/risk-checks/external/forter.md) — Risk checkshttps://documentation.ixopay.com/docs/reference/features/risk-checks  External risk checkshttps://documentation.ixopay.com/docs/referenc...
+- [Riskified](docs/ixopay/reference/features/risk-checks/external/riskified.md) — Risk checkshttps://documentation.ixopay.com/docs/reference/features/risk-checks  External risk checkshttps://documentation.ixopay.com/docs/referenc...
 - [Scheduler](docs/ixopay/reference/features/scheduler.md) — The Scheduler feature in IXOPAY platformhttps://www.ixopay.com provides an efficient way to manage recurring transactions, creating a more streamli...
 - [PCI data migration](docs/ixopay/reference/features/tokenization/pci-data-migration.md) — Tokenization & PCI  PCI data migration
 - [Integration](docs/ixopay/reference/integration.md) — Welcome to the integration section of our reference documentation. This section is designed to provide you with all the information needed to succe...

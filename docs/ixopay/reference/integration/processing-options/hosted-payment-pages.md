@@ -15,7 +15,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options/hosted-payment-pages
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -102,6 +102,7 @@ tip
 On that page you usually want to notify your top browser frame via JavaScript about the transaction result. Another approach is to let the success page break out of the ``.
 
 Here's a visual representation of the processing flow using a sequence diagram:
+Sequence diagram for hosted payment pages processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant Start transactionShow hosted payment pageSubmit formalt​par​Show final pageCustomerPurchase1Debit2Result with redirectUrl3Redirect4GET payment page5Payment page6Submit payment data7Transaction8Result9Callback to callback URL10Store result11OK12Redirects back to successUrl, errorUrl or cancelUrl13Get response URL14Thank-you or error page15
 ```
 %%{ init: { "sequence": {"mirrorActors": false} } }%%
 sequenceDiagram

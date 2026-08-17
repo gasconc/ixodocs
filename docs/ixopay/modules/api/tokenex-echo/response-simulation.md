@@ -12,7 +12,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex-echo/response-simulation
 portal: ixopay-modules
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

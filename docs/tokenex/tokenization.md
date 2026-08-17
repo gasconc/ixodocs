@@ -8,7 +8,7 @@ tags:
 - gateway
 source_url: ''
 portal: tokenex
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

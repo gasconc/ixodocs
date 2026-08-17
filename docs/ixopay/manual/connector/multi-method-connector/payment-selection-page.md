@@ -15,7 +15,7 @@ tags:
 - direct-debit
 source_url: https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page
 portal: ixopay-manual
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

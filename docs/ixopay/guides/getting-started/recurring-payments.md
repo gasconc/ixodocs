@@ -15,7 +15,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/recurring-payments
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -24,6 +24,7 @@ related: []
 
 # Recurring payments
 Recurring payments, also known as subscription payments, are transactions that occur on a regular basis. These types of payments are common in industries such as streaming services, subscription boxes, and software as a service (SaaS) providers. With [IXOPAY platform](https://www.ixopay.com), you can easily set up recurring payments for your customers.
+PSPIXOPAY platformMerchant backend loop[IXOPAY platform scheduler]Create initial transaction with schedulePerform paymentPayment completePayment completeHandle the initial transaction response and store uuidFollow-up transactions: callbackUpdate internal stateCallback OK
 ```
 %%{ init: { "sequence": {"mirrorActors": false} } }%%
 sequenceDiagram
@@ -358,7 +359,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260805-4d40738b1194869734f7",  
+  "purchaseId": "20260813-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -920,7 +921,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260805-4d40738b1194869734f7",  
+  "purchaseId": "20260813-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -1466,7 +1467,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260805-4d40738b1194869734f7",  
+  "purchaseId": "20260813-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -2012,7 +2013,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260805-4d40738b1194869734f7",  
+  "purchaseId": "20260813-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -2563,7 +2564,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260805-4d40738b1194869734f7",  
+  "purchaseId": "20260813-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 
@@ -3109,7 +3110,7 @@ Content-Type: application/json
 
   "uuid": "4d40738b1194869734f7",  
 
-  "purchaseId": "20260805-4d40738b1194869734f7",  
+  "purchaseId": "20260813-4d40738b1194869734f7",  
 
   "returnType": "FINISHED",  
 

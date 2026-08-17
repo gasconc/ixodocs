@@ -15,7 +15,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/testing
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -26,6 +26,14 @@ related: []
 Before going live with [IXOPAY platform](https://www.ixopay.com), it is important to thoroughly test your payment integration in a controlled environment. Testing ensures that your payment flow is functioning properly and can help you catch and resolve any issues before they impact your customers.
 In this guide, we will cover how to test your payment integration using the sandbox environment, test mode settings, and API testing tool provided by IXOPAY platform.
 ## Using the sandbox environment[​](https://documentation.ixopay.com/docs/guides/getting-started/testing#using-the-sandbox-environment "Direct link to Using the sandbox environment")
+Sandbox
+Create merchant
+Sandbox credentials
+Create API user
+Create connector
+Use `sandbox.ixopay.com` in your integration
+Test your integration
+Switch back to production
 ```
 graph LR
   subgraph Sandbox
@@ -55,6 +63,11 @@ To test your PCI transactions using the sandbox:
   5. Upon satisfaction with your PCI integration in the sandbox environment, proceed to switch to the production environment. Utilize your production credentials and PCI API URL (`secure.ixopay.com`), removing the `X-Environment: sandbox` request header for PCI transactions in the production environment.
 
 ## Enabling test mode on a connector[​](https://documentation.ixopay.com/docs/guides/getting-started/testing#enabling-test-mode-on-a-connector "Direct link to Enabling test mode on a connector")
+Activate test mode
+Save
+Admin UI
+Connector settings
+Test your integration
 ```
 graph LR
   A(Admin UI) --> C(Connector settings)
@@ -71,6 +84,11 @@ Once test mode is enabled, transactions will be processed as if they were real, 
 note
 Not all connectors support test mode, and enabling it may affect other aspects of your integration.
 ## API testing tool[​](https://documentation.ixopay.com/docs/guides/getting-started/testing#api-testing-tool "Direct link to API testing tool")
+Fill form
+Submit
+Admin UI
+API Testing
+Review response
 ```
 graph LR
   A(Admin UI) --> APIT(API Testing)

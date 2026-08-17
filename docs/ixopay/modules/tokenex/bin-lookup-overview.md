@@ -14,7 +14,7 @@ tags:
 - full-bin-file-download-https-documentation-ixopay-com-modules-docs-tokenex-bin-lookup-overview-full-bin-file-download-direct-link-full-bin-file-download
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/bin-lookup-overview
 portal: ixopay-modules
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

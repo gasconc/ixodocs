@@ -15,7 +15,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/setup
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -24,6 +24,10 @@ related: []
 
 # Setting up your account
 To start processing online payments with [IXOPAY platform](https://www.ixopay.com), you will need to set up an account. This page will guide you through the steps of creating and configuring your account.
+Create an account
+Create a merchant profile
+Create an API user
+Create a connector
 ```
 graph LR
   A(Create an account) --> M(Create a merchant profile)

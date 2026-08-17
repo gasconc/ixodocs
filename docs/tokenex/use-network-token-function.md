@@ -12,7 +12,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/use-network-token-function
 portal: tokenex
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

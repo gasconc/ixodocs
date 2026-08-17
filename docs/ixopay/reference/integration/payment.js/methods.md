@@ -15,7 +15,7 @@ tags:
 - setnumberinputtype-https-documentation-ixopay-com-docs-reference-integration-payment-methods-setnumberinputtype-direct-link-setnumberinputtype
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/methods
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -110,7 +110,7 @@ PaymentJs.initRiskScript(options, completeCallback);
 
 ```Initialize [Risk Scripts](https://documentation.ixopay.com/docs/reference/features/risk-checks). Required for certain types of risk checks, see [External risk checks](https://documentation.ixopay.com/docs/reference/features/risk-checks) for more details.
 #### Parameters[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#parameters-4 "Direct link to Parameters")
-  * `options` (object): An object including the type, e.g. `{ type: 'forter' }`. `type` can currently only be `forter`.
+  * `options` (object): An object including the type, e.g. `{ type: 'forter' }`. `type` can be `forter` or `riskified`.
   * `completeCallback` (function `(...) => void`): will be called upon successful completion, parameters depend on `type` from `options`.
 
 ### setNumberStyle[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#setnumberstyle "Direct link to setNumberStyle")

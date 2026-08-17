@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/callbacks
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -23,6 +23,7 @@ related: []
 
 # Callbacks
 The [IXOPAY platform](https://www.ixopay.com) provides a callback mechanism that allows you to receive real-time updates on the status of your payment transactions. This is useful for keeping your own system in sync with the status of your payments, and for triggering other actions based on the status of a payment (e.g. sending a confirmation email to your customer).
+PSPIXOPAY platformMerchant backend par​loop[State changes]Perform transaction: setting a callback URLPerform paymentPayment completeCallbackUpdate internal stateCallback OKPayment completePayment state changeOKCallbackUpdate internal stateCallback OK
 ```
 %%{ init: { "sequence": {"mirrorActors": false} } }%%
 sequenceDiagram
@@ -301,7 +302,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1126,7 +1127,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -1937,7 +1938,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -2748,7 +2749,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -3563,7 +3564,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 
@@ -4374,7 +4375,7 @@ X-Signature: vbWnLPF+bxvv7c6PId/FXWGlV8HqrtzaC8uqJDbNQBLH1I6V9yF8ePQIsEFsfTJXvQG
 
   "merchantTransactionId": "auto-d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "transactionType": "DEBIT",  
 

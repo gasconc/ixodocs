@@ -15,7 +15,7 @@ tags:
 - copy-fees-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees-copy-fees-direct-link-copy-fees
 source_url: https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees
 portal: ixopay-manual
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

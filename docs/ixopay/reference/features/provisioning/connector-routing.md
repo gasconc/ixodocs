@@ -14,7 +14,7 @@ tags:
 - typical-workflow-https-documentation-ixopay-com-docs-reference-features-provisioning-connector-routing-typical-workflow-direct-link-typical-workflow
 source_url: https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -37,6 +37,15 @@ Routing rules form a **decision tree**. Every node of the tree is one of:
   * a **leaf** — the final decision for a transaction that reaches it.
 
 A transaction enters at the root node and walks the tree top-down: if the condition matches, it continues in `then`, otherwise in `else`. When it reaches a leaf, the decision is made. When it reaches a missing branch (`else: null`, for example), the decision falls through to the **default connector**.
+yes
+no
+yes
+no
+Currency is EUR?
+Amount ≥ 500 EUR?
+Route to connector B
+Route to connector C
+Route to connector A
 ```
 flowchart TD
   A{"Currency is EUR?"} -- yes --> B{"Amount ≥ 500 EUR?"}

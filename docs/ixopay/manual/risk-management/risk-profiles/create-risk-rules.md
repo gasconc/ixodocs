@@ -16,7 +16,7 @@ tags:
 - kount-external-risk-check-https-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-create-risk-rules-kount-external-risk-check-direct-link-kount-external-risk-check
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules
 portal: ixopay-manual
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -121,6 +121,8 @@ Debit transactions set to manual review will be split into pre-auth and a captur
 ## External Risk Checks[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#external-risk-checks "Direct link to External Risk Checks")
 In addition to the in-built risk rules, the IXOPAY platform also provides integrations with third party fraud and risk management providers. You can add and configure external risk checks as described below.
 ### Kount — External Risk Check[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#kount--external-risk-check "Direct link to Kount — External Risk Check")
+Legacy integration
+Kount is a legacy integration and is not available for new clients. It remains documented for clients with an existing configuration.
 Kount Complete helps protect online merchants and retailers against digital payments fraud with advanced machine learning, a flexible rules engine and self-service analytics. Kount Complete allows merchants to accept more legitimate orders, growing their business while protecting them from fraud.
 An account with Kount is required to use this service.
 You need to configure the IXOPAY platform by adding Kount to your connector settings and risk profile.
@@ -259,3 +261,36 @@ On the IXOPAY platform side you have to make sure to add Fraud.net in the Risk P
 To add Fraud.net as a Risk Rule you need to open the Risk Profile and add Fraud.net (see Create Risk Rule - Fraud.net)
 Next setup your profile as wished and save it (see Risk Rule Parameters - Fraud.net)
 ![Create Risk Rule - Fraud.net](https://documentation.ixopay.com/manual/assets/ideal-img/create-risk-rule-fraud-net.7feaf6d.1014.png)Create Risk Rule - Fraud.net![Risk Rule Parameters - Fraud.net](https://documentation.ixopay.com/manual/assets/ideal-img/risk-rule-parameters-fraud-net.ed38383.934.png)Risk Rule Parameters - Fraud.net
+### Riskified — External Risk Check[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#riskified--external-risk-check "Direct link to Riskified — External Risk Check")
+Riskified is an eCommerce risk management platform that reviews orders in real time and approves or declines them based on fraud risk, helping merchants reduce chargebacks and false declines.
+To be able to use Riskified you have to register an Account with them.
+On the IXOPAY platform side you have to make sure to add Riskified on the Adapter settings and in the Risk Profile.
+#### Adding Riskified to your connector settings[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#adding-riskified-to-your-connector-settings "Direct link to Adding Riskified to your connector settings")
+Go to the Connector you want to setup Riskified on and edit the settings (see Connector Details Overview - Settings), under "External Risk Checks" add your Riskified Auth Token and Shop Domain.
+#### Add Riskified to your risk profile[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#add-riskified-to-your-risk-profile "Direct link to Add Riskified to your risk profile")
+To add Riskified as a Risk Rule you need to open the Risk Profile and add Riskified (see Create Risk Rule - Riskified)
+Next setup your profile as wished and save it (see Risk Rule Parameters - Riskified)
+![Create Risk Rule - Riskified](https://documentation.ixopay.com/manual/assets/ideal-img/create-risk-rule-riskified.c9e6acd.603.png)Create Risk Rule - Riskified![Risk Rule Parameters - Riskified](https://documentation.ixopay.com/manual/assets/ideal-img/risk-rule-parameters-riskified.f29705a.721.png)Risk Rule Parameters - Riskified
+#### Riskified Risk Rule Configuration[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#riskified-risk-rule-configuration "Direct link to Riskified Risk Rule Configuration")  
+| Configuration  | Description  |  
+| --- | --- |  
+| Auth Token  |  **Which Auth Token to use**  
+• Use from Connector  
+• From Risk Rule Additional Parameters  |  
+| Shop Domain  |  **Which Shop Domain to use**  
+• Use from Connector  
+• From Risk Rule Additional Parameters  |  
+| Test Mode  |  **Whether to send requests to Riskified's sandbox environment**  
+• Yes  
+• No  
+• From Connector  |  
+| Phase  |  **Which stage of the transaction lifecycle to check against Riskified**  
+• Pre Authorization  
+• Post Authorization _(not supported yet)_  |  
+| Additional Parameters  |  **Configure additional parameters**  
+• `Auth Token`  
+• `Shop Domain`  |  
+| Result Handling  |  **Specify the trigger hit behaviour based on Riskified's status result**  
+• Trigger a Hit if Riskified Status is "Approved"  
+• Trigger a Hit if Riskified Status is "Declined"  
+• Do not trigger a Hit  |

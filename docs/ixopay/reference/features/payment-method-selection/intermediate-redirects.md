@@ -12,7 +12,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/features/payment-method-selection/intermediate-redirects
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -41,6 +41,7 @@ Please be aware that this feature needs to be manually enabled on your merchant 
   14. **Merchant** : Displays the "Thank you for your purchase" page.
 
 Here's a visual representation of the process flow using a sequence diagram:
+CustomerIXOPAY platformMerchant Sends transaction with intermediateUrl1Redirects customer to redirectUrl2Presents payment selection page3Chooses payment method4Sends callback with state PENDING & continueUrl5Redirects customer to intermediateUrl with continueUrl GET parameter6Presents checkout finalization7Clicks "Finalize purchase now"8Redirects customer to continueUrl9Presents actual payment page10Finalizes payment at the PSP11Sends final callback to merchant's callbackUrl12Redirects customer to successUrl (or errorUrl if payment failed)13Presents "Thank you for your purchase" page14
 ```
 %%{ init: { "sequence": {"mirrorActors": false} } }%%
 sequenceDiagram

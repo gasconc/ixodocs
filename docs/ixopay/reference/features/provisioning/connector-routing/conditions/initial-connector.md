@@ -12,7 +12,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing/conditions/initial-connector
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

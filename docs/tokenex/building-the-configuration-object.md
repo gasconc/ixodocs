@@ -11,7 +11,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/building-the-configuration-object
 portal: tokenex
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -61,7 +61,7 @@ See: [Third Party Integrations](https://documentation.ixopay.com/modules/docs/to
   
 See: [Third Party Integrations](https://documentation.ixopay.com/modules/docs/tokenex/third-party-integrations)  |  
 | `inputMode`  | string  | false  | See [MDN Input Mode](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode) for acceptable modes.  |  
-| `expiresInSeconds`  | Int  | false  |  The expiration time when the authentication key is going to expire after initial load. Valid range: 1 to 1200 Seconds info Default expiration time is set to 1200 seconds (20 Minutes). The expiration time will be reset to default, in case if user provides value which
+| `expiresInSeconds`  | Int  | false  |  The expiration time when the authentication key is going to expire after initial load. Valid range: 1 to 1200 Seconds The [Detokenize iFrame](https://documentation.ixopay.com/modules/docs/tokenex/detokenize) overrides this maximum to 60 seconds, with a default of 20 seconds if omitted. Values above 60 are clamped to 60; values of 0 or below, or non-numeric values, fall back to 20. info Default expiration time is set to 1200 seconds (20 Minutes). The expiration time will be reset to default, in case if user provides value which
   * Is less than or equal to 0
   * Is greater than 1200
 

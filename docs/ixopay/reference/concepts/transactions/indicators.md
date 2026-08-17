@@ -14,7 +14,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/docs/reference/concepts/transactions/indicators
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -24,6 +24,14 @@ related: []
 
 # Transaction indicators
 Particularly for card payments you have to set the `transactionIndicator` in the transaction's data to indicate the type of CoF or recurring transaction.
+Follow-up transactions
+First transaction
+SINGLE
+FIRST-CARDONFILE
+INITIAL
+CARDONFILE
+CARDONFILE-MERCHANT-INITIATED
+RECURRING
 ```
 %%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
 flowchart LR

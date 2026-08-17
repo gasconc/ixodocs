@@ -17,7 +17,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/adapters/silverflow
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

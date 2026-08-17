@@ -9,7 +9,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/review-list
 portal: ixopay-manual
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -27,3 +27,5 @@ To review these transactions and determine how to handle them:
 ![Review List](https://documentation.ixopay.com/manual/assets/ideal-img/review-list.7dc6978.1280.png)Review List![Details and Actions](https://documentation.ixopay.com/manual/assets/ideal-img/details-and-actions.4fd5116.1280.png)Details and Actions
 note
 Debit transactions set to manual review are split into a pre-auth and a capture/void transaction (depending on the action chosen) and are therefore counted as two separate transactions. This behavior does not apply to pre-auth transactions.
+Automatic action after inactivity
+Transactions that remain on the Review List without any manual action are automatically **approved after 3 days** by default. You can customize the delay and the action (approve or decline) per connector via the [Risk Engine: Manual Review Delay](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/risk-engine-manual-review) connector setting.

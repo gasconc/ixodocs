@@ -14,7 +14,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/api/provisioning/list-connectors
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -95,7 +95,7 @@ To obtain valid configuration values, use the `/api/provisioning/getConnectorSet
 oneOf
     * object
     * []
-****object
+**property name*** any
 **language** Language
 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) language code.
 **Possible values:** Value must match regular expression `^[a-z]{2}$`
@@ -129,7 +129,13 @@ Merchant identifier.
 Whether the connector is a meta-connector.
 **Example:**`false`
 **postbackFormat** PostbackFormat
-**Possible values:** [`inherit`, `json`, `xml`]
+Format of status postbacks:
+    * `inherit` - use the format of the original request
+    * `2` - V2 (XML, legacy)
+    * `3` - V3 (JSON)
+    * `3-512` - V3 (JSON) with enforced SHA2-512 signature
+See [Additional security](https://documentation.ixopay.com/docs/guides/production/additional-security) for further information about postback signatures.
+**Possible values:** [`inherit`, `2`, `3`, `3-512`]
 **Default value:**`inherit`
 **provider** string
 Provider identifier.

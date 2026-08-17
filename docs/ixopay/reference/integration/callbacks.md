@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/integration/callbacks
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -33,6 +33,7 @@ Certain payment methods allow for state changes in transactions. This means that
 warning
 Be aware that for some payment methods, a transaction can change from failed to successful. Ensure that your system is capable of handling multiple notifications for the same transaction.
 In addition to notifications about the outcome of a payment, IXOPAY platform also sends notifications regarding any new follow-up transactions or changes in transaction status. These notifications provide valuable updates and insights into the progress of the payment process.
+Sequence diagram for pending payment callback processing PSPIXOPAY platformMerchant par​alt[Merchant transaction flow][Concurrent callback flow]CustomerPurchaseDebitResult with PENDING state"Your payment is being processed …"GET payment pagePayment pageSubmit payment dataTransactionCallback to callback URLStore resultOKResultRedirects back to successUrlGET response URLThank-you or error page
 ```
 %%{ init: { "sequence": {"mirrorActors": false} } }%%
 sequenceDiagram

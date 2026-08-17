@@ -15,7 +15,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/cybersource
 portal: tokenex
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

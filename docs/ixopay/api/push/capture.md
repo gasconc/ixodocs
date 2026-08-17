@@ -14,7 +14,7 @@ tags:
 - capture
 source_url: https://documentation.ixopay.com/api/push/capture
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

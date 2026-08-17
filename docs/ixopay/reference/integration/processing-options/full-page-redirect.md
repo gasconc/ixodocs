@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options/full-page-redirect
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -91,6 +91,7 @@ Merchant
 The merchant displays the appropriate thank-you or error page based on the payment status received in the callback.
 
 Here's a visual representation of the processing flow using a sequence diagram:
+Sequence diagram for full-page redirect processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant Start transactionShow payment pageSubmit formpar​Show final pageCustomerPurchase1Debit2Transaction3Result4Result with redirectUrl5Redirect6GET payment page7Payment page8Submit payment data9Transaction10Callback to callback URL11Store result12OK13Result14Redirects back to successUrl, errorUrl or cancelUrl15Get response URL16Thank-you or error page17
 ```
 %%{ init: { "sequence": {"mirrorActors": false} } }%%
 sequenceDiagram

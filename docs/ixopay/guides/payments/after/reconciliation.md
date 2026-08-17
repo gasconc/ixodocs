@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/guides/payments/after/reconciliation
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -29,6 +29,21 @@ Reconciliation post-processing is an optional feature which is not automatically
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.
 Different PSPs handle reconciliation in different ways. For example, one PSP may provide reconciliation data within seconds, which can be collected via an API. In contrast, another PSP may provide reconciliation data in a file, which may take several hours or even days to obtain. The format, semantics, and granularity of the data often differ, depending on the underlying payment method.
 The [IXOPAY](https://www.ixopay.com) post-processing engine standardizes the reconciliation process and any resulting conflicts, such as incorrectly calculated fees, missing reconciliation data, and unknown transactions, across your payments landscape, independent of your PSPs and payment methods. All identified conflicts can easily be resolved within IXOPAY platform, simplifying this task for you.
+IXOPAY platform post-processing engine
+PSP 2 Adapter
+PSP 1 Adapter
+HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3
+Reconciliation API
+Transaction 1
+Reconciliation data
+...
+Transaction 2
+Reconciliation data
+...
+Data fetcher 1
+Data fetcher 2
+Reconciliation post-processing
+Merchant
 ```
 graph LR
   subgraph PSP1 [PSP 1 Adapter]

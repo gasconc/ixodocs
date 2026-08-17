@@ -16,7 +16,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -26,6 +26,7 @@ related: []
 
 # Hosted payment pages
 Hosted payment pages are a simple way to start accepting payments without requiring any front-end development experience. With hosted payment pages, your customer is redirected to [IXOPAY platform](https://www.ixopay.com)'s secure hosted payment page to enter their payment details. After the payment is complete, the customer is redirected back to your website.
+PSPIXOPAY platformMerchant backend CustomerCheckoutInitialize transactionInstruct redirectRedirect your customerSubmit payment detailsPerform paymentPayment completeShow success page
 ```
 %%{ init: { "sequence": {"mirrorActors": false} } }%%
 sequenceDiagram
@@ -278,7 +279,7 @@ If the IXOPAY platform successfully received your transaction, it will respond w
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -578,7 +579,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -865,7 +866,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1152,7 +1153,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1443,7 +1444,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 
@@ -1730,7 +1731,7 @@ Response response = client.newCall(request).execute();
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "REDIRECT",  
 

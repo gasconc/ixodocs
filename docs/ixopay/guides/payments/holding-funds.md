@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/guides/payments/holding-funds
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -24,6 +24,14 @@ related: []
 # Place a hold on a payment
 In online payments, placing a hold on a payment is a common practice that allows merchants to reserve funds on a customer's card for a certain amount of time before actually transferring the funds. This can be useful for various use cases such as delayed charges, pre-orders, or to ensure that funds are available before processing a payment. Other scenarios where this is useful are when the final amount charged to the customer is not yet known, such as for hotel reservations or car rentals.
 This article covers the process of placing a hold on a payment via a preauthorization transaction. This transaction allows you to reserve funds on a customer's account without immediately transferring them to your merchant account. The held funds can later be transferred via a capture transaction, or released via a void transaction. Additionally, it is possible to prolong or increase the held funds via an incremental authorization transaction. The code samples in this article are based on the [Hosted Fields — payment.js](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/payment.js) integration, but with the proper adaptations, they will also work with [Hosted Payment Pages](https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/hosted-payment-pages). We'll cover each of these steps in detail, and provide some examples of how to perform them using our transaction API.
+`preauthorization`
+`capture`
+`incrementalAuthorization`
+`void`
+Start
+Funds held
+Payment received
+Hold released
 ```
 graph LR
   P{Start} -->|"<code>preauthorization</code>"| H[Funds held]

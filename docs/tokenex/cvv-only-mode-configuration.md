@@ -12,7 +12,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/cvv-only-mode-configuration
 portal: tokenex
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -56,7 +56,7 @@ CVV Only Mode requires a slightly different configuration object than the standa
 | cvv  | bool  | true  | Must be set to true to enable this mode.  |  
 | cvvOnly  | bool  | true  | Must be set to true to enable this mode.  |  
 | token  | string  | true  | In CVV Only mode, the token the CVV is associated with must be provided.  |  
-| cardType  | string  | true  | In CVV Only mode, a card type must be provided to validate the CVV length.  |  
+| cardType  | string  | true  | In CVV Only mode, a card type must be provided to validate the CVV length. Not required for the [Detokenize iFrame](https://documentation.ixopay.com/modules/docs/tokenex/detokenize).  |  
 JavaScript
 ```
 

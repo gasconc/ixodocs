@@ -13,7 +13,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/production/handling-errors
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -24,6 +24,18 @@ related: []
 When working with payment transactions, errors can occur at various stages. Properly handling errors is crucial to ensure a smooth payment processing experience and provide customers with the best possible service.
 ## API responses[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#api-responses "Direct link to API responses")
 Response objects in the payment APIs include a `success` flag to indicate if the request was successful or not. If the flag is `false`, the API response indicates an error. These errors can be either system errors, which are caused by the client-server interaction, or processing errors, which are caused by an error while processing the request, for example caused by the PSP. For a complete list of error codes and their meanings, please see the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
+`true`
+`false`
+200
+4xx or 5xx
+`extraData.doNotResubmit`
+Response
+`success`
+Success
+HTTP Status
+Processing error
+System error
+Merchant advice:\ndo not resubmit
 ```
 graph LR
   R((Response)) --> S{"<code>success</code>"}
@@ -92,7 +104,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -138,7 +150,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -227,7 +239,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -360,7 +372,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -399,7 +411,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -476,7 +488,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -602,7 +614,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -641,7 +653,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -718,7 +730,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -846,7 +858,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -885,7 +897,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -962,7 +974,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1094,7 +1106,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1133,7 +1145,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1210,7 +1222,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1336,7 +1348,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1375,7 +1387,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1452,7 +1464,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260805-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260813-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 

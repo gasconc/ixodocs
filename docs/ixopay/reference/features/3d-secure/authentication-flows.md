@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/docs/reference/features/3d-secure/authentication-flows
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -25,6 +25,12 @@ related: []
 
 # Authentication flows
 When using 3-D Secure for transaction requests, the authentication process can lead to various outcomes, depending on the provided data and the customer's interaction. Here are the different authentication flows that may occur during the 3-D Secure process:
+Authentication\nrequest
+Frictionless flow
+Challenge flow
+Error flow
+Error result
+Success result
 ```
 %%{ init: { 'flowchart': { 'curve': 'monotoneX' } } }%%
 flowchart LR

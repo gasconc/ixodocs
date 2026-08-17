@@ -17,7 +17,7 @@ tags:
 - tokenization
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/braintree
 portal: ixopay-modules
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 

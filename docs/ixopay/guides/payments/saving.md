@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/guides/payments/saving
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -22,6 +22,12 @@ related: []
 
 # Saving payment information
 When it comes to handling payments, it can be convenient to save payment details for future transactions. This guide will cover how to save payment information for later use, including setting up future payments, saving payment details during payments, and deleting saved payment information.
+Register
+store `uuid`
+Debit `withRegister`
+Preauthorize `withRegister`
+use saved payment
+Deregister
 ```
 graph LR
   R("Register") --> S["store <code>uuid</code>"]

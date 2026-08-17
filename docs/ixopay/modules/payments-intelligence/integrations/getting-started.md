@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/getting-started
 portal: ixopay-modules
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -26,7 +26,7 @@ IXOPAY Payments Intelligence (formerly Congrify) is a self-service, no-code plat
 To get started, log into your IXOPAY Payments Intelligence account and navigate to the "Connections" section. From there, you can activate the integration for the payment service provider you are using to process payments.
 Please note that only users with Owner or Admin roles will have the necessary permissions to configure this integration.
 Once the integration is successfully activated, it will be listed under "Connected Providers" for easy reference and management.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/Connections_tab.9ae7019.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/Connections_tab.f3d0666.1600.png)
 ## General steps for each PSP connection[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/getting-started#general-steps-for-each-psp-connection "Direct link to General steps for each PSP connection")
 As a general guideline, please follow the steps highlighted below for each Payment Service Provider integration to ensure a correct data ingestion setup and to familiarize yourself with the process.
 ### Step 1: Provide required credentials[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/getting-started#step-1-provide-required-credentials "Direct link to Step 1: Provide required credentials")
@@ -85,5 +85,6 @@ IXOPAY Payments Intelligence currently offers native integrations with the follo
 | **PayU (iyzico)**  |   |  
 | **Satispay**  |   |  
 | **Stripe**  |   |  
+| **USIO**  |   |  
 | **Worldline**  |   |  
 | **Worldpay**  |   |

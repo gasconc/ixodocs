@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-08-10T08:04:17+00:00_
+_Generated at 2026-08-17T07:18:30+00:00_
 
-**342 missing** · **3 stale** across 3 source(s).
+**344 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **945** · Indexed: **603** · Missing: **342** · Stale: **2**
+- Published: **948** · Indexed: **604** · Missing: **344** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -180,6 +180,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/worldline-ogone
 - https://documentation.ixopay.com/adapters/worldpay
 - https://documentation.ixopay.com/adapters/worldpay-access
+- https://documentation.ixopay.com/adapters/worldpay-access-apm
 - https://documentation.ixopay.com/adapters/worldpay-express
 - https://documentation.ixopay.com/adapters/worldpay-wpg-pci
 - https://documentation.ixopay.com/adapters/zip
@@ -328,6 +329,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/solidgate
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/stripe
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/tokenex
+- https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/usio
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/worldline
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/worldpay
 - https://documentation.ixopay.com/modules/docs/payments-intelligence/pre-chargeback-alerts/pre-chargebacks

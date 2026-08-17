@@ -14,7 +14,7 @@ tags:
 - direct-debit
 source_url: https://documentation.ixopay.com/docs/reference/integration/processing-options/server-to-server
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -64,6 +64,7 @@ Merchant
 The merchant decides what page to display to the customer depending on the transaction status.
 
 Here's a visual representation of the processing flow using a sequence diagram:
+Sequence diagram for server-to-server processing A visual representation of the steps listed above.PSPIXOPAY platformMerchant par​CustomerTrigger, for example a purchase with card-on-file1(Recurring) debit, or refund, etc.2Transaction3Result4Callback to callback URL5Store result6OK7Result8Thank-you or error page9
 ```
 %%{ init: { "sequence": {"mirrorActors": false} } }%%
 sequenceDiagram

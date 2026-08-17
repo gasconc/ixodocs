@@ -15,7 +15,7 @@ tags:
 - expert-settings-migration-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-expert-settings-migration-settings-direct-link-expert-settings-migration-settings
 source_url: https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings
 portal: ixopay-manual
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -205,6 +205,10 @@ On expiration, some adapters can additionally expire the transaction on the PSP 
 | Forter: Default Delivery Type (ExtraData: FORTER_DELIVERY_DETAILS_DELIVERY_TYPE)  | Optional configuration for Forter External Risk Check  |  
 | Forter: Default Delivery Method (ExtraData: FORTER_DELIVERY_DETAILS_DELIVERY_METHOD)  | Optional configuration for Forter External Risk Check  |  
 | Forter: Default Item Type (ExtraData: FORTER_ITEM_TYPE)  | Optional configuration for Forter External Risk Check  |  
+| Riskified: Auth Token  | Configuration for Riskified External Risk Check  |  
+| Riskified: Shop Domain  | Configuration for Riskified External Risk Check  |  
+| Riskified: Use Riskified Sandbox  | Configuration for Riskified External Risk Check  |  
+| Riskified: Init Scripts Automatically (0\1)  | Configuration for Riskified External Risk Check - perform init scripts automatically in payment.js  |  
 ## Expert Settings & Migration Settings[​](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings#expert-settings--migration-settings "Direct link to Expert Settings & Migration Settings")  
 | Setting name  | Description  | Values  |  
 | --- | --- | --- |  

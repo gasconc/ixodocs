@@ -14,7 +14,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/detokenize
 portal: ixopay-modules
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -27,7 +27,9 @@ The TokenEx iFrame also allows you to securely display detokenized sensitive dat
 ## Generating the Authentication Key for the Detokenization Iframe[​](https://documentation.ixopay.com/modules/docs/tokenex/detokenize#generating-the-authentication-key-for-the-detokenization-iframe "Direct link to Generating the Authentication Key for the Detokenization Iframe")
 In order to generate the Authentication Key for the Detokenization Iframe, you will need to provide an existing token value in place of the tokenScheme required when generating the Authentication Key for the tokenization modes of the iFrame.
 warning
-The Authentication Key is only valid with a timestamp less than 20 seconds old.  
+The Authentication Key is only valid with a timestamp less than 20 seconds old by default, configurable up to 60 seconds via `expiresInSeconds`.
+A key is only valid for one operation: data or cvv. Outside combined mode the key is fully consumed by that one operation — a key used to display card data cannot afterwards display the CVV, and vice versa. In combined data/cvv mode, one key covers both operations.
+Re-using the same key for another operation returns the error `Invalid Authentication Key - Authentication key already used`. A request that fails authentication does not consume the key.  
 | Name  | Type  | Description  |  
 | --- | --- | --- |  
 | tokenExId  | string  | Your TokenEx ID  |  
@@ -54,16 +56,16 @@ Concatenated String for generating HMAC: 123456789|https://mysite.com|2018010916
 | Parameter  | Type  | Required  | Description  |  
 | --- | --- | --- | --- |  
 | tokenExID  | string  | true  | Your TokenEx ID  |  
-| authenticationKey  | string  | true  | The generated Authentication Key (see Generating the Authentication Key).  |  
+| authenticationKey  | string  | true  | The generated Authentication Key (see [Generating the Authentication Key](https://documentation.ixopay.com/modules/docs/tokenex/generating-the-authentication-key)).  |  
 | timestamp  | string  | true  | The timestamp when the authentication key was generated, in yyyyMMddHHmmss   
 format.   
   
 NOTE: This value must match the one provided when generating your Authentication Key.  |  
 | origin  | string  | true  | The fully qualified Origin of your application  |  
 | token  | string  | true  | The token to be detokenized  |  
-| cvv  | bool  | false  | Must be set to true to enable this mode  |  
+| cvv  | bool  | false  | Renders a CVV iFrame in addition to the card data iFrame; defaults to false. Has no effect when `cvvOnly` is true, which renders the CVV iFrame on its own.  |  
 | cvvOnly  | bool  | false  | Must be set to true to enable this mode  |  
-| cvvContainerID  | string  | false  | ContainerID in which you'd like the CVV to appear  |  
+| cvvContainerID  | string  | true, when `cvv` is true and `cvvOnly` is false  | ContainerID in which you'd like the CVV to appear  |  
 | styles  | object  | false  | Optionally sets the placeholder attribute of the input  |  
 | font  | string  | false  | A google font to use in the iframe  |  
 | title  | string  | false  | Content of the title element used by the iframe document  |  

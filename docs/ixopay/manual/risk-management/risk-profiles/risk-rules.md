@@ -16,7 +16,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-rules
 portal: ixopay-manual
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -184,7 +184,7 @@ See [Customer Checks](https://documentation.ixopay.com/manual/docs/risk-manageme
 ## Credit Card Checks[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-rules#credit-card-checks "Direct link to Credit Card Checks")
 note
 The Credit card checks do not take into account tokens (ApplePay, GooglePay, Network Tokens) created for credit cards. This can lead to over- or undercounting of specific payment instrument counts.
-__**_Deprecated:_ Level of Credit Card (BIN)**
+__**_Deprecated : _Level of Credit Card (BIN)**
 BIN level of Credit Card is [in, not in] [list of levels]
 Checks the level of the used card (Standard, Gold, Business etc.)
 __**Segment of Credit Card (BIN)**
@@ -228,9 +228,10 @@ Checks the type of the used card (Debit, Credit)
 info
 See [Customer Checks](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-rules#customer-checks).
 ## External Risk Checks[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-rules#external-risk-checks "Direct link to External Risk Checks")
-__**Kount - External Risk Check**
+__**_Legacy : _Kount - External Risk Check**
 Use Kount Risk Check Analysis. (External Risk Check)
 Integrates Kount as external Risk Check service
+Not available for new clients. See [Kount — External Risk Check](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#kount--external-risk-check).
 __**Notolytix - External Risk Check**
 Use Notolytix Risk Check Analysis. (External Risk Check)
 Integrates Notolytix as external Risk Check service
@@ -243,6 +244,9 @@ Integrates Forter as external Risk Check service
 __**FraudNet - External Risk Check**
 Use FraudNet Risk Check Analysis. (External Risk Check)
 Integrates FraudNet as external Risk Check service
+__**Riskified - External Risk Check**
+Use Riskified Risk Check Analysis. (External Risk Check)
+Integrates Riskified as external Risk Check service
 ## Other Checks[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-rules#other-checks "Direct link to Other Checks")
 __**Randomly hit check**
 Triggers randomly by the configured chance (e.g. to generate random samples)

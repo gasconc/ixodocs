@@ -15,7 +15,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/docs/reference/features/scheduler
 portal: ixopay-dev
-updated: '2026-08-10'
+updated: '2026-08-17'
 related: []
 ---
 
@@ -64,6 +64,17 @@ The possible schedule states are:
   * `ERROR`: This state signifies that a recurring charge has failed. To retry an erroneous schedule, send a [`continue`](https://documentation.ixopay.com/api/transaction/schedule-continue) call.
 
 The transition between these states is depicted in the following state diagram:
+start
+pause
+cancel
+recurring charge failed
+continue
+cancel
+continue
+ACTIVE
+PAUSED
+CANCELLED
+ERROR
 ```
 stateDiagram-v2
   direction LR
