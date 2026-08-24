@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds-transaction-statuses
 portal: ixopay-modules
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 

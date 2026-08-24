@@ -14,7 +14,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/network-tokenization-test-cases
 portal: tokenex
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 

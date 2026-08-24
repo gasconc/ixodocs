@@ -14,7 +14,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/api/pci/preauthorize
 portal: ixopay-dev
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 

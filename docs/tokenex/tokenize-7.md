@@ -13,7 +13,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenize-7
 portal: tokenex
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 
@@ -44,7 +44,7 @@ This header is used to indicate whether the Data and CVV fields have been encryp
 | --- | --- | --- |  
 |  `data`*  | string  | Either the PAN or an existing TokenEx token that represents a PAN.  |  
 |  `panSource`*  | string enum  | The source of the Primary Account Number (PAN). Valid values: ONFILE, MOBILEBANKINGAPP, KEYENTERED, CAMERACAPTURED, MANUALUNKNOWN  |  
-|  `consumerId`*  | string  | Unique token requestor specific consumer identifier (e.g., wallet account ID). This value is generated and assigned by the token requestor. Required for Visa and optional for AMEX and Mastercard.  |  
+|  `consumerId`*  | string  | Unique token requestor specific consumer identifier (e.g., wallet account ID). This value is generated and assigned by the token requestor. For Visa, the maximum length is 24. For Mastercard and Amex, the maximum length is 36. Required for Visa and optional for AMEX and Mastercard.  |  
 |  `presentationMode`*  | string enum []  | The token presentation mode supported by the token. Valid values: NFCHCE, NFCSE, ECOM, INAPP, MST, QR, PAT  |  
 | `pathRecommendation`  | string  | Allows the requestor to provide tokenization advice based on available risk data. Acceptable values are APPROVED, DECLINED, AUTH*REQ and PCI*APPROVED.  |  
 | `accountType`  | string  | It is used to describes the type of an account, e.g. GUEST, WALLET. Valid value 'credit_card' for AMEX, and valid values 'GUEST' or 'WALLET' for Visa.  |  

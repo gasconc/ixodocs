@@ -7,7 +7,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/select-a-tgapi-endpoint-1
 portal: tokenex
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 

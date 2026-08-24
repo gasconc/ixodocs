@@ -17,7 +17,7 @@ tags:
 - congrify
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/chargebee
 portal: ixopay-modules
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 

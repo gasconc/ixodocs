@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/api-testing/schedule-api
 portal: ixopay-manual
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 

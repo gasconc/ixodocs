@@ -10,7 +10,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/manual/adapters/securetrading
 portal: ixopay-manual
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 

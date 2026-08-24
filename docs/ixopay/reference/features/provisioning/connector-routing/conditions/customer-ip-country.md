@@ -10,7 +10,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing/conditions/customer-ip-country
 portal: ixopay-dev
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 

@@ -11,7 +11,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/encrypt-function
 portal: ixopay-modules
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 
@@ -21,7 +21,7 @@ related: []
 
 # Encrypt Function
 Encrypt data within the request body. The data to be encrypted may include a token, identified by token notation. In this case, the token will be detokenized prior to encryption.
-The encrypt function will detokenize the payload, encrypt the data within the “Data” parameter in the function space, and replace the function space with the resulting, encoded ciphertext, before forwarding the request to the specified URL.
+The encrypt function will detokenize the payload, encrypt the data within the “DATA” parameter in the function space, and replace the function space with the resulting, encoded ciphertext, before forwarding the request to the specified URL.
 ## RSA[​](https://documentation.ixopay.com/modules/docs/tokenex/encrypt-function#rsa "Direct link to RSA")
 Function parameters:  
 | Parameter Name  | Value  |  
@@ -56,7 +56,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -87,7 +87,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -129,7 +129,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -160,7 +160,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -191,7 +191,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -222,7 +222,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -253,7 +253,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -284,7 +284,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -315,7 +315,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -346,7 +346,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -377,7 +377,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -408,7 +408,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -439,7 +439,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -470,7 +470,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -501,7 +501,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -532,7 +532,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -564,7 +564,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -595,7 +595,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -626,7 +626,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -657,7 +657,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -688,7 +688,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -719,7 +719,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:RSA,KEY:-----BEGIN PUBLIC KEY-----r28El+rBesEzTA9XGfvvj4saHyHJkcCdze55ZmzKt5Ix87/TOKAl5urCX530Jzi+gF3TFX3WZj5ejwdSS9UDKqB1YG21F9FkGmzmYKltF5+/a01AqZh3F0VwYcCm3LJPmv2vzOdWZSrNEXpijQaGMfklUyj4ifsy5c5A54SF8MlNRUQMIJ1PXA+5tPdyJF2qBQoRCb33IeziRgUMw9XrF5LBiem5qICbuH6P/N8SMa524gtYKv+Wkz8a7UR8Psh9mCEQbxWEoj5zjVKOwdOvxzo3XIT3qTLNAP/ShTUIfXKN0jZN3XRKg4lOLRHUXSrDcIy+CaWkcnrHQZjPgudGu30UXCFGgR26wt66vKeRCU2dtUyjWU/ew76hWqWMn3Ov+vHlQvwx-----END PUBLIC KEY-----,ENCODING:HEX,PADDING:OAEP,DIGEST:SHA256,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -750,7 +750,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:AES,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 
@@ -781,7 +781,7 @@ TX-APIKey: YourAPIKey
 
     "type": "MC",  
 
-    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,Data:{{{545454tEc3Hk5454}}}}}}}",  
+    "encryptedCardNumber":"{{{{FUNCTION:Encrypt,TYPE:Rijndael,IV:dGhpc2lzYW5pdmthcGljaA==,ENCODING:Base64,DATA:{{{545454tEc3Hk5454}}}}}}}",  
 
     "expDate": "1122",  
 

@@ -15,7 +15,7 @@ tags:
 - acquirer
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/gateway-parameters
 portal: ixopay-modules
-updated: '2026-08-17'
+updated: '2026-08-24'
 related: []
 ---
 
