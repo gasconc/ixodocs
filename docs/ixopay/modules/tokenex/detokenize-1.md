@@ -8,7 +8,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/detokenize-1
 portal: ixopay-modules
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

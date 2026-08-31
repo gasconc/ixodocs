@@ -14,7 +14,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/integration-monitoring
 portal: ixopay-modules
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

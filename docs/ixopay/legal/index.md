@@ -11,7 +11,7 @@ tags:
 - ixopay
 source_url: https://www.ixopay.com/legal/
 portal: ixopay-legal
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

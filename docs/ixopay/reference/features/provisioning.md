@@ -13,7 +13,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/features/provisioning
 portal: ixopay-dev
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

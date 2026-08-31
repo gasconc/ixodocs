@@ -15,7 +15,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/transactions/schedules/create
 portal: ixopay-manual
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

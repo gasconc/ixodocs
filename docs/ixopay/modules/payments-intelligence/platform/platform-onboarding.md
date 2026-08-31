@@ -14,7 +14,7 @@ tags:
 - step-explore-psp-raw-data-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-explore-psp-raw-data-direct-link-step-explore-psp-raw-data
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding
 portal: ixopay-modules
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

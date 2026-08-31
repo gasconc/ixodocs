@@ -14,7 +14,7 @@ tags:
 - pci
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/nt
 portal: ixopay-manual
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

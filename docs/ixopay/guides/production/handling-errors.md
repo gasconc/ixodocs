@@ -13,7 +13,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/production/handling-errors
 portal: ixopay-dev
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 
@@ -104,7 +104,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -150,7 +150,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -239,7 +239,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -372,7 +372,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -411,7 +411,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -488,7 +488,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -614,7 +614,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -653,7 +653,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -730,7 +730,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -858,7 +858,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -897,7 +897,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -974,7 +974,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1106,7 +1106,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1145,7 +1145,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1222,7 +1222,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1348,7 +1348,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1387,7 +1387,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1464,7 +1464,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 

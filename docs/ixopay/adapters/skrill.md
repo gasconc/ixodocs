@@ -15,7 +15,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/adapters/skrill
 portal: ixopay-dev
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

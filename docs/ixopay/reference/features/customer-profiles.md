@@ -14,7 +14,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/docs/reference/features/customer-profiles
 portal: ixopay-dev
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 
@@ -113,7 +113,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -208,7 +208,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-18 09:11:09",  
+      "createdAt": "2031-08-26 12:33:17",  
 
       "method": "card",  
 
@@ -563,7 +563,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -652,7 +652,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-18 09:11:09",  
+      "createdAt": "2031-08-26 12:33:17",  
 
       "method": "card",  
 
@@ -935,7 +935,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1024,7 +1024,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-18 09:11:09",  
+      "createdAt": "2031-08-26 12:33:17",  
 
       "method": "card",  
 
@@ -1307,7 +1307,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1396,7 +1396,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-18 09:11:09",  
+      "createdAt": "2031-08-26 12:33:17",  
 
       "method": "card",  
 
@@ -1690,7 +1690,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -1779,7 +1779,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-18 09:11:09",  
+      "createdAt": "2031-08-26 12:33:17",  
 
       "method": "card",  
 
@@ -2062,7 +2062,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20260817-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20260825-d94c0d72f3a36e21f16e",  
 
   "returnType": "FINISHED",  
 
@@ -2151,7 +2151,7 @@ Content-Type: application/json
 
       "_TYPE": "card",  
 
-      "createdAt": "2031-08-18 09:11:09",  
+      "createdAt": "2031-08-26 12:33:17",  
 
       "method": "card",  
 

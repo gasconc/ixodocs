@@ -14,7 +14,7 @@ tags:
 - advanced-configuration-https-documentation-ixopay-com-manual-docs-connector-multi-method-connector-advanced-configuration-direct-link-advanced-configuration
 source_url: https://documentation.ixopay.com/manual/docs/connector/multi-method-connector
 portal: ixopay-manual
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

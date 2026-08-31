@@ -17,7 +17,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/ixopay
 portal: ixopay-modules
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 

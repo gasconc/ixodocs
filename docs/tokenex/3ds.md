@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds
 portal: tokenex
-updated: '2026-08-24'
+updated: '2026-08-31'
 related: []
 ---
 
