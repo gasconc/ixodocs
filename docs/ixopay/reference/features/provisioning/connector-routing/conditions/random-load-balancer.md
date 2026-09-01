@@ -10,7 +10,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing/conditions/random-load-balancer
 portal: ixopay-dev
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

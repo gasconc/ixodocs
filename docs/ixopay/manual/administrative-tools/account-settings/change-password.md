@@ -10,7 +10,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/change-password
 portal: ixopay-manual
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - sdk
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services
 portal: tokenex
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

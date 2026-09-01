@@ -14,7 +14,7 @@ tags:
 - sepa
 source_url: https://documentation.ixopay.com/docs/recipes/how-to
 portal: ixopay-dev
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - sepa
 source_url: https://documentation.ixopay.com/manual/docs/connector/post-processing
 portal: ixopay-manual
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

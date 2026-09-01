@@ -17,7 +17,7 @@ tags:
 - congrify
 source_url: https://www.ixopay.com/legal/toms
 portal: ixopay-legal
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

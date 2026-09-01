@@ -14,7 +14,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/adapters/straight2bank
 portal: ixopay-dev
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

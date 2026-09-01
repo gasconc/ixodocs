@@ -8,7 +8,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/putting-it-all-together
 portal: ixopay-modules
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

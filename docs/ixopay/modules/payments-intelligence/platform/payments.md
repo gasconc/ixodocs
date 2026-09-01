@@ -14,7 +14,7 @@ tags:
 - anomaly-detection-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-anomaly-detection-direct-link-anomaly-detection
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments
 portal: ixopay-modules
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

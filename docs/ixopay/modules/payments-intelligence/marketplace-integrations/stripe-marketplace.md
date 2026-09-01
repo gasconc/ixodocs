@@ -11,7 +11,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace
 portal: ixopay-modules
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

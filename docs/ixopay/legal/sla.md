@@ -7,7 +7,7 @@ tags:
 - ixopay
 source_url: https://www.ixopay.com/legal/sla
 portal: ixopay-legal
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 

@@ -11,7 +11,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/modules/api/tokenex/device-services-p-2-pe
 portal: ixopay-modules
-updated: '2026-08-31'
+updated: '2026-09-01'
 related: []
 ---
 
