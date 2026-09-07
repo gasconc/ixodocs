@@ -17,7 +17,7 @@ tags:
 - ixopay
 source_url: https://www.ixopay.com/legal/privacy-policy-applicants
 portal: ixopay-legal
-updated: '2026-09-01'
+updated: '2026-09-07'
 related: []
 ---
 

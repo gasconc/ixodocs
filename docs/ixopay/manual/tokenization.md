@@ -12,7 +12,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/tokenization
 portal: ixopay-manual
-updated: '2026-09-01'
+updated: '2026-09-07'
 related: []
 ---
 

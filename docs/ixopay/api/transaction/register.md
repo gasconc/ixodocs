@@ -14,7 +14,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/api/transaction/register
 portal: ixopay-dev
-updated: '2026-09-01'
+updated: '2026-09-07'
 related: []
 ---
 

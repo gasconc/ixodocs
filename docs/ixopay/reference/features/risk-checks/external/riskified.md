@@ -15,7 +15,7 @@ tags:
 - decision-https-documentation-ixopay-com-docs-reference-features-risk-checks-external-riskified-decision-direct-link-decision
 source_url: https://documentation.ixopay.com/docs/reference/features/risk-checks/external/riskified
 portal: ixopay-dev
-updated: '2026-09-01'
+updated: '2026-09-07'
 related: []
 ---
 

@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/laybuy
 portal: ixopay-manual
-updated: '2026-09-01'
+updated: '2026-09-07'
 related: []
 ---
 

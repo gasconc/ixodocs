@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/provisioning/set-connector-multi-method-routing
 portal: ixopay-dev
-updated: '2026-09-01'
+updated: '2026-09-07'
 related: []
 ---
 

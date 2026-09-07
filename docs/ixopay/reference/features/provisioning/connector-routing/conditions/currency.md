@@ -9,7 +9,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing/conditions/currency
 portal: ixopay-dev
-updated: '2026-09-01'
+updated: '2026-09-07'
 related: []
 ---
 
