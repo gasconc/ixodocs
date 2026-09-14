@@ -15,7 +15,7 @@ tags:
 - setnumberinputtype-https-documentation-ixopay-com-docs-reference-integration-payment-methods-setnumberinputtype-direct-link-setnumberinputtype
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/methods
 portal: ixopay-dev
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 
@@ -80,7 +80,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "8",  
+  "month": "9",  
 
   "year": "2031",  
 
@@ -262,6 +262,8 @@ If `getBinData` is set to `true`, the result will be asynchronous (adding a back
 
     "issuer": "VISA Bank 1",  
 
+    "normalizedCardBrand": "visa",  
+
     "subBrand": null  
 
   },  
@@ -270,7 +272,8 @@ If `getBinData` is set to `true`, the result will be asynchronous (adding a back
 
 }  
 
-```#### Parameters[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#parameters-13 "Direct link to Parameters")
+````cardBrand` is the brand as reported by the BIN data source. `normalizedCardBrand` is the same brand normalized to the card type identifiers also used by `cardType` (see the list below), or `null` if the brand cannot be resolved to one of them. `binData` is `null` while fewer than six digits have been entered or when no BIN data is found.
+#### Parameters[​](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#parameters-13 "Direct link to Parameters")
   * `event` (string): the number input event to attach the `callbackFunction` to. One of `input`, `focus`, `blur`, `mouseover`, `mouseout`, `enter`, `esc`, `tab`, or `shift-tab`.
   * `callbackFunction` (function: `(event) => void`): a callback that receives data about the `event`, for example:
 ```
@@ -350,7 +353,7 @@ For details, see [Auto-fill card data](https://documentation.ixopay.com/docs/ref
 
   card_holder: "Alex Smith",  
 
-  month: 08,  
+  month: 09,  
 
   year:  2031,  
 
@@ -400,7 +403,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "8",  
+  "month": "9",  
 
   "year": "2031",  
 
@@ -532,6 +535,8 @@ PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });
 
     "issuer": "VISA Bank 1",  
 
+    "normalizedCardBrand": "visa",  
+
     "subBrand": null  
 
   },  
@@ -601,7 +606,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 08,  
+  month: 09,  
 
   year:  2031,  
 
@@ -649,7 +654,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "8",  
+  "month": "9",  
 
   "year": "2031",  
 
@@ -781,6 +786,8 @@ PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });
 
     "issuer": "VISA Bank 1",  
 
+    "normalizedCardBrand": "visa",  
+
     "subBrand": null  
 
   },  
@@ -850,7 +857,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 08,  
+  month: 09,  
 
   year:  2031,  
 
@@ -901,7 +908,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "8",  
+  "month": "9",  
 
   "year": "2031",  
 
@@ -1033,6 +1040,8 @@ PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });
 
     "issuer": "VISA Bank 1",  
 
+    "normalizedCardBrand": "visa",  
+
     "subBrand": null  
 
   },  
@@ -1102,7 +1111,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 08,  
+  month: 09,  
 
   year:  2031,  
 
@@ -1172,7 +1181,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "8",  
+  "month": "9",  
 
   "year": "2031",  
 
@@ -1304,6 +1313,8 @@ PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });
 
     "issuer": "VISA Bank 1",  
 
+    "normalizedCardBrand": "visa",  
+
     "subBrand": null  
 
   },  
@@ -1373,7 +1384,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 08,  
+  month: 09,  
 
   year:  2031,  
 
@@ -1421,7 +1432,7 @@ PaymentJs.tokenize(additionalData, successCallback, errorCallback);
 
   "last_four_digits": "1111",  
 
-  "month": "8",  
+  "month": "9",  
 
   "year": "2031",  
 
@@ -1553,6 +1564,8 @@ PaymentJs.numberOn(event, callbackFunction, { getBinData: boolean });
 
     "issuer": "VISA Bank 1",  
 
+    "normalizedCardBrand": "visa",  
+
     "subBrand": null  
 
   },  
@@ -1622,7 +1635,7 @@ PaymentJs.onAutofill(autofillCallback);
 
   card_holder: "Alex Smith",  
 
-  month: 08,  
+  month: 09,  
 
   year:  2031,  
 

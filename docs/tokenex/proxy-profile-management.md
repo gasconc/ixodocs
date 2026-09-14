@@ -13,7 +13,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/proxy-profile-management
 portal: tokenex
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 

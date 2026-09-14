@@ -13,7 +13,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/what-is-tokenization
 portal: ixopay-modules
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 

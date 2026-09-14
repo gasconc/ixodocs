@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/provisioning/set-connector-routing
 portal: ixopay-dev
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 

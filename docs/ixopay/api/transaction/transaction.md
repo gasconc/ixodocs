@@ -14,7 +14,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/api/transaction/transaction
 portal: ixopay-dev
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 

@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-09-07T12:21:28+00:00_
+_Generated at 2026-09-14T12:36:44+00:00_
 
-**344 missing** · **3 stale** across 3 source(s).
+**345 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **948** · Indexed: **604** · Missing: **344** · Stale: **2**
+- Published: **953** · Indexed: **608** · Missing: **345** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -145,6 +145,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/paypal-pci
 - https://documentation.ixopay.com/adapters/paysafecard
 - https://documentation.ixopay.com/adapters/paytabs
+- https://documentation.ixopay.com/adapters/peach
 - https://documentation.ixopay.com/adapters/perfectmoney
 - https://documentation.ixopay.com/adapters/powercash21
 - https://documentation.ixopay.com/adapters/ppro

@@ -15,7 +15,7 @@ tags:
 - decision-https-documentation-ixopay-com-docs-reference-features-risk-checks-external-riskified-decision-direct-link-decision
 source_url: https://documentation.ixopay.com/docs/reference/features/risk-checks/external/riskified
 portal: ixopay-dev
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 
@@ -33,7 +33,7 @@ Riskified fraud screening relies primarily on standard fields already used by th
 | --- | --- | --- | --- |  
 | `amount`  | `order.total_price`  | **Yes**  | Decimal string, e.g. `49.99`  |  
 | `currency`  | `order.currency`  | **Yes**  | ISO 4217, e.g. `EUR`  |  
-| `language`  | `order.client_details.accept_language`  | Recommended  | ISO 639-1, e.g. `en`  |  
+| `language`  | `order.client_details.accept_language`  | Recommended  | ISO 639-1, e.g. `en`. `extraData["3ds:browserLanguage"]` — the browser language observed during a 3DS/redirect flow — takes precedence over this field when present  |  
 ###  `customer` object fields[​](https://documentation.ixopay.com/docs/reference/features/risk-checks/external/riskified#customer-object-fields "Direct link to customer-object-fields")  
 | IXOPAY API field  | Riskified API field  | Required  | Notes  |  
 | --- | --- | --- | --- |  
@@ -41,21 +41,22 @@ Riskified fraud screening relies primarily on standard fields already used by th
 | `customer.emailVerified`  | `order.customer.verified_email`  | Recommended  | Boolean  |  
 | `customer.firstName`  | `order.customer.first_name`  | Recommended  | Used for both billing and shipping; max 50 characters  |  
 | `customer.lastName`  | `order.customer.last_name`  | Recommended  | Used for both billing and shipping; max 50 characters  |  
-| `customer.ipAddress`  | `order.browser_ip`  | **Yes**  | IPv4 or IPv6; max 50 characters  |  
+| `customer.ipAddress`  | `order.browser_ip`  | **Yes**  | IPv4 or IPv6; max 50 characters. Falls back to `extraData["3ds:browserIpAddress"]` — the client IP observed during a 3DS/redirect flow — when not set  |  
 |  `customer.billingAddress1`, `customer.billingAddress2`, `customer.company`, `customer.billingCity`, `customer.billingState`, `customer.billingPostcode`, `customer.billingCountry`, `customer.billingPhone`  |  `order.billing_address.address1`, `.address2`, `.company`, `.city`, `.province`/`.province_code`, `.zip`, `.country`/`.country_code`, `.phone`  | Recommended  | Billing address, `billingCountry` as ISO 3166-1 alpha-2  |  
 |  `customer.shippingAddress1`, `customer.shippingAddress2`, `customer.shippingCompany`, `customer.shippingCity`, `customer.shippingState`, `customer.shippingPostcode`, `customer.shippingCountry`, `customer.shippingPhone`  |  `order.shipping_address.address1`, `.address2`, `.company`, `.city`, `.province`/`.province_code`, `.zip`, `.country`/`.country_code`, `.phone`  | Recommended  | Shipping address, `shippingCountry` as ISO 3166-1 alpha-2  |  
-note
-Riskified's customer ID (`order.customer.id`) is **not** taken from `customer.identification`. It's populated from the customer profile linked to the transaction (if you use the customer profile/vault feature) and is left empty otherwise.
+| `customer.identification`  | `order.customer.id`  | Conditional  | Fallback only — takes effect when no customer profile (vault) is linked to the transaction, which normally supplies this ID. Left empty if neither is set. Riskified requires one of the two sources whenever `customer.extraData["account_type"]` is `registered`.  |  
 ###  `items[]` array fields[​](https://documentation.ixopay.com/docs/reference/features/risk-checks/external/riskified#items-array-fields "Direct link to items-array-fields")
 Include one entry per product in the order.  
 | IXOPAY API field  | Riskified API field  | Required  | Notes  |  
 | --- | --- | --- | --- |  
 | `items[n].price`  | `line_items[].price`  | Recommended  | Decimal string or number  |  
 | `items[n].quantity`  | `line_items[].quantity`  | Recommended  | Integer ≥ 1  |  
-| `items[n].name`  | `line_items[].title`  | Recommended  | Product display name  |  
+| `items[n].name`  |  `line_items[].title`; also the fallback for `line_items[].brand`  | Recommended  | Product display name; always sent as `title`, and used as `brand` unless `items[n].extraData.brand` is set  |  
 | `items[n].identification`  |  `line_items[].sku`; also the fallback for `line_items[].product_id`  | Recommended  | Your SKU/product ID; always sent as `sku`, and used as `product_id` unless `items[n].extraData.product_id` is set  |  
-| `items[n].description`  | `line_items[].category`  | Optional  | Used as a fallback product category unless `items[n].l2l3Data.category` is set  |  
+| `items[n].description`  | `line_items[].category`  | Optional  | Used as a fallback product category unless `items[n].extraData.category` is set  |  
 | `items[n].extraData.product_id`  | `line_items[].product_id`  | Optional  | Distinct product ID, if different from the SKU  |  
+| `items[n].extraData.category`  | `line_items[].category`  | Optional  | Product category; takes precedence over `items[n].description`  |  
+| `items[n].extraData.brand`  | `line_items[].brand`  | Optional  | Brand name; takes precedence over `items[n].name`  |  
 | `items[n].extraData.sub_category`  | `line_items[].sub_category`  | Optional  | Product sub-category  |  
 | `items[n].extraData.requires_shipping`  | `line_items[].requires_shipping`  | Optional  |  `true`/`false` or `1`/`0`  |  
 | `items[n].extraData.delivered_to`  | `line_items[].delivered_to`  | Conditional  | Required for mixed shipment orders. Either `shipping_address` or `store_pickup`  |  
@@ -63,17 +64,15 @@ Include one entry per product in the order.
 | IXOPAY API field  | Riskified API field  | Required  | Notes  |  
 | --- | --- | --- | --- |  
 | `l2l3Data.freightAmount`  | `shipping_lines.price`  | Recommended  | Transaction-level total shipping cost  |  
-| `items[n].l2l3Data.type`  | `line_items[].product_type`  | Recommended  | Product type  |  
-| `items[n].l2l3Data.category`  | `line_items[].category`  | Recommended  | Product category  |  
-| `items[n].l2l3Data.brand`  | `line_items[].brand`  | Recommended  | Brand name  |  
+| `items[n].l2l3Data.type`  | `line_items[].product_type`  | **Yes**  | Either `physical` or `digital`; sent verbatim, so any other value is rejected by Riskified  |  
 ###  `extraData` fields[​](https://documentation.ixopay.com/docs/reference/features/risk-checks/external/riskified#extradata-fields "Direct link to extradata-fields")
 Custom key-value pairs passed inside the transaction-level `extraData` object.  
 |  `extraData` key  | Riskified API field  | Required  | Notes  |  
 | --- | --- | --- | --- |  
 | `extraData["riskified_session_id"]`  | `order.cart_token`  | Automatic — usually set for you  | Session ID from the Riskified beacon script. Attached to the payment token by payment.js at tokenization, or seeded with the transaction UUID by the HPP beacon script — see [Initializing the risk script](https://documentation.ixopay.com/docs/reference/features/risk-checks/external/riskified#initializing-the-risk-script). Only set this manually if your integration uses neither path. Falls back to the transaction UUID if not set  |  
-| `extraData["referring_site"]`  | `order.referring_site`  | **Yes**  | Full URL of the page that referred the customer to checkout  |  
-| `extraData["source"]`  | `order.source`  | **Yes**  | Channel the order originated from, e.g. `web`, `mobile_app`, `moto`  |  
-| `extraData["user_agent"]`  | `order.client_details.user_agent`  | Recommended  | Browser `User-Agent` string  |  
+| `extraData["referring_site"]`  | `order.referring_site`  | Optional  | The webpage the customer arrived from before checkout — not the payment page itself (e.g. an external referrer like `https://search.example.net/?q=artisan+goods`, or an internal one like `https://shop.example.org/products/shoes`)  |  
+| `extraData["source"]`  | `order.source`  | **Yes**  | Riskified enum, sent through as-is — not free text. One of: `desktop_web`, `mobile_web`, `mobile_app`, `mobile_app_android`, `mobile_app_ios`, `web`, `chat`, `third_party`, `phone`, `in_store`, `shopify_draft_order`, `unknown`, `subscription`, `ai_agent`. Any other value is rejected by Riskified  |  
+| `extraData["user_agent"]`  | `order.client_details.user_agent`  | Recommended  | Browser `User-Agent` string. Falls back to `extraData["3ds:browserUserAgent"]` when not set  |  
 | `extraData["total_discounts"]`  | `order.total_discounts`  | **Yes**  | Total discount amount; send `0` if no discounts apply  |  
 | `extraData["shipping_title"]`  | `shipping_lines.title`  | Recommended  | Display name of the selected shipping method  |  
 | `extraData["note"]`  | `order.note`  | Optional  | Free-text note about the order  |  

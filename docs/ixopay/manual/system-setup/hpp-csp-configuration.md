@@ -15,7 +15,7 @@ tags:
 - find-fix-violations-https-documentation-ixopay-com-manual-docs-system-setup-hpp-csp-configuration-find-fix-violations-direct-link-find-fix-violations
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration
 portal: ixopay-manual
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 
@@ -33,21 +33,22 @@ warning
 You are responsible for meeting PCI DSS requirements for your payment pages (e.g., as an SAQ D merchant/service provider). The [IXOPAY platform](https://www.ixopay.com) provides configuration and reporting tooling, but does not guarantee compliance with PCI DSS 6.4.3 or 11.6.1.
 ## What happens automatically[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#what-happens-automatically "Direct link to What happens automatically")
 To keep HPP secure and functional, the IXOPAY platform automatically:
-  * injects the required CSP directives for our payment script (**payment.js**), and
-  * provides a valid **nonce** for authorized inline scripts.
+  * injects the required CSP directives for our payment script (**payment.js**),
+  * provides a valid **nonce** for authorized inline scripts, and
+  * injects **default script sources** for the payment and risk providers used by your connector.
 
+Default provider sources are detected via the connector's **payment provider** , enabled **connector settings** (e.g. Google Pay, Apple Pay, Kount), and active **external risk checks** (e.g. Forter, Fraud.net). For meta-connectors, the connectors of the configured payment methods are evaluated as well. This way you do not have to allowlist the script dependencies of features you enabled through the IXOPAY platform yourself.
+info
+CSP headers are only sent when your account has at least one **enabled** HPP CSP Configuration and the payment template has been published with the [FAST Editor](https://documentation.ixopay.com/manual/docs/fast). Without an enabled configuration, no CSP or reporting headers are sent and no violation reports are generated.
 info
 You can use the nonce placeholder `{{ head.nonce }}` in your HPP templates to allow required inline scripts without enabling insecure directives like `unsafe-inline`.
 ## CSP in a nutshell[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#csp-in-a-nutshell "Direct link to CSP in a nutshell")
 Content Security Policy (CSP) is an HTTP response header that tells the browser which sources are allowed for content like scripts, styles, images, fonts, and more. For HPP, the most important part is controlling **where scripts are allowed to load from**.
 This feature configures the **`script-src`directive** for HPP responses at the **connector** level.
 ## Recommended rollout[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#recommended-rollout "Direct link to Recommended rollout")
-  1. **Start in Report-Only mode**  
-Deploy with `Content-Security-Policy-Report-Only` to collect violations without breaking the page.
-  2. **Fix violations**  
-Update your HPP templates (scripts, sources, inline code) until reports are clean (see [Fix violations in your Payment Templates](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#fix-violations-in-your-payment-templates)).
-  3. **Enforce**  
-Switch to `Content-Security-Policy` only after you’re confident the payment page works with no critical violations.
+  1. **Start in Report-Only mode** Deploy with `Content-Security-Policy-Report-Only` to collect violations without breaking the page.
+  2. **Fix violations** Update your HPP templates (scripts, sources, inline code) until reports are clean (see [Fix violations in your Payment Templates](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#fix-violations-in-your-payment-templates)).
+  3. **Enforce** Switch to `Content-Security-Policy` only after you’re confident the payment page works with no critical violations.
 
 warning
 Do not disable **Report-Only** until you have reviewed and resolved violations. Enforcing too early can block essential scripts and break your payment page.
@@ -135,7 +136,7 @@ To create a new HPP CSP Configuration:
          * **Name** : Unique endpoint name (used as ``).
          * **Endpoint** : URL of the reporting server.
      * **Regex Patterns** :
-       * **Regex** : A PCRE valid Regex pattern to determine affected Payment Templates e.g. /foo/bar/file.php/.
+       * **Regex** : A PCRE valid Regex pattern to determine affected Payment Templates e.g. /foo/bar/file.php/. Patterns must compile as valid PCRE and may be at most **512 characters** long, otherwise the configuration cannot be saved.
 
 ![HPP CSP Configuration List](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-list.36d9316.1600.png)HPP CSP Configuration List![Create HPP CSP Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-create.31249fb.1600.png)Create HPP CSP Configuration
 ### Regex Pattern and Payment Templates[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#regex-pattern-and-payment-templates "Direct link to Regex Pattern and Payment Templates")
@@ -153,6 +154,8 @@ To apply your HPP CSP Configuration to a template, define a regex pattern that m
   * **Match all templates** Use `/.*/` to apply the configuration to all payment templates.
 
 ![FAST Editor File Tree](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-fast.14e76ed.1600.png)FAST Editor File Tree
+info
+If you have an enabled HPP CSP Configuration but none of its regex patterns match the rendered payment template, the IXOPAY platform still sends a default `Content-Security-Policy-Report-Only` header (containing only the [automatically injected sources](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#what-happens-automatically)) for a small, sampled percentage of requests. This keeps baseline violation reporting available for templates you have not covered with a pattern yet. A pattern that fails to evaluate is treated as non-matching — the configuration will not apply to that page.
 ### Verify the configuration[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#verify-the-configuration "Direct link to Verify the configuration")
 After you create a configuration , verify the response header on page load:
   1. Open your payment page in the browser.

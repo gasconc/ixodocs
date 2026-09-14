@@ -15,7 +15,7 @@ tags:
 - expert-settings-migration-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-expert-settings-migration-settings-direct-link-expert-settings-migration-settings
 source_url: https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings
 portal: ixopay-manual
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 
@@ -104,6 +104,7 @@ On expiration, some adapters can additionally expire the transaction on the PSP 
 | Customer Data: Copy from referenced transaction  | Copies all customer data from the referenced transactions (for CoF and Recurring transactions)  | 1  |  
 | Hooks: Transaction Success  | Enables various actions once a transaction succeeds (e.g. trigger email sending through Sendgrid)  | [various](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks)  |  
 | 3DSecure: Check  | Sets a fixed 3D-Secure Requirement flag on any transaction  | optional (not for recurring), mandatory (not for recurring), optional (for all), mandatory (for all)  |  
+| Allowed Card Schemes  | [Restricts which card schemes the connector accepts; transactions with other schemes are declined](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/allowed-card-schemes)  | [various](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/allowed-card-schemes)  |  
 | Convert Register to Debit Transaction  | For Payment Methods that do not support Register transactions, this will convert a Register transaction to a Debit with the configured amount  | various  |  
 | Set Customer Identification if empty  | Sets the customer identification field if it's empty to the given value  | uuid, merchant transaction id, Pseudo Random (base-62 encoded UUID with 14 characters)  |  
 | Overwrite customer billing country with:  | Overwrites the customer billing country to a fixed value. This can be used e.g. for methods, which enforce a certain billing country, e.g. P24  | country code  |  

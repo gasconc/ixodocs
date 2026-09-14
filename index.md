@@ -1,8 +1,8 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-09-07 | Total pages: 812
+> Last updated: 2026-09-14 | Total pages: 816
 
-## Ixopay Developer Hub (234 pages)
+## Ixopay Developer Hub (236 pages)
 
 ### Adapters
 - [Emerchantpay Genesis PCI](docs/ixopay/adapters/emerchantpaygenesis-pci.md) — Emerchantpay Genesis PCI
@@ -139,6 +139,7 @@
 - [Features](docs/ixopay/guides/features.md) — In this section of the documentation, you will find detailed guides on the additional features the IXOPAY platformhttps://www.ixopay.com provides....
 - [3-D Secure](docs/ixopay/guides/features/3d-secure.md) — 3-D Secure
 - [Customer profiles](docs/ixopay/guides/features/customer-profiles.md) — Customer profiles
+- [External tokenization](docs/ixopay/guides/features/external-tokenization.md) — External tokenization
 - [Pay-by-Link](docs/ixopay/guides/features/pay-by-link.md) — The Pay-by-Link feature offers a seamless, almost no-code integration for creating secure payment links. Pay-by-Links can be shared with customers...
 - [Smart transaction routing](docs/ixopay/guides/features/smart-transaction-routing.md) — Smart transaction routing
 - [Tokenization & PCI](docs/ixopay/guides/features/tokenization.md) — Tokenization & PCI
@@ -232,6 +233,7 @@
 - [Forter](docs/ixopay/reference/features/risk-checks/external/forter.md) — Risk checkshttps://documentation.ixopay.com/docs/reference/features/risk-checks  External risk checkshttps://documentation.ixopay.com/docs/referenc...
 - [Riskified](docs/ixopay/reference/features/risk-checks/external/riskified.md) — Risk checkshttps://documentation.ixopay.com/docs/reference/features/risk-checks  External risk checkshttps://documentation.ixopay.com/docs/referenc...
 - [Scheduler](docs/ixopay/reference/features/scheduler.md) — The Scheduler feature in IXOPAY platformhttps://www.ixopay.com provides an efficient way to manage recurring transactions, creating a more streamli...
+- [External tokenization](docs/ixopay/reference/features/tokenization/external-tokenization.md) — Tokenization & PCI  External tokenization
 - [PCI data migration](docs/ixopay/reference/features/tokenization/pci-data-migration.md) — Tokenization & PCI  PCI data migration
 - [Integration](docs/ixopay/reference/integration.md) — Welcome to the integration section of our reference documentation. This section is designed to provide you with all the information needed to succe...
 - [Callbacks](docs/ixopay/reference/integration/callbacks.md) — Callbacks are an integral part of the IXOPAY platformhttps://www.ixopay.com payment processing workflow. They serve as notifications sent by IXOPAY...
@@ -250,12 +252,13 @@
 - [Hosted payment pages](docs/ixopay/reference/integration/processing-options/hosted-payment-pages.md) — Processing optionshttps://documentation.ixopay.com/docs/reference/integration/processing-options  Hosted payment pages
 - [Server-to-server](docs/ixopay/reference/integration/processing-options/server-to-server.md) — Processing optionshttps://documentation.ixopay.com/docs/reference/integration/processing-options
 
-## Ixopay User Manual (150 pages)
+## Ixopay User Manual (152 pages)
 
 ### Manual
 - [Bank Of America](docs/ixopay/manual/adapters/bank-of-america.md) — The Bank of America Adapter in the IXOPAY platformhttps://www.ixopay.com differs in its behavior from an ordinary Adapter. It does not directly com...
 - [Jazzcash](docs/ixopay/manual/adapters/jazzcash.md) — Adapter Jazzcash The Jazzcash adapter is integrated, but has not been actively used for an extended period, or could not undergo thorough testing....
 - [JCC Payment Systems](docs/ixopay/manual/adapters/jccpaymentsystems.md) — JCC Payment Systems
+- [JPMorgan ACH Direct Debit](docs/ixopay/manual/adapters/jpmorgan-ach-direct-debit.md) — JPMorgan ACH Direct Debit
 - [Kalixa/PXP](docs/ixopay/manual/adapters/kalixa.md) — Configure the following parameters for the Connector see Connector Detail Overview - Kalixa Creditcard - Vault Configuration: 1. Fill in the mandat...
 - [Kassa Compleet](docs/ixopay/manual/adapters/kassacompleet.md) — Kassa Compleet
 - [KeyBS](docs/ixopay/manual/adapters/keybs.md) — Configure the following parameters for the Connector see Connector Config - KeyBS: 1. Fill in the mandatory Username 2.
@@ -306,6 +309,7 @@
 - [Pay By Link](docs/ixopay/manual/connector-specific-features/paybylink.md) — Connector Specific Featureshttps://documentation.ixopay.com/manual/docs/connector-specific-features  Pay By Link
 - [Connector](docs/ixopay/manual/connector.md) — In this section of the manual, you’ll find guidance to configure and manage payment connectors— set up credentials, routing, and behaviors for your...
 - [Advanced Configuration](docs/ixopay/manual/connector/advanced-configuration.md) — Advanced Configuration
+- [Allowed Card Schemes](docs/ixopay/manual/connector/advanced-configuration/allowed-card-schemes.md) — Advanced Configurationhttps://documentation.ixopay.com/manual/docs/connector/advanced-configuration  Allowed Card Schemes
 - [ApplePay & Google Pay](docs/ixopay/manual/connector/advanced-configuration/applepay-googlepay.md) — Advanced Configurationhttps://documentation.ixopay.com/manual/docs/connector/advanced-configuration  ApplePay & Google Pay
 - [Convert Register to Debit Transaction](docs/ixopay/manual/connector/advanced-configuration/convert-register-to-debit-transaction.md) — Advanced Configurationhttps://documentation.ixopay.com/manual/docs/connector/advanced-configuration  Convert Register to Debit Transaction
 - [Copy TX Data](docs/ixopay/manual/connector/advanced-configuration/copy-tx-data.md) — Advanced Configurationhttps://documentation.ixopay.com/manual/docs/connector/advanced-configuration  Copy TX Data

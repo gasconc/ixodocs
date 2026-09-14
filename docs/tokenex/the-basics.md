@@ -9,7 +9,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/the-basics
 portal: tokenex
-updated: '2026-09-07'
+updated: '2026-09-14'
 related: []
 ---
 
