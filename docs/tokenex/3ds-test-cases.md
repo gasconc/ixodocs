@@ -14,7 +14,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds-test-cases
 portal: tokenex
-updated: '2026-09-14'
+updated: '2026-09-21'
 related: []
 ---
 

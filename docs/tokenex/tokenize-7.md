@@ -13,7 +13,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenize-7
 portal: tokenex
-updated: '2026-09-14'
+updated: '2026-09-21'
 related: []
 ---
 
@@ -39,7 +39,7 @@ This method is used to request that a network token be provisioned for a given p
 | tx-data-encrypted  |  `true`/`false`   
 This header is used to indicate whether the Data and CVV fields have been encrypted using [browser-based encryption](https://documentation.ixopay.com/modules/docs/tokenex/browser-based-encryption-1)  |  
 **Request Body Parameters** :
-* Denotes a Required Field. Some optional fields may be required for certain card brands. Please read descriptions for full details.  
+* Denotes a Required Field. Some optional fields may be required for certain card brands. Please read descriptions for full details.   
 | Parameter  | Type  | Description  |  
 | --- | --- | --- |  
 |  `data`*  | string  | Either the PAN or an existing TokenEx token that represents a PAN.  |  

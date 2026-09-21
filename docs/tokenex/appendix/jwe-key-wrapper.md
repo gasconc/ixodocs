@@ -5,7 +5,7 @@ tags:
 - tokenex
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/appendix/jwe-key-wrapper
 portal: tokenex
-updated: '2026-09-14'
+updated: '2026-09-21'
 related: []
 ---
 
@@ -14,3 +14,4 @@ related: []
 
 # JWE Key Wrapper
 Use this tool to encrypt key material before importing it into the TokenEx Key Management Service. Paste the platform RSA public key from the Key Management page, provide your key material (PEM text, raw AES bytes, or a binary PFX/CRT file), and click **Wrap as JWE**. The resulting JWE compact serialization can be pasted directly into the Import Key dialog.
+Loading…

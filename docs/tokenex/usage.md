@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: ''
 portal: tokenex
-updated: '2026-09-14'
+updated: '2026-09-21'
 related: []
 ---
 

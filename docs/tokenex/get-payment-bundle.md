@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/get-payment-bundle
 portal: tokenex
-updated: '2026-09-14'
+updated: '2026-09-21'
 related: []
 ---
 
@@ -37,7 +37,7 @@ This method is used to retrieve a cryptogram for an existing TokenEx token that 
 | tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
 | tx-apikey*  | Controls your access to individual function in the API  |  
 **Request Body Parameters** :
-A denotes an applicable field, A* denotes required under certain conditions, N/A is not applcable, and * denotes a required field under all conditions  
+A denotes an applicable field, A* denotes required under certain conditions, N/A is not applcable, and * denotes a required field under all conditions   
 | Parameter  | Description  | Visa  | Mastercard  | AMEX  |  
 | --- | --- | --- | --- | --- |  
 | bundleMetaData  | The type of bundle to be generated. Possible values: Cryptogram, Token, TokenCryptogram. Defaults to "Cryptogram".  | A  | A  | A  |  

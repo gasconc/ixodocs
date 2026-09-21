@@ -13,7 +13,7 @@ tags:
 - reconciliation
 source_url: https://documentation.ixopay.com/manual/adapters/mercadopago
 portal: ixopay-manual
-updated: '2026-09-14'
+updated: '2026-09-21'
 related: []
 ---
 

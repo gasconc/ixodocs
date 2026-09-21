@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-09-14T12:36:44+00:00_
+_Generated at 2026-09-21T12:42:29+00:00_
 
-**345 missing** · **3 stale** across 3 source(s).
+**346 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **953** · Indexed: **608** · Missing: **345** · Stale: **2**
+- Published: **954** · Indexed: **608** · Missing: **346** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -188,6 +188,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/zonapagos
 - https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/payment.js
 - https://documentation.ixopay.com/docs/overview
+- https://documentation.ixopay.com/docs/reference/appendix/regions
 - https://documentation.ixopay.com/docs/reference/integration/payment.js
 - https://documentation.ixopay.com/docs/reference/integration/processing-options/payment.js
 - https://documentation.ixopay.com/manual/401
