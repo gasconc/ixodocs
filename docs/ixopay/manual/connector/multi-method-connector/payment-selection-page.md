@@ -15,7 +15,7 @@ tags:
 - direct-debit
 source_url: https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page
 portal: ixopay-manual
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -32,7 +32,7 @@ In order to use **Payment Selection Page** a Multi-Method (Meta-)Connector is ne
   4. Publish Payment Template in Fast Editor
 
 In comparison to a Connector, Mullit-Method (Meta-) Connectors can be found under a different path in the [Fast Editor](https://documentation.ixopay.com/manual/docs/fast):
-`/vhosts/[host address, e.g.sandbox.ixopay.com]/layouts/default/internal-pages/payment/meta/index.en.php`
+`/vhosts/[host address, e.g. sandbox.ixopay.com]/layouts/default/internal-pages/payment/meta/index.en.php`
 ![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview-payment-templates.7e37d6b.1280.png)Connector Details Overview![Path Fast Editor](https://documentation.ixopay.com/manual/assets/ideal-img/path-fast-editor-.a42c488.1280.png)Path Fast Editor
 tip
 While it can be handy to edit the page through the Connector edit view, remember that you need to [publish changes via the FAST Editor](https://documentation.ixopay.com/manual/docs/fast) in order the changes take effect.

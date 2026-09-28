@@ -15,7 +15,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/events
 portal: tokenex
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -38,7 +38,8 @@ Each event object returned from the iFrame will contain properties relevant to t
 | cvvFocus  | The input in the cvv iFrame gains focus.  |  
 | cvvBlur  | The input in the cvv iFrame loses focus.  |  
 | notice  | Raised when the iFrame is loaded by providing an expiration date time stamp as yyyyMMddHHmmss in UTC (current time + 20 mins) and a second notice one minute prior to expiration.   
-Also provides 3DS Fingerprinting event notifications.  |  
+Also reports the outcome of 3DS Device Fingerprinting with the payload `{ "type": "3DS Device Fingerprinting", "success": true | false }`.  |  
+| 3DS  | (CVV Only Mode with `use3DS` only) Raised when the SupportedVersions call triggered on iFrame load completes, before device fingerprinting begins (see [3DS event fields](https://documentation.ixopay.com/modules/docs/tokenex/events#3ds) below).  |  
 | expired  | Raised when the IFrame has expired.  |  
 | toggleMask  | The toggleMask command was invoked (see ToggleMask and ToggleCvvMask event fields below)  |  
 | toggleCvvMask  | The toggleCvvMask command was invoked (see ToggleMask and ToggleCvvMask event fields below)  |  
@@ -194,6 +195,22 @@ private string GenerateHMAC(string token, string customerSecretKey)
   return result;  
 
 }  
+
+```## 3DS[​](https://documentation.ixopay.com/modules/docs/tokenex/events#3ds "Direct link to 3DS")
+Raised in CVV Only Mode when `use3DS` is true. The SupportedVersions call runs automatically when the iFrame loads, using the token from the configuration object, and this event delivers the results before device fingerprinting begins.  
+| Field  | Type  | Description  |  
+| --- | --- | --- |  
+| threeDSecureResponse  | array  | The SupportedVersions results, one entry per Directory Server. Entry `[0]` carries the `threeDSMethodURL` (when device fingerprinting is supported) and the `threeDSServerTransID` needed for the [ThreeDSecure/Authentications](https://documentation.ixopay.com/modules/docs/tokenex/authentications) request.  |  
+| recommended3dsVersion  | object  | The highest supported 3DS version of the three servers.  |  
+| referenceNumber  | string  | The TokenEx reference number for the SupportedVersions request.  |  
+JavaScript
+```
+
+iframe.on("3DS", function (data) {  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
 
 ```## Error[​](https://documentation.ixopay.com/modules/docs/tokenex/events#error "Direct link to Error")  
 | Field  | Type  | Description  |  
@@ -482,6 +499,15 @@ private string GenerateHMAC(string token, string customerSecretKey)
 ```
 ```
 
+iframe.on("3DS", function (data) {  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
+
+```
+```
+
 { "inputMasked": true }  
 
 ```
@@ -702,6 +728,15 @@ private string GenerateHMAC(string token, string customerSecretKey)
 ```
 ```
 
+iframe.on("3DS", function (data) {  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
+
+```
+```
+
 { "inputMasked": true }  
 
 ```
@@ -918,6 +953,15 @@ private string GenerateHMAC(string token, string customerSecretKey)
   return result;  
 
 }  
+
+```
+```
+
+iframe.on("3DS", function (data) {  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
 
 ```
 ```
@@ -1022,6 +1066,7 @@ private string GenerateHMAC(string token, string customerSecretKey)
 ```  * [Validate](https://documentation.ixopay.com/modules/docs/tokenex/events#validate)
   * [Tokenize](https://documentation.ixopay.com/modules/docs/tokenex/events#tokenize)
   * [Trusting the Token](https://documentation.ixopay.com/modules/docs/tokenex/events#trusting-the-token)
+  * [3DS](https://documentation.ixopay.com/modules/docs/tokenex/events#3ds)
   * [Error](https://documentation.ixopay.com/modules/docs/tokenex/events#error)
   * [ToggleMask and ToggleCvvMask](https://documentation.ixopay.com/modules/docs/tokenex/events#togglemask-and-togglecvvmask)
   * [AutoComplete Values](https://documentation.ixopay.com/modules/docs/tokenex/events#autocomplete-values)
@@ -1149,6 +1194,15 @@ private string GenerateHMAC(string token, string customerSecretKey)
 ```
 ```
 
+iframe.on("3DS", function (data) {  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
+
+```
+```
+
 { "inputMasked": true }  
 
 ```
@@ -1365,6 +1419,15 @@ private string GenerateHMAC(string token, string customerSecretKey)
   return result;  
 
 }  
+
+```
+```
+
+iframe.on("3DS", function (data) {  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
 
 ```
 ```

@@ -10,11 +10,11 @@ tags:
 - json
 - 3d-secure
 - ixopay
+- psp
 - authorization
-- iframe
 source_url: https://documentation.ixopay.com/api/transaction/continue-dcc
 portal: ixopay-dev
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -113,6 +113,11 @@ HTML content the customer must be shown, only set if `"returnType": "HTML"`.
 **paymentDescriptor** string
 **paymentMethod** string
 Payment method used - if it has already been determined.
+**adapterMerchantTransactionId** AdapterMerchantTransactionId
+The merchant transaction reference sent to the payment service provider (PSP) for this transaction, as recorded by IXOPAY platform.
+Use this value to match the transaction with adapter or PSP records, including reconciliation data. It is returned only for supported adapter flows and omitted when unavailable. If retries produce multiple identifiers, Status API responses contain the latest recorded value.
+**Possible values:** `non-empty` and `<= 64 characters`
+**Example:**`12345000000099999`
 **returnData** object
 **_TYPE** ReturnDataTyperequired
 **Possible values:** [`cardData`, `phoneData`, `ibanData`, `walletData`, `achData`]

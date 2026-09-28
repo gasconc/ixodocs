@@ -12,7 +12,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/lifecycle-management
 portal: tokenex
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 

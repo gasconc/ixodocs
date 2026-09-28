@@ -13,10 +13,10 @@ tags:
 - checks-https-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-risk-rules-checks-direct-link-checks
 - ixopay
 - chargeback
-- credit-card
+- refund
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-rules
 portal: ixopay-manual
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -39,6 +39,16 @@ Threshold check for the total volume of Transactions
   * for a defined period (hours/ days)
   * for a defined reference source (Connector or Merchant of the current Transaction)
   * volume is defined by preauthorize & debit Transactions amounts
+
+__**Total payout amount**
+Total payout amount for [Connector, Merchant] in [last x hours, last x days] [< >] [x]
+Threshold check for the total volume of payout Transactions
+  * for a defined period (hours/ days), measured as a rolling window from the current time, not a calendar-aligned day/week/month, up to a maximum of 50 days
+  * for a defined reference source (Connector or Merchant of the current Transaction)
+  * volume is defined by payout Transaction amounts only
+  * the payout that would cross the configured limit is the one that is blocked, not the next one after it
+  * the threshold amount can be compared in a specific currency (only payouts in that exact currency count), or in the tenant's Base Currency (other currencies are converted before being added to the total); if no conversion rate is available, the check errors instead of silently counting as zero
+  * refund Transactions are not included in this threshold
 
 __**Total amount of customer**
 Total Transaction amount of this customer for [Connector, Merchant] in [last x hours] [< >] [x]

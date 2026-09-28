@@ -1,8 +1,8 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-09-21 | Total pages: 816
+> Last updated: 2026-09-28 | Total pages: 817
 
-## Ixopay Developer Hub (236 pages)
+## Ixopay Developer Hub (237 pages)
 
 ### Adapters
 - [Emerchantpay Genesis PCI](docs/ixopay/adapters/emerchantpaygenesis-pci.md) — Emerchantpay Genesis PCI
@@ -175,6 +175,7 @@
 ### Reference
 - [Appendix](docs/ixopay/reference/appendix.md) — The Appendix section is where you can find additional information and resources related to our documentation. This section contains supplementary m...
 - [Error codes](docs/ixopay/reference/appendix/error-codes.md) — Error codes
+- [Regions](docs/ixopay/reference/appendix/regions.md) — The IXOPAYhttps://www.ixopay.com Payment Orchestration Platform is available in two regions: Europe EU and the United States US. In each region, IX...
 - [Concepts](docs/ixopay/reference/concepts.md) — Welcome to the concepts section of the IXOPAY platformhttps://www.ixopay.com reference documentation. This part provides an overview of important c...
 - [Currencies](docs/ixopay/reference/concepts/currencies.md) — The API of the IXOPAY platformhttps://www.ixopay.com supports a wide range of currencies for transactions. However, it’s important to adhere to spe...
 - [Transactions](docs/ixopay/reference/concepts/transactions.md) — Transactions are the fundamental unit of operation in IXOPAY platformhttps://www.ixopay.com. They are used to execute payments, reference for follo...

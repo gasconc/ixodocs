@@ -15,7 +15,7 @@ tags:
 - tokenization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/nuvei
 portal: tokenex
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 

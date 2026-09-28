@@ -15,7 +15,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-orchestration/alternative-payment-methods
 portal: tokenex
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -26,7 +26,7 @@ related: []
 Extend your TokenEx integration to accept Alternative Payment Methods (APMs) — without adding new infrastructure or managing additional payment relationships.
 ## Overview[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-orchestration/alternative-payment-methods#overview "Direct link to Overview")
 TokenEx APM Support enables merchants to accept non-card payment methods — such as PayPal, Venmo, Skrill, and Buy Now Pay Later (BNPL) methods — through the same Universal Token Transaction API (UTTAPI) used for card-based payment services today.
-APM transactions are routed through the IXOPAY Orchestration layer via a connector configured for your account. You do not need to integrate directly with each APM provider. Your integration point remains UTTAPI.
+APM transactions are routed through the [IXOPAY](https://www.ixopay.com) Orchestration layer via a connector configured for your account. You do not need to integrate directly with each APM provider. Your integration point remains UTTAPI.
 ## Who This Is For[​](https://documentation.ixopay.com/modules/docs/tokenex/payment-orchestration/alternative-payment-methods#who-this-is-for "Direct link to Who This Is For")
 TokenEx APM Support is designed for merchants who:
   * Have an existing TokenEx subscription with Payment Services enabled

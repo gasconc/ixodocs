@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/usage
 portal: ixopay-modules
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/api/transaction/status-by-merchant-transaction-id
 portal: ixopay-dev
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -461,6 +461,11 @@ Transaction routing and cascading details.
 Present only if tracing was enabled in the request.
 **transactionStatus** TransactionStatus
 **Possible values:** [`SUCCESS`, `PENDING`, `REDIRECT`, `CANCELLED`, `ERROR`]
+**adapterMerchantTransactionId** AdapterMerchantTransactionId
+The merchant transaction reference sent to the payment service provider (PSP) for this transaction, as recorded by IXOPAY platform.
+Use this value to match the transaction with adapter or PSP records, including reconciliation data. It is returned only for supported adapter flows and omitted when unavailable. If retries produce multiple identifiers, Status API responses contain the latest recorded value.
+**Possible values:** `non-empty` and `<= 64 characters`
+**Example:**`12345000000099999`
 **schedules** object[]
   * Array [
 **scheduleId** string

@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/reference/features/payment-method-selection
 portal: ixopay-dev
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 

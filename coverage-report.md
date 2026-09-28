@@ -1,6 +1,6 @@
 # Coverage Audit Report
 
-_Generated at 2026-09-21T12:42:29+00:00_
+_Generated at 2026-09-28T13:44:33+00:00_
 
 **346 missing** · **3 stale** across 3 source(s).
 
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **954** · Indexed: **608** · Missing: **346** · Stale: **2**
+- Published: **955** · Indexed: **609** · Missing: **346** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -71,6 +71,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/eftex
 - https://documentation.ixopay.com/adapters/egcp-pci
 - https://documentation.ixopay.com/adapters/emerchantpay
+- https://documentation.ixopay.com/adapters/fiserv-commerce-hub
 - https://documentation.ixopay.com/adapters/fiuu
 - https://documentation.ixopay.com/adapters/fortumo
 - https://documentation.ixopay.com/adapters/gatewayhub
@@ -188,7 +189,6 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/zonapagos
 - https://documentation.ixopay.com/docs/guides/getting-started/accept-payments/payment.js
 - https://documentation.ixopay.com/docs/overview
-- https://documentation.ixopay.com/docs/reference/appendix/regions
 - https://documentation.ixopay.com/docs/reference/integration/payment.js
 - https://documentation.ixopay.com/docs/reference/integration/processing-options/payment.js
 - https://documentation.ixopay.com/manual/401

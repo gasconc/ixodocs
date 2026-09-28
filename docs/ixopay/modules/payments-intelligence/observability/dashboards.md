@@ -17,7 +17,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/dashboards
 portal: ixopay-modules
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 

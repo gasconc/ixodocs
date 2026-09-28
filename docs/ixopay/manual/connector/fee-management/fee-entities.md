@@ -10,7 +10,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector/fee-management/fee-entities
 portal: ixopay-manual
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 

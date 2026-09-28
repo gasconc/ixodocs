@@ -14,7 +14,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/api/pci/preauthorize
 portal: ixopay-dev
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -855,6 +855,97 @@ Two-digit expiration month of the credit card.
 Four-digit expiration year of the credit card.
 **Possible values:** Value must match regular expression `^[0-9]{4}$`
 **Example:**`2027`
+**paymentToken** object
+An externally provisioned payment token from a wallet provider or network token service provider. Use the `type` field to select the appropriate schema.
+**type** string
+An externally provisioned payment token from a wallet provider or network token service provider. Use the `type` field to select the appropriate schema.
+**Possible values:** [`EXTERNAL-APPLEPAY`, `EXTERNAL-GOOGLEPAY`, `EXTERNAL-NETWORK`]
+    * EXTERNAL-APPLEPAY
+    * EXTERNAL-GOOGLEPAY
+    * EXTERNAL-NETWORK
+**type** stringrequired
+Token type discriminator. One of `EXTERNAL-APPLEPAY`, `EXTERNAL-GOOGLEPAY`, or `EXTERNAL-NETWORK`.
+**Possible values:** [`EXTERNAL-NETWORK`, `EXTERNAL-GOOGLEPAY`, `EXTERNAL-APPLEPAY`]
+**token** stringrequired
+The payment token value from the external provider.
+**cryptogram** stringrequired
+Authentication cryptogram provided by the token service. For Google Pay, the cryptogram is only present for the `CRYPTOGRAM_3DS` authentication method; for the `PAN_ONLY` method it must be omitted or left empty. The authentication method is derived from this field: a present cryptogram is treated as `CRYPTOGRAM_3DS`, an omitted or empty cryptogram as `PAN_ONLY`. In both cases the externally provisioned token is submitted here rather than through the standard credit card fields.
+**paymentAccountReference** string
+Payment Account Reference (PAR). Alphanumeric, max 29 characters.
+**Possible values:** `<= 29 characters`, Value must match regular expression `^[A-Za-z0-9]+$`
+**tokenExpirationMonth** stringrequired
+Token expiration month in `MM` format.
+**Possible values:** Value must match regular expression `^(0[1-9]|1[0-2])$`
+**Example:**`07`
+**tokenExpirationYear** stringrequired
+Token expiration year in `YYYY` format.
+**Possible values:** Value must match regular expression `^[0-9]{4}$`
+**Example:**`2027`
+**eciIndicator** string
+Electronic Commerce Indicator (ECI) as a 2-digit string. This value may be empty after decryption of the payment token. Pass it through exactly as received—even when empty—rather than substituting a default value of your own.
+**Possible values:** Value must match regular expression `^([0-9]{2})?$`
+**Example:**`05`
+**tokenExpirationDay** stringrequired
+Token expiration day in `DD` format.
+**Possible values:** Value must match regular expression `^(0[1-9]|[12][0-9]|3[01])$`
+**Example:**`01`
+**deviceManufacturerIdentifier** string
+Device manufacturer identifier from the Apple Pay payment token.
+**type** stringrequired
+Token type discriminator. One of `EXTERNAL-APPLEPAY`, `EXTERNAL-GOOGLEPAY`, or `EXTERNAL-NETWORK`.
+**Possible values:** [`EXTERNAL-NETWORK`, `EXTERNAL-GOOGLEPAY`, `EXTERNAL-APPLEPAY`]
+**token** stringrequired
+The payment token value from the external provider.
+**cryptogram** string
+Authentication cryptogram provided by the token service. For Google Pay, the cryptogram is only present for the `CRYPTOGRAM_3DS` authentication method; for the `PAN_ONLY` method it must be omitted or left empty. The authentication method is derived from this field: a present cryptogram is treated as `CRYPTOGRAM_3DS`, an omitted or empty cryptogram as `PAN_ONLY`. In both cases the externally provisioned token is submitted here rather than through the standard credit card fields.
+**paymentAccountReference** string
+Payment Account Reference (PAR). Alphanumeric, max 29 characters.
+**Possible values:** `<= 29 characters`, Value must match regular expression `^[A-Za-z0-9]+$`
+**tokenExpirationMonth** stringrequired
+Token expiration month in `MM` format.
+**Possible values:** Value must match regular expression `^(0[1-9]|1[0-2])$`
+**Example:**`07`
+**tokenExpirationYear** stringrequired
+Token expiration year in `YYYY` format.
+**Possible values:** Value must match regular expression `^[0-9]{4}$`
+**Example:**`2027`
+**eciIndicator** string
+Electronic Commerce Indicator (ECI) as a 2-digit string. This value may be empty after decryption of the payment token. Pass it through exactly as received—even when empty—rather than substituting a default value of your own.
+**Possible values:** Value must match regular expression `^([0-9]{2})?$`
+**Example:**`05`
+**type** stringrequired
+Token type discriminator. One of `EXTERNAL-APPLEPAY`, `EXTERNAL-GOOGLEPAY`, or `EXTERNAL-NETWORK`.
+**Possible values:** [`EXTERNAL-NETWORK`, `EXTERNAL-GOOGLEPAY`, `EXTERNAL-APPLEPAY`]
+**token** stringrequired
+The payment token value from the external provider.
+**cryptogram** string
+Authentication cryptogram provided by the token service. For Google Pay, the cryptogram is only present for the `CRYPTOGRAM_3DS` authentication method; for the `PAN_ONLY` method it must be omitted or left empty. The authentication method is derived from this field: a present cryptogram is treated as `CRYPTOGRAM_3DS`, an omitted or empty cryptogram as `PAN_ONLY`. In both cases the externally provisioned token is submitted here rather than through the standard credit card fields.
+**paymentAccountReference** string
+Payment Account Reference (PAR). Alphanumeric, max 29 characters.
+**Possible values:** `<= 29 characters`, Value must match regular expression `^[A-Za-z0-9]+$`
+**tokenExpirationMonth** stringrequired
+Token expiration month in `MM` format.
+**Possible values:** Value must match regular expression `^(0[1-9]|1[0-2])$`
+**Example:**`07`
+**tokenExpirationYear** stringrequired
+Token expiration year in `YYYY` format.
+**Possible values:** Value must match regular expression `^[0-9]{4}$`
+**Example:**`2027`
+**eciIndicator** string
+Electronic Commerce Indicator (ECI) as a 2-digit string. This value may be empty after decryption of the payment token. Pass it through exactly as received—even when empty—rather than substituting a default value of your own.
+**Possible values:** Value must match regular expression `^([0-9]{2})?$`
+**Example:**`05`
+**cardHolder** string
+Cardholder name associated with the underlying PAN.
+**panUniqueReference** string
+Unique reference for the underlying PAN assigned by the token service provider.
+**tokenUniqueReference** string
+Unique reference for the network token assigned by the token service provider.
+**panLastFourDigits** string
+Last four digits of the underlying PAN.
+**Possible values:** `<= 4 characters`
+**tokenRequestorId** string
+Identifier of the token requestor registered with the card network.
 **referenceSchemeTransactionIdentifier** string
 **Possible values:** `<= 50 characters`
 **Example:**`IXHKDJRR462950`
@@ -987,6 +1078,11 @@ HTML content the customer must be shown, only set if `"returnType": "HTML"`.
 **paymentDescriptor** string
 **paymentMethod** string
 Payment method used - if it has already been determined.
+**adapterMerchantTransactionId** AdapterMerchantTransactionId
+The merchant transaction reference sent to the payment service provider (PSP) for this transaction, as recorded by IXOPAY platform.
+Use this value to match the transaction with adapter or PSP records, including reconciliation data. It is returned only for supported adapter flows and omitted when unavailable. If retries produce multiple identifiers, Status API responses contain the latest recorded value.
+**Possible values:** `non-empty` and `<= 64 characters`
+**Example:**`12345000000099999`
 **returnData** object
 **_TYPE** ReturnDataTyperequired
 **Possible values:** [`cardData`, `phoneData`, `ibanData`, `walletData`, `achData`]
@@ -1940,6 +2036,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "expirationMonth": "06",  
     "expirationYear": "2027"  
   },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
+  },  
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",  
   "recipientAccountReferenceUuid": "string",  
   "includeTracing": true  
@@ -2198,1021 +2305,16 @@ Body required
     "expirationMonth": "06",
     "expirationYear": "2027"
   },
-  "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",
-  "recipientAccountReferenceUuid": "string",
-  "includeTracing": true
-}
-
-```
-```
-POST 
-## https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize
-
-```
-```
-
-{  
-
-  "merchantTransactionId": "2019-09-02-0002",  
-
-  "extraData": {  
-
-    "someKey": "someValue",  
-
-    "otherKey": "otherValue"  
-
-  },  
-
-  "merchantMetaData": "merchantRelevantData",  
-
-  "amount": "9.99",  
-
-  "surchargeAmount": "0.9",  
-
-  "currency": "EUR",  
-
-  "successUrl": "https://shop.example.org/checkout/success",  
-
-  "cancelUrl": "https://shop.example.org/checkout/cancel",  
-
-  "errorUrl": "https://shop.example.org/checkout/error",  
-
-  "callbackUrl": "https://api.example.org/callback",  
-
-  "description": "Example Product",  
-
-  "cardData": {  
-
-    "cardHolder": "Alex Smith",  
-
-    "pan": "4111111111111111",  
-
-    "cvv": "123",  
-
-    "expirationMonth": "04",  
-
-    "expirationYear": "2030"  
-
-  },  
-
-  "customer": {  
-
-    "identification": "c0001",  
-
-    "firstName": "Alex",  
-
-    "lastName": "Smith"  
-
-  },  
-
-  "threeDSecureData": {  
-
-    "3dsecure": "MANDATORY"  
-
-  },  
-
-  "language": "en"  
-
-}  
-
-```
-```
-
-{  
-
-  "success": true  
-
-}  
-
-```
-```
-
-{  
-
-  "success": true,  
-
-  "uuid": "abcde12345abcde12345",  
-
-  "purchaseId": "20190927-abcde12345abcde12345",  
-
-  "returnType": "FINISHED",  
-
-  "paymentMethod": "Creditcard"  
-
-}  
-
-```
-```
-
-{  
-
-  "success": true,  
-
-  "uuid": "abcde12345abcde12345",  
-
-  "purchaseId": "20190927-abcde12345abcde12345",  
-
-  "returnType": "REDIRECT",  
-
-  "redirectUrl": "https://secure.ixopay.com/redirect-url",  
-
-  "redirectQRCode": "data:image/png;base64,ABCDEFGHIJKLMNOPQRSTUVWXYZ",  
-
-  "paymentMethod": "Creditcard"  
-
-}  
-
-```
-```
-
-{  
-
-  "success": false,  
-
-  "uuid": "abcde12345abcde12345",  
-
-  "purchaseId": "20200924-abcde12345abcde12345",  
-
-  "returnType": "ERROR",  
-
-  "paymentMethod": "Dummy",  
-
-  "errors": [  
-
-    {  
-
-      "errorMessage": "Dummy error",  
-
-      "errorCode": 1003,  
-
-      "adapterMessage": "Dummy adapter error"  
-
-    }  
-
-  ]  
-
-}  
-
-```
-```
-
-{  
-
-  "success": true  
-
-}  
-
-```
-```
-
-{  
-
-  "success": false,  
-
-  "errorMessage": "The transaction ID '20190823062178' already exists!",  
-
-  "errorCode": 3004  
-
-}  
-
-```
-```
-
-{  
-
-  "success": true  
-
-}  
-
-```
-```
-
-{  
-
-  "success": false,  
-
-  "errorMessage": "amount: 'amount' is required",  
-
-  "errorCode": 1002  
-
-}  
-
-```
-```
-POST 
-## {$request.body#/callbackUrl}
-
-```
-```
-
-{  
-
-  "uuid": "string",  
-
-  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
-
-  "purchaseId": "string",  
-
-  "transactionType": "DEBIT",  
-
-  "transactionSubType": "cb-resolved",  
-
-  "paymentMethod": "string",  
-
-  "amount": "9.99",  
-
-  "currency": "EUR",  
-
-  "surchargeAmount": "9.99",  
-
-  "totalAmount": "9.99",  
-
-  "dccData": {  
-
-    "remoteIdentifier": "string",  
-
-    "originalAmount": "9.99",  
-
-    "originalCurrency": "EUR",  
-
-    "convertedAmount": "9.99",  
-
-    "convertedCurrency": "EUR",  
-
-    "conversionRate": 0,  
-
-    "selectedCurrency": "string",  
-
-    "markUp": 0  
-
-  },  
-
-  "referenceUuid": "string",  
-
-  "errors": [  
-
-    {  
-
-      "message": "string",  
-
-      "code": "string",  
-
-      "adapterMessage": "string",  
-
-      "adapterCode": "string"  
-
-    }  
-
-  ],  
-
-  "chargebackData": {  
-
-    "originalUuid": "string",  
-
-    "originalMerchantTransactionId": "string",  
-
-    "amount": "9.99",  
-
-    "currency": "EUR",  
-
-    "reason": "string",  
-
-    "chargebackDateTime": "2001-02-03T04:05:06+02:00"  
-
-  },  
-
-  "chargebackReversalData": {  
-
-    "originalUuid": "string",  
-
-    "originalMerchantTransactionId": "string",  
-
-    "chargebackUuid": "string",  
-
-    "amount": "9.99",  
-
-    "currency": "EUR",  
-
-    "reason": "string",  
-
-    "reversalDateTime": "2001-02-03T04:05:06+02:00"  
-
-  },  
-
-  "extraData": {},  
-
-  "merchantMetaData": "string",  
-
-  "returnData": {  
-
-    "_TYPE": "cardData"  
-
-  },  
-
-  "payByLinkData": {  
-
-    "sendViaEmail": true,  
-
-    "cancelUrl": "string",  
-
-    "expiresAt": "2024-07-29T15:51:28.071Z"  
-
-  },  
-
-  "customer": {  
-
-    "identification": "string",  
-
-    "firstName": "string",  
-
-    "lastName": "string",  
-
-    "birthDate": "2001-02-03",  
-
-    "gender": "M",  
-
-    "billingAddress1": "string",  
-
-    "billingAddress2": "string",  
-
-    "billingCity": "string",  
-
-    "billingPostcode": "string",  
-
-    "billingState": "string",  
-
-    "billingCountry": "AT",  
-
-    "billingPhone": "+XX 1234567890",  
-
-    "shippingFirstName": "string",  
-
-    "shippingLastName": "string",  
-
-    "shippingCompany": "string",  
-
-    "shippingAddress1": "string",  
-
-    "shippingAddress2": "string",  
-
-    "shippingCity": "string",  
-
-    "shippingPostcode": "string",  
-
-    "shippingState": "string",  
-
-    "shippingCountry": "AT",  
-
-    "shippingPhone": "+XX 1234567890",  
-
-    "company": "string",  
-
-    "email": "string",  
-
-    "emailVerified": true,  
-
-    "ipAddress": "string",  
-
-    "nationalId": "string",  
-
-    "extraData": {},  
-
-    "paymentData": {  
-
-      "ibanData": {  
-
-        "iban": "string",  
-
-        "bic": "string",  
-
-        "mandateId": "string",  
-
-        "mandateDate": "2001-02-03"  
-
-      }  
-
-    }  
-
-  },  
-
-  "customerProfileData": {  
-
-    "profileGuid": "string",  
-
-    "customerIdentification": "string",  
-
-    "paymentToken": "string",  
-
-    "markAsPreferred": true  
-
-  },  
-
-  "splits": [  
-
-    {  
-
-      "identification": "string",  
-
-      "amount": "9.99",  
-
-      "currency": "EUR",  
-
-      "sellerMerchantGuid": "string",  
-
-      "sellerMerchantExternalId": "string",  
-
-      "commissionFee": {  
-
-        "amount": "9.99",  
-
-        "currency": "EUR"  
-
-      }  
-
-    }  
-
-  ],  
-
-  "tracingData": {  
-
-    "transactions": [  
-
-      {  
-
-        "uuid": "string",  
-
-        "sequence_number": 0,  
-
-        "status": "SUCCESS",  
-
-        "connector": {  
-
-          "guid": "string",  
-
-          "adapter_name": "string",  
-
-          "brand": "string"  
-
-        }  
-
-      }  
-
-    ]  
-
-  },  
-
-  "message": "string",  
-
-  "code": "string",  
-
-  "adapterMessage": "string",  
-
-  "adapterCode": "string",  
-
-  "result": "OK",  
-
-  "scheduleData": [  
-
-    {  
-
-      "scheduleId": "string",  
-
-      "scheduleStatus": "active",  
-
-      "scheduledAt": "2001-02-03T04:05:06+02:00",  
-
-      "merchantMetaData": "string"  
-
-    }  
-
-  ],  
-
-  "notificationSource": "reconciliation",  
-
-  "originalAmount": "string",  
-
-  "originalCurrency": "EUR"  
-
-}  
-
-```
-```
-
-"OK"  
-
-```
-```
-
-OK  
-
-```
-```
-**name:** basicAuth[](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
-as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
-To achieve this, the username and password are first concatenated with a `:` (colon) separator,
-and the resulting string is then Base64 encoded. Here is an example of how this process works:
-
-1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
-2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
-3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
-4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
-
-:::tip
-Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
-:::
-
-```
-```
-curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \  
--H 'Content-Type: application/json' \  
--H 'Accept: application/json' \  
--H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
--d '{  
-  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
-  "additionalId1": "string",  
-  "additionalId2": "string",  
-  "captureInMinutes": 0,  
-  "extraData": {},  
-  "pspPassthroughData": {},  
-  "merchantMetaData": "anyValue1|anotherValue2",  
-  "referenceUuid": "string",  
-  "amount": "9.99",  
-  "surchargeAmount": "9.99",  
-  "currency": "EUR",  
-  "successUrl": "https://shop.example.org/checkout/success",  
-  "cancelUrl": "https://shop.example.org/checkout/cancel",  
-  "errorUrl": "https://shop.example.org/checkout/error",  
-  "callbackUrl": "https://api.example.org/callback",  
-  "transactionToken": "string",  
-  "description": "string",  
-  "items": [  
-    {  
-      "identification": "string",  
-      "name": "string",  
-      "description": "string",  
-      "quantity": 0,  
-      "price": 0,  
-      "currency": "EUR",  
-      "l2l3Data": {  
-        "type": "string",  
-        "unit": "string",  
-        "unitPrice": "9.99",  
-        "discount": "9.99",  
-        "shippingAmount": "9.99",  
-        "taxAmount": "9.99",  
-        "taxRate": "9.99",  
-        "commodityCode": "string",  
-        "taxDetails": [  
-          {  
-            "type": "string",  
-            "amount": "9.99",  
-            "rate": "9.99",  
-            "code": "string",  
-            "taxId": "string",  
-            "applied": "string",  
-            "exemptionCode": "string"  
-          }  
-        ]  
-      },  
-      "extraData": {}  
-    }  
-  ],  
-  "splits": [  
-    {  
-      "identification": "string",  
-      "amount": "9.99",  
-      "currency": "EUR",  
-      "sellerMerchantGuid": "string",  
-      "sellerMerchantExternalId": "string",  
-      "commissionFee": {  
-        "amount": "9.99",  
-        "currency": "EUR"  
-      }  
-    }  
-  ],  
-  "withRegister": true,  
-  "transactionIndicator": "SINGLE",  
-  "customer": {  
-    "identification": "string",  
-    "firstName": "string",  
-    "lastName": "string",  
-    "birthDate": "2001-02-03",  
-    "gender": "M",  
-    "billingAddress1": "string",  
-    "billingAddress2": "string",  
-    "billingCity": "string",  
-    "billingPostcode": "string",  
-    "billingState": "string",  
-    "billingCountry": "AT",  
-    "billingPhone": "+XX 1234567890",  
-    "shippingFirstName": "string",  
-    "shippingLastName": "string",  
-    "shippingCompany": "string",  
-    "shippingAddress1": "string",  
-    "shippingAddress2": "string",  
-    "shippingCity": "string",  
-    "shippingPostcode": "string",  
-    "shippingState": "string",  
-    "shippingCountry": "AT",  
-    "shippingPhone": "+XX 1234567890",  
-    "company": "string",  
-    "email": "string",  
-    "emailVerified": true,  
-    "ipAddress": "string",  
-    "nationalId": "string",  
-    "extraData": {},  
-    "paymentData": {  
-      "ibanData": {  
-        "iban": "string",  
-        "bic": "string",  
-        "mandateId": "string",  
-        "mandateDate": "2001-02-03"  
-      }  
-    }  
-  },  
-  "schedule": {  
-    "amount": "9.99",  
-    "currency": "EUR",  
-    "periodLength": 1,  
-    "periodUnit": "MONTH",  
-    "startDateTime": "2001-02-03T04:05:06+02:00",  
-    "merchantMetaData": {  
-      "plan": "monthly"  
-    },  
-    "callbackUrl": "https://api.example.org/callback"  
-  },  
-  "customerProfileData": {  
-    "profileGuid": "string",  
-    "customerIdentification": "string",  
-    "markAsPreferred": true  
-  },  
-  "threeDSecureData": {  
-    "3dsecure": "OFF",  
-    "schemeId": "CB",  
-    "channel": "01",  
-    "authenticationIndicator": "01",  
-    "cardholderAuthenticationMethod": "01",  
-    "cardholderAuthenticationDateTime": "2001-02-03T04:05:06+02:00",  
-    "cardHolderAuthenticationData": "string",  
-    "challengeIndicator": "01",  
-    "priorReference": "string",  
-    "priorAuthenticationMethod": "01",  
-    "priorAuthenticationDateTime": "2001-02-03 04:05",  
-    "priorAuthenticationData": "string",  
-    "cardholderAccountType": "01",  
-    "cardholderAccountAgeIndicator": "01",  
-    "cardholderAccountDate": "2001-02-03",  
-    "cardholderAccountChangeIndicator": "01",  
-    "cardholderAccountLastChange": "2001-02-03T04:05:06+02:00",  
-    "cardholderAccountPasswordChangeIndicator": "01",  
-    "cardholderAccountLastPasswordChange": "2001-02-03",  
-    "shippingAddressUsageIndicator": "01",  
-    "shippingAddressFirstUsage": "2001-02-03",  
-    "transactionActivityDay": 0,  
-    "transactionActivityYear": 0,  
-    "addCardAttemptsDay": 0,  
-    "purchaseCountSixMonths": 0,  
-    "suspiciousAccountActivityIndicator": "01",  
-    "shippingNameEqualIndicator": "01",  
-    "paymentAccountAgeIndicator": "01",  
-    "paymentAccountAgeDate": "2001-02-03",  
-    "billingAddressLine3": "string",  
-    "billingAddressState": "string",  
-    "shippingAddressLine3": "string",  
-    "shippingAddressState": "string",  
-    "billingShippingAddressMatch": "Y",  
-    "homePhoneCountryPrefix": "string",  
-    "homePhoneNumber": "string",  
-    "mobilePhoneCountryPrefix": "string",  
-    "mobilePhoneNumber": "string",  
-    "workPhoneCountryPrefix": "string",  
-    "workPhoneNumber": "string",  
-    "purchaseInstalData": 0,  
-    "shipIndicator": "01",  
-    "deliveryTimeframe": "01",  
-    "deliveryEmailAddress": "string",  
-    "reorderItemsIndicator": "01",  
-    "preOrderPurchaseIndicator": "01",  
-    "preOrderDate": "2001-02-03",  
-    "giftCardAmount": 0,  
-    "giftCardCurrency": "EUR",  
-    "giftCardCount": 0,  
-    "purchaseDate": "2001-02-03 04:05",  
-    "recurringExpiry": "2001-02-03",  
-    "recurringFrequency": 0,  
-    "transType": "01",  
-    "exemptionIndicator": "01",  
-    "threeRIIndicator": "01",  
-    "browserChallengeWindowSize": "01",  
-    "browserAcceptHeader": "string",  
-    "browserIpAddress": "string",  
-    "browserJavaEnabled": true,  
-    "browserLanguage": "string",  
-    "browserColorDepth": "1",  
-    "browserScreenHeight": 0,  
-    "browserScreenWidth": 0,  
-    "browserTimezone": 0,  
-    "browserUserAgent": "string",  
-    "browserPlatform": "string",  
-    "sdkInterface": "01",  
-    "sdkUiType": "01,02,05",  
-    "sdkAppID": "string",  
-    "sdkEncData": "string",  
-    "sdkEphemPubKey": "{\"kty\":\"EC\",\"crv\":\"P-256\",\"x\":\"...\",\"y\":\"...\"}",  
-    "sdkMaxTimeout": 0,  
-    "sdkReferenceNumber": "string",  
-    "sdkTransID": "string"  
-  },  
-  "payByLink": {  
-    "sendByEmail": false,  
-    "expirationInMinute": 300  
-  },  
-  "language": "string",  
-  "requestDcc": true,  
-  "dccData": {  
-    "remoteIdentifier": "string",  
-    "originalAmount": "9.99",  
-    "originalCurrency": "EUR",  
-    "convertedAmount": "9.99",  
-    "convertedCurrency": "EUR",  
-    "conversionRate": 0,  
-    "selectedCurrency": "string",  
-    "markUp": 0  
-  },  
-  "l2l3Data": {  
-    "taxAmount": "string",  
-    "vatRegistrationNumber": "string",  
-    "nationalTaxIncluded": "string",  
-    "discountAmount": "9.99",  
-    "commodityCode": "string",  
-    "freightAmount": "9.99",  
-    "freightTaxAmount": "9.99",  
-    "dutyAmount": "9.99",  
-    "taxDetails": [  
-      {  
-        "type": "string",  
-        "amount": "9.99",  
-        "rate": "9.99",  
-        "code": "string",  
-        "taxId": "string",  
-        "applied": "string",  
-        "exemptionCode": "string"  
-      }  
-    ]  
-  },  
-  "cardData": {  
-    "cardHolder": "Alex Smith",  
-    "pan": "4111111111111111",  
-    "cvv": "123",  
-    "expirationMonth": "06",  
-    "expirationYear": "2027"  
-  },  
-  "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",  
-  "recipientAccountReferenceUuid": "string",  
-  "includeTracing": true  
-}'  
-
-```
-```
-{
-  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
-  "additionalId1": "string",
-  "additionalId2": "string",
-  "captureInMinutes": 0,
-  "extraData": {},
-  "pspPassthroughData": {},
-  "merchantMetaData": "anyValue1|anotherValue2",
-  "referenceUuid": "string",
-  "amount": "9.99",
-  "surchargeAmount": "9.99",
-  "currency": "EUR",
-  "successUrl": "https://shop.example.org/checkout/success",
-  "cancelUrl": "https://shop.example.org/checkout/cancel",
-  "errorUrl": "https://shop.example.org/checkout/error",
-  "callbackUrl": "https://api.example.org/callback",
-  "transactionToken": "string",
-  "description": "string",
-  "items": [
-    {
-      "identification": "string",
-      "name": "string",
-      "description": "string",
-      "quantity": 0,
-      "price": 0,
-      "currency": "EUR",
-      "l2l3Data": {
-        "type": "string",
-        "unit": "string",
-        "unitPrice": "9.99",
-        "discount": "9.99",
-        "shippingAmount": "9.99",
-        "taxAmount": "9.99",
-        "taxRate": "9.99",
-        "commodityCode": "string",
-        "taxDetails": [
-          {
-            "type": "string",
-            "amount": "9.99",
-            "rate": "9.99",
-            "code": "string",
-            "taxId": "string",
-            "applied": "string",
-            "exemptionCode": "string"
-          }
-        ]
-      },
-      "extraData": {}
-    }
-  ],
-  "splits": [
-    {
-      "identification": "string",
-      "amount": "9.99",
-      "currency": "EUR",
-      "sellerMerchantGuid": "string",
-      "sellerMerchantExternalId": "string",
-      "commissionFee": {
-        "amount": "9.99",
-        "currency": "EUR"
-      }
-    }
-  ],
-  "withRegister": true,
-  "transactionIndicator": "SINGLE",
-  "customer": {
-    "identification": "string",
-    "firstName": "string",
-    "lastName": "string",
-    "birthDate": "2001-02-03",
-    "gender": "M",
-    "billingAddress1": "string",
-    "billingAddress2": "string",
-    "billingCity": "string",
-    "billingPostcode": "string",
-    "billingState": "string",
-    "billingCountry": "AT",
-    "billingPhone": "+XX 1234567890",
-    "shippingFirstName": "string",
-    "shippingLastName": "string",
-    "shippingCompany": "string",
-    "shippingAddress1": "string",
-    "shippingAddress2": "string",
-    "shippingCity": "string",
-    "shippingPostcode": "string",
-    "shippingState": "string",
-    "shippingCountry": "AT",
-    "shippingPhone": "+XX 1234567890",
-    "company": "string",
-    "email": "string",
-    "emailVerified": true,
-    "ipAddress": "string",
-    "nationalId": "string",
-    "extraData": {},
-    "paymentData": {
-      "ibanData": {
-        "iban": "string",
-        "bic": "string",
-        "mandateId": "string",
-        "mandateDate": "2001-02-03"
-      }
-    }
-  },
-  "schedule": {
-    "amount": "9.99",
-    "currency": "EUR",
-    "periodLength": 1,
-    "periodUnit": "MONTH",
-    "startDateTime": "2001-02-03T04:05:06+02:00",
-    "merchantMetaData": {
-      "plan": "monthly"
-    },
-    "callbackUrl": "https://api.example.org/callback"
-  },
-  "customerProfileData": {
-    "profileGuid": "string",
-    "customerIdentification": "string",
-    "markAsPreferred": true
-  },
-  "threeDSecureData": {
-    "3dsecure": "OFF",
-    "schemeId": "CB",
-    "channel": "01",
-    "authenticationIndicator": "01",
-    "cardholderAuthenticationMethod": "01",
-    "cardholderAuthenticationDateTime": "2001-02-03T04:05:06+02:00",
-    "cardHolderAuthenticationData": "string",
-    "challengeIndicator": "01",
-    "priorReference": "string",
-    "priorAuthenticationMethod": "01",
-    "priorAuthenticationDateTime": "2001-02-03 04:05",
-    "priorAuthenticationData": "string",
-    "cardholderAccountType": "01",
-    "cardholderAccountAgeIndicator": "01",
-    "cardholderAccountDate": "2001-02-03",
-    "cardholderAccountChangeIndicator": "01",
-    "cardholderAccountLastChange": "2001-02-03T04:05:06+02:00",
-    "cardholderAccountPasswordChangeIndicator": "01",
-    "cardholderAccountLastPasswordChange": "2001-02-03",
-    "shippingAddressUsageIndicator": "01",
-    "shippingAddressFirstUsage": "2001-02-03",
-    "transactionActivityDay": 0,
-    "transactionActivityYear": 0,
-    "addCardAttemptsDay": 0,
-    "purchaseCountSixMonths": 0,
-    "suspiciousAccountActivityIndicator": "01",
-    "shippingNameEqualIndicator": "01",
-    "paymentAccountAgeIndicator": "01",
-    "paymentAccountAgeDate": "2001-02-03",
-    "billingAddressLine3": "string",
-    "billingAddressState": "string",
-    "shippingAddressLine3": "string",
-    "shippingAddressState": "string",
-    "billingShippingAddressMatch": "Y",
-    "homePhoneCountryPrefix": "string",
-    "homePhoneNumber": "string",
-    "mobilePhoneCountryPrefix": "string",
-    "mobilePhoneNumber": "string",
-    "workPhoneCountryPrefix": "string",
-    "workPhoneNumber": "string",
-    "purchaseInstalData": 0,
-    "shipIndicator": "01",
-    "deliveryTimeframe": "01",
-    "deliveryEmailAddress": "string",
-    "reorderItemsIndicator": "01",
-    "preOrderPurchaseIndicator": "01",
-    "preOrderDate": "2001-02-03",
-    "giftCardAmount": 0,
-    "giftCardCurrency": "EUR",
-    "giftCardCount": 0,
-    "purchaseDate": "2001-02-03 04:05",
-    "recurringExpiry": "2001-02-03",
-    "recurringFrequency": 0,
-    "transType": "01",
-    "exemptionIndicator": "01",
-    "threeRIIndicator": "01",
-    "browserChallengeWindowSize": "01",
-    "browserAcceptHeader": "string",
-    "browserIpAddress": "string",
-    "browserJavaEnabled": true,
-    "browserLanguage": "string",
-    "browserColorDepth": "1",
-    "browserScreenHeight": 0,
-    "browserScreenWidth": 0,
-    "browserTimezone": 0,
-    "browserUserAgent": "string",
-    "browserPlatform": "string",
-    "sdkInterface": "01",
-    "sdkUiType": "01,02,05",
-    "sdkAppID": "string",
-    "sdkEncData": "string",
-    "sdkEphemPubKey": "{\"kty\":\"EC\",\"crv\":\"P-256\",\"x\":\"...\",\"y\":\"...\"}",
-    "sdkMaxTimeout": 0,
-    "sdkReferenceNumber": "string",
-    "sdkTransID": "string"
-  },
-  "payByLink": {
-    "sendByEmail": false,
-    "expirationInMinute": 300
-  },
-  "language": "string",
-  "requestDcc": true,
-  "dccData": {
-    "remoteIdentifier": "string",
-    "originalAmount": "9.99",
-    "originalCurrency": "EUR",
-    "convertedAmount": "9.99",
-    "convertedCurrency": "EUR",
-    "conversionRate": 0,
-    "selectedCurrency": "string",
-    "markUp": 0
-  },
-  "l2l3Data": {
-    "taxAmount": "string",
-    "vatRegistrationNumber": "string",
-    "nationalTaxIncluded": "string",
-    "discountAmount": "9.99",
-    "commodityCode": "string",
-    "freightAmount": "9.99",
-    "freightTaxAmount": "9.99",
-    "dutyAmount": "9.99",
-    "taxDetails": [
-      {
-        "type": "string",
-        "amount": "9.99",
-        "rate": "9.99",
-        "code": "string",
-        "taxId": "string",
-        "applied": "string",
-        "exemptionCode": "string"
-      }
-    ]
-  },
-  "cardData": {
-    "cardHolder": "Alex Smith",
-    "pan": "4111111111111111",
-    "cvv": "123",
-    "expirationMonth": "06",
-    "expirationYear": "2027"
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   },
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",
   "recipientAccountReferenceUuid": "string",
@@ -3983,6 +3085,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "expirationMonth": "06",  
     "expirationYear": "2027"  
   },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
+  },  
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",  
   "recipientAccountReferenceUuid": "string",  
   "includeTracing": true  
@@ -4229,6 +3342,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   },
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",
   "recipientAccountReferenceUuid": "string",
@@ -4999,6 +4123,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "expirationMonth": "06",  
     "expirationYear": "2027"  
   },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
+  },  
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",  
   "recipientAccountReferenceUuid": "string",  
   "includeTracing": true  
@@ -5245,6 +4380,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   },
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",
   "recipientAccountReferenceUuid": "string",
@@ -6015,6 +5161,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "expirationMonth": "06",  
     "expirationYear": "2027"  
   },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
+  },  
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",  
   "recipientAccountReferenceUuid": "string",  
   "includeTracing": true  
@@ -6261,6 +5418,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   },
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",
   "recipientAccountReferenceUuid": "string",
@@ -7031,6 +6199,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "expirationMonth": "06",  
     "expirationYear": "2027"  
   },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
+  },  
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",  
   "recipientAccountReferenceUuid": "string",  
   "includeTracing": true  
@@ -7277,6 +6456,1055 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
+  },
+  "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",
+  "recipientAccountReferenceUuid": "string",
+  "includeTracing": true
+}
+
+```
+```
+POST 
+## https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize
+
+```
+```
+
+{  
+
+  "merchantTransactionId": "2019-09-02-0002",  
+
+  "extraData": {  
+
+    "someKey": "someValue",  
+
+    "otherKey": "otherValue"  
+
+  },  
+
+  "merchantMetaData": "merchantRelevantData",  
+
+  "amount": "9.99",  
+
+  "surchargeAmount": "0.9",  
+
+  "currency": "EUR",  
+
+  "successUrl": "https://shop.example.org/checkout/success",  
+
+  "cancelUrl": "https://shop.example.org/checkout/cancel",  
+
+  "errorUrl": "https://shop.example.org/checkout/error",  
+
+  "callbackUrl": "https://api.example.org/callback",  
+
+  "description": "Example Product",  
+
+  "cardData": {  
+
+    "cardHolder": "Alex Smith",  
+
+    "pan": "4111111111111111",  
+
+    "cvv": "123",  
+
+    "expirationMonth": "04",  
+
+    "expirationYear": "2030"  
+
+  },  
+
+  "customer": {  
+
+    "identification": "c0001",  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith"  
+
+  },  
+
+  "threeDSecureData": {  
+
+    "3dsecure": "MANDATORY"  
+
+  },  
+
+  "language": "en"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20190927-abcde12345abcde12345",  
+
+  "returnType": "FINISHED",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20190927-abcde12345abcde12345",  
+
+  "returnType": "REDIRECT",  
+
+  "redirectUrl": "https://secure.ixopay.com/redirect-url",  
+
+  "redirectQRCode": "data:image/png;base64,ABCDEFGHIJKLMNOPQRSTUVWXYZ",  
+
+  "paymentMethod": "Creditcard"  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "uuid": "abcde12345abcde12345",  
+
+  "purchaseId": "20200924-abcde12345abcde12345",  
+
+  "returnType": "ERROR",  
+
+  "paymentMethod": "Dummy",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Dummy error",  
+
+      "errorCode": 1003,  
+
+      "adapterMessage": "Dummy adapter error"  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "The transaction ID '20190823062178' already exists!",  
+
+  "errorCode": 3004  
+
+}  
+
+```
+```
+
+{  
+
+  "success": true  
+
+}  
+
+```
+```
+
+{  
+
+  "success": false,  
+
+  "errorMessage": "amount: 'amount' is required",  
+
+  "errorCode": 1002  
+
+}  
+
+```
+```
+POST 
+## {$request.body#/callbackUrl}
+
+```
+```
+
+{  
+
+  "uuid": "string",  
+
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+
+  "purchaseId": "string",  
+
+  "transactionType": "DEBIT",  
+
+  "transactionSubType": "cb-resolved",  
+
+  "paymentMethod": "string",  
+
+  "amount": "9.99",  
+
+  "currency": "EUR",  
+
+  "surchargeAmount": "9.99",  
+
+  "totalAmount": "9.99",  
+
+  "dccData": {  
+
+    "remoteIdentifier": "string",  
+
+    "originalAmount": "9.99",  
+
+    "originalCurrency": "EUR",  
+
+    "convertedAmount": "9.99",  
+
+    "convertedCurrency": "EUR",  
+
+    "conversionRate": 0,  
+
+    "selectedCurrency": "string",  
+
+    "markUp": 0  
+
+  },  
+
+  "referenceUuid": "string",  
+
+  "errors": [  
+
+    {  
+
+      "message": "string",  
+
+      "code": "string",  
+
+      "adapterMessage": "string",  
+
+      "adapterCode": "string"  
+
+    }  
+
+  ],  
+
+  "chargebackData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "chargebackDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "chargebackReversalData": {  
+
+    "originalUuid": "string",  
+
+    "originalMerchantTransactionId": "string",  
+
+    "chargebackUuid": "string",  
+
+    "amount": "9.99",  
+
+    "currency": "EUR",  
+
+    "reason": "string",  
+
+    "reversalDateTime": "2001-02-03T04:05:06+02:00"  
+
+  },  
+
+  "extraData": {},  
+
+  "merchantMetaData": "string",  
+
+  "returnData": {  
+
+    "_TYPE": "cardData"  
+
+  },  
+
+  "payByLinkData": {  
+
+    "sendViaEmail": true,  
+
+    "cancelUrl": "string",  
+
+    "expiresAt": "2024-07-29T15:51:28.071Z"  
+
+  },  
+
+  "customer": {  
+
+    "identification": "string",  
+
+    "firstName": "string",  
+
+    "lastName": "string",  
+
+    "birthDate": "2001-02-03",  
+
+    "gender": "M",  
+
+    "billingAddress1": "string",  
+
+    "billingAddress2": "string",  
+
+    "billingCity": "string",  
+
+    "billingPostcode": "string",  
+
+    "billingState": "string",  
+
+    "billingCountry": "AT",  
+
+    "billingPhone": "+XX 1234567890",  
+
+    "shippingFirstName": "string",  
+
+    "shippingLastName": "string",  
+
+    "shippingCompany": "string",  
+
+    "shippingAddress1": "string",  
+
+    "shippingAddress2": "string",  
+
+    "shippingCity": "string",  
+
+    "shippingPostcode": "string",  
+
+    "shippingState": "string",  
+
+    "shippingCountry": "AT",  
+
+    "shippingPhone": "+XX 1234567890",  
+
+    "company": "string",  
+
+    "email": "string",  
+
+    "emailVerified": true,  
+
+    "ipAddress": "string",  
+
+    "nationalId": "string",  
+
+    "extraData": {},  
+
+    "paymentData": {  
+
+      "ibanData": {  
+
+        "iban": "string",  
+
+        "bic": "string",  
+
+        "mandateId": "string",  
+
+        "mandateDate": "2001-02-03"  
+
+      }  
+
+    }  
+
+  },  
+
+  "customerProfileData": {  
+
+    "profileGuid": "string",  
+
+    "customerIdentification": "string",  
+
+    "paymentToken": "string",  
+
+    "markAsPreferred": true  
+
+  },  
+
+  "splits": [  
+
+    {  
+
+      "identification": "string",  
+
+      "amount": "9.99",  
+
+      "currency": "EUR",  
+
+      "sellerMerchantGuid": "string",  
+
+      "sellerMerchantExternalId": "string",  
+
+      "commissionFee": {  
+
+        "amount": "9.99",  
+
+        "currency": "EUR"  
+
+      }  
+
+    }  
+
+  ],  
+
+  "tracingData": {  
+
+    "transactions": [  
+
+      {  
+
+        "uuid": "string",  
+
+        "sequence_number": 0,  
+
+        "status": "SUCCESS",  
+
+        "connector": {  
+
+          "guid": "string",  
+
+          "adapter_name": "string",  
+
+          "brand": "string"  
+
+        }  
+
+      }  
+
+    ]  
+
+  },  
+
+  "message": "string",  
+
+  "code": "string",  
+
+  "adapterMessage": "string",  
+
+  "adapterCode": "string",  
+
+  "result": "OK",  
+
+  "scheduleData": [  
+
+    {  
+
+      "scheduleId": "string",  
+
+      "scheduleStatus": "active",  
+
+      "scheduledAt": "2001-02-03T04:05:06+02:00",  
+
+      "merchantMetaData": "string"  
+
+    }  
+
+  ],  
+
+  "notificationSource": "reconciliation",  
+
+  "originalAmount": "string",  
+
+  "originalCurrency": "EUR"  
+
+}  
+
+```
+```
+
+"OK"  
+
+```
+```
+
+OK  
+
+```
+```
+**name:** basicAuth[](https://documentation.ixopay.com/api/pci/pci-transaction-api#authentication)**type:** http**scheme: **basic**description: **To authenticate API requests, the API username and password must be sent as BASIC Authentication in the `Authorization` header,
+as defined in [RFC 7617](https://www.rfc-editor.org/rfc/rfc7617).
+To achieve this, the username and password are first concatenated with a `:` (colon) separator,
+and the resulting string is then Base64 encoded. Here is an example of how this process works:
+
+1. Suppose the API username is `anyApiUser` and the password is `myPassword`.
+2. Concatenate the username and password with a `:` separator: `anyApiUser:myPassword`.
+3. Base64 encode the concatenated string: `YW55QXBpVXNlcjpteVBhc3N3b3JkCg==`.
+4. Finally, include the `Authorization` header in the API request with the Base64 encoded string, like so: `Authorization: Basic YW55QXBpVXNlcjpteVBhc3N3b3Jk`.
+
+:::tip
+Many programming frameworks will automatically handle the BASIC Authentication process for you once you provide the username and password to the appropriate request object.
+:::
+
+```
+```
+curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/preauthorize' \  
+-H 'Content-Type: application/json' \  
+-H 'Accept: application/json' \  
+-H 'Authorization: Basic PHVzZXJuYW1lPjo8cGFzc3dvcmQ+' \  
+-d '{  
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",  
+  "additionalId1": "string",  
+  "additionalId2": "string",  
+  "captureInMinutes": 0,  
+  "extraData": {},  
+  "pspPassthroughData": {},  
+  "merchantMetaData": "anyValue1|anotherValue2",  
+  "referenceUuid": "string",  
+  "amount": "9.99",  
+  "surchargeAmount": "9.99",  
+  "currency": "EUR",  
+  "successUrl": "https://shop.example.org/checkout/success",  
+  "cancelUrl": "https://shop.example.org/checkout/cancel",  
+  "errorUrl": "https://shop.example.org/checkout/error",  
+  "callbackUrl": "https://api.example.org/callback",  
+  "transactionToken": "string",  
+  "description": "string",  
+  "items": [  
+    {  
+      "identification": "string",  
+      "name": "string",  
+      "description": "string",  
+      "quantity": 0,  
+      "price": 0,  
+      "currency": "EUR",  
+      "l2l3Data": {  
+        "type": "string",  
+        "unit": "string",  
+        "unitPrice": "9.99",  
+        "discount": "9.99",  
+        "shippingAmount": "9.99",  
+        "taxAmount": "9.99",  
+        "taxRate": "9.99",  
+        "commodityCode": "string",  
+        "taxDetails": [  
+          {  
+            "type": "string",  
+            "amount": "9.99",  
+            "rate": "9.99",  
+            "code": "string",  
+            "taxId": "string",  
+            "applied": "string",  
+            "exemptionCode": "string"  
+          }  
+        ]  
+      },  
+      "extraData": {}  
+    }  
+  ],  
+  "splits": [  
+    {  
+      "identification": "string",  
+      "amount": "9.99",  
+      "currency": "EUR",  
+      "sellerMerchantGuid": "string",  
+      "sellerMerchantExternalId": "string",  
+      "commissionFee": {  
+        "amount": "9.99",  
+        "currency": "EUR"  
+      }  
+    }  
+  ],  
+  "withRegister": true,  
+  "transactionIndicator": "SINGLE",  
+  "customer": {  
+    "identification": "string",  
+    "firstName": "string",  
+    "lastName": "string",  
+    "birthDate": "2001-02-03",  
+    "gender": "M",  
+    "billingAddress1": "string",  
+    "billingAddress2": "string",  
+    "billingCity": "string",  
+    "billingPostcode": "string",  
+    "billingState": "string",  
+    "billingCountry": "AT",  
+    "billingPhone": "+XX 1234567890",  
+    "shippingFirstName": "string",  
+    "shippingLastName": "string",  
+    "shippingCompany": "string",  
+    "shippingAddress1": "string",  
+    "shippingAddress2": "string",  
+    "shippingCity": "string",  
+    "shippingPostcode": "string",  
+    "shippingState": "string",  
+    "shippingCountry": "AT",  
+    "shippingPhone": "+XX 1234567890",  
+    "company": "string",  
+    "email": "string",  
+    "emailVerified": true,  
+    "ipAddress": "string",  
+    "nationalId": "string",  
+    "extraData": {},  
+    "paymentData": {  
+      "ibanData": {  
+        "iban": "string",  
+        "bic": "string",  
+        "mandateId": "string",  
+        "mandateDate": "2001-02-03"  
+      }  
+    }  
+  },  
+  "schedule": {  
+    "amount": "9.99",  
+    "currency": "EUR",  
+    "periodLength": 1,  
+    "periodUnit": "MONTH",  
+    "startDateTime": "2001-02-03T04:05:06+02:00",  
+    "merchantMetaData": {  
+      "plan": "monthly"  
+    },  
+    "callbackUrl": "https://api.example.org/callback"  
+  },  
+  "customerProfileData": {  
+    "profileGuid": "string",  
+    "customerIdentification": "string",  
+    "markAsPreferred": true  
+  },  
+  "threeDSecureData": {  
+    "3dsecure": "OFF",  
+    "schemeId": "CB",  
+    "channel": "01",  
+    "authenticationIndicator": "01",  
+    "cardholderAuthenticationMethod": "01",  
+    "cardholderAuthenticationDateTime": "2001-02-03T04:05:06+02:00",  
+    "cardHolderAuthenticationData": "string",  
+    "challengeIndicator": "01",  
+    "priorReference": "string",  
+    "priorAuthenticationMethod": "01",  
+    "priorAuthenticationDateTime": "2001-02-03 04:05",  
+    "priorAuthenticationData": "string",  
+    "cardholderAccountType": "01",  
+    "cardholderAccountAgeIndicator": "01",  
+    "cardholderAccountDate": "2001-02-03",  
+    "cardholderAccountChangeIndicator": "01",  
+    "cardholderAccountLastChange": "2001-02-03T04:05:06+02:00",  
+    "cardholderAccountPasswordChangeIndicator": "01",  
+    "cardholderAccountLastPasswordChange": "2001-02-03",  
+    "shippingAddressUsageIndicator": "01",  
+    "shippingAddressFirstUsage": "2001-02-03",  
+    "transactionActivityDay": 0,  
+    "transactionActivityYear": 0,  
+    "addCardAttemptsDay": 0,  
+    "purchaseCountSixMonths": 0,  
+    "suspiciousAccountActivityIndicator": "01",  
+    "shippingNameEqualIndicator": "01",  
+    "paymentAccountAgeIndicator": "01",  
+    "paymentAccountAgeDate": "2001-02-03",  
+    "billingAddressLine3": "string",  
+    "billingAddressState": "string",  
+    "shippingAddressLine3": "string",  
+    "shippingAddressState": "string",  
+    "billingShippingAddressMatch": "Y",  
+    "homePhoneCountryPrefix": "string",  
+    "homePhoneNumber": "string",  
+    "mobilePhoneCountryPrefix": "string",  
+    "mobilePhoneNumber": "string",  
+    "workPhoneCountryPrefix": "string",  
+    "workPhoneNumber": "string",  
+    "purchaseInstalData": 0,  
+    "shipIndicator": "01",  
+    "deliveryTimeframe": "01",  
+    "deliveryEmailAddress": "string",  
+    "reorderItemsIndicator": "01",  
+    "preOrderPurchaseIndicator": "01",  
+    "preOrderDate": "2001-02-03",  
+    "giftCardAmount": 0,  
+    "giftCardCurrency": "EUR",  
+    "giftCardCount": 0,  
+    "purchaseDate": "2001-02-03 04:05",  
+    "recurringExpiry": "2001-02-03",  
+    "recurringFrequency": 0,  
+    "transType": "01",  
+    "exemptionIndicator": "01",  
+    "threeRIIndicator": "01",  
+    "browserChallengeWindowSize": "01",  
+    "browserAcceptHeader": "string",  
+    "browserIpAddress": "string",  
+    "browserJavaEnabled": true,  
+    "browserLanguage": "string",  
+    "browserColorDepth": "1",  
+    "browserScreenHeight": 0,  
+    "browserScreenWidth": 0,  
+    "browserTimezone": 0,  
+    "browserUserAgent": "string",  
+    "browserPlatform": "string",  
+    "sdkInterface": "01",  
+    "sdkUiType": "01,02,05",  
+    "sdkAppID": "string",  
+    "sdkEncData": "string",  
+    "sdkEphemPubKey": "{\"kty\":\"EC\",\"crv\":\"P-256\",\"x\":\"...\",\"y\":\"...\"}",  
+    "sdkMaxTimeout": 0,  
+    "sdkReferenceNumber": "string",  
+    "sdkTransID": "string"  
+  },  
+  "payByLink": {  
+    "sendByEmail": false,  
+    "expirationInMinute": 300  
+  },  
+  "language": "string",  
+  "requestDcc": true,  
+  "dccData": {  
+    "remoteIdentifier": "string",  
+    "originalAmount": "9.99",  
+    "originalCurrency": "EUR",  
+    "convertedAmount": "9.99",  
+    "convertedCurrency": "EUR",  
+    "conversionRate": 0,  
+    "selectedCurrency": "string",  
+    "markUp": 0  
+  },  
+  "l2l3Data": {  
+    "taxAmount": "string",  
+    "vatRegistrationNumber": "string",  
+    "nationalTaxIncluded": "string",  
+    "discountAmount": "9.99",  
+    "commodityCode": "string",  
+    "freightAmount": "9.99",  
+    "freightTaxAmount": "9.99",  
+    "dutyAmount": "9.99",  
+    "taxDetails": [  
+      {  
+        "type": "string",  
+        "amount": "9.99",  
+        "rate": "9.99",  
+        "code": "string",  
+        "taxId": "string",  
+        "applied": "string",  
+        "exemptionCode": "string"  
+      }  
+    ]  
+  },  
+  "cardData": {  
+    "cardHolder": "Alex Smith",  
+    "pan": "4111111111111111",  
+    "cvv": "123",  
+    "expirationMonth": "06",  
+    "expirationYear": "2027"  
+  },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
+  },  
+  "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",  
+  "recipientAccountReferenceUuid": "string",  
+  "includeTracing": true  
+}'  
+
+```
+```
+{
+  "merchantTransactionId": "c5f2accd-2c37-4b2c-bb03-22d168c25a74",
+  "additionalId1": "string",
+  "additionalId2": "string",
+  "captureInMinutes": 0,
+  "extraData": {},
+  "pspPassthroughData": {},
+  "merchantMetaData": "anyValue1|anotherValue2",
+  "referenceUuid": "string",
+  "amount": "9.99",
+  "surchargeAmount": "9.99",
+  "currency": "EUR",
+  "successUrl": "https://shop.example.org/checkout/success",
+  "cancelUrl": "https://shop.example.org/checkout/cancel",
+  "errorUrl": "https://shop.example.org/checkout/error",
+  "callbackUrl": "https://api.example.org/callback",
+  "transactionToken": "string",
+  "description": "string",
+  "items": [
+    {
+      "identification": "string",
+      "name": "string",
+      "description": "string",
+      "quantity": 0,
+      "price": 0,
+      "currency": "EUR",
+      "l2l3Data": {
+        "type": "string",
+        "unit": "string",
+        "unitPrice": "9.99",
+        "discount": "9.99",
+        "shippingAmount": "9.99",
+        "taxAmount": "9.99",
+        "taxRate": "9.99",
+        "commodityCode": "string",
+        "taxDetails": [
+          {
+            "type": "string",
+            "amount": "9.99",
+            "rate": "9.99",
+            "code": "string",
+            "taxId": "string",
+            "applied": "string",
+            "exemptionCode": "string"
+          }
+        ]
+      },
+      "extraData": {}
+    }
+  ],
+  "splits": [
+    {
+      "identification": "string",
+      "amount": "9.99",
+      "currency": "EUR",
+      "sellerMerchantGuid": "string",
+      "sellerMerchantExternalId": "string",
+      "commissionFee": {
+        "amount": "9.99",
+        "currency": "EUR"
+      }
+    }
+  ],
+  "withRegister": true,
+  "transactionIndicator": "SINGLE",
+  "customer": {
+    "identification": "string",
+    "firstName": "string",
+    "lastName": "string",
+    "birthDate": "2001-02-03",
+    "gender": "M",
+    "billingAddress1": "string",
+    "billingAddress2": "string",
+    "billingCity": "string",
+    "billingPostcode": "string",
+    "billingState": "string",
+    "billingCountry": "AT",
+    "billingPhone": "+XX 1234567890",
+    "shippingFirstName": "string",
+    "shippingLastName": "string",
+    "shippingCompany": "string",
+    "shippingAddress1": "string",
+    "shippingAddress2": "string",
+    "shippingCity": "string",
+    "shippingPostcode": "string",
+    "shippingState": "string",
+    "shippingCountry": "AT",
+    "shippingPhone": "+XX 1234567890",
+    "company": "string",
+    "email": "string",
+    "emailVerified": true,
+    "ipAddress": "string",
+    "nationalId": "string",
+    "extraData": {},
+    "paymentData": {
+      "ibanData": {
+        "iban": "string",
+        "bic": "string",
+        "mandateId": "string",
+        "mandateDate": "2001-02-03"
+      }
+    }
+  },
+  "schedule": {
+    "amount": "9.99",
+    "currency": "EUR",
+    "periodLength": 1,
+    "periodUnit": "MONTH",
+    "startDateTime": "2001-02-03T04:05:06+02:00",
+    "merchantMetaData": {
+      "plan": "monthly"
+    },
+    "callbackUrl": "https://api.example.org/callback"
+  },
+  "customerProfileData": {
+    "profileGuid": "string",
+    "customerIdentification": "string",
+    "markAsPreferred": true
+  },
+  "threeDSecureData": {
+    "3dsecure": "OFF",
+    "schemeId": "CB",
+    "channel": "01",
+    "authenticationIndicator": "01",
+    "cardholderAuthenticationMethod": "01",
+    "cardholderAuthenticationDateTime": "2001-02-03T04:05:06+02:00",
+    "cardHolderAuthenticationData": "string",
+    "challengeIndicator": "01",
+    "priorReference": "string",
+    "priorAuthenticationMethod": "01",
+    "priorAuthenticationDateTime": "2001-02-03 04:05",
+    "priorAuthenticationData": "string",
+    "cardholderAccountType": "01",
+    "cardholderAccountAgeIndicator": "01",
+    "cardholderAccountDate": "2001-02-03",
+    "cardholderAccountChangeIndicator": "01",
+    "cardholderAccountLastChange": "2001-02-03T04:05:06+02:00",
+    "cardholderAccountPasswordChangeIndicator": "01",
+    "cardholderAccountLastPasswordChange": "2001-02-03",
+    "shippingAddressUsageIndicator": "01",
+    "shippingAddressFirstUsage": "2001-02-03",
+    "transactionActivityDay": 0,
+    "transactionActivityYear": 0,
+    "addCardAttemptsDay": 0,
+    "purchaseCountSixMonths": 0,
+    "suspiciousAccountActivityIndicator": "01",
+    "shippingNameEqualIndicator": "01",
+    "paymentAccountAgeIndicator": "01",
+    "paymentAccountAgeDate": "2001-02-03",
+    "billingAddressLine3": "string",
+    "billingAddressState": "string",
+    "shippingAddressLine3": "string",
+    "shippingAddressState": "string",
+    "billingShippingAddressMatch": "Y",
+    "homePhoneCountryPrefix": "string",
+    "homePhoneNumber": "string",
+    "mobilePhoneCountryPrefix": "string",
+    "mobilePhoneNumber": "string",
+    "workPhoneCountryPrefix": "string",
+    "workPhoneNumber": "string",
+    "purchaseInstalData": 0,
+    "shipIndicator": "01",
+    "deliveryTimeframe": "01",
+    "deliveryEmailAddress": "string",
+    "reorderItemsIndicator": "01",
+    "preOrderPurchaseIndicator": "01",
+    "preOrderDate": "2001-02-03",
+    "giftCardAmount": 0,
+    "giftCardCurrency": "EUR",
+    "giftCardCount": 0,
+    "purchaseDate": "2001-02-03 04:05",
+    "recurringExpiry": "2001-02-03",
+    "recurringFrequency": 0,
+    "transType": "01",
+    "exemptionIndicator": "01",
+    "threeRIIndicator": "01",
+    "browserChallengeWindowSize": "01",
+    "browserAcceptHeader": "string",
+    "browserIpAddress": "string",
+    "browserJavaEnabled": true,
+    "browserLanguage": "string",
+    "browserColorDepth": "1",
+    "browserScreenHeight": 0,
+    "browserScreenWidth": 0,
+    "browserTimezone": 0,
+    "browserUserAgent": "string",
+    "browserPlatform": "string",
+    "sdkInterface": "01",
+    "sdkUiType": "01,02,05",
+    "sdkAppID": "string",
+    "sdkEncData": "string",
+    "sdkEphemPubKey": "{\"kty\":\"EC\",\"crv\":\"P-256\",\"x\":\"...\",\"y\":\"...\"}",
+    "sdkMaxTimeout": 0,
+    "sdkReferenceNumber": "string",
+    "sdkTransID": "string"
+  },
+  "payByLink": {
+    "sendByEmail": false,
+    "expirationInMinute": 300
+  },
+  "language": "string",
+  "requestDcc": true,
+  "dccData": {
+    "remoteIdentifier": "string",
+    "originalAmount": "9.99",
+    "originalCurrency": "EUR",
+    "convertedAmount": "9.99",
+    "convertedCurrency": "EUR",
+    "conversionRate": 0,
+    "selectedCurrency": "string",
+    "markUp": 0
+  },
+  "l2l3Data": {
+    "taxAmount": "string",
+    "vatRegistrationNumber": "string",
+    "nationalTaxIncluded": "string",
+    "discountAmount": "9.99",
+    "commodityCode": "string",
+    "freightAmount": "9.99",
+    "freightTaxAmount": "9.99",
+    "dutyAmount": "9.99",
+    "taxDetails": [
+      {
+        "type": "string",
+        "amount": "9.99",
+        "rate": "9.99",
+        "code": "string",
+        "taxId": "string",
+        "applied": "string",
+        "exemptionCode": "string"
+      }
+    ]
+  },
+  "cardData": {
+    "cardHolder": "Alex Smith",
+    "pan": "4111111111111111",
+    "cvv": "123",
+    "expirationMonth": "06",
+    "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   },
   "referenceSchemeTransactionIdentifier": "IXHKDJRR462950",
   "recipientAccountReferenceUuid": "string",

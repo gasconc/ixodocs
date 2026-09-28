@@ -15,7 +15,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/testing
 portal: ixopay-dev
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -62,6 +62,8 @@ To test your PCI transactions using the sandbox:
   4. Test your PCI integration using the sandbox environment. Conduct test transactions and ensure that your integration is functioning as expected within the PCI scope.
   5. Upon satisfaction with your PCI integration in the sandbox environment, proceed to switch to the production environment. Utilize your production credentials and PCI API URL (`secure.ixopay.com`), removing the `X-Environment: sandbox` request header for PCI transactions in the production environment.
 
+Regions with a dedicated PCI sandbox host
+Not every region takes sandbox PCI traffic on its production PCI host. Where the [Regions](https://documentation.ixopay.com/docs/reference/appendix/regions) table lists a separate sandbox host for the PCI Transaction API, send your sandbox PCI requests to that host instead of the production one.
 ## Enabling test mode on a connector[​](https://documentation.ixopay.com/docs/guides/getting-started/testing#enabling-test-mode-on-a-connector "Direct link to Enabling test mode on a connector")
 Activate test mode
 Save

@@ -6,6 +6,7 @@ tags:
 - supported-encryption-algorithms-https-documentation-ixopay-com-modules-docs-tokenex-p2pe-decrypt-function-supported-encryption-algorithms-direct-link-supported-encryption-algorithms
 - groups-https-documentation-ixopay-com-modules-docs-tokenex-p2pe-decrypt-function-groups-direct-link-groups
 - parseable-fields-https-documentation-ixopay-com-modules-docs-tokenex-p2pe-decrypt-function-parseable-fields-direct-link-parseable-fields
+- response-headers-https-documentation-ixopay-com-modules-docs-tokenex-p2pe-decrypt-function-response-headers-direct-link-response-headers
 - api
 - pci
 - tokenex
@@ -13,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/p2pe-decrypt-function
 portal: ixopay-modules
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -46,7 +47,7 @@ This function can parse the decrypted plaintext, to pass individual fields withi
 | T1NS  | Track 1 data excluding start and end sentinels and LRC.  | B5454545454545454^Doe/John A^27012010000123000  |  
 | T2  | Track 2 data including start and end sentinels and LRC.  | %5454545454545454^27010000123000?  |  
 | T2NS  | Track 2 data excluding start and end sentinels and LRC.  | 5454545454545454^27010000123000  |  
-| CVV  | The 3-4 digit security code.  | 533  |  
+| CVV  | The 3-4 digit security code. Also the only valid field for CVV-only ciphertexts.  | 533  |  
 info
 When the expiry date field is parsed (ED), you can specify the date format using the EXPDATEFORMAT parameter. Supported formats include: yyMM (default if omitted), MMyy, yyyyMM, MMyyyy, MM, yyyy, and yy.  
 | Parameter Name  | Example Value  | Note  |  
@@ -165,7 +166,19 @@ This parameter can have one of the three values in below, throws an error in cas
 
 }  
 
-```### Response Headers[​](https://documentation.ixopay.com/modules/docs/tokenex/p2pe-decrypt-function#response-headers "Direct link to Response Headers")
+```### CVV Only[​](https://documentation.ixopay.com/modules/docs/tokenex/p2pe-decrypt-function#cvv-only "Direct link to CVV Only")
+Some payment terminals encrypt the security code as its own separate ciphertext, rather than combining it with the PAN and the expiration date. The Transparent Gateway API v2 supports this: when the decrypted data consists of exactly 3-4 digits, it is recognized as a CVV-only message. No configuration is required — the format is detected automatically, like all other formats.
+For CVV-only ciphertexts, CVV is the only valid FIELD value. Requesting any other field (such as PAN or ED) returns error 8525. Decrypted data that is not exactly 3-4 digits and does not match any other supported format returns error 8523. See [Error Codes](https://documentation.ixopay.com/modules/docs/tokenex/error-codes) for the full list.
+```
+
+{  
+
+  "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group4,KSN:101720230000000100000004,CIPHERTEXT:4204A95BF6A1DA81AD8642C2ADC88071F609038E0CC1F1A94992BA1C8821427E70495E83BD2FED90C54CE158E3C32703D74B9FAD46471D4EB78F2C10E72DF057,FIELD:CVV}}}}"  
+
+}  
+
+```A CVV-only group can be combined in the same request body with other groups carrying track data or manually entered data. This is the typical pattern for terminals that emit separate ciphertexts per field: one group decrypts the track or PAN ciphertext, another group decrypts the CVV-only ciphertext.
+### Response Headers[​](https://documentation.ixopay.com/modules/docs/tokenex/p2pe-decrypt-function#response-headers "Direct link to Response Headers")
 In the response that the Transparent Gateway returns from the 3rd party API, TokenEx will include a header with a TokenEx Universal Token representing the PAN (if PAN was available).
 info
 The returned token will use the token scheme specified in the [tx-token-scheme](https://documentation.ixopay.com/modules/docs/tokenex/universal-token-schemes) request header.  
@@ -271,278 +284,7 @@ The returned token will use the token scheme specified in the [tx-token-scheme](
 
 {  
 
-  "PaymentInstrument1": {  
-
-    "name": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:NM}}}}",  
-
-    "card": {  
-
-      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,KSN:101720230000000100000001,CIPHERTEXT:D093069FE96C60A3D3A9C19D3D8EC6EF76E66207B9D537D31A4C24D571A319D9D8EDFA5C7A605D9C3CC6320873312DE7E83A9C97F3B498722A2EC3F135899643,FIELD:PAN}}}}",  
-
-      "expiry": {  
-
-        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
-
-        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
-
-        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED}}}}",  
-
-        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
-
-      }  
-
-    },  
-
-    "serviceCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:SC}}}}",  
-
-    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:DD}}}}",  
-
-    "track1": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1}}}}",  
-
-    "track1NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1NS}}}}",  
-
-    "track2": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2}}}}",  
-
-    "track2NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2NS}}}}"  
-
-  },  
-
-  "PaymentInstrument2": {  
-
-    "card": {  
-
-      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,KSN:101720230000000100000002,CIPHERTEXT:E56821BF821DA1149CDD0A8A1D8E5C8A369D4D3A97329B73ADCF878EF9C3B661FBCFD177355A33694731592605840B08DFDE24A0504F71CA41DD603307D4719D,FIELD:PAN,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-      "expiry": {  
-
-        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MM,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:YY,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MMyy,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}"  
-
-      }  
-
-    },  
-
-    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:DD}}}}"  
-
-  }  
-
-}  
-
-```
-```
-
-{  
-
-  "card": {  
-
-    "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,KSN:101720230000000100000003,CIPHERTEXT:65419C09071CAA1FB4F826541D825793BADE143BF1F968306832569DA4703EEB0C97CCD49CC4119D6E0D5053D1946A276B80AF9C27AA3F1188958863F948F400,FIELD:PAN}}}}",  
-
-    "expiry": {  
-
-      "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
-
-      "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
-
-      "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED}}}}",  
-
-      "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
-
-    },  
-
-    "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:CVV}}}}"  
-
-  }  
-
-}  
-
-``````
-
-{  
-
-  "PaymentInstrument1": {  
-
-    "name": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:NM}}}}",  
-
-    "card": {  
-
-      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,KSN:101720230000000100000001,CIPHERTEXT:D093069FE96C60A3D3A9C19D3D8EC6EF76E66207B9D537D31A4C24D571A319D9D8EDFA5C7A605D9C3CC6320873312DE7E83A9C97F3B498722A2EC3F135899643,FIELD:PAN}}}}",  
-
-      "expiry": {  
-
-        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
-
-        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
-
-        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED}}}}",  
-
-        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
-
-      }  
-
-    },  
-
-    "serviceCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:SC}}}}",  
-
-    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:DD}}}}",  
-
-    "track1": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1}}}}",  
-
-    "track1NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1NS}}}}",  
-
-    "track2": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2}}}}",  
-
-    "track2NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2NS}}}}"  
-
-  },  
-
-  "PaymentInstrument2": {  
-
-    "card": {  
-
-      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,KSN:101720230000000100000002,CIPHERTEXT:E56821BF821DA1149CDD0A8A1D8E5C8A369D4D3A97329B73ADCF878EF9C3B661FBCFD177355A33694731592605840B08DFDE24A0504F71CA41DD603307D4719D,FIELD:PAN,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-      "expiry": {  
-
-        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MM,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:YY,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MMyy,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}"  
-
-      }  
-
-    },  
-
-    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:DD}}}}"  
-
-  }  
-
-}  
-
-```
-```
-
-{  
-
-  "card": {  
-
-    "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,KSN:101720230000000100000003,CIPHERTEXT:65419C09071CAA1FB4F826541D825793BADE143BF1F968306832569DA4703EEB0C97CCD49CC4119D6E0D5053D1946A276B80AF9C27AA3F1188958863F948F400,FIELD:PAN}}}}",  
-
-    "expiry": {  
-
-      "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
-
-      "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
-
-      "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED}}}}",  
-
-      "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
-
-    },  
-
-    "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:CVV}}}}"  
-
-  }  
-
-}  
-
-``````
-
-{  
-
-  "PaymentInstrument1": {  
-
-    "name": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:NM}}}}",  
-
-    "card": {  
-
-      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,KSN:101720230000000100000001,CIPHERTEXT:D093069FE96C60A3D3A9C19D3D8EC6EF76E66207B9D537D31A4C24D571A319D9D8EDFA5C7A605D9C3CC6320873312DE7E83A9C97F3B498722A2EC3F135899643,FIELD:PAN}}}}",  
-
-      "expiry": {  
-
-        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
-
-        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
-
-        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED}}}}",  
-
-        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
-
-      }  
-
-    },  
-
-    "serviceCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:SC}}}}",  
-
-    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:DD}}}}",  
-
-    "track1": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1}}}}",  
-
-    "track1NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1NS}}}}",  
-
-    "track2": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2}}}}",  
-
-    "track2NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2NS}}}}"  
-
-  },  
-
-  "PaymentInstrument2": {  
-
-    "card": {  
-
-      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,KSN:101720230000000100000002,CIPHERTEXT:E56821BF821DA1149CDD0A8A1D8E5C8A369D4D3A97329B73ADCF878EF9C3B661FBCFD177355A33694731592605840B08DFDE24A0504F71CA41DD603307D4719D,FIELD:PAN,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-      "expiry": {  
-
-        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MM,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:YY,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
-
-        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MMyy,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}"  
-
-      }  
-
-    },  
-
-    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:DD}}}}"  
-
-  }  
-
-}  
-
-```
-```
-
-{  
-
-  "card": {  
-
-    "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,KSN:101720230000000100000003,CIPHERTEXT:65419C09071CAA1FB4F826541D825793BADE143BF1F968306832569DA4703EEB0C97CCD49CC4119D6E0D5053D1946A276B80AF9C27AA3F1188958863F948F400,FIELD:PAN}}}}",  
-
-    "expiry": {  
-
-      "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
-
-      "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
-
-      "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED}}}}",  
-
-      "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
-
-    },  
-
-    "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:CVV}}}}"  
-
-  }  
+  "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group4,KSN:101720230000000100000004,CIPHERTEXT:4204A95BF6A1DA81AD8642C2ADC88071F609038E0CC1F1A94992BA1C8821427E70495E83BD2FED90C54CE158E3C32703D74B9FAD46471D4EB78F2C10E72DF057,FIELD:CVV}}}}"  
 
 }  
 
@@ -641,3 +383,321 @@ The returned token will use the token scheme specified in the [tx-token-scheme](
 }  
 
 ```
+```
+
+{  
+
+  "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group4,KSN:101720230000000100000004,CIPHERTEXT:4204A95BF6A1DA81AD8642C2ADC88071F609038E0CC1F1A94992BA1C8821427E70495E83BD2FED90C54CE158E3C32703D74B9FAD46471D4EB78F2C10E72DF057,FIELD:CVV}}}}"  
+
+}  
+
+```A CVV-only group can be combined in the same request body with other groups carrying track data or manually entered data. This is the typical pattern for terminals that emit separate ciphertexts per field: one group decrypts the track or PAN ciphertext, another group decrypts the CVV-only ciphertext.
+```
+
+{  
+
+  "PaymentInstrument1": {  
+
+    "name": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:NM}}}}",  
+
+    "card": {  
+
+      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,KSN:101720230000000100000001,CIPHERTEXT:D093069FE96C60A3D3A9C19D3D8EC6EF76E66207B9D537D31A4C24D571A319D9D8EDFA5C7A605D9C3CC6320873312DE7E83A9C97F3B498722A2EC3F135899643,FIELD:PAN}}}}",  
+
+      "expiry": {  
+
+        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
+
+        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
+
+        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED}}}}",  
+
+        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
+
+      }  
+
+    },  
+
+    "serviceCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:SC}}}}",  
+
+    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:DD}}}}",  
+
+    "track1": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1}}}}",  
+
+    "track1NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1NS}}}}",  
+
+    "track2": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2}}}}",  
+
+    "track2NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2NS}}}}"  
+
+  },  
+
+  "PaymentInstrument2": {  
+
+    "card": {  
+
+      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,KSN:101720230000000100000002,CIPHERTEXT:E56821BF821DA1149CDD0A8A1D8E5C8A369D4D3A97329B73ADCF878EF9C3B661FBCFD177355A33694731592605840B08DFDE24A0504F71CA41DD603307D4719D,FIELD:PAN,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+      "expiry": {  
+
+        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MM,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:YY,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MMyy,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}"  
+
+      }  
+
+    },  
+
+    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:DD}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "card": {  
+
+    "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,KSN:101720230000000100000003,CIPHERTEXT:65419C09071CAA1FB4F826541D825793BADE143BF1F968306832569DA4703EEB0C97CCD49CC4119D6E0D5053D1946A276B80AF9C27AA3F1188958863F948F400,FIELD:PAN}}}}",  
+
+    "expiry": {  
+
+      "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
+
+      "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
+
+      "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED}}}}",  
+
+      "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
+
+    },  
+
+    "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:CVV}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group4,KSN:101720230000000100000004,CIPHERTEXT:4204A95BF6A1DA81AD8642C2ADC88071F609038E0CC1F1A94992BA1C8821427E70495E83BD2FED90C54CE158E3C32703D74B9FAD46471D4EB78F2C10E72DF057,FIELD:CVV}}}}"  
+
+}  
+
+```A CVV-only group can be combined in the same request body with other groups carrying track data or manually entered data. This is the typical pattern for terminals that emit separate ciphertexts per field: one group decrypts the track or PAN ciphertext, another group decrypts the CVV-only ciphertext.
+```
+
+{  
+
+  "PaymentInstrument1": {  
+
+    "name": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:NM}}}}",  
+
+    "card": {  
+
+      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,KSN:101720230000000100000001,CIPHERTEXT:D093069FE96C60A3D3A9C19D3D8EC6EF76E66207B9D537D31A4C24D571A319D9D8EDFA5C7A605D9C3CC6320873312DE7E83A9C97F3B498722A2EC3F135899643,FIELD:PAN}}}}",  
+
+      "expiry": {  
+
+        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
+
+        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
+
+        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED}}}}",  
+
+        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
+
+      }  
+
+    },  
+
+    "serviceCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:SC}}}}",  
+
+    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:DD}}}}",  
+
+    "track1": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1}}}}",  
+
+    "track1NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1NS}}}}",  
+
+    "track2": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2}}}}",  
+
+    "track2NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2NS}}}}"  
+
+  },  
+
+  "PaymentInstrument2": {  
+
+    "card": {  
+
+      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,KSN:101720230000000100000002,CIPHERTEXT:E56821BF821DA1149CDD0A8A1D8E5C8A369D4D3A97329B73ADCF878EF9C3B661FBCFD177355A33694731592605840B08DFDE24A0504F71CA41DD603307D4719D,FIELD:PAN,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+      "expiry": {  
+
+        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MM,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:YY,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MMyy,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}"  
+
+      }  
+
+    },  
+
+    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:DD}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "card": {  
+
+    "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,KSN:101720230000000100000003,CIPHERTEXT:65419C09071CAA1FB4F826541D825793BADE143BF1F968306832569DA4703EEB0C97CCD49CC4119D6E0D5053D1946A276B80AF9C27AA3F1188958863F948F400,FIELD:PAN}}}}",  
+
+    "expiry": {  
+
+      "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
+
+      "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
+
+      "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED}}}}",  
+
+      "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
+
+    },  
+
+    "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:CVV}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group4,KSN:101720230000000100000004,CIPHERTEXT:4204A95BF6A1DA81AD8642C2ADC88071F609038E0CC1F1A94992BA1C8821427E70495E83BD2FED90C54CE158E3C32703D74B9FAD46471D4EB78F2C10E72DF057,FIELD:CVV}}}}"  
+
+}  
+
+```
+```
+
+{  
+
+  "PaymentInstrument1": {  
+
+    "name": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:NM}}}}",  
+
+    "card": {  
+
+      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,KSN:101720230000000100000001,CIPHERTEXT:D093069FE96C60A3D3A9C19D3D8EC6EF76E66207B9D537D31A4C24D571A319D9D8EDFA5C7A605D9C3CC6320873312DE7E83A9C97F3B498722A2EC3F135899643,FIELD:PAN}}}}",  
+
+      "expiry": {  
+
+        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
+
+        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
+
+        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED}}}}",  
+
+        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
+
+      }  
+
+    },  
+
+    "serviceCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:SC}}}}",  
+
+    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:DD}}}}",  
+
+    "track1": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1}}}}",  
+
+    "track1NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T1NS}}}}",  
+
+    "track2": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2}}}}",  
+
+    "track2NS": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group1,FIELD:T2NS}}}}"  
+
+  },  
+
+  "PaymentInstrument2": {  
+
+    "card": {  
+
+      "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,KSN:101720230000000100000002,CIPHERTEXT:E56821BF821DA1149CDD0A8A1D8E5C8A369D4D3A97329B73ADCF878EF9C3B661FBCFD177355A33694731592605840B08DFDE24A0504F71CA41DD603307D4719D,FIELD:PAN,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+      "expiry": {  
+
+        "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MM,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:YY,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}",  
+
+        "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:ED,EXPDATEFORMAT:MMyy,DUKPTKEYVARIANT:BIDIRECTIONAL}}}}"  
+
+      }  
+
+    },  
+
+    "discretionaryData": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group2,FIELD:DD}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "card": {  
+
+    "number": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,KSN:101720230000000100000003,CIPHERTEXT:65419C09071CAA1FB4F826541D825793BADE143BF1F968306832569DA4703EEB0C97CCD49CC4119D6E0D5053D1946A276B80AF9C27AA3F1188958863F948F400,FIELD:PAN}}}}",  
+
+    "expiry": {  
+
+      "month": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:MM}}}}",  
+
+      "year": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED,EXPDATEFORMAT:YY}}}}",  
+
+      "yyMM": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED}}}}",  
+
+      "MMyy": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:ED, EXPDATEFORMAT:MMyy}}}}"  
+
+    },  
+
+    "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group3,FIELD:CVV}}}}"  
+
+  }  
+
+}  
+
+```
+```
+
+{  
+
+  "securityCode": "{{{{FUNCTION:P2PEDECRYPT,GROUP:Group4,KSN:101720230000000100000004,CIPHERTEXT:4204A95BF6A1DA81AD8642C2ADC88071F609038E0CC1F1A94992BA1C8821427E70495E83BD2FED90C54CE158E3C32703D74B9FAD46471D4EB78F2C10E72DF057,FIELD:CVV}}}}"  
+
+}  
+
+```A CVV-only group can be combined in the same request body with other groups carrying track data or manually entered data. This is the typical pattern for terminals that emit separate ciphertexts per field: one group decrypts the track or PAN ciphertext, another group decrypts the CVV-only ciphertext.

@@ -14,7 +14,7 @@ tags:
 - json
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/error-codes
 portal: ixopay-modules
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -285,6 +285,7 @@ tx-apikey: YourAPIKey
 | Error Code  | Error Message  |  
 | --- | --- |  
 | 8520  | Could not find any functions with decryptable parameters.  |  
+| 8523  | Decrypted data was not valid Track data.  |  
 | 8525  | Field name is not a valid ISO 7813 Track field.  |  
 | 8527  | Desired expiration format is invalid.  |  
 | 8534  | Field was not present in track data.  |  

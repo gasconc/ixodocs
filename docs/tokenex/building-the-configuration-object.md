@@ -4,14 +4,16 @@ summary: ' TokenEx iFrame  Creating the iFramehttps://documentation.ixopay.com/m
   the Configuration Object'
 tags:
 - json
+- 3ds
 - pci
+- tokenization
 - tokenex
 - ixopay
 - iframe
 - credit-card
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/building-the-configuration-object
 portal: tokenex
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -93,6 +95,9 @@ This field is optional. Providing an object for this field requires all properti
 `jcb`   
 `masterCard`   
 `visa` info This functionality is only available for PCI and PCIwithCVV iFrame modes. Max Length for PCI and PCIwithCVV is 19 by default  |  
+| `use3DS`  | bool  | false  | Triggers the 3-D Secure device fingerprinting process. Supported in PCI, PCI w/ CVV, and CVV Only modes. In PCI and PCI w/ CVV modes it runs during tokenization; in CVV Only Mode it runs on iFrame load using the provided token. See [3DS Device Fingerprinting](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting).  |  
+| `threeDSMethodNotificationUrl`  | string  | false  | Fully-qualified endpoint to receive notification following Device Fingerprinting. Required if `use3DS` is true.  |  
+| `enforceLuhnCompliance`  | bool  | false  | If omitted, defaults to true. Set to false to bypass luhn check in PCI or PCI w/ CVV modes. Has no effect in CVV Only Mode.  |  
   
   
 ```
@@ -122,6 +127,9 @@ This field is optional. Providing an object for this field requires all properti
 `jcb`   
 `masterCard`   
 `visa` info This functionality is only available for PCI and PCIwithCVV iFrame modes. Max Length for PCI and PCIwithCVV is 19 by default  |  
+| `use3DS`  | bool  | false  | Triggers the 3-D Secure device fingerprinting process. Supported in PCI, PCI w/ CVV, and CVV Only modes. In PCI and PCI w/ CVV modes it runs during tokenization; in CVV Only Mode it runs on iFrame load using the provided token. See [3DS Device Fingerprinting](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting).  |  
+| `threeDSMethodNotificationUrl`  | string  | false  | Fully-qualified endpoint to receive notification following Device Fingerprinting. Required if `use3DS` is true.  |  
+| `enforceLuhnCompliance`  | bool  | false  | If omitted, defaults to true. Set to false to bypass luhn check in PCI or PCI w/ CVV modes. Has no effect in CVV Only Mode.  |  
   * TokenEx iFrame
   * [Creating the iFrame](https://documentation.ixopay.com/modules/docs/tokenex/creating-the-iframe)
   * Building the Configuration Object
@@ -161,4 +169,7 @@ This field is optional. Providing an object for this field requires all properti
 `discover`   
 `jcb`   
 `masterCard`   
-`visa` info This functionality is only available for PCI and PCIwithCVV iFrame modes. Max Length for PCI and PCIwithCVV is 19 by default  |
+`visa` info This functionality is only available for PCI and PCIwithCVV iFrame modes. Max Length for PCI and PCIwithCVV is 19 by default  |  
+| `use3DS`  | bool  | false  | Triggers the 3-D Secure device fingerprinting process. Supported in PCI, PCI w/ CVV, and CVV Only modes. In PCI and PCI w/ CVV modes it runs during tokenization; in CVV Only Mode it runs on iFrame load using the provided token. See [3DS Device Fingerprinting](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting).  |  
+| `threeDSMethodNotificationUrl`  | string  | false  | Fully-qualified endpoint to receive notification following Device Fingerprinting. Required if `use3DS` is true.  |  
+| `enforceLuhnCompliance`  | bool  | false  | If omitted, defaults to true. Set to false to bypass luhn check in PCI or PCI w/ CVV modes. Has no effect in CVV Only Mode.  |

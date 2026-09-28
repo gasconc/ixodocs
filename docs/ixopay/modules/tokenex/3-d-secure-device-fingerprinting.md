@@ -4,17 +4,17 @@ summary: ' 3-D Secure Authentication  3DS Device Fingerprinting'
 tags:
 - tokenex-iframe-https-documentation-ixopay-com-modules-docs-tokenex-secure-device-fingerprinting-tokenex-iframe-direct-link-tokenex-iframe
 - success-https-documentation-ixopay-com-modules-docs-tokenex-secure-device-fingerprinting-success-direct-link-success
+- outside-tokenex-iframe-https-documentation-ixopay-com-modules-docs-tokenex-secure-device-fingerprinting-outside-tokenex-iframe-direct-link-outside-tokenex-iframe
 - api
 - json
 - webhook
 - 3ds
 - pci
 - pci-dss
-- tokenex
-- ixopay
+- tokenization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting
 portal: ixopay-modules
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -23,7 +23,7 @@ related: []
 
 # 3DS Device Fingerprinting
 Associating Client Browser Attributes with a 3DS Transaction ID.
-Device fingerprinting is the association of client browser attributes with a specific transaction. This fits into the 3DS flow prior to a 3DS Authentications call. Device fingerprinting can be used within the PCI or PCI w/ CVV mode of the [TokenEx iFrame](https://documentation.ixopay.com/modules/docs/tokenex/iframe-new) or built into your own checkout workflow.
+Device fingerprinting is the association of client browser attributes with a specific transaction. This fits into the 3DS flow prior to a 3DS Authentications call. Device fingerprinting can be used within the PCI, PCI w/ CVV, or CVV Only modes of the [TokenEx iFrame](https://documentation.ixopay.com/modules/docs/tokenex/iframe-new) or built into your own checkout workflow.
 When device fingerprinting is used, the authentication request will also include information about the cardholder’s browser. Although this may seem like duplicative work, the device fingerprint is obtained via a script provided by the ACS, while the browser data in the authentication request comes from the merchant. The ACS then looks for a match by comparing the device fingerprint with the browser data from the authentication request. Since the browser information is retrieved through remote JavaScript calls, it is recommended to gather the required browser data for the authentication request simultaneously with the device fingerprinting.
 ## TokenEx iFrame[​](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#tokenex-iframe "Direct link to TokenEx iFrame")
 The iFrame [configuration object](https://documentation.ixopay.com/modules/docs/tokenex/building-the-configuration-object) has three optional fields:  
@@ -31,7 +31,7 @@ The iFrame [configuration object](https://documentation.ixopay.com/modules/docs/
 | --- | --- | --- |  
 | use3DS  | boolean  | Triggers device fingerprinting process  |  
 | threeDSMethodNotificationUrl  | string  | Fully-qualified endpoint to receive notification following Device Fingerprinting. Required if use3DS is true  |  
-| enforceLuhnCompliance  | boolean  | True or False. If omitted, defaults to true. Set to False to bypass luhn checks in PCI or PCI w/ CVV modes. **Co-Branded 3DS test cards are not luhn compliant.**  |  
+| enforceLuhnCompliance  | boolean  | True or False. If omitted, defaults to true. Set to False to bypass luhn checks in PCI or PCI w/ CVV modes. **Co-Branded 3DS test cards are not luhn compliant.** Has no effect in CVV Only Mode, because no PAN is entered in that mode.  |  
 The API key used to generate the authenticationKey must have the 3DS permission enabled. Contact Support to enable this permission.
 When the PAN is tokenized, a SupportedVersions call is processed in the background. That SupportedVersions response is included in the Tokenize response as `ThreeDSecureResponse`. If the `ThreeDSecureResponse` has a `threeDSMethodUrl`, device fingerprinting can be performed and the browser attributes are associated with the `ThreeDSecureResponse`'s `threeDSServerTransID`. If device fingerprinting can be performed, a hidden iframe is added to the same container housing the existing PAN iframe. The hidden iframe loads a script which associates the browser attributes with the `threeDSServerTransID` and then sends a base64 encoded notification to the `threeDSMethodNotificationUrl`.
 The `threeDSServerTransID` should then be used within the [ThreeDSecure/Authentications](https://documentation.ixopay.com/modules/docs/tokenex/authentications) request in the `ServerTransactionId` field and the ACS will take the browser attributes into account when determining whether to issue a challenge.
@@ -160,7 +160,28 @@ When device fingerprinting is not supported for a PAN or when another error occu
 
 }  
 
-```## Outside the TokenEx iFrame[​](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#outside-the-tokenex-iframe "Direct link to Outside the TokenEx iFrame")
+```### CVV Only Mode[​](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#cvv-only-mode "Direct link to CVV Only Mode")
+CVV Only Mode operates on an existing token, so there is no tokenization event to trigger the SupportedVersions call. Instead, when `use3DS` is true the SupportedVersions call is processed automatically when the iFrame loads, using the token from the configuration object. The call is non-blocking — the CVV input renders immediately and remains usable regardless of the 3DS outcome.
+Because there is no tokenize response in this mode, the SupportedVersions response is delivered through a dedicated `3DS` event raised before device fingerprinting begins. The `threeDSServerTransID` is in `threeDSecureResponse[0]`.
+JavaScript
+```
+
+iframe.on("3DS", function (data) {  
+
+  // data.threeDSecureResponse    — the SupportedVersions results  
+
+  // data.recommended3dsVersion   — the highest supported 3DS version of the three servers  
+
+  // data.referenceNumber         — TokenEx reference number for the request  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
+
+```If the `threeDSecureResponse` has a `threeDSMethodUrl`, device fingerprinting proceeds exactly as described above: a hidden iframe associates the browser attributes with the `threeDSServerTransID`, a base64 encoded notification is sent to the `threeDSMethodNotificationUrl`, and an iFrame Notice event reports the outcome (`{ "type": "3DS Device Fingerprinting", "success": true }` or `"success": false`). The success and failure guidance above applies unchanged, with the `3DS` event taking the place of the tokenize response: include `MethodCompletionIndicator` as 1 (successful) upon receipt of the notification, 2 (not successful) if no notification arrives within 10 seconds, or 3 (unavailable) if `threeDSMethodURL` is not present.
+`use3DS` in CVV Only Mode still requires a `threeDSMethodNotificationUrl`; omitting it raises an `error` event (`"Invalid Config Object"`) and the iFrame does not load.
+See [CVV Only Mode Configuration](https://documentation.ixopay.com/modules/docs/tokenex/cvv-only-mode-configuration) for a complete configuration example.
+## Outside the TokenEx iFrame[​](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#outside-the-tokenex-iframe "Direct link to Outside the TokenEx iFrame")
 When a checkout flow does not include the TokenEx iFrame or more control is needed, follow the below steps to add device fingerprinting to the page.
   1. Execute an API call to [ThreeDSecure/SupportedVersions](https://documentation.ixopay.com/modules/docs/tokenex/supported-versions). If device fingerprinting is supported by the card issuer, the `threeDSecureResponse` will contain a `threeDSMethodURL`. Retrieve the `threeDSMethodURL` and the `threeDSServerTransID` from the response. If a `threeDSMethodURL` is not present, include `MethodCompletionIndicator` as 3 (unavailable) in the [ThreeDSecure/Authentications](https://documentation.ixopay.com/modules/docs/tokenex/authentications) request.
   2. Post a form to the `threeDSMethodURL`. The form parameter is `threeDSMethodData`. The content of that parameter should be a base64-encoded json object containing the `threeDSServerTransID` and an endpoint to receive a notification (steps 2a and 2b below) when device fingerprinting is completed. A script will be returned.
@@ -403,6 +424,21 @@ threeDSMethodData=eyJ0aHJlZURTTWV0aG9kTm90aWZpY2F0aW9uVVJMIjoiaHR0cHM6Ly9ub3RpZm
 ```
 ```
 
+iframe.on("3DS", function (data) {  
+
+  // data.threeDSecureResponse    — the SupportedVersions results  
+
+  // data.recommended3dsVersion   — the highest supported 3DS version of the three servers  
+
+  // data.referenceNumber         — TokenEx reference number for the request  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
+
+```
+```
+
 {  
 
   "threeDSMethodNotificationURL": "https://merchant-defined-webhook.merchant.com",  
@@ -627,6 +663,21 @@ threeDSMethodData=eyJ0aHJlZURTTWV0aG9kTm90aWZpY2F0aW9uVVJMIjoiaHR0cHM6Ly9ub3RpZm
   "cardType": "masterCard"  
 
 }  
+
+```
+```
+
+iframe.on("3DS", function (data) {  
+
+  // data.threeDSecureResponse    — the SupportedVersions results  
+
+  // data.recommended3dsVersion   — the highest supported 3DS version of the three servers  
+
+  // data.referenceNumber         — TokenEx reference number for the request  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
 
 ```
 ```
@@ -863,6 +914,21 @@ threeDSMethodData=eyJ0aHJlZURTTWV0aG9kTm90aWZpY2F0aW9uVVJMIjoiaHR0cHM6Ly9ub3RpZm
 ```
 ```
 
+iframe.on("3DS", function (data) {  
+
+  // data.threeDSecureResponse    — the SupportedVersions results  
+
+  // data.recommended3dsVersion   — the highest supported 3DS version of the three servers  
+
+  // data.referenceNumber         — TokenEx reference number for the request  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
+
+```
+```
+
 {  
 
   "threeDSMethodNotificationURL": "https://merchant-defined-webhook.merchant.com",  
@@ -977,6 +1043,7 @@ While the PCI DSS 4.0 Requirement 6.4.3 to inventory and verify integrity of scr
   * [TokenEx iFrame](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#tokenex-iframe)
     * [Success Example](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#success-example)
     * [Failure Example](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#failure-example)
+    * [CVV Only Mode](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#cvv-only-mode)
   * [Outside the TokenEx iFrame](https://documentation.ixopay.com/modules/docs/tokenex/3-d-secure-device-fingerprinting#outside-the-tokenex-iframe)
 ```
 
@@ -1097,6 +1164,21 @@ threeDSMethodData=eyJ0aHJlZURTTWV0aG9kTm90aWZpY2F0aW9uVVJMIjoiaHR0cHM6Ly9ub3RpZm
 ```
 ```
 
+iframe.on("3DS", function (data) {  
+
+  // data.threeDSecureResponse    — the SupportedVersions results  
+
+  // data.recommended3dsVersion   — the highest supported 3DS version of the three servers  
+
+  // data.referenceNumber         — TokenEx reference number for the request  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
+
+```
+```
+
 {  
 
   "threeDSMethodNotificationURL": "https://merchant-defined-webhook.merchant.com",  
@@ -1321,6 +1403,21 @@ threeDSMethodData=eyJ0aHJlZURTTWV0aG9kTm90aWZpY2F0aW9uVVJMIjoiaHR0cHM6Ly9ub3RpZm
   "cardType": "masterCard"  
 
 }  
+
+```
+```
+
+iframe.on("3DS", function (data) {  
+
+  // data.threeDSecureResponse    — the SupportedVersions results  
+
+  // data.recommended3dsVersion   — the highest supported 3DS version of the three servers  
+
+  // data.referenceNumber         — TokenEx reference number for the request  
+
+  var transId = data.threeDSecureResponse[0].threeDSServerTransID;  
+
+});  
 
 ```
 ```

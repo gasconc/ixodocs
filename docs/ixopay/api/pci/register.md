@@ -14,7 +14,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/api/pci/register
 portal: ixopay-dev
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
@@ -689,6 +689,97 @@ Two-digit expiration month of the credit card.
 Four-digit expiration year of the credit card.
 **Possible values:** Value must match regular expression `^[0-9]{4}$`
 **Example:**`2027`
+**paymentToken** object
+An externally provisioned payment token from a wallet provider or network token service provider. Use the `type` field to select the appropriate schema.
+**type** string
+An externally provisioned payment token from a wallet provider or network token service provider. Use the `type` field to select the appropriate schema.
+**Possible values:** [`EXTERNAL-APPLEPAY`, `EXTERNAL-GOOGLEPAY`, `EXTERNAL-NETWORK`]
+    * EXTERNAL-APPLEPAY
+    * EXTERNAL-GOOGLEPAY
+    * EXTERNAL-NETWORK
+**type** stringrequired
+Token type discriminator. One of `EXTERNAL-APPLEPAY`, `EXTERNAL-GOOGLEPAY`, or `EXTERNAL-NETWORK`.
+**Possible values:** [`EXTERNAL-NETWORK`, `EXTERNAL-GOOGLEPAY`, `EXTERNAL-APPLEPAY`]
+**token** stringrequired
+The payment token value from the external provider.
+**cryptogram** stringrequired
+Authentication cryptogram provided by the token service. For Google Pay, the cryptogram is only present for the `CRYPTOGRAM_3DS` authentication method; for the `PAN_ONLY` method it must be omitted or left empty. The authentication method is derived from this field: a present cryptogram is treated as `CRYPTOGRAM_3DS`, an omitted or empty cryptogram as `PAN_ONLY`. In both cases the externally provisioned token is submitted here rather than through the standard credit card fields.
+**paymentAccountReference** string
+Payment Account Reference (PAR). Alphanumeric, max 29 characters.
+**Possible values:** `<= 29 characters`, Value must match regular expression `^[A-Za-z0-9]+$`
+**tokenExpirationMonth** stringrequired
+Token expiration month in `MM` format.
+**Possible values:** Value must match regular expression `^(0[1-9]|1[0-2])$`
+**Example:**`07`
+**tokenExpirationYear** stringrequired
+Token expiration year in `YYYY` format.
+**Possible values:** Value must match regular expression `^[0-9]{4}$`
+**Example:**`2027`
+**eciIndicator** string
+Electronic Commerce Indicator (ECI) as a 2-digit string. This value may be empty after decryption of the payment token. Pass it through exactly as received—even when empty—rather than substituting a default value of your own.
+**Possible values:** Value must match regular expression `^([0-9]{2})?$`
+**Example:**`05`
+**tokenExpirationDay** stringrequired
+Token expiration day in `DD` format.
+**Possible values:** Value must match regular expression `^(0[1-9]|[12][0-9]|3[01])$`
+**Example:**`01`
+**deviceManufacturerIdentifier** string
+Device manufacturer identifier from the Apple Pay payment token.
+**type** stringrequired
+Token type discriminator. One of `EXTERNAL-APPLEPAY`, `EXTERNAL-GOOGLEPAY`, or `EXTERNAL-NETWORK`.
+**Possible values:** [`EXTERNAL-NETWORK`, `EXTERNAL-GOOGLEPAY`, `EXTERNAL-APPLEPAY`]
+**token** stringrequired
+The payment token value from the external provider.
+**cryptogram** string
+Authentication cryptogram provided by the token service. For Google Pay, the cryptogram is only present for the `CRYPTOGRAM_3DS` authentication method; for the `PAN_ONLY` method it must be omitted or left empty. The authentication method is derived from this field: a present cryptogram is treated as `CRYPTOGRAM_3DS`, an omitted or empty cryptogram as `PAN_ONLY`. In both cases the externally provisioned token is submitted here rather than through the standard credit card fields.
+**paymentAccountReference** string
+Payment Account Reference (PAR). Alphanumeric, max 29 characters.
+**Possible values:** `<= 29 characters`, Value must match regular expression `^[A-Za-z0-9]+$`
+**tokenExpirationMonth** stringrequired
+Token expiration month in `MM` format.
+**Possible values:** Value must match regular expression `^(0[1-9]|1[0-2])$`
+**Example:**`07`
+**tokenExpirationYear** stringrequired
+Token expiration year in `YYYY` format.
+**Possible values:** Value must match regular expression `^[0-9]{4}$`
+**Example:**`2027`
+**eciIndicator** string
+Electronic Commerce Indicator (ECI) as a 2-digit string. This value may be empty after decryption of the payment token. Pass it through exactly as received—even when empty—rather than substituting a default value of your own.
+**Possible values:** Value must match regular expression `^([0-9]{2})?$`
+**Example:**`05`
+**type** stringrequired
+Token type discriminator. One of `EXTERNAL-APPLEPAY`, `EXTERNAL-GOOGLEPAY`, or `EXTERNAL-NETWORK`.
+**Possible values:** [`EXTERNAL-NETWORK`, `EXTERNAL-GOOGLEPAY`, `EXTERNAL-APPLEPAY`]
+**token** stringrequired
+The payment token value from the external provider.
+**cryptogram** string
+Authentication cryptogram provided by the token service. For Google Pay, the cryptogram is only present for the `CRYPTOGRAM_3DS` authentication method; for the `PAN_ONLY` method it must be omitted or left empty. The authentication method is derived from this field: a present cryptogram is treated as `CRYPTOGRAM_3DS`, an omitted or empty cryptogram as `PAN_ONLY`. In both cases the externally provisioned token is submitted here rather than through the standard credit card fields.
+**paymentAccountReference** string
+Payment Account Reference (PAR). Alphanumeric, max 29 characters.
+**Possible values:** `<= 29 characters`, Value must match regular expression `^[A-Za-z0-9]+$`
+**tokenExpirationMonth** stringrequired
+Token expiration month in `MM` format.
+**Possible values:** Value must match regular expression `^(0[1-9]|1[0-2])$`
+**Example:**`07`
+**tokenExpirationYear** stringrequired
+Token expiration year in `YYYY` format.
+**Possible values:** Value must match regular expression `^[0-9]{4}$`
+**Example:**`2027`
+**eciIndicator** string
+Electronic Commerce Indicator (ECI) as a 2-digit string. This value may be empty after decryption of the payment token. Pass it through exactly as received—even when empty—rather than substituting a default value of your own.
+**Possible values:** Value must match regular expression `^([0-9]{2})?$`
+**Example:**`05`
+**cardHolder** string
+Cardholder name associated with the underlying PAN.
+**panUniqueReference** string
+Unique reference for the underlying PAN assigned by the token service provider.
+**tokenUniqueReference** string
+Unique reference for the network token assigned by the token service provider.
+**panLastFourDigits** string
+Last four digits of the underlying PAN.
+**Possible values:** `<= 4 characters`
+**tokenRequestorId** string
+Identifier of the token requestor registered with the card network.
 
 Typical request data
 ```
@@ -806,6 +897,11 @@ HTML content the customer must be shown, only set if `"returnType": "HTML"`.
 **paymentDescriptor** string
 **paymentMethod** string
 Payment method used - if it has already been determined.
+**adapterMerchantTransactionId** AdapterMerchantTransactionId
+The merchant transaction reference sent to the payment service provider (PSP) for this transaction, as recorded by IXOPAY platform.
+Use this value to match the transaction with adapter or PSP records, including reconciliation data. It is returned only for supported adapter flows and omitted when unavailable. If retries produce multiple identifiers, Status API responses contain the latest recorded value.
+**Possible values:** `non-empty` and `<= 64 characters`
+**Example:**`12345000000099999`
 **returnData** object
 **_TYPE** ReturnDataTyperequired
 **Possible values:** [`cardData`, `phoneData`, `ibanData`, `walletData`, `achData`]
@@ -1696,6 +1792,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",  
     "expirationMonth": "06",  
     "expirationYear": "2027"  
+  },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
   }  
 }'  
 
@@ -1889,6 +1996,17 @@ Body required
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   }
 }
 
@@ -2585,6 +2703,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",  
     "expirationMonth": "06",  
     "expirationYear": "2027"  
+  },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
   }  
 }'  
 
@@ -2767,6 +2896,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   }
 }
 
@@ -3463,6 +3603,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",  
     "expirationMonth": "06",  
     "expirationYear": "2027"  
+  },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
   }  
 }'  
 
@@ -3645,6 +3796,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   }
 }
 
@@ -4341,6 +4503,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",  
     "expirationMonth": "06",  
     "expirationYear": "2027"  
+  },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
   }  
 }'  
 
@@ -4523,6 +4696,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   }
 }
 
@@ -5219,6 +5403,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",  
     "expirationMonth": "06",  
     "expirationYear": "2027"  
+  },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
   }  
 }'  
 
@@ -5401,6 +5596,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   }
 }
 
@@ -6097,6 +6303,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",  
     "expirationMonth": "06",  
     "expirationYear": "2027"  
+  },  
+  "paymentToken": {  
+    "type": "EXTERNAL-APPLEPAY",  
+    "token": "string",  
+    "cryptogram": "string",  
+    "paymentAccountReference": "string",  
+    "tokenExpirationMonth": "07",  
+    "tokenExpirationYear": "2027",  
+    "eciIndicator": "05",  
+    "tokenExpirationDay": "01",  
+    "deviceManufacturerIdentifier": "string"  
   }  
 }'  
 
@@ -6279,6 +6496,17 @@ curl -L 'https://secure.ixopay.com/api/v3/transaction/:apiKey/register' \
     "cvv": "123",
     "expirationMonth": "06",
     "expirationYear": "2027"
+  },
+  "paymentToken": {
+    "type": "EXTERNAL-APPLEPAY",
+    "token": "string",
+    "cryptogram": "string",
+    "paymentAccountReference": "string",
+    "tokenExpirationMonth": "07",
+    "tokenExpirationYear": "2027",
+    "eciIndicator": "05",
+    "tokenExpirationDay": "01",
+    "deviceManufacturerIdentifier": "string"
   }
 }
 

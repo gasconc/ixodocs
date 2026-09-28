@@ -12,7 +12,7 @@ tags:
 - snowflake
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/data-pipelines/snowflake
 portal: ixopay-modules
-updated: '2026-09-21'
+updated: '2026-09-28'
 related: []
 ---
 
