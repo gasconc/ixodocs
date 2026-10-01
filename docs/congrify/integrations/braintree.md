@@ -16,7 +16,7 @@ tags:
 - pci
 source_url: ''
 portal: congrify
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

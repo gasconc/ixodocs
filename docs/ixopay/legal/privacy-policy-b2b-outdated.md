@@ -6,7 +6,7 @@ tags:
 - ixopay
 source_url: https://www.ixopay.com/legal/privacy-policy-b2b-outdated
 portal: ixopay-legal
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

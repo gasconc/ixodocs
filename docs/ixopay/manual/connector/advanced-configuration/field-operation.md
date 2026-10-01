@@ -10,7 +10,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/field-operation
 portal: ixopay-manual
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

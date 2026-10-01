@@ -8,7 +8,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/selfpay
 portal: ixopay-manual
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

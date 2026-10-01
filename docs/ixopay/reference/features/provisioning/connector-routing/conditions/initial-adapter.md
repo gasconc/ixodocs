@@ -11,7 +11,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing/conditions/initial-adapter
 portal: ixopay-dev
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

@@ -15,7 +15,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/docs/reference/features/bi-data-source/legacy
 portal: ixopay-dev
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

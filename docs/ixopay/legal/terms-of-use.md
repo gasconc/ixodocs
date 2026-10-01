@@ -12,7 +12,7 @@ tags:
 - merchant
 source_url: https://www.ixopay.com/legal/terms-of-use
 portal: ixopay-legal
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

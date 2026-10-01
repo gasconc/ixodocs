@@ -14,7 +14,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/pci-validated-p2pe-overview
 portal: tokenex
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

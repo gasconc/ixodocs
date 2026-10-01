@@ -8,7 +8,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/transactions/schedules/pause-continue-retry-cancel
 portal: ixopay-manual
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

@@ -17,7 +17,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/adyen
 portal: ixopay-modules
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

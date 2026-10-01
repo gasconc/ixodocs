@@ -14,7 +14,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/capture-void
 portal: ixopay-manual
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 

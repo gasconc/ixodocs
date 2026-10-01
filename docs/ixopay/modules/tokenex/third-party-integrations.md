@@ -13,7 +13,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/third-party-integrations
 portal: ixopay-modules
-updated: '2026-09-28'
+updated: '2026-10-01'
 related: []
 ---
 
