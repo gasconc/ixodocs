@@ -14,7 +14,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/api/pci/continue-dcc
 portal: ixopay-dev
-updated: '2026-10-01'
+updated: '2026-10-05'
 related: []
 ---
 

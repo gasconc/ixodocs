@@ -14,7 +14,7 @@ tags:
 - data-aggregation-anonymization
 source_url: https://www.ixopay.com/legal/privacy-notice
 portal: ixopay-legal
-updated: '2026-10-01'
+updated: '2026-10-05'
 related: []
 ---
 

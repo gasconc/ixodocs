@@ -17,7 +17,7 @@ tags:
 - congrify
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/barclaycard
 portal: ixopay-modules
-updated: '2026-10-01'
+updated: '2026-10-05'
 related: []
 ---
 

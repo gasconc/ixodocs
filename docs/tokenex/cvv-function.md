@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/cvv-function
 portal: tokenex
-updated: '2026-10-01'
+updated: '2026-10-05'
 related: []
 ---
 

@@ -9,7 +9,7 @@ tags:
 - ixopay
 source_url: https://www.ixopay.com/legal/msa
 portal: ixopay-legal
-updated: '2026-10-01'
+updated: '2026-10-05'
 related: []
 ---
 
