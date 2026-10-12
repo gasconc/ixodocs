@@ -7,7 +7,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/transaction-tags
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -24,6 +24,6 @@ Once enabled, you can give [Roles](https://documentation.ixopay.com/manual/docs/
   3. Click **Add Tag**
 
 The **fraud tag** will show up in the Transaction Details (see Fraud Tag in Transaction Details) and can be removed by clicking the **x** directly on the Tag and confirming the removal (see Remove Tag Confirmation).
-![Permission tag](https://documentation.ixopay.com/manual/assets/ideal-img/permission-tag.6efd104.1280.png)Permission tag![Adding Tag](https://documentation.ixopay.com/manual/assets/ideal-img/adding-tag.3f2987a.1280.png)Adding Tag![Adding Fraud Tag](https://documentation.ixopay.com/manual/assets/ideal-img/adding-fraud-tag.6f18bff.828.png)Adding Fraud Tag![Fraud Tag in Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/fraud-tag-in-transaction-details.0980692.1280.png)Fraud Tag in Transaction Details![Remove Tag Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/remove-tag-confirmation.2131f00.824.png)Remove Tag Confirmation
+![Permission tag](https://documentation.ixopay.com/manual/assets/ideal-img/permission-tag.33dc4ce.1280.png)Permission tag![Adding Tag](https://documentation.ixopay.com/manual/assets/ideal-img/adding-tag.c90e48a.1280.png)Adding Tag![Adding Fraud Tag](https://documentation.ixopay.com/manual/assets/ideal-img/adding-fraud-tag.c336471.828.png)Adding Fraud Tag![Fraud Tag in Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/fraud-tag-in-transaction-details.1475317.1280.png)Fraud Tag in Transaction Details![Remove Tag Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/remove-tag-confirmation.96bba30.824.png)Remove Tag Confirmation
 note
 At the moment only the **fraud tag** is available.

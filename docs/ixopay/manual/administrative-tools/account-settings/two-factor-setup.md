@@ -7,7 +7,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/two-factor-setup
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -26,4 +26,4 @@ To set up two-factor authentication:
   6. **Confirm** the new secret.
 
 When you next attempt to log in, you will be asked to enter your credentials as well as the verification code from the authentication app.
-![Account Settings](https://documentation.ixopay.com/manual/assets/ideal-img/account-settings.2401eed.1280.png)Account Settings![Create Secret](https://documentation.ixopay.com/manual/assets/ideal-img/create-secret.e16833a.1280.png)Create Secret![QR code](https://documentation.ixopay.com/manual/assets/ideal-img/qr-code.a8de280.1216.png)QR code
+![Account Settings](https://documentation.ixopay.com/manual/assets/ideal-img/account-settings.9cddd6a.1280.png)Account Settings![Create Secret](https://documentation.ixopay.com/manual/assets/ideal-img/create-secret.1785b50.1280.png)Create Secret![QR code](https://documentation.ixopay.com/manual/assets/ideal-img/qr-code.c4ef995.1216.png)QR code

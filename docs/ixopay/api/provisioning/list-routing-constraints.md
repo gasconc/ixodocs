@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/api/provisioning/list-routing-constraints
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -33,6 +33,11 @@ Each catalogue entry carries a `paramsSchema`: a JSON Schema (draft-07 compatibl
 The catalogue is **per-tenant** , not per-merchant: the response is identical for every merchant managed with the same API key. Conditions that are not activated for your tenant are not returned; additionally activated conditions are included — to activate more, contact your Customer Success Manager. The catalogue rarely changes, so caching the response is safe.
 info
 The catalogue lists every condition available for the routing rules of routing meta-connectors. Multi-method routing accepts a fixed subset — see [Set multi-method routing](https://documentation.ixopay.com/api/provisioning/set-connector-multi-method-routing) and the [condition reference](https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing/conditions).
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Responses[​](https://documentation.ixopay.com/api/provisioning/list-routing-constraints#responses "Direct link to Responses")
   * 200
   * 401

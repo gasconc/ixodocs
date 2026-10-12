@@ -14,7 +14,7 @@ tags:
 - json
 source_url: https://documentation.ixopay.com/modules/api/tokenex/accountupdater
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -118,9 +118,8 @@ The sequence number used for keeping track of which cards succeeded and which fa
 The Sub-merchant name to be used for Visa account update request. _Deprecation pending_ - Use VisaProcessingParams.SubMerchantName instead
 **acquirerOrMerchantProprietaryInfo** string
 If provided, it contains merchant proprietary information such as a customer ID that is carried in the merchant’s back-end system. Used for Visa account update request. Deprecation Pending - Use VisaProcessingParams.AcquirerOrMerchantProprietaryInfo instead
-**visaProcessingParams** object[]
+**visaProcessingParams** object
 Parameters pertaining to the Visa account update request
-  * Array [
 **merchantId** string
 MerchantID to use for Visa account update request. Replaces tx-account-updater-merchantid header
 **subMerchantName** string
@@ -129,17 +128,14 @@ Sub-merchant name to used for Visa account update request. Replaces request.SubM
 Specifies which Visa region to send the request to when needed. The US and EU endpoints default to the appropriate value. The sandbox value is 2. The US Prod value is 973. The EU Prod value is 982. Replaces tx-acquirer-segment-id header
 **acquirerOrMerchantProprietaryInfo** string
 If provided, it contains merchant proprietary information such as a customer ID that is carried in the merchant’s back-end system. Replaces request.acquirerOrMerchantProprietaryInfo
-  * ]
-**masterCardProcessingParams** object[]
+**masterCardProcessingParams** object
 Parameters pertaining to the MasterCard account update request
-  * Array [
 **merchantId** string
 MerchantID to use for MasterCard account update request
 **subMerchantName** string
 Sub-merchant name to use for MasterCard account update request
 **acquirerSegmentId** string
 A customer identifier assigned by MasterCard associated to the enrolled customer
-  * ]
 ```
 
 {  
@@ -162,35 +158,27 @@ A customer identifier assigned by MasterCard associated to the enrolled customer
 
   "acquirerOrMerchantProprietaryInfo": "string",  
 
-  "visaProcessingParams": [  
+  "visaProcessingParams": {  
 
-    {  
+    "merchantId": "string",  
 
-      "merchantId": "string",  
+    "subMerchantName": "string",  
 
-      "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
 
-      "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
 
-      "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
 
-    }  
+  "masterCardProcessingParams": {  
 
-  ],  
+    "merchantId": "string",  
 
-  "masterCardProcessingParams": [  
+    "subMerchantName": "string",  
 
-    {  
+    "acquirerSegmentId": "string"  
 
-      "merchantId": "string",  
-
-      "subMerchantName": "string",  
-
-      "acquirerSegmentId": "string"  
-
-    }  
-
-  ]  
+  }  
 
 }  
 
@@ -712,21 +700,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],  
   "subMerchantName": "string",  
   "acquirerOrMerchantProprietaryInfo": "string",  
-  "visaProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string",  
-      "acquirerOrMerchantProprietaryInfo": "string"  
-    }  
-  ],  
-  "masterCardProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string"  
-    }  
-  ]  
+  "visaProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
+  "masterCardProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string"  
+  }  
 }'  
 
 ```RequestCollapse all
@@ -755,21 +739,17 @@ Body
   ],
   "subMerchantName": "string",
   "acquirerOrMerchantProprietaryInfo": "string",
-  "visaProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string",
-      "acquirerOrMerchantProprietaryInfo": "string"
-    }
-  ],
-  "masterCardProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string"
-    }
-  ]
+  "visaProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string",
+    "acquirerOrMerchantProprietaryInfo": "string"
+  },
+  "masterCardProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string"
+  }
 }
 
 ```
@@ -800,35 +780,27 @@ POST
 
   "acquirerOrMerchantProprietaryInfo": "string",  
 
-  "visaProcessingParams": [  
+  "visaProcessingParams": {  
 
-    {  
+    "merchantId": "string",  
 
-      "merchantId": "string",  
+    "subMerchantName": "string",  
 
-      "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
 
-      "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
 
-      "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
 
-    }  
+  "masterCardProcessingParams": {  
 
-  ],  
+    "merchantId": "string",  
 
-  "masterCardProcessingParams": [  
+    "subMerchantName": "string",  
 
-    {  
+    "acquirerSegmentId": "string"  
 
-      "merchantId": "string",  
-
-      "subMerchantName": "string",  
-
-      "acquirerSegmentId": "string"  
-
-    }  
-
-  ]  
+  }  
 
 }  
 
@@ -1283,21 +1255,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],  
   "subMerchantName": "string",  
   "acquirerOrMerchantProprietaryInfo": "string",  
-  "visaProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string",  
-      "acquirerOrMerchantProprietaryInfo": "string"  
-    }  
-  ],  
-  "masterCardProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string"  
-    }  
-  ]  
+  "visaProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
+  "masterCardProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string"  
+  }  
 }'  
 
 ```
@@ -1312,21 +1280,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],
   "subMerchantName": "string",
   "acquirerOrMerchantProprietaryInfo": "string",
-  "visaProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string",
-      "acquirerOrMerchantProprietaryInfo": "string"
-    }
-  ],
-  "masterCardProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string"
-    }
-  ]
+  "visaProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string",
+    "acquirerOrMerchantProprietaryInfo": "string"
+  },
+  "masterCardProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string"
+  }
 }
 
 ```
@@ -1357,35 +1321,27 @@ POST
 
   "acquirerOrMerchantProprietaryInfo": "string",  
 
-  "visaProcessingParams": [  
+  "visaProcessingParams": {  
 
-    {  
+    "merchantId": "string",  
 
-      "merchantId": "string",  
+    "subMerchantName": "string",  
 
-      "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
 
-      "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
 
-      "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
 
-    }  
+  "masterCardProcessingParams": {  
 
-  ],  
+    "merchantId": "string",  
 
-  "masterCardProcessingParams": [  
+    "subMerchantName": "string",  
 
-    {  
+    "acquirerSegmentId": "string"  
 
-      "merchantId": "string",  
-
-      "subMerchantName": "string",  
-
-      "acquirerSegmentId": "string"  
-
-    }  
-
-  ]  
+  }  
 
 }  
 
@@ -1840,21 +1796,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],  
   "subMerchantName": "string",  
   "acquirerOrMerchantProprietaryInfo": "string",  
-  "visaProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string",  
-      "acquirerOrMerchantProprietaryInfo": "string"  
-    }  
-  ],  
-  "masterCardProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string"  
-    }  
-  ]  
+  "visaProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
+  "masterCardProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string"  
+  }  
 }'  
 
 ```
@@ -1869,21 +1821,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],
   "subMerchantName": "string",
   "acquirerOrMerchantProprietaryInfo": "string",
-  "visaProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string",
-      "acquirerOrMerchantProprietaryInfo": "string"
-    }
-  ],
-  "masterCardProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string"
-    }
-  ]
+  "visaProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string",
+    "acquirerOrMerchantProprietaryInfo": "string"
+  },
+  "masterCardProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string"
+  }
 }
 
 ```
@@ -1914,35 +1862,27 @@ POST
 
   "acquirerOrMerchantProprietaryInfo": "string",  
 
-  "visaProcessingParams": [  
+  "visaProcessingParams": {  
 
-    {  
+    "merchantId": "string",  
 
-      "merchantId": "string",  
+    "subMerchantName": "string",  
 
-      "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
 
-      "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
 
-      "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
 
-    }  
+  "masterCardProcessingParams": {  
 
-  ],  
+    "merchantId": "string",  
 
-  "masterCardProcessingParams": [  
+    "subMerchantName": "string",  
 
-    {  
+    "acquirerSegmentId": "string"  
 
-      "merchantId": "string",  
-
-      "subMerchantName": "string",  
-
-      "acquirerSegmentId": "string"  
-
-    }  
-
-  ]  
+  }  
 
 }  
 
@@ -2397,21 +2337,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],  
   "subMerchantName": "string",  
   "acquirerOrMerchantProprietaryInfo": "string",  
-  "visaProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string",  
-      "acquirerOrMerchantProprietaryInfo": "string"  
-    }  
-  ],  
-  "masterCardProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string"  
-    }  
-  ]  
+  "visaProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
+  "masterCardProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string"  
+  }  
 }'  
 
 ```
@@ -2426,21 +2362,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],
   "subMerchantName": "string",
   "acquirerOrMerchantProprietaryInfo": "string",
-  "visaProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string",
-      "acquirerOrMerchantProprietaryInfo": "string"
-    }
-  ],
-  "masterCardProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string"
-    }
-  ]
+  "visaProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string",
+    "acquirerOrMerchantProprietaryInfo": "string"
+  },
+  "masterCardProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string"
+  }
 }
 
 ```
@@ -2471,35 +2403,27 @@ POST
 
   "acquirerOrMerchantProprietaryInfo": "string",  
 
-  "visaProcessingParams": [  
+  "visaProcessingParams": {  
 
-    {  
+    "merchantId": "string",  
 
-      "merchantId": "string",  
+    "subMerchantName": "string",  
 
-      "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
 
-      "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
 
-      "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
 
-    }  
+  "masterCardProcessingParams": {  
 
-  ],  
+    "merchantId": "string",  
 
-  "masterCardProcessingParams": [  
+    "subMerchantName": "string",  
 
-    {  
+    "acquirerSegmentId": "string"  
 
-      "merchantId": "string",  
-
-      "subMerchantName": "string",  
-
-      "acquirerSegmentId": "string"  
-
-    }  
-
-  ]  
+  }  
 
 }  
 
@@ -2954,21 +2878,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],  
   "subMerchantName": "string",  
   "acquirerOrMerchantProprietaryInfo": "string",  
-  "visaProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string",  
-      "acquirerOrMerchantProprietaryInfo": "string"  
-    }  
-  ],  
-  "masterCardProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string"  
-    }  
-  ]  
+  "visaProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
+  "masterCardProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string"  
+  }  
 }'  
 
 ```
@@ -2983,21 +2903,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],
   "subMerchantName": "string",
   "acquirerOrMerchantProprietaryInfo": "string",
-  "visaProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string",
-      "acquirerOrMerchantProprietaryInfo": "string"
-    }
-  ],
-  "masterCardProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string"
-    }
-  ]
+  "visaProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string",
+    "acquirerOrMerchantProprietaryInfo": "string"
+  },
+  "masterCardProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string"
+  }
 }
 
 ```
@@ -3028,35 +2944,27 @@ POST
 
   "acquirerOrMerchantProprietaryInfo": "string",  
 
-  "visaProcessingParams": [  
+  "visaProcessingParams": {  
 
-    {  
+    "merchantId": "string",  
 
-      "merchantId": "string",  
+    "subMerchantName": "string",  
 
-      "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
 
-      "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
 
-      "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
 
-    }  
+  "masterCardProcessingParams": {  
 
-  ],  
+    "merchantId": "string",  
 
-  "masterCardProcessingParams": [  
+    "subMerchantName": "string",  
 
-    {  
+    "acquirerSegmentId": "string"  
 
-      "merchantId": "string",  
-
-      "subMerchantName": "string",  
-
-      "acquirerSegmentId": "string"  
-
-    }  
-
-  ]  
+  }  
 
 }  
 
@@ -3511,21 +3419,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],  
   "subMerchantName": "string",  
   "acquirerOrMerchantProprietaryInfo": "string",  
-  "visaProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string",  
-      "acquirerOrMerchantProprietaryInfo": "string"  
-    }  
-  ],  
-  "masterCardProcessingParams": [  
-    {  
-      "merchantId": "string",  
-      "subMerchantName": "string",  
-      "acquirerSegmentId": "string"  
-    }  
-  ]  
+  "visaProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string",  
+    "acquirerOrMerchantProprietaryInfo": "string"  
+  },  
+  "masterCardProcessingParams": {  
+    "merchantId": "string",  
+    "subMerchantName": "string",  
+    "acquirerSegmentId": "string"  
+  }  
 }'  
 
 ```
@@ -3540,21 +3444,17 @@ curl -L 'https://test-api.tokenex.com/v2/AccountUpdater' \
   ],
   "subMerchantName": "string",
   "acquirerOrMerchantProprietaryInfo": "string",
-  "visaProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string",
-      "acquirerOrMerchantProprietaryInfo": "string"
-    }
-  ],
-  "masterCardProcessingParams": [
-    {
-      "merchantId": "string",
-      "subMerchantName": "string",
-      "acquirerSegmentId": "string"
-    }
-  ]
+  "visaProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string",
+    "acquirerOrMerchantProprietaryInfo": "string"
+  },
+  "masterCardProcessingParams": {
+    "merchantId": "string",
+    "subMerchantName": "string",
+    "acquirerSegmentId": "string"
+  }
 }
 
 ```

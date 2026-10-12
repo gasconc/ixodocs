@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -32,7 +32,7 @@ To manage the blocklist and allowlist:
   7. Click **Save**.
   8. Assign your new blocklist or allowlist to a risk profile as a risk rule (see Assign Blocklist to Risk Profile screenshot). For more details, refer to [Risk Profile](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules) and [Risk Rules](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-rules).
 
-![Merchant Selection](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-selection.918e901.1280.png)Merchant Selection![New Blocklist Item](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-item.4aa2696.1280.png)New Blocklist Item![Add entry](https://documentation.ixopay.com/manual/assets/ideal-img/add-entry.e463d77.982.png)Add entry![Assign Blocklist to Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/assign-blocklist-to-risk-profile.7855961.1280.png)Assign Blocklist to Risk Profile
+![Merchant Selection](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-selection.918e901.1280.png)Merchant Selection![New Blocklist Item](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-item.fa0aeae.1280.png)New Blocklist Item![Add entry](https://documentation.ixopay.com/manual/assets/ideal-img/add-entry.e463d77.982.png)Add entry![Assign Blocklist to Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/assign-blocklist-to-risk-profile.7855961.1280.png)Assign Blocklist to Risk Profile
 note
 Blocklist/allowlist entries are only applied to transactions when assigned to the corresponding rule (**Blocklist/Allowlist**) in a risk profile.
 ![Assign Blocklist to Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/assign-blocklist-to-risk-profile.7855961.1280.png)Assign Blocklist to Risk Profile
@@ -67,7 +67,7 @@ To create a new rule:
 
 The new Blocklist rule is displayed on the **Blocklist Rule List** tab (see Blocklist Rule List).
 Assign the blocklist to a risk profile as described above.
-![Blocklist Rule Categories](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist-rule-categories.4b43e46.1006.png)Blocklist Rule Categories![Add rule Error Code](https://documentation.ixopay.com/manual/assets/ideal-img/add-rule-error-code.2c460a8.1280.png)Add rule Error Code![Add rule Merchant Advice Code](https://documentation.ixopay.com/manual/assets/ideal-img/add-rule-merchant-advice-code.0c56808.992.png)Add rule Merchant Advice Code![Blocklist Rules](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist-rules.0c0bb9d.1280.png)Blocklist Rules
+![Blocklist Rule Categories](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist-rule-categories.4b43e46.1006.png)Blocklist Rule Categories![Add rule Error Code](https://documentation.ixopay.com/manual/assets/ideal-img/add-rule-error-code.163f9b5.1280.png)Add rule Error Code![Add rule Merchant Advice Code](https://documentation.ixopay.com/manual/assets/ideal-img/add-rule-merchant-advice-code.0c56808.992.png)Add rule Merchant Advice Code![Blocklist Rules](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist-rules.536d94a.1280.png)Blocklist Rules
 note
 Blocklist/allowlist entries are only applied to transactions when assigned to the corresponding rule (**Blocklist/Allowlist**) in a risk profile.
 ![Assign Blocklist to Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/assign-blocklist-to-risk-profile.7855961.1280.png)Assign Blocklist to Risk Profile
@@ -82,7 +82,7 @@ Blocklist/allowlist entries are only applied to transactions when assigned to th
 
 You can refresh the page during this process to see the current progress (as a percentage and the number of processed rows). You can cancel the export at any time before it is completed.
 Once the export has completed, it is displayed in the Data Export overview with the status "Done". You can **Download** the log file or **Delete** it from here.
-![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.8b142b6.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.44e9991.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.a33c433.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.dd44609.1280.png)Data Export: Download/Delete
+![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.4d16088.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.30eb7c1.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.924e724.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.108c9ee.1280.png)Data Export: Download/Delete
 File retention
 Files are retained for 12 months and permanently deleted thereafter.
 ```
@@ -104,7 +104,7 @@ block@example.com
 
 ```You can refresh the page during this process to see the current progress (as a percentage and the number of processed rows). You can cancel the export at any time before it is completed.
 Once the export has completed, it is displayed in the Data Export overview with the status "Done". You can **Download** the log file or **Delete** it from here.
-![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.8b142b6.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.44e9991.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.a33c433.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.dd44609.1280.png)Data Export: Download/Delete
+![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.4d16088.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.30eb7c1.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.924e724.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.108c9ee.1280.png)Data Export: Download/Delete
 File retention
 Files are retained for 12 months and permanently deleted thereafter.
   * [Risk Management](https://documentation.ixopay.com/manual/docs/risk-management)
@@ -119,7 +119,7 @@ block@example.com
 
 ```You can refresh the page during this process to see the current progress (as a percentage and the number of processed rows). You can cancel the export at any time before it is completed.
 Once the export has completed, it is displayed in the Data Export overview with the status "Done". You can **Download** the log file or **Delete** it from here.
-![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.8b142b6.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.44e9991.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.a33c433.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.dd44609.1280.png)Data Export: Download/Delete
+![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.4d16088.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.30eb7c1.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.924e724.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.108c9ee.1280.png)Data Export: Download/Delete
 File retention
 Files are retained for 12 months and permanently deleted thereafter.
   * [Importing Data in Bulk](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#importing-data)
@@ -144,6 +144,6 @@ block@example.com
 
 ```You can refresh the page during this process to see the current progress (as a percentage and the number of processed rows). You can cancel the export at any time before it is completed.
 Once the export has completed, it is displayed in the Data Export overview with the status "Done". You can **Download** the log file or **Delete** it from here.
-![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.8b142b6.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.44e9991.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.a33c433.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.dd44609.1280.png)Data Export: Download/Delete
+![Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist.4d16088.1280.png)Blocklist![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.30eb7c1.1280.png)Data Export![New Blocklist Export](https://documentation.ixopay.com/manual/assets/ideal-img/new-blocklist-export.924e724.1280.png)New Blocklist Export![Data Export: Download/Delete](https://documentation.ixopay.com/manual/assets/ideal-img/data-export-download-delete.108c9ee.1280.png)Data Export: Download/Delete
 File retention
 Files are retained for 12 months and permanently deleted thereafter.

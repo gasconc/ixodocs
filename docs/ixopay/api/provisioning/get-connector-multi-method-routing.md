@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/provisioning/get-connector-multi-method-routing
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -32,6 +32,11 @@ GET
 ```Returns the current routing configuration of a multi-method meta-connector as a multi-method routing document, one entry per payment method linked to the meta-connector.
 The returned document is a valid request body for [Set multi-method routing](https://documentation.ixopay.com/api/provisioning/set-connector-multi-method-routing): fetch it, modify it, and send it back. Every rule node carries a server-assigned `id` — echo these ids when you resubmit to update rules in place. One exception: rule trees authored in the admin interface may contain conditions outside the multi-method subset (or not activated for your tenant); adjust such documents before resubmitting them.
 Meta-level fields that have never been set (`defaultActionDisable`, `paymentSelectionMaxRetries`, `paymentSelectionExpiryHours`) are omitted from the response.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/get-connector-multi-method-routing#request "Direct link to request")
 ### Path Parameters
 **connectorGuid** stringrequired

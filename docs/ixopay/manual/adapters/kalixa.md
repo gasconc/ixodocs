@@ -16,7 +16,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/adapters/kalixa
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -56,7 +56,7 @@ Configure the following Parameters for the Settlements Provider Data Fetcher to 
   10. Fill in the **Extra Data: sftpPassword** — Password for authentication on SFTP host
   11. Fill in the **Extra Data: sftpPath** - Path where the files are stored
 
-![Edit Provider Settlement Data Fetcher Provider Level](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider-settlement-data-fetcher-provider-level.15e59a8.988.png)Edit Provider Settlement Data Fetcher Provider Level![Reconciliation Data Fetcher Provider Level](https://documentation.ixopay.com/manual/assets/ideal-img/reconciliation-data-fetcher-provider-level.f719472.946.png)Reconciliation Data Fetcher Provider Level
+![Edit Provider Settlement Data Fetcher Provider Level](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider-settlement-data-fetcher-provider-level.15e59a8.988.png)Edit Provider Settlement Data Fetcher Provider Level![Reconciliation Data Fetcher Provider Level](https://documentation.ixopay.com/manual/assets/ideal-img/reconciliation-data-fetcher-provider-level.2f64271.946.png)Reconciliation Data Fetcher Provider Level
 #### Settlement fields[​](https://documentation.ixopay.com/manual/adapters/kalixa#settlement-fields "Direct link to Settlement fields")
 ##### Batch Number[​](https://documentation.ixopay.com/manual/adapters/kalixa#batch-number "Direct link to Batch Number")
 If there is a column _BatchID_ present that value is used as batch number.

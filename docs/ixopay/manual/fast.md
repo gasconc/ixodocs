@@ -14,7 +14,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/fast
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -30,7 +30,7 @@ The template path contains variables which are determined dynamically:
   * `ADAPTER_KEY`: Each Adapter requires its own templates. The available placeholders differ for each adapter.
   * `LANGUAGE`: The merchant can include the desired language in the API call (see the [Transaction API Documentation](https://documentation.ixopay.com/api/transaction/transaction-api)). If a template does not exist for the specified language, the default language defined in the connector's configuration is used instead. Languages are specified using **2-letter ISO** codes, e.g. "en" for English, "de" for German, "es" for Spanish etc.
 
-![Connector Settings Layout](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-layout.3cbe402.1280.png)Connector Settings Layout![Pay by Link Layout](https://documentation.ixopay.com/manual/assets/ideal-img/pay-by-link-layout.e954b28.1280.png)Pay by Link Layout![Adapter Key](https://documentation.ixopay.com/manual/assets/ideal-img/adapter-key.7944bf5.1208.png)Adapter Key![Language](https://documentation.ixopay.com/manual/assets/ideal-img/language.1681d2e.1280.png)Language
+![Connector Settings Layout](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-layout.a71816f.1280.png)Connector Settings Layout![Pay by Link Layout](https://documentation.ixopay.com/manual/assets/ideal-img/pay-by-link-layout.d6eef2b.1280.png)Pay by Link Layout![Adapter Key](https://documentation.ixopay.com/manual/assets/ideal-img/adapter-key.f2a2413.1208.png)Adapter Key![Language](https://documentation.ixopay.com/manual/assets/ideal-img/language.905ad8a.1280.png)Language
 Layouts
 Using the `LAYOUT_NAME` (= the custom payment template layout defined in the Connector Settings or created email template layout in the Pay by Link section), you can set up various templates based on different requirements for your Merchants (e.g. one default, one with inverse colors, one with requiring the address data of the consumer etc.)
 Adapter Key
@@ -43,12 +43,12 @@ The payment template is resolved according to the following Rules:
 | 3  | Adapter-default with given language  | `/vhosts/gateway.ixopay.com/layouts/[LAYOUT_NAME]/internal-pages/payment/[ADAPTER_KEY]/index.[LANGUAGE].php`  |  
 | 4  | Adapter-default with default language  | `/vhosts/gateway.ixopay.com/layouts/[LAYOUT_NAME]/internal-pages/payment/[ADAPTER_KEY]/index.[DEFAULT_LANGUAGE].php`  |  
 In general it is recommended to create and adapt templates within the embedded (FAST) Editor screen with in the Connector Details Overview - Payment Templates Edit View in order to ensure the correct path and variables to be set by the gateway. Nevertheless you also have the option to use the Fast Editor section itself.
-![Connector Details Overview - Payment Templates Edit View](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview-payment-templates-edit-view.9f66bd4.1280.png)Connector Details Overview - Payment Templates Edit View![FAST Editor](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor.5b4048e.1280.png)FAST Editor
+![Connector Details Overview - Payment Templates Edit View](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview-payment-templates-edit-view.8c3802c.1280.png)Connector Details Overview - Payment Templates Edit View![FAST Editor](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor.5b4048e.1280.png)FAST Editor
 ## Placeholders[​](https://documentation.ixopay.com/manual/docs/fast#placeholders "Direct link to Placeholders")
 Each Adapter provides different elements and data for rendering the payment form. These data are inserted in the template using placeholders. A placeholder is embedded by surrounding it with `{{` and `}}` (e.g.: `{{ fields.firstname.id }}`)
 For ease of use, you may also use the **placeholder helper** on the right sidebar of the FAST Editor which should appear when you select a template page. Depending on the Adapter, different fields may be available. E.g. to insert the merchant name, simply click on "**name** " under the merchant node. It will automatically place `{{ data.merchant.name }}` into the current cursor position in the Editor.
 Some placeholders are generally available, others are available depending on the used adapter. Mandatory, as described below ones **MUST** always be used within each template:
-![Placeholder Helper](https://documentation.ixopay.com/manual/assets/ideal-img/placeholder-helper.5cd67de.162.png)Placeholder Helper  
+![Placeholder Helper](https://documentation.ixopay.com/manual/assets/ideal-img/placeholder-helper.2ac6549.162.png)Placeholder Helper  
 | Variable  | Mandatory  | Placement  | Description  |  
 | --- | --- | --- | --- |  
 | `html.doctype`  | Yes  | Top of the HTML page  | DOCTYPE tag for HTML document  |  
@@ -104,14 +104,14 @@ Some placeholders are generally available, others are available depending on the
 Every template has some common HTML content which is required independently from the used Adapter (such as HTML header, Javascript, form tags etc.). To simplify the actual payment templates, these elements can be defined in a so called **page layout** , which gets included automatically when rendering the payment template.
 Page layouts can be defined under this path:
 **vhosts** / **[ hostname ]** / **layouts** / **default** / **page-layout**
-![Page layout path](https://documentation.ixopay.com/manual/assets/ideal-img/page-layout-path.df926f7.1280.png)Page layout path
+![Page layout path](https://documentation.ixopay.com/manual/assets/ideal-img/page-layout-path.bac90a1.1280.png)Page layout path
 The page layout is resolved similar to the payment template according to the following Rules:  
 | Priority  | Template  | Path within FAST Editor  |  
 | --- | --- | --- |  
 | 1  | Page layout with language template  | `/vhosts/gateway.ixopay.com/layouts/[LAYOUT_NAME]/page-layout/payment.[LANGUAGE].php`  |  
 | 2  | Page layout without language template  |  `/vhosts/gateway.ixopay.com/layouts/[LAYOUT_NAME]/page-layout/payment.php` (Note: No language variable used here)  |  
 tip
-![Page Layout Templates Path](https://documentation.ixopay.com/manual/assets/ideal-img/page-layout-templates-path.4051c0b.1280.png)Page Layout Templates Path
+![Page Layout Templates Path](https://documentation.ixopay.com/manual/assets/ideal-img/page-layout-templates-path.a7614ab.1280.png)Page Layout Templates Path
 Based on this logic it will first try to look for a page layout specific to the given language (e.g. **payment.en.php**), and if that doesn't exist, it will eventually fallback to **payment.php**.
 A typical page layout could look like this:
 ```
@@ -331,7 +331,7 @@ Ixopay.PaymentFormV2.cvvOn("blur", function (data) {
 You may also insert images, css and js which you have uploaded to the FAST Editor. To make such elements accessible, navigate to the **static** folder where you will find a **css** , **img** and **js** folder. Simply upload your files into the appropriate folders or create your own folder structure (see Static Section).
 vhosts / [ hostname ] / static
 To link your uploaded element into your template use the `getStaticLink` tag which will automatically create a link to the specified file.
-![Static Section](https://documentation.ixopay.com/manual/assets/ideal-img/static-section.31f9e3a.1280.png)Static Section
+![Static Section](https://documentation.ixopay.com/manual/assets/ideal-img/static-section.40a687a.1280.png)Static Section
 ```
 
 <?= getStaticLink('path/to/file'); ?>  
@@ -348,7 +348,7 @@ To link your uploaded element into your template use the `getStaticLink` tag whi
 > 
 ```> note
 > The **static** directory itself is not part of the given URL.
-![FAST Editor](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-2.c48e6be.301.png)FAST Editor
+![FAST Editor](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-2.e596d7b.301.png)FAST Editor
 ## Publish[​](https://documentation.ixopay.com/manual/docs/fast#publish "Direct link to Publish")
 Once finished, you need to publish your changes or created templates, before they can be used. This needs to be done in Publish Section of the Fast Editor (see Fast Editor Publish)
   1. Click on **Publish Now**
@@ -356,7 +356,7 @@ Once finished, you need to publish your changes or created templates, before the
   3. Click **Publish**
 
 Now your templates will be shown as **published** in the Connectors Detail Overview - Payment Templates section.
-![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.1489d33.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.bce3004.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.5d8cae2.782.png)Connectors Detail Overview - Payment Templates
+![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.269ff8b.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.2053067.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.3c3f00b.782.png)Connectors Detail Overview - Payment Templates
 note
 During the publish step all changes will be published performed on templates in the structure regardless of the editor. Same is true for reverting of changes: all changes done after the the change that you want to revert will be lost.
 ```
@@ -759,7 +759,7 @@ Ixopay.PaymentFormV2.cvvOn("blur", function (data) {
 
 > 
 ```Now your templates will be shown as **published** in the Connectors Detail Overview - Payment Templates section.
-![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.1489d33.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.bce3004.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.5d8cae2.782.png)Connectors Detail Overview - Payment Templates
+![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.269ff8b.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.2053067.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.3c3f00b.782.png)Connectors Detail Overview - Payment Templates
 note
 During the publish step all changes will be published performed on templates in the structure regardless of the editor. Same is true for reverting of changes: all changes done after the the change that you want to revert will be lost.
   * FAST Editor
@@ -963,7 +963,7 @@ Ixopay.PaymentFormV2.cvvOn("blur", function (data) {
 
 > 
 ```Now your templates will be shown as **published** in the Connectors Detail Overview - Payment Templates section.
-![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.1489d33.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.bce3004.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.5d8cae2.782.png)Connectors Detail Overview - Payment Templates
+![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.269ff8b.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.2053067.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.3c3f00b.782.png)Connectors Detail Overview - Payment Templates
 note
 During the publish step all changes will be published performed on templates in the structure regardless of the editor. Same is true for reverting of changes: all changes done after the the change that you want to revert will be lost.
   * [Setup](https://documentation.ixopay.com/manual/docs/fast#setup)
@@ -1375,6 +1375,6 @@ Ixopay.PaymentFormV2.cvvOn("blur", function (data) {
 
 > 
 ```Now your templates will be shown as **published** in the Connectors Detail Overview - Payment Templates section.
-![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.1489d33.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.bce3004.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.5d8cae2.782.png)Connectors Detail Overview - Payment Templates
+![Fast Editor Publish](https://documentation.ixopay.com/manual/assets/ideal-img/fast-editor-publish.269ff8b.1280.png)Fast Editor Publish![Change Log](https://documentation.ixopay.com/manual/assets/ideal-img/change-log.2053067.940.png)Change Log![Connectors Detail Overview - Payment Templates](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-detail-overview-payment-templates.3c3f00b.782.png)Connectors Detail Overview - Payment Templates
 note
 During the publish step all changes will be published performed on templates in the structure regardless of the editor. Same is true for reverting of changes: all changes done after the the change that you want to revert will be lost.

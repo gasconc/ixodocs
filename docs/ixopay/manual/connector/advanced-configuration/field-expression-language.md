@@ -15,7 +15,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/field-expression-language
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -32,7 +32,7 @@ The connector setting consists of:
   * **Fail handling** : A general configuration to specify the behaviour for unexpected error scenarios.
   * **Rule Configuration** : One or more manipulation rules.
 
-![Example configuration](https://documentation.ixopay.com/manual/assets/ideal-img/field-expression-language-setting.13708b0.714.png)Example configuration
+![Example configuration](https://documentation.ixopay.com/manual/assets/ideal-img/field-expression-language-setting.4642179.714.png)Example configuration
 ### Fail Handling[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/field-expression-language#fail-handling "Direct link to Fail Handling")
 In addition, there is 1 general setting which applies to all rules and defines the action in case one of the manipulation rules returns an unexpected error during the evaluation:
 #### Fail the transaction[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/field-expression-language#fail-the-transaction "Direct link to Fail the transaction")
@@ -165,7 +165,7 @@ Whether the original field has been modified in any way will be explicitly state
   * […] has been modified […]
   * […] has NOT been modified […]
 
-![Transaction Logs](https://documentation.ixopay.com/manual/assets/ideal-img/field-expression-language-log.e30ba8b.577.png)Transaction Logs
+![Transaction Logs](https://documentation.ixopay.com/manual/assets/ideal-img/field-expression-language-log.feb6f98.577.png)Transaction Logs
 **Available fields for Expression**
   * Any field referenced inside an expression must be prefixed with `transaction.`, for example
     * `transaction.description`

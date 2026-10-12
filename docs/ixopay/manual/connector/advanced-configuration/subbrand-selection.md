@@ -11,7 +11,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/subbrand-selection
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -28,7 +28,7 @@ In case a connector supports subbrand selection using [IXOPAY platform](https://
   * Type in **Enable Card Subbrand Selection** and click **+ Add**
   * Enter **1** to activate the setting
 
-![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-subbrand-selection.6aa905a.1280.png)Connector Details Overview
+![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-subbrand-selection.d2cac17.1280.png)Connector Details Overview
 ## Hosted Payment Page (HPP) Configuration for subbrand selection[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/subbrand-selection#hosted-payment-page-hpp-configuration-for-subbrand-selection "Direct link to Hosted Payment Page \(HPP\) Configuration for subbrand selection")
 To use the subbrand Selection for the IXOPAY platform Hosted Payment Pages (HPP), a Connector that supports subbrand selection needs to be configured as described above. To activate the subbrand selection in the IXOPAY platform HPP the following code snippets need to be added to your payment templates via the FAST Editor.
 ```

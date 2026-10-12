@@ -15,7 +15,7 @@ tags:
 - copy-fees-https-documentation-ixopay-com-manual-docs-connector-fee-management-fees-copy-fees-direct-link-copy-fees
 source_url: https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -39,7 +39,7 @@ To create a Fee Set, follow these steps:
 
 With the _Valid from_ value clients can apply different Fee Strategies to Connectors (e.g. higher Fees for the first month, and lower Fees for any subsequent month). Starting form the Valid from date, the associated Fee-Set will be apply to Transactions of this Connector, until a more recent Valid from date with associated Fee-Set is available. You can create as many Fee-Sets as you want, each Fee-Set representing a node on the timeline (see Timeline Fee-Sets).
 **Example:** If today were May 1st, and we had Fee-Set **A** which started from February 1st, and another Fee-Set **B** which will start from May 5th, we can conclude that Fee-Set **A** is applied. On May 5th, Fee-Set **B** will become the applicable Fee-Set with the most recent **Valid from** date and will become active, therefore Fee-Set **B** is disabling Fee-Set **A**. In order to re-use Fee-Set **A** , for example if Fee-Set **B** was only temporary, you can either delete Fee-Set **B** on the day it's not needed anymore or, more elegantly, copy (see Copy Fee-Set) Fee-Set **A** and set a **Valid from** date from which on you want Fee-Set **B** to be invalid.
-![Connector Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-overview.008523b.1280.png)Connector Overview![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.ed61161.1280.png)Connector Details Overview![Connector Fees](https://documentation.ixopay.com/manual/assets/ideal-img/connector-fees.aaca480.1280.png)Connector Fees![Create Fee Set](https://documentation.ixopay.com/manual/assets/ideal-img/create-fee-set.2b46680.936.png)Create Fee Set![Timeline Fee-Set](https://documentation.ixopay.com/manual/assets/ideal-img/timeline-fee-set.885e440.1280.png)Timeline Fee-Set
+![Connector Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-overview.76313e2.1280.png)Connector Overview![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.ed61161.1280.png)Connector Details Overview![Connector Fees](https://documentation.ixopay.com/manual/assets/ideal-img/connector-fees.013ad09.1280.png)Connector Fees![Create Fee Set](https://documentation.ixopay.com/manual/assets/ideal-img/create-fee-set.2b46680.936.png)Create Fee Set![Timeline Fee-Set](https://documentation.ixopay.com/manual/assets/ideal-img/timeline-fee-set.6c693b5.1280.png)Timeline Fee-Set
 note
 It can only be one Fee-Set active at any time. The Fee-Set with the most recent **Valid From** date is applied.
 ### Copy Fee-Set[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#copy-fee-set "Direct link to Copy Fee-Set")
@@ -50,7 +50,7 @@ To copy an existing Fee-Set, follow these steps:
   3. Select a **Valid from** Date and Time and fill in an optional **Description** for the **copied Fee-Set**
 
 The Fee-Set will be copied including all configured Fees.
-![Timeline Fee-Sets](https://documentation.ixopay.com/manual/assets/ideal-img/timeline-fee-set.885e440.1280.png)Timeline Fee-Sets![Connector Fees](https://documentation.ixopay.com/manual/assets/ideal-img/connector-fees.aaca480.1280.png)Connector Fees
+![Timeline Fee-Sets](https://documentation.ixopay.com/manual/assets/ideal-img/timeline-fee-set.6c693b5.1280.png)Timeline Fee-Sets![Connector Fees](https://documentation.ixopay.com/manual/assets/ideal-img/connector-fees.013ad09.1280.png)Connector Fees
 tip
 Fee-Sets can only be copied within the same Connector Fees. If you want to copy fees across Merchants see section **Copy Fees**.
 tip
@@ -59,7 +59,7 @@ All actions (Copy Fee-Set, Delete Fee-Set, Edit Fee-Set) apply always to the cur
 The **Edit Fee-Set** option you can change the **Valid from** date or the option **Description** for the selected Fee Set.
 ### Delete Fee-Set[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#delete-fee-set "Direct link to Delete Fee-Set")
 The **Delete Fee-Set** option deletes the selected Fee-Set.
-![Connector Fees](https://documentation.ixopay.com/manual/assets/ideal-img/connector-fees.aaca480.1280.png)Connector Fees![Delete Fee-Set](https://documentation.ixopay.com/manual/assets/ideal-img/delete-fee-set.4e548fb.934.png)Delete Fee-Set
+![Connector Fees](https://documentation.ixopay.com/manual/assets/ideal-img/connector-fees.013ad09.1280.png)Connector Fees![Delete Fee-Set](https://documentation.ixopay.com/manual/assets/ideal-img/delete-fee-set.e7ecd51.934.png)Delete Fee-Set
 warning
 Deleting a Fee-Set cannot be undone!
 ### Fee-Set Timeline[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#fee-set-timeline "Direct link to Fee-Set Timeline")
@@ -69,7 +69,7 @@ To switch between Fee-Sets, you can either
   * Use the **timeline dropdown**
   * Click directly on the node
 
-![Fee-Set Timeline](https://documentation.ixopay.com/manual/assets/ideal-img/fee-set-timeline.95411d8.1280.png)Fee-Set Timeline
+![Fee-Set Timeline](https://documentation.ixopay.com/manual/assets/ideal-img/fee-set-timeline.e04f84c.1280.png)Fee-Set Timeline
 tip
 If you did not create a Fee-Set before adding Fees, a new Fee-Set will be created automatically with **Valid from** date set to the 1st day of the current month.
 ## Fees (transactional and/or periodic)[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#fees-transactional-andor-periodic "Direct link to Fees \(transactional and/or periodic\)")
@@ -81,7 +81,7 @@ Define and assign individual transactional and/or periodic fees for your Connect
 
 Depending on your selection, you will see different options to configure the added Fee (see Fee Configuration Example), see section Fee Configuration for further details.
 Alternatively, in case the Fee Entity for which you want to add Fees is already part of the Fee Set, you can also add either periodic or transactional Fees directly in the Fee Entity's section (see Add Fees).
-![Add Fees](https://documentation.ixopay.com/manual/assets/ideal-img/add-fees.3653d5b.1280.png)Add Fees![Add Fee Dialog](https://documentation.ixopay.com/manual/assets/ideal-img/add-fee-dialog.39ae0e5.946.png)Add Fee Dialog![Fee Configuration Example](https://documentation.ixopay.com/manual/assets/ideal-img/fee-configuration-example.b9a2bed.1280.png)Fee Configuration Example
+![Add Fees](https://documentation.ixopay.com/manual/assets/ideal-img/add-fees.21c2a94.1280.png)Add Fees![Add Fee Dialog](https://documentation.ixopay.com/manual/assets/ideal-img/add-fee-dialog.39ae0e5.946.png)Add Fee Dialog![Fee Configuration Example](https://documentation.ixopay.com/manual/assets/ideal-img/fee-configuration-example.b9a2bed.1280.png)Fee Configuration Example
 ### Selecting a Fee-Entity[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#selecting-a-fee-entity "Direct link to Selecting a Fee-Entity")
 For each Fee you add, you must select a Fee Entity the new Fee will be added to. There are different types of Fee Entities:
 #### Generic Entities[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#generic-entities "Direct link to Generic Entities")
@@ -99,7 +99,7 @@ To copy Fees (of an existing Fee-Set) follow these steps:
   4. Enable/Disable the option **Hard Copy (Purge old existing Fees)**. If checked Fees will be permanently moved from one Connector to another by copying and deleting the selected fees.
   5. **Check/Uncheck** the Fee Entities or individual Fees that should be copied
 
-![Copy Fees](https://documentation.ixopay.com/manual/assets/ideal-img/copy-fees.9100c6f.1280.png)Copy Fees![Copy Fees Dialog](https://documentation.ixopay.com/manual/assets/ideal-img/copy-fees-dialog.bc59bea.1280.png)Copy Fees Dialog
+![Copy Fees](https://documentation.ixopay.com/manual/assets/ideal-img/copy-fees.188c5d8.1280.png)Copy Fees![Copy Fees Dialog](https://documentation.ixopay.com/manual/assets/ideal-img/copy-fees-dialog.2db789d.1280.png)Copy Fees Dialog
 tip
 If you did not create a Fee-Set before copying Fees, a new Fee-Set will be created automatically with **Valid from** date set to the 1st day of the current month.
 ### Fee Configuration[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#fee-configuration "Direct link to Fee Configuration")
@@ -114,7 +114,7 @@ or alternatively:
   1. Click **+ Add Transactional Fee** in the Fee Entity, you already configured Fees for
 
 and start with the Fee Configuration. There are two sections to configure **Constraints** and **Fees** (see New Fee Entry). Within the **Constraints** section you define criteria for the Transaction to meet in order for the Fees to be applied (see the **Constraints table** for Configuration Details).
-![Add Fees](https://documentation.ixopay.com/manual/assets/ideal-img/add-fees.3653d5b.1280.png)Add Fees![New Fee Entry](https://documentation.ixopay.com/manual/assets/ideal-img/new-fee-entry.a76251c.1280.png)New Fee Entry  
+![Add Fees](https://documentation.ixopay.com/manual/assets/ideal-img/add-fees.21c2a94.1280.png)Add Fees![New Fee Entry](https://documentation.ixopay.com/manual/assets/ideal-img/new-fee-entry.a76251c.1280.png)New Fee Entry  
 | Constraint Criteria  | Description  | Options  |  
 | --- | --- | --- |  
 | Transaction type  | Single-Select to specify the Transaction type or choose **-any-**  | All available Transaction Types  |  
@@ -174,7 +174,7 @@ Changes to existing Fee Configurations will not be applied to already calculated
 You can change or delete Transactional Fees with the options **Edit** and **Delete.**
 With the option **Duplicate** an already configured Transactional Fee can be duplicated. The newly created transactional Fee will be pre-filled with using the Constraints and Fees of the duplicated Fees. This option is especially helpful if only changing specific Parameters or Constraints. Click **Save** to add the new Transactional Fee.
 For multiple Transactional Fees for Transactions **of the same Type** within a Fee Entity, organize your Fees from the highest to the lowest priority using the options **Move up** and **Move down**.
-![Manage Transactional Fees](https://documentation.ixopay.com/manual/assets/ideal-img/manage-transactional-fees.a2abf2d.1280.png)Manage Transactional Fees
+![Manage Transactional Fees](https://documentation.ixopay.com/manual/assets/ideal-img/manage-transactional-fees.7c5d23c.1280.png)Manage Transactional Fees
 note
 #### Periodic Fees[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#periodic-fees "Direct link to Periodic Fees")
 Periodic Fees, in comparison to transactional Fees, are applied based on a time period instead per Connector. You can only configure **one** periodic Fee per Fee Entity.
@@ -187,7 +187,7 @@ or alternatively:
   1. Click **+ Add periodic fee** in the Fee Entity, you already configured Fees for
 
 and start with the Fee Configuration (see **Periodic Fee table** for Configuration Details).
-![Add Fees](https://documentation.ixopay.com/manual/assets/ideal-img/add-fees.3653d5b.1280.png)Add Fees![New periodic fees](https://documentation.ixopay.com/manual/assets/ideal-img/new-periodic-fees.59f44d1.513.png)New periodic fees  
+![Add Fees](https://documentation.ixopay.com/manual/assets/ideal-img/add-fees.21c2a94.1280.png)Add Fees![New periodic fees](https://documentation.ixopay.com/manual/assets/ideal-img/new-periodic-fees.f2c9d81.513.png)New periodic fees  
 | Fee Settings  | Description  | Options  |  
 | --- | --- | --- |  
 | Calculation Strategy  | Single-Select to specify the Fee Calculation Strategy. For a detailed description refer to [Periodic Fee Strategies section](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#periodic-fee-strategies)  | 
@@ -248,7 +248,7 @@ In this section we are taking a closer look at the different transactional fee s
   8. **Rolling-Reserve from Merchant Configuration -** Rolling Reserve Calculation based on the **Merchant Rolling Reserve Configuration** (see Rolling-Reserve and section [Rolling Reserve](https://documentation.ixopay.com/manual/docs/post-processing/rolling-reserve))
     1. **Percentage fee based on -** Select the transaction / settlement / outg. settlement / base currency Amount for calculation
 
-![Transactional Fee Strategies](https://documentation.ixopay.com/manual/assets/ideal-img/transactional-fee-strategies.4de4f4b.1280.png)Transactional Fee Strategies![Example Volume-tiered Fee](https://documentation.ixopay.com/manual/assets/ideal-img/example-volume-tiered-fee.07c025b.1280.png)Example Volume-tiered Fee![Example Count-tiered Fee](https://documentation.ixopay.com/manual/assets/ideal-img/example-count-tiered-fee.7593734.1280.png)Example Count-tiered Fee![Copy fees from other entity](https://documentation.ixopay.com/manual/assets/ideal-img/copy-fees-from-other-entity.8678e71.1280.png)Copy fees from other entity![Merchant Rolling Reserve Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-rolling-reserve-configuration.72c9720.1280.png)Merchant Rolling Reserve Configuration![Rolling-Reserve](https://documentation.ixopay.com/manual/assets/ideal-img/rolling-reserve.29efdba.1280.png)Rolling-Reserve
+![Transactional Fee Strategies](https://documentation.ixopay.com/manual/assets/ideal-img/transactional-fee-strategies.864bbd2.1280.png)Transactional Fee Strategies![Example Volume-tiered Fee](https://documentation.ixopay.com/manual/assets/ideal-img/example-volume-tiered-fee.e0c8ffe.1280.png)Example Volume-tiered Fee![Example Count-tiered Fee](https://documentation.ixopay.com/manual/assets/ideal-img/example-count-tiered-fee.7593734.1280.png)Example Count-tiered Fee![Copy fees from other entity](https://documentation.ixopay.com/manual/assets/ideal-img/copy-fees-from-other-entity.b3ba2e5.1280.png)Copy fees from other entity![Merchant Rolling Reserve Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-rolling-reserve-configuration.02cc8a4.1280.png)Merchant Rolling Reserve Configuration![Rolling-Reserve](https://documentation.ixopay.com/manual/assets/ideal-img/rolling-reserve.e352a05.1280.png)Rolling-Reserve
 note
 #### Periodic Fee Strategies[​](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees#periodic-fee-strategies "Direct link to Periodic Fee Strategies")
 In this section we are taking a closer look at the different periodic fee strategies
@@ -266,4 +266,4 @@ In this section we are taking a closer look at the different periodic fee strate
 As soon as you defined your Fee structure on Connector level each Transaction will be queued for calculation when created and again with every status change, since Fees can also be applied based on the Transaction result. Depending on the load, this might result in a display delay of Fees within the Transaction Details (up to 10 minutes).
 Since tier-based Fee Calculation is dependent on the overall Transaction volume or count for the Reference period (e.g. current month), Fees will be calculated earliest on the first day of the subsequent month.
 At any time, you have the option to **Recalculate Fees** for Transactions within the Transaction Details as well as to add additional Transactional Fees with **+ Add Fee** (see Add Fee).
-![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.5088a2a.1280.png)Transaction Details![Add Fee](https://documentation.ixopay.com/manual/assets/ideal-img/add-fee.22329e0.962.png)Add Fee
+![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.104e7ae.1280.png)Transaction Details![Add Fee](https://documentation.ixopay.com/manual/assets/ideal-img/add-fee.22329e0.962.png)Add Fee

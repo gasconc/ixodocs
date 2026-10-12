@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/provisioning/get-connector-routing
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -31,6 +31,11 @@ GET
 
 ```Returns the current routing configuration of a routing meta-connector as a routing document.
 The returned document is always a valid request body for [Set routing](https://documentation.ixopay.com/api/provisioning/set-connector-routing): fetch it, modify it, and send it back. Every rule node carries a server-assigned `id` — echo these ids when you resubmit to update rules in place.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/get-connector-routing#request "Direct link to request")
 ### Path Parameters
 **connectorGuid** stringrequired

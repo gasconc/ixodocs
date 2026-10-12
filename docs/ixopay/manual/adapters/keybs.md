@@ -8,7 +8,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/keybs
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -21,6 +21,6 @@ Configure the following parameters for the Connector (see Connector Config - Key
   2. Fill in the mandatory **Password**
   3. Fill in the mandatory **API Secret**
 
-![Connector Config - KeyBS](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-keybs.79fb1aa.1280.png)Connector Config - KeyBS
+![Connector Config - KeyBS](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-keybs.d468cfe.1280.png)Connector Config - KeyBS
 tip
 This adapter is a so called Push-In adapter. Have a look at our [Push API documentation](https://documentation.ixopay.com/api/push/push-api) for further information.

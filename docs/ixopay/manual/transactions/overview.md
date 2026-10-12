@@ -17,7 +17,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/manual/docs/transactions/overview
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -26,10 +26,10 @@ related: []
 
 # Overview
 The **Transaction list** provides an overview of all transactions (**Successful, Failed, Pending**) stored in the [IXOPAY platform](https://www.ixopay.com) including key information on the transactions. You can create and customize the data visualization as needed for your reports using the extensive filter options. Detailed information on a specific transaction are available in the [Transaction Details](https://documentation.ixopay.com/manual/docs/transactions/details).
-![Transaction list](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-list.0a80587.1280.png)Transaction list
+![Transaction list](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-list.583fd48.1280.png)Transaction list
 Use the **Transaction Filter** to narrow your results by **filtering according to various Transaction and Customer data points.**
 ## Transaction Data Filters[​](https://documentation.ixopay.com/manual/docs/transactions/overview#transaction-data-filters "Direct link to Transaction Data Filters")
-![Transaction Data Filters](https://documentation.ixopay.com/manual/assets/ideal-img/overview-2.5004c45.1280.png)Transaction Data Filters  
+![Transaction Data Filters](https://documentation.ixopay.com/manual/assets/ideal-img/overview-2.b34a945.1280.png)Transaction Data Filters  
 | Field  | Description  |  
 | --- | --- |  
 | Tenant  | Select a specific Tenant. You can select whether sub-tenants should be included in the filter results.  |  
@@ -76,7 +76,7 @@ If the Transaction Data Filter and Customer Data Filter are not sufficient to na
     2. Filter rules are combined using the logical operators **AND** or **OR** (e.g. AND).
   4. You can add additional filter rules to be evaluated by adding **Groups**. You can add as many groups as you want using **+ Group**. Use the **Minus** icon next to a group to remove the group (i.e. all filter rules defined in the group).
 
-![Transaction List](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-list.0a80587.1280.png)Transaction List![Advanced Filter](https://documentation.ixopay.com/manual/assets/ideal-img/advanced-filter.b0b372c.1280.png)Advanced Filter![Save Filter](https://documentation.ixopay.com/manual/assets/ideal-img/save-filter.4cdaee3.978.png)Save Filter
+![Transaction List](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-list.583fd48.1280.png)Transaction List![Advanced Filter](https://documentation.ixopay.com/manual/assets/ideal-img/advanced-filter.b0b372c.1280.png)Advanced Filter![Save Filter](https://documentation.ixopay.com/manual/assets/ideal-img/save-filter.4cdaee3.978.png)Save Filter
 See the example in "Advanced Filter":
 The defined advanced filter first filters for all transactions which have the parameter **initiated by merchant**. If this filter rule is true then the filter checks whether the transaction's **Status** is one of either **success, pending** or **redirected AND** if the transaction was processed by the **Adapter Simulator - SimulatorPCI.**
 You can save your advanced filters using the **Disk** icon. Enter a **Name** in the dialog (see Save Filter). The **Trashcan** icon deletes the advanced filter.
@@ -87,7 +87,7 @@ Depending on the complexity or number of results, the filter is applied in **Mod
 note
 Transaction data is not provided in real time (at the time of the transaction), though generally within a maximum of 24 hours in the BI Data Source.
 Once you have **applied the filter** you can customize the results using the **eye icon**. All available columns including the current selection (marked blue) are displayed and can be selected/de-selected. To view more details on a specific transaction, click the **Details** button to navigate to the Transaction Details.
-![Customize columns](https://documentation.ixopay.com/manual/assets/ideal-img/overview-3.fe18889.1280.png)Customize columns  
+![Customize columns](https://documentation.ixopay.com/manual/assets/ideal-img/overview-3.8824293.1280.png)Customize columns  
 | Column name  | Description  |  
 | --- | --- |  
 | Purch. ID/ UUID  | Purchase ID / Universal Unique Identifier  |  

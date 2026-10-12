@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/advanced-guides/cvv-refreshing
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 

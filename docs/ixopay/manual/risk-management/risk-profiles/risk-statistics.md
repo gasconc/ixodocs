@@ -9,7 +9,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/risk-statistics
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -25,7 +25,7 @@ To view the risk statistics:
   2. Click on **Risk Rule Statistics** next to the profile whose statistics you want to view.
   3. An overview of all the rules in your risk profile is displayed along with the statistics for each rule.
 
-![Risk Profile Overview](https://documentation.ixopay.com/manual/assets/ideal-img/risk-profile-overview.3a67f70.1280.png)Risk Profile Overview![Risk Statistics Example](https://documentation.ixopay.com/manual/assets/ideal-img/risk-statistics-example.f788c0e.1280.png)Risk Statistics Example
+![Risk Profile Overview](https://documentation.ixopay.com/manual/assets/ideal-img/risk-profile-overview.b5b4759.1280.png)Risk Profile Overview![Risk Statistics Example](https://documentation.ixopay.com/manual/assets/ideal-img/risk-statistics-example.111cfbf.1280.png)Risk Statistics Example
 The following information is displayed in the risk statistics (see Risk Statistics Example screenshot). Each risk rule is displayed in a separate row with the following information in columns:
   * **ID** : The risk rule's ID
   * **Name** : Name of the risk rule

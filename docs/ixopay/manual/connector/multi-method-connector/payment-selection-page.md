@@ -15,7 +15,7 @@ tags:
 - direct-debit
 source_url: https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -33,7 +33,7 @@ In order to use **Payment Selection Page** a Multi-Method (Meta-)Connector is ne
 
 In comparison to a Connector, Mullit-Method (Meta-) Connectors can be found under a different path in the [Fast Editor](https://documentation.ixopay.com/manual/docs/fast):
 `/vhosts/[host address, e.g. sandbox.ixopay.com]/layouts/default/internal-pages/payment/meta/index.en.php`
-![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview-payment-templates.7e37d6b.1280.png)Connector Details Overview![Path Fast Editor](https://documentation.ixopay.com/manual/assets/ideal-img/path-fast-editor-.a42c488.1280.png)Path Fast Editor
+![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview-payment-templates.c0c79bf.1280.png)Connector Details Overview![Path Fast Editor](https://documentation.ixopay.com/manual/assets/ideal-img/path-fast-editor-.8420d13.1280.png)Path Fast Editor
 tip
 While it can be handy to edit the page through the Connector edit view, remember that you need to [publish changes via the FAST Editor](https://documentation.ixopay.com/manual/docs/fast) in order the changes take effect.
 ## Customize Payment Selection Template[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page#customize-payment-selection-template "Direct link to Customize Payment Selection Template")
@@ -41,11 +41,11 @@ If you created your Payment Selection Template to be prefilled with the default 
 ### Coloring[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page#coloring "Direct link to Coloring")
 One of the first blocks within the Payment Selection Template is the `` block followed by **CSS3 variables**. Change the colors to fit your desired layout of the template.
 Further style elements can be changed in this section such as fonts, margins and logos, but keep in mind that changes to the design might lead to further adjustments regarding colors.
-![Colors](https://documentation.ixopay.com/manual/assets/ideal-img/colors.247f42f.1280.png)Colors
+![Colors](https://documentation.ixopay.com/manual/assets/ideal-img/colors.772324e.1280.png)Colors
 ### Global mandatory fields[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page#global-mandatory-fields "Direct link to Global mandatory fields")
 Each payment method requires different mandatory fields, e.g. IBAN or Credit Card number. However, for some fields such as name or address, it can make sense to make them mandatory for every payment method. You can define such **global** **mandatory fields** by editing the variable set forceField.
 In the example below, the field first_name and last_name will appear for every payment method form.
-![Global mandatory fields](https://documentation.ixopay.com/manual/assets/ideal-img/global-mandatory-fields.0a66a8f.1280.png)Global mandatory fields
+![Global mandatory fields](https://documentation.ixopay.com/manual/assets/ideal-img/global-mandatory-fields.fc0b0de.1280.png)Global mandatory fields
 ```
 
 {% set forceFields = ["firstName", "lastName"] %}  
@@ -123,7 +123,7 @@ The payment methods are passed to the template page, as an array named **payment
 
 ```### Display payment methods[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page#display-payment-methods "Direct link to Display payment methods")
 The available payment methods (based on [configured Connectors and Rules](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector)) are interpreted automatically and passed to Payment Selection Page. Here the payment methods are read using a loop with each method getting their own form with corresponding fields (as defined in the section above). In our prefilled design, each payment method will be represented using an image (see Payment selection page example).
-![Payment selection page example](https://documentation.ixopay.com/manual/assets/ideal-img/payment-selection-page-example.43f2435.586.png)Payment selection page example
+![Payment selection page example](https://documentation.ixopay.com/manual/assets/ideal-img/payment-selection-page-example.c15a451.586.png)Payment selection page example
 To replace the **images** , simply upload your own images for each payment method and replace the corresponding parts in the template as described in the [Static section in the Fast Editor Setup.](https://documentation.ixopay.com/manual/docs/fast)
 ```
 
@@ -149,7 +149,7 @@ To replace the **images** , simply upload your own images for each payment metho
 
 ```#### Example[​](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page#example-1 "Direct link to Example")
 For the payment method **Credit Card** the uploaded **creditcard.png** file, for **DirectDebit** the **directdebit.png** and for **Dummy** the **dummy.png** should be used. Therefore the corresponding method and file paths need to be updated in the code snippet shown above. The available methods can be found in the configuration tab of the Connector Details Overview (see Connector Details Overview - Method names).
-![Connector Details Overview - Method names](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview-method-names.2f61cb9.535.png)Connector Details Overview - Method names
+![Connector Details Overview - Method names](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview-method-names.396974f.535.png)Connector Details Overview - Method names
 ```
 
 {% if method == "Creditcard" %}  
@@ -177,7 +177,7 @@ With that:
   * Customers without a Customer Profile can save a payment instrument and set as preferred.
   * Existing Customer Profile Customers can update their profile by adding new payment instruments and updating their preferences.
 
-![Customer Profile Options](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-options.77c1926.1280.png)Customer Profile Options
+![Customer Profile Options](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-options.1bb2de3.1280.png)Customer Profile Options
 ```
 
 {% set forceFields = ["firstName", "lastName"] %}  
@@ -345,7 +345,7 @@ With that:
 
 {% endif %}  
 
-```![Customer Profile Options](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-options.77c1926.1280.png)Customer Profile Options
+```![Customer Profile Options](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-options.1bb2de3.1280.png)Customer Profile Options
   * [Connector](https://documentation.ixopay.com/manual/docs/connector)
   * [Multi-Method Connector](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector)
   * Payment Selection Template
@@ -432,7 +432,7 @@ With that:
 
 {% endif %}  
 
-```![Customer Profile Options](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-options.77c1926.1280.png)Customer Profile Options
+```![Customer Profile Options](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-options.1bb2de3.1280.png)Customer Profile Options
   * [Multi-Method Connector](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page#multi-method-connector)
   * [Customize Payment Selection Template](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page#customize-payment-selection-template)
     * [Coloring](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector/payment-selection-page#coloring)
@@ -607,4 +607,4 @@ With that:
 
 {% endif %}  
 
-```![Customer Profile Options](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-options.77c1926.1280.png)Customer Profile Options
+```![Customer Profile Options](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-options.1bb2de3.1280.png)Customer Profile Options

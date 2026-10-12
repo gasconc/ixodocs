@@ -12,7 +12,7 @@ tags:
 - snowflake
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/data-pipelines/snowflake
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -31,9 +31,9 @@ There is a three-step process to activate data ingestion with Snowflake:
      * **Set up the schema** based on required Payment Service Providers (PSPs) and available reports.
      * **Create the data share** with selected reports and connectors, ensuring all data is aligned with the customer's needs.
 Step 1: Go in the Snowflake front-end to the account information (on the bottom left side of the screen):
-![](https://documentation.ixopay.com/modules/assets/ideal-img/snowflake_integration_1.522c97e.640.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/snowflake_integration_1.6a48989.640.png)
 Step 2: Click View Account Details and copy the id in the Data sharing account identifier field to be shared with Ixopay
-![](https://documentation.ixopay.com/modules/assets/ideal-img/snowflake_integration_2.ea8bf96.1024.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/snowflake_integration_2.2c906e9.1024.png)
   3. **Approve the data share** with Snowflake by both IXOPAY Payments Intelligence and the customer.
 
 Once live, the data will synchronize **daily** , ensuring up-to-date reporting. The setup process from IXOPAY Payments Intelligence’s side typically takes **less than a day**.

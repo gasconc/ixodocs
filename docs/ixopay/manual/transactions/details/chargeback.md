@@ -10,7 +10,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/chargeback
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,4 +27,4 @@ To simulate a chargeback for a Transaction, the Transaction has to fulfill some 
   * The Transaction must not be **charged back** already
 
 For (simulated) chargebacks, Users with the given Permission can simulate chargeback reversals as well. This can be done by using the **Simulate Chargeback Reversal** Action Button in the Transaction Details.
-![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-buttons.131e552.1280.png)Transaction Details![Chargeback confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/chargeback-confirmation.0cf5d35.998.png)Chargeback confirmation![Initial transaction: charged back](https://documentation.ixopay.com/manual/assets/ideal-img/initial-transaction-charged-back.4b3e038.1280.png)Initial transaction: charged back![Chargeback transaction](https://documentation.ixopay.com/manual/assets/ideal-img/chargeback-transaction.910ec31.1280.png)Chargeback transaction![Chargeback reversal confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/chargeback-reversal-confirmation.bdf4704.1004.png)Chargeback reversal confirmation![Chargeback transaction: reversed](https://documentation.ixopay.com/manual/assets/ideal-img/chargeback-transaction-reversed.c15f33b.1280.png)Chargeback transaction: reversed
+![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-buttons.131e552.1280.png)Transaction Details![Chargeback confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/chargeback-confirmation.0cf5d35.998.png)Chargeback confirmation![Initial transaction: charged back](https://documentation.ixopay.com/manual/assets/ideal-img/initial-transaction-charged-back.635a6aa.1280.png)Initial transaction: charged back![Chargeback transaction](https://documentation.ixopay.com/manual/assets/ideal-img/chargeback-transaction.c67205f.1280.png)Chargeback transaction![Chargeback reversal confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/chargeback-reversal-confirmation.bdf4704.1004.png)Chargeback reversal confirmation![Chargeback transaction: reversed](https://documentation.ixopay.com/manual/assets/ideal-img/chargeback-transaction-reversed.f07b22b.1280.png)Chargeback transaction: reversed

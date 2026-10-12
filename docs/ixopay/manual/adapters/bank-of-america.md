@@ -16,7 +16,7 @@ tags:
 - ach
 source_url: https://documentation.ixopay.com/manual/adapters/bank-of-america
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -59,7 +59,7 @@ Configure the following parameters for the Connector (see Connector Config):
        * If you are going to solely process **debit** you will need to select "Debits Only - 225".
        * If you are going to solely process **refund and payout** you will need to select "Credits Only - 220".
 
-![Connector Config](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config.5dbd95b.1280.png)Connector Config
+![Connector Config](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config.d21589c.1280.png)Connector Config
 For further information have a look at the [NACHA File Specification](https://www.nacha.org/system/files/2022-01/Nacha_ISO20022_Guide_pain.001_credit.pdf)
 ## Transactions[​](https://documentation.ixopay.com/manual/adapters/bank-of-america#transactions "Direct link to Transactions")
 All Transactions initiated via the Bank of America Adapter required three mandatory fields (either as part of the Transaction Extra Data Object (e.g. extraData.accountType), or collected via the Adapters Hosted Payment Page):
@@ -113,10 +113,10 @@ After creating the Job Type you will be able to configure the Job Type steps.
     7. **SSH Private Key**
     8. **SSH Private Key Passphrase**
 
-![Job Configuration Overview](https://documentation.ixopay.com/manual/assets/ideal-img/job-configuration-overview.b8dc57b.1280.png)Job Configuration Overview![Collecting Step](https://documentation.ixopay.com/manual/assets/ideal-img/collecting-step.0bbe5ec.1280.png)Collecting Step
+![Job Configuration Overview](https://documentation.ixopay.com/manual/assets/ideal-img/job-configuration-overview.dcb185b.1280.png)Job Configuration Overview![Collecting Step](https://documentation.ixopay.com/manual/assets/ideal-img/collecting-step.84bed2c.1280.png)Collecting Step
 tip
 The order of the Exporting steps is important, so make sure it is configured according to the documentation.
-![Add export steps](https://documentation.ixopay.com/manual/assets/ideal-img/image-5-add-export-steps.0c92c09.1280.png)Add export steps![Edit exporter](https://documentation.ixopay.com/manual/assets/ideal-img/image-6-edit-exporter.af479f4.1280.png)Edit exporter![Edit SFTP upload](https://documentation.ixopay.com/manual/assets/ideal-img/image-7-edit-sftp-upload.7037d37.1280.png)Edit SFTP upload
+![Add export steps](https://documentation.ixopay.com/manual/assets/ideal-img/image-5-add-export-steps.30f08c0.1280.png)Add export steps![Edit exporter](https://documentation.ixopay.com/manual/assets/ideal-img/image-6-edit-exporter.a143ec4.1280.png)Edit exporter![Edit SFTP upload](https://documentation.ixopay.com/manual/assets/ideal-img/image-7-edit-sftp-upload.74c5299.1280.png)Edit SFTP upload
 ## Provider Setup[​](https://documentation.ixopay.com/manual/adapters/bank-of-america#provider-setup "Direct link to Provider Setup")
 Lastly you need to set up a [Provider](https://documentation.ixopay.com/manual/docs/post-processing/provider). This entity in the IXOPAY platform is needed for the actual NACHA Export (Job Configuration - NACHA Export) as well as the Data Fetching for the Reconciliation File (Result File).
 After creation assign the Bank of America Connector to this Provider
@@ -143,7 +143,7 @@ Add a Reconciliation Data Fetcher on Provider level
     2. **Extra Data** - information needed to fetch the Reconciliation File
 
 We recommend to keep the the Job Execution Schedule and Data Fetcher Int in sync to avoid data to be inaccurate.
-![Provider Overview Page](https://documentation.ixopay.com/manual/assets/ideal-img/provider-overview-page.78920a8.1280.png)Provider Overview Page![Provider Connector View](https://documentation.ixopay.com/manual/assets/ideal-img/provider-connector-view.69c725e.1280.png)Provider Connector View![Connector Selection](https://documentation.ixopay.com/manual/assets/ideal-img/connector-selection.c10279b.820.png)Connector Selection![Provider Schedule Overview](https://documentation.ixopay.com/manual/assets/ideal-img/provider-schedule-overview.6b86ade.1280.png)Provider Schedule Overview![Schedule Details](https://documentation.ixopay.com/manual/assets/ideal-img/schedule-details.a175353.818.png)Schedule Details![Connector Assignment Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/connector-assignment-schedule.263a31d.1280.png)Connector Assignment Schedule![Edit Provider](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider.199229e.1280.png)Edit Provider![Data Fetcher](https://documentation.ixopay.com/manual/assets/ideal-img/data-fetcher.6440611.597.png)Data Fetcher
+![Provider Overview Page](https://documentation.ixopay.com/manual/assets/ideal-img/provider-overview-page.1da1e7b.1280.png)Provider Overview Page![Provider Connector View](https://documentation.ixopay.com/manual/assets/ideal-img/provider-connector-view.f97822a.1280.png)Provider Connector View![Connector Selection](https://documentation.ixopay.com/manual/assets/ideal-img/connector-selection.09bef4a.820.png)Connector Selection![Provider Schedule Overview](https://documentation.ixopay.com/manual/assets/ideal-img/provider-schedule-overview.245c69c.1280.png)Provider Schedule Overview![Schedule Details](https://documentation.ixopay.com/manual/assets/ideal-img/schedule-details.a175353.818.png)Schedule Details![Connector Assignment Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/connector-assignment-schedule.4146a23.1280.png)Connector Assignment Schedule![Edit Provider](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider.5a1a2f9.1280.png)Edit Provider![Data Fetcher](https://documentation.ixopay.com/manual/assets/ideal-img/data-fetcher.ea5cf70.597.png)Data Fetcher
 tip
 Assigning a Connector to a Provider can also be done in the Connector Details View, we do not recommend to add the Reconciliation Data Fetcher on Connector due to scalability and maintenance.
-![Connector Details View](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-view.c57ea51.1280.png)Connector Details View
+![Connector Details View](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-view.1f351bb.1280.png)Connector Details View

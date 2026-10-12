@@ -16,7 +16,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/tips-best-practice
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -54,7 +54,7 @@ Depending on the chosen Single Number or Line Chart you have different options t
   * **Calculate Net Volume** and **Convert foreign currencies**
   * **Accumulation Interval** and **Adjust previous period to match same weekday/hour**
 
-![Line Chart Widgets](https://documentation.ixopay.com/manual/assets/ideal-img/line-chart-widgets.0151259.1280.png)Line Chart Widgets![Single Number Widgets](https://documentation.ixopay.com/manual/assets/ideal-img/single-number-widgets.757f0b6.1280.png)Single Number Widgets![Line Chart: Transaction Count by Status](https://documentation.ixopay.com/manual/assets/ideal-img/line-chart-transaction-count-by-status.3fc1bd1.924.png)Line Chart: Transaction Count by Status![Line Chart: Total Transaction Amount](https://documentation.ixopay.com/manual/assets/ideal-img/line-chart-total-transaction-amount.8909b69.922.png)Line Chart: Total Transaction Amount![Line Chart: Transaction Count by Status](https://documentation.ixopay.com/manual/assets/ideal-img/line-chart-cumulative-transaction-count-comparison.6fcd948.924.png)Line Chart: Transaction Count by Status
+![Line Chart Widgets](https://documentation.ixopay.com/manual/assets/ideal-img/line-chart-widgets.e583101.1280.png)Line Chart Widgets![Single Number Widgets](https://documentation.ixopay.com/manual/assets/ideal-img/single-number-widgets.c4a5a9a.1280.png)Single Number Widgets![Line Chart: Transaction Count by Status](https://documentation.ixopay.com/manual/assets/ideal-img/line-chart-transaction-count-by-status.3fc1bd1.924.png)Line Chart: Transaction Count by Status![Line Chart: Total Transaction Amount](https://documentation.ixopay.com/manual/assets/ideal-img/line-chart-total-transaction-amount.8909b69.922.png)Line Chart: Total Transaction Amount![Line Chart: Transaction Count by Status](https://documentation.ixopay.com/manual/assets/ideal-img/line-chart-cumulative-transaction-count-comparison.a170a36.924.png)Line Chart: Transaction Count by Status
 ### Pie Chart[​](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/tips-best-practice#pie-chart "Direct link to Pie Chart")
 For Pie Chart you have different options to customize the Dashboard Widget to optimize the information.
   * **Count *** (to limit the number of segments) and **Show Other**
@@ -68,7 +68,7 @@ For Table Charts you have different options to customize the Dashboard Widget to
   * **Order by** - Count, Volume
   * **Calculate Net Volume** and **Convert foreign currencies**
 
-![Table Widgets](https://documentation.ixopay.com/manual/assets/ideal-img/table-widgets.b9a7630.1280.png)Table Widgets![Table Widgets: Transactions by Tenant](https://documentation.ixopay.com/manual/assets/ideal-img/table-transactions-by-tenant.eae6651.936.png)Table Widgets: Transactions by Tenant
+![Table Widgets](https://documentation.ixopay.com/manual/assets/ideal-img/table-widgets.07f041e.1280.png)Table Widgets![Table Widgets: Transactions by Tenant](https://documentation.ixopay.com/manual/assets/ideal-img/table-transactions-by-tenant.eae6651.936.png)Table Widgets: Transactions by Tenant
 ### World Map[​](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/tips-best-practice#world-map "Direct link to World Map")
 For World Map you have the option to customize the Dashboard Widget to optimize the information by selecting **which country** should be displayed - Billing country or card country.
-![World Map Widget](https://documentation.ixopay.com/manual/assets/ideal-img/world-map-widget.5528baf.1280.png)World Map Widget
+![World Map Widget](https://documentation.ixopay.com/manual/assets/ideal-img/world-map-widget.350c840.1280.png)World Map Widget

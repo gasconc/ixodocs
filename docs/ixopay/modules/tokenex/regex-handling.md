@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/regex-handling
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 

@@ -6,7 +6,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/service-contacts
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -16,4 +16,4 @@ related: []
 # Service Contacts
 Service Contacts are a vital information for our 24/7 Support Team. In case of an emergency these contacts need to be provided, to ensure proper communication channels.
 In this section you can create new Service Contacts, edit and delete existing Service Contacts.
-![Service Contacts Overview](https://documentation.ixopay.com/manual/assets/ideal-img/service-contacts-overview.e24eba8.1280.png)Service Contacts Overview
+![Service Contacts Overview](https://documentation.ixopay.com/manual/assets/ideal-img/service-contacts-overview.4041c80.1280.png)Service Contacts Overview

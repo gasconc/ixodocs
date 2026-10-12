@@ -15,7 +15,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/api/provisioning/create-nt-enrollment
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -34,6 +34,11 @@ POST
 Authorization is evaluated against the **tenant** the provisioning API key belongs to. That tenant must hold the `tokenization.network-tokenization.enrollment.create` ability. The check resolves the tenant's effective abilities including parent inheritance, so a grant on a parent tenant covers its sub-tenants automatically. Without the ability the call returns `NOT_ALLOWED`.
 ### Auto-accept[​](https://documentation.ixopay.com/api/provisioning/create-nt-enrollment#auto-accept "Direct link to Auto-accept")
 By default a new enrollment is created with status `pending` and a reviewer is notified. If the caller tenant additionally holds the `tokenization.network-tokenization.enrollment.auto-accept-via-provisioning-api` ability, the enrollment is automatically approved and queued for processing without reviewer involvement. The request and response contract is identical in both cases.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/create-nt-enrollment#request "Direct link to request")
   * application/json
 
@@ -66,7 +71,7 @@ The value associated with the business identifier type.
 City of the company primary address.
 **Possible values:** `non-empty` and `<= 100 characters`, Value must match regular expression `^[ a-zA-Z0-9'.-]*$`
 **companyCountryCode** stringrequired
-[ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code.
+ISO 3166-1 alpha-2 country code of the company primary address.
 **Possible values:** Value must match regular expression `^[A-Z]{2}$`
 **Example:**`AT`
 **contactEmail** stringrequired

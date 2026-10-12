@@ -16,7 +16,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/payments/payouts
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 

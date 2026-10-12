@@ -17,7 +17,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/post-processing/reconciliation
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -44,7 +44,7 @@ You have the following options for dealing with conflicts, i.e. transactions wit
   * **Mark as solved** : Dismisses the conflict without any action.
   * **Accept & Change Status**: Updates the outlined changes in the transaction.
 
-![Reconciliation](https://documentation.ixopay.com/manual/assets/ideal-img/reconciliation.55a6831.1280.png)Reconciliation
+![Reconciliation](https://documentation.ixopay.com/manual/assets/ideal-img/reconciliation.89ab053.1280.png)Reconciliation
 note
 If this leads to a status change, the merchant's system is automatically notified with a new status notification using the defined [Callback URL](https://documentation.ixopay.com/docs/guides/getting-started/callbacks).
 ## Unknown Transactions[​](https://documentation.ixopay.com/manual/docs/post-processing/reconciliation#unknown-transactions "Direct link to Unknown Transactions")
@@ -52,7 +52,7 @@ You have the following options for dealing with unknown, i.e transactions record
   * **Dismiss** : Dismiss the conflicts without any action.
   * **Create** : A new transaction is created in the IXOPAY platform using the data received from the provider.
 
-![Unknown Transactions](https://documentation.ixopay.com/manual/assets/ideal-img/unknown-transactions.cec4c20.1280.png)Unknown Transactions
+![Unknown Transactions](https://documentation.ixopay.com/manual/assets/ideal-img/unknown-transactions.371d7c5.1280.png)Unknown Transactions
 note
 A notification is only sent to the merchant if the merchant’s notification URL has been configured in the [Connector's Post-Processing Tab](https://documentation.ixopay.com/manual/docs/connector/post-processing).
 ## Missing Reconciliations[​](https://documentation.ixopay.com/manual/docs/post-processing/reconciliation#missing-reconciliations "Direct link to Missing Reconciliations")
@@ -72,7 +72,7 @@ To upload a reconciliation file:
   4. Select **Upload**.
 
 The file format and size depends on the provider. The reconciliation file is processed in the same way as reconciliation files received via the data fetcher.
-![New Reconciliation](https://documentation.ixopay.com/manual/assets/ideal-img/new-reconciliation.60c5ab0.1600.png)New Reconciliation![Upload Reconciliation File](https://documentation.ixopay.com/manual/assets/ideal-img/upload-reconciliation-file.3cf71c7.1258.png)Upload Reconciliation File
+![New Reconciliation](https://documentation.ixopay.com/manual/assets/ideal-img/new-reconciliation.06bb6cf.1600.png)New Reconciliation![Upload Reconciliation File](https://documentation.ixopay.com/manual/assets/ideal-img/upload-reconciliation-file.9762f58.1258.png)Upload Reconciliation File
 File retention
 The file format and size depends on the provider. Files are retained for 12 months and permanently deleted thereafter.
 Permission

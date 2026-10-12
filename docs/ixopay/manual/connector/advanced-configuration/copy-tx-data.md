@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/copy-tx-data
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -25,7 +25,7 @@ To configure the connector setting follow this steps:
   4. Click Add to create a parameter pairs (Field From, Field To). You can add as many parameter pairs as you want.
   5. Select **Parameter Field From** , select **Parameter Field To** and click Save (see Parameter available Field From/To)
 
-![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-copy-tx-data.7a85116.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-copy-tx-data.1f57047.762.png)Connector Settings![Add parameter pairs](https://documentation.ixopay.com/manual/assets/ideal-img/add-parameter-pairs.fca5be6.766.png)Add parameter pairs  
+![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-copy-tx-data.4ffd898.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-copy-tx-data.c8fe4ed.762.png)Connector Settings![Add parameter pairs](https://documentation.ixopay.com/manual/assets/ideal-img/add-parameter-pairs.7eb8425.766.png)Add parameter pairs  
 | Field From/To  | Description  |  
 | --- | --- |  
 | uuid  | Transactions UUID  |  

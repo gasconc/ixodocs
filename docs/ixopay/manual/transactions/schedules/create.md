@@ -15,7 +15,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/transactions/schedules/create
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -43,7 +43,7 @@ To create a new schedule in the User Interface, follow these steps:
   5. Click **+ Create** to save your schedule
 
 A schedule confirmation with the **Schedule ID** and **Scheduled at date** will be shown and the schedule will appear in the Schedule Overview.
-![Create schedule with Registration ID](https://documentation.ixopay.com/manual/assets/ideal-img/create-schedule-with-registration-id.8eedc4f.830.png)Create schedule with Registration ID![Schedule Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/schedule-confirmation.fddcf3b.1198.png)Schedule Confirmation
+![Create schedule with Registration ID](https://documentation.ixopay.com/manual/assets/ideal-img/create-schedule-with-registration-id.8eedc4f.830.png)Create schedule with Registration ID![Schedule Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/schedule-confirmation.a13ec5a.1198.png)Schedule Confirmation
 info
 Keep in mind that for recurring debits the defined interval (Period Length and Period Unit) is scheduled based on the last processed transaction. If for any reason the processing of a transaction initiated by the schedule is delayed in regards to the initial defined Start Date Time, the next transaction initiated by this schedule will be delayed too.
 Full version: not available for Starter and Growth clients
@@ -68,10 +68,10 @@ to be used create a new schedule for a register transaction and click **Virtual 
   9. [Items](https://documentation.ixopay.com/manual/docs/transactions/schedules/create#item)
 
 Click **Reset Form** to reset the form and enter different values or **Choose another Connector** to get back to the (Sub-)Tenant, Merchant, Connector selection page.
-![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.834b14f.1280.png)Virtual Terminal![Scheduler Form Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/scheduler-form-virtual-terminal.863f5f1.1280.png)Scheduler Form Virtual Terminal![Scheduler Form Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/scheduler-form-pay-by-link.d01daba.1280.png)Scheduler Form Pay By Link
+![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.8672cd3.1280.png)Virtual Terminal![Scheduler Form Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/scheduler-form-virtual-terminal.863f5f1.1280.png)Scheduler Form Virtual Terminal![Scheduler Form Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/scheduler-form-pay-by-link.9852c16.1280.png)Scheduler Form Pay By Link
 #### Transaction[​](https://documentation.ixopay.com/manual/docs/transactions/schedules/create#transaction "Direct link to Transaction")
 In this section you can configure Transaction Details regarding the scheduled Transaction (see Transaction Table).
-![Transaction ID automatically generated](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-id-automatically-generated.c9161ec.1280.png)Transaction ID automatically generated![Is Recurring](https://documentation.ixopay.com/manual/assets/ideal-img/is-recurring.0a07626.1280.png)Is Recurring  
+![Transaction ID automatically generated](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-id-automatically-generated.c9161ec.1280.png)Transaction ID automatically generated![Is Recurring](https://documentation.ixopay.com/manual/assets/ideal-img/is-recurring.f799b0b.1280.png)Is Recurring  
 | Field  | Description  |  
 | --- | --- |  
 | Transaction Type  | Select a Transaction Type for the scheduled transaction: Debit, Preauthorize, Capture, Void, Register, etc..  |  
@@ -108,7 +108,7 @@ In this section you can fill in the Details regarding the Schedule itself (see S
 info
 For debit transactions the Start Date Time **must be greater** than 24 hours from the schedule creation, otherwise the request will fail because the period between the initial and the follow-up transaction **must be** greater than 24 hours.
 Keep in mind that for recurring debits the defined interval (Period Length and Period Unit) is scheduled based on the last processed transaction. If for any reason the processing of a transaction initiated by the schedule is delayed in regards to the initial defined Start Date Time, the next transaction initiated by this schedule will be delayed too.
-![Create Schedule: Invalid Period](https://documentation.ixopay.com/manual/assets/ideal-img/create-a-schedule-invalid-period.6592a8b.1280.png)Create Schedule: Invalid Period  
+![Create Schedule: Invalid Period](https://documentation.ixopay.com/manual/assets/ideal-img/create-a-schedule-invalid-period.9fbc4c3.1280.png)Create Schedule: Invalid Period  
 | Field  | Description  |  
 | --- | --- |  
 | Schedule Action  |  **None** is set per default. To define a schedule, select **Start Schedule**  |  
@@ -170,10 +170,10 @@ In this section you can fill in additional details about Items (see Items Table)
 | Item Currency  | Fill in an Item Currency  |  
 | Extra Data  | Fill in additional Key-Value Extra Data pairs. Add new Extra Data lines by selecting + Add Item Extra Data  |  
 Create the Schedule by clicking **Start Transaction** in the Scheduler Form. A schedule confirmation with the **Schedule ID, (Reference) Transaction ID** will be shown and the schedule will appear in the Schedule Overview.
-![Schedule Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/schedule-confirmation.fddcf3b.1198.png)Schedule Confirmation
+![Schedule Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/schedule-confirmation.a13ec5a.1198.png)Schedule Confirmation
 ## Alert Settings for Schedules[​](https://documentation.ixopay.com/manual/docs/transactions/schedules/create#alert-settings-for-schedules "Direct link to Alert Settings for Schedules")
 You can subscribe to Alert Notifications in case a scheduled transaction changes to an error state. Follow these steps to subscribe to Schedule Alert Notifications:
   1. Open the **Alert Settings** by clicking the **Bell** Icon in the top right corner of the Navigation Bar, clicking the **Gear-wheel** Icon
   2. In the Scheduler section set up your alerts as needed (see [Manage and Visualize Alerts](https://documentation.ixopay.com/manual/docs/administrative-tools/manage-and-visualize-alerts) for more information)
 
-![Alert Settings](https://documentation.ixopay.com/manual/assets/ideal-img/alert-settings.0987816.1280.png)Alert Settings![Scheduler](https://documentation.ixopay.com/manual/assets/ideal-img/scheduler.70f3bf0.1280.png)Scheduler
+![Alert Settings](https://documentation.ixopay.com/manual/assets/ideal-img/alert-settings.8add093.1280.png)Alert Settings![Scheduler](https://documentation.ixopay.com/manual/assets/ideal-img/scheduler.70f3bf0.1280.png)Scheduler

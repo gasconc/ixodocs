@@ -14,7 +14,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/api/pci/deregister
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -159,6 +159,22 @@ The merchant transaction reference sent to the payment service provider (PSP) fo
 Use this value to match the transaction with adapter or PSP records, including reconciliation data. It is returned only for supported adapter flows and omitted when unavailable. If retries produce multiple identifiers, Status API responses contain the latest recorded value.
 **Possible values:** `non-empty` and `<= 64 characters`
 **Example:**`12345000000099999`
+**amount** string
+Transaction amount excluding surcharge and GST. Only returned when a positive surcharge was applied. Omitted when the surcharge is absent or zero, including `"0"` and `"0.00"`.
+**Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
+**Example:**`100.00`
+**surchargeAmount** string
+Surcharge applied to the transaction. Only returned when a positive surcharge was applied. The stored decimal string is returned without normalizing the number of decimal places, consistent with status and postback responses.
+**Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
+**Example:**`2.00`
+**gstAmount** GstAmount
+GST applied to the transaction. Only returned when a positive surcharge was applied and GST is present. The stored decimal string is returned with up to 5 decimal places.
+**Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,5}))$`
+**Example:**`0.12345`
+**totalAmount** string
+Total transaction amount including surcharge and GST, if present. Only returned when a positive surcharge was applied; omitted when the surcharge is absent or zero.
+**Possible values:** Value must match regular expression `^(([0-9]{1,10})|([0-9]{1,10}\.[0-9]{1,3}))$`
+**Example:**`102.00`
 **returnData** object
 **_TYPE** ReturnDataTyperequired
 **Possible values:** [`cardData`, `phoneData`, `ibanData`, `walletData`, `achData`]

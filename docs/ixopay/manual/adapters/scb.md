@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/scb
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -23,4 +23,4 @@ Configure the following parameters for the Connector (see Connector Config - SCB
   4. Fill in the mandatory **Extra Data: subAccountId**
   5. Fill in the mandatory **Extra Data: certificate**
 
-![Connector Config - SCB](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-scb.649e7ee.1280.png)Connector Config - SCB
+![Connector Config - SCB](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-scb.d33e627.1280.png)Connector Config - SCB

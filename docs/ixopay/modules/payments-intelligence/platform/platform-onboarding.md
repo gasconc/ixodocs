@@ -14,7 +14,7 @@ tags:
 - step-explore-psp-raw-data-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-explore-psp-raw-data-direct-link-step-explore-psp-raw-data
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -31,7 +31,7 @@ Once you are ready to go live and connect your PSP data sources, you have two op
   * **a)** Contact IXOPAY support or your Account Manager to switch your workspace to **Live Mode** ;
   * **b)** Directly switch on **Live Mode** (Merchant Owner or Merchant Administrator role) within the portal, and then connect your real payments data feeds.
 
-![](https://documentation.ixopay.com/modules/assets/ideal-img/platform_onboarding_1.873f6a7.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/platform_onboarding_1.a1d4bf5.1600.png)
 **Connecting your Payments Data Sources:**
   * **For IXOPAY Orchestration and/or Tokenization Customers:** Connect directly through your existing IXOPAY account integration. You can contact the IXOPAY Support team to ensure availability of your payments operations data to IXOPAY Payments Intelligence.
   * **For Standalone Setup:** Provide the credentials required by the Payment Service Provider you would like to connect. Please refer to the detailed [Integration Guide](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/getting-started) for the PSP you would like to connect. If a PSP integration is not supported yet, please contact our support or your point of contact.

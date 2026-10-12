@@ -15,7 +15,7 @@ tags:
 - expert-settings-migration-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-expert-settings-migration-settings-direct-link-expert-settings-migration-settings
 source_url: https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -33,6 +33,7 @@ Some Settings only need to be activated (no further input needed). In this case 
 | API: Enable Request Signing  | Force signing of requests as described in the API Documentation  | 1  |  
 | Status API: Report incoming settlement state  | Include "incomingSettlementState" info on the Status API response  | 1  |  
 | API: Mask IBANs in Responses  | Mask IBAN data in any response on API  | 1  |  
+| API: Include surcharge amounts in synchronous transaction responses  | Returns "amount" (excluding surcharge and GST), "surchargeAmount", "gstAmount" and "totalAmount" in synchronous Direct API responses when a surcharge was applied  | [1](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/surcharge)  |  
 ## User Interface Settings[​](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings#user-interface-settings "Direct link to User Interface Settings")  
 | Setting name  | Description  | Values  |  
 | --- | --- | --- |  

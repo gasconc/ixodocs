@@ -9,7 +9,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/review-list
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -24,7 +24,7 @@ To review these transactions and determine how to handle them:
     1. **Approve** the transaction for processing
     2. **Decline** the transaction
 
-![Review List](https://documentation.ixopay.com/manual/assets/ideal-img/review-list.7dc6978.1280.png)Review List![Details and Actions](https://documentation.ixopay.com/manual/assets/ideal-img/details-and-actions.4fd5116.1280.png)Details and Actions
+![Review List](https://documentation.ixopay.com/manual/assets/ideal-img/review-list.c6a7ab5.1280.png)Review List![Details and Actions](https://documentation.ixopay.com/manual/assets/ideal-img/details-and-actions.9f60d8a.1280.png)Details and Actions
 note
 Debit transactions set to manual review are split into a pre-auth and a capture/void transaction (depending on the action chosen) and are therefore counted as two separate transactions. This behavior does not apply to pre-auth transactions.
 Automatic action after inactivity

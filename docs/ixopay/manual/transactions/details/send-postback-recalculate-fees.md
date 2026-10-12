@@ -11,7 +11,7 @@ tags:
 - reconciliation
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/send-postback-recalculate-fees
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -28,4 +28,4 @@ Don't forget to either send a `callbackUrl` in the Transaction Request or to con
 ![Merchant notification URL](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-notification-url.6e8ba87.1280.png)Merchant notification URL
 ## Recalculate Fees[​](https://documentation.ixopay.com/manual/docs/transactions/details/send-postback-recalculate-fees#recalculate-fees "Direct link to Recalculate Fees")
 Depending on the given Permissions, Users can recalculate fees. This is particularly useful in case of changes to the [Fee Set Configuration](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees) of the processing Connector.
-![Recalculate fees confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/recalculate-fees-confirmation.550b3d7.1002.png)Recalculate fees confirmation![Fees recalculated](https://documentation.ixopay.com/manual/assets/ideal-img/fees-recalculated.6d77695.1280.png)Fees recalculated
+![Recalculate fees confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/recalculate-fees-confirmation.8852f51.1002.png)Recalculate fees confirmation![Fees recalculated](https://documentation.ixopay.com/manual/assets/ideal-img/fees-recalculated.1854753.1280.png)Fees recalculated

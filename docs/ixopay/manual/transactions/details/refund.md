@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/refund
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,7 +27,7 @@ To refund a Transaction, the Transaction has to fulfill some conditions:
   * The Transaction must **not be charged back or fully refunded** already
   * The **Connector must support** Transaction Type Refund
 
-![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-buttons.131e552.1280.png)Transaction Details![Refund confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/refund-confirmation-comment.96dda95.990.png)Refund confirmation![Refund Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/refund-transaction.5aa8ebb.1280.png)Refund Transaction
+![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-buttons.131e552.1280.png)Transaction Details![Refund confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/refund-confirmation-comment.11bc620.990.png)Refund confirmation![Refund Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/refund-transaction.4063672.1280.png)Refund Transaction
 ## Additional Connector Settings[​](https://documentation.ixopay.com/manual/docs/transactions/details/refund#additional-connector-settings "Direct link to Additional Connector Settings")
 In case you do not see the Refund Action Button (e.g. for Merchant Users), but have the Permission enabled, you might need to enable an additional Connector Setting **Enable Refunds in UI.**
 Follow these steps to activate the Connector Setting:

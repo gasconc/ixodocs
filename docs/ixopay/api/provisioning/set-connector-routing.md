@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/provisioning/set-connector-routing
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -34,6 +34,11 @@ The submitted document **fully replaces** the existing rule tree — there is no
 Use [List routing constraints](https://documentation.ixopay.com/api/provisioning/list-routing-constraints) to discover the conditions available to your tenant, and [Get routing](https://documentation.ixopay.com/api/provisioning/get-connector-routing) to fetch the current configuration for round-trip editing.
 What the API validates
 The document is checked for structural correctness, known conditions with well-formed parameters, tenant-level condition availability, and valid connector references (existing, enabled, non-archived connectors of the same merchant). The API does **not** assess whether the resulting routing strategy behaves as you intend — see [Validation and its limits](https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing#validation-and-its-limits). Test routing changes against your sandbox environment before applying them to production.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/set-connector-routing#request "Direct link to request")
 ### Path Parameters
 **connectorGuid** stringrequired

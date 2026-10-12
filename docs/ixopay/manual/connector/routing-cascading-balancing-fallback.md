@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -45,7 +45,7 @@ In the Connector Details Overview, click on **Rules** (in the Connector Config s
     2. Drag and drop the "**Condition** " and subsequent "**Action** " from the sidebar.
     3. Click the "**Save** " button at the top to save your rules.
 
-![Connectors Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-overview.6c0303b.1280.png)Connectors Overview![Connector Base Data](https://documentation.ixopay.com/manual/assets/ideal-img/connector-base-data.558cb7f.1280.png)Connector Base Data![Connector Config](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config.13ca67e.1280.png)Connector Config![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.a00737d.1280.png)Connector Details Overview
+![Connectors Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-overview.7eeddd5.1280.png)Connectors Overview![Connector Base Data](https://documentation.ixopay.com/manual/assets/ideal-img/connector-base-data.3e91773.1280.png)Connector Base Data![Connector Config](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config.2d440c4.1280.png)Connector Config![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.399c622.1280.png)Connector Details Overview
 #### Available Conditions and Actions[​](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#available-conditions-and-actions "Direct link to Available Conditions and Actions")
   1. Conditions:
     1. **Credit Card Brand** : Select a brand from the available card brands
@@ -75,11 +75,11 @@ Set up your individual routing, cascading and balancing strategies using the Rul
   5. Click **Save** to save your Routing Rule Configuration
 
 In theory there is no limitation regarding the depth of branches, but we recommend to keep the structure as simple as possible in order to maintain the Routing Rules properly. You can hide the content of nodes or even delete nodes any time.
-![Rule Editor - Routing](https://documentation.ixopay.com/manual/assets/ideal-img/rule-editor-routing.0c293de.1280.png)Rule Editor - Routing![Rule Editor - Condition Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/rule-editor-condition-configuration.a790983.1280.png)Rule Editor - Condition Configuration
+![Rule Editor - Routing](https://documentation.ixopay.com/manual/assets/ideal-img/rule-editor-routing.0c293de.1280.png)Rule Editor - Routing![Rule Editor - Condition Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/rule-editor-condition-configuration.75410a2.1280.png)Rule Editor - Condition Configuration
 ### Conditions & Actions[​](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#conditions--actions "Direct link to Conditions & Actions")
 For each **Condition** , the transactions' **card, IBAN, customer, transaction or risk data** is compared with the configured rule. The outcome (either **true** or **false**) defines which path/branch (**then** or **else**) is taken. As described above, each branch can either be an **Action** , or another **Condition**. Actions do not branch further and are the final step of a branch. They determine which connector is used to process the transaction. You can configure **Fallback Actions** (see Rule Editor - Fallback) by adding another action directly following an action. These fallback actions will only be executed if the transaction fails with a reasonable decline code (see [Fallback](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#fallback) section).
 Conditions split into additional branches until ending with an action as the final step or. If no action is defined, the selected default connector is used.
-![Rule Editor - Fallback](https://documentation.ixopay.com/manual/assets/ideal-img/rule-editor-fallback.7889714.1280.png)Rule Editor - Fallback  
+![Rule Editor - Fallback](https://documentation.ixopay.com/manual/assets/ideal-img/rule-editor-fallback.f12cfd6.1280.png)Rule Editor - Fallback  
 | Card Data  | Description  |  
 | --- | --- |  
 | Credit Card Brand  | Compares the brand of the credit card  |  
@@ -129,7 +129,7 @@ Deleting a node removes all child nodes and branches.
 ## Configuring Fallback Routing[​](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#fallback "Direct link to Configuring Fallback Routing")
 Certain error codes are considered "recoverable" failures, because the reason for failure is down to either a misconfiguration or a technical issue upstream at the provider level. Non-recoverable errors will occur irrespective of the provider.
 Unlike the smart routing configuration, where you need to define conditions in order to apply routing, fallback routing does not require any conditions. The purpose of fallback routing is to recover transactions declined by one provider (Provider A) and send the same transaction to another provider (Provider B) without any customer interaction. Customers will not notice any issues with the first provider, as the transaction is routed to another PSP by the IXOPAY platform in the background.
-![Fallback setup](https://documentation.ixopay.com/manual/assets/ideal-img/fallback-setup.37e49c7.1280.png)Fallback setup
+![Fallback setup](https://documentation.ixopay.com/manual/assets/ideal-img/fallback-setup.5e9349f.1280.png)Fallback setup
 ### Set up your backup provider[​](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback#set-up-your-backup-provider "Direct link to Set up your backup provider")
 Create your Meta-Connector or use an existing one (see above).
   1. Open the rules for the Meta-Connector.

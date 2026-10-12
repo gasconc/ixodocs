@@ -15,7 +15,7 @@ tags:
 - capture
 source_url: https://documentation.ixopay.com/manual/adapters/klarna
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -42,7 +42,7 @@ Configure the following parameters for the Connector (see Connector Config - Kla
   13. Select the **Extra Data: disableHppSessionOnTxExpiration** — true, false
      * Upon expiration of the transaction (see [Expire transaction with a given status after given minutes](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings#transaction-processing-settings)) the Klarna Hosted Payment Session will also be expired
 
-![Connector Config - KlarnaHpp](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-klarnahpp.086002a.1320.png)Connector Config - KlarnaHpp
+![Connector Config - KlarnaHpp](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-klarnahpp.f457de6.1320.png)Connector Config - KlarnaHpp
 ## Klarna Widget[​](https://documentation.ixopay.com/manual/adapters/klarna#klarna-widget "Direct link to Klarna Widget")
 Configure the following parameters for the Connector (see Connector Config - KlarnaWidget):
   1. Fill in the mandatory **Username**
@@ -57,7 +57,7 @@ Configure the following parameters for the Connector (see Connector Config - Kla
   2. Fill in the **Password**
   3. Fill in the **API Secret**
 
-![Connector Config - KlarnaInvoice](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-klarnainvoice.8d096b5.937.png)Connector Config - KlarnaInvoice
+![Connector Config - KlarnaInvoice](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-klarnainvoice.82d9554.937.png)Connector Config - KlarnaInvoice
 ## Data Fetcher Configuration[​](https://documentation.ixopay.com/manual/adapters/klarna#data-fetcher-configuration "Direct link to Data Fetcher Configuration")
 You have the option to configure Data Fetchers (see section [Enable and Set Up Reconciliation on the Provider Level](https://documentation.ixopay.com/manual/docs/post-processing/provider)) either on Provider or on Connector Level, depending on which setup works better for your provider.
 ### Provider Settlement[​](https://documentation.ixopay.com/manual/adapters/klarna#provider-settlement "Direct link to Provider Settlement")

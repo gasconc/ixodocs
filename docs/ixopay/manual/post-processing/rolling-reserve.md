@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/post-processing/rolling-reserve
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,4 +27,4 @@ To configure the Rolling Reserve
 ![Rolling Reserve](https://documentation.ixopay.com/manual/assets/ideal-img/rolling-reserve.f9b54fd.1280.png)Rolling Reserve
 The configured Rolling Reserve per Merchant can then be used for Merchant Settlement calculation within [Post-Processing Jobs](https://documentation.ixopay.com/manual/docs/post-processing/jobs) (e.g. on daily/weekly/monthly etc. base).
 Alternatively Rolling Reserve per Merchant can be used within the [Fee Management](https://documentation.ixopay.com/manual/docs/connector/fee-management) to calculate line items per Transaction (Calculation Strategy **Rolling-Reserve from Merchant Configuration)**
-![Connector fees: rolling reserve](https://documentation.ixopay.com/manual/assets/ideal-img/rolling-reserve.29efdba.1280.png)Connector fees: rolling reserve
+![Connector fees: rolling reserve](https://documentation.ixopay.com/manual/assets/ideal-img/rolling-reserve.e352a05.1280.png)Connector fees: rolling reserve

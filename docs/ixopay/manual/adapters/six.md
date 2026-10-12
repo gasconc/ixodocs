@@ -14,7 +14,7 @@ tags:
 - chargeback
 source_url: https://documentation.ixopay.com/manual/adapters/six
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -41,14 +41,14 @@ Configure the following parameters for the Connector (see Connector Detail Overv
   16. Add **CCTI-IDs (Override defaults)** to
   17. Fill in the **Default Capture Reference**
 
-![Connector Detail Overview - Six Elink Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-six-elink-creditcard-vault-configuration.49aec5e.1196.png)Connector Detail Overview - Six Elink Creditcard - Vault Configuration
+![Connector Detail Overview - Six Elink Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-six-elink-creditcard-vault-configuration.b90a211.1196.png)Connector Detail Overview - Six Elink Creditcard - Vault Configuration
 ## Six Push[​](https://documentation.ixopay.com/manual/adapters/six#six-push "Direct link to Six Push")
 Configure the following parameters for the Connector (see Connector Config - Six Creditcard):
   1. Fill in the mandatory **Username**
   2. Fill in the mandatory **Password**
   3. Fill in the mandatory **API Secret**
 
-![Connector Config - Six Creditcard](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-six-creditcard.2f3d443.1280.png)Connector Config - Six Creditcard
+![Connector Config - Six Creditcard](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-six-creditcard.85760ba.1280.png)Connector Config - Six Creditcard
 ## Data Fetcher Configuration[​](https://documentation.ixopay.com/manual/adapters/six#data-fetcher-configuration "Direct link to Data Fetcher Configuration")
 You have the option to configure Data Fetchers (see section [Enable and Set Up Reconciliation on the Provider Level](https://documentation.ixopay.com/manual/docs/post-processing/provider)) either on Provider or on Connector Level, depending on which setup works better for your provider.
 ### Provider Settlement[​](https://documentation.ixopay.com/manual/adapters/six#provider-settlement "Direct link to Provider Settlement")
@@ -66,7 +66,7 @@ Configure the following Parameters for the Settlements Provider Data Fetcher to 
   11. Select the optional **Extra Data: returnAddMercDataInTransactionId** — True, False
   12. Select the optional **Extra Data: sumTransactionsWithoutId** — True, False
 
-![Edit Provider Settlement Data Fetcher Provider Level](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider-settlement-data-fetcher-provider-level.2d1dc5a.626.png)Edit Provider Settlement Data Fetcher Provider Level
+![Edit Provider Settlement Data Fetcher Provider Level](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider-settlement-data-fetcher-provider-level.109d9e0.626.png)Edit Provider Settlement Data Fetcher Provider Level
 #### Settlement fields[​](https://documentation.ixopay.com/manual/adapters/six#settlement-fields "Direct link to Settlement fields")
 The `extSettlingRefNo` and the `paymentNo` are set as settlement number depending on the availability of this field. Some countries like Austria provide only `paymentNo`. The priority is `extSettlingRefNo` -> `paymentNo` -> now as Ymd.
 ##### Batch Number[​](https://documentation.ixopay.com/manual/adapters/six#batch-number "Direct link to Batch Number")
@@ -115,4 +115,4 @@ Configure the following parameters for the Connector (see Connector Detail Overv
   6. Fill in the optional **CCTI-IDs (Override defaults)**
   7. Fill in the optional **Default Capture Reference**
 
-![Connector Detail Overview - PAYONE Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-payone-creditcard-vault-configuration.e8abf96.1280.png)Connector Detail Overview - PAYONE Creditcard - Vault Configuration
+![Connector Detail Overview - PAYONE Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-payone-creditcard-vault-configuration.8a55d3d.1280.png)Connector Detail Overview - PAYONE Creditcard - Vault Configuration

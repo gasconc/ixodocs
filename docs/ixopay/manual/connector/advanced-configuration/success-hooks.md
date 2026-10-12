@@ -15,7 +15,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -39,7 +39,7 @@ To configure hooks follow this steps:
   3. Select the Connector Setting **Hooks: Transaction Success** and click **Add** (see Connector Settings)
   4. Configure the mandatory parameters and click **Save** (see Hook Type: Send Sendgrid Mail)
 
-![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-success-hooks.7a85116.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-success-hooks.59ce404.1134.png)Connector Settings![Hook Type: Send Sendgrid Mail](https://documentation.ixopay.com/manual/assets/ideal-img/hook-type-send-sendgrid-mail.1118077.1128.png)Hook Type: Send Sendgrid Mail
+![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-success-hooks.4ffd898.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-success-hooks.59ce404.1134.png)Connector Settings![Hook Type: Send Sendgrid Mail](https://documentation.ixopay.com/manual/assets/ideal-img/hook-type-send-sendgrid-mail.1118077.1128.png)Hook Type: Send Sendgrid Mail
 ## Send Sendgrid Mail[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks#send-sendgrid-mail "Direct link to Send Sendgrid Mail")
 This hook triggers a send-email request to a configured SendGrid Account.
 Hook Type: **Send Sendgrid Mail**
@@ -56,7 +56,7 @@ Optional Parameters:
   * **from_name** - Sender name (usually appears in mail clients alongside with the mail address, e.g. `Alex Smith `)
 
 There are additional dynamic fields available to be used in these templates (see table below) (e.g. `{{transaction.amount}}`).
-![SendGrid Template Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/sendgrid-template-configuration.c9fbfb5.385.png)SendGrid Template Configuration  
+![SendGrid Template Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/sendgrid-template-configuration.ceccbf7.385.png)SendGrid Template Configuration  
 | Dynamic Field  | Description  |  
 | --- | --- |  
 | transaction.uuid  | Transaction UUID  |  
@@ -117,7 +117,7 @@ This hook triggers an email to be sent to the customer email address.
 Hook Type: **Send Success Mail to customer (PayByLink)**
 There are no mandatory Parameters to be added.
 Email templates to be used, need to be configured in the [Pay-By-Link Tab](https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink) for this connector.
-![Connector Setting Send Success Mail to customer \(PayByLink\)](https://documentation.ixopay.com/manual/assets/ideal-img/connector-setting-send-success-mail-to-customer-paybylink-.215561d.1280.png)Connector Setting Send Success Mail to customer (PayByLink)
+![Connector Setting Send Success Mail to customer \(PayByLink\)](https://documentation.ixopay.com/manual/assets/ideal-img/connector-setting-send-success-mail-to-customer-paybylink-.b7ae5ce.1280.png)Connector Setting Send Success Mail to customer (PayByLink)
 note
 Emails are only sent for transaction types debit, pre-auth, register and payout and only if additionally the [Connector Setting](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings) **Virtual Terminal: Send a confirmation email after a successful transaction** is enabled.
 ## Send Success Mail to merchant (PayByLink)[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks#send-success-mail-to-merchant-paybylink "Direct link to Send Success Mail to merchant \(PayByLink\)")
@@ -127,7 +127,7 @@ Mandatory Parameters (see Connector Setting Send Success Mail to merchant (PayBy
   * **email** - Merchant email address the email should be sent to
 
 Email templates to be used, need to be configured in the [Pay-By-Link Tab](https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink) for this connector.
-![Connector Setting Send Success Mail to merchant \(PayByLink\)](https://documentation.ixopay.com/manual/assets/ideal-img/connector-setting-send-success-mail-to-merchant-paybylink-.5b92904.1280.png)Connector Setting Send Success Mail to merchant (PayByLink)
+![Connector Setting Send Success Mail to merchant \(PayByLink\)](https://documentation.ixopay.com/manual/assets/ideal-img/connector-setting-send-success-mail-to-merchant-paybylink-.1e37fbb.1280.png)Connector Setting Send Success Mail to merchant (PayByLink)
 note
 Emails are only sent for transaction types debit, pre-auth, register and payaut and only if additionally the [Connector Setting](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings) **Virtual Terminal: Send a confirmation email after a successful transaction** is enabled
 ## Create Mandate[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks#create-mandate "Direct link to Create Mandate")
@@ -136,7 +136,7 @@ Hook Type: **Create Mandate**
 Mandatory Parameters (see Connector Setting Create Mandate):
   * **connector** - GUID of the [Sepa Connector](https://adapters.ixopay.com/en/payment-adapter/sepa-express) to be used for the Transaction Processing
 
-![Connector Setting Create Mandate](https://documentation.ixopay.com/manual/assets/ideal-img/connector-setting-create-mandate.dab902b.1280.png)Connector Setting Create Mandate
+![Connector Setting Create Mandate](https://documentation.ixopay.com/manual/assets/ideal-img/connector-setting-create-mandate.4fdd18f.1280.png)Connector Setting Create Mandate
 tip
 This Hock Type should only be used for the combination of Adapters [Fintec](https://adapters.ixopay.com/en/payment-adapter/fintecsystems) (for transactions of type register) and [SepaExpressV1](https://adapters.ixopay.com/en/payment-adapter/sepa-express) (for recurring transactions of type debit).
 In any other case we recommend to use the mandate flow of Adapter [SepaExpressV2](https://adapters.ixopay.com/en/payment-adapter/sepa-express) as described in the Adapter-specific Guides Sepa.

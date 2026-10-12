@@ -13,7 +13,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/surcharge
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,7 +27,7 @@ related: []
   * Type in **HPP: enable Surcharge Calculation** respective **HPP: enable GST Calculation** and click **+ Add**
   * Enter **1** to activate the setting
 
-![Fee Entities](https://documentation.ixopay.com/manual/assets/ideal-img/fee-entities.b3cf6c5.1280.png)Fee Entities![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-surcharge.8726202.1280.png)Connector Settings
+![Fee Entities](https://documentation.ixopay.com/manual/assets/ideal-img/fee-entities.b3cf6c5.1280.png)Fee Entities![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-surcharge.6b4c535.1280.png)Connector Settings
 note
 The Surcharge Fee and GST Fee are calculated before transaction processing in comparison to all other fees calculated in the [IXOPAY platform](https://www.ixopay.com). The transaction has no status yet, therefore it is recommended to use Result = "All" when setting up your Fee Set. In case a surchargeAmount parameter is sent in the [API request](https://documentation.ixopay.com/api/transaction/debit), the surcharge calculation will be skipped, and the surchargeAmount will simply be added to the total amount. For GST fees the [Fee Configuration](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees) is slightly adopted since the GST Fee will be calculated as a percentage of the configured Surcharge Fee.
 ## Hosted Payment Page (HPP) Configuration for Surcharge / GST Fee[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/surcharge#hosted-payment-page-hpp-configuration-for-surcharge--gst-fee "Direct link to Hosted Payment Page \(HPP\) Configuration for Surcharge / GST Fee")

@@ -14,7 +14,7 @@ tags:
 - refund
 source_url: https://documentation.ixopay.com/api/provisioning/create-merchant
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -29,6 +29,11 @@ POST
 ## https://gateway.ixopay.com/api/provisioning/createMerchant/:tenantGuid
 
 ```Create a merchant for the given tenant.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/create-merchant#request "Direct link to request")
 ### Path Parameters
 **tenantGuid** stringrequired

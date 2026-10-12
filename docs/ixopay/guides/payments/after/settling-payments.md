@@ -15,7 +15,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/payments/after/settling-payments
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -33,7 +33,9 @@ To help developers manage settlements, the IXOPAY platform provides a post-proce
 IXOPAY platform post-processing engine
 PSP 2 Adapter
 PSP 1 Adapter
-HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3
+HTTP POST,  
+e-mail,  
+upload: SFTP, OneDrive, S3
 Settlement API
 Transaction 1
 Settlement 1 CSV

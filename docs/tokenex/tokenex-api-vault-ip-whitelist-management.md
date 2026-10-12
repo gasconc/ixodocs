@@ -13,7 +13,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenex-api-vault-ip-whitelist-management
 portal: tokenex
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 

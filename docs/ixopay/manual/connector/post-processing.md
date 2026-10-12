@@ -14,7 +14,7 @@ tags:
 - sepa
 source_url: https://documentation.ixopay.com/manual/docs/connector/post-processing
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,7 +27,7 @@ To set up Reconciliation and/or Provider Settlement Data Fetchers, follow these 
   1. Navigate to the **Connector Detail Overview**
   2. Select the Tab **Post-Processing**
 
-![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview.10d709c.1280.png)Connector Detail Overview
+![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview.7249a71.1280.png)Connector Detail Overview
 info
 In order to be able to include transactions processed by a Connector in the Reconciliation and Provider Settlement, the Connector must be assigned to the Provider entity in the IXOPAY platform.
 ## Reconciliation[​](https://documentation.ixopay.com/manual/docs/connector/post-processing#reconciliation "Direct link to Reconciliation")
@@ -63,7 +63,7 @@ Additionally, you can configure **Reconciliation Settings** :
   9. **Save** your configuration
 
 Once configured and enabled the data fetcher will retrieve Reconciliation data from the Provider and match it to the data available in the IXOPAY platform. In case the data matches the transaction will be marked as reconciled in the [Transaction Details Overview](https://documentation.ixopay.com/manual/docs/transactions/details). Otherwise a Reconciliation conflict is raised (see [Reconciliation](https://documentation.ixopay.com/manual/docs/post-processing/reconciliation) Section).
-![Reconciliation](https://documentation.ixopay.com/manual/assets/ideal-img/reconciliation.2cd08b1.1280.png)Reconciliation![Create new Reconciliation Data Fetcher - Use Config Settings from Connector](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-reconciliation-data-fetcher-use-config-settings-from-connector.fc85fd6.916.png)Create new Reconciliation Data Fetcher - Use Config Settings from Connector![Create new Reconciliation Data Fetcher - Do not use Config Settings from Connector](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-reconciliation-data-fetcher-do-not-use-config-settings-from-connector.efba925.926.png)Create new Reconciliation Data Fetcher - Do not use Config Settings from Connector![Transaction Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-overview.5e0d23a.1280.png)Transaction Details Overview
+![Reconciliation](https://documentation.ixopay.com/manual/assets/ideal-img/reconciliation.d5a8554.1280.png)Reconciliation![Create new Reconciliation Data Fetcher - Use Config Settings from Connector](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-reconciliation-data-fetcher-use-config-settings-from-connector.fc85fd6.916.png)Create new Reconciliation Data Fetcher - Use Config Settings from Connector![Create new Reconciliation Data Fetcher - Do not use Config Settings from Connector](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-reconciliation-data-fetcher-do-not-use-config-settings-from-connector.3ef7191.926.png)Create new Reconciliation Data Fetcher - Do not use Config Settings from Connector![Transaction Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-overview.7e03489.1280.png)Transaction Details Overview
 ## Provider Settlement[​](https://documentation.ixopay.com/manual/docs/connector/post-processing#provider-settlement "Direct link to Provider Settlement")
 To enable Provider Settlements on the Connector configure a Provider Settlement Data Fetcher and Provider Settlement Settings (if needed) according to the [adapter-specific documentation](https://documentation.ixopay.com/manual/adapters/simulator)
   1. Click **+ Add** to configure a new Provider Settlement Data Fetcher
@@ -87,10 +87,10 @@ Additionally, you can configure **Provider Settlement Settings** :
   5. **Save** your configuration
 
 Once configured and enabled the data fetcher will retrieve Provider Settlement data and match it to the data available in the IXOPAY platform. In case the data matches the transaction will be marked as settled in the [Transaction Details Overview](https://documentation.ixopay.com/manual/docs/transactions/details). Otherwise a Settlement conflict is raised (see [Provider Settlement](https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements) Section)
-![Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/settlement.96164c1.1280.png)Settlement![Create new Provider Settlement Data Fetcher - Use Config Settings from Connector](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-provider-settlement-data-fetcher-use-config-settings-from-connector.b82aeb4.946.png)Create new Provider Settlement Data Fetcher - Use Config Settings from Connector![Create new Provider Settlement Data Fetcher - Do not use Config Settings from Connector](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-provider-settlement-data-fetcher-do-not-use-config-settings-from-connector.91bd053.928.png)Create new Provider Settlement Data Fetcher - Do not use Config Settings from Connector![Transaction Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-overview.5e0d23a.1280.png)Transaction Details Overview
+![Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/settlement.c5e24f0.1280.png)Settlement![Create new Provider Settlement Data Fetcher - Use Config Settings from Connector](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-provider-settlement-data-fetcher-use-config-settings-from-connector.f512c8c.946.png)Create new Provider Settlement Data Fetcher - Use Config Settings from Connector![Create new Provider Settlement Data Fetcher - Do not use Config Settings from Connector](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-provider-settlement-data-fetcher-do-not-use-config-settings-from-connector.20d7143.928.png)Create new Provider Settlement Data Fetcher - Do not use Config Settings from Connector![Transaction Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-overview.7e03489.1280.png)Transaction Details Overview
 note
 For some adapters the IXOPAY platform will automatically test the data fetcher connection after creation to verify data fetchers are set up correctly. You can see the test results in the data fetcher edit view (see Test data fetcher connection).
-![Test data fetcher connection](https://documentation.ixopay.com/manual/assets/ideal-img/test-data-fetcher-connection.c1340c5.824.png)Test data fetcher connection
+![Test data fetcher connection](https://documentation.ixopay.com/manual/assets/ideal-img/test-data-fetcher-connection.2e9dbf2.824.png)Test data fetcher connection
 ## Other Settings[​](https://documentation.ixopay.com/manual/docs/connector/post-processing#other-settings "Direct link to Other Settings")
 In the Post Processing tab you can define furthermore so called **Calculation Groups**. These Groups can then be used in for the [Fee Calculation](https://documentation.ixopay.com/manual/docs/connector/fee-management/set-up-fees) (e.g. to calculate volume-tiered/count-tiered fees over multiple merchants) as **Reference Volume /Reference Count.**
-![Calculation Groups](https://documentation.ixopay.com/manual/assets/ideal-img/calculation-groups.f7f8062.1280.png)Calculation Groups![Fee entry](https://documentation.ixopay.com/manual/assets/ideal-img/fee-entry.ea7fa8b.1280.png)Fee entry
+![Calculation Groups](https://documentation.ixopay.com/manual/assets/ideal-img/calculation-groups.86be1c2.1280.png)Calculation Groups![Fee entry](https://documentation.ixopay.com/manual/assets/ideal-img/fee-entry.945b07b.1280.png)Fee entry

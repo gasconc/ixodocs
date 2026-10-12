@@ -15,7 +15,7 @@ tags:
 - create-merchant-identity-certificate-https-documentation-ixopay-com-manual-docs-connector-advanced-configuration-applepay-googlepay-create-merchant-identity-certificate-direct-link-create-merchant-identity-certificate
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/applepay-googlepay
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -51,7 +51,7 @@ To use the ApplePay Button for the [IXOPAY](https://www.ixopay.com) Hosted Payme
 To activate the ApplePay Button in the IXOPAY platform hosted payment page, the following code snippets need to be added to your payment templates via the FAST Editor:
   * The container the button will be displayed in
 
-![Example HPP with ApplePay Button](https://documentation.ixopay.com/manual/assets/ideal-img/example-hpp-with-applepay-button.83951cd.1164.png)Example HPP with ApplePay Button
+![Example HPP with ApplePay Button](https://documentation.ixopay.com/manual/assets/ideal-img/example-hpp-with-applepay-button.8086048.1164.png)Example HPP with ApplePay Button
 ```
 
 <!-- Apple Pay -->  

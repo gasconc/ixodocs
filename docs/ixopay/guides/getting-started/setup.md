@@ -15,7 +15,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/docs/guides/getting-started/setup
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -51,7 +51,7 @@ Merchants in IXOPAY platform are a central entity. They are the actual operators
   5. Click _➕ Create Merchant_. The newly created merchant is enabled immediately and can be found in the _Merchant Overview_ , where you can edit it and its associated configuration elements.
   6. Click on **Overview** to open your newly created merchant in the _Merchant Overview_.
 
-![Merchant list](https://documentation.ixopay.com/assets/ideal-img/setup-merchants.6c71a84.1280.png)Merchant list![Create merchant](https://documentation.ixopay.com/assets/ideal-img/setup-create-merchant.8eebe49.1280.png)Create merchant![Merchant overview](https://documentation.ixopay.com/assets/ideal-img/setup-merchant-overview.394a300.1280.png)Merchant overview
+![Merchant list](https://documentation.ixopay.com/assets/ideal-img/setup-merchants.acc8cca.1280.png)Merchant list![Create merchant](https://documentation.ixopay.com/assets/ideal-img/setup-create-merchant.3927e41.1280.png)Create merchant![Merchant overview](https://documentation.ixopay.com/assets/ideal-img/setup-merchant-overview.4964596.1280.png)Merchant overview
 ### Step 2: Create an API user[​](https://documentation.ixopay.com/docs/guides/getting-started/setup#step-2-create-an-api-user "Direct link to Step 2: Create an API user")
   1. In the _Merchant Overview_ , select _Users_ from the drop-down menu at the top of the page (_Overview_ is selected by default).
   2. Click on _➕ New User_.
@@ -62,13 +62,13 @@ Merchants in IXOPAY platform are a central entity. They are the actual operators
   5. Either type in a Password or click on _Generate_ to let IXOPAY platform generate a random password.
   6. Click on _➕ Create User_ to confirm your entries and add the user.
 
-![User list](https://documentation.ixopay.com/assets/ideal-img/setup-users.429adc7.1280.png)User list![User create](https://documentation.ixopay.com/assets/ideal-img/setup-create-user.e71554f.1280.png)User create
+![User list](https://documentation.ixopay.com/assets/ideal-img/setup-users.7241325.1280.png)User list![User create](https://documentation.ixopay.com/assets/ideal-img/setup-create-user.34dc90c.1280.png)User create
 info
 Make a copy of the username and password as you'll need it to access the API. We will refer to these as `$USERNAME` and `$PASSWORD` in this guide from now on.
 ### Step 3: Create a connector[​](https://documentation.ixopay.com/docs/guides/getting-started/setup#step-3-create-a-connector "Direct link to Step 3: Create a connector")
 In order to process transactions through a PSP/acquirer, connectors need to be configured for each merchant. A connector connects to the PSP/acquirer and handles all communication between IXOPAY platform and the PSP/acquirer. The IXOPAY platform offers a wide range of adapters for different PSPs/acquirers that you can use to access and manage various payment methods from within the platform. This allows your merchants to integrate multiple providers and payment methods.
 A new connector needs to be created per merchant for each unique combination of end-point, account/credentials (from your PSP/acquirer) and payment method.
-![Connector list](https://documentation.ixopay.com/assets/ideal-img/setup-connectors.82e39c1.1280.png)Connector list![Create connector - base data](https://documentation.ixopay.com/assets/ideal-img/setup-create-connector-step1.a261353.1280.png)Create connector - base data![Create connector - configuration](https://documentation.ixopay.com/assets/ideal-img/setup-create-connector-step2.6c00a62.1280.png)Create connector - configuration![Connector overview](https://documentation.ixopay.com/assets/ideal-img/setup-connector-overview.20a7772.1280.png)Connector overview
+![Connector list](https://documentation.ixopay.com/assets/ideal-img/setup-connectors.2e712df.1280.png)Connector list![Create connector - base data](https://documentation.ixopay.com/assets/ideal-img/setup-create-connector-step1.ff7bed8.1280.png)Create connector - base data![Create connector - configuration](https://documentation.ixopay.com/assets/ideal-img/setup-create-connector-step2.a761afa.1280.png)Create connector - configuration![Connector overview](https://documentation.ixopay.com/assets/ideal-img/setup-connector-overview.074c795.1280.png)Connector overview
   1. Select _Connectors_ from the drop-down menu at the top of the page.
   2. Click on _New Connector ⬇️_ and select _➕ New Connector_ from the drop-down menu.
   3. Enter the _Base data_ :

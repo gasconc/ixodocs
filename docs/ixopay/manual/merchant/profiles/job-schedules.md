@@ -7,7 +7,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/merchant/profiles/job-schedules
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -29,4 +29,4 @@ For Job Schedules on Merchant Level, additional configuration options are availa
     3. **On Merchant Payout** - Marketplace specific setting
 
 Once created, you can edit, activate/de-activate and delete existing Job Schedules and manually trigger the run of jobs with this Job Schedule (see (Merchant) Job Schedules).
-![Merchant Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-details-overview.a935040.1280.png)Merchant Details Overview![Global Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/job-schedules-global-merchants-overview.481346a.1280.png)Global Merchants Overview![\(Merchant\) Job Schedules](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-job-schedules.bd3cb82.1280.png)(Merchant) Job Schedules![Create New Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-schedule.362585b.1140.png)Create New Schedule
+![Merchant Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-details-overview.cffb740.1280.png)Merchant Details Overview![Global Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/job-schedules-global-merchants-overview.49762fc.1280.png)Global Merchants Overview![\(Merchant\) Job Schedules](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-job-schedules.ba62110.1280.png)(Merchant) Job Schedules![Create New Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-schedule.660035b.1140.png)Create New Schedule

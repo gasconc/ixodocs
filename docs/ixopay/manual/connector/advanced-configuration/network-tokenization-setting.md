@@ -15,7 +15,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/network-tokenization-setting
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -34,7 +34,7 @@ To configure the Network Tokenization Setting:
   3. Select the Connector Setting **Network Tokenization Setting** and click **Add**
   4. Configure the settings as desired and click **Save**
 
-![Network Tokenization Setting](https://documentation.ixopay.com/manual/assets/ideal-img/network-tokenization-setting.e8b9938.544.png)Network Tokenization Setting
+![Network Tokenization Setting](https://documentation.ixopay.com/manual/assets/ideal-img/network-tokenization-setting.1a5add0.544.png)Network Tokenization Setting
 ## Configuration[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/network-tokenization-setting#configuration "Direct link to Configuration")
 ### Creation[​](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/network-tokenization-setting#creation "Direct link to Creation")
 This setting specifies how the network token should be created.

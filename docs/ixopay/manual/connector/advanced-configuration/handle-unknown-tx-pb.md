@@ -8,7 +8,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/handle-unknown-tx-pb
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -30,6 +30,6 @@ To configure the connector setting follow this steps:
      * _Forward the request_ (forwards the incoming request to the provided URL, Target URL is mandatory)
   5. Insert the **Target URL** (see Connector Parameter Settings)
 
-![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-unknown-tx.7a85116.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-unknown-tx.bb0324d.1118.png)Connector Settings![Add strategy](https://documentation.ixopay.com/manual/assets/ideal-img/add-strategy.0d7eab3.1072.png)Add strategy![Connector Parameter Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-parameter-settings.c652799.1158.png)Connector Parameter Settings
+![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-unknown-tx.4ffd898.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-unknown-tx.bb0324d.1118.png)Connector Settings![Add strategy](https://documentation.ixopay.com/manual/assets/ideal-img/add-strategy.0d7eab3.1072.png)Add strategy![Connector Parameter Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-parameter-settings.c652799.1158.png)Connector Parameter Settings
 tip
 For the strategy **Acknowledgement** no further processing/steps in regards to the postback is/are done in the IXOPAY platform. Strategy **Redirect** and **Forward the request** must be supported by the PSP.

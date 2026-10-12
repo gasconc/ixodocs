@@ -15,7 +15,7 @@ tags:
 - find-fix-violations-https-documentation-ixopay-com-manual-docs-system-setup-hpp-csp-configuration-find-fix-violations-direct-link-find-fix-violations
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -138,7 +138,7 @@ To create a new HPP CSP Configuration:
      * **Regex Patterns** :
        * **Regex** : A PCRE valid Regex pattern to determine affected Payment Templates e.g. /foo/bar/file.php/. Patterns must compile as valid PCRE and may be at most **512 characters** long, otherwise the configuration cannot be saved.
 
-![HPP CSP Configuration List](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-list.36d9316.1600.png)HPP CSP Configuration List![Create HPP CSP Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-create.31249fb.1600.png)Create HPP CSP Configuration
+![HPP CSP Configuration List](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-list.ef92c5a.1600.png)HPP CSP Configuration List![Create HPP CSP Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-create.6316d51.1600.png)Create HPP CSP Configuration
 ### Regex Pattern and Payment Templates[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#regex-pattern-and-payment-templates "Direct link to Regex Pattern and Payment Templates")
 You can define multiple regex patterns in an HPP CSP Configuration to apply your configuration to specific payment templates.
 Each Hosted Payment Page enabled in a connector resolves to a specific file path. For example, a default payment template for English might be stored at:
@@ -153,7 +153,7 @@ To apply your HPP CSP Configuration to a template, define a regex pattern that m
   * **Match templates by filename** Use `/index\.en\.php$/` to apply the configuration to any template named `index.en.php`.
   * **Match all templates** Use `/.*/` to apply the configuration to all payment templates.
 
-![FAST Editor File Tree](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-fast.14e76ed.1600.png)FAST Editor File Tree
+![FAST Editor File Tree](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-fast.1b38e45.1600.png)FAST Editor File Tree
 info
 If you have an enabled HPP CSP Configuration but none of its regex patterns match the rendered payment template, the IXOPAY platform still sends a default `Content-Security-Policy-Report-Only` header (containing only the [automatically injected sources](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#what-happens-automatically)) for a small, sampled percentage of requests. This keeps baseline violation reporting available for templates you have not covered with a pattern yet. A pattern that fails to evaluate is treated as non-matching — the configuration will not apply to that page.
 ### Verify the configuration[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#verify-the-configuration "Direct link to Verify the configuration")
@@ -166,13 +166,13 @@ After you create a configuration , verify the response header on page load:
      * `Content-Security-Policy` (Report-Only disabled)
 
 Confirm that `script-src` includes your configured values.
-![Browser Console showing CSP Headers](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-console.17d48c3.1600.png)Browser Console showing CSP Headers
+![Browser Console showing CSP Headers](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-console.28c41b2.1600.png)Browser Console showing CSP Headers
 ## Find and fix violations[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#find-and-fix-violations "Direct link to Find and fix violations")
 You can review CSP violation reports in two ways:
   * Open the **Reports** tab from the **HPP CSP Configuration** list view.
   * Configure a custom **Reporting Endpoint** to send reports to your own system.
 
-![CSP Reports List](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-reports.2b9038b.1600.png)CSP Reports List
+![CSP Reports List](https://documentation.ixopay.com/manual/assets/ideal-img/hpp-csp-reports.fe757b7.1600.png)CSP Reports List
 ### Fix violations in your Payment Templates[​](https://documentation.ixopay.com/manual/docs/system-setup/hpp-csp-configuration#fix-violations-in-your-payment-templates "Direct link to Fix violations in your Payment Templates")
   1. Open your **Connector** → **Edit**.
   2. Go to your configured **Payment Templates**.

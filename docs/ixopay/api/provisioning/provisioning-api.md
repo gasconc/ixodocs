@@ -10,7 +10,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/api/provisioning/provisioning-api
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -24,6 +24,11 @@ The provisioning API allows you to manage your IXOPAY entities. You can create, 
 IXOPAY platform Full Version
 The Provisioning API is an optional feature which is not automatically available for all [IXOPAY platform](https://www.ixopay.com) clients!
 If you want to get access to all IXOPAY platform features you need to upgrade your plan. Please contact your Customer Success Manager or our sales team at sales@ixopay.com for more information.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Authentication[​](https://documentation.ixopay.com/api/provisioning/provisioning-api#authentication "Direct link to Authentication")
   * HTTP: Basic Auth
 

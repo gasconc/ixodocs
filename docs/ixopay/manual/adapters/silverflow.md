@@ -10,7 +10,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/silverflow
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -24,4 +24,4 @@ Configure the following parameters for the Connector (see Connector Detail Overv
   3. Fill in the mandatory **Username**
   4. Fill in the mandatory **Password**
 
-![Connector Detail Overview - Silverflow Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-silverflow-creditcard-vault-configuration.91f98e8.1280.png)Connector Detail Overview - Silverflow Creditcard - Vault Configuration
+![Connector Detail Overview - Silverflow Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-silverflow-creditcard-vault-configuration.8a8492e.1280.png)Connector Detail Overview - Silverflow Creditcard - Vault Configuration

@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/overview
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -18,7 +18,7 @@ related: []
 
 # Overview
 ## Video: Risk Profiles[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/overview#video-risk-profiles "Direct link to Video: Risk Profiles")
-![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-risk-profiles.ac61d79.1300.png)
+![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-risk-profiles.99c0721.1300.png)
 Learn how to create a new Risk Profile and to add and configure Risk Rules.
 The [IXOPAY platform](https://www.ixopay.com)'s Risk Management Engine enables you to **prevent and discover payment risks and fraudulent activities** that your organizations might face and thus to anticipate additional costs, by equipping your Risk Management teams with the option to set up, optimize and manage various risk profiles and their respective rules. Each profile can be adapted to your business needs and assigned to merchants or connectors.
 Typical risk profiles could be for instance **high risk, medium risk and low risk merchants** , based on locations, differentiate payment methods, types etc.

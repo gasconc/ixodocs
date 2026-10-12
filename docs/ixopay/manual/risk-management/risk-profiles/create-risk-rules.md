@@ -16,7 +16,7 @@ tags:
 - kount-external-risk-check-https-documentation-ixopay-com-manual-docs-risk-management-risk-profiles-create-risk-rules-kount-external-risk-check-direct-link-kount-external-risk-check
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -67,11 +67,11 @@ The **Create Risk Rule** dialog is displayed. You can configure the relevant par
   8. You can also choose an **Exemption Indicator**.
   9. Click on **Save** to add the rule.
 
-![Configure Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/configure-risk-profile.bf44d01.1280.png)Configure Risk Profile![Add Risk Rule](https://documentation.ixopay.com/manual/assets/ideal-img/add-risk-rule.23586ee.1280.png)Add Risk Rule![Filter Risk Rule I](https://documentation.ixopay.com/manual/assets/ideal-img/filter-risk-rule-i.17e6426.1024.png)Filter Risk Rule I![Filter Risk Rule II](https://documentation.ixopay.com/manual/assets/ideal-img/filter-risk-rule-ii.8c4218b.1016.png)Filter Risk Rule II
-![Customer's IP address country](https://documentation.ixopay.com/manual/assets/ideal-img/customer-s-ip-address-country.a05400f.1280.png)Customer's IP address country![Transaction amount evaluation](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-amount-evaluation.ff88cd9.1280.png)Transaction amount evaluation
+![Configure Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/configure-risk-profile.909204c.1280.png)Configure Risk Profile![Add Risk Rule](https://documentation.ixopay.com/manual/assets/ideal-img/add-risk-rule.9b8f43b.1280.png)Add Risk Rule![Filter Risk Rule I](https://documentation.ixopay.com/manual/assets/ideal-img/filter-risk-rule-i.17e6426.1024.png)Filter Risk Rule I![Filter Risk Rule II](https://documentation.ixopay.com/manual/assets/ideal-img/filter-risk-rule-ii.abf043d.1016.png)Filter Risk Rule II
+![Customer's IP address country](https://documentation.ixopay.com/manual/assets/ideal-img/customer-s-ip-address-country.a05400f.1280.png)Customer's IP address country![Transaction amount evaluation](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-amount-evaluation.bddc6b5.1280.png)Transaction amount evaluation
 note
 When adding multiple rules to a risk profile, organize your rules from highest to lowest priority. If you have rules that share the same criteria, the rule with the higher priority will override rules with a lower priority. Use the burger icon next to the rule number to drag and drop rules to define the order.
-![Reorder risk rules](https://documentation.ixopay.com/manual/assets/ideal-img/reorder-risk-rules.f17bffd.1280.png)Reorder risk rules
+![Reorder risk rules](https://documentation.ixopay.com/manual/assets/ideal-img/reorder-risk-rules.3f05a32.1280.png)Reorder risk rules
 ## Actions[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#actions "Direct link to Actions")
 Actions can be configured in the **Create Risk Rule** dialog. These actions are executed immediately if the transaction matches the criteria defined in the risk rule. The following options are available:
 ### Immediate Action / Action if not applicable[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#immediate-action--action-if-not-applicable "Direct link to Immediate Action / Action if not applicable")
@@ -126,7 +126,7 @@ Kount is a legacy integration and is not available for new clients. It remains d
 Kount Complete helps protect online merchants and retailers against digital payments fraud with advanced machine learning, a flexible rules engine and self-service analytics. Kount Complete allows merchants to accept more legitimate orders, growing their business while protecting them from fraud.
 An account with Kount is required to use this service.
 You need to configure the IXOPAY platform by adding Kount to your connector settings and risk profile.
-![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.08d6549.1280.png)Connector Details Overview
+![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.a16888b.1280.png)Connector Details Overview
 #### Add Kount to your connector settings[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#add-kount-to-your-connector-settings "Direct link to Add Kount to your connector settings")
   1. Open the **Merchant Configuration** entry in the navigation menu, select **Connector List** and click on **Edit** next to the connector you want to configure (see Connector Details Overview).
   2. Click on **Edit** in the **Settings** section.
@@ -150,7 +150,7 @@ You need to configure the IXOPAY platform by adding Kount to your connector sett
 
 The **Create Risk Rule** dialog is displayed. You can configure the relevant parameters and actions here. Once you are done, click on **Save**.
 Every transaction checked against the risk profile will be forwarded to Kount be checked.
-![Create Risk Rule - Kount](https://documentation.ixopay.com/manual/assets/ideal-img/create-risk-rule-kount.23b5dd8.1084.png)Create Risk Rule - Kount![Risk Rule Parameters - Kount](https://documentation.ixopay.com/manual/assets/ideal-img/risk-rule-parameters-kount.91bdb20.1222.png)Risk Rule Parameters - Kount
+![Create Risk Rule - Kount](https://documentation.ixopay.com/manual/assets/ideal-img/create-risk-rule-kount.7ebe379.1084.png)Create Risk Rule - Kount![Risk Rule Parameters - Kount](https://documentation.ixopay.com/manual/assets/ideal-img/risk-rule-parameters-kount.0054fab.1222.png)Risk Rule Parameters - Kount
 ### MaxMind — External Risk Check[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#maxmind--external-risk-check "Direct link to MaxMind — External Risk Check")
 MaxMind is an industry-leading provider of IP intelligence and online fraud detection tools. Use MaxMind minFraud Score to get a transaction riskScore and an IP risk score. Create simple rules based on selected minFraud inputs and outputs or your custom inputs to accept, reject, or manually review transactions.
 An account with MaxMind is required to use this service.
@@ -170,7 +170,7 @@ You need to configure the IXOPAY platform by adding MaxMind to your risk profile
   7. Once you are done, click on **Save**.
   8. Every transaction checked against the risk profile will be forwarded to MaxMind be checked.
 
-![Create Risk Rule - Maxmind](https://documentation.ixopay.com/manual/assets/ideal-img/create-risk-rule-maxmind.8127726.846.png)Create Risk Rule - Maxmind![Risk Rule Parameters - Maxmind](https://documentation.ixopay.com/manual/assets/ideal-img/risk-rule-parameters-maxmind.854320a.1230.png)Risk Rule Parameters - Maxmind
+![Create Risk Rule - Maxmind](https://documentation.ixopay.com/manual/assets/ideal-img/create-risk-rule-maxmind.d86037f.846.png)Create Risk Rule - Maxmind![Risk Rule Parameters - Maxmind](https://documentation.ixopay.com/manual/assets/ideal-img/risk-rule-parameters-maxmind.3a7ebf6.1230.png)Risk Rule Parameters - Maxmind
 ### Forter — External Risk Check[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#forter--external-risk-check "Direct link to Forter — External Risk Check")
 Forter is one of the leaders in e-commerce fraud and policy abuse prevention, Forter protects against all forms of fraud and abuse throughout the customer journey, including credit card fraud, chargebacks, returns abuse and account takeover, and improves conversion rates that have been impacted by PSD2 by helping merchants secure all available exemptions and exclusions.
 To be able to use Forter you have to register an Account with them.
@@ -260,7 +260,7 @@ On the IXOPAY platform side you have to make sure to add Fraud.net in the Risk P
 #### Adding Fraud.net into your Risk Profile[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#adding-fraudnet-into-your-risk-profile "Direct link to Adding Fraud.net into your Risk Profile")
 To add Fraud.net as a Risk Rule you need to open the Risk Profile and add Fraud.net (see Create Risk Rule - Fraud.net)
 Next setup your profile as wished and save it (see Risk Rule Parameters - Fraud.net)
-![Create Risk Rule - Fraud.net](https://documentation.ixopay.com/manual/assets/ideal-img/create-risk-rule-fraud-net.7feaf6d.1014.png)Create Risk Rule - Fraud.net![Risk Rule Parameters - Fraud.net](https://documentation.ixopay.com/manual/assets/ideal-img/risk-rule-parameters-fraud-net.ed38383.934.png)Risk Rule Parameters - Fraud.net
+![Create Risk Rule - Fraud.net](https://documentation.ixopay.com/manual/assets/ideal-img/create-risk-rule-fraud-net.7feaf6d.1014.png)Create Risk Rule - Fraud.net![Risk Rule Parameters - Fraud.net](https://documentation.ixopay.com/manual/assets/ideal-img/risk-rule-parameters-fraud-net.9d65d44.934.png)Risk Rule Parameters - Fraud.net
 ### Riskified — External Risk Check[​](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules#riskified--external-risk-check "Direct link to Riskified — External Risk Check")
 Riskified is an eCommerce risk management platform that reviews orders in real time and approves or declines them based on fraud risk, helping merchants reduce chargebacks and false declines.
 To be able to use Riskified you have to register an Account with them.

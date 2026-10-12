@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/api/provisioning/set-connector-multi-method-routing
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -36,6 +36,11 @@ Condition subset
 Multi-method routing accepts a fixed subset of the condition catalogue: `CustomerCountry`, `CustomerIpCountry`, `Currency`, `AmountCurrency`, `RiskScore` and `ExtraData`. Other conditions are rejected with error code `1011` — including conditions that a rule tree authored in the admin interface may contain; adjust such documents fetched via [Get multi-method routing](https://documentation.ixopay.com/api/provisioning/get-connector-multi-method-routing) before resubmitting them.
 What the API validates
 The document is checked for structural correctness, known conditions with well-formed parameters, tenant-level condition availability, and valid connector references. The API does **not** assess whether the resulting routing strategy behaves as you intend — see [Validation and its limits](https://documentation.ixopay.com/docs/reference/features/provisioning/connector-routing#validation-and-its-limits). Test routing changes against your sandbox environment before applying them to production.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/set-connector-multi-method-routing#request "Direct link to request")
 ### Path Parameters
 **connectorGuid** stringrequired

@@ -15,7 +15,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/manual/docs/connector/users/web
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -25,7 +25,7 @@ related: []
 
 # Web User
 ## Video: Web User[​](https://documentation.ixopay.com/manual/docs/connector/users/web#video-web-user "Direct link to Video: Web User")
-![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-web-user.68a3809.1300.png)
+![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-web-user.d9c4f02.1300.png)
 Create a new Web User.
 tip
 User access is possible from all common web browsers (incl. mobile devices). Mobile device support however is limited regarding performing administrative functions (e.g. Post-Processing, Fast Editor).
@@ -35,7 +35,7 @@ There are different options to navigate to the (Merchant) User Overview:
   2. Open the drop down menu by clicking **More** for the desired Merchant and select **Users** (Global Merchant Overview)
 
 In the (Merchant) User Overview you can add and edit Users with access to the related Merchant Profile.
-![Merchant Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-details-overview.394a300.1280.png)Merchant Details Overview![Global Merchant Overview](https://documentation.ixopay.com/manual/assets/ideal-img/global-merchant-overview.d4c36fb.1280.png)Global Merchant Overview
+![Merchant Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-details-overview.4964596.1280.png)Merchant Details Overview![Global Merchant Overview](https://documentation.ixopay.com/manual/assets/ideal-img/global-merchant-overview.e1c8bc6.1280.png)Global Merchant Overview
 ## Add New Users[​](https://documentation.ixopay.com/manual/docs/connector/users/web#add-new-users "Direct link to Add New Users")
   1. Click **+ New User** in the (Merchant) User Overview.
   2. Enter required and optional **Base Data** for the User (see Create User):
@@ -50,7 +50,7 @@ In the (Merchant) User Overview you can add and edit Users with access to the re
   6. Valid your entries and confirm the User creation with **+ Create User** (Create User).
 
 Depending on the selected User Type different configuration options are available when editing the User.
-![\(Merchant\) User Overview](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-user-overview.429adc7.1280.png)(Merchant) User Overview![Create User](https://documentation.ixopay.com/manual/assets/ideal-img/create-user.a9c7cc2.1280.png)Create User
+![\(Merchant\) User Overview](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-user-overview.7241325.1280.png)(Merchant) User Overview![Create User](https://documentation.ixopay.com/manual/assets/ideal-img/create-user.b2e2ae8.1280.png)Create User
 info
 The following password criteria must be fulfilled:
   * At least 12 characters required
@@ -77,7 +77,7 @@ After having created a User you will be redirected to the Edit View for this use
   7. Click **Save User** to save the changes and confirm changes (see Confirmation)
 
 In order to review exactly what your User will be able to visualize and has access to, Admin Users can click **Login with User** and be logged in to the Web Users Platform View (see (Merchant) User Overview).
-![\(Merchant\) User Overview](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-user-overview.429adc7.1280.png)(Merchant) User Overview![Edit Web User](https://documentation.ixopay.com/manual/assets/ideal-img/edit-web-user.3c66162.1280.png)Edit Web User![Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation.378cd00.990.png)Confirmation![Archived \(Merchant\) Users](https://documentation.ixopay.com/manual/assets/ideal-img/archived-merchant-users.ffc0da6.1280.png)Archived (Merchant) Users
+![\(Merchant\) User Overview](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-user-overview.7241325.1280.png)(Merchant) User Overview![Edit Web User](https://documentation.ixopay.com/manual/assets/ideal-img/edit-web-user.d46e618.1280.png)Edit Web User![Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation.378cd00.990.png)Confirmation![Archived \(Merchant\) Users](https://documentation.ixopay.com/manual/assets/ideal-img/archived-merchant-users.237beb3.1280.png)Archived (Merchant) Users
 caution
 The URL to the Merchant's login page differs from your login page as an Admin User:
   * 
@@ -88,7 +88,7 @@ The available configuration parameters dependent on the enabled Permissions per 
 ## Permissions[​](https://documentation.ixopay.com/manual/docs/connector/users/web#permissions "Direct link to Permissions")
 By default the (Merchant) Web User has access to the Dashboard (e.g. as configured as Default Merchant Dashboard by an Admin User). Depending on the Tenant Permission the Permissions available for (Merchant) Web Users might differ.
 Find the list of available Permissions for Web Users:
-![Available Permissions](https://documentation.ixopay.com/manual/assets/ideal-img/available-permissions.1084595.330.png)Available Permissions  
+![Available Permissions](https://documentation.ixopay.com/manual/assets/ideal-img/available-permissions.d8262a7.330.png)Available Permissions  
 | Permission  | Description  |  
 | --- | --- |  
 | dashboard.payout-forecast  | Access to Projected Payout section in the Financial Summery section  |  
@@ -145,7 +145,7 @@ Find the list of available Permissions for Web Users:
 Merchant User adds another Merchant User
 You can give a Merchant User the permission to add another Merchant User, instead of asking the Admin User to do that.
 In order to be able to do this the Merchant User needs to have the following permissions
-![Merchant User Create/Edit/Index permissions](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-user-create-permissions.7b84637.494.png)Merchant User Create/Edit/Index permissions
+![Merchant User Create/Edit/Index permissions](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-user-create-permissions.f83c398.494.png)Merchant User Create/Edit/Index permissions
 info
 To ensure compliance to Access, Roles and Right Guidelines and changes on the [IXOPAY platform](https://www.ixopay.com) setup are sufficiently reviewed, 4 eyes confirmation can be configured (see [Admin User Roles](https://documentation.ixopay.com/manual/docs/system-setup/roles))
 ## Merchant User Access[​](https://documentation.ixopay.com/manual/docs/connector/users/web#merchant-user-access "Direct link to Merchant User Access")
@@ -168,10 +168,10 @@ In comparison to the Admin User, Merchant User have slightly different sections,
   * **Schedules** : Merchant Users can be granted access to the [Schedules](https://documentation.ixopay.com/manual/docs/transactions/schedules) section to automate recurring charges based on individually configurable schedules (see Schedules).
   * **Users** : Dependent on the Merchant Users [Permissions](https://documentation.ixopay.com/manual/docs/connector/users/web#permissions) the User Overview enables them to create and edit other Merchant Users (see Users).
 
-![Merchant User Interface](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-user-interface.8c0f14a.1280.png)Merchant User Interface![Financial Summary](https://documentation.ixopay.com/manual/assets/ideal-img/financial-summary.0440e95.1280.png)Financial Summary![Statistics](https://documentation.ixopay.com/manual/assets/ideal-img/statistics.8fd9341.1280.png)Statistics![Customer Profiles](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profiles.4ba310d.1280.png)Customer Profiles![Connectors Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-overview.e8d38d4.1280.png)Connectors Overview![Connector Details](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details.22036d1.1280.png)Connector Details![Transaction List](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-list.14c4333.1280.png)Transaction List![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.55f6bc3.1280.png)Transaction Details![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.686b37b.1280.png)Data Export![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.7aa2fcd.1280.png)Virtual Terminal![Schedules](https://documentation.ixopay.com/manual/assets/ideal-img/schedules.69ee6fc.1280.png)Schedules![Users](https://documentation.ixopay.com/manual/assets/ideal-img/users.434435f.1280.png)Users
+![Merchant User Interface](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-user-interface.8c0f14a.1280.png)Merchant User Interface![Financial Summary](https://documentation.ixopay.com/manual/assets/ideal-img/financial-summary.0440e95.1280.png)Financial Summary![Statistics](https://documentation.ixopay.com/manual/assets/ideal-img/statistics.8fd9341.1280.png)Statistics![Customer Profiles](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profiles.4ba310d.1280.png)Customer Profiles![Connectors Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-overview.e8d38d4.1280.png)Connectors Overview![Connector Details](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details.091a626.1280.png)Connector Details![Transaction List](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-list.14c4333.1280.png)Transaction List![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.55f6bc3.1280.png)Transaction Details![Data Export](https://documentation.ixopay.com/manual/assets/ideal-img/data-export.686b37b.1280.png)Data Export![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.7aa2fcd.1280.png)Virtual Terminal![Schedules](https://documentation.ixopay.com/manual/assets/ideal-img/schedules.69ee6fc.1280.png)Schedules![Users](https://documentation.ixopay.com/manual/assets/ideal-img/users.434435f.1280.png)Users
 tip
 User access is possible from all common web browsers (incl. on mobile devices). Mobile devices support is limited.
 ## Multi Merchant Access[​](https://documentation.ixopay.com/manual/docs/connector/users/web#multi-merchant-access "Direct link to Multi Merchant Access")
 In some cases, a Merchant Web User needs to have access to more then one Merchant. This can be achieved with adding **Multi Merchant Access** (see section Edit Web Users).
 After saving the configuration the User will be able to switch between the Merchants, when logged in.
-![Multi Merchant Access](https://documentation.ixopay.com/manual/assets/ideal-img/multi-merchant-access.b806b4e.456.png)Multi Merchant Access
+![Multi Merchant Access](https://documentation.ixopay.com/manual/assets/ideal-img/multi-merchant-access.2e58180.456.png)Multi Merchant Access

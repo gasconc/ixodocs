@@ -14,7 +14,7 @@ tags:
 - json
 source_url: https://documentation.ixopay.com/docs/guides/features/external-tokenization
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -64,7 +64,7 @@ Make the externally returned values available in your backend before creating th
 
 export NETWORK_TOKEN="5204740000001002"  
 
-export TOKEN_EXPIRATION_MONTH="09"  
+export TOKEN_EXPIRATION_MONTH="10"  
 
 export TOKEN_EXPIRATION_YEAR="2031"  
 
@@ -79,7 +79,7 @@ export TOKEN_ECI_INDICATOR="05"
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -98,7 +98,7 @@ token_eci_indicator = "05"
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -113,7 +113,7 @@ $tokenEciIndicator = "05";
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -198,7 +198,7 @@ import os
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -283,7 +283,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -386,7 +386,7 @@ curl_close($curl);
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -471,7 +471,7 @@ Response response = client.newCall(request).execute();
 
   "token": "5204740000001002",  
 
-  "tokenExpirationMonth": "09",  
+  "tokenExpirationMonth": "10",  
 
   "tokenExpirationYear": "2031",  
 
@@ -493,7 +493,7 @@ Store the `uuid` returned by the initial transaction response. For follow-up API
 
 export NETWORK_TOKEN="5204740000001002"  
 
-export TOKEN_EXPIRATION_MONTH="09"  
+export TOKEN_EXPIRATION_MONTH="10"  
 
 export TOKEN_EXPIRATION_YEAR="2031"  
 
@@ -508,7 +508,7 @@ export TOKEN_ECI_INDICATOR="05"
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -527,7 +527,7 @@ token_eci_indicator = "05"
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -542,7 +542,7 @@ $tokenEciIndicator = "05";
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -622,7 +622,7 @@ import os
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -707,7 +707,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -810,7 +810,7 @@ curl_close($curl);
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -895,7 +895,7 @@ Response response = client.newCall(request).execute();
 
   "token": "5204740000001002",  
 
-  "tokenExpirationMonth": "09",  
+  "tokenExpirationMonth": "10",  
 
   "tokenExpirationYear": "2031",  
 
@@ -912,7 +912,7 @@ Response response = client.newCall(request).execute();
 
 export NETWORK_TOKEN="5204740000001002"  
 
-export TOKEN_EXPIRATION_MONTH="09"  
+export TOKEN_EXPIRATION_MONTH="10"  
 
 export TOKEN_EXPIRATION_YEAR="2031"  
 
@@ -927,7 +927,7 @@ export TOKEN_ECI_INDICATOR="05"
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -946,7 +946,7 @@ token_eci_indicator = "05"
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -961,7 +961,7 @@ $tokenEciIndicator = "05";
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -1041,7 +1041,7 @@ import os
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -1126,7 +1126,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -1229,7 +1229,7 @@ curl_close($curl);
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -1314,7 +1314,7 @@ Response response = client.newCall(request).execute();
 
   "token": "5204740000001002",  
 
-  "tokenExpirationMonth": "09",  
+  "tokenExpirationMonth": "10",  
 
   "tokenExpirationYear": "2031",  
 
@@ -1331,7 +1331,7 @@ Response response = client.newCall(request).execute();
 
 export NETWORK_TOKEN="5204740000001002"  
 
-export TOKEN_EXPIRATION_MONTH="09"  
+export TOKEN_EXPIRATION_MONTH="10"  
 
 export TOKEN_EXPIRATION_YEAR="2031"  
 
@@ -1346,7 +1346,7 @@ export TOKEN_ECI_INDICATOR="05"
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -1365,7 +1365,7 @@ token_eci_indicator = "05"
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -1380,7 +1380,7 @@ $tokenEciIndicator = "05";
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -1460,7 +1460,7 @@ import os
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -1545,7 +1545,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -1648,7 +1648,7 @@ curl_close($curl);
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -1733,7 +1733,7 @@ Response response = client.newCall(request).execute();
 
   "token": "5204740000001002",  
 
-  "tokenExpirationMonth": "09",  
+  "tokenExpirationMonth": "10",  
 
   "tokenExpirationYear": "2031",  
 
@@ -1756,7 +1756,7 @@ Response response = client.newCall(request).execute();
 
 export NETWORK_TOKEN="5204740000001002"  
 
-export TOKEN_EXPIRATION_MONTH="09"  
+export TOKEN_EXPIRATION_MONTH="10"  
 
 export TOKEN_EXPIRATION_YEAR="2031"  
 
@@ -1771,7 +1771,7 @@ export TOKEN_ECI_INDICATOR="05"
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -1790,7 +1790,7 @@ token_eci_indicator = "05"
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -1805,7 +1805,7 @@ $tokenEciIndicator = "05";
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -1885,7 +1885,7 @@ import os
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -1970,7 +1970,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -2073,7 +2073,7 @@ curl_close($curl);
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -2158,7 +2158,7 @@ Response response = client.newCall(request).execute();
 
   "token": "5204740000001002",  
 
-  "tokenExpirationMonth": "09",  
+  "tokenExpirationMonth": "10",  
 
   "tokenExpirationYear": "2031",  
 
@@ -2175,7 +2175,7 @@ Response response = client.newCall(request).execute();
 
 export NETWORK_TOKEN="5204740000001002"  
 
-export TOKEN_EXPIRATION_MONTH="09"  
+export TOKEN_EXPIRATION_MONTH="10"  
 
 export TOKEN_EXPIRATION_YEAR="2031"  
 
@@ -2190,7 +2190,7 @@ export TOKEN_ECI_INDICATOR="05"
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -2209,7 +2209,7 @@ token_eci_indicator = "05"
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -2224,7 +2224,7 @@ $tokenEciIndicator = "05";
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -2304,7 +2304,7 @@ import os
 
 network_token = "5204740000001002"  
 
-token_expiration_month = "09"  
+token_expiration_month = "10"  
 
 token_expiration_year = "2031"  
 
@@ -2389,7 +2389,7 @@ response = requests.request("POST", url, headers=headers, data=payload)
 
 $networkToken = "5204740000001002";  
 
-$tokenExpirationMonth = "09";  
+$tokenExpirationMonth = "10";  
 
 $tokenExpirationYear = "2031";  
 
@@ -2492,7 +2492,7 @@ curl_close($curl);
 
 String networkToken = "5204740000001002";  
 
-String tokenExpirationMonth = "09";  
+String tokenExpirationMonth = "10";  
 
 String tokenExpirationYear = "2031";  
 
@@ -2577,7 +2577,7 @@ Response response = client.newCall(request).execute();
 
   "token": "5204740000001002",  
 
-  "tokenExpirationMonth": "09",  
+  "tokenExpirationMonth": "10",  
 
   "tokenExpirationYear": "2031",  
 

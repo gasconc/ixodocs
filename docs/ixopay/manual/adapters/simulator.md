@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/simulator
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -30,7 +30,7 @@ Configure the following parameters for the Connector (see Connector Config - Sim
   4. Select **Save**
 
 The Simulator also offers the option to simulate the [3D-Secure Authentication](https://documentation.ixopay.com/manual/docs/connector/create/3d-secure-configuration).
-![Connector Config - Simulator PCI Creditcard](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-simulator-pci-creditcard.0fc57e9.1280.png)Connector Config - Simulator PCI Creditcard
+![Connector Config - Simulator PCI Creditcard](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-simulator-pci-creditcard.7c9d23b.1280.png)Connector Config - Simulator PCI Creditcard
 ## Simulator[​](https://documentation.ixopay.com/manual/adapters/simulator#simulator "Direct link to Simulator")
 Configure the following parameters for the Connector (see Connector Config - Simulator Others):
   1. Fill in the **Username** — Irrelevant for this adapter
@@ -39,14 +39,14 @@ Configure the following parameters for the Connector (see Connector Config - Sim
   4. Fill in the **Extra Data: allowExpiredCards**
   5. Select **Create**
 
-![Connector Config - Simulator Others](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-simulator-others.b15e8e1.1280.png)Connector Config - Simulator Others
+![Connector Config - Simulator Others](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-simulator-others.2773ae8.1280.png)Connector Config - Simulator Others
 note
 ## OfflineInvoice[​](https://documentation.ixopay.com/manual/adapters/simulator#offlineinvoice "Direct link to OfflineInvoice")
 Configure the following parameters for the Connector (see Connector Config - OfflineInvoice)
   1. Fill in the **Extra Data: result** - Sucess, Pending
   2. Select **Create**
 
-![Connector Config - OfflineInvoice](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-offlineinvoice.78a152b.1280.png)Connector Config - OfflineInvoice
+![Connector Config - OfflineInvoice](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-offlineinvoice.923c5e1.1280.png)Connector Config - OfflineInvoice
 ## OfflinePayment[​](https://documentation.ixopay.com/manual/adapters/simulator#offlinepayment "Direct link to OfflinePayment")
 Configure the following parameters for the Connector (see Connector Config - OfflinePayment)
   1. Fill in the **Extra Data: result** - Sucess, Pending, Request User Input, Pending Postback
@@ -62,7 +62,7 @@ Configure the following parameters for the Connector (see Connector Config - Sep
   3. Fill in the **API Secret** — Irrelevant for this adapter
   4. Select **Create**
 
-![Connector Config - SepaDummy](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-sepadummy.db2b66b.1280.png)Connector Config - SepaDummy
+![Connector Config - SepaDummy](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-sepadummy.d67c3a1.1280.png)Connector Config - SepaDummy
 note
 The RiskCheckOnly adapter was created to return if a transaction would trigger a configured Risk Profile in the IXOPAY platform. It is **NOT** connected to any PSP. No real transaction processing is performed. Furthermore, no Risk Data ([Transaction Details - Risk Check Log Data](https://documentation.ixopay.com/manual/docs/transactions/details)) is returned and no real transaction processing is performed, therefore configuring Score Card Actions or Actions within the Risk Rule itself might not make sense for this adapter.
 ## RiskCheckOnly[​](https://documentation.ixopay.com/manual/adapters/simulator#riskcheckonly "Direct link to RiskCheckOnly")

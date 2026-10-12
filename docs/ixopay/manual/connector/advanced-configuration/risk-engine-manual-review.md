@@ -7,7 +7,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/risk-engine-manual-review
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -24,7 +24,7 @@ To configure the connector setting Risk Engine: Manual Review Requirements follo
   4. Click **Add** to create a new parameter **Required Reviews by Role** or **Required Reviews by User** (see Required Reviews by parameter). You can add as many parameters as you want.
   5. **Select** Role or User from the dropdown menu and click **Save**. Only pre-defined Roles and Users are available.
 
-![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-manual-review.7a85116.1280.png)Connector Detail Overview![Connector Setting](https://documentation.ixopay.com/manual/assets/ideal-img/connector-setting-manual-review.b817625.770.png)Connector Setting![Required Reviews by parameters](https://documentation.ixopay.com/manual/assets/ideal-img/required-reviews-by-parameters.a67ad5c.910.png)Required Reviews by parameters
+![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-manual-review.4ffd898.1280.png)Connector Detail Overview![Connector Setting](https://documentation.ixopay.com/manual/assets/ideal-img/connector-setting-manual-review.b817625.770.png)Connector Setting![Required Reviews by parameters](https://documentation.ixopay.com/manual/assets/ideal-img/required-reviews-by-parameters.669cc0e.910.png)Required Reviews by parameters
 note
 Only if all the selected Roles or Users confirm the transaction (in the Review list) the transaction flow continues.
 To configure the connector setting Risk Engine: Manual Review Delay follow this steps:
@@ -33,6 +33,6 @@ To configure the connector setting Risk Engine: Manual Review Delay follow this 
   * Select the Connector Setting **Risk Engine: Manual Review Delay** and click **Add** (see Connector Settings)
   * Define the **Delay in hours** before an automatic action should be performed as well as the Action (approve, decline) that should be performed and click **Save** (see Connector Settings Details)
 
-![Connector Settings Details](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-details.4bc2aff.926.png)Connector Settings Details
+![Connector Settings Details](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-details.285dd37.926.png)Connector Settings Details
 note
 The connector configuration applies immediately to transactions using this connector, so make sure the Risk Profile and Connector Settings are configured before performing transactions with this connector.

@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/tenants
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -30,7 +30,7 @@ To add a new sub-tenant to your setup:
   3. Click **Create Tenant**.
 
 The newly created sub-tenant is displayed in the tenants overview where it can be edited further.
-![Tenants overview](https://documentation.ixopay.com/manual/assets/ideal-img/tenants-overview.3eb558f.1280.png)Tenants overview![Creating a sub-tenant](https://documentation.ixopay.com/manual/assets/ideal-img/creating-a-sub-tenant.442610a.782.png)Creating a sub-tenant
+![Tenants overview](https://documentation.ixopay.com/manual/assets/ideal-img/tenants-overview.28bd533.1280.png)Tenants overview![Creating a sub-tenant](https://documentation.ixopay.com/manual/assets/ideal-img/creating-a-sub-tenant.60ed47b.782.png)Creating a sub-tenant
 ## Editing a Sub-Tenant[​](https://documentation.ixopay.com/manual/docs/system-setup/tenants#editing-a-sub-tenant "Direct link to Editing a Sub-Tenant")
 To edit a sub-tenant in your setup:
   1. Click **Edit** in the tenants overview for the sub-tenant you want to edit.

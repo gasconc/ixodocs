@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -35,16 +35,16 @@ Customer Profiles allow you to store and organize customer data and related paym
   7. Click **+ Create**.
 
 The Container will appear in the Customer Profile Container Overview and can be edited at any time by clicking **edit**. You can also access the Customer Profiles stored in the Container by clicking **show** (see [Customer Profiles](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profiles-1)).
-![Customer Profile Container](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-container.cf62871.1280.png)Customer Profile Container![New Container](https://documentation.ixopay.com/manual/assets/ideal-img/new-container.0d1430f.942.png)New Container![Customer Profile Container Overview](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-container-overview.3e92991.1280.png)Customer Profile Container Overview
+![Customer Profile Container](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-container.cf62871.1280.png)Customer Profile Container![New Container](https://documentation.ixopay.com/manual/assets/ideal-img/new-container.0d1430f.942.png)New Container![Customer Profile Container Overview](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-container-overview.7c2944c.1280.png)Customer Profile Container Overview
 ## Assign Customer Profile Container[​](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#assign-customer-profile-container "Direct link to Assign Customer Profile Container")
 You can assign a Customer Profile Container either in the Connector Base Data (see Connector Details Overview) or using [Global Settings](https://documentation.ixopay.com/manual/docs/connector/edit/global-connector-settings).
-![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.0f37c39.1280.png)Connector Details Overview![Connector Base Data](https://documentation.ixopay.com/manual/assets/ideal-img/connector-base-data.e6d7f59.1120.png)Connector Base Data
+![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-details-overview.a370424.1280.png)Connector Details Overview![Connector Base Data](https://documentation.ixopay.com/manual/assets/ideal-img/connector-base-data.e6d7f59.1120.png)Connector Base Data
 note
 If your setup uses [Multi-Method Connectors](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector) make sure you also assign the Customer Profile Container there.
 ## Viewing Customer Profiles[​](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profiles-1 "Direct link to Viewing Customer Profiles")
 To access the individual profiles stored in a container, navigate to the Customer Profile Container Overview and click **Show** for the individual container.
 You will be presented with an overview of all Customer Profiles (Profile List) in this container including options to filter by **Profile Data** or **Customer Data**. Click **Show** for the individual profile to see more [details](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profile-details) (stored payment instruments, transaction history, customer data etc.).
-![Customer Profile Container Overview](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-container-overview.3e92991.1280.png)Customer Profile Container Overview![Overview of all Customer Profiles](https://documentation.ixopay.com/manual/assets/ideal-img/overview-of-all-customer-profiles.b541e0a.1280.png)Overview of all Customer Profiles
+![Customer Profile Container Overview](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile-container-overview.7c2944c.1280.png)Customer Profile Container Overview![Overview of all Customer Profiles](https://documentation.ixopay.com/manual/assets/ideal-img/overview-of-all-customer-profiles.b541e0a.1280.png)Overview of all Customer Profiles
 ## Customer Profile Details[​](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#customer-profile-details "Direct link to Customer Profile Details")
 Each Customer Profile contains different tabs containing details about
   * **Profile Data**
@@ -110,7 +110,7 @@ The basic structure of each payment method contains general information about th
 ]  
 
 ````selected => true` is only set for the payment method set as **Remember**.
-![Remember payment method](https://documentation.ixopay.com/manual/assets/ideal-img/remember-payment-method.afc236a.876.png)Remember payment method
+![Remember payment method](https://documentation.ixopay.com/manual/assets/ideal-img/remember-payment-method.3c2d36e.876.png)Remember payment method
 Credit Card
 ```
 
@@ -122,7 +122,7 @@ Credit Card
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 09/2031  
+    expiryDate => 10/2031  
 
     firstSix => 411111  
 
@@ -1765,7 +1765,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 09/2031  
+    expiryDate => 10/2031  
 
     firstSix => 411111  
 
@@ -3397,7 +3397,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 09/2031  
+    expiryDate => 10/2031  
 
     firstSix => 411111  
 
@@ -5034,7 +5034,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 09/2031  
+    expiryDate => 10/2031  
 
     firstSix => 411111  
 
@@ -6677,7 +6677,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 09/2031  
+    expiryDate => 10/2031  
 
     firstSix => 411111  
 
@@ -8309,7 +8309,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 09/2031  
+    expiryDate => 10/2031  
 
     firstSix => 411111  
 

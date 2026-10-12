@@ -14,7 +14,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/checkout
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -26,18 +26,18 @@ Checkout.com () is a leading global payment processing platform that enables bus
 ## How to connect with Checkout.com[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/checkout#how-to-connect-with-checkoutcom "Direct link to How to connect with Checkout.com")
 To integrate Checkout.com with IXOPAY Payments Intelligence (formerly Congrify), you need to generate an Access Key Pair from the Checkout.com dashboard and share it with IXOPAY Payments Intelligence.
   1. Navigate to Developers In the Checkout.com dashboard, click Developers in the top-right corner. The left-side panel will look similar to the image below:
-![](https://documentation.ixopay.com/modules/assets/ideal-img/checkout1.c463d2c.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/checkout1.a448b8f.1600.png)
   2. Create a New Key
      * Select Create a new key, which opens the configuration screen.
      * Under Type of Key, choose Access Key Pair.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/checkout2.e308877.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/checkout2.bce3f53.1600.png)
   3. Configure permissions
 Check the following options:
      * files
      * notifier:events
      * reports:view
      * reports
-![](https://documentation.ixopay.com/modules/assets/ideal-img/checkout3.1ec0147.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/checkout3.9bad9d4.1600.png)
   4. Select the Entity and Finalize
      * Choose the required entity.
      * Click Create Keys and share them with IXOPAY Payments Intelligence.
@@ -59,5 +59,5 @@ Please verify that these reports are activated and accessible on Checkout.com's 
   * Settlement breakdown report
 
 Post activation, you can verify the accessible reports from Checkout.com’s like the sample picture below:
-![](https://documentation.ixopay.com/modules/assets/ideal-img/CKO_sample_report_list.98ff66e.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/CKO_sample_report_list.221bbc5.1600.png)
 If you have any questions or require assistance, don't hesitate to contact IXOPAY Payments Intelligence's support team or Checkout.com's support.

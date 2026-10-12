@@ -14,7 +14,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/capture-void
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -32,7 +32,7 @@ To void a Transaction, the Transaction has to fulfill some conditions:
   * The Connector must support Transaction Type Void
 
 Once confirmed the Void Transaction will be created and shown in the Transaction Status of the original Preauthorize Transaction.
-![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/capture-void.843392e.1280.png)Transaction Details![Void confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/void-confirmation.7470484.996.png)Void confirmation![Void Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/void-success.12a56a2.1280.png)Void Transaction
+![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/capture-void.156987d.1280.png)Transaction Details![Void confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/void-confirmation.7470484.996.png)Void confirmation![Void Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/void-success.12a56a2.1280.png)Void Transaction
 ## (Partial) Capture Transaction[​](https://documentation.ixopay.com/manual/docs/transactions/details/capture-void#partial-capture-transaction "Direct link to \(Partial\) Capture Transaction")
 Depending on the given Permissions and prerequisites, Users can (partially) capture transactions manually. This can be done by using the **Capture** Action Buttons in the Transaction Details.
 To capture a Transaction, the Transaction has to fulfill some conditions:
@@ -42,7 +42,7 @@ To capture a Transaction, the Transaction has to fulfill some conditions:
   * The Connector must support Transaction Type (Partial) Capture
 
 During Confirmation, the User can then change the Amount to perform partial captures. Once confirmed the Capture Transaction will be created and shown in the Transaction Status of the original Preauthorize Transaction.
-![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/capture-void.843392e.1280.png)Transaction Details![Capture confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/screen-shot-2022-12-06-at-5-33-13-pm.6472a8b.990.png)Capture confirmation![Capture Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/screen-shot-2022-12-06-at-5-33-23-pm.bbf31e9.1280.png)Capture Transaction
+![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/capture-void.156987d.1280.png)Transaction Details![Capture confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/screen-shot-2022-12-06-at-5-33-13-pm.6472a8b.990.png)Capture confirmation![Capture Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/screen-shot-2022-12-06-at-5-33-23-pm.1384429.1280.png)Capture Transaction
 note
 (Partial) Capture and (Partial) Void Transactions can also be initiated via the [IXOPAY platform](https://www.ixopay.com)'s [API Testing Tool](https://documentation.ixopay.com/manual/docs/api-testing/transaction-api), if the adapter supports these Transaction Types. In any case the Reference UUID must be provided. In case of Partial Void / Partial Capture, add the desired amount and currency, otherwise transactions will result in an error.
 ## Automatic Capture and Manual Capture / Void[​](https://documentation.ixopay.com/manual/docs/transactions/details/capture-void#automatic-capture-and-manual-capture--void "Direct link to Automatic Capture and Manual Capture / Void")

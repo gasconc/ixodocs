@@ -10,7 +10,7 @@ tags:
 - ixopay
 source_url: ''
 portal: tokenex
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 

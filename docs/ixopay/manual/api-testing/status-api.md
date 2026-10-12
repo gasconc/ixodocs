@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/api-testing/status-api
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -30,7 +30,7 @@ To use the API Testing in the IXOPAY platform, follow these steps:
   4. Select User in dropdown list
   5. The Target URL is pre-filled with the URL to the appropriate IXOPAY platform instance and usually does not require any further adjustments.
 
-![API Testing - Status API](https://documentation.ixopay.com/manual/assets/ideal-img/api-testing-status-api.e7a954a.1280.png)API Testing - Status API
+![API Testing - Status API](https://documentation.ixopay.com/manual/assets/ideal-img/api-testing-status-api.9aacf5f.1280.png)API Testing - Status API
 ### Fill in the necessary parameters for the testing in the Client Form[​](https://documentation.ixopay.com/manual/docs/api-testing/status-api#fill-in-the-necessary-parameters-for-the-testing-in-the-client-form "Direct link to Fill in the necessary parameters for the testing in the Client Form")
   * Select the **Request Type**
     * **By UUID**

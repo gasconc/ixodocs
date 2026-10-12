@@ -10,7 +10,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/manual/adapters/securetrading
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -29,7 +29,7 @@ Configure the following parameters for the Connector (see Connector Config - Sec
   9. Fill in the **Extra Data: notificationPassword**
   10. Fill in the **Extra Data: notificationHashAlgo**
 
-![Connector Config - SecureTrading](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-securetrading.9ba19a1.1280.png)Connector Config - SecureTrading
+![Connector Config - SecureTrading](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-securetrading.2200823.1280.png)Connector Config - SecureTrading
 ## Credit card[​](https://documentation.ixopay.com/manual/adapters/securetrading#credit-card "Direct link to Credit card")
 Configure the following parameters for the Connector (see Connector Detail Overview - Trust Payments Creditcard - Vault Configuration):
   1. Select the mandatory **Environment** : Test, Live

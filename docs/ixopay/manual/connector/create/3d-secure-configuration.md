@@ -15,7 +15,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/manual/docs/connector/create/3d-secure-configuration
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -28,14 +28,14 @@ related: []
 The [IXOPAY platform](https://www.ixopay.com) enables you to add an additional layer of security for your Credit Card payments by configuring 3D-Secure authentication for Adapters if supported. You can either use our [IXOPAY](https://www.ixopay.com)-hosted 3D-Secure authentication service or use an external one (provided by the PSP/Acquirer themselves).
 You can find those configuration options in the Connector Detail Overview under the Vault Setup tab (see Vault Setup Tab).
 Please note, that you have to connect to the PCI Vault first, before being able to edit the 3DS Configuration.
-![Vault Setup Tab](https://documentation.ixopay.com/manual/assets/ideal-img/vault-setup-tab.7df3e11.1280.png)Vault Setup Tab
+![Vault Setup Tab](https://documentation.ixopay.com/manual/assets/ideal-img/vault-setup-tab.d5a45d6.1280.png)Vault Setup Tab
 warning
 3DS version 1 is deprecated and no longer supported. All credit card schemes discontinued the support for 3DS version 1 and all related technology by the end of October 2022.
 If you are using IXOPAY-hosted 3-D Secure Infrastructure, please make sure, your IXOPAY-hosted 3-D Secure 2 Configuration is configured and enabled. Keep in mind that also a fallback to 3-D Secure 1 will not be supported anymore.
 For more information on how to get prepared, reach out to your Customer Success Team or contact our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support).
 ## Provider 3DS[​](https://documentation.ixopay.com/manual/docs/connector/create/3d-secure-configuration#provider-3ds "Direct link to Provider 3DS")
 If the Adapter supports using the 3D-Secure Environment of the PSP/Acquirer, you usually just have to enable the appropriate checkbox for it.
-![Provider MPI](https://documentation.ixopay.com/manual/assets/ideal-img/provider-mpi.a7fa9e8.180.png)Provider MPI
+![Provider MPI](https://documentation.ixopay.com/manual/assets/ideal-img/provider-mpi.1024b9e.180.png)Provider MPI
 note
 IXOPAY-hosted 3D-Secure (1) + (2) is also available in the Sandbox environment. Please keep in mind that in the Sandbox environment no test cards are supported in contrast to the Production environment.
 ## IXOPAY-hosted 3D-Secure 2[​](https://documentation.ixopay.com/manual/docs/connector/create/3d-secure-configuration#ixopay-hosted-3d-secure-2 "Direct link to IXOPAY-hosted 3D-Secure 2")
@@ -73,7 +73,7 @@ Carte Bancaire requires adherence to specific configuration convention:
 ## Transaction Flow[​](https://documentation.ixopay.com/manual/docs/connector/create/3d-secure-configuration#transaction-flow "Direct link to Transaction Flow")
 The mentioned configuration generally just enable the 3D-Secure capabilities for a certain Connector. It does not necessarily trigger 3D-Secure Authentication flow for a particular Transaction.
 This can be triggered either through the Transaction request data itself (see also [API Documentation](https://documentation.ixopay.com/api/transaction/transaction-api)), through the [Risk Engine configuration](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles), or through a static [Connector setting](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings) (3D-Secure: Check).
-![3D-Secure: Check](https://documentation.ixopay.com/manual/assets/ideal-img/3d-secure-check.e2125db.1132.png)3D-Secure: Check
+![3D-Secure: Check](https://documentation.ixopay.com/manual/assets/ideal-img/3d-secure-check.8b75660.1132.png)3D-Secure: Check
 ## Testing IXOPAY-hosted 3D-Secure Configuration[​](https://documentation.ixopay.com/manual/docs/connector/create/3d-secure-configuration#testing-ixopay-hosted-3d-secure-configuration "Direct link to Testing IXOPAY-hosted 3D-Secure Configuration")
 note
 3D-Secure Flow can either be mocked (see **Mock 3D-Secure Flow for Testing)** or tested using the Simulator adapter. In order to test your setup with your Acquirer/PSP, due to technical restrictions, only real credit cards can be used.
@@ -82,7 +82,7 @@ The IXOPAY platform enables Clients to test their IXOPAY-hosted 3D-Secure Config
 If activated, an additional 3D-Secure Verification Screen is shown during the payment process with dropdown field **Choose Verification Result** to select the outcome (see 3D-Secure Verification Screen). The status of the Transaction will then be set depending on the used testcard.
 **Extended 3DS Simulation** is enabled by activating the Checkbox for the Simulator Adapter(see Vault Setup Setting). In this case the Checkbox **Enabled** for the 3D-Secure Configuration (IXOPAY-hosted) or 3D-Secure 2 Configuration (IXOPAY-hosted) must be activated (other configuration fields can remain empty). The result of this extended 3D-Secure Simulation is controlled by the test cards used as described in the [API Documentation](https://documentation.ixopay.com/manual/adapters/simulator) section **Extended 3D-Secure Testing.**
 If activated, customers will be redirected to perform methods fingerprinting, frictionless or challenge, depending on the used testcard.
-![Vault Setup Setting](https://documentation.ixopay.com/manual/assets/ideal-img/vault-setup-setting.b46f145.1280.png)Vault Setup Setting![3D-Secure Verification Screen](https://documentation.ixopay.com/manual/assets/ideal-img/3d-secure-verification-screen.d17886a.642.png)3D-Secure Verification Screen
+![Vault Setup Setting](https://documentation.ixopay.com/manual/assets/ideal-img/vault-setup-setting.480ec8d.1280.png)Vault Setup Setting![3D-Secure Verification Screen](https://documentation.ixopay.com/manual/assets/ideal-img/3d-secure-verification-screen.76dd4e4.642.png)3D-Secure Verification Screen
 note
 The Connector Setting **Mock 3D-Secure Flow for Testing** is not activated by default for all Adapters. If you do not see the Setting in the IXOPAY-hosted 3D-Secure Configuration, please get in contact with your customer success manager or contact our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support). Keep in mind that activation is dependent on the Release Cycles and takes minimum 4 weeks.
 Testing IXOPAY-hosted 3D-Secure Configuration with the PSP's/Acquirer's test environment can be done by enabling the Connector Setting **Mock 3D-Secure Flow for Testing** in the IXOPAY-hosted 3D-Secure 2 Configuration.
@@ -114,7 +114,7 @@ Authentication Results are only applicable, in case the Versioning Result was ei
 | ... NETWORK_ERROR  | Error: Network Error  |  
 tip
 Keep in mind, that 3D-Secure Verification is not enforce by default. To do so you can either enable the Connector Setting **3DSecure: Check** or send the **Transaction Extra Data: 3dsecure** - **optional** or **mandatory.**
-![3-D Secure extra data](https://documentation.ixopay.com/manual/assets/ideal-img/3d-secure-extra-data.a1be08f.1280.png)3-D Secure extra data
+![3-D Secure extra data](https://documentation.ixopay.com/manual/assets/ideal-img/3d-secure-extra-data.1ed3ae7.1280.png)3-D Secure extra data
 ## IXOPAY-hosted 3D-Secure 1 - deprecated[​](https://documentation.ixopay.com/manual/docs/connector/create/3d-secure-configuration#ixopay-hosted-3d-secure-1---deprecated "Direct link to IXOPAY-hosted 3D-Secure 1 - deprecated")
 If the Adapter supports 3D-Secure Version 1 Transactions, the following parameters have to be configured:  
 **Enabled** : Enable 3DS authentication for this Connector

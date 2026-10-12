@@ -16,7 +16,7 @@ tags:
 - settlement
 source_url: https://documentation.ixopay.com/manual/adapters/shopify
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -41,7 +41,7 @@ For instance, a valid URL might be: `https://**_gateway.ixopay.com_**/posPush/**
 Note: if the password contains any special characters, you’ll have to properly encode them. (Image 3)
   4. Copy Shopify’s API User, Shopify API Password, Webhook Secret, Shopify Host and retrieve-non-numeric-order-ID, and paste it into the Connector’s configuration (Image 4)
 
-![Image 1](https://documentation.ixopay.com/manual/assets/ideal-img/shopify-edit-user.57a6f0e.1200.png)Image 1![Image 2](https://documentation.ixopay.com/manual/assets/ideal-img/shopify-image-2.0e936f0.1202.png)Image 2![Image 3](https://documentation.ixopay.com/manual/assets/ideal-img/shopify-image-3.15cae09.1114.png)Image 3![Image 4](https://documentation.ixopay.com/manual/assets/ideal-img/shopify-image-3-2.5730e98.547.png)Image 4
+![Image 1](https://documentation.ixopay.com/manual/assets/ideal-img/shopify-edit-user.57a6f0e.1200.png)Image 1![Image 2](https://documentation.ixopay.com/manual/assets/ideal-img/shopify-image-2.0e936f0.1202.png)Image 2![Image 3](https://documentation.ixopay.com/manual/assets/ideal-img/shopify-image-3.15cae09.1114.png)Image 3![Image 4](https://documentation.ixopay.com/manual/assets/ideal-img/shopify-image-3-2.cd85996.547.png)Image 4
 ## Retrieving settlements[​](https://documentation.ixopay.com/manual/adapters/shopify#retrieving-settlements "Direct link to Retrieving settlements")
 The IXOPAY platform supports the processing of two (2) types of settlements: Shopify Payments and PayPal.
 As a prerequisite, you’ll first have to create [a provider entity](https://documentation.ixopay.com/manual/docs/post-processing/provider) and assign the [Shopify connector](https://documentation.ixopay.com/manual/docs/post-processing/provider) to it.

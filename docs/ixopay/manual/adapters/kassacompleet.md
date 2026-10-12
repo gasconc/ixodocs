@@ -7,7 +7,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/kassacompleet
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 

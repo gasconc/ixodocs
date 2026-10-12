@@ -12,7 +12,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/merchant-settings
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -22,26 +22,26 @@ related: []
 # Merchant Settings
 In the IXOPAY Payments Intelligence (formerly Congrify) web-app, you can configure your data settings to mask sensitive data, set significance buckets for your payment data and to ensure that you get real-time alerts through preferred 3rd party notification channels by integrating Slack® and email tools.
 To start, navigate to the Merchant Settings under your User tab → Merchant Settings
-![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_1.1260a05.1513.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_1.8b8298f.1513.png)
 ## Integrating Slack® as a notification channel[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/merchant-settings#integrating-slack-as-a-notification-channel "Direct link to Integrating Slack® as a notification channel")
   1. On the IXOPAY Payments Intelligence web-app -> Merchant Settings, you can initiate the Slack integration by clicking on the 'Connect to Slack' button
-![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_2.2fd7e1e.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_2.64a418a.1600.png)
   2. You will be re-directed to the Slack website to assign your company Slack workspace, review and allow the necessary app permissions and submit the request to your company Slack Administrator to integrate with the Congrify Payments Intelligence Business Intelligence app on Slack. Please note that our Slack app cannot be directly accessed through the Slack App Marketplace, and you would need to enable it as instructed above.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_3.1b3b16a.1600.png)
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_4.fe7b566.1600.png)
   3. Alternatively, you may also setup your Business Alerts to be sent over the official Slack email, which can further send updates and notifications to the corresponding Slack channel
-![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_5.44d9870.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_5.88b0906.1600.png)
 
 ## Masking sensitive information[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/merchant-settings#masking-sensitive-information "Direct link to Masking sensitive information")
 IXOPAY Payments Intelligence allows you to further mask sensitive personally identifiable information from the detailed views available to Users through an easy toggle under ‘Merchant Settings’ → 'Your data settings'. While all payer indirect identifiers are already anonymized or pseudonymized such that no sensitive information like the Payer card details are exposed to unauthorized Users, masking sensitive information further anonymizes the PAN details through unique hash values, such that the payer uniqueness and statistical insights are still available.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_6.b8b03b8.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_6.aa60dc9.1600.png)
 Example of unique hash value replacing the sensitive Payer emails in the IXOPAY Payments Intelligence platform.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_7.49396da.1600.png)
 ## Exchange Rate Strategy[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/merchant-settings#exchange-rate-strategy "Direct link to Exchange Rate Strategy")
 While IXOPAY Payments Intelligence provides accurate and updated foreign exchange conversion rates to support multi-currency reporting, you can choose your own preferred foreign exchange rates for real-time conversions on the IXOPAY Payments Intelligence platform. To setup the integration of your own preferred foreign exchange rates via shared file transfer, please get in contact with our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support).
-![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_8.6eaa9ee.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_8.67e6572.1600.png)
 ## Defining thresholds for ‘Payment amount ranges’ and 'Dispute amount ranges'[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/merchant-settings#defining-thresholds-for-payment-amount-ranges-and-dispute-amount-ranges "Direct link to Defining thresholds for ‘Payment amount ranges’ and 'Dispute amount ranges'")
 In the ‘Merchant Settings' → 'Payment/ Dispute amount ranges’ you can define the range thresholds which are available as filters to update the dashboard and analytics pages with the relevant ranges for aggregating data into visible insights.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_9.6549e8b.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_9.9ab0323.1600.png)
 On setting the defined thresholds in 'Merchant Settings', such payment and dispute threshold ranges are available as pre-defined filter ranges to conveniently adjust the insights available on your dashboard.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_10.d5f83d8.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_10.ddb926f.1600.png)

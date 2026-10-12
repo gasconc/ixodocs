@@ -9,7 +9,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/time-zone-settings
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -28,4 +28,4 @@ You can also configure the following options:
   * **Open transaction in new tab**
   * **Hide selected navigation items on mobile devices**
 
-![Top Bar](https://documentation.ixopay.com/manual/assets/ideal-img/top-bar.cd77487.1280.png)Top Bar![User Settings dropdown](https://documentation.ixopay.com/manual/assets/ideal-img/user-settings-dropdown.2fe778e.1280.png)User Settings dropdown![User Settings](https://documentation.ixopay.com/manual/assets/ideal-img/user-settings.8a2fc7d.1280.png)User Settings
+![Top Bar](https://documentation.ixopay.com/manual/assets/ideal-img/top-bar.a9c1d84.1280.png)Top Bar![User Settings dropdown](https://documentation.ixopay.com/manual/assets/ideal-img/user-settings-dropdown.267406e.1280.png)User Settings dropdown![User Settings](https://documentation.ixopay.com/manual/assets/ideal-img/user-settings.8a2fc7d.1280.png)User Settings

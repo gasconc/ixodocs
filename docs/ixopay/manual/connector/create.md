@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/connector/create
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -65,10 +65,10 @@ To create a new Connector please follow the instructions below:
     5. Save by clicking **Create.**
 
 You'll be redirected to the Connector Detail Overview of the created Connector (see Connector Detail Overview). You can [edit the Connector Config](https://documentation.ixopay.com/manual/docs/connector/edit) afterwards by clicking **Edit** in the Connectors Overview or in the corresponding section in the Connector Detail Overview.
-![Global Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/global-merchants-overview.270a91d.1280.png)Global Merchants Overview![Connectors Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-overview.82e39c1.1280.png)Connectors Overview![New Connector](https://documentation.ixopay.com/manual/assets/ideal-img/new-connector.e2feaf4.1280.png)New Connector![Connector Base Data](https://documentation.ixopay.com/manual/assets/ideal-img/connector-base-data.558cb7f.1280.png)Connector Base Data![Connector Config](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config.6c00a62.1280.png)Connector Config![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview.20a7772.1280.png)Connector Detail Overview
+![Global Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/global-merchants-overview.270a91d.1280.png)Global Merchants Overview![Connectors Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connectors-overview.2e712df.1280.png)Connectors Overview![New Connector](https://documentation.ixopay.com/manual/assets/ideal-img/new-connector.e2feaf4.1280.png)New Connector![Connector Base Data](https://documentation.ixopay.com/manual/assets/ideal-img/connector-base-data.3e91773.1280.png)Connector Base Data![Connector Config](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config.a761afa.1280.png)Connector Config![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview.074c795.1280.png)Connector Detail Overview
 PCI compliant Connectors
 If you've chosen an Adapter requiring **PCI compliance** , you will be asked to start the PCI Vault configuration. You are highly encouraged to do so by clicking **Continue**. You will be re-directed to the Connector Detail Overview.
-![Adapter requiring PCI compliance](https://documentation.ixopay.com/manual/assets/ideal-img/adapter-requiring-pci-compliance.b7c4246.1280.png)Adapter requiring PCI compliance
+![Adapter requiring PCI compliance](https://documentation.ixopay.com/manual/assets/ideal-img/adapter-requiring-pci-compliance.a44e77a.1280.png)Adapter requiring PCI compliance
 ## Configure a PCI compliant Connector[​](https://documentation.ixopay.com/manual/docs/connector/create#configure-a-pci-compliant-connector "Direct link to Configure a PCI compliant Connector")
 If the current Connector is the first PCI-compliant one within this Merchant, you first have to link the Merchant with the PCI environment:
   1. Click **Link Merchant** (see Link Merchant)
@@ -80,7 +80,7 @@ After that the IXOPAY platform will present you with a different configuration s
   1. Each Adapter needs individual settings. For more information please consult your PSP/ Acquirer (see [Adapter-specific Guides](https://documentation.ixopay.com/manual/adapters/simulator))
   2. Click **Save** to save the configuration
 
-![Link Merchant](https://documentation.ixopay.com/manual/assets/ideal-img/link-merchant.95ad5a1.1280.png)Link Merchant![Connecting to PCI Vault](https://documentation.ixopay.com/manual/assets/ideal-img/connecting-to-pci-vault.4393b46.1036.png)Connecting to PCI Vault![PCI Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/pci-vault-configuration.541016b.1280.png)PCI Vault Configuration
+![Link Merchant](https://documentation.ixopay.com/manual/assets/ideal-img/link-merchant.5216c3b.1280.png)Link Merchant![Connecting to PCI Vault](https://documentation.ixopay.com/manual/assets/ideal-img/connecting-to-pci-vault.4393b46.1036.png)Connecting to PCI Vault![PCI Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/pci-vault-configuration.099e760.1280.png)PCI Vault Configuration
 note
 During the Vault Configuration you may also switch tabs to **Config** to add or change parameters there. However **do not change Parameters ConnectorGUID and tokenizePublicKey** , as these parameter are necessary to connect to the Vault environment and changing will destroy the mapping.
 tip

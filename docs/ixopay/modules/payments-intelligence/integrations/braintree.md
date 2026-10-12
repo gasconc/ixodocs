@@ -17,7 +17,7 @@ tags:
 - tokenization
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/braintree
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -70,11 +70,11 @@ To find your private key:
 Your private key will be revealed in the Private Key column on the next page.
 ### Create a Reporting User Role[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/braintree#create-a-reporting-user-role "Direct link to Create a Reporting User Role")
   1. As a first step, navigate to Team, then select Roles, and click Add New Role.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/braintree_reporting_user_1.e0ea24e.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/braintree_reporting_user_1.661529d.1600.png)
   2. Enter a name that clearly identifies it as a Reporting Role. Next, select all the permissions listed below, and then click Create Role to complete the setup.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/braintree_reporting_user_2.cccb453.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/braintree_reporting_user_2.8f9d069.1600.png)
   3. The role must then be assigned to the user who created the API keys. Once the role has been assigned, the keys will be ready for use.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/braintree_user_roles_2.7a3064d.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/braintree_user_roles_2.2db9de8.1600.png)
 
 ### Importing Historical Data[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/braintree#importing-historical-data "Direct link to Importing Historical Data")
 As part of the onboarding process with IXOPAY Payments Intelligence, you have the option to import historical data from Braintree. To proceed, please reach out to the support team or your designated point of contact.

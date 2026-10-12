@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/luxonpay
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -24,7 +24,7 @@ Configure the following parameters for the Connector (see Connector Config - Lux
   4. Fill in the mandatory **Extra Data: secretKeyValue** — Provided by Luxon Pay
   5. Fill in the mandatory **Extra Data: merchantId** — To be found in Merchant Account
 
-![Connector Config - Luxon Pay](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-luxon-pay.94938c8.1280.png)Connector Config - Luxon Pay
+![Connector Config - Luxon Pay](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-luxon-pay.68cbf90.1280.png)Connector Config - Luxon Pay
 ## Webhooks[​](https://documentation.ixopay.com/manual/adapters/luxonpay#webhooks "Direct link to Webhooks")
 In order to **update the transaction status** and to enable **two-step transactions** , you must configure the Notification URL of the Connector in your Merchant Luxon Pay Account (see also ).
-![Connector Notification URL](https://documentation.ixopay.com/manual/assets/ideal-img/connector-notification-url.d0781f3.1280.png)Connector Notification URL
+![Connector Notification URL](https://documentation.ixopay.com/manual/assets/ideal-img/connector-notification-url.d559c8e.1280.png)Connector Notification URL

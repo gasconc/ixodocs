@@ -14,7 +14,7 @@ tags:
 - settlement
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/roles
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -23,7 +23,7 @@ related: []
 
 # Roles
 ## Video: How to Configure Roles and Add New Users[​](https://documentation.ixopay.com/manual/docs/system-setup/roles#video-how-to-configure-roles-and-add-new-users "Direct link to Video: How to Configure Roles and Add New Users")
-![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-user-roles.129a232.1300.png)
+![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-user-roles.5969b17.1300.png)
 Learn how to configure multiple User Rules and how to add new Users to the platform.
 Here administrators have the possibility to define and set up a multitude of role permission schemes in order to assign them later to specific Users. (See [System Set Up User](https://documentation.ixopay.com/manual/docs/system-setup/user))
 This feature allow you to control the areas and permissions (edit, add, create, read only, etc.) each User has access to. In most of the cases, you will have one Admin role with full permissions and then other Users with less permissions (eg. for Users who will do only reporting and invoicing, for your Risk Management team, for technical Users...)
@@ -34,7 +34,7 @@ This feature allow you to control the areas and permissions (edit, add, create, 
   5. Select the permissions needed for this User role
   6. Click "**Save Roles** "
 
-![Roles Overview](https://documentation.ixopay.com/manual/assets/ideal-img/roles-overview.5d52675.1280.png)Roles Overview![Edit Role](https://documentation.ixopay.com/manual/assets/ideal-img/edit-role.b2e8e51.1280.png)Edit Role
+![Roles Overview](https://documentation.ixopay.com/manual/assets/ideal-img/roles-overview.91be629.1280.png)Roles Overview![Edit Role](https://documentation.ixopay.com/manual/assets/ideal-img/edit-role.7ef2576.1280.png)Edit Role
 ## 4 Eyes Principle[​](https://documentation.ixopay.com/manual/docs/system-setup/roles#4-eyes-principle "Direct link to 4 Eyes Principle")
 To ensure compliance to Access, Roles and Right Guidelines and changes on the [IXOPAY platform](https://www.ixopay.com) setup are sufficiently reviewed, 4 eyes confirmation of status changes can be configured.
 By splitting up responsibilities you can be ensured that at least 2 sets of eyes look over configuration changes before they get applied to the production system.  

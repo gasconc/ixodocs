@@ -15,7 +15,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector/terminals
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,7 +27,7 @@ Some Adapters integrated in the [IXOPAY platform](https://www.ixopay.com) are us
 Adapters using a ISO 8583 interface require some additional configuration due to the nature of the protocol (see [Terminal configuration](https://documentation.ixopay.com/manual/docs/connector/terminals#terminal-configuration)). In theory, each Connector represents a _digital_ **POS terminal.** Since in the ISO 8583 protocol each Terminal can only process one Transaction at a time, The IXOPAY platform supports the creation of multiple Terminal IDs per Connector to allow simultaneous processing of multiple transactions.
 note
 In case you do not see the Terminal Tab for an Adapter integrated using a protocol based on the **ISO 8583 standard** , make sure to check your User Permissions for the merchant.connector.terminal.* Permissions
-![Terminal Permissions](https://documentation.ixopay.com/manual/assets/ideal-img/terminal-permissions.2499c6f.1280.png)Terminal Permissions
+![Terminal Permissions](https://documentation.ixopay.com/manual/assets/ideal-img/terminal-permissions.fb726ab.1280.png)Terminal Permissions
 ## Configuring Terminal IDs[​](https://documentation.ixopay.com/manual/docs/connector/terminals#terminal-configuration "Direct link to Configuring Terminal IDs")
 To configure Terminal IDs for your Connector please follow these steps:
   1. Navigate to the **Connector Detail Overview**
@@ -39,7 +39,7 @@ To configure Terminal IDs for your Connector please follow these steps:
   7. **Enable** the Terminal and click **+ Create.**
 
 After creating the Terminal it can be edited using the **Edit** Action button.
-![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-terminal.353c22e.1280.png)Connector Detail Overview![Terminals](https://documentation.ixopay.com/manual/assets/ideal-img/terminals.3cfc315.1280.png)Terminals![Create New Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-terminal.c203c44.928.png)Create New Terminal
+![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-terminal.353c22e.1280.png)Connector Detail Overview![Terminals](https://documentation.ixopay.com/manual/assets/ideal-img/terminals.3cfc315.1280.png)Terminals![Create New Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-terminal.2fd80f6.928.png)Create New Terminal
 info
 In case you do not know which IDs to configure, please get in touch with our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support).
 ## Handling Concurrent Terminal ID Errors[​](https://documentation.ixopay.com/manual/docs/connector/terminals#error-handling "Direct link to Handling Concurrent Terminal ID Errors")

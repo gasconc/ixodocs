@@ -15,7 +15,7 @@ tags:
 - tls
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/tenants/mail-settings
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -82,7 +82,7 @@ To connect a Connector to your SendGrid account via API the following steps are 
   2. Create Dynamic Templates (for payment link email and optional for confirmation email if [Pay-By-Link Feature](https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink) is used). There are additional dynamic fields available to be used in these templates (see table below)
   3. On Connector level configure the additional [**Sendgrid email settings**](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings) (see Image Connector settings Sendgrid)
 
-![Connector settings Sendgrid](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-sendgrid.b862ddf.1280.png)Connector settings Sendgrid  
+![Connector settings Sendgrid](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-sendgrid.7779cef.1280.png)Connector settings Sendgrid  
 | Dynamic fields  | Description  |  
 | --- | --- |  
 | `link`  | Payment Link (only available for payment link email)  |  

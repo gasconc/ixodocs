@@ -9,7 +9,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/currency-conversion-rates
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -47,4 +47,4 @@ To add or edit Deviation Tolerances, follow these steps:
   4. Select **+ Create** to save your deviation tolerance
 
 The new deviation tolerances will appear in the Deviation Tolerance Overview with **Set by - Custom**. In this view you can also edit the **Global Deviation Tolerance** set for the tenant.
-![Deviation Tolerance Overview](https://documentation.ixopay.com/manual/assets/ideal-img/deviation-tolerance-overview.215c861.1280.png)Deviation Tolerance Overview![Create Tolerance Overview](https://documentation.ixopay.com/manual/assets/ideal-img/create-tolerance-overview.b1ca355.980.png)Create Tolerance Overview
+![Deviation Tolerance Overview](https://documentation.ixopay.com/manual/assets/ideal-img/deviation-tolerance-overview.53ae717.1280.png)Deviation Tolerance Overview![Create Tolerance Overview](https://documentation.ixopay.com/manual/assets/ideal-img/create-tolerance-overview.b1ca355.980.png)Create Tolerance Overview

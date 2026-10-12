@@ -14,7 +14,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/api/provisioning/list-connectors
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -29,6 +29,11 @@ GET
 ## https://gateway.ixopay.com/api/provisioning/listConnectors/:merchantGuid
 
 ```Returns the connectors of the given merchant.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/list-connectors#request "Direct link to request")
 ### Path Parameters
 **merchantGuid** stringrequired
@@ -117,6 +122,12 @@ Connector configuration.
 Customer profile Container ID.
 **defaultRiskRuleSet** integer
 **description** string
+**paymentTemplateLayout** stringnullable
+Custom payment template layout of the connector.
+This is the `LAYOUT_NAME` used to resolve the connector's payment templates created with the FAST Editor (`/layouts/[LAYOUT_NAME]/internal-pages/payment/...`). It corresponds to the **Custom Payment Template Layout** setting of the connector in the admin UI.
+If omitted, the `default` layout is used and the connector returns `null` for this property. When updating a connector, the layout is only changed if the property is present in the request. Send an empty string to reset the connector to the `default` layout.
+**Possible values:** `<= 100 characters`
+**Example:**`my-custom-layout`
 **disabled** boolean
 **Example:**`false`
 **disabledTransactionTypes** TransactionType[]
@@ -291,6 +302,8 @@ Expiry time in hours.
       "defaultRiskRuleSet": 0,  
 
       "description": "string",  
+
+      "paymentTemplateLayout": "my-custom-layout",  
 
       "disabled": false,  
 
@@ -577,6 +590,8 @@ GET
 
       "description": "string",  
 
+      "paymentTemplateLayout": "my-custom-layout",  
+
       "disabled": false,  
 
       "disabledTransactionTypes": [  
@@ -815,6 +830,8 @@ GET
       "defaultRiskRuleSet": 0,  
 
       "description": "string",  
+
+      "paymentTemplateLayout": "my-custom-layout",  
 
       "disabled": false,  
 
@@ -1066,6 +1083,8 @@ GET
 
       "description": "string",  
 
+      "paymentTemplateLayout": "my-custom-layout",  
+
       "disabled": false,  
 
       "disabledTransactionTypes": [  
@@ -1305,6 +1324,8 @@ GET
 
       "description": "string",  
 
+      "paymentTemplateLayout": "my-custom-layout",  
+
       "disabled": false,  
 
       "disabledTransactionTypes": [  
@@ -1543,6 +1564,8 @@ GET
       "defaultRiskRuleSet": 0,  
 
       "description": "string",  
+
+      "paymentTemplateLayout": "my-custom-layout",  
 
       "disabled": false,  
 

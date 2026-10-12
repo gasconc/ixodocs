@@ -16,7 +16,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -39,7 +39,7 @@ The following options are available to customize the dashboard view:
   * [Refresh/Emphasize Data](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets#refreshemphasize-data)
   * [Fullscreen Mode](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets#fullscreen-mode)
 
-![Adopt Dashboard](https://documentation.ixopay.com/manual/assets/ideal-img/adopt-dashboard.ecb743f.1280.png)Adopt Dashboard![Change Dashboard](https://documentation.ixopay.com/manual/assets/ideal-img/change-dashboard.3bce913.1280.png)Change Dashboard
+![Adopt Dashboard](https://documentation.ixopay.com/manual/assets/ideal-img/adopt-dashboard.ecb743f.1280.png)Adopt Dashboard![Change Dashboard](https://documentation.ixopay.com/manual/assets/ideal-img/change-dashboard.3795f0c.1280.png)Change Dashboard
 ## Global Filters[​](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets#global-filters "Direct link to Global Filters")
 Global filters allow you to define what data should be aggregated and displayed in all dashboard widgets. Filtering can be applied to:
   * **Time ranges** - either by defining a custom range or using **Quick Ranges.** This filter is mandatory.
@@ -50,16 +50,16 @@ Global filters allow you to define what data should be aggregated and displayed 
 
 Using these filter options, you can choose to only display data for a single merchant or a group of merchants, or restrict the data to just a single transaction type (e.g. chargebacks and refunds).
 Changes to the global filters are discarded if not saved explicitly. You can restore global filters to the last saved state and remove any optional filters.
-![Time Range Filter](https://documentation.ixopay.com/manual/assets/ideal-img/time-range-filter.b04fe0d.934.png)Time Range Filter![Tenant Filter](https://documentation.ixopay.com/manual/assets/ideal-img/tenant-filter.9248e09.966.png)Tenant Filter![Connector Filter](https://documentation.ixopay.com/manual/assets/ideal-img/connector-filter.d3d2a96.1150.png)Connector Filter![Save changes](https://documentation.ixopay.com/manual/assets/ideal-img/save-changes.0ab4759.1280.png)Save changes
+![Time Range Filter](https://documentation.ixopay.com/manual/assets/ideal-img/time-range-filter.6f249f4.934.png)Time Range Filter![Tenant Filter](https://documentation.ixopay.com/manual/assets/ideal-img/tenant-filter.f0146c0.966.png)Tenant Filter![Connector Filter](https://documentation.ixopay.com/manual/assets/ideal-img/connector-filter.2c4717d.1150.png)Connector Filter![Save changes](https://documentation.ixopay.com/manual/assets/ideal-img/save-changes.0ab4759.1280.png)Save changes
 ## Change Dashboard[​](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets#change-dashboard "Direct link to Change Dashboard")
 Switch to a different dashboard by selecting the desired dashboard from the dropdown list at the top of the page. You also have the option to [**Add new Dashboard**](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/edit-mode)**.**
 Depending on your permissions, the **Edit Default for Tenant** or **Edit Default for Merchant** options may also be available.
-![Change Dashboard](https://documentation.ixopay.com/manual/assets/ideal-img/change-dashboard.3bce913.1280.png)Change Dashboard
+![Change Dashboard](https://documentation.ixopay.com/manual/assets/ideal-img/change-dashboard.3795f0c.1280.png)Change Dashboard
 ## Refresh/Emphasize Data[​](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets#refreshemphasize-data "Direct link to Refresh/Emphasize Data")
 By default, the dashboard data is not refreshed, except when applying filters or refreshing manually. Click **Refresh** to get the latest data. You can also select a time interval to auto-refresh the dashboard from the drop-down (see Refresh).
 You may also emphasize data for line and pie chart widgets. Hover your cursor over the legend to emphasize the selected data. Select/unselect categories in the legend to display/hide the relevant data.
-![Refresh](https://documentation.ixopay.com/manual/assets/ideal-img/refresh.abbde9d.306.png)Refresh![Emphasize](https://documentation.ixopay.com/manual/assets/ideal-img/emphasize.ed6d485.1280.png)Emphasize
+![Refresh](https://documentation.ixopay.com/manual/assets/ideal-img/refresh.39188cf.306.png)Refresh![Emphasize](https://documentation.ixopay.com/manual/assets/ideal-img/emphasize.ed6d485.1280.png)Emphasize
 ## Fullscreen Mode[​](https://documentation.ixopay.com/manual/docs/administrative-tools/dashboard-widgets/dashboard-widgets#fullscreen-mode "Direct link to Fullscreen Mode")
 In fullscreen mode, all widgets are expanded to fill the entire screen. You can enter fullscreen in either **Light Mode** or **Dark Mode**
 We recommend selecting an auto-refresh interval before switching to fullscreen mode, as otherwise the dashboard will display static data. Usually, fullscreen mode can be exited by pressing **Esc** , but this depends on your browser.
-![Fullscreen](https://documentation.ixopay.com/manual/assets/ideal-img/fullscreen.db74cac.1280.png)Fullscreen
+![Fullscreen](https://documentation.ixopay.com/manual/assets/ideal-img/fullscreen.be87092.1280.png)Fullscreen

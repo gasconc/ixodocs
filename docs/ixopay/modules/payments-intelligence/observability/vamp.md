@@ -17,7 +17,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/vamp
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -43,7 +43,7 @@ The thresholds are being reviewed and adjusted by Visa on regular basis, the lat
 The cases for fraud and chargebacks in case there is a tc40 reported case and a chargeback that has been raised are **double counted**.
 ### How to Start monitoring VAMP with IXOPAY Payments Intelligence[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/vamp#how-to-start-monitoring-vamp-with-ixopay-payments-intelligence "Direct link to How to Start monitoring VAMP with IXOPAY Payments Intelligence")
 Getting started is simple. Head to the **“Analytics”** section in IXOPAY Payments Intelligence UI and click on the **“VAMP”** tab. If your plan allows you to access it you will see the current numbers displayed in this tab.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_1_Starting_monitoring.b1dc096.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_1_Starting_monitoring.f946712.1600.png)
 In case the feature is not yet available to you, you can upgrade your plan. For any questions, please get in contact with our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support).
 ### Supported PSPs[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/vamp#supported-psps "Direct link to Supported PSPs")
 Currently the VAMP metics are supported for the following PSPs:
@@ -57,17 +57,17 @@ New PSPs are getting added soon, contact us if you have a PSP that you need for 
 The data is updated on the IXOPAY Payments Intelligence Platform as soon as it is made available from the PSP, usually on a daily basis.
 ### Metrics for fraud, chargebacks and sales[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/vamp#metrics-for-fraud-chargebacks-and-sales "Direct link to Metrics for fraud, chargebacks and sales")
 You can find the counts for Fraud (Fraud Count) and Chargebacks (1st Chargebacks Count) in the top counter on the page:
-![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_2_Metrics_for_fraud_chrgback.88ae44e.1357.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_2_Metrics_for_fraud_chrgback.9460214.1357.png)
 They are also visible in each of the tables behind histograms (below the series chart), for non-sales KPIs summed in one number for fraud and chargebacks as VAMP Count:
-![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_3_series_chart.a3cb752.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_3_series_chart.035c7c1.1600.png)
 The metrics are reported on the merchant level and on the merchant account level as well as on all the other dimensions and combinations of those to provide you with the most flexible way to analyze your data.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_4_dimensions_view.a394ed9.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_4_dimensions_view.fd81361.1600.png)
 ### Getting notified[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/vamp#getting-notified "Direct link to Getting notified")
 There is a color coding in place for the top counters on the page turning red and bold for each of the KPIs going above:
   * VAMP ratio over 1.5%.
   * VAMP count over 1500+
   * VAMP volume over 75k USD
-![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_5_ratio_widget.9957632.890.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_5_ratio_widget.a42f989.890.png)
 
 A separate custom alert can be defined with a few click via the Alerts section.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_6_Alert_setting.4503568.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/VAMP_6_Alert_setting.830a7f7.1600.png)

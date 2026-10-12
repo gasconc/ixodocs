@@ -15,7 +15,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/adapters/straight2bank
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -32,7 +32,7 @@ Configure the following parameters for the Connector (see Connector Config - Str
   6. Select the optional **Extra Data: sendMerchantMetaDataRef3:** true, false
   7. Fill in the **Extra Data: pspid** — in case you receive this parameter from the PSP
 
-![Connector Config - Straight2Bank](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-straight2bank.a8285f7.1280.png)Connector Config - Straight2Bank
+![Connector Config - Straight2Bank](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-straight2bank.712ef8e.1280.png)Connector Config - Straight2Bank
 ## Data Fetcher Configuration[​](https://documentation.ixopay.com/manual/adapters/straight2bank#data-fetcher-configuration "Direct link to Data Fetcher Configuration")
 You have the option to configure Data Fetchers (see section [Enable and Set Up Reconciliation on the Provider Level](https://documentation.ixopay.com/manual/docs/post-processing/provider)) either on Provider or on Connector Level, depending on which setup works better for your provider.
 ### Provider Settlement[​](https://documentation.ixopay.com/manual/adapters/straight2bank#provider-settlement "Direct link to Provider Settlement")

@@ -12,7 +12,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/mastercard
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,5 +27,5 @@ Configure the following parameters for the Connector (see Connector Detail Overv
   4. Fill in the mandatory **Merchant ID**
   5. Fill in the optional **Merchant Website URL (required for 3D-Secure)**
 
-![Connector Detail Overview - Mastercard Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-mastercard-creditcard-vault-configuration.7d38643.1280.png)Connector Detail Overview - Mastercard Creditcard - Vault Configuration
+![Connector Detail Overview - Mastercard Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-mastercard-creditcard-vault-configuration.3870595.1280.png)Connector Detail Overview - Mastercard Creditcard - Vault Configuration
 Additional configuration specifics can be found in the Adapter-specific API Documentation

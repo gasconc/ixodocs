@@ -15,7 +15,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -31,10 +31,10 @@ In order to be able to use the Pay By Link feature, the corresponding permission
 To configure the Pay By Link feature (see section Pay By Link Configuration) the Admin User must activate the **merchant.connector.paybylink** and **pay-by-link.user.api-user-setting** permissions for his/her role (see Permission Admin User). Once activated a new tab **Pay By Link** will appear for each connector. In this tab, you can find specific configuration settings for the feature. Furthermore Merchant API users can be granted the **Enable Pay By Link API** user setting.
 To be able to send Pay By Link API requests the **Enable Pay By Link API** user setting must be activated for the Merchant API user (see Permission Merchant API User).
 To be able to use the Pay By Link feature with the Virtual Terminal, Merchant Users must have the permission **misc.virtual-terminal.pay-by-link** and **misc.virtual-terminal.show-pay-by-link-send-email** activated (see Permission Merchant User). With that, users will see an additional Button **Pay By Link** in the Virtual Terminal (see Virtual Terminal).
-![Permission Admin User](https://documentation.ixopay.com/manual/assets/ideal-img/permission-admin-user-paybylink.4611311.1280.png)Permission Admin User![Permission Merchant API User](https://documentation.ixopay.com/manual/assets/ideal-img/permission-merchant-api-user.8763e8c.1280.png)Permission Merchant API User![Permission Merchant User](https://documentation.ixopay.com/manual/assets/ideal-img/permission-merchant-user.ac14b1e.1280.png)Permission Merchant User
+![Permission Admin User](https://documentation.ixopay.com/manual/assets/ideal-img/permission-admin-user-paybylink.4611311.1280.png)Permission Admin User![Permission Merchant API User](https://documentation.ixopay.com/manual/assets/ideal-img/permission-merchant-api-user.8763e8c.1280.png)Permission Merchant API User![Permission Merchant User](https://documentation.ixopay.com/manual/assets/ideal-img/permission-merchant-user.1942e3f.1280.png)Permission Merchant User
 note
 Default settings can be configured at the tenant level, such as the **Default Layout** (insert path to the template within the [Fast Editor](https://documentation.ixopay.com/manual/docs/fast)) and to **Send Confirmation Mail to Customer** (see Default Pay By Link settings). These settings can be overruled at the connector level if needed.
-![Default Pay By Link settings](https://documentation.ixopay.com/manual/assets/ideal-img/default-pay-by-link-settings.5701357.1280.png)Default Pay By Link settings
+![Default Pay By Link settings](https://documentation.ixopay.com/manual/assets/ideal-img/default-pay-by-link-settings.7037e57.1280.png)Default Pay By Link settings
 ## Pay By Link Configuration[​](https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink#pay-by-link-configuration "Direct link to Pay By Link Configuration")
 After activating the admin user permission, a new Pay By Link tab is displayed in the Connector Detail Overview (see Tab Pay By Link) of each connector. Options to configure are:
   * Email Templates
@@ -45,7 +45,7 @@ note
 To send emails via the [IXOPAY platform](https://www.ixopay.com) the [mail settings](https://documentation.ixopay.com/manual/docs/system-setup/tenants/mail-settings) on tenant level needs to be configured.
 ### Pay By Link Settings[​](https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink#pay-by-link-settings "Direct link to Pay By Link Settings")
 If not configured differently in the tenant settings, Confirmation emails won’t be sent to customers or merchants. In the Pay By Link Settings section you can enable the setting if needed. Keep in mind to also configure the Email Templates if enabled.
-![Tab Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/tab-pay-by-link.3e8da01.1280.png)Tab Pay By Link![Pay By Link Settings](https://documentation.ixopay.com/manual/assets/ideal-img/pay-by-link-settings.150f502.738.png)Pay By Link Settings
+![Tab Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/tab-pay-by-link.8268eb3.1280.png)Tab Pay By Link![Pay By Link Settings](https://documentation.ixopay.com/manual/assets/ideal-img/pay-by-link-settings.150f502.738.png)Pay By Link Settings
 tip
 The setting to send confirmation emails can also be enabled for non Pay By Link Transactions in the [Connector Settings](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings).
 Templates can be used in different ways. Either you create Templates for each connector using some simple CSS, HTML, Javascript skills to design your templates and publish them via the Fast Editor, or use a **Layout**. Think of a Layout as a container to store and attach templates. Once templates belong to a layout, you can assign this layout to other connectors and therefore do not need to create new templates for each language for each connector.
@@ -75,7 +75,7 @@ Payment Link Email:
   * payment_link_email_subject: Includes the subject of the email link.
   * payment_link_email_text: Email which includes the payment link and the text. (Plain Text)
 
-![Edit Email Templates](https://documentation.ixopay.com/manual/assets/ideal-img/edit-email-templates.87938b5.736.png)Edit Email Templates
+![Edit Email Templates](https://documentation.ixopay.com/manual/assets/ideal-img/edit-email-templates.bb63ada.736.png)Edit Email Templates
 ### Result Templates[​](https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink#result-templates "Direct link to Result Templates")
 In this section the language specific templates can be configured to be shown to the customers after completing the checkout process. In each template, you can configure the design for a successful, failed or cancelled transaction.
 note
@@ -150,13 +150,13 @@ Following fields are mandatory:
   * Identification
   * Email
 
-![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.6d33c89.1120.png)Virtual Terminal![Mandatory fields Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/mandatory-fields-pay-by-link.f98a892.1280.png)Mandatory fields Pay By Link
+![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.2f979ad.1120.png)Virtual Terminal![Mandatory fields Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/mandatory-fields-pay-by-link.0d4e23b.1280.png)Mandatory fields Pay By Link
 tip
 You can also set an **Expiration in Minute** value for the payment link — this setting does only effect the Link itself and has no effect on the transaction state in contrast to Connector Settings **Transactions: Expire automatically after (x) minutes (min. 5 minutes)** and **Expires pending transactions after given minutes (min. 5 minutes)**
 If not explicitly set by any parameter or Connector Setting, the link for Multi-Method Connectors will be valid 4 hours, while for individual connectors the link will not expire at all.
 After submitting the transaction data a confirmation window will appear with the generated link (see Image Confirmation popup).
 There you can choose to send the link via email or to copy the link and send it manually. The transaction status will automatically update itself, after the customers actions.
-![Confirmation popup](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-popup.27ac470.616.png)Confirmation popup
+![Confirmation popup](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-popup.ae6fefb.616.png)Confirmation popup
 note
 For the **Send Link via Email** option to work, the [mail settings](https://documentation.ixopay.com/manual/docs/system-setup/tenants/mail-settings) need to be configured at the tenant level. You can overwrite the “Email Sender Name” and “Email Sender Address” by using the Connector Settings — Notifications & Postback Settings. However, keep in mind that the sending mail domain should be identical to the configured tenant mail settings in order to avoid your SMTP server being flagged as spam.
 ```
@@ -248,13 +248,13 @@ For the **Send Link via Email** option to work, the [mail settings](https://docu
 
 }  
 
-```![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.6d33c89.1120.png)Virtual Terminal![Mandatory fields Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/mandatory-fields-pay-by-link.f98a892.1280.png)Mandatory fields Pay By Link
+```![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.2f979ad.1120.png)Virtual Terminal![Mandatory fields Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/mandatory-fields-pay-by-link.0d4e23b.1280.png)Mandatory fields Pay By Link
 tip
 You can also set an **Expiration in Minute** value for the payment link — this setting does only effect the Link itself and has no effect on the transaction state in contrast to Connector Settings **Transactions: Expire automatically after (x) minutes (min. 5 minutes)** and **Expires pending transactions after given minutes (min. 5 minutes)**
 If not explicitly set by any parameter or Connector Setting, the link for Multi-Method Connectors will be valid 4 hours, while for individual connectors the link will not expire at all.
 After submitting the transaction data a confirmation window will appear with the generated link (see Image Confirmation popup).
 There you can choose to send the link via email or to copy the link and send it manually. The transaction status will automatically update itself, after the customers actions.
-![Confirmation popup](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-popup.27ac470.616.png)Confirmation popup
+![Confirmation popup](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-popup.ae6fefb.616.png)Confirmation popup
 note
 For the **Send Link via Email** option to work, the [mail settings](https://documentation.ixopay.com/manual/docs/system-setup/tenants/mail-settings) need to be configured at the tenant level. You can overwrite the “Email Sender Name” and “Email Sender Address” by using the Connector Settings — Notifications & Postback Settings. However, keep in mind that the sending mail domain should be identical to the configured tenant mail settings in order to avoid your SMTP server being flagged as spam.
   * [Connector Specific Features](https://documentation.ixopay.com/manual/docs/connector-specific-features)
@@ -303,13 +303,13 @@ For the **Send Link via Email** option to work, the [mail settings](https://docu
 
 }  
 
-```![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.6d33c89.1120.png)Virtual Terminal![Mandatory fields Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/mandatory-fields-pay-by-link.f98a892.1280.png)Mandatory fields Pay By Link
+```![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.2f979ad.1120.png)Virtual Terminal![Mandatory fields Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/mandatory-fields-pay-by-link.0d4e23b.1280.png)Mandatory fields Pay By Link
 tip
 You can also set an **Expiration in Minute** value for the payment link — this setting does only effect the Link itself and has no effect on the transaction state in contrast to Connector Settings **Transactions: Expire automatically after (x) minutes (min. 5 minutes)** and **Expires pending transactions after given minutes (min. 5 minutes)**
 If not explicitly set by any parameter or Connector Setting, the link for Multi-Method Connectors will be valid 4 hours, while for individual connectors the link will not expire at all.
 After submitting the transaction data a confirmation window will appear with the generated link (see Image Confirmation popup).
 There you can choose to send the link via email or to copy the link and send it manually. The transaction status will automatically update itself, after the customers actions.
-![Confirmation popup](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-popup.27ac470.616.png)Confirmation popup
+![Confirmation popup](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-popup.ae6fefb.616.png)Confirmation popup
 note
 For the **Send Link via Email** option to work, the [mail settings](https://documentation.ixopay.com/manual/docs/system-setup/tenants/mail-settings) need to be configured at the tenant level. You can overwrite the “Email Sender Name” and “Email Sender Address” by using the Connector Settings — Notifications & Postback Settings. However, keep in mind that the sending mail domain should be identical to the configured tenant mail settings in order to avoid your SMTP server being flagged as spam.
   * [Pay By Link Permissions](https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink#pay-by-link-permissions)
@@ -408,12 +408,12 @@ For the **Send Link via Email** option to work, the [mail settings](https://docu
 
 }  
 
-```![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.6d33c89.1120.png)Virtual Terminal![Mandatory fields Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/mandatory-fields-pay-by-link.f98a892.1280.png)Mandatory fields Pay By Link
+```![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.2f979ad.1120.png)Virtual Terminal![Mandatory fields Pay By Link](https://documentation.ixopay.com/manual/assets/ideal-img/mandatory-fields-pay-by-link.0d4e23b.1280.png)Mandatory fields Pay By Link
 tip
 You can also set an **Expiration in Minute** value for the payment link — this setting does only effect the Link itself and has no effect on the transaction state in contrast to Connector Settings **Transactions: Expire automatically after (x) minutes (min. 5 minutes)** and **Expires pending transactions after given minutes (min. 5 minutes)**
 If not explicitly set by any parameter or Connector Setting, the link for Multi-Method Connectors will be valid 4 hours, while for individual connectors the link will not expire at all.
 After submitting the transaction data a confirmation window will appear with the generated link (see Image Confirmation popup).
 There you can choose to send the link via email or to copy the link and send it manually. The transaction status will automatically update itself, after the customers actions.
-![Confirmation popup](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-popup.27ac470.616.png)Confirmation popup
+![Confirmation popup](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-popup.ae6fefb.616.png)Confirmation popup
 note
 For the **Send Link via Email** option to work, the [mail settings](https://documentation.ixopay.com/manual/docs/system-setup/tenants/mail-settings) need to be configured at the tenant level. You can overwrite the “Email Sender Name” and “Email Sender Address” by using the Connector Settings — Notifications & Postback Settings. However, keep in mind that the sending mail domain should be identical to the configured tenant mail settings in order to avoid your SMTP server being flagged as spam.

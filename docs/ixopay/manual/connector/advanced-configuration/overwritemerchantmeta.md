@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/overwritemerchantmeta
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -33,7 +33,7 @@ To configure the Hosted Payment Page follow these steps:
   4. In the **Placeholder** Section (see Editor View) navigate to **fields** , submenu **merchantmetadata**
   5. Include the placeholders **name, value, label** in the HPP as hidden inputs
 
-![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-overwrite-merchant.7a85116.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-overwrite-merchant.774eb97.1110.png)Connector Settings![Editor View](https://documentation.ixopay.com/manual/assets/ideal-img/editor-view.0c9575b.1280.png)Editor View![Placeholders](https://documentation.ixopay.com/manual/assets/ideal-img/placeholders.e60c13c.260.png)Placeholders
+![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-overwrite-merchant.4ffd898.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-overwrite-merchant.53411fc.1110.png)Connector Settings![Editor View](https://documentation.ixopay.com/manual/assets/ideal-img/editor-view.ff88ce1.1280.png)Editor View![Placeholders](https://documentation.ixopay.com/manual/assets/ideal-img/placeholders.0f8fbd0.260.png)Placeholders
 ```
 
 <input  

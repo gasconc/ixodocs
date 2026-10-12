@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/statistics/pivot-table
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -19,7 +19,7 @@ related: []
 Full version: not available for Starter and Growth clients
 If you want to get access to all [IXOPAY platform](https://www.ixopay.com) features you need to upgrade your plan. Please contact our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support) for more information.
 ## Video: Creating a Pivot Table[​](https://documentation.ixopay.com/manual/docs/statistics/pivot-table#video-creating-a-pivot-table "Direct link to Video: Creating a Pivot Table")
-![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-statistics-reports.54d6918.1300.png)
+![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-statistics-reports.7ef4236.1300.png)
 Learn how to easily create a pivot table.
 To customize your pivot table:
   1. Navigate to the **Statistics** section, sub-section **Pivot Table**.
@@ -31,7 +31,7 @@ To customize your pivot table:
     5. Select one or more **Status** and/or **Type**
 
 Filter the data as needed and click on **Apply Filter** to create the pivot table. If you make any subsequent changes to the filter, you need to click on **Apply Filter** to apply your changes to the pivot table.
-![Pivot Table](https://documentation.ixopay.com/manual/assets/ideal-img/pivot-table.3007c63.1280.png)Pivot Table
+![Pivot Table](https://documentation.ixopay.com/manual/assets/ideal-img/pivot-table.9664aee.1280.png)Pivot Table
 note
 If you do not select a specific **Merchant** as a pre-filter, the pivot table can include multiple merchants. This allows you to display the number of captures, debits and preauthorize transactions that were successful for different connectors, for example. You can still filter out specific merchants by applying filters to the pivot table's criteria (see below).
 The data displayed in the pivot table can be further customized. You can determine what data should be included and how to visualize it:
@@ -40,9 +40,9 @@ The data displayed in the pivot table can be further customized. You can determi
   3. **Pivot Table Lines/Columns variable** : Drag & drop variables from the list (Section B the Pivot Table Customization screenshot) to section D or E (see Pivot Table Customization screenshot) to add variables as columns or rows respectively. Determine the order in which variables are displayed in the pivot table by dragging them to the desired position, indicated by a box with a dashed outline. The following variables are available: tenantName, merchantName, providerName, adapter, connector, metaConnector, method, type, isRecurring, status, status simplified, currency. baseAmount, feesCurrency, feesEntity, feesDeductsPayout, year, binBrand, binCountry, binLevel, binType
   4. **Pivot Table Filter** : Click on a variable to apply a filter to restrict the data displayed in the table. For example, you can choose which merchants to display or filter by transaction status. The variable name is displayed in italics and with a red text to indicate that a filter has been defined.
 
-![Pivot Table Customization](https://documentation.ixopay.com/manual/assets/ideal-img/pivot-table-customization.5891774.1280.png)Pivot Table Customization
+![Pivot Table Customization](https://documentation.ixopay.com/manual/assets/ideal-img/pivot-table-customization.2b6f828.1280.png)Pivot Table Customization
 After configuring your pivot table, you can save it as a template or download the table in XLS (Excel) format:
   * Select **Save State** to save your current configuration as a template. You can choose to either **Save with PreFilters** or **Save without PreFilters**. Enter a name for the template. Once the template has been saved, you can load the template by clicking on **Load State** (see Saved Pivot Template).
   * Select **Export** to export the pivot table as an .xls file.
 
-![Saved State](https://documentation.ixopay.com/manual/assets/ideal-img/save-state.dc216a8.1280.png)Saved State![Saved Pivot Template](https://documentation.ixopay.com/manual/assets/ideal-img/saved-pivot-template.d0b32be.1280.png)Saved Pivot Template
+![Saved State](https://documentation.ixopay.com/manual/assets/ideal-img/save-state.356a17d.1280.png)Saved State![Saved Pivot Template](https://documentation.ixopay.com/manual/assets/ideal-img/saved-pivot-template.31e493b.1280.png)Saved Pivot Template

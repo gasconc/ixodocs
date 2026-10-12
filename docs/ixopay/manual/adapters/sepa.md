@@ -15,7 +15,7 @@ tags:
 - sepa
 source_url: https://documentation.ixopay.com/manual/adapters/sepa
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -48,7 +48,7 @@ Configure the following parameters for the Connector (see Connector Config - Sep
   7. Fill in the mandatory **Extra Data: Approval By** : approval options (described below) to be set by user.
   8. Fill in the mandatory **Extra Data: onlyAllowRefundOnSucces:** true, false
 
-![Connector Config - SepaExpressV2](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-sepaexpressv2.6442bbe.1280.png)Connector Config - SepaExpressV2
+![Connector Config - SepaExpressV2](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-sepaexpressv2.3c2c998.1280.png)Connector Config - SepaExpressV2
 [Adapter specifics](https://documentation.ixopay.com/adapters/sepa-express-v2)
 The 4 different **Approval Options** available are:
   * AIS: Your customer approves the mandate by login to customers bank account.
@@ -87,7 +87,7 @@ To ensure the correct status of transactions in[IXOPAY platform](https://www.ixo
     * `refund.expired`
     * `refund.paid`
 
-![Connector Notification URL](https://documentation.ixopay.com/manual/assets/ideal-img/connector-notification-url.b63e048.1280.png)Connector Notification URL
+![Connector Notification URL](https://documentation.ixopay.com/manual/assets/ideal-img/connector-notification-url.1cf7215.1280.png)Connector Notification URL
 note
 Credentials (SepaSandBox MerchantId etc…) and testing data (IBAN) can be found here: .
 ## Data Fetcher Configuration[​](https://documentation.ixopay.com/manual/adapters/sepa#data-fetcher-configuration "Direct link to Data Fetcher Configuration")

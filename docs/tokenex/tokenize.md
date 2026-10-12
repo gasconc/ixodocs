@@ -9,7 +9,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenize
 portal: tokenex
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 

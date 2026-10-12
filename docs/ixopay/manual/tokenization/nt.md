@@ -14,7 +14,7 @@ tags:
 - pci
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/nt
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -59,7 +59,7 @@ Enroll a Merchant for the network token services, by:
 
 Once enrollment is **successful** and the TRID has been generated and/or assigned to the merchant, tokenization is automatically enabled for all credit card connectors of this merchant, with default configuration to tokenize PAN data of any register or withRegister transaction before processing the transaction. Each tokenization is creating a **register-nt** transaction.
 Network tokenization can be disabled for specific connectors on connector level via configuration as well as globally (see Connector Configuration).
-![Merchant Enrollment](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-enrollment.01d91db.1280.png)Merchant Enrollment![Additional Merchant Information](https://documentation.ixopay.com/manual/assets/ideal-img/additional-merchant-information.0fb7088.1280.png)Additional Merchant Information
+![Merchant Enrollment](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-enrollment.688f220.1280.png)Merchant Enrollment![Additional Merchant Information](https://documentation.ixopay.com/manual/assets/ideal-img/additional-merchant-information.c43e0b7.1280.png)Additional Merchant Information
 note
 Keep in mind that it might take up to 3 business days before you will be able to create tokens after successfully enroll your Merchants due to technical scheme restrictions. Merchants sharing a Customer Profile or Tokens stored in the IXOPAY platform PCI Vault need to have the same TRID assigned in order to use Transaction Processing using network tokens.
 ## Configuring Network Tokenization per Connector[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#connector-configuration "Direct link to Configuring Network Tokenization per Connector")
@@ -70,7 +70,7 @@ To change the network tokenization behavior for a connector or exclude the conne
   3. Search for the **Tokenization - Network Tokenization** and click **+Add** (see Select Setting).
   4. Select the value to **Disabled** , **Before transaction processing** or **After transaction processing** (see Select Setting) and click **Save**.
 
-![Select Setting](https://documentation.ixopay.com/manual/assets/ideal-img/select-setting.34bc6a3.479.png)Select Setting
+![Select Setting](https://documentation.ixopay.com/manual/assets/ideal-img/select-setting.903c935.479.png)Select Setting
 note
 Clients with already stored PAN data need to contact our Customer Success Management team to initialize the tokenization of the existing data.
 ## Transaction Processing using Network Tokens[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#transaction-processing-using-network-tokens "Direct link to Transaction Processing using Network Tokens")
@@ -81,7 +81,7 @@ When processing payments with network tokens, merchants must comply with card ne
 
 ### Processing Transactions[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#processing-transactions "Direct link to Processing Transactions")
 Network tokens will be used for transaction processing in case the adapter supports it. Depending on your connector configuration either starting from the initial register, debit+register and preauth+register transactions or the first transaction made by return customers (card on file) after that initial transaction (see Transaction Details - Additional Data).
-![Transaction Details - Additional Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-additional-data.c145b43.704.png)Transaction Details - Additional Data
+![Transaction Details - Additional Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-additional-data.c26821f.704.png)Transaction Details - Additional Data
 note
 Depending on your business case it might make sense either to select the option to tokenize card data before (potential for lower processing fees) or after (shorter processing times) transaction processing. Keep in mind, that network tokens can only be used with adapters that support transaction processing using network tokens. This is indicated in IXOPAY’s Adapter Catalog under the adapter’s capabilities ("Network Tokens (IXO-based)").
 ## Network Token Lifecycle[​](https://documentation.ixopay.com/manual/docs/tokenization/nt#network-token-lifecycle "Direct link to Network Token Lifecycle")
@@ -97,4 +97,4 @@ will trigger a postback notification will be sent. For further details have a lo
 [API Documentation — Network token notification](https://documentation.ixopay.com/docs/reference/integration/callbacks/notification-types#network-token-notification)
 (see Network Token Status)
 By default the PAN data and the network token are stored in the IXOPAY PCI Vault. You have the option to either deregister only the network token (**deregister-nt**) or only the PAN data (**deregister-pan**) or deregister both (**deregister = deregister-pan** + **deregister-nt)** with one API call (see Transaction Details - Register Transaction). Keep in mind that deregistering both, PAN data and network token will automatically create a **deregister-pan** and **deregister-nt** transaction (see [API Documentation - Deregister TokenType](https://documentation.ixopay.com/api/transaction/deregister)).
-![Network Token Status](https://documentation.ixopay.com/manual/assets/ideal-img/network-token-status.367cb30.1280.png)Network Token Status![Transaction Details - Register Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-register-transaction.2e5c903.1280.png)Transaction Details - Register Transaction
+![Network Token Status](https://documentation.ixopay.com/manual/assets/ideal-img/network-token-status.fe392b3.1280.png)Network Token Status![Transaction Details - Register Transaction](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-register-transaction.b2ce7c4.1280.png)Transaction Details - Register Transaction

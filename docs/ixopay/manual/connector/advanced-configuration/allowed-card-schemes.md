@@ -15,7 +15,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/allowed-card-schemes
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -33,7 +33,7 @@ To configure the setting:
   * Select **Allowed Card Schemes** from the dropdown and click **+ Add**
   * Configure the setting as desired and click **Save**
 
-![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-allowed-card-schemes.9216c10.538.png)Connector Details Overview
+![Connector Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-allowed-card-schemes.cc53a49.538.png)Connector Details Overview
 The setting provides the following options:
   * **Allowed Card Schemes** — the list of card schemes the Connector accepts (e.g. Visa, Mastercard, American Express). Cards of any scheme not in this list are declined.
   * **Allow unknown card schemes** — controls what happens to cards whose scheme cannot be determined from the card number. If disabled (default), such cards are declined; if enabled, they are allowed.

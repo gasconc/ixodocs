@@ -14,7 +14,7 @@ tags:
 - marketplace-commission-fees-only-available-marketplace-connector-https-documentation-ixopay-com-manual-docs-connector-specific-features-marketplace-marketplace-commission-fees-only-available-marketplace-connector-direct-link-marketplace-commission-fees-only-available-marketplace-connector
 source_url: https://documentation.ixopay.com/manual/docs/connector-specific-features/marketplace
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -74,7 +74,7 @@ Once all these connectors are configured the Marketplace Meta-Connector can be c
     * Select the desired connector as configured on the corresponding merchant for each Marketplace Seller merchant.
   * Click **Create** to save the configuration.
 
-![Marketplace Meta-Connector option](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-meta-connector-option.4495baf.1280.png)Marketplace Meta-Connector option![Marketplace Meta-Connector specifics](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-meta-connector-specifics.0d61ef4.1280.png)Marketplace Meta-Connector specifics
+![Marketplace Meta-Connector option](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-meta-connector-option.53c4f9b.1280.png)Marketplace Meta-Connector option![Marketplace Meta-Connector specifics](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-meta-connector-specifics.0d61ef4.1280.png)Marketplace Meta-Connector specifics
 ## Marketplace Transaction — API Testing[​](https://documentation.ixopay.com/manual/docs/connector-specific-features/marketplace#marketplace-transaction--api-testing "Direct link to Marketplace Transaction — API Testing")
 Testing the Marketplace setup can be done via the API Testing Tool (see [here](https://documentation.ixopay.com/manual/docs/api-testing/transaction-api)). Depending on the configured Marketplace setup select either the Marketplace Connector or the Marketplace Meta-Connector.
 In the section **Splits** the following fields must be filled (see Image Marketplace transaction specifics):
@@ -87,11 +87,11 @@ Click on **+Add Transaction Split** to add as many splits as you want, keep in m
 Note: For the Marketplace Connector the _Customer Billing Country_ is a mandatory field for the transaction to be processed. For the Marketplace Meta-Connector in the 3d-Secure section the parameter _3dsecure_ must be set to mandatory (see image Marketplace Meta-Connector transaction details 2).
 The Marketplace Meta-Connector can only be used for transaction type pre-authorize to avoid unnecessary chargebacks. The transaction flow is setup in a way that after the successful 3DS authorization on the Default Connector, the transaction is split and queued up. When all transaction splits have been processed successfully, the main transaction (full amount) is set to success and a postback request will be sent back including the UUIDs of the transaction splits which can then be captured.
 If any of the transaction split should fail the remaining queued up splits will be cancelled and any processed splits will be voided.
-![Marketplace transaction specifics](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-transaction-specifics.e6d20cc.1280.png)Marketplace transaction specifics![Marketplace Connector transaction details](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-connector-transaction-details.550be96.1280.png)Marketplace Connector transaction details![Marketplace Meta-Connector transaction details](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-meta-connector-transaction-details.cafa60e.1280.png)Marketplace Meta-Connector transaction details![Marketplace Meta-Connector transaction details 2](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-meta-connector-transaction-details-2.b5e4274.1280.png)Marketplace Meta-Connector transaction details 2
+![Marketplace transaction specifics](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-transaction-specifics.e6d20cc.1280.png)Marketplace transaction specifics![Marketplace Connector transaction details](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-connector-transaction-details.b9d8998.1280.png)Marketplace Connector transaction details![Marketplace Meta-Connector transaction details](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-meta-connector-transaction-details.1e3f67f.1280.png)Marketplace Meta-Connector transaction details![Marketplace Meta-Connector transaction details 2](https://documentation.ixopay.com/manual/assets/ideal-img/marketplace-meta-connector-transaction-details-2.b5e4274.1280.png)Marketplace Meta-Connector transaction details 2
 ## Marketplace Commission Fees (Only available for Marketplace Connector)[​](https://documentation.ixopay.com/manual/docs/connector-specific-features/marketplace#marketplace-commission-fees-only-available-for-marketplace-connector "Direct link to Marketplace Commission Fees \(Only available for Marketplace Connector\)")
 With the IXOPAY platform Marketplace feature it is possible to charge a commission fee to the Marketplace Seller merchant for the Marketplace usage. The commission amount will be subtracted from the split amount and can be tested by adding the commission fee amount and currency into the split (see Image Commission details).
 The commission will be shown in the successful processed transaction details (see Image Commission transaction details).
-![Commission details](https://documentation.ixopay.com/manual/assets/ideal-img/commission-details.7931310.1280.png)Commission details![Commission transaction details](https://documentation.ixopay.com/manual/assets/ideal-img/commission-transaction-details.adba6c0.1280.png)Commission transaction details
+![Commission details](https://documentation.ixopay.com/manual/assets/ideal-img/commission-details.7931310.1280.png)Commission details![Commission transaction details](https://documentation.ixopay.com/manual/assets/ideal-img/commission-transaction-details.e2c636f.1280.png)Commission transaction details
 note
 The commission currency must be identical to the currency of the total amount and split amount.
 ## Reconciliation (Only available for Marketplace Connector)[​](https://documentation.ixopay.com/manual/docs/connector-specific-features/marketplace#reconciliation-only-available-for-marketplace-connector "Direct link to Reconciliation \(Only available for Marketplace Connector\)")
@@ -100,4 +100,4 @@ The commission currency must be identical to the currency of the total amount an
   3. **Distribute** the correct amounts to the related splits (see Split mapping) to end up with the expected amount.
   4. Click on **Create**
 
-![Reconciliation > Unknown Transactions](https://documentation.ixopay.com/manual/assets/ideal-img/reconciliation-unknown-transactions.65d6caa.1280.png)Reconciliation > Unknown Transactions![Split mapping](https://documentation.ixopay.com/manual/assets/ideal-img/split-mapping.2754bbc.629.png)Split mapping
+![Reconciliation > Unknown Transactions](https://documentation.ixopay.com/manual/assets/ideal-img/reconciliation-unknown-transactions.7f3643c.1280.png)Reconciliation > Unknown Transactions![Split mapping](https://documentation.ixopay.com/manual/assets/ideal-img/split-mapping.557528f.629.png)Split mapping

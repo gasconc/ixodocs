@@ -8,7 +8,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/cancel-resolve
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -23,7 +23,7 @@ To cancel a Transaction, the Transaction has to fulfill the following condition:
   * The **Transaction status** has to be Open (except Pending_Postback)
 
 Once confirmed the Transaction will be cancelled and shown as such in the Transaction Status.
-![Cancel](https://documentation.ixopay.com/manual/assets/ideal-img/cancel.bc97e4d.1280.png)Cancel![Cancel confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/concel-confirmation.7d04470.1000.png)Cancel confirmation![Cancel success](https://documentation.ixopay.com/manual/assets/ideal-img/cancel-success.793ea1e.1280.png)Cancel success
+![Cancel](https://documentation.ixopay.com/manual/assets/ideal-img/cancel.cc9d3ae.1280.png)Cancel![Cancel confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/concel-confirmation.7d04470.1000.png)Cancel confirmation![Cancel success](https://documentation.ixopay.com/manual/assets/ideal-img/cancel-success.99ab53b.1280.png)Cancel success
 ## Resolve conflicted Transaction[​](https://documentation.ixopay.com/manual/docs/transactions/details/cancel-resolve#resolve-conflicted-transaction "Direct link to Resolve conflicted Transaction")
 ![Conflict](https://documentation.ixopay.com/manual/assets/ideal-img/conflict.cc0f844.1280.png)Conflict![Conflict confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/conflict-confirmation.ad7794c.826.png)Conflict confirmation
 tip

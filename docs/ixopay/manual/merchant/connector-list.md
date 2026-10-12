@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/merchant/connector-list
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -23,7 +23,7 @@ At some point during your [IXOPAY](https://www.ixopay.com) journey, you may have
   3. **Filter** the List according to your needs (see Filter Criteria Table) and click **Apply** (see Filter Result)
 
 In the Connector List you have the option to directly edit the **Connector Settings, Fees or the Rules** see also [Multi-Method Connector](https://documentation.ixopay.com/manual/docs/connector/multi-method-connector) and [Meta-Connector](https://documentation.ixopay.com/manual/docs/connector/routing-cascading-balancing-fallback) section by using the Action Buttons (see Filter Result). Click on the **Rules** Button for Meta-Connectors to be redirected to the **Rule Editor**. For Multi-Method Connectors **select** from the drop-down **which Rules** you want to edit, before being redirected to the Rule Editor (see Connector List Edit).
-![Connector List](https://documentation.ixopay.com/manual/assets/ideal-img/connector-list.96ff2e9.1280.png)Connector List![Filter Result](https://documentation.ixopay.com/manual/assets/ideal-img/filter-result.08a2be0.1280.png)Filter Result![Connector List Edit](https://documentation.ixopay.com/manual/assets/ideal-img/connector-list-edit.d3e3110.298.png)Connector List Edit  
+![Connector List](https://documentation.ixopay.com/manual/assets/ideal-img/connector-list.48639db.1280.png)Connector List![Filter Result](https://documentation.ixopay.com/manual/assets/ideal-img/filter-result.2c94ca8.1280.png)Filter Result![Connector List Edit](https://documentation.ixopay.com/manual/assets/ideal-img/connector-list-edit.9206f53.298.png)Connector List Edit  
 | Filter  | Description  |  
 | --- | --- |  
 | Tenant  | Filter list by Tenant / Sub-tenant. Enable **Include Sub-Tenant** to include Connectors of Sub-Tenants of the selected Tenant in the result.  |  

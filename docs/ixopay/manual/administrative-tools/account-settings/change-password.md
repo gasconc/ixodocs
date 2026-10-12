@@ -10,7 +10,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/change-password
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -28,7 +28,7 @@ To change your password:
   5. **Repeat** the **New Password**.
   6. Click **Change Password.**
 
-![Account Settings](https://documentation.ixopay.com/manual/assets/ideal-img/account-settings.2401eed.1280.png)Account Settings![Your Profile](https://documentation.ixopay.com/manual/assets/ideal-img/your-profile.2401eed.1280.png)Your Profile
+![Account Settings](https://documentation.ixopay.com/manual/assets/ideal-img/account-settings.9cddd6a.1280.png)Account Settings![Your Profile](https://documentation.ixopay.com/manual/assets/ideal-img/your-profile.9cddd6a.1280.png)Your Profile
 ## Resetting Passwords[​](https://documentation.ixopay.com/manual/docs/administrative-tools/account-settings/change-password#resetting-passwords "Direct link to Resetting Passwords")
 Depending on your setup and user permissions, the platform Login page might include a **password recovery option**. Keep in mind that activation is dependent on the Release Cycles and takes minimum 4 weeks.
 note

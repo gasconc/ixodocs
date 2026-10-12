@@ -16,7 +16,7 @@ tags:
 - webhook
 source_url: https://documentation.ixopay.com/manual/adapters/stripe
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -32,7 +32,7 @@ Depending on the chosen method the a subset of the following parameters for the 
   5. Fill in the mandatory **Webhook Secret** (ACH Credit Transfer)
   6. Fill in the mandatory **Private Key** (ACH Credit Transfer)
 
-![Connector Config - Stripe](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-stripe.d76df71.1280.png)Connector Config - Stripe
+![Connector Config - Stripe](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-stripe.467d62e.1280.png)Connector Config - Stripe
 Additional Extra Data is available to be configured:
   1. Fill in the optional **Extra Data: descriptor**
   2. Fill in the mandatory **Extra Data:** **publishableKey** (mandatory for Method Creditcard)
@@ -61,13 +61,13 @@ Keep in mind that statement descriptors need to comply to several requirements:
   * Contains more than a single common term or common website URL. A website URL only is acceptable if it provides a clear and accurate description of a transaction on a customer’s statement.
 
 A static statement descriptor or the shortened descriptor can be configured in Stripe Dashboard "" (see Dashboard descriptor and shortened descriptor).
-![Dashboard descriptor and shortened descriptor](https://documentation.ixopay.com/manual/assets/ideal-img/dashboard-descriptor-and-shortened-descriptor.e82d5a1.934.png)Dashboard descriptor and shortened descriptor
+![Dashboard descriptor and shortened descriptor](https://documentation.ixopay.com/manual/assets/ideal-img/dashboard-descriptor-and-shortened-descriptor.6ee9d79.934.png)Dashboard descriptor and shortened descriptor
 Additionally in the Vault Setup for Stripe you can:
   1. Select the optional **Descriptor** - None, Use Transaction Description, Use static Descriptor value (next field), Concatenate Prefix Descriptor with transaction description
   2. Fill in the conditional **Static Descriptor** (when **Use static Descriptor value** is selected)
   3. Fill in the conditional **Prefix Descriptor**(when **Concatenate Prefix Descriptor** is selected)
 
-![PCI Vault Configuration - Creditcard Stripe Connect PCI](https://documentation.ixopay.com/manual/assets/ideal-img/pci-vault-configuration-creditcard-stripe-connect-pci.62657d9.1280.png)PCI Vault Configuration - Creditcard Stripe Connect PCI
+![PCI Vault Configuration - Creditcard Stripe Connect PCI](https://documentation.ixopay.com/manual/assets/ideal-img/pci-vault-configuration-creditcard-stripe-connect-pci.ddcebca.1280.png)PCI Vault Configuration - Creditcard Stripe Connect PCI
 If **None** is selected the pre-configured Statement Descriptor from the Stripe Dashboard is used.
 Set a dynamic statement descriptor by selecting **Use Transaction Description**. This will use the transaction description (if available) as a statement descriptor.
 If you select **use static value (next field)** the shortened descriptor you have chosen in your Stripe dashboard will be overwritten by the **Static Descriptor**.
@@ -77,7 +77,7 @@ Keep in mind that the concatenated descriptor must not exceed 22 characters, whe
 Furthermore only credit card charges are supported for dynamic suffixes.
 ## Data Fetcher Configuration[​](https://documentation.ixopay.com/manual/adapters/stripe#data-fetcher-configuration "Direct link to Data Fetcher Configuration")
 You have the option to configure Data Fetchers (see section [Enable and Set Up Reconciliation on the Provider Level](https://documentation.ixopay.com/manual/docs/post-processing/provider)) either on Provider or on Connector Level, depending on which setup works better for your provider (see Edit Provider).
-![Edit Provider](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider.1c19a87.1280.png)Edit Provider
+![Edit Provider](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider.e9e2b2f.1280.png)Edit Provider
 ### Provider Settlement[​](https://documentation.ixopay.com/manual/adapters/stripe#provider-settlement "Direct link to Provider Settlement")
 Configure the following Parameters for the Settlements Provider Data Fetcher to fetch Settlement (json format) via an API (see Edit Provider Settlement Data Fetcher Provider Level):
   1. Fill in the expected **Interval** in which the Provider Settlement File should be fetched - days, hours
@@ -87,7 +87,7 @@ Configure the following Parameters for the Settlements Provider Data Fetcher to 
   5. Select the optional **Extra Data: reportType** used to specify the desired settlement report, if nothing is selected the report type `payout_reconcilication.itemized.5` used by default
   6. Select the optional **Extra Data: retrievePayoutReference** - true, false
 
-![Edit Provider Settlement Data Fetcher Provider Level](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider-settlement-data-fetcher-provider-level.2d71a05.984.png)Edit Provider Settlement Data Fetcher Provider Level
+![Edit Provider Settlement Data Fetcher Provider Level](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider-settlement-data-fetcher-provider-level.0e555a1.984.png)Edit Provider Settlement Data Fetcher Provider Level
 #### Settlement fields[​](https://documentation.ixopay.com/manual/adapters/stripe#settlement-fields "Direct link to Settlement fields")
 ##### Batch number[​](https://documentation.ixopay.com/manual/adapters/stripe#batch-number "Direct link to Batch number")
 In case of payout reconciliation the Stripe's automatic_payout_id as settlement batch number.

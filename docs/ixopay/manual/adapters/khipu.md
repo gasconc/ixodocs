@@ -14,7 +14,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/adapters/khipu
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,7 +27,7 @@ Configure the following parameters for the Connector (see Connector Config - Khi
   3. Fill in the mandatory **API Secret**
   4. Fill in the mandatory **Extra Data: merchantID**
 
-![Connector Config - Khipu](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-khipu.0427f24.1280.png)Connector Config - Khipu
+![Connector Config - Khipu](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-khipu.ebae122.1280.png)Connector Config - Khipu
 Credentials to configure the Connector can be found in the Khipu Dashboard ([khipu.com/dashboard](https://khipu.com/login/auth))
   1. On the top left menu click on "Yo pago" (**1)** and select your merchant "Cobrar como " **(2)**
   2. On the following page select "Opciones de la cuenta" **(3)**
@@ -35,7 +35,7 @@ Credentials to configure the Connector can be found in the Khipu Dashboard ([khi
     1. "Id de cobrador" is the merchantId **(4)**
     2. "Llave" is your API Key **(5)**
 
-![Khipu Dashboard I](https://documentation.ixopay.com/manual/assets/ideal-img/khipu-dashboard-i.fc3f27a.708.png)Khipu Dashboard I![Khipu Dashboard II](https://documentation.ixopay.com/manual/assets/ideal-img/khipu-dashboard-ii.058b77a.484.png)Khipu Dashboard II![Khipu Dashboard III](https://documentation.ixopay.com/manual/assets/ideal-img/khipu-dashboard-iii.9e9d21c.1104.png)Khipu Dashboard III
+![Khipu Dashboard I](https://documentation.ixopay.com/manual/assets/ideal-img/khipu-dashboard-i.e118795.708.png)Khipu Dashboard I![Khipu Dashboard II](https://documentation.ixopay.com/manual/assets/ideal-img/khipu-dashboard-ii.fc96bf2.484.png)Khipu Dashboard II![Khipu Dashboard III](https://documentation.ixopay.com/manual/assets/ideal-img/khipu-dashboard-iii.80717b0.1104.png)Khipu Dashboard III
 ## Data Fetcher Configuration[​](https://documentation.ixopay.com/manual/adapters/khipu#data-fetcher-configuration "Direct link to Data Fetcher Configuration")
 You have the option to configure Data Fetchers (see section [Provider](https://documentation.ixopay.com/manual/docs/post-processing/provider)) either on Provider or on Connector Level, depending on which setup works better for your provider.
 ### Provider Settlement[​](https://documentation.ixopay.com/manual/adapters/khipu#provider-settlement "Direct link to Provider Settlement")

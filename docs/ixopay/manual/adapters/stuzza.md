@@ -7,7 +7,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/stuzza
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -22,4 +22,4 @@ Configure the following parameters for the Connector (see Connector Config - Stu
   5. Fill in the mandatory **Extra Data: beneficiaryIBAN** — International Bank Account Number (ISO 13616)
   6. Fill in the mandatory **Extra Data: dynamicDescriptor:** true, false
 
-![Connector Config - Stuzza](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-stuzza.79df3f2.1280.png)Connector Config - Stuzza
+![Connector Config - Stuzza](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-stuzza.1a12368.1280.png)Connector Config - Stuzza

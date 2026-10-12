@@ -13,7 +13,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/score-card-actions
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -38,7 +38,7 @@ To define score card actions:
     7. Click on **+ Add Boundary** to add additional ranges.
     8. Click **Save** once you have defined all the ranges you need.
 
-![Risk Profile Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/risk-profile-configuration.6204672.1280.png)Risk Profile Configuration![Score ranges example](https://documentation.ixopay.com/manual/assets/ideal-img/score-ranges-example.18d7488.1218.png)Score ranges example
+![Risk Profile Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/risk-profile-configuration.e67cacb.1280.png)Risk Profile Configuration![Score ranges example](https://documentation.ixopay.com/manual/assets/ideal-img/score-ranges-example.ad801aa.1218.png)Score ranges example
 > **Example:** 4 ranges are defined with different actions performed for each range (see Score range example screenshot):
 >   1. Transactions with a score < 100 are automatically approved without further action.
 >   2. Transaction with a score between 100 and 149 must perform 3D Secure (except recurring transactions). Users subscribed to alerts will be notified of the transaction in the dashboard.

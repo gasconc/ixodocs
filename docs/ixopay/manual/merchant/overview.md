@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/merchant/overview
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -25,7 +25,7 @@ The global Merchant Overview lists all merchants configured under the selected t
   * [Archive Merchants](https://documentation.ixopay.com/manual/docs/merchant/archive)
   * Create Merchant Templates
 
-![Global Merchant Overview](https://documentation.ixopay.com/manual/assets/ideal-img/global-merchant-overview.2d2cfa1.1280.png)Global Merchant Overview
+![Global Merchant Overview](https://documentation.ixopay.com/manual/assets/ideal-img/global-merchant-overview.141b905.1280.png)Global Merchant Overview
 ## Detailed Merchants Overview[​](https://documentation.ixopay.com/manual/docs/merchant/overview#detailed-merchants-overview "Direct link to Detailed Merchants Overview")
 Click on **Overview** for a merchant in the global Merchants Overview to display a detailed overview of that merchant.
 ![Detailed Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/detailed-merchants-overview.47adec9.1280.png)Detailed Merchants Overview

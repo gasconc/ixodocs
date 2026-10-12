@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/transactions/schedules/overview
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -37,4 +37,4 @@ The Schedules Overview contains all scheduled (follow-up) transactions to a regi
 | Customer ID  | Fill in a Customer ID  |  
 | Customer E-Mail  | Fill in a Customer E-Mail  |  
 For each schedule, the [Transaction Details](https://documentation.ixopay.com/manual/docs/transactions/details) of the related Register Transaction will show the **Follow-Up Transactions** performed by the schedule and the **Attached Schedules** to the Register Transaction. Follow the link to the related Register Transaction in the **Register** column.
-![Schedules Overview](https://documentation.ixopay.com/manual/assets/ideal-img/schedules-overview-register-transaction.48bec24.1280.png)Schedules Overview![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.cb43779.1280.png)Transaction Details
+![Schedules Overview](https://documentation.ixopay.com/manual/assets/ideal-img/schedules-overview-register-transaction.7d9cabe.1280.png)Schedules Overview![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.e220d82.1280.png)Transaction Details

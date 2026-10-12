@@ -14,7 +14,7 @@ tags:
 - settlement
 source_url: https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -53,7 +53,7 @@ Each provider settlement is a batch including all transactions since the last re
     * Click **Open** to access the [Settlement Details](https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements#settlement-details).
     * Click **Delete** to delete the provider settlement (only possible settlements with the status **New**).
 
-![Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/new-provider-settlement.d3969e2.1280.png)Provider Settlement![Settlement Details](https://documentation.ixopay.com/manual/assets/ideal-img/settlement-details.0795432.1280.png)Settlement Details
+![Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/new-provider-settlement.8841bfe.1280.png)Provider Settlement![Settlement Details](https://documentation.ixopay.com/manual/assets/ideal-img/settlement-details.4b3e123.1280.png)Settlement Details
 ## Settlement Details[​](https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements#settlement-details "Direct link to Settlement Details")
 The settlement details include further information about the provider settlement in various tabs:
   * **Settlement Data:** Includes additional information about the provider settlement
@@ -66,7 +66,7 @@ The settlement details include further information about the provider settlement
   * **Documents:** Provider settlement documents overview (retrieved by the IXOPAY platform from the provider) with the option to manually upload and download documents (see Documents screenshot)
   * **Logs:** Provider settlement logs contain information about items in the settlement statement/file that could not be processed (e.g. transactions that could not be resolved, see Logs screenshot)
 
-![Settlement Details](https://documentation.ixopay.com/manual/assets/ideal-img/settlement-details-annotated.169f16d.1280.png)Settlement Details![Transactions in Batch](https://documentation.ixopay.com/manual/assets/ideal-img/transactions-in-batch.175eaa6.1280.png)Transactions in Batch![Line Items](https://documentation.ixopay.com/manual/assets/ideal-img/line-items.7a8a54c.1280.png)Line Items![Documents](https://documentation.ixopay.com/manual/assets/ideal-img/documents.3ff7d28.1280.png)Documents![Logs](https://documentation.ixopay.com/manual/assets/ideal-img/logs.99f7e0b.1280.png)Logs
+![Settlement Details](https://documentation.ixopay.com/manual/assets/ideal-img/settlement-details-annotated.169f16d.1280.png)Settlement Details![Transactions in Batch](https://documentation.ixopay.com/manual/assets/ideal-img/transactions-in-batch.b9ab0af.1280.png)Transactions in Batch![Line Items](https://documentation.ixopay.com/manual/assets/ideal-img/line-items.2e5d94c.1280.png)Line Items![Documents](https://documentation.ixopay.com/manual/assets/ideal-img/documents.d8372fd.1280.png)Documents![Logs](https://documentation.ixopay.com/manual/assets/ideal-img/logs.2191fba.1280.png)Logs
 File retention
 Files are retained for 12 months and permanently deleted thereafter.
 Depending on the provider settlement status, you may need to take action to complete the settlement processing.
@@ -82,7 +82,7 @@ For each conflict you have two options:
   * **Accept** : Accepts the conflict without any action
   * **Manual Correction** : Update the settled amount manually for the transaction
 
-![Conflicted Transactions](https://documentation.ixopay.com/manual/assets/ideal-img/conflicted-transactions.2432784.1280.png)Conflicted Transactions![Manual Correction](https://documentation.ixopay.com/manual/assets/ideal-img/manual-correction.fbb7c49.918.png)Manual Correction
+![Conflicted Transactions](https://documentation.ixopay.com/manual/assets/ideal-img/conflicted-transactions.e38e629.1280.png)Conflicted Transactions![Manual Correction](https://documentation.ixopay.com/manual/assets/ideal-img/manual-correction.7fbfefb.918.png)Manual Correction
 ## Manual Settlement[​](https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements#manual-settlement "Direct link to Manual Settlement")
 There are two options for creating provider settlements manually (see Create Provider Settlement):
   * **+ New Settlement** and add the transactions
@@ -102,7 +102,7 @@ To create a new settlement:
   8. Once you have added all transactions, click on **Process Settlement** to start processing the settlement (see Add Transactions screenshot). When creating manual settlements, all transactions are settled using the amounts and currency entered in the settlement.
 
 You can cancel the settlement at any time by clicking **Cancel Settlement** (see Add Transactions).
-![Create Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/new-provider-settlement.d3969e2.1280.png)Create Provider Settlement![Create Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/create-provider-settlement.7a0137b.1112.png)Create Provider Settlement![Add Transactions](https://documentation.ixopay.com/manual/assets/ideal-img/add-transactions.43fbd26.1280.png)Add Transactions
+![Create Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/new-provider-settlement.8841bfe.1280.png)Create Provider Settlement![Create Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/create-provider-settlement.7a0137b.1112.png)Create Provider Settlement![Add Transactions](https://documentation.ixopay.com/manual/assets/ideal-img/add-transactions.6c67968.1280.png)Add Transactions
 tip
 Preview your filter and search results before adding the transactions to the settlement!
 To upload a settlement file:
@@ -130,4 +130,4 @@ To create a Test Provider Settlement:
   4. Select **+ Create**.
 
 A Provider Settlement including 10 Transactions of different types and a output Settlement file is created in the Provider Settlements Overview.
-![Create Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/new-provider-settlement.d3969e2.1280.png)Create Provider Settlement![Test Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/test-provider-settlement.b7b6310.1112.png)Test Provider Settlement
+![Create Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/new-provider-settlement.8841bfe.1280.png)Create Provider Settlement![Test Provider Settlement](https://documentation.ixopay.com/manual/assets/ideal-img/test-provider-settlement.b7b6310.1112.png)Test Provider Settlement

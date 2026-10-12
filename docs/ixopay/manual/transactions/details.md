@@ -14,7 +14,7 @@ tags:
 - comments-https-documentation-ixopay-com-manual-docs-transactions-details-comments-direct-link-comments
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -22,7 +22,7 @@ related: []
   * Transaction Details
 
 # Transaction Details
-![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.f83c2c0.1280.png)Transaction Details
+![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.299d685.1280.png)Transaction Details
 For each Transaction shown in the Transaction list you have the option to show more Details such as Transaction, Payment, Customer, History, Risk, Postprocessing or Log Data by selecting the **Details** Button for the individual Transaction.
 Let's have a look at the individual sections:
 ## Action Buttons[​](https://documentation.ixopay.com/manual/docs/transactions/details#action-buttons "Direct link to Action Buttons")
@@ -36,10 +36,10 @@ Depending on your Permissions, you will see different Action Buttons in the top 
 
 ## Transaction Data[​](https://documentation.ixopay.com/manual/docs/transactions/details#transaction-data "Direct link to Transaction Data")
 In this section you will find data relating to the transaction itself (see Transaction Data Table)
-![Transaction Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-transaction-data.070d9cf.977.png)Transaction Data
+![Transaction Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-transaction-data.f068b3c.977.png)Transaction Data
 info
 To ensure investigations and troubleshooting are as quickly as possible, please include as much of the information (e.g. sample Transaction UUID, description of issue) as you can when contacting our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support) when encountering issues. For easy use click the **Copy Tx URL** Button in the Transaction Data.
-![Copy TX URL](https://documentation.ixopay.com/manual/assets/ideal-img/copy-tx-url.35adf42.1280.png)Copy TX URL  
+![Copy TX URL](https://documentation.ixopay.com/manual/assets/ideal-img/copy-tx-url.0c24aec.1280.png)Copy TX URL  
 | Field  | Description  |  
 | --- | --- |  
 | Transaction Status  |  **Green:** Successful Transaction   
@@ -74,7 +74,7 @@ To ensure investigations and troubleshooting are as quickly as possible, please 
 **MOTO:** Mobile order / Telephone order - Transaction initiated by Virtual Terminal  |  
 ## Payment Data[​](https://documentation.ixopay.com/manual/docs/transactions/details#payment-data "Direct link to Payment Data")
 In this section you will find data relating to the customers payment instrument used for the Transaction (see Payment Data Table)
-![Payment Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-payment-data.9368ddf.968.png)Payment Data  
+![Payment Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-payment-data.6eff432.968.png)Payment Data  
 | Field  | Description  |  
 | --- | --- |  
 | Card Holder  | Card Holder name  |  
@@ -95,7 +95,7 @@ In this section you will find data relating to the customers payment instrument 
 ## Customer Data[​](https://documentation.ixopay.com/manual/docs/transactions/details#customer-data "Direct link to Customer Data")
 In this section you will find data relating to the customer itself (see Customer Data Table). This data is provided by the Transaction Request.
 In case the customer data is linked to a [Customer Profile](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles), you can navigate to the Customer Profile directly by using the **Show** Button.
-![Customer Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-customer-data.4da772e.1280.png)Customer Data  
+![Customer Data](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-customer-data.6f2b725.1280.png)Customer Data  
 | Field  | Description  |  
 | --- | --- |  
 | Last Name  | Customer last name. [See also Blocklist Customer Data from Transaction list](https://documentation.ixopay.com/manual/docs/transactions/details/blocklist-customer-data-from-transaction-list)  |  
@@ -107,13 +107,13 @@ In case the customer data is linked to a [Customer Profile](https://documentatio
 | Company  | Customer Company Name  |  
 ## Status History[​](https://documentation.ixopay.com/manual/docs/transactions/details#status-history "Direct link to Status History")
 In this section you will find the different Processing Status Changes (e.g. await_redirect to redirected, redirected to success) as well as Settlement Status Changes (e.g. Notice Received, Funds Received, Pending, In Progress, Cleared) incl. timestamp.
-![Processing Status](https://documentation.ixopay.com/manual/assets/ideal-img/processing-status.8973413.1280.png)Processing Status![Settlement Status](https://documentation.ixopay.com/manual/assets/ideal-img/settlement-status.775989d.1280.png)Settlement Status
+![Processing Status](https://documentation.ixopay.com/manual/assets/ideal-img/processing-status.3f3864b.1280.png)Processing Status![Settlement Status](https://documentation.ixopay.com/manual/assets/ideal-img/settlement-status.c5c0163.1280.png)Settlement Status
 ## Transaction Tree & Followup Transactions[​](https://documentation.ixopay.com/manual/docs/transactions/details#transaction-tree--followup-transactions "Direct link to Transaction Tree & Followup Transactions")
 In this section, similar to the **Transaction Status** , you will find data and links to related transactions (e.g. pre-authorize and capture transactions, splits, refunds, chargebacks) and followup transactions (e.g. [scheduled transactions](https://documentation.ixopay.com/manual/docs/transactions/schedules/overview)) to the current transaction
-![Transaction Tree](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-transaction-tree.57fc5fc.1280.png)Transaction Tree
+![Transaction Tree](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-transaction-tree.b0d40cf.1280.png)Transaction Tree
 ## Risk-based Data[​](https://documentation.ixopay.com/manual/docs/transactions/details#risk-based-data "Direct link to Risk-based Data")
 In this section you will find data related to performed Risk Checks (see Risk-based Data Table). This section will only appear in case a [Risk Profile](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create) is [assigned on Merchant and/or Connector level](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/assign). Transactions processed by the Connector will be checked against the [Risk Rules](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create-risk-rules) configured in the assigned Risk Profile and based on the Risk Score and associated [Score Card Actions](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/score-card-actions), Transactions will be approved, declined or require a manual review, etc.
-![Risk Check Log](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-risk-check-log.a45e5d6.1280.png)Risk Check Log  
+![Risk Check Log](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-risk-check-log.98989f9.1280.png)Risk Check Log  
 | Field  | Description  |  
 | --- | --- |  
 | Risk Profile and Risk Rule  | Applied Risk Profiles and Rules  |  
@@ -131,7 +131,7 @@ tip
 For more information about Risk Profile, Risk Rules and Strategies see the [Risk Management](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles) section.
 ## Attached Schedules[​](https://documentation.ixopay.com/manual/docs/transactions/details#attached-schedules "Direct link to Attached Schedules")
 This section will be shown in case a Transaction is scheduled. For more information see also [Transaction Schedules](https://documentation.ixopay.com/manual/docs/transactions/schedules)
-![Attached Schedules](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-attached-schedules.1ee9b9e.990.png)Attached Schedules
+![Attached Schedules](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-attached-schedules.edc8c87.990.png)Attached Schedules
 ## Post-Processing Data[​](https://documentation.ixopay.com/manual/docs/transactions/details#post-processing-data "Direct link to Post-Processing Data")
 Depending on your [System Setup](https://documentation.ixopay.com/manual/docs/system-setup/fee-entities) and [Postprocessing Configuration](https://documentation.ixopay.com/manual/docs/post-processing) you may be able to see further information about Post-Processing data.
 This includes:
@@ -139,7 +139,7 @@ This includes:
   * [Provider Settlement](https://documentation.ixopay.com/manual/docs/post-processing/provider-settlements): Is the Transaction settled by the Provider
   * [Jobs](https://documentation.ixopay.com/manual/docs/post-processing/jobs): Are there any Post-Processing Jobs where this Transaction was considered for or Outgoing Settlements. Additionally you can set/remove the **invoice-able** flag, which may be relevant for particular job steps.
 
-![Post-Processing](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-overview.5e0d23a.1280.png)Post-Processing
+![Post-Processing](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-overview.7e03489.1280.png)Post-Processing
 File retention
 Files are retained for 12 months and permanently deleted thereafter.
 ## Comments[​](https://documentation.ixopay.com/manual/docs/transactions/details#comments "Direct link to Comments")
@@ -147,7 +147,7 @@ In this section you have the possibility to add internal comments to the individ
   1. Select **Add comment**
   2. Enter the **comment** and select **Save**
 
-![Comments](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-comments.daa305e.1280.png)Comments![Set Note & Confirm](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-set-note-confirm.54d683f.533.png)Set Note & Confirm
+![Comments](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-comments.4d21cf3.1280.png)Comments![Set Note & Confirm](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-set-note-confirm.b5600d5.533.png)Set Note & Confirm
 ## Logs[​](https://documentation.ixopay.com/manual/docs/transactions/details#logs "Direct link to Logs")
 In this section you will find all data relating to the transaction processing starting from the moment the API Request is received by the IXOPAY platform, including all intermediate (Payment Form Rendering, Redirecting, Postback Notifications) and executed actions with different PSPs in the background (Adapter Calls) with exact timestamp (UTC).
-![Logs](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-logs.85649f1.1280.png)Logs![Logs Entry](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-log-entry.4b2fa57.1280.png)Logs Entry
+![Logs](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-logs.0962eec.1280.png)Logs![Logs Entry](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-log-entry.6bb7a11.1280.png)Logs Entry

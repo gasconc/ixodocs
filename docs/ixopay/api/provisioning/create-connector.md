@@ -14,7 +14,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/api/provisioning/create-connector
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -34,6 +34,11 @@ A meta-connector can only be either a `routingMetaConnector` or a `multiMethodMe
   * To create a routing meta-connector, add `routingMetaConnector` and the corresponding properties.
   * To create a multi-method meta-connector, add `multiMethodMetaConnector` and the corresponding properties.
 
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Request[​](https://documentation.ixopay.com/api/provisioning/create-connector#request "Direct link to request")
 ### Path Parameters
 **merchantGuid** stringrequired
@@ -107,6 +112,12 @@ Connector configuration.
 Customer profile Container ID.
 **defaultRiskRuleSet** integer
 **description** string
+**paymentTemplateLayout** stringnullable
+Custom payment template layout of the connector.
+This is the `LAYOUT_NAME` used to resolve the connector's payment templates created with the FAST Editor (`/layouts/[LAYOUT_NAME]/internal-pages/payment/...`). It corresponds to the **Custom Payment Template Layout** setting of the connector in the admin UI.
+If omitted, the `default` layout is used and the connector returns `null` for this property. When updating a connector, the layout is only changed if the property is present in the request. Send an empty string to reset the connector to the `default` layout.
+**Possible values:** `<= 100 characters`
+**Example:**`my-custom-layout`
 **disabled** boolean
 **Example:**`false`
 **disabledTransactionTypes** TransactionType[]
@@ -243,6 +254,8 @@ Expiry time in hours.
   "businessCountry": "DE",  
 
   "description": "My test Connector",  
+
+  "paymentTemplateLayout": "my-custom-layout",  
 
   "disabledTransactionTypes": [  
 
@@ -472,6 +485,12 @@ Connector configuration.
 Customer profile Container ID.
 **defaultRiskRuleSet** integer
 **description** string
+**paymentTemplateLayout** stringnullable
+Custom payment template layout of the connector.
+This is the `LAYOUT_NAME` used to resolve the connector's payment templates created with the FAST Editor (`/layouts/[LAYOUT_NAME]/internal-pages/payment/...`). It corresponds to the **Custom Payment Template Layout** setting of the connector in the admin UI.
+If omitted, the `default` layout is used and the connector returns `null` for this property. When updating a connector, the layout is only changed if the property is present in the request. Send an empty string to reset the connector to the `default` layout.
+**Possible values:** `<= 100 characters`
+**Example:**`my-custom-layout`
 **disabled** boolean
 **Example:**`false`
 **disabledTransactionTypes** TransactionType[]
@@ -644,6 +663,8 @@ Expiry time in hours.
 
     "description": "string",  
 
+    "paymentTemplateLayout": "my-custom-layout",  
+
     "disabled": false,  
 
     "disabledTransactionTypes": [  
@@ -764,6 +785,8 @@ Expiry time in hours.
     "defaultRiskRuleSet": 213,  
 
     "description": "My test Connector",  
+
+    "paymentTemplateLayout": "my-custom-layout",  
 
     "disabled": false,  
 
@@ -985,6 +1008,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,  
   "defaultRiskRuleSet": 0,  
   "description": "string",  
+  "paymentTemplateLayout": "my-custom-layout",  
   "disabled": false,  
   "disabledTransactionTypes": [  
     "initial_debit"  
@@ -1052,6 +1076,7 @@ Body required
   "customerProfileContainer": 0,
   "defaultRiskRuleSet": 0,
   "description": "string",
+  "paymentTemplateLayout": "my-custom-layout",
   "disabled": false,
   "disabledTransactionTypes": [
     "initial_debit"
@@ -1110,6 +1135,8 @@ POST
   "businessCountry": "DE",  
 
   "description": "My test Connector",  
+
+  "paymentTemplateLayout": "my-custom-layout",  
 
   "disabledTransactionTypes": [  
 
@@ -1310,6 +1337,8 @@ POST
 
     "description": "string",  
 
+    "paymentTemplateLayout": "my-custom-layout",  
+
     "disabled": false,  
 
     "disabledTransactionTypes": [  
@@ -1430,6 +1459,8 @@ POST
     "defaultRiskRuleSet": 213,  
 
     "description": "My test Connector",  
+
+    "paymentTemplateLayout": "my-custom-layout",  
 
     "disabled": false,  
 
@@ -1612,6 +1643,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,  
   "defaultRiskRuleSet": 0,  
   "description": "string",  
+  "paymentTemplateLayout": "my-custom-layout",  
   "disabled": false,  
   "disabledTransactionTypes": [  
     "initial_debit"  
@@ -1667,6 +1699,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,
   "defaultRiskRuleSet": 0,
   "description": "string",
+  "paymentTemplateLayout": "my-custom-layout",
   "disabled": false,
   "disabledTransactionTypes": [
     "initial_debit"
@@ -1725,6 +1758,8 @@ POST
   "businessCountry": "DE",  
 
   "description": "My test Connector",  
+
+  "paymentTemplateLayout": "my-custom-layout",  
 
   "disabledTransactionTypes": [  
 
@@ -1925,6 +1960,8 @@ POST
 
     "description": "string",  
 
+    "paymentTemplateLayout": "my-custom-layout",  
+
     "disabled": false,  
 
     "disabledTransactionTypes": [  
@@ -2045,6 +2082,8 @@ POST
     "defaultRiskRuleSet": 213,  
 
     "description": "My test Connector",  
+
+    "paymentTemplateLayout": "my-custom-layout",  
 
     "disabled": false,  
 
@@ -2227,6 +2266,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,  
   "defaultRiskRuleSet": 0,  
   "description": "string",  
+  "paymentTemplateLayout": "my-custom-layout",  
   "disabled": false,  
   "disabledTransactionTypes": [  
     "initial_debit"  
@@ -2282,6 +2322,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,
   "defaultRiskRuleSet": 0,
   "description": "string",
+  "paymentTemplateLayout": "my-custom-layout",
   "disabled": false,
   "disabledTransactionTypes": [
     "initial_debit"
@@ -2340,6 +2381,8 @@ POST
   "businessCountry": "DE",  
 
   "description": "My test Connector",  
+
+  "paymentTemplateLayout": "my-custom-layout",  
 
   "disabledTransactionTypes": [  
 
@@ -2540,6 +2583,8 @@ POST
 
     "description": "string",  
 
+    "paymentTemplateLayout": "my-custom-layout",  
+
     "disabled": false,  
 
     "disabledTransactionTypes": [  
@@ -2660,6 +2705,8 @@ POST
     "defaultRiskRuleSet": 213,  
 
     "description": "My test Connector",  
+
+    "paymentTemplateLayout": "my-custom-layout",  
 
     "disabled": false,  
 
@@ -2842,6 +2889,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,  
   "defaultRiskRuleSet": 0,  
   "description": "string",  
+  "paymentTemplateLayout": "my-custom-layout",  
   "disabled": false,  
   "disabledTransactionTypes": [  
     "initial_debit"  
@@ -2897,6 +2945,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,
   "defaultRiskRuleSet": 0,
   "description": "string",
+  "paymentTemplateLayout": "my-custom-layout",
   "disabled": false,
   "disabledTransactionTypes": [
     "initial_debit"
@@ -2955,6 +3004,8 @@ POST
   "businessCountry": "DE",  
 
   "description": "My test Connector",  
+
+  "paymentTemplateLayout": "my-custom-layout",  
 
   "disabledTransactionTypes": [  
 
@@ -3155,6 +3206,8 @@ POST
 
     "description": "string",  
 
+    "paymentTemplateLayout": "my-custom-layout",  
+
     "disabled": false,  
 
     "disabledTransactionTypes": [  
@@ -3275,6 +3328,8 @@ POST
     "defaultRiskRuleSet": 213,  
 
     "description": "My test Connector",  
+
+    "paymentTemplateLayout": "my-custom-layout",  
 
     "disabled": false,  
 
@@ -3457,6 +3512,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,  
   "defaultRiskRuleSet": 0,  
   "description": "string",  
+  "paymentTemplateLayout": "my-custom-layout",  
   "disabled": false,  
   "disabledTransactionTypes": [  
     "initial_debit"  
@@ -3512,6 +3568,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,
   "defaultRiskRuleSet": 0,
   "description": "string",
+  "paymentTemplateLayout": "my-custom-layout",
   "disabled": false,
   "disabledTransactionTypes": [
     "initial_debit"
@@ -3570,6 +3627,8 @@ POST
   "businessCountry": "DE",  
 
   "description": "My test Connector",  
+
+  "paymentTemplateLayout": "my-custom-layout",  
 
   "disabledTransactionTypes": [  
 
@@ -3770,6 +3829,8 @@ POST
 
     "description": "string",  
 
+    "paymentTemplateLayout": "my-custom-layout",  
+
     "disabled": false,  
 
     "disabledTransactionTypes": [  
@@ -3890,6 +3951,8 @@ POST
     "defaultRiskRuleSet": 213,  
 
     "description": "My test Connector",  
+
+    "paymentTemplateLayout": "my-custom-layout",  
 
     "disabled": false,  
 
@@ -4072,6 +4135,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,  
   "defaultRiskRuleSet": 0,  
   "description": "string",  
+  "paymentTemplateLayout": "my-custom-layout",  
   "disabled": false,  
   "disabledTransactionTypes": [  
     "initial_debit"  
@@ -4127,6 +4191,7 @@ curl -L 'https://gateway.ixopay.com/api/provisioning/createConnector/:merchantGu
   "customerProfileContainer": 0,
   "defaultRiskRuleSet": 0,
   "description": "string",
+  "paymentTemplateLayout": "my-custom-layout",
   "disabled": false,
   "disabledTransactionTypes": [
     "initial_debit"

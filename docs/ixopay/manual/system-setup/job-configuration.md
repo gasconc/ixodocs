@@ -14,7 +14,7 @@ tags:
 - job-steps-https-documentation-ixopay-com-manual-docs-post-processing-jobs-job-steps-direct-link-job-steps
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/job-configuration
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -74,7 +74,7 @@ The **primitive types** are:
   * **DateParam** : a field containing a Date value
 
 Each field contains the following generic configuration parameters among further self-explanatory parameters:
-![Executed Job](https://documentation.ixopay.com/manual/assets/ideal-img/executed-job.058b456.1280.png)Executed Job![Primitive Types](https://documentation.ixopay.com/manual/assets/ideal-img/primitive-types.4a619da.1280.png)Primitive Types  
+![Executed Job](https://documentation.ixopay.com/manual/assets/ideal-img/executed-job.058b456.1280.png)Executed Job![Primitive Types](https://documentation.ixopay.com/manual/assets/ideal-img/primitive-types.d59d13d.1280.png)Primitive Types  
 | Field  | Description  |  
 | --- | --- |  
 | Name  | Internal field name for element, this can be used within certain steps afterward  |  
@@ -86,7 +86,7 @@ The **complex types** are:
   * **CompositeParam** : A collection of multiple primitive fields, which shall be grouped together or can be used as a line-based group of fields for the ListParam
   * **ListParam** : A list of primitive values, or a list of CompositeParam.
 
-![Complex Types](https://documentation.ixopay.com/manual/assets/ideal-img/complex-types.0a364aa.1280.png)Complex Types
+![Complex Types](https://documentation.ixopay.com/manual/assets/ideal-img/complex-types.06560b8.1280.png)Complex Types
 ### Step Configuration[​](https://documentation.ixopay.com/manual/docs/post-processing/jobs#step-configuration "Direct link to Step Configuration")
 Each job type contains one or more **steps** for "Collecting" information (e.g. fetch Transaction based on the configured criteria), "Processing" the collected data (e.g. calculate sum of Transaction values or Fees, those are written to so-called "Job Line Items") and "Exporting" data (e.g. writing the Transaction data or the processing results to files or external systems).
 For each step there are some generic configuration parameters you can configure such as:
@@ -99,7 +99,7 @@ For each step there are some generic configuration parameters you can configure 
 
 **Expand/Collapse** to see the configuration details for each step or **Remove/Duplicate** the step.
 Other configuration details are specific per [Collecting](https://documentation.ixopay.com/manual/docs/post-processing/jobs#collecting-steps), [Processing](https://documentation.ixopay.com/manual/docs/post-processing/jobs#processing-steps) and [Exporting](https://documentation.ixopay.com/manual/docs/post-processing/jobs#exporting-steps) step.
-![Generic configuration parameters steps](https://documentation.ixopay.com/manual/assets/ideal-img/generic-configuration-parameters-steps.0e58976.1280.png)Generic configuration parameters steps  
+![Generic configuration parameters steps](https://documentation.ixopay.com/manual/assets/ideal-img/generic-configuration-parameters-steps.c94a08a.1280.png)Generic configuration parameters steps  
 | Comparison  | Description  |  
 | --- | --- |  
 | Job Data Field  | Compares a field within the Job Data against the defined constraint value  |  
@@ -115,7 +115,7 @@ Other configuration details are specific per [Collecting](https://documentation.
 | contains  | Checks against the value. Results true if the checked value is contained in the specific value (e.g. "12" contains "2")  |  
 ## Collecting Steps[​](https://documentation.ixopay.com/manual/docs/post-processing/jobs#collecting-steps "Direct link to Collecting Steps")
 Collecting Steps are the first phase of a job. They are supposed to collect all data (Transactions or top-level data), that are necessary for further processing the job. You can add and configure as many Collecting Steps as you want. Below you can find a definition and key configuration parameters for every step.
-![Collecting Steps](https://documentation.ixopay.com/manual/assets/ideal-img/collecting-steps.be49ee5.1280.png)Collecting Steps  
+![Collecting Steps](https://documentation.ixopay.com/manual/assets/ideal-img/collecting-steps.fb633fe.1280.png)Collecting Steps  
 | Step  | Description  |  
 | --- | --- |  
 | **Convert Job Timezone**  | The job period is always set based on UTC time. If you want to process the Transactions in the jobs based on a different timezone, this should be the first step as it changes the job period to the chosen timezone.  |  
@@ -297,7 +297,7 @@ You are redirected in the Job Schedule Overview for the related entity. Follow t
   7. Enable the Job Schedule in the Job Schedule overview - by default new Job Schedules are disabled.
 
 You can disable, edit or delete Job Schedules anytime.
-![Merchant Job Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-job-schedule.129cb6f.1280.png)Merchant Job Schedule![Provider Job Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/provider-job-schedule.bdb2523.1280.png)Provider Job Schedule![Tenant Job Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/tenant-job-schedule.f00f3b3.1280.png)Tenant Job Schedule![Job schedule overview](https://documentation.ixopay.com/manual/assets/ideal-img/job-schedule-overview.c340bb4.1280.png)Job schedule overview![Create new schedule](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-schedule.ddae848.938.png)Create new schedule![Assign Connectors](https://documentation.ixopay.com/manual/assets/ideal-img/assign-connectors.676728a.1280.png)Assign Connectors
+![Merchant Job Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/merchant-job-schedule.bc7bfb3.1280.png)Merchant Job Schedule![Provider Job Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/provider-job-schedule.bdb2523.1280.png)Provider Job Schedule![Tenant Job Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/tenant-job-schedule.7a6fd18.1280.png)Tenant Job Schedule![Job schedule overview](https://documentation.ixopay.com/manual/assets/ideal-img/job-schedule-overview.3f0abed.1280.png)Job schedule overview![Create new schedule](https://documentation.ixopay.com/manual/assets/ideal-img/create-new-schedule.ddae848.938.png)Create new schedule![Assign Connectors](https://documentation.ixopay.com/manual/assets/ideal-img/assign-connectors.917c032.1280.png)Assign Connectors
 info
 The configuration view for the Job Schedules will always highlight the Global Schedule navigation section independently of the related entity. The related entity can be found in the title of the job schedule overview.
 ![Global Job Schedules: related entity](https://documentation.ixopay.com/manual/assets/ideal-img/global-job-schedules-entity.4c1230c.1280.png)Global Job Schedules: related entity
@@ -325,7 +325,7 @@ The executed job itself can be found in the **Job Overview.**
     6. # of Tx
     7. ...
 
-![Jobs Overview](https://documentation.ixopay.com/manual/assets/ideal-img/jobs-overview.4ae34eb.1280.png)Jobs Overview![Bulk Continue](https://documentation.ixopay.com/manual/assets/ideal-img/bulk-continue.0ff709d.1280.png)Bulk Continue![Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation.1a95490.666.png)Confirmation
+![Jobs Overview](https://documentation.ixopay.com/manual/assets/ideal-img/jobs-overview.a82ee52.1280.png)Jobs Overview![Bulk Continue](https://documentation.ixopay.com/manual/assets/ideal-img/bulk-continue.d377971.1280.png)Bulk Continue![Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation.1a95490.666.png)Confirmation
 tip
 You can search for a specific Job ID by using the Search Bar in the Top Bar of the User Interface. For conflicted Jobs there is also the option to configure [Alerts](https://documentation.ixopay.com/manual/docs/administrative-tools/manage-and-visualize-alerts).
 ### Job Details[​](https://documentation.ixopay.com/manual/docs/post-processing/jobs#job-details "Direct link to Job Details")
@@ -355,6 +355,6 @@ With the Action Buttons you can perform several different actions on the Job or 
   * **Expert Actions** : Reset Line Items & Recalculate, Recalculate Transaction Fees, Resolve Conflicts
   * **+ Add Pause Reason** , **Cancel Job** , **Continue Job:** Manually change the Job state
 
-![Job Details](https://documentation.ixopay.com/manual/assets/ideal-img/job-details.b894256.1280.png)Job Details![Transaction Tab](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-tab.5b741d9.1280.png)Transaction Tab![Line Item Tab](https://documentation.ixopay.com/manual/assets/ideal-img/line-item-tab.1324ccc.1280.png)Line Item Tab![Confirmation Line Item Change](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-line-item-change.4c85f23.1106.png)Confirmation Line Item Change![Documents Tab](https://documentation.ixopay.com/manual/assets/ideal-img/documents-tab.6292601.1280.png)Documents Tab![Change Transaction States](https://documentation.ixopay.com/manual/assets/ideal-img/change-transaction-states.1781185.994.png)Change Transaction States![Expert Actions](https://documentation.ixopay.com/manual/assets/ideal-img/expert-actions.08678db.1212.png)Expert Actions![Recalculate Transaction Fees](https://documentation.ixopay.com/manual/assets/ideal-img/screen-shot-2023-01-19-at-10-29-34-am.3dfc50f.992.png)Recalculate Transaction Fees
+![Job Details](https://documentation.ixopay.com/manual/assets/ideal-img/job-details.1d5c441.1280.png)Job Details![Transaction Tab](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-tab.2f35bf1.1280.png)Transaction Tab![Line Item Tab](https://documentation.ixopay.com/manual/assets/ideal-img/line-item-tab.1324ccc.1280.png)Line Item Tab![Confirmation Line Item Change](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation-line-item-change.4c85f23.1106.png)Confirmation Line Item Change![Documents Tab](https://documentation.ixopay.com/manual/assets/ideal-img/documents-tab.6292601.1280.png)Documents Tab![Change Transaction States](https://documentation.ixopay.com/manual/assets/ideal-img/change-transaction-states.1781185.994.png)Change Transaction States![Expert Actions](https://documentation.ixopay.com/manual/assets/ideal-img/expert-actions.6ad2e97.1212.png)Expert Actions![Recalculate Transaction Fees](https://documentation.ixopay.com/manual/assets/ideal-img/screen-shot-2023-01-19-at-10-29-34-am.3dfc50f.992.png)Recalculate Transaction Fees
 File retention
 Files are retained for 12 months and permanently deleted thereafter.

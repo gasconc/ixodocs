@@ -16,7 +16,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/adyen-direct
 portal: tokenex
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 

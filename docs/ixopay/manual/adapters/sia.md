@@ -13,7 +13,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/adapters/sia
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -30,7 +30,7 @@ Configure the following parameters for the Connector (see Connector Detail Overv
   6. Fill in the mandatory **Verify amount** — Amount to be used to create register Transactions (e.g 0.1)
   7. Fill in the mandatory **Verify currency** — Currency to be used to create register Transactions (e.g EUR)
 
-![Connector Detail Overview - SIA Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-sia-creditcard-vault-configuration.f159ea2.1280.png)Connector Detail Overview - SIA Creditcard - Vault Configuration
+![Connector Detail Overview - SIA Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-sia-creditcard-vault-configuration.6b79404.1280.png)Connector Detail Overview - SIA Creditcard - Vault Configuration
 ## Terminal Configuration[​](https://documentation.ixopay.com/manual/adapters/sia#terminal-configuration "Direct link to Terminal Configuration")
 The SIA Adapter requires **unique identifier** for each ShopID and each request to be sent. This is achieved by a terminal configuration for the connector.
 The configuration depends on your setup.
@@ -45,6 +45,6 @@ If you have multiple connectors using the same ShopID, follow these steps:
   8. Check **Enable** and click **+ Create** (see Terminal Configuration)
 
 If you want to set up just one connector with the ShopId, follow steps 1.-4.
-![Connector Detail Overview - SIA](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-sia.b7ede1b.1280.png)Connector Detail Overview - SIA![Terminal Tab](https://documentation.ixopay.com/manual/assets/ideal-img/terminal-tab.799644c.1280.png)Terminal Tab![Terminal Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/terminal-configuration.e8d6c8b.994.png)Terminal Configuration
+![Connector Detail Overview - SIA](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-sia.b7ede1b.1280.png)Connector Detail Overview - SIA![Terminal Tab](https://documentation.ixopay.com/manual/assets/ideal-img/terminal-tab.c225314.1280.png)Terminal Tab![Terminal Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/terminal-configuration.e8d6c8b.994.png)Terminal Configuration
 note
 It is crucial for the setup of multiple connectors using the same ShopID to set each Terminal ID following the description above since otherwise Transaction might be declined.

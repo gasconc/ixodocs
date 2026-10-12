@@ -15,7 +15,7 @@ tags:
 - transaction-api-xml-https-documentation-ixopay-com-manual-docs-api-testing-transaction-api-transaction-api-xml-direct-link-transaction-api-xml
 source_url: https://documentation.ixopay.com/manual/docs/api-testing/transaction-api
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -57,7 +57,7 @@ Click **Go to Transaction** to follow the link to the [Transaction Details](http
 ![Show JSON](https://documentation.ixopay.com/manual/assets/ideal-img/show-json.a8e972b.926.png)Show JSON![Result and Redirect iFrame Box](https://documentation.ixopay.com/manual/assets/ideal-img/result-and-redirect-iframe-box.f58e973.1280.png)Result and Redirect iFrame Box
 ### Transaction[​](https://documentation.ixopay.com/manual/docs/api-testing/transaction-api#transaction "Direct link to Transaction")
 In this section you can configure Transaction Details (see Transaction Table).
-![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.b7be6b0.878.png)Transaction Details  
+![Transaction Details](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details.4111d09.878.png)Transaction Details  
 | Field  | Description  |  
 | --- | --- |  
 | Transaction Type  | Select a mandatory Transaction Type for the scheduled transaction: Debit, Preauthorize, Capture, Void, Register, Deregister, Refund, Payout, Incremental Authorization  |  
@@ -236,7 +236,7 @@ This section is only relevant if Level 2/3 data is supported for the Connector u
 | Exemption Code  | Fill in an Exemption Code  |  
 ### Schedule[​](https://documentation.ixopay.com/manual/docs/api-testing/transaction-api#schedule "Direct link to Schedule")
 In this section you can fill in additional Schedule — data (see [Schedule Data](https://documentation.ixopay.com/manual/docs/api-testing/transaction-api#schedule-data) and also [Create a Schedule](https://documentation.ixopay.com/manual/docs/transactions/schedules/create) section).
-![Schedule Data](https://documentation.ixopay.com/manual/assets/ideal-img/schedule-data.0a1e841.1280.png)Schedule Data
+![Schedule Data](https://documentation.ixopay.com/manual/assets/ideal-img/schedule-data.90cd084.1280.png)Schedule Data
 #### Schedule Data[​](https://documentation.ixopay.com/manual/docs/api-testing/transaction-api#schedule-data "Direct link to Schedule Data")  
 | Field  | Description  |  
 | --- | --- |  

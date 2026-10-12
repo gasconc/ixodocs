@@ -7,7 +7,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/convert-register-to-debit-transaction
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -26,4 +26,4 @@ To configure the connector setting follow this steps:
   6. Insert the mandatory **Amount** to replace the original transaction amount
   7. Select the mandatory **Currency** to replace the original transaction amount and click **Save**
 
-![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-convert-register-debit.7a85116.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-convert-register-debit.e6ecc4a.1280.png)Connector Settings![Conversion Type Options](https://documentation.ixopay.com/manual/assets/ideal-img/conversion-type-options.53e1c16.752.png)Conversion Type Options
+![Connector Detail Overview](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-convert-register-debit.4ffd898.1280.png)Connector Detail Overview![Connector Settings](https://documentation.ixopay.com/manual/assets/ideal-img/connector-settings-convert-register-debit.5e49392.1280.png)Connector Settings![Conversion Type Options](https://documentation.ixopay.com/manual/assets/ideal-img/conversion-type-options.53e1c16.752.png)Conversion Type Options

@@ -13,7 +13,7 @@ tags:
 - reconciliation
 source_url: https://documentation.ixopay.com/manual/adapters/mercadopago
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -26,7 +26,7 @@ Configure the following parameters for the Connector (see Connector Detail Overv
   2. Fill in the mandatory **Public Key**
   3. Select the mandatory **Environment** : Live, Sandbox
 
-![Connector Detail Overview - Mercado Pago - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-mercado-pago-vault-configuration.e7f3c2d.1280.png)Connector Detail Overview - Mercado Pago - Vault Configuration
+![Connector Detail Overview - Mercado Pago - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-mercado-pago-vault-configuration.97280b1.1280.png)Connector Detail Overview - Mercado Pago - Vault Configuration
 For more information have a look at the adapter-specific API documentation
 ## Data Fetcher Configuration[​](https://documentation.ixopay.com/manual/adapters/mercadopago#data-fetcher-configuration "Direct link to Data Fetcher Configuration")
 You have the option to configure Data Fetchers (see section [Enable and Set Up Reconciliation on the Provider Level](https://documentation.ixopay.com/manual/docs/post-processing/provider)) either on Provider or on Connector Level, depending on which setup works better for your provider (see Edit Provider).

@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/merchant/profiles
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -20,7 +20,7 @@ related: []
 
 # Create and edit Merchant Profiles
 ## Video: Create and Set up a Merchant Profile[​](https://documentation.ixopay.com/manual/docs/merchant/profiles#video-create-and-set-up-a-merchant-profile "Direct link to Video: Create and Set up a Merchant Profile")
-![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-merchants.58c0491.1300.png)
+![](https://documentation.ixopay.com/manual/assets/ideal-img/preview-vimeo-merchants.eaf63e9.1300.png)
 How to create a new Merchant profile and how to set it up properly.
 ## Create Merchant Profile[​](https://documentation.ixopay.com/manual/docs/merchant/profiles#create-merchant-profile "Direct link to Create Merchant Profile")
 Create a new Merchant for your setup:
@@ -30,7 +30,7 @@ Create a new Merchant for your setup:
   4. Click **+ Create Merchant**.
 
 The newly created Merchant is enabled immediately and will show up in the Global Merchants Overview for further editing as well as associated configuration elements.
-![Global Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/global-merchants-overview.6c71a84.1280.png)Global Merchants Overview
+![Global Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/global-merchants-overview.acc8cca.1280.png)Global Merchants Overview
 Fill in the Base Data:
   1. **Name** : Add a name for this new Merchant. (Company name, business name, shop name, etc…)
   2. **External Merchant ID:** Such as CRM system ID.
@@ -44,7 +44,7 @@ Fill in the Additional Data
   1. **Default Risk Profile** and **Default Risk Profile for Use with Virtual Terminal** : Assign a specific Risk Profile to a Merchant, if applicable. This can be edited at a later stage as well. For further information consult the [Create a Risk Profile tutorial](https://documentation.ixopay.com/manual/docs/risk-management/risk-profiles/create).
   2. **Transaction types** : Select the Transaction types your Merchant could or would use to process payments. Per default all Transaction types remain available.
 
-![Refresh](https://documentation.ixopay.com/manual/assets/ideal-img/create-merchant.8eebe49.1280.png)Refresh
+![Refresh](https://documentation.ixopay.com/manual/assets/ideal-img/create-merchant.3927e41.1280.png)Refresh
 ## Edit Merchant Profile[​](https://documentation.ixopay.com/manual/docs/merchant/profiles#edit-merchant-profile "Direct link to Edit Merchant Profile")
 Create a new Merchant for your setup:
   1. Click **Edit** on the desired Merchant in the Global Merchants Overview

@@ -11,7 +11,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/manage-and-visualize-alerts
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -37,7 +37,7 @@ To change your alert settings:
       3. **Subscribe to all except specific Merchants:** Click **Edit Blocklist** to exclude specific Merchants (see Subscribe to all except specific Merchants)
   4. Click **Save all changes**
 
-![Alert Settings](https://documentation.ixopay.com/manual/assets/ideal-img/alert-settings.93fefa7.280.png)Alert Settings![Notification Categories](https://documentation.ixopay.com/manual/assets/ideal-img/notification-categories.0821a13.1280.png)Notification Categories![Subscribe to specific Merchants only](https://documentation.ixopay.com/manual/assets/ideal-img/subscribe-to-specific-merchants-only.69f1acb.1280.png)Subscribe to specific Merchants only![Modify Allowlist / Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/modify-allowlist-blocklist.43b4cf0.848.png)Modify Allowlist / Blocklist![Subscribe to all except specific Merchants](https://documentation.ixopay.com/manual/assets/ideal-img/subscribe-to-all-except-specific-merchants.66552b2.1280.png)Subscribe to all except specific Merchants
+![Alert Settings](https://documentation.ixopay.com/manual/assets/ideal-img/alert-settings.6636836.280.png)Alert Settings![Notification Categories](https://documentation.ixopay.com/manual/assets/ideal-img/notification-categories.36431ae.1280.png)Notification Categories![Subscribe to specific Merchants only](https://documentation.ixopay.com/manual/assets/ideal-img/subscribe-to-specific-merchants-only.66cc409.1280.png)Subscribe to specific Merchants only![Modify Allowlist / Blocklist](https://documentation.ixopay.com/manual/assets/ideal-img/modify-allowlist-blocklist.53c49d4.848.png)Modify Allowlist / Blocklist![Subscribe to all except specific Merchants](https://documentation.ixopay.com/manual/assets/ideal-img/subscribe-to-all-except-specific-merchants.66552b2.1280.png)Subscribe to all except specific Merchants
 To visualize and analyze the notifications/ conflicts select **Show all** from the drop-down under the bell icon**.** You’ll be redirected to the **Alert Overview**. This list includes all alerts that need your particular attention.
   1. **Date/ Time** : Transaction time
   2. **Type** : Alert category (e.g. Risk Management)
@@ -48,4 +48,4 @@ To visualize and analyze the notifications/ conflicts select **Show all** from t
   7. **Message** : Reason why the alert was sent (e.g. due to various Risk checks)
   8. **Menu** : Enable to **Pin** an alert, or mark a transaction as **dismiss** , **ignore** or **resolve**
 
-![Manage and visualize alerts](https://documentation.ixopay.com/manual/assets/ideal-img/manage-and-visualize-alerts-4.ee162ae.1280.png)Manage and visualize alerts
+![Manage and visualize alerts](https://documentation.ixopay.com/manual/assets/ideal-img/manage-and-visualize-alerts-4.2db6a21.1280.png)Manage and visualize alerts

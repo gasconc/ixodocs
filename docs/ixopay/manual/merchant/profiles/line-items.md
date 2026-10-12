@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/merchant/profiles/line-items
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -29,7 +29,7 @@ As a first step you should create [Fee Entities](https://documentation.ixopay.co
   6. Fill in the optional **Description** of the Line Item
   7. Select the optional **Connector** for the Line Item
 
-![Global Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/line-items-global-merchants-overview.8944a7f.1280.png)Global Merchants Overview![Line Items Overview](https://documentation.ixopay.com/manual/assets/ideal-img/line-items-overview-create.a418022.1280.png)Line Items Overview![Create Line Item](https://documentation.ixopay.com/manual/assets/ideal-img/create-line-item.acb9f3b.1280.png)Create Line Item
+![Global Merchants Overview](https://documentation.ixopay.com/manual/assets/ideal-img/line-items-global-merchants-overview.8895e9b.1280.png)Global Merchants Overview![Line Items Overview](https://documentation.ixopay.com/manual/assets/ideal-img/line-items-overview-create.683573b.1280.png)Line Items Overview![Create Line Item](https://documentation.ixopay.com/manual/assets/ideal-img/create-line-item.e3e58e6.1280.png)Create Line Item
 info
 ## Edit and delete Line Items[​](https://documentation.ixopay.com/manual/docs/merchant/profiles/line-items#edit-and-delete-line-items "Direct link to Edit and delete Line Items")
 Once created you can edit or delete Line Items. Follow these steps to edit Line Items:
@@ -41,4 +41,4 @@ Follow these steps to delete Line Items:
   1. Navigate to the **Line Items Overview**
   2. Click **Delete** for the Line Item and **confirm**
 
-![Line Items Overview](https://documentation.ixopay.com/manual/assets/ideal-img/line-items-overview-edit.f55a254.1280.png)Line Items Overview![Edit Line Item](https://documentation.ixopay.com/manual/assets/ideal-img/edit-line-item.a5da397.1280.png)Edit Line Item![Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation.0666e48.1022.png)Confirmation
+![Line Items Overview](https://documentation.ixopay.com/manual/assets/ideal-img/line-items-overview-edit.b0354dc.1280.png)Line Items Overview![Edit Line Item](https://documentation.ixopay.com/manual/assets/ideal-img/edit-line-item.2fe73a0.1280.png)Edit Line Item![Confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/confirmation.0666e48.1022.png)Confirmation

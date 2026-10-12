@@ -8,7 +8,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/mocopay
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -21,4 +21,4 @@ Configure the following parameters for the Connector (see Connector Config - Moc
   2. Fill in the mandatory **Password**
   3. Fill in the mandatory **API Secret**
 
-![Connector Config - Mocopay](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-mocopay.def17e8.1280.png)Connector Config - Mocopay
+![Connector Config - Mocopay](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-mocopay.d3de0a2.1280.png)Connector Config - Mocopay

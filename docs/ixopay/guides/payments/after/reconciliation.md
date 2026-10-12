@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/guides/payments/after/reconciliation
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -32,7 +32,9 @@ The [IXOPAY](https://www.ixopay.com) post-processing engine standardizes the rec
 IXOPAY platform post-processing engine
 PSP 2 Adapter
 PSP 1 Adapter
-HTTP POST,\ne-mail,\nupload: SFTP, OneDrive, S3
+HTTP POST,  
+e-mail,  
+upload: SFTP, OneDrive, S3
 Reconciliation API
 Transaction 1
 Reconciliation data

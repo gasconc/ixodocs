@@ -8,7 +8,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/selfpay
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -21,6 +21,6 @@ Configure the following parameters for the Connector (see Connector Config - Sel
   2. Fill in the mandatory **Password**
   3. Fill in the mandatory **API Secret**
 
-![Connector Config - Selfpay](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-selfpay.3269759.1280.png)Connector Config - Selfpay
+![Connector Config - Selfpay](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-selfpay.2f82239.1280.png)Connector Config - Selfpay
 tip
 This adapter is a so called Push-In adapter. Have a look at our [Push API documentation](https://documentation.ixopay.com/api/push/push-api) for further information.

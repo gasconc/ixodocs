@@ -9,7 +9,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/laybuy
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -20,4 +20,4 @@ Configure the following parameters for the Connector (see Connector Config - Lay
   1. Fill in the mandatory **Merchant ID** Unique ID to identify the Merchants. Generated and provided by PSP.
   2. Fill in the mandatory **API Key** Unique ID for authentication.
 
-![Connector Config - Laybuy](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-laybuy.1c4a407.1280.png)Connector Config - Laybuy
+![Connector Config - Laybuy](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-laybuy.d6471fb.1280.png)Connector Config - Laybuy

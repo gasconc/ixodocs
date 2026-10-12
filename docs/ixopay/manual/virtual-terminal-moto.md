@@ -14,7 +14,7 @@ tags:
 - item-https-documentation-ixopay-com-manual-docs-virtual-terminal-moto-item-direct-link-item
 source_url: https://documentation.ixopay.com/manual/docs/virtual-terminal-moto
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -43,13 +43,13 @@ to be used to initiate a new transaction and click **Virtual Terminal**. Fill in
   10. [Item](https://documentation.ixopay.com/manual/docs/virtual-terminal-moto#item)
 
 Click **Reset Form** to reset the form and enter different values or **Choose another Connector** to get back to the (Sub-)Tenant, Merchant, Connector selection page.
-![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.834b14f.1280.png)Virtual Terminal![Virtual Terminal Form \(Surcharge Calculation enabled\)](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal-form-surcharge-calculation-enabled.26ff203.1280.png)Virtual Terminal Form (Surcharge Calculation enabled)
+![Virtual Terminal](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal.8672cd3.1280.png)Virtual Terminal![Virtual Terminal Form \(Surcharge Calculation enabled\)](https://documentation.ixopay.com/manual/assets/ideal-img/virtual-terminal-form-surcharge-calculation-enabled.26ff203.1280.png)Virtual Terminal Form (Surcharge Calculation enabled)
 info
 **Pay By Link** is a feature also available in IXOPAY platform's Virtual Terminal. For more information have a look in the [Pay By Link](https://documentation.ixopay.com/manual/docs/connector-specific-features/paybylink) section
 ## Transaction[​](https://documentation.ixopay.com/manual/docs/virtual-terminal-moto#transaction "Direct link to Transaction")
 In this section you can configure Transaction Details (see Transaction Table).
 **Note:** Depending on your setup you can optionally enter a Surcharge manually or use the [Fee Management](https://documentation.ixopay.com/manual/docs/connector/fee-management) to calculate it automatically. If applicable, you can also add the automatic GST calculation.
-![Transaction ID automatically generated](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-id-automatically-generated.c9161ec.1280.png)Transaction ID automatically generated![Is Recurring](https://documentation.ixopay.com/manual/assets/ideal-img/is-recurring.0a07626.1280.png)Is Recurring![Preauthorize](https://documentation.ixopay.com/manual/assets/ideal-img/preauthorize.b7d893b.1204.png)Preauthorize  
+![Transaction ID automatically generated](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-id-automatically-generated.c9161ec.1280.png)Transaction ID automatically generated![Is Recurring](https://documentation.ixopay.com/manual/assets/ideal-img/is-recurring.f799b0b.1280.png)Is Recurring![Preauthorize](https://documentation.ixopay.com/manual/assets/ideal-img/preauthorize.b7d893b.1204.png)Preauthorize  
 | Field  | Description  |  
 | --- | --- |  
 | Transaction Type  | Select a Transaction Type for the scheduled transaction: Debit, Preauthorize, Capture, Void, Register, etc.  

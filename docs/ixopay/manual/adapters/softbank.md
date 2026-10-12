@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/adapters/softbank
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -29,4 +29,4 @@ Configure the following parameters for the Connector (see Connector Config - Sof
   10. Fill in the mandatory **Extra Data: debitUsername**
   11. Fill in the mandatory **Extra Data: debitPassword**
 
-![Connector Config - Softbank QR Payments](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-softbank-qr-payments.6dd8ef5.1280.png)Connector Config - Softbank QR Payments
+![Connector Config - Softbank QR Payments](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-softbank-qr-payments.ab4efe5.1280.png)Connector Config - Softbank QR Payments

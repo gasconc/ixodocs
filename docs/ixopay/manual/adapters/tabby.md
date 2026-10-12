@@ -7,7 +7,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/adapters/tabby
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -21,4 +21,4 @@ Configure the following parameters for the Connector (see Connector Config - Tab
   3. Fill in the mandatory **Extra Data: merchant_code**
   4. Fill in the mandatory **Extra Data: webhook_signature**
 
-![Connector Configuration - Tabby](https://documentation.ixopay.com/manual/assets/ideal-img/connector-configuration-tabby.bc82c1e.1280.png)Connector Configuration - Tabby
+![Connector Configuration - Tabby](https://documentation.ixopay.com/manual/assets/ideal-img/connector-configuration-tabby.0b87169.1280.png)Connector Configuration - Tabby

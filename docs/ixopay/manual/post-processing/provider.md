@@ -17,7 +17,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/post-processing/provider
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -45,7 +45,7 @@ Create a new Provider for your setup:
   5. Create the new Provider with **+ Create Provider**
 
 The new Provider will appear in the Provider Overview for the selected (Sub-)Tenant with options to show the Provider Details Overview (click **Overview**), [edit the Provider](https://documentation.ixopay.com/manual/docs/post-processing/provider#edit-a-provider), [assign Connectors](https://documentation.ixopay.com/manual/docs/post-processing/provider#assign-connectors) or [Schedule Post Processing Jobs](https://documentation.ixopay.com/manual/docs/post-processing/provider#schedule-a-job).
-![Provider Overview](https://documentation.ixopay.com/manual/assets/ideal-img/provider-overview.8257e77.1280.png)Provider Overview![Create Provider](https://documentation.ixopay.com/manual/assets/ideal-img/create-provider.55239e1.1280.png)Create Provider![Provider Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/provider-details-overview.86361ea.1280.png)Provider Details Overview
+![Provider Overview](https://documentation.ixopay.com/manual/assets/ideal-img/provider-overview.4f070a7.1280.png)Provider Overview![Create Provider](https://documentation.ixopay.com/manual/assets/ideal-img/create-provider.aa1cdec.1280.png)Create Provider![Provider Details Overview](https://documentation.ixopay.com/manual/assets/ideal-img/provider-details-overview.aadfb6a.1280.png)Provider Details Overview
 info
 [Rolling Reserve](https://documentation.ixopay.com/manual/docs/post-processing/rolling-reserve) is the process of securing a certain percentage of the processed Transaction volume for a defined time period to cover potential risks due to chargebacks. On Provider level the Rolling Reserve parameter can be added but is not used for further calculations.
 ## Edit a Provider[​](https://documentation.ixopay.com/manual/docs/post-processing/provider#edit-a-provider "Direct link to Edit a Provider")
@@ -62,7 +62,7 @@ To edit an existing Provider:
     2. Activate the Setting with **1**.
   7. Click **Save Provider**.
 
-![Edit Provider](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider.2ca3040.1280.png)Edit Provider
+![Edit Provider](https://documentation.ixopay.com/manual/assets/ideal-img/edit-provider.6b1e051.1280.png)Edit Provider
 tip
 Data Fetchers have implemented an input validation and Data Fetchers with an invalid configuration are automatically disabled. Nevertheless, manual upload of Settlement files is also possible for disabled Data Fetchers
 ## Assign Connectors[​](https://documentation.ixopay.com/manual/docs/post-processing/provider#assign-connectors "Direct link to Assign Connectors")
@@ -73,7 +73,7 @@ Follow these steps to assign Connectors to Providers:
   4. Select the **Merchant** and/or **Connector** and click **+ Assign Connector**
 
 Alternatively, you can also Connectors to Providers in the [Connector Base Data](https://documentation.ixopay.com/manual/docs/connector/create). The assigned Connector will appear in the Overview of assigned Connectors and in the Provider Details Overview. You can **detach** the Connector at any time.
-![Assigned Connectors](https://documentation.ixopay.com/manual/assets/ideal-img/assigned-connectors.a07ef79.1280.png)Assigned Connectors![Assign new Connector](https://documentation.ixopay.com/manual/assets/ideal-img/assign-new-connector.a7f48af.922.png)Assign new Connector
+![Assigned Connectors](https://documentation.ixopay.com/manual/assets/ideal-img/assigned-connectors.ec0ce54.1280.png)Assigned Connectors![Assign new Connector](https://documentation.ixopay.com/manual/assets/ideal-img/assign-new-connector.a7f48af.922.png)Assign new Connector
 note
 In order to avoid reconciliation and settlement conflicts, make sure to assign the Connectors before retrieving reconciliation and settlement data.
 ## Schedule a Job[​](https://documentation.ixopay.com/manual/docs/post-processing/provider#schedule-a-job "Direct link to Schedule a Job")
@@ -86,7 +86,7 @@ Lastly, you can also schedule [Post Processing Jobs](https://documentation.ixopa
   6. **Enable** the Schedule (new schedules are deactivated by default).
 
 You can **edit** and **delete** Schedules on the Provider level at any time.
-![Provider Schedules](https://documentation.ixopay.com/manual/assets/ideal-img/provider-schedules.827af84.1280.png)Provider Schedules![New Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/new-schedule.5cd147a.926.png)New Schedule
+![Provider Schedules](https://documentation.ixopay.com/manual/assets/ideal-img/provider-schedules.9efaff2.1280.png)Provider Schedules![New Schedule](https://documentation.ixopay.com/manual/assets/ideal-img/new-schedule.5cd147a.926.png)New Schedule
 ## Settings[​](https://documentation.ixopay.com/manual/docs/post-processing/provider#settings "Direct link to Settings")  
 | Setting name  | Description  | Value  |  
 | --- | --- | --- |  

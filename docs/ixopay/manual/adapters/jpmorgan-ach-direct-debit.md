@@ -14,7 +14,7 @@ tags:
 - api
 source_url: https://documentation.ixopay.com/manual/adapters/jpmorgan-ach-direct-debit
 portal: ixopay-manual
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -46,7 +46,7 @@ Configure the following parameters for the Connector (see Connector Detail Overv
   19. Upload the mandatory **Digital Signature Private Key** and **Digital Signature Certificate** (PEM content) — used to sign every request payload as a JWS
   20. Fill in the optional **Digital Signature Key ID**
 
-![Connector Detail Overview - JPMorgan ACH Direct Debit](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-jpmorgan-ach-direct-debit.e2cc9a6.372.png)Connector Detail Overview - JPMorgan ACH Direct Debit
+![Connector Detail Overview - JPMorgan ACH Direct Debit](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-jpmorgan-ach-direct-debit.2bc3513.372.png)Connector Detail Overview - JPMorgan ACH Direct Debit
 ### Authentication (OAuth2)[​](https://documentation.ixopay.com/manual/adapters/jpmorgan-ach-direct-debit#authentication-oauth2 "Direct link to Authentication \(OAuth2\)")
 JPMorgan ACH Direct Debit supports two OAuth2 flows, selected via **Use OAuth JWT Client Assertion** :
   * **JWT bearer client assertion (default)** — the connector signs its own client-assertion JWT. Provide **OAuth Private Key** (mandatory for this flow) and optionally **OAuth Key ID** , **OAuth Audience** , **OAuth Scope** , and **OAuth Token URL** (defaults to `https://login.jpmorgan.com/oauth2/token` if left blank).

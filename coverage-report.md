@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-10-05T14:24:57+00:00_
+_Generated at 2026-10-12T15:15:08+00:00_
 
-**346 missing** · **3 stale** across 3 source(s).
+**347 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **955** · Indexed: **609** · Missing: **346** · Stale: **2**
+- Published: **956** · Indexed: **609** · Missing: **347** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -314,6 +314,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/manual/adapters/trustly
 - https://documentation.ixopay.com/manual/adapters/un-doi
 - https://documentation.ixopay.com/manual/adapters/unzer
+- https://documentation.ixopay.com/manual/adapters/usio
 - https://documentation.ixopay.com/manual/adapters/valitor
 - https://documentation.ixopay.com/manual/adapters/vantiv
 - https://documentation.ixopay.com/manual/adapters/volt

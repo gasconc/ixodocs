@@ -12,7 +12,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/api/provisioning/list-tenants
 portal: ixopay-dev
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -27,6 +27,11 @@ GET
 ## https://gateway.ixopay.com/api/provisioning/listTenants
 
 ```Returns the sub-tenants of the API key's tenant.
+Rate limit
+Please be aware of the rate limit for this API endpoint:
+  * **Total limit:** Each unique API user is limited to to 100 requests per 60-second window.
+
+If these limits are exceeded, the server will respond with a **HTTP 429** status code, indicating too many requests. Please ensure to manage your requests within these limits to maintain uninterrupted service.
 ## Responses[​](https://documentation.ixopay.com/api/provisioning/list-tenants#responses "Direct link to Responses")
   * 200
   * 401

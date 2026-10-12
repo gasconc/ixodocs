@@ -17,7 +17,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/ixopay
 portal: ixopay-modules
-updated: '2026-10-05'
+updated: '2026-10-12'
 related: []
 ---
 
@@ -37,11 +37,11 @@ For detailed guidance on how to obtain these credentials, refer to the [API Keys
 ### Find your API Key & API Key Password[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/ixopay#find-your-api-key--api-key-password "Direct link to Find your API Key & API Key Password")
 To create your API Key and API Key Password in IXOPAY, follow these steps:
   1. Log in to the IXOPAY portal and navigate to System Setup → API Keys.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/ixopay_tenant_api_keys.0c05a2c.760.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/ixopay_tenant_api_keys.c78c0cc.760.png)
   2. Click New API Key, then select BDS (BI Data Source) under the Services section.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/ixopay_create_new_api_keys.225a950.871.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/ixopay_create_new_api_keys.e5e8f1f.871.png)
   3. After creating the key, your API Key and API Key Password will be displayed. This is the only time the password will be visible, so make sure to securely store it before closing the window.
-![](https://documentation.ixopay.com/modules/assets/ideal-img/ixopay_Api_key_successful.166c4dc.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/ixopay_Api_key_successful.3d3e872.1600.png)
   4. Enter your credentials in the IXOPAY Payments Intelligence → Connections → IXOPAY Connection section.
 
 ### Importing Historical Data[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/ixopay#importing-historical-data "Direct link to Importing Historical Data")
