@@ -15,7 +15,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/ebanx
 portal: tokenex
-updated: '2026-10-12'
+updated: '2026-10-19'
 related: []
 ---
 

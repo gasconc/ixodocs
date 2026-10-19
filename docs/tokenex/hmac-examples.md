@@ -11,7 +11,7 @@ tags:
 - gateway
 source_url: ''
 portal: tokenex
-updated: '2026-10-12'
+updated: '2026-10-19'
 related: []
 ---
 

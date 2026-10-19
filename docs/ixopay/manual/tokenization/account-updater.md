@@ -14,7 +14,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/account-updater
 portal: ixopay-manual
-updated: '2026-10-12'
+updated: '2026-10-19'
 related: []
 ---
 

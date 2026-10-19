@@ -15,7 +15,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/api/provisioning/create-nt-enrollment
 portal: ixopay-dev
-updated: '2026-10-12'
+updated: '2026-10-19'
 related: []
 ---
 

@@ -16,7 +16,7 @@ tags:
 - transaction
 source_url: ''
 portal: congrify
-updated: '2026-10-12'
+updated: '2026-10-19'
 related: []
 ---
 

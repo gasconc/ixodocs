@@ -8,7 +8,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/docs/guides/getting-started
 portal: ixopay-dev
-updated: '2026-10-12'
+updated: '2026-10-19'
 related: []
 ---
 

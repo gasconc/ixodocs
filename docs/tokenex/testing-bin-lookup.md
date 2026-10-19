@@ -7,7 +7,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/testing-bin-lookup
 portal: tokenex
-updated: '2026-10-12'
+updated: '2026-10-19'
 related: []
 ---
 

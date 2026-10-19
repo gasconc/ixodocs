@@ -16,7 +16,7 @@ tags:
 - observability
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/alerts
 portal: ixopay-modules
-updated: '2026-10-12'
+updated: '2026-10-19'
 related: []
 ---
 
