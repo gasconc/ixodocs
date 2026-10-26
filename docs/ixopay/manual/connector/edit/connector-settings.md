@@ -15,7 +15,7 @@ tags:
 - expert-settings-migration-settings-https-documentation-ixopay-com-manual-docs-connector-edit-connector-settings-expert-settings-migration-settings-direct-link-expert-settings-migration-settings
 source_url: https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings
 portal: ixopay-manual
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 
@@ -103,6 +103,7 @@ On expiration, some adapters can additionally expire the transaction on the PSP 
 | Chargeback Reversal: Inform Email  | If a Chargeback Reversal comes in, notify the given email address  | email address  |  
 | Meta-Connector: Re-Route Refunds  | Enabled re-routing of Refunds considering the Routing Rules  | 1  |  
 | Customer Data: Copy from referenced transaction  | Copies all customer data from the referenced transactions (for CoF and Recurring transactions)  | 1  |  
+| Customer Profile: Only store selected customer data fields on profile creation (transaction processing only)  | Restricts which transaction customer data fields get stored in the customer profile when a new profile is created during transaction processing. Unselected fields will not be stored on the profile. The data will still be used for transaction processing and sent to the PSP regardless of this setting. Select **Store no customer data** to store none of the fields (this option cannot be combined with individual fields). It is applied from the connector the transaction is submitted to (connector or meta-connector).  | customer data fields, or "Store no customer data" (mutually exclusive with the individual fields)  |  
 | Hooks: Transaction Success  | Enables various actions once a transaction succeeds (e.g. trigger email sending through Sendgrid)  | [various](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/success-hooks)  |  
 | 3DSecure: Check  | Sets a fixed 3D-Secure Requirement flag on any transaction  | optional (not for recurring), mandatory (not for recurring), optional (for all), mandatory (for all)  |  
 | Allowed Card Schemes  | [Restricts which card schemes the connector accepts; transactions with other schemes are declined](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/allowed-card-schemes)  | [various](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/allowed-card-schemes)  |  

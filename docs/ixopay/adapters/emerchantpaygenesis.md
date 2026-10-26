@@ -14,7 +14,7 @@ tags:
 - chargeback
 source_url: https://documentation.ixopay.com/adapters/emerchantpaygenesis
 portal: ixopay-dev
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 
@@ -47,6 +47,12 @@ This page provides an overview of the payments methods provided by the Emerchant
 | currency  | String  | **true**  | Base currency for the order with three-character currency code  |  
 | amount  | Number  | **true**  | Amount of transaction in minor currency unit  |  
 | remote_ip  | String  | **true**  | IPv4 or IPv6 address of customer  |  
+| first_name  | String  | **true**  | Customer first name; inherited from the referenced initial transaction if omitted  |  
+| last_name  | String  | **true**  | Customer last name; inherited from the referenced initial transaction if omitted  |  
+| address1  | String  | **true**  | Primary address; inherited from the referenced initial transaction if omitted  |  
+| zip_code  | String  | **true**  | Postal code; inherited from the referenced initial transaction if omitted  |  
+| city  | String  | **true**  | City; inherited from the referenced initial transaction if omitted. Mandatory at emerchantpay from 1 September 2026  |  
+| country  | String  | **true**  | Country code (ISO 3166-1 alpha-2); inherited from the referenced initial transaction if omitted. Mandatory at emerchantpay from November 2026  |  
 ## Mandatory parameters for Refund[​](https://documentation.ixopay.com/adapters/emerchantpaygenesis#mandatory-parameters-for-refund "Direct link to Mandatory parameters for Refund")  
 | Data  | Type  | Required  | Description  |  
 | --- | --- | --- | --- |  

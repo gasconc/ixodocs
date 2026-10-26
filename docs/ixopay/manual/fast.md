@@ -14,7 +14,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/manual/docs/fast
 portal: ixopay-manual
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 

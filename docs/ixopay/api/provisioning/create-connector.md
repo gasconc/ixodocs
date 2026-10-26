@@ -14,7 +14,7 @@ tags:
 - recurring
 source_url: https://documentation.ixopay.com/api/provisioning/create-connector
 portal: ixopay-dev
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 
@@ -197,6 +197,12 @@ Identifier of risk rule profile for virtual terminal.
 **risk-engine:store-test-tx** string
 **settlement:create-unknown-transaction** string
 **threedsecure:check** string
+**tx:allowed-card-schemes** string
+Restricts which card schemes the connector accepts. The value is a JSON-encoded string with:
+    * `schemes` - list of accepted card schemes. Possible values: `visa`, `visa_electron`, `mastercard`, `amex`, `diners`, `jcb`, `discover`, `unionpay`, `maestro`, `uatp`, `dinacard`, `mada`, `meeza`, `elo`, `troy`
+    * `allow_unknown` - whether cards whose scheme cannot be determined are accepted
+If the setting is not present, the connector accepts all card schemes.
+**Example:**`{"schemes":["visa","mastercard"],"allow_unknown":false}`
 **tx:expiration-minutes** string
 **vault:external-vault-connector-guid** string
 **view:allow-merchant-upload** string
@@ -576,6 +582,12 @@ Identifier of risk rule profile for virtual terminal.
 **risk-engine:store-test-tx** string
 **settlement:create-unknown-transaction** string
 **threedsecure:check** string
+**tx:allowed-card-schemes** string
+Restricts which card schemes the connector accepts. The value is a JSON-encoded string with:
+    * `schemes` - list of accepted card schemes. Possible values: `visa`, `visa_electron`, `mastercard`, `amex`, `diners`, `jcb`, `discover`, `unionpay`, `maestro`, `uatp`, `dinacard`, `mada`, `meeza`, `elo`, `troy`
+    * `allow_unknown` - whether cards whose scheme cannot be determined are accepted
+If the setting is not present, the connector accepts all card schemes.
+**Example:**`{"schemes":["visa","mastercard"],"allow_unknown":false}`
 **tx:expiration-minutes** string
 **vault:external-vault-connector-guid** string
 **view:allow-merchant-upload** string

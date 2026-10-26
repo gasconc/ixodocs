@@ -1,7 +1,6 @@
 ---
 title: Method reference
-summary: ' Hosted fields — payment.jshttps://documentation.ixopay.com/docs/reference/integration/payment.js  Method
-  reference'
+summary: ' Hosted fields — payment.jshttps://documentation.ixopay.com/docs/reference/integration/payment.js'
 tags:
 - methods-https-documentation-ixopay-com-docs-reference-integration-payment-methods-methods-direct-link-methods
 - init-https-documentation-ixopay-com-docs-reference-integration-payment-methods-init-direct-link-init
@@ -15,13 +14,13 @@ tags:
 - setnumberinputtype-https-documentation-ixopay-com-docs-reference-integration-payment-methods-setnumberinputtype-direct-link-setnumberinputtype
 source_url: https://documentation.ixopay.com/docs/reference/integration/payment.js/methods
 portal: ixopay-dev
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 
 * [Integration](https://documentation.ixopay.com/docs/reference/integration)
   * [Hosted fields — payment.js](https://documentation.ixopay.com/docs/reference/integration/payment.js)
-  * Method reference
+  * methods
 
 # Method reference
 Methods for initializing and using `PaymentJs`.
@@ -53,7 +52,8 @@ The selected connector, identified by the `publicIntegrationKey`,
     * must use the same [customer profile container](https://documentation.ixopay.com/docs/reference/features/customer-profiles#customer-profile-containers) as the used `paymentToken`, or
     * must belong to the same merchant as the connector identified by the `referenceTransactionId`.
   * Reference to a [register or debit with register transaction](https://documentation.ixopay.com/docs/reference/concepts/transactions/types) for which the CVV will be refreshed:
-    * `referenceTransactionId` (string): the referenced transaction ID. - `paymentToken` (string): the [customer profile](https://documentation.ixopay.com/docs/reference/features/customer-profiles#creating-a-customer-profile) payment token.
+    * `referenceTransactionId` (string): the referenced transaction ID.
+    * `paymentToken` (string): the [customer profile](https://documentation.ixopay.com/docs/reference/features/customer-profiles#creating-a-customer-profile) payment token.
   * `cvvDivId` (string): the `id` of the `` which will contain the CVV code.
   * `completeCallback` (function: `(PaymentJs) => void`): a callback function that will receive the initialized `PaymentJs` as first argument.
 
@@ -876,7 +876,7 @@ PaymentJs.onCvvInput(callbackFunction);
 ```This function is deprecated in favor of [`cvvOn('input', callbackFunction)`](https://documentation.ixopay.com/docs/reference/integration/payment.js/methods#cvvon).
   * [Integration](https://documentation.ixopay.com/docs/reference/integration)
   * [Hosted fields — payment.js](https://documentation.ixopay.com/docs/reference/integration/payment.js)
-  * Method reference
+  * methods
 ```
 
 PaymentJs.init(publicIntegrationKey, numberDivId, cvvDivId, completeCallback);  

@@ -10,7 +10,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/3ds-version-2-challenge-test-cases
 portal: tokenex
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 

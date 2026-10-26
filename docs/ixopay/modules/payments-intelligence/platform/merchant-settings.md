@@ -12,7 +12,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/merchant-settings
 portal: ixopay-modules
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 
@@ -26,7 +26,7 @@ To start, navigate to the Merchant Settings under your User tab → Merchant Set
 ## Integrating Slack® as a notification channel[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/merchant-settings#integrating-slack-as-a-notification-channel "Direct link to Integrating Slack® as a notification channel")
   1. On the IXOPAY Payments Intelligence web-app -> Merchant Settings, you can initiate the Slack integration by clicking on the 'Connect to Slack' button
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_2.64a418a.1600.png)
-  2. You will be re-directed to the Slack website to assign your company Slack workspace, review and allow the necessary app permissions and submit the request to your company Slack Administrator to integrate with the Congrify Payments Intelligence Business Intelligence app on Slack. Please note that our Slack app cannot be directly accessed through the Slack App Marketplace, and you would need to enable it as instructed above.
+  2. You will be re-directed to the Slack website to assign your company Slack workspace, review and allow the necessary app permissions and submit the request to your company Slack Administrator to integrate with the Congrify Payments Intelligence Business Intelligence app on Slack. Please note that our Slack app cannot be directly accessed through the Slack App Marketplace, and you would need to enable it as instructed above. Please also note that your Organizations Slack Admin needs be part of that specific Slack Channel (i.e. where our Slack app needs to be enabled) organizations' Slack instance, in order to find and fully onboard our Slack app through the “Add an Agent or App” button.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_3.1b3b16a.1600.png)
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/MerchantSettings_4.fe7b566.1600.png)
   3. Alternatively, you may also setup your Business Alerts to be sent over the official Slack email, which can further send updates and notifications to the corresponding Slack channel

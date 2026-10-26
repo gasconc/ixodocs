@@ -6,7 +6,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/styling-the-iframe
 portal: tokenex
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 

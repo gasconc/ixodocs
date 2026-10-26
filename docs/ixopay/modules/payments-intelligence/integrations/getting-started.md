@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/getting-started
 portal: ixopay-modules
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 
@@ -73,6 +73,7 @@ IXOPAY Payments Intelligence currently offers native integrations with the follo
 | PSP  | URL  |  
 | --- | --- |  
 | **Adyen**  |   |  
+| **Amazon Payment Services**  |   |  
 | **Barclaycard**  |   |  
 | **Braintree**  |   |  
 | **Chargebee**  |   |  

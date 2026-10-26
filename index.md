@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-10-19 | Total pages: 817
+> Last updated: 2026-10-26 | Total pages: 818
 
 ## Ixopay Developer Hub (237 pages)
 
@@ -247,7 +247,7 @@
 - [Form styling](docs/ixopay/reference/integration/payment.js/advanced-guides/form-styling.md) — Hosted fields — payment.jshttps://documentation.ixopay.com/docs/reference/integration/payment.js  Advanced guideshttps://documentation.ixopay.com/d...
 - [Error codes](docs/ixopay/reference/integration/payment.js/error-codes.md) — Hosted fields — payment.jshttps://documentation.ixopay.com/docs/reference/integration/payment.js  Error codes
 - [Event listening](docs/ixopay/reference/integration/payment.js/event-listening.md) — Hosted fields — payment.jshttps://documentation.ixopay.com/docs/reference/integration/payment.js  Event listening
-- [Method reference](docs/ixopay/reference/integration/payment.js/methods.md) — Hosted fields — payment.jshttps://documentation.ixopay.com/docs/reference/integration/payment.js  Method reference
+- [Method reference](docs/ixopay/reference/integration/payment.js/methods.md) — Hosted fields — payment.jshttps://documentation.ixopay.com/docs/reference/integration/payment.js
 - [Processing options](docs/ixopay/reference/integration/processing-options.md) — Processing options
 - [Full-page redirect](docs/ixopay/reference/integration/processing-options/full-page-redirect.md) — Processing optionshttps://documentation.ixopay.com/docs/reference/integration/processing-options  Full-page redirect
 - [Hosted payment pages](docs/ixopay/reference/integration/processing-options/hosted-payment-pages.md) — Processing optionshttps://documentation.ixopay.com/docs/reference/integration/processing-options  Hosted payment pages
@@ -409,7 +409,7 @@
 - [Pause, Continue, Retry or Cancel Schedules](docs/ixopay/manual/transactions/schedules/pause-continue-retry-cancel.md) — Transaction Scheduleshttps://documentation.ixopay.com/manual/docs/transactions/schedules  Pause, Continue, Retry or Cancel Schedules
 - [Virtual Terminal (MOTO)](docs/ixopay/manual/virtual-terminal-moto.md) — Virtual Terminal MOTO
 
-## Ixopay Modules (219 pages)
+## Ixopay Modules (220 pages)
 
 ### Modules
 - [Overview](docs/ixopay/modules/api.md) — Welcome to the IXOPAY platformhttps://www.ixopay.com modules API reference. The IXOPAY platform modules offers several APIs to process online payme...
@@ -447,6 +447,7 @@
 - [Snowflake Integration](docs/ixopay/modules/payments-intelligence/data-pipelines/snowflake.md) — Data Pipelines  Snowflake Integration
 - [Unified Reports](docs/ixopay/modules/payments-intelligence/data-pipelines/unified-reports.md) — Data Pipelines  Unified Reports
 - [Adyen](docs/ixopay/modules/payments-intelligence/integrations/adyen.md) — Adyen  is a leading global payment platform that provides businesses with a seamless way to accept payments online, in-app, and in-store. Known for...
+- [Amazon Payment Services](docs/ixopay/modules/payments-intelligence/integrations/amazon.md) — Amazon Payment Services
 - [Barclaycard](docs/ixopay/modules/payments-intelligence/integrations/barclaycard.md) — Barclaycard  is a UK-based payment processing provider and part of Barclays, serving hundreds of thousands of businesses across various industries....
 - [Braintree](docs/ixopay/modules/payments-intelligence/integrations/braintree.md) — Braintree  is a full-stack payment platform that simplifies online and mobile payments for businesses. Acquired by PayPal in 2013, Braintree enable...
 - [Chargebee](docs/ixopay/modules/payments-intelligence/integrations/chargebee.md) — Chargebee  is a subscription management and recurring billing platform that helps businesses automate invoicing, payments, and revenue operations....

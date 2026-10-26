@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/get-payment-bundle
 portal: ixopay-modules
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 
@@ -24,7 +24,7 @@ related: []
   * Get Payment Bundle
 
 # Get Payment Bundle
-This method is used to retrieve a cryptogram for an existing TokenEx token that has a network token associated with it. The cryptogram will be required by your payment gateway or processor to process customer-initiated transactions (CIT) using a network token. A cryptogram is not typically required for subsequent subscription/recurring merchant-initiated transactions (MIT).
+This method is used to retrieve a cryptogram for an existing TokenEx token that has a network token associated with it. The cryptogram is required by your payment gateway or processor to process customer-initiated transactions (CIT) using a network token. A cryptogram is not typically required for subsequent subscription/recurring merchant-initiated transactions (MIT).
   * **Test URI** : 
   * **Prod US URI** : 
   * **Prod EU URI** : 
@@ -35,22 +35,19 @@ This method is used to retrieve a cryptogram for an existing TokenEx token that 
 | HTTP Request Header  | Description  |  
 | --- | --- |  
 | tx-tokenex-id*  | Like a username, this ID logically segments your tokenized data.  |  
-| tx-apikey*  | Controls your access to individual function in the API  |  
+| tx-apikey*  | Controls your access to individual functions in the API  |  
 **Request Body Parameters** :
-A denotes an applicable field, A* denotes required under certain conditions, N/A is not applcable, and * denotes a required field under all conditions  
+A denotes an applicable field, A* denotes required under certain conditions, N/A is not applicable, and * denotes a required field under all conditions  
 | Parameter  | Description  | Visa  | Mastercard  | AMEX  |  
 | --- | --- | --- | --- | --- |  
-| bundleMetaData  | The type of bundle to be generated. Possible values: Cryptogram, Token, TokenCryptogram. Defaults to "Cryptogram".  | A  | A  | A  |  
-| amount  | The transaction amount. Up to 10 digits in ‘xxx.xx’ format.  | N/A  | N/A  | *  |  
-| unpredictableNumber  | A value to provide variability and uniqueness to the generation of a cryptogram (8-byte hex encoded string). *Required if the GenerateUnpredictableNumber flag is not set during on-boarding of MDES.  | N/A  | A*  | N/A  |  
-| applicationTransactionCounter  | *Only required for INAPP PresentationMode type (see Network Tokenize method).  | A*  | N/A  | N/A  |  
-| cryptogramValue  | Value of the CAVV cryptogram. *Required for CTAVV type cryptogram. N/A for TAVV and DTVV types.  | A*  | N/A  | N/A  |  
-| merchantId  | Merchant identifier assigned by the acquirer. *Required if available.  | A*  | N/A  | A*  |  
-| ECI  | EC indicator for liability shift. *Required when CTAVV type is cryptogram AND BundleMetaData is Cryptogram.  | A*  | N/A  | N/A  |  
+| bundleMetaData  | The type of bundle to be generated. Possible values: Cryptogram (Visa only), Token. Defaults to Cryptogram if omitted. Mastercard and AMEX must use Token.  | A  | A  | A  |  
+| amount  | The transaction amount.  | N/A  | N/A  | *  |  
+| merchantId  | Merchant identifier assigned by the acquirer.  | A*  | N/A  | A*  |  
 | token  | An existing TokenEx token that represents a PAN.  | *  | *  | *  |  
-| transactionInitiationType  | Possible values: CONSUMER, MERCHANT.  | A  | N/A  | N/A  |  
-| transactionType  | Possible values: ECOM, RECURRING, POS, AFT.  | *  | N/A  | N/A  |  
+| transactionType  | Possible values: ECOM, AFT.  | *  | N/A  | N/A  |  
 | tokenReferenceId  | If there is more than one network token, indicate which network token to use for this operation.  | A*  | A*  | A*  |  
+| billTo.firstName, billTo.lastName, billTo.address1, billTo.locality, billTo.administrativeArea, billTo.postalCode, billTo.country, billTo.email, billTo.phoneNumber  | Cardholder name, billing address, email, and phone number. Supports Visa's Digital Commerce Authentication Program (DCAP).  | A*  | N/A  | N/A  |  
+| deviceInfo.id, deviceInfo.ipAddress  | Device identifier and IP address. Supports Visa's Digital Commerce Authentication Program (DCAP).  | A*  | N/A  | N/A  |  
 **Response Body Parameters** :  
 | Parameter  | Type  | Description  |  
 | --- | --- | --- |  
@@ -59,31 +56,18 @@ A denotes an applicable field, A* denotes required under certain conditions, N/A
 | referenceNumber  | string  | TokenEx reference number for the transaction.  |  
 | error  | string  | TokenEx Error Code and human readable description.  |  
 | message  | string  | Human readable message about response from TokenEx.  |  
-| networkResponse.tokenRequestorId  | string  | TRID associated to the domain to which the token belongs (card brand specific). The format matches with the EMVCo Tokenization specifications.  |  
+| provider  | string  | Identifies which provider serviced the request: `CybersourceTMS` or `VisaTGS`.  |  
+| thirdPartyStatusCode  | string  | Reserved field; not currently populated.  |  
+| networkResponse.tokenRequestorId  | string  | Opaque identifier associated with the domain to which the token belongs. Treat as opaque — do not persist or use in downstream logic. Identify tokens by `token` + `tokenReferenceId`.  |  
 | networkResponse.tokenReferenceId  | string  | Unique reference identifier for the token generated.  |  
-| networkResponse.encData  | string  | Base64 encoded and encrypted sensitive data.  |  
-| networkResponse.messageId  | string  | Unique message identifier (GUID format) of this command.  |  
-| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Typically, it is generated by the initiator of the flow.  |  
+| networkResponse.messageId  | string  | Unique message identifier (GUID format), generated per response.  |  
+| networkResponse.conversationId  | string  | Message identifier assigned for the entire conversation (GUID format). Useful when contacting support.  |  
 | networkResponse.statusCode  | string  | The four-digit status code.  |  
-| networkResponse.statusMessage  | string  | Human readable comments about the status.  |  
-| networkResponse.decodedEncData.paymentBundle.bundleMetaData  | string enum  | It indicates the type of the bundle returned. The valid values depend on the product use cases. Possible values are ECOM_TOKEN, ECOM_CRYPTOGRAM and ECOM_PAN.  |  
-| networkResponse.decodedEncData.paymentBundle.bundleElements[].type  | string enum  | It indicates the type of the bundle element. It has pre-defined values. Possible values are TOKEN, TOKEN_EXP (the format is 'YYMM'), ECOM_CRYPTOGRAM, ECI, PSN, TRACK2, PAN, PAN_EXP.  |  
-| networkResponse.decodedEncData.paymentBundle.bundleElements[].value  | string or object  | It contains the value of the bundle element.  |  
-| networkResponse.decodedEncData.cardData.panReferenceId  | string  | The unique reference ID (GUID format) of the real PAN. It is required except when PAN is provided.  |  
-| networkResponse.decodedEncData.cardData.paymentAccountReference  | string  | Globally unique reference of a cardholder’s PAN. It is commonly abbreviated as PAR.  |  
-| networkResponse.decodedEncData.cardData.cardSuffix  | string  | The last four digits of the real PAN.  |  
-| networkResponse.decodedEncData.cardData.panExpDate  | string  | The expiry date of the real PAN. The format is 'YYMM'.  |  
-| networkResponse.decodedEncData.cardData.cardHolderEmbossedName  | string  | The embossed name on the physical card.  |  
-| networkResponse.decodedEncData.cardData.cardCountryCode  | string  | A 2-character country code. The format is based on ISO 3166-1 alpha-2.  |  
-| networkResponse.decodedEncData.cardData.cardName  | string  | The name of the card.  |  
-| networkResponse.decodedEncData.cardData.cardType  | string  | The type of the card product (e.g., Credit, Debit).  |  
-| networkResponse.decodedEncData.cardData.cardLongDescription  | string (64 max)  | Description of card.  |  
-| networkResponse.decodedEncData.cardData.cardShortDescription  | string (32 max)  | Description of card.  |  
-| networkResponse.decodedEncData.cardData.coBranded  | bool  | It indicates if the card is a co-branded card.  |  
-| networkResponse.decodedEncData.cardData.coBrandName  | string  | The card co-brand name. It is required if isCoBranded is set to true.  |  
-| networkResponse.decodedEncData.cardData.cardTypeIndicator  | string []  | These are indicators (Boolean values) associated with the card. The expected values are PRIVATE_LABEL.  |  
-| networkResponse.decodedEncData.cardData.expDataPrinted  | bool  | It indicates if the expiration date is printed on the card or not.  |  
-| networkResponse.decodedEncData.cardData.cvv2Printed  | bool  | It indicates if the cvv2 is printed on the card or not.  |  
+| networkResponse.statusMessage  | string  | Human readable comments about the status. Null on success — read `statusCode` for the outcome.  |  
+| networkResponse.decodedEncData.paymentBundle.bundleElements[].type  | string enum  | The type of the bundle element. Possible values: TOKEN, TOKEN_EXP, ECOM_CRYPTOGRAM, ECI.  |  
+| networkResponse.decodedEncData.paymentBundle.bundleElements[].value  | string or object  | The value of the bundle element.  |  
+note
+Cryptogram generation is supported for Visa only. Token bundles (`bundleMetaData: Token`) are supported for all three brands.
   * Visa Example Request
   * Response
 ```
@@ -104,7 +88,37 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718", // Required  
 
-  "transactionType": "ECOM" // Required for Visa [ECOM, RECURRING, POS, AFT]  
+  "transactionType": "ECOM", // Required for Visa [ECOM, AFT]  
+
+  "billTo": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "address1": "123 Main St",  
+
+    "locality": "Austin",  
+
+    "administrativeArea": "TX",  
+
+    "postalCode": "78701",  
+
+    "country": "US",  
+
+    "email": "alex.smith@example.org",  
+
+    "phoneNumber": "5125551234"  
+
+  },  
+
+  "deviceInfo": {  
+
+    "id": "a1b2c3d4-device-id",  
+
+    "ipAddress": "198.51.100.123"  
+
+  }  
 
 }  
 
@@ -115,95 +129,23 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718",  
 
+  "success": true,  
+
+  "referenceNumber": "21082510332941084676",  
+
+  "error": "",  
+
+  "message": "",  
+
+  "provider": "CybersourceTMS",  
+
+  "thirdPartyStatusCode": null,  
+
   "networkResponse": {  
 
-    "tokenRequestorId": "12345678901",  
+    "tokenRequestorId": "a1b2c3d4e5f6",  
 
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
-
-    "encData": "eyJraWQiOiJURVhcLzAxIiwiZW5jIjoiQTEyOENCQy1IUzI1NiIsImFsZyI6IlJTQTFfNSJ9.Nghq0VUoMqS1S53K30J6cmdjbP59XQMy_csilNMe_SQGhrL5H4ojR6U3z3dSAQRFYc9jT3hwtN5qkADBuqSMpgkOCFO4WfV8-2MzKyn8kdupT2C8wzPVAHxJdfzDTXfPn2MU4JCCYy9tFUSI4-8JHL6R--jlKvcbfoSYg1XS23ZhY-z7VmuxH5-ectCGc56wBRW_gYgbRZ26pYWtPkYLX8AMl86WhZIk5ZXnxldidwVZlim1WnDcmfEENHpiKUhRyuFtKkEZO7tiQcTHJuFgVS_jo0SkdQIVEdp-CIB9D7jWteZLDWBe8kI_WNqR5KSW_hO54mpZ8Gvmqeae6-HZ6w.58JQ_C00MrQVSWrqd8xcGA.FaDcRHedDXLKszPp31zA3O3_9JCvrEuYNsM4BcWDbE_UnqvrhHFOoStNaSA9Ht066fXzrmPfGRfdSuv6Au5oa_gJrlgy0K3NITSpg9EOBEPJWx0KcPRymIcd5nT_5Gt47rYcLjZDqW0UjiOdU793VOXnqisFSWsBXL_eHhpx_8YW__Zw-w-SCdq4Ux9f0iyM5DFvsHHqFlTYIOkHI6YvNX2dgBsww6a7zmJqWjR4g_Z5Z8Ac8mwVRgoyPjiSpCgAKbywpBgu4lB8Fe18oTVARY2wX8hT1ZMR94qa4XHpSDmejNbNd10yLRZYM-5WMUtx1vr_7kGiSA8ecP_JwRDrRhXLyjlmxh_D-HK3PdfeHEIS5NIr1I3HqW0NERXN7Jch.msSkliU8bbBaohAtAkEzjA",  
-
-    "decodedEncData": {  
-
-      "paymentBundle": {  
-
-        "bundleMetadata": "ECOM_CRYPTOGRAM",  
-
-        "bundleElements": [  
-
-          {  
-
-            "type": "TOKEN",  
-
-            "value": "4761209400161814"  
-
-          },  
-
-          {  
-
-            "type": "TOKEN_EXP",  
-
-            "value": "2212"  
-
-          },  
-
-          {  
-
-            "type": "ECOM_CRYPTOGRAM",  
-
-            "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA="  
-
-          },  
-
-          {  
-
-            "type": "ECI",  
-
-            "value": "07"  
-
-          }  
-
-        ]  
-
-      },  
-
-      "cardData": {  
-
-        "panReferenceId": null,  
-
-        "paymentAccountReference": null,  
-
-        "cardSuffix": null,  
-
-        "panExpDate": null,  
-
-        "cardHolderEmbossedName": null,  
-
-        "cardCountryCode": null,  
-
-        "cardName": null,  
-
-        "cardType": null,  
-
-        "cardLongDescription": null,  
-
-        "cardShortDescription": null,  
-
-        "coBranded": false,  
-
-        "coBrandName": null,  
-
-        "cardTypeIndicator": null,  
-
-        "expDataPrinted": false,  
-
-        "cvv2Printed": false  
-
-      }  
-
-    },  
-
-    "paymentBundle": null,  
 
     "messageId": "3ffb2966-dc98-43da-80ab-f27874cf2208",  
 
@@ -211,17 +153,29 @@ Content-Type: application/json
 
     "statusCode": "0000",  
 
-    "statusMessage": null  
+    "statusMessage": null,  
 
-  },  
+    "decodedEncData": {  
 
-  "referenceNumber": "",  
+      "paymentBundle": {  
 
-  "success": true,  
+        "bundleElements": [  
 
-  "error": "",  
+          { "type": "TOKEN", "value": "4761209400161814" },  
 
-  "message": ""  
+          { "type": "TOKEN_EXP", "value": "2812" },  
+
+          { "type": "ECOM_CRYPTOGRAM", "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA=" },  
+
+          { "type": "ECI", "value": "05" }  
+
+        ]  
+
+      }  
+
+    }  
+
+  }  
 
 }  
 
@@ -244,7 +198,37 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718", // Required  
 
-  "transactionType": "ECOM" // Required for Visa [ECOM, RECURRING, POS, AFT]  
+  "transactionType": "ECOM", // Required for Visa [ECOM, AFT]  
+
+  "billTo": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "address1": "123 Main St",  
+
+    "locality": "Austin",  
+
+    "administrativeArea": "TX",  
+
+    "postalCode": "78701",  
+
+    "country": "US",  
+
+    "email": "alex.smith@example.org",  
+
+    "phoneNumber": "5125551234"  
+
+  },  
+
+  "deviceInfo": {  
+
+    "id": "a1b2c3d4-device-id",  
+
+    "ipAddress": "198.51.100.123"  
+
+  }  
 
 }  
 
@@ -255,95 +239,23 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718",  
 
+  "success": true,  
+
+  "referenceNumber": "21082510332941084676",  
+
+  "error": "",  
+
+  "message": "",  
+
+  "provider": "CybersourceTMS",  
+
+  "thirdPartyStatusCode": null,  
+
   "networkResponse": {  
 
-    "tokenRequestorId": "12345678901",  
+    "tokenRequestorId": "a1b2c3d4e5f6",  
 
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
-
-    "encData": "eyJraWQiOiJURVhcLzAxIiwiZW5jIjoiQTEyOENCQy1IUzI1NiIsImFsZyI6IlJTQTFfNSJ9.Nghq0VUoMqS1S53K30J6cmdjbP59XQMy_csilNMe_SQGhrL5H4ojR6U3z3dSAQRFYc9jT3hwtN5qkADBuqSMpgkOCFO4WfV8-2MzKyn8kdupT2C8wzPVAHxJdfzDTXfPn2MU4JCCYy9tFUSI4-8JHL6R--jlKvcbfoSYg1XS23ZhY-z7VmuxH5-ectCGc56wBRW_gYgbRZ26pYWtPkYLX8AMl86WhZIk5ZXnxldidwVZlim1WnDcmfEENHpiKUhRyuFtKkEZO7tiQcTHJuFgVS_jo0SkdQIVEdp-CIB9D7jWteZLDWBe8kI_WNqR5KSW_hO54mpZ8Gvmqeae6-HZ6w.58JQ_C00MrQVSWrqd8xcGA.FaDcRHedDXLKszPp31zA3O3_9JCvrEuYNsM4BcWDbE_UnqvrhHFOoStNaSA9Ht066fXzrmPfGRfdSuv6Au5oa_gJrlgy0K3NITSpg9EOBEPJWx0KcPRymIcd5nT_5Gt47rYcLjZDqW0UjiOdU793VOXnqisFSWsBXL_eHhpx_8YW__Zw-w-SCdq4Ux9f0iyM5DFvsHHqFlTYIOkHI6YvNX2dgBsww6a7zmJqWjR4g_Z5Z8Ac8mwVRgoyPjiSpCgAKbywpBgu4lB8Fe18oTVARY2wX8hT1ZMR94qa4XHpSDmejNbNd10yLRZYM-5WMUtx1vr_7kGiSA8ecP_JwRDrRhXLyjlmxh_D-HK3PdfeHEIS5NIr1I3HqW0NERXN7Jch.msSkliU8bbBaohAtAkEzjA",  
-
-    "decodedEncData": {  
-
-      "paymentBundle": {  
-
-        "bundleMetadata": "ECOM_CRYPTOGRAM",  
-
-        "bundleElements": [  
-
-          {  
-
-            "type": "TOKEN",  
-
-            "value": "4761209400161814"  
-
-          },  
-
-          {  
-
-            "type": "TOKEN_EXP",  
-
-            "value": "2212"  
-
-          },  
-
-          {  
-
-            "type": "ECOM_CRYPTOGRAM",  
-
-            "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA="  
-
-          },  
-
-          {  
-
-            "type": "ECI",  
-
-            "value": "07"  
-
-          }  
-
-        ]  
-
-      },  
-
-      "cardData": {  
-
-        "panReferenceId": null,  
-
-        "paymentAccountReference": null,  
-
-        "cardSuffix": null,  
-
-        "panExpDate": null,  
-
-        "cardHolderEmbossedName": null,  
-
-        "cardCountryCode": null,  
-
-        "cardName": null,  
-
-        "cardType": null,  
-
-        "cardLongDescription": null,  
-
-        "cardShortDescription": null,  
-
-        "coBranded": false,  
-
-        "coBrandName": null,  
-
-        "cardTypeIndicator": null,  
-
-        "expDataPrinted": false,  
-
-        "cvv2Printed": false  
-
-      }  
-
-    },  
-
-    "paymentBundle": null,  
 
     "messageId": "3ffb2966-dc98-43da-80ab-f27874cf2208",  
 
@@ -351,17 +263,29 @@ Content-Type: application/json
 
     "statusCode": "0000",  
 
-    "statusMessage": null  
+    "statusMessage": null,  
 
-  },  
+    "decodedEncData": {  
 
-  "referenceNumber": "",  
+      "paymentBundle": {  
 
-  "success": true,  
+        "bundleElements": [  
 
-  "error": "",  
+          { "type": "TOKEN", "value": "4761209400161814" },  
 
-  "message": ""  
+          { "type": "TOKEN_EXP", "value": "2812" },  
+
+          { "type": "ECOM_CRYPTOGRAM", "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA=" },  
+
+          { "type": "ECI", "value": "05" }  
+
+        ]  
+
+      }  
+
+    }  
+
+  }  
 
 }  
 
@@ -384,7 +308,37 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718", // Required  
 
-  "transactionType": "ECOM" // Required for Visa [ECOM, RECURRING, POS, AFT]  
+  "transactionType": "ECOM", // Required for Visa [ECOM, AFT]  
+
+  "billTo": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "address1": "123 Main St",  
+
+    "locality": "Austin",  
+
+    "administrativeArea": "TX",  
+
+    "postalCode": "78701",  
+
+    "country": "US",  
+
+    "email": "alex.smith@example.org",  
+
+    "phoneNumber": "5125551234"  
+
+  },  
+
+  "deviceInfo": {  
+
+    "id": "a1b2c3d4-device-id",  
+
+    "ipAddress": "198.51.100.123"  
+
+  }  
 
 }  
 
@@ -395,95 +349,23 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718",  
 
+  "success": true,  
+
+  "referenceNumber": "21082510332941084676",  
+
+  "error": "",  
+
+  "message": "",  
+
+  "provider": "CybersourceTMS",  
+
+  "thirdPartyStatusCode": null,  
+
   "networkResponse": {  
 
-    "tokenRequestorId": "12345678901",  
+    "tokenRequestorId": "a1b2c3d4e5f6",  
 
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
-
-    "encData": "eyJraWQiOiJURVhcLzAxIiwiZW5jIjoiQTEyOENCQy1IUzI1NiIsImFsZyI6IlJTQTFfNSJ9.Nghq0VUoMqS1S53K30J6cmdjbP59XQMy_csilNMe_SQGhrL5H4ojR6U3z3dSAQRFYc9jT3hwtN5qkADBuqSMpgkOCFO4WfV8-2MzKyn8kdupT2C8wzPVAHxJdfzDTXfPn2MU4JCCYy9tFUSI4-8JHL6R--jlKvcbfoSYg1XS23ZhY-z7VmuxH5-ectCGc56wBRW_gYgbRZ26pYWtPkYLX8AMl86WhZIk5ZXnxldidwVZlim1WnDcmfEENHpiKUhRyuFtKkEZO7tiQcTHJuFgVS_jo0SkdQIVEdp-CIB9D7jWteZLDWBe8kI_WNqR5KSW_hO54mpZ8Gvmqeae6-HZ6w.58JQ_C00MrQVSWrqd8xcGA.FaDcRHedDXLKszPp31zA3O3_9JCvrEuYNsM4BcWDbE_UnqvrhHFOoStNaSA9Ht066fXzrmPfGRfdSuv6Au5oa_gJrlgy0K3NITSpg9EOBEPJWx0KcPRymIcd5nT_5Gt47rYcLjZDqW0UjiOdU793VOXnqisFSWsBXL_eHhpx_8YW__Zw-w-SCdq4Ux9f0iyM5DFvsHHqFlTYIOkHI6YvNX2dgBsww6a7zmJqWjR4g_Z5Z8Ac8mwVRgoyPjiSpCgAKbywpBgu4lB8Fe18oTVARY2wX8hT1ZMR94qa4XHpSDmejNbNd10yLRZYM-5WMUtx1vr_7kGiSA8ecP_JwRDrRhXLyjlmxh_D-HK3PdfeHEIS5NIr1I3HqW0NERXN7Jch.msSkliU8bbBaohAtAkEzjA",  
-
-    "decodedEncData": {  
-
-      "paymentBundle": {  
-
-        "bundleMetadata": "ECOM_CRYPTOGRAM",  
-
-        "bundleElements": [  
-
-          {  
-
-            "type": "TOKEN",  
-
-            "value": "4761209400161814"  
-
-          },  
-
-          {  
-
-            "type": "TOKEN_EXP",  
-
-            "value": "2212"  
-
-          },  
-
-          {  
-
-            "type": "ECOM_CRYPTOGRAM",  
-
-            "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA="  
-
-          },  
-
-          {  
-
-            "type": "ECI",  
-
-            "value": "07"  
-
-          }  
-
-        ]  
-
-      },  
-
-      "cardData": {  
-
-        "panReferenceId": null,  
-
-        "paymentAccountReference": null,  
-
-        "cardSuffix": null,  
-
-        "panExpDate": null,  
-
-        "cardHolderEmbossedName": null,  
-
-        "cardCountryCode": null,  
-
-        "cardName": null,  
-
-        "cardType": null,  
-
-        "cardLongDescription": null,  
-
-        "cardShortDescription": null,  
-
-        "coBranded": false,  
-
-        "coBrandName": null,  
-
-        "cardTypeIndicator": null,  
-
-        "expDataPrinted": false,  
-
-        "cvv2Printed": false  
-
-      }  
-
-    },  
-
-    "paymentBundle": null,  
 
     "messageId": "3ffb2966-dc98-43da-80ab-f27874cf2208",  
 
@@ -491,17 +373,29 @@ Content-Type: application/json
 
     "statusCode": "0000",  
 
-    "statusMessage": null  
+    "statusMessage": null,  
 
-  },  
+    "decodedEncData": {  
 
-  "referenceNumber": "",  
+      "paymentBundle": {  
 
-  "success": true,  
+        "bundleElements": [  
 
-  "error": "",  
+          { "type": "TOKEN", "value": "4761209400161814" },  
 
-  "message": ""  
+          { "type": "TOKEN_EXP", "value": "2812" },  
+
+          { "type": "ECOM_CRYPTOGRAM", "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA=" },  
+
+          { "type": "ECI", "value": "05" }  
+
+        ]  
+
+      }  
+
+    }  
+
+  }  
 
 }  
 
@@ -524,7 +418,37 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718", // Required  
 
-  "transactionType": "ECOM" // Required for Visa [ECOM, RECURRING, POS, AFT]  
+  "transactionType": "ECOM", // Required for Visa [ECOM, AFT]  
+
+  "billTo": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "address1": "123 Main St",  
+
+    "locality": "Austin",  
+
+    "administrativeArea": "TX",  
+
+    "postalCode": "78701",  
+
+    "country": "US",  
+
+    "email": "alex.smith@example.org",  
+
+    "phoneNumber": "5125551234"  
+
+  },  
+
+  "deviceInfo": {  
+
+    "id": "a1b2c3d4-device-id",  
+
+    "ipAddress": "198.51.100.123"  
+
+  }  
 
 }  
 
@@ -535,95 +459,23 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718",  
 
+  "success": true,  
+
+  "referenceNumber": "21082510332941084676",  
+
+  "error": "",  
+
+  "message": "",  
+
+  "provider": "CybersourceTMS",  
+
+  "thirdPartyStatusCode": null,  
+
   "networkResponse": {  
 
-    "tokenRequestorId": "12345678901",  
+    "tokenRequestorId": "a1b2c3d4e5f6",  
 
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
-
-    "encData": "eyJraWQiOiJURVhcLzAxIiwiZW5jIjoiQTEyOENCQy1IUzI1NiIsImFsZyI6IlJTQTFfNSJ9.Nghq0VUoMqS1S53K30J6cmdjbP59XQMy_csilNMe_SQGhrL5H4ojR6U3z3dSAQRFYc9jT3hwtN5qkADBuqSMpgkOCFO4WfV8-2MzKyn8kdupT2C8wzPVAHxJdfzDTXfPn2MU4JCCYy9tFUSI4-8JHL6R--jlKvcbfoSYg1XS23ZhY-z7VmuxH5-ectCGc56wBRW_gYgbRZ26pYWtPkYLX8AMl86WhZIk5ZXnxldidwVZlim1WnDcmfEENHpiKUhRyuFtKkEZO7tiQcTHJuFgVS_jo0SkdQIVEdp-CIB9D7jWteZLDWBe8kI_WNqR5KSW_hO54mpZ8Gvmqeae6-HZ6w.58JQ_C00MrQVSWrqd8xcGA.FaDcRHedDXLKszPp31zA3O3_9JCvrEuYNsM4BcWDbE_UnqvrhHFOoStNaSA9Ht066fXzrmPfGRfdSuv6Au5oa_gJrlgy0K3NITSpg9EOBEPJWx0KcPRymIcd5nT_5Gt47rYcLjZDqW0UjiOdU793VOXnqisFSWsBXL_eHhpx_8YW__Zw-w-SCdq4Ux9f0iyM5DFvsHHqFlTYIOkHI6YvNX2dgBsww6a7zmJqWjR4g_Z5Z8Ac8mwVRgoyPjiSpCgAKbywpBgu4lB8Fe18oTVARY2wX8hT1ZMR94qa4XHpSDmejNbNd10yLRZYM-5WMUtx1vr_7kGiSA8ecP_JwRDrRhXLyjlmxh_D-HK3PdfeHEIS5NIr1I3HqW0NERXN7Jch.msSkliU8bbBaohAtAkEzjA",  
-
-    "decodedEncData": {  
-
-      "paymentBundle": {  
-
-        "bundleMetadata": "ECOM_CRYPTOGRAM",  
-
-        "bundleElements": [  
-
-          {  
-
-            "type": "TOKEN",  
-
-            "value": "4761209400161814"  
-
-          },  
-
-          {  
-
-            "type": "TOKEN_EXP",  
-
-            "value": "2212"  
-
-          },  
-
-          {  
-
-            "type": "ECOM_CRYPTOGRAM",  
-
-            "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA="  
-
-          },  
-
-          {  
-
-            "type": "ECI",  
-
-            "value": "07"  
-
-          }  
-
-        ]  
-
-      },  
-
-      "cardData": {  
-
-        "panReferenceId": null,  
-
-        "paymentAccountReference": null,  
-
-        "cardSuffix": null,  
-
-        "panExpDate": null,  
-
-        "cardHolderEmbossedName": null,  
-
-        "cardCountryCode": null,  
-
-        "cardName": null,  
-
-        "cardType": null,  
-
-        "cardLongDescription": null,  
-
-        "cardShortDescription": null,  
-
-        "coBranded": false,  
-
-        "coBrandName": null,  
-
-        "cardTypeIndicator": null,  
-
-        "expDataPrinted": false,  
-
-        "cvv2Printed": false  
-
-      }  
-
-    },  
-
-    "paymentBundle": null,  
 
     "messageId": "3ffb2966-dc98-43da-80ab-f27874cf2208",  
 
@@ -631,17 +483,29 @@ Content-Type: application/json
 
     "statusCode": "0000",  
 
-    "statusMessage": null  
+    "statusMessage": null,  
 
-  },  
+    "decodedEncData": {  
 
-  "referenceNumber": "",  
+      "paymentBundle": {  
 
-  "success": true,  
+        "bundleElements": [  
 
-  "error": "",  
+          { "type": "TOKEN", "value": "4761209400161814" },  
 
-  "message": ""  
+          { "type": "TOKEN_EXP", "value": "2812" },  
+
+          { "type": "ECOM_CRYPTOGRAM", "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA=" },  
+
+          { "type": "ECI", "value": "05" }  
+
+        ]  
+
+      }  
+
+    }  
+
+  }  
 
 }  
 
@@ -664,7 +528,37 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718", // Required  
 
-  "transactionType": "ECOM" // Required for Visa [ECOM, RECURRING, POS, AFT]  
+  "transactionType": "ECOM", // Required for Visa [ECOM, AFT]  
+
+  "billTo": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "address1": "123 Main St",  
+
+    "locality": "Austin",  
+
+    "administrativeArea": "TX",  
+
+    "postalCode": "78701",  
+
+    "country": "US",  
+
+    "email": "alex.smith@example.org",  
+
+    "phoneNumber": "5125551234"  
+
+  },  
+
+  "deviceInfo": {  
+
+    "id": "a1b2c3d4-device-id",  
+
+    "ipAddress": "198.51.100.123"  
+
+  }  
 
 }  
 
@@ -675,95 +569,23 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718",  
 
+  "success": true,  
+
+  "referenceNumber": "21082510332941084676",  
+
+  "error": "",  
+
+  "message": "",  
+
+  "provider": "CybersourceTMS",  
+
+  "thirdPartyStatusCode": null,  
+
   "networkResponse": {  
 
-    "tokenRequestorId": "12345678901",  
+    "tokenRequestorId": "a1b2c3d4e5f6",  
 
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
-
-    "encData": "eyJraWQiOiJURVhcLzAxIiwiZW5jIjoiQTEyOENCQy1IUzI1NiIsImFsZyI6IlJTQTFfNSJ9.Nghq0VUoMqS1S53K30J6cmdjbP59XQMy_csilNMe_SQGhrL5H4ojR6U3z3dSAQRFYc9jT3hwtN5qkADBuqSMpgkOCFO4WfV8-2MzKyn8kdupT2C8wzPVAHxJdfzDTXfPn2MU4JCCYy9tFUSI4-8JHL6R--jlKvcbfoSYg1XS23ZhY-z7VmuxH5-ectCGc56wBRW_gYgbRZ26pYWtPkYLX8AMl86WhZIk5ZXnxldidwVZlim1WnDcmfEENHpiKUhRyuFtKkEZO7tiQcTHJuFgVS_jo0SkdQIVEdp-CIB9D7jWteZLDWBe8kI_WNqR5KSW_hO54mpZ8Gvmqeae6-HZ6w.58JQ_C00MrQVSWrqd8xcGA.FaDcRHedDXLKszPp31zA3O3_9JCvrEuYNsM4BcWDbE_UnqvrhHFOoStNaSA9Ht066fXzrmPfGRfdSuv6Au5oa_gJrlgy0K3NITSpg9EOBEPJWx0KcPRymIcd5nT_5Gt47rYcLjZDqW0UjiOdU793VOXnqisFSWsBXL_eHhpx_8YW__Zw-w-SCdq4Ux9f0iyM5DFvsHHqFlTYIOkHI6YvNX2dgBsww6a7zmJqWjR4g_Z5Z8Ac8mwVRgoyPjiSpCgAKbywpBgu4lB8Fe18oTVARY2wX8hT1ZMR94qa4XHpSDmejNbNd10yLRZYM-5WMUtx1vr_7kGiSA8ecP_JwRDrRhXLyjlmxh_D-HK3PdfeHEIS5NIr1I3HqW0NERXN7Jch.msSkliU8bbBaohAtAkEzjA",  
-
-    "decodedEncData": {  
-
-      "paymentBundle": {  
-
-        "bundleMetadata": "ECOM_CRYPTOGRAM",  
-
-        "bundleElements": [  
-
-          {  
-
-            "type": "TOKEN",  
-
-            "value": "4761209400161814"  
-
-          },  
-
-          {  
-
-            "type": "TOKEN_EXP",  
-
-            "value": "2212"  
-
-          },  
-
-          {  
-
-            "type": "ECOM_CRYPTOGRAM",  
-
-            "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA="  
-
-          },  
-
-          {  
-
-            "type": "ECI",  
-
-            "value": "07"  
-
-          }  
-
-        ]  
-
-      },  
-
-      "cardData": {  
-
-        "panReferenceId": null,  
-
-        "paymentAccountReference": null,  
-
-        "cardSuffix": null,  
-
-        "panExpDate": null,  
-
-        "cardHolderEmbossedName": null,  
-
-        "cardCountryCode": null,  
-
-        "cardName": null,  
-
-        "cardType": null,  
-
-        "cardLongDescription": null,  
-
-        "cardShortDescription": null,  
-
-        "coBranded": false,  
-
-        "coBrandName": null,  
-
-        "cardTypeIndicator": null,  
-
-        "expDataPrinted": false,  
-
-        "cvv2Printed": false  
-
-      }  
-
-    },  
-
-    "paymentBundle": null,  
 
     "messageId": "3ffb2966-dc98-43da-80ab-f27874cf2208",  
 
@@ -771,17 +593,29 @@ Content-Type: application/json
 
     "statusCode": "0000",  
 
-    "statusMessage": null  
+    "statusMessage": null,  
 
-  },  
+    "decodedEncData": {  
 
-  "referenceNumber": "",  
+      "paymentBundle": {  
 
-  "success": true,  
+        "bundleElements": [  
 
-  "error": "",  
+          { "type": "TOKEN", "value": "4761209400161814" },  
 
-  "message": ""  
+          { "type": "TOKEN_EXP", "value": "2812" },  
+
+          { "type": "ECOM_CRYPTOGRAM", "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA=" },  
+
+          { "type": "ECI", "value": "05" }  
+
+        ]  
+
+      }  
+
+    }  
+
+  }  
 
 }  
 
@@ -804,7 +638,37 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718", // Required  
 
-  "transactionType": "ECOM" // Required for Visa [ECOM, RECURRING, POS, AFT]  
+  "transactionType": "ECOM", // Required for Visa [ECOM, AFT]  
+
+  "billTo": {  
+
+    "firstName": "Alex",  
+
+    "lastName": "Smith",  
+
+    "address1": "123 Main St",  
+
+    "locality": "Austin",  
+
+    "administrativeArea": "TX",  
+
+    "postalCode": "78701",  
+
+    "country": "US",  
+
+    "email": "alex.smith@example.org",  
+
+    "phoneNumber": "5125551234"  
+
+  },  
+
+  "deviceInfo": {  
+
+    "id": "a1b2c3d4-device-id",  
+
+    "ipAddress": "198.51.100.123"  
+
+  }  
 
 }  
 
@@ -815,95 +679,23 @@ Content-Type: application/json
 
   "token": "476120FDallZ7718",  
 
+  "success": true,  
+
+  "referenceNumber": "21082510332941084676",  
+
+  "error": "",  
+
+  "message": "",  
+
+  "provider": "CybersourceTMS",  
+
+  "thirdPartyStatusCode": null,  
+
   "networkResponse": {  
 
-    "tokenRequestorId": "12345678901",  
+    "tokenRequestorId": "a1b2c3d4e5f6",  
 
     "tokenReferenceId": "749f4d0d-4005-443e-9a66-0ea2d317b8f6",  
-
-    "encData": "eyJraWQiOiJURVhcLzAxIiwiZW5jIjoiQTEyOENCQy1IUzI1NiIsImFsZyI6IlJTQTFfNSJ9.Nghq0VUoMqS1S53K30J6cmdjbP59XQMy_csilNMe_SQGhrL5H4ojR6U3z3dSAQRFYc9jT3hwtN5qkADBuqSMpgkOCFO4WfV8-2MzKyn8kdupT2C8wzPVAHxJdfzDTXfPn2MU4JCCYy9tFUSI4-8JHL6R--jlKvcbfoSYg1XS23ZhY-z7VmuxH5-ectCGc56wBRW_gYgbRZ26pYWtPkYLX8AMl86WhZIk5ZXnxldidwVZlim1WnDcmfEENHpiKUhRyuFtKkEZO7tiQcTHJuFgVS_jo0SkdQIVEdp-CIB9D7jWteZLDWBe8kI_WNqR5KSW_hO54mpZ8Gvmqeae6-HZ6w.58JQ_C00MrQVSWrqd8xcGA.FaDcRHedDXLKszPp31zA3O3_9JCvrEuYNsM4BcWDbE_UnqvrhHFOoStNaSA9Ht066fXzrmPfGRfdSuv6Au5oa_gJrlgy0K3NITSpg9EOBEPJWx0KcPRymIcd5nT_5Gt47rYcLjZDqW0UjiOdU793VOXnqisFSWsBXL_eHhpx_8YW__Zw-w-SCdq4Ux9f0iyM5DFvsHHqFlTYIOkHI6YvNX2dgBsww6a7zmJqWjR4g_Z5Z8Ac8mwVRgoyPjiSpCgAKbywpBgu4lB8Fe18oTVARY2wX8hT1ZMR94qa4XHpSDmejNbNd10yLRZYM-5WMUtx1vr_7kGiSA8ecP_JwRDrRhXLyjlmxh_D-HK3PdfeHEIS5NIr1I3HqW0NERXN7Jch.msSkliU8bbBaohAtAkEzjA",  
-
-    "decodedEncData": {  
-
-      "paymentBundle": {  
-
-        "bundleMetadata": "ECOM_CRYPTOGRAM",  
-
-        "bundleElements": [  
-
-          {  
-
-            "type": "TOKEN",  
-
-            "value": "4761209400161814"  
-
-          },  
-
-          {  
-
-            "type": "TOKEN_EXP",  
-
-            "value": "2212"  
-
-          },  
-
-          {  
-
-            "type": "ECOM_CRYPTOGRAM",  
-
-            "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA="  
-
-          },  
-
-          {  
-
-            "type": "ECI",  
-
-            "value": "07"  
-
-          }  
-
-        ]  
-
-      },  
-
-      "cardData": {  
-
-        "panReferenceId": null,  
-
-        "paymentAccountReference": null,  
-
-        "cardSuffix": null,  
-
-        "panExpDate": null,  
-
-        "cardHolderEmbossedName": null,  
-
-        "cardCountryCode": null,  
-
-        "cardName": null,  
-
-        "cardType": null,  
-
-        "cardLongDescription": null,  
-
-        "cardShortDescription": null,  
-
-        "coBranded": false,  
-
-        "coBrandName": null,  
-
-        "cardTypeIndicator": null,  
-
-        "expDataPrinted": false,  
-
-        "cvv2Printed": false  
-
-      }  
-
-    },  
-
-    "paymentBundle": null,  
 
     "messageId": "3ffb2966-dc98-43da-80ab-f27874cf2208",  
 
@@ -911,17 +703,29 @@ Content-Type: application/json
 
     "statusCode": "0000",  
 
-    "statusMessage": null  
+    "statusMessage": null,  
 
-  },  
+    "decodedEncData": {  
 
-  "referenceNumber": "",  
+      "paymentBundle": {  
 
-  "success": true,  
+        "bundleElements": [  
 
-  "error": "",  
+          { "type": "TOKEN", "value": "4761209400161814" },  
 
-  "message": ""  
+          { "type": "TOKEN_EXP", "value": "2812" },  
+
+          { "type": "ECOM_CRYPTOGRAM", "value": "AgAAAAAAD5olyYoZAqIKQOwAAAA=" },  
+
+          { "type": "ECI", "value": "05" }  
+
+        ]  
+
+      }  
+
+    }  
+
+  }  
 
 }  
 

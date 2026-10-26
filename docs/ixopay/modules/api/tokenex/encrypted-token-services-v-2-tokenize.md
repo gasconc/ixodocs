@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/encrypted-token-services-v-2-tokenize
 portal: ixopay-modules
-updated: '2026-10-19'
+updated: '2026-10-26'
 related: []
 ---
 

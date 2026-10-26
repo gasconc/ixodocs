@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-10-19T12:56:06+00:00_
+_Generated at 2026-10-26T12:56:30+00:00_
 
-**347 missing** · **3 stale** across 3 source(s).
+**349 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **956** · Indexed: **609** · Missing: **347** · Stale: **2**
+- Published: **959** · Indexed: **610** · Missing: **349** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -91,11 +91,13 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/isignthis
 - https://documentation.ixopay.com/adapters/jcc
 - https://documentation.ixopay.com/adapters/jpm-commerce-platform-pci
+- https://documentation.ixopay.com/adapters/jpmorgan-ach-direct-debit
 - https://documentation.ixopay.com/adapters/kakaopay
 - https://documentation.ixopay.com/adapters/kalixa
 - https://documentation.ixopay.com/adapters/kalixa-instorecarddeposit
 - https://documentation.ixopay.com/adapters/kalixa-pci
 - https://documentation.ixopay.com/adapters/kassa-compleet
+- https://documentation.ixopay.com/adapters/kcp-brpay
 - https://documentation.ixopay.com/adapters/kcp-mobile
 - https://documentation.ixopay.com/adapters/kcp-pc
 - https://documentation.ixopay.com/adapters/khipu
