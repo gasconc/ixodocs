@@ -10,7 +10,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/docs/guides/features/smart-transaction-routing
 portal: ixopay-dev
-updated: '2026-10-26'
+updated: '2026-11-01'
 related: []
 ---
 

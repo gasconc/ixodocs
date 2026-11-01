@@ -15,7 +15,7 @@ tags:
 - capture
 source_url: https://documentation.ixopay.com/manual/adapters/klarna
 portal: ixopay-manual
-updated: '2026-10-26'
+updated: '2026-11-01'
 related: []
 ---
 

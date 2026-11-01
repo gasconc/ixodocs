@@ -15,7 +15,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/docs/recipes/how-to/alternative-payment-methods
 portal: ixopay-dev
-updated: '2026-10-26'
+updated: '2026-11-01'
 related: []
 ---
 

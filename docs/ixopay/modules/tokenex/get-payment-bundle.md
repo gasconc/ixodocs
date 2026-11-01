@@ -15,7 +15,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/get-payment-bundle
 portal: ixopay-modules
-updated: '2026-10-26'
+updated: '2026-11-01'
 related: []
 ---
 
@@ -40,13 +40,13 @@ This method is used to retrieve a cryptogram for an existing TokenEx token that 
 A denotes an applicable field, A* denotes required under certain conditions, N/A is not applicable, and * denotes a required field under all conditions  
 | Parameter  | Description  | Visa  | Mastercard  | AMEX  |  
 | --- | --- | --- | --- | --- |  
-| bundleMetaData  | The type of bundle to be generated. Possible values: Cryptogram (Visa only), Token. Defaults to Cryptogram if omitted. Mastercard and AMEX must use Token.  | A  | A  | A  |  
+| bundleMetaData  | The type of bundle to be generated. Possible values: Cryptogram, Token. Defaults to Cryptogram if omitted.  | A  | A  | A  |  
 | amount  | The transaction amount.  | N/A  | N/A  | *  |  
 | merchantId  | Merchant identifier assigned by the acquirer.  | A*  | N/A  | A*  |  
 | token  | An existing TokenEx token that represents a PAN.  | *  | *  | *  |  
 | transactionType  | Possible values: ECOM, AFT.  | *  | N/A  | N/A  |  
 | tokenReferenceId  | If there is more than one network token, indicate which network token to use for this operation.  | A*  | A*  | A*  |  
-| billTo.firstName, billTo.lastName, billTo.address1, billTo.locality, billTo.administrativeArea, billTo.postalCode, billTo.country, billTo.email, billTo.phoneNumber  | Cardholder name, billing address, email, and phone number. Supports Visa's Digital Commerce Authentication Program (DCAP).  | A*  | N/A  | N/A  |  
+| billTo.firstName, billTo.lastName, billTo.address1, billTo.locality, billTo.administrativeArea, billTo.postalCode, billTo.country, billTo.email, billTo.phoneNumber  |  Coming soon Cardholder name, billing address, email, and phone number. Supports Visa's Digital Commerce Authentication Program (DCAP).  | A*  | N/A  | N/A  |  
 | deviceInfo.id, deviceInfo.ipAddress  | Device identifier and IP address. Supports Visa's Digital Commerce Authentication Program (DCAP).  | A*  | N/A  | N/A  |  
 **Response Body Parameters** :  
 | Parameter  | Type  | Description  |  

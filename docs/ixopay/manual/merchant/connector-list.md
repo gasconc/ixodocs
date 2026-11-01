@@ -8,7 +8,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/merchant/connector-list
 portal: ixopay-manual
-updated: '2026-10-26'
+updated: '2026-11-01'
 related: []
 ---
 

@@ -10,7 +10,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/token-services
 portal: ixopay-modules
-updated: '2026-10-26'
+updated: '2026-11-01'
 related: []
 ---
 

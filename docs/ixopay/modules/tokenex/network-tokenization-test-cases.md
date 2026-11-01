@@ -14,7 +14,7 @@ tags:
 - test-delete-active-token-lifecyclemanagement-endpoint-within-network-token-api-https-documentation-ixopay-com-modules-docs-tokenex-network-tokenization-test-cases-test-delete-active-token-lifecyclemanagement-endpoint-within-network-token-api-direct-link-test-delete-active-token-lifecyclemanagement-endpoint-within-network-token-api
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/network-tokenization-test-cases
 portal: ixopay-modules
-updated: '2026-10-26'
+updated: '2026-11-01'
 related: []
 ---
 
