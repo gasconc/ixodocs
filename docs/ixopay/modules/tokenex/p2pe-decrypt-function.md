@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/p2pe-decrypt-function
 portal: ixopay-modules
-updated: '2026-11-01'
+updated: '2026-11-02'
 related: []
 ---
 

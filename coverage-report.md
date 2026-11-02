@@ -1,6 +1,6 @@
 # Coverage Audit Report
 
-_Generated at 2026-10-26T12:56:30+00:00_
+_Generated at 2026-11-02T15:47:52+00:00_
 
 **349 missing** · **3 stale** across 3 source(s).
 

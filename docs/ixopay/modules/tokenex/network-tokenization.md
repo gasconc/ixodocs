@@ -14,7 +14,7 @@ tags:
 - network-tokens-within-transparent-gateway-api-https-documentation-ixopay-com-modules-docs-tokenex-network-tokenization-network-tokens-within-transparent-gateway-api-direct-link-network-tokens-within-transparent-gateway-api
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/network-tokenization
 portal: ixopay-modules
-updated: '2026-11-01'
+updated: '2026-11-02'
 related: []
 ---
 

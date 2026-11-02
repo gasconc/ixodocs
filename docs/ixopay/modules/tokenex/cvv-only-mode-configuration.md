@@ -15,7 +15,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/cvv-only-mode-configuration
 portal: ixopay-modules
-updated: '2026-11-01'
+updated: '2026-11-02'
 related: []
 ---
 
