@@ -9,7 +9,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/manual/docs/administrative-tools/platform-overview
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -24,6 +24,8 @@ The [IXOPAY platform](https://www.ixopay.com) interface is structured into 3 are
   * **Main Frame:** Displays the details for the current area.
 
 Depending on your user permissions (Admin, Default, Merchant) the content of the individual areas may differ.
+Customer data masking
+When customer data masking is enabled in the IXOPAY platform, customer email addresses and phone numbers are shown masked (e.g. `jo******@gmail.com`, `98******10`) unless your role includes the [PII data permission](https://documentation.ixopay.com/manual/docs/system-setup/roles).
 Quick Search
 When using the quick search, directly navigate to the Transaction list of the desired entry (connector or merchant) using **Enter.** Use **Shift + Enter** to edit the entity.
 ![Dashboard](https://documentation.ixopay.com/manual/assets/images/dashboard-e59c6abe37e6887eed0944ab57494183.png)

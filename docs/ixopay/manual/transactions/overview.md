@@ -17,7 +17,7 @@ tags:
 - psp
 source_url: https://documentation.ixopay.com/manual/docs/transactions/overview
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -67,6 +67,9 @@ Use this section to filter transactions by customer data. These filter options a
 | Card number  | Enter the fist six and/or last four digits of customers creditcard number  |  
 | IBAN  | Enter the Customer IBAN  |  
 | Data field  | Select a data field from the list and enter a value to filter for  |  
+Customer data masking
+When customer data masking is enabled in the IXOPAY platform, customer email addresses and phone numbers are shown masked (e.g. `jo******@gmail.com`, `98******10`) unless your role includes the [PII data permission](https://documentation.ixopay.com/manual/docs/system-setup/roles).
+The **Email** filter still matches the full email address, even though the email is shown masked in the results.
 ## Advanced Filter[​](https://documentation.ixopay.com/manual/docs/transactions/overview#advanced-filter "Direct link to Advanced Filter")
 If the Transaction Data Filter and Customer Data Filter are not sufficient to narrow down your search, the IXOPAY platform provides a more granular search to filter your Transaction List with Advanced Filters. Create an individual set of filter rules as follows:
   1. In the Transaction List, navigate to the **Advanced Filter** (see Transaction List).
@@ -118,7 +121,7 @@ Once you have **applied the filter** you can customize the results using the **e
 | Card Level  | BIN DB: Card Level  |  
 | Card Bank  | BIN DB: Issuing Bank  |  
 | Card Country  | BIN DB: Country  |  
-| Customer E-Mail  | Customer email address  |  
+| Customer E-Mail  | Customer email address (masked when customer data masking is enabled)  |  
 | -  | Details Button  |  
 ## Exporting Transactions[​](https://documentation.ixopay.com/manual/docs/transactions/overview#export-option "Direct link to Exporting Transactions")
 The IXOPAY platform allows you to quickly export the Transactions as displayed in the Transaction List with filters applied. Select the **intermeshing gears** icon on the right corner of the Transaction list (below the **Apply Filter** option) and select the Option **_Export all visible data_**.

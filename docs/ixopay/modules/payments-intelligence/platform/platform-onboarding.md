@@ -2,19 +2,19 @@
 title: How to Start
 summary: ' How to Start'
 tags:
-- step-create-access-demo-account-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-create-access-demo-account-direct-link-step-create-access-demo-account
+- step-create-demo-account-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-create-demo-account-direct-link-step-create-demo-account
 - step-live-connect-psp-data-sources-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-live-connect-psp-data-sources-direct-link-step-live-connect-psp-data-sources
 - step-team-access-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-team-access-direct-link-step-team-access
 - step-import-historical-data-day-minimum-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-import-historical-data-day-minimum-direct-link-step-import-historical-data-day-minimum
 - step-review-dashboards-monitor-data-ingestion-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-review-dashboards-monitor-data-ingestion-direct-link-step-review-dashboards-monitor-data-ingestion
 - step-customize-dashboard-views-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-customize-dashboard-views-direct-link-step-customize-dashboard-views
-- step-query-data-ixonav-payments-assistant-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-query-data-ixonav-payments-assistant-direct-link-step-query-data-ixonav-payments-assistant
+- step-query-data-ixo-payments-assistant-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-query-data-ixo-payments-assistant-direct-link-step-query-data-ixo-payments-assistant
 - step-configure-performance-alerts-anomaly-detection-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-configure-performance-alerts-anomaly-detection-direct-link-step-configure-performance-alerts-anomaly-detection
 - step-explore-configure-custom-reports-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-explore-configure-custom-reports-direct-link-step-explore-configure-custom-reports
 - step-explore-psp-raw-data-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-platform-onboarding-step-explore-psp-raw-data-direct-link-step-explore-psp-raw-data
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding
 portal: ixopay-modules
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -23,15 +23,15 @@ related: []
 
 # How to Start
 To get started with the IXOPAY Payments Intelligence (formerly Congrify) platform, follow this 10-step onboarding guide to transition from exploration to live operational monitoring and to your first data analysis steps.
-## Step 1: Create or Access Your Demo Account[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding#step-1-create-or-access-your-demo-account "Direct link to Step 1: Create or Access Your Demo Account")
-Sign up for an account on the IXOPAY Payments Intelligence dashboard. By default, you will enter **Demo Mode** , populated with sample data. Use this environment to explore IXOPAY Payments Intelligence’s observability features, explore sample KPIs, and test the IXONav interface before linking live feeds with your real payments data.
-For more details, refer to the [Registration and Login](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/registration-login) guide.
+## Step 1: Create Your Demo Account[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding#step-1-create-your-demo-account "Direct link to Step 1: Create Your Demo Account")
+Sign up for an account on the IXOPAY Payments Intelligence portal by [requesting a demo](https://app.congrify.com). By default, you will get access to the **Demo Mode** , populated with sample data. Use this environment to explore IXOPAY Payments Intelligence’s observability features, explore sample KPIs, and test the IXO AI interface before linking live feeds with your real payments data.
+Our team will contact you via e-mail to register for IXOPAY Payments Intelligence portal - refer our [Registration and Login guide](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/registration-login) for further details.
 ## Step 2: Go Live & Connect your PSP Data Sources[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding#step-2-go-live--connect-your-psp-data-sources "Direct link to Step 2: Go Live & Connect your PSP Data Sources")
 Once you are ready to go live and connect your PSP data sources, you have two options:
   * **a)** Contact IXOPAY support or your Account Manager to switch your workspace to **Live Mode** ;
   * **b)** Directly switch on **Live Mode** (Merchant Owner or Merchant Administrator role) within the portal, and then connect your real payments data feeds.
 
-![](https://documentation.ixopay.com/modules/assets/ideal-img/platform_onboarding_1.a1d4bf5.1600.png)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/platform_onboarding_1.1e6ee40.1600.png)
 **Connecting your Payments Data Sources:**
   * **For IXOPAY Orchestration and/or Tokenization Customers:** Connect directly through your existing IXOPAY account integration. You can contact the IXOPAY Support team to ensure availability of your payments operations data to IXOPAY Payments Intelligence.
   * **For Standalone Setup:** Provide the credentials required by the Payment Service Provider you would like to connect. Please refer to the detailed [Integration Guide](https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/getting-started) for the PSP you would like to connect. If a PSP integration is not supported yet, please contact our support or your point of contact.
@@ -50,11 +50,11 @@ Now that you have connected your PSP data sources, it’s time to get familiar w
 ## Step 6: Customize Dashboard Views[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding#step-6-customize-dashboard-views "Direct link to Step 6: Customize Dashboard Views")
 Tailor metrics to your operational hierarchy by creating filters and adjusting views based on your organization's specific needs.
 Save custom slices by payment method, acquiring bank, currency, entity, or specific decline reason codes to quickly track your primary operational metrics. Please refer to the [Dashboard management](https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/dashboards) and [view customization](https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/dashboards) guides for details.
-## Step 7: Query Data Using IXONav (AI Payments Assistant)[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding#step-7-query-data-using-ixonav-ai-payments-assistant "Direct link to Step 7: Query Data Using IXONav \(AI Payments Assistant\)")
-Utilize IXONav, the built-in AI assistant, to interact with your payment datasets.
+## Step 7: Query Data Using IXO AI (AI Payments Assistant)[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding#step-7-query-data-using-ixo-ai-ai-payments-assistant "Direct link to Step 7: Query Data Using IXO AI \(AI Payments Assistant\)")
+Utilize IXO AI, the built-in AI assistant, to interact with your payment datasets.
   * **Ask Questions:** Query your payment data using conversational language (e.g., "Why did my authorization rate drop in Europe yesterday?").
-  * **Save & Schedule:** Save your most frequent or critical investigative queries and schedule them to run automatically at defined intervals.
-  * **Customize your IXONav settings:** Decide how many days you want to store chats, and star your most relevant chats.
+  * **Save & Schedule:** Save your most frequent or critical investigative queries, build a Prompt Library, and schedule them to run automatically at defined intervals.
+  * **Customize your IXO AI settings:** Decide how many days you want to store chats, and star your most relevant chats.
   * **Connect to Slack:** We support Slack integrations for Alerts and Notifications for a seamless interaction. Please contact IXOPAY Support to enable this functionality.
 
 ## Step 8: Configure Performance Alerts & Anomaly Detection[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/platform-onboarding#step-8-configure-performance-alerts--anomaly-detection "Direct link to Step 8: Configure Performance Alerts & Anomaly Detection")

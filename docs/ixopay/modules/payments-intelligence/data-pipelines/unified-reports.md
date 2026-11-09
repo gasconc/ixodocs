@@ -14,7 +14,7 @@ tags:
 - payment-gateway
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/data-pipelines/unified-reports
 portal: ixopay-modules
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -159,7 +159,7 @@ The following PSPs connections are currently available in Unified Reports:
 | `original_status`  | `VARCHAR(16777216)`  | The unmapped status code directly delivered by the PSP  |  
 | `reason_code`  | `VARCHAR(16777216)`  | The standardized error or performance rationale explanation tied to the final status.  |  
 | `original_reason_code`  | `VARCHAR(16777216)`  | The raw failure or success response code output directly by the processor.  |  
-| `ixopay_reason_code`  | `VARCHAR(16777216)`  | The specialized diagnostic outcome mapping classification passed by Ixopay systems.  |  
+| `ixopay_reason_code`  | `VARCHAR(16777216)`  | The specialized diagnostic outcome mapping classification passed by [IXOPAY](https://www.ixopay.com) systems.  |  
 | `merchant_customer_id`  | `VARCHAR(16777216)`  | The bespoke end-client account identifier chosen by the merchant.  |  
 | `descriptor`  | `VARCHAR(16777216)`  | The custom text phrase string printed onto the end consumer's card statement.  |  
 | `account_updater`  | `VARCHAR(16777216)`  | Details indicating if automated account updating runs updated the saved card data.  |  
@@ -174,13 +174,13 @@ The following PSPs connections are currently available in Unified Reports:
 | `filenames`  | `ARRAY`  | A list recording the specific source files from which this record was parsed.  |  
 | `ingested_on_utc`  | `TIMESTAMP_NTZ(9)`  | The exact system timestamp capturing when this information row hit the database.  |  
 | `updated_on_utc`  | `TIMESTAMP_NTZ(9)`  | The exact system timestamp tracking the most recent data adjustment to this row.  |  
-| `congrify_issuing_bank`  | `VARCHAR(16777216)`  | The standardized bank issuer name from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_category`  | `VARCHAR(16777216)`  | The standardized card category from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_type`  | `VARCHAR(16777216)`  | The standardized card type from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_product`  | `VARCHAR(16777216)`  | The standardized card product from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_sub_product_type`  | `VARCHAR(16777216)`  | The unified card product type from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_scheme`  | `VARCHAR(16777216)`  | The normalized scheme network from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_issuer_country`  | `VARCHAR(16777216)`  | The standardized financial issuance country universal BIN data source of Ixopay Payments  |  
+| `congrify_issuing_bank`  | `VARCHAR(16777216)`  | The standardized bank issuer name from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_category`  | `VARCHAR(16777216)`  | The standardized card category from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_type`  | `VARCHAR(16777216)`  | The standardized card type from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_product`  | `VARCHAR(16777216)`  | The standardized card product from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_sub_product_type`  | `VARCHAR(16777216)`  | The unified card product type from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_scheme`  | `VARCHAR(16777216)`  | The normalized scheme network from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_issuer_country`  | `VARCHAR(16777216)`  | The standardized financial issuance country universal BIN data source of IXOPAY Payments  |  
 ### Transactions Table Schema[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/data-pipelines/unified-reports#transactions-table-schema "Direct link to Transactions Table Schema")  
 | **Column name**  | **Data Type**  | **Description**  |  
 | --- | --- | --- |  
@@ -213,7 +213,7 @@ The following PSPs connections are currently available in Unified Reports:
 | `original_status`  | `VARCHAR(16777216)`  | The unmapped status code directly delivered by the PSP.  |  
 | `reason_code`  | `VARCHAR(16777216)`  | The standardized error or performance rationale explanation tied to the final status.  |  
 | `original_reason_code`  | `VARCHAR(16777216)`  | The raw failure or success response code output directly by the processor.  |  
-| `ixopay_reason_code`  | `VARCHAR(16777216)`  | The specialized diagnostic outcome mapping classification passed by Ixopay systems.  |  
+| `ixopay_reason_code`  | `VARCHAR(16777216)`  | The specialized diagnostic outcome mapping classification passed by IXOPAY systems.  |  
 | `card_type`  | `VARCHAR(16777216)`  | The normalized card type value such as Debit / Credit.  |  
 | `original_card_type`  | `VARCHAR(16777216)`  | The raw card type text received from the PSP.  |  
 | `card_category`  | `VARCHAR(16777216)`  | The standardized consumer tier rating of the card (Consumer, Commercial).  |  
@@ -283,13 +283,13 @@ The following PSPs connections are currently available in Unified Reports:
 | `filenames`  | `ARRAY`  | A list recording the specific source files from which this record was parsed.  |  
 | `ingested_on_utc`  | `TIMESTAMP_NTZ(9)`  | The exact system timestamp capturing when this information row hit the database.  |  
 | `updated_on_utc`  | `TIMESTAMP_NTZ(9)`  | The exact system timestamp tracking the most recent data adjustment to this row.  |  
-| `congrify_issuing_bank`  | `VARCHAR(16777216)`  | The standardized bank issuer name from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_category`  | `VARCHAR(16777216)`  | The standardized card category from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_type`  | `VARCHAR(16777216)`  | The standardized card type from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_product`  | `VARCHAR(16777216)`  | The standardized card product from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_sub_product_type`  | `VARCHAR(16777216)`  | The unified card product type from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_scheme`  | `VARCHAR(16777216)`  | The normalized scheme network from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_issuer_country`  | `VARCHAR(16777216)`  | The standardized financial issuance country universal BIN data source of Ixopay Payments Intelligence.  |  
+| `congrify_issuing_bank`  | `VARCHAR(16777216)`  | The standardized bank issuer name from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_category`  | `VARCHAR(16777216)`  | The standardized card category from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_type`  | `VARCHAR(16777216)`  | The standardized card type from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_product`  | `VARCHAR(16777216)`  | The standardized card product from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_sub_product_type`  | `VARCHAR(16777216)`  | The unified card product type from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_scheme`  | `VARCHAR(16777216)`  | The normalized scheme network from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_issuer_country`  | `VARCHAR(16777216)`  | The standardized financial issuance country universal BIN data source of IXOPAY Payments Intelligence.  |  
 ### Chargebacks Table Schema[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/data-pipelines/unified-reports#chargebacks-table-schema "Direct link to Chargebacks Table Schema")  
 | **Column name**  | **Data Type**  | **Description**  |  
 | --- | --- | --- |  
@@ -307,7 +307,7 @@ The following PSPs connections are currently available in Unified Reports:
 | `reason_code`  | `VARCHAR(16777216)`  | The specific operational reason code issued by the network to explain the dispute.  |  
 | `reason_code_category`  | `VARCHAR(16777216)`  | The normalized category grouping similar dispute reason codes (e.g., Fraud, Technical).  |  
 | `original_reason_code_category`  | `VARCHAR(16777216)`  | The raw classification category for the reason code provided by the external system.  |  
-| `ixopay_reason_code`  | `VARCHAR(16777216)`  | The proprietary dispute tracking code mapped via the Ixopay platform.  |  
+| `ixopay_reason_code`  | `VARCHAR(16777216)`  | The proprietary dispute tracking code mapped via the IXOPAY platform.  |  
 | `congrify_dispute_id`  | `VARCHAR(16777216)`  | The unique global identifier generated internally by Congrify to track the dispute record.  |  
 | `original_dispute_id`  | `VARCHAR(16777216)`  | The raw identification id assigned to this dispute by the provider.  |  
 | `event_date_utc`  | `TIMESTAMP_NTZ(9)`  | The high-precision timestamp marking when this specific dispute lifecycle event occurred, converted to the UTC timezone.  |  
@@ -379,10 +379,10 @@ The following PSPs connections are currently available in Unified Reports:
 | `filenames`  | `ARRAY`  | A list recording the specific source files from which this record was parsed.  |  
 | `ingested_on_utc`  | `TIMESTAMP_NTZ(9)`  | The exact system timestamp capturing when this information row hit the database.  |  
 | `updated_on_utc`  | `TIMESTAMP_NTZ(9)`  | The exact system timestamp tracking the most recent data adjustment to this row.  |  
-| `congrify_issuing_bank`  | `VARCHAR(16777216)`  | The standardized bank issuer name from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_category`  | `VARCHAR(16777216)`  | The standardized card category from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_type`  | `VARCHAR(16777216)`  | The standardized card type from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_product`  | `VARCHAR(16777216)`  | The standardized card product from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_sub_product_type`  | `VARCHAR(16777216)`  | The unified card product type from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_card_scheme`  | `VARCHAR(16777216)`  | The normalized scheme network from universal BIN data source of Ixopay Payments Intelligence.  |  
-| `congrify_issuer_country`  | `VARCHAR(16777216)`  | The standardized financial issuance country universal BIN data source of Ixopay Payments Intelligence.  |
+| `congrify_issuing_bank`  | `VARCHAR(16777216)`  | The standardized bank issuer name from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_category`  | `VARCHAR(16777216)`  | The standardized card category from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_type`  | `VARCHAR(16777216)`  | The standardized card type from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_product`  | `VARCHAR(16777216)`  | The standardized card product from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_sub_product_type`  | `VARCHAR(16777216)`  | The unified card product type from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_card_scheme`  | `VARCHAR(16777216)`  | The normalized scheme network from universal BIN data source of IXOPAY Payments Intelligence.  |  
+| `congrify_issuer_country`  | `VARCHAR(16777216)`  | The standardized financial issuance country universal BIN data source of IXOPAY Payments Intelligence.  |

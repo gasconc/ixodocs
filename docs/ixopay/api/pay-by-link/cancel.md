@@ -14,7 +14,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/api/pay-by-link/cancel
 portal: ixopay-dev
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -55,6 +55,9 @@ There are also Action Buttons used to navigate back to the **Profile List, Edit 
 ### Profile Data[​](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#profile-data "Direct link to Profile Data")
 This tab contains base data about the Profile such as Customer data (e.g. personal data, billing data), the **Connector** used to create the Customer Profile, **Customer Profile GUID** , and **Customer Identification** , as well as the **Preferred method** (see also [Payment Instruments](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#payment-instruments)). The section **Extra Data** can be used to store any additional data.
 ![Customer Profile](https://documentation.ixopay.com/manual/assets/ideal-img/customer-profile.e124e39.1280.png)Customer Profile![Edit Customer Profile](https://documentation.ixopay.com/manual/assets/ideal-img/edit-customer-profile.8abab3e.1280.png)Edit Customer Profile![Delete Customer Profile](https://documentation.ixopay.com/manual/assets/ideal-img/delete-customer-profile.5c25091.986.png)Delete Customer Profile
+Customer data masking
+When customer data masking is enabled in the IXOPAY platform, customer email addresses and phone numbers are shown masked (e.g. `jo******@gmail.com`, `98******10`) unless your role includes the [PII data permission](https://documentation.ixopay.com/manual/docs/system-setup/roles).
+This applies to the Profile List, the Profile Data tab and the **Edit Profile** form. In the **Edit Profile** form these two fields are read-only while masked, so a masked value is never saved. Filtering the Profile List by email still matches the full email address.
 info
 To add additional data to the customer profile, either the Customer Profile GUID or Customer Identification must be provided.
 ### Payment Instruments[​](https://documentation.ixopay.com/manual/docs/tokenization/customer-profiles#payment-instruments "Direct link to Payment Instruments")
@@ -122,7 +125,7 @@ Credit Card
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 10/2031  
+    expiryDate => 11/2031  
 
     firstSix => 411111  
 
@@ -1765,7 +1768,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 10/2031  
+    expiryDate => 11/2031  
 
     firstSix => 411111  
 
@@ -3397,7 +3400,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 10/2031  
+    expiryDate => 11/2031  
 
     firstSix => 411111  
 
@@ -5034,7 +5037,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 10/2031  
+    expiryDate => 11/2031  
 
     firstSix => 411111  
 
@@ -6677,7 +6680,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 10/2031  
+    expiryDate => 11/2031  
 
     firstSix => 411111  
 
@@ -8309,7 +8312,7 @@ Customer Profile data can be requested before transaction processing using the [
 
     number => xxxxxxxxxxxx1111  
 
-    expiryDate => 10/2031  
+    expiryDate => 11/2031  
 
     firstSix => 411111  
 

@@ -9,12 +9,12 @@ tags:
 - payone-creditcard-https-documentation-ixopay-com-manual-adapters-six-payone-creditcard-direct-link-payone-creditcard
 - api
 - xml
+- 3ds
 - ixopay
 - recurring
-- chargeback
 source_url: https://documentation.ixopay.com/manual/adapters/six
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -40,6 +40,7 @@ Configure the following parameters for the Connector (see Connector Detail Overv
   15. Fill in the mandatory **Postal Code** — 1-10 characters
   16. Add **CCTI-IDs (Override defaults)** to
   17. Fill in the **Default Capture Reference**
+  18. Enable the option **Send actual 3DS version (2.1 - 2.9) in 3DSVersion subfield** — sends the EMV 3DS version used for authentication (e.g. 2.2) instead of always reporting 2.1
 
 ![Connector Detail Overview - Six Elink Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-six-elink-creditcard-vault-configuration.b90a211.1196.png)Connector Detail Overview - Six Elink Creditcard - Vault Configuration
 ## Six Push[​](https://documentation.ixopay.com/manual/adapters/six#six-push "Direct link to Six Push")

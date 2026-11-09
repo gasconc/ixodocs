@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -36,6 +36,9 @@ To manage the blocklist and allowlist:
 note
 Blocklist/allowlist entries are only applied to transactions when assigned to the corresponding rule (**Blocklist/Allowlist**) in a risk profile.
 ![Assign Blocklist to Risk Profile](https://documentation.ixopay.com/manual/assets/ideal-img/assign-blocklist-to-risk-profile.7855961.1280.png)Assign Blocklist to Risk Profile
+Customer data masking
+When customer data masking is enabled in the IXOPAY platform, customer email addresses and phone numbers are shown masked (e.g. `jo******@gmail.com`, `98******10`) unless your role includes the [PII data permission](https://documentation.ixopay.com/manual/docs/system-setup/roles).
+In the list, this applies to **Email** , **Billing Phone Number** and **Shipping Phone Number** ; **First Name** and **Last Name** are not masked. The stored values and transaction matching are unchanged, but the list cannot be searched or sorted by masked values.
 ## Importing Data in Bulk[​](https://documentation.ixopay.com/manual/docs/risk-management/blocklist-allowlist#importing-data "Direct link to Importing Data in Bulk")
 You can also import data for the allowlist/blocklist by uploading a file, rather than defining the rules manually in the IXOPAY platform.
 This file should be a simple text file with each line representing a value to import for the specified key. For example, to import a list of email addresses to block, the file could contain following content:

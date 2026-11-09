@@ -13,7 +13,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/reference/appendix/regions
 portal: ixopay-dev
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -27,7 +27,7 @@ Your region is assigned during onboarding. You can identify it by the hostname u
 Throughout this documentation, hostnames are shown for the currently selected region and environment. The region selector in the navigation bar updates the entire site, including page content, code examples, and the "Send API Request" base URL. Your selection is retained for the remainder of the browser session.
 ## Hostnames[​](https://documentation.ixopay.com/docs/reference/appendix/regions#hostnames "Direct link to Hostnames")
 Only the hostname differs between regions; the scheme and the base path, shown dimmed, are the same everywhere.  
-| Service  |  🇪🇺 Europe  |  🇺🇸 United States  |  
+| Service  |  Europe  |  United States  |  
 | --- | --- | --- |  
 | Production |  
 | Admin  | `https://gateway.ixopay.com`  | `https://gateway.us.pop.ixopay.com`  |  

@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-11-02T15:47:52+00:00_
+_Generated at 2026-11-09T16:02:19+00:00_
 
-**349 missing** · **3 stale** across 3 source(s).
+**358 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **959** · Indexed: **610** · Missing: **349** · Stale: **2**
+- Published: **961** · Indexed: **610** · Missing: **351** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -170,6 +170,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/trustly
 - https://documentation.ixopay.com/adapters/trustpayments-pci
 - https://documentation.ixopay.com/adapters/unzer
+- https://documentation.ixopay.com/adapters/usio-ach
 - https://documentation.ixopay.com/adapters/valitor-pay
 - https://documentation.ixopay.com/adapters/vantiv
 - https://documentation.ixopay.com/adapters/visa-direct
@@ -299,6 +300,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/manual/adapters/paysafecard
 - https://documentation.ixopay.com/manual/adapters/paytabs
 - https://documentation.ixopay.com/manual/adapters/payu
+- https://documentation.ixopay.com/manual/adapters/peach
 - https://documentation.ixopay.com/manual/adapters/perfectmoney
 - https://documentation.ixopay.com/manual/adapters/pie
 - https://documentation.ixopay.com/manual/adapters/ppro
@@ -373,7 +375,17 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 ## ixopay-corp-legal
 _Ixopay corporate legal & compliance pages._
 
-- Published: **11** · Indexed: **11** · Missing: **0** · Stale: **1**
+- Published: **18** · Indexed: **11** · Missing: **7** · Stale: **1**
+
+### Missing (published but not indexed)
+
+- https://www.ixopay.com/legal/billable-operations
+- https://www.ixopay.com/legal/general-terms-conditions
+- https://www.ixopay.com/legal/ixopay-terms
+- https://www.ixopay.com/legal/jca
+- https://www.ixopay.com/legal/legal-notice
+- https://www.ixopay.com/legal/privacy-policy-ixolit-id-offline
+- https://www.ixopay.com/legal/terms-of-use-ixolit-id
 
 ### Stale (indexed but no longer published)
 

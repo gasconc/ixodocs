@@ -1,6 +1,6 @@
 # Ixopay & TokenEx Documentation Index
 
-> Last updated: 2026-11-02 | Total pages: 818
+> Last updated: 2026-11-09 | Total pages: 818
 
 ## Ixopay Developer Hub (237 pages)
 
@@ -456,10 +456,10 @@
 - [Getting Started](docs/ixopay/modules/payments-intelligence/integrations/getting-started.md) — Getting Started
 - [IXOPAY](docs/ixopay/modules/payments-intelligence/integrations/ixopay.md) — IXOPAY  is a leading payment orchestration platform that streamlines global online payments for enterprise-level businesses. Designed for scalabili...
 - [Stripe App Marketplace](docs/ixopay/modules/payments-intelligence/marketplace-integrations/stripe-marketplace.md) — Marketplace Integrations  Stripe App Marketplace
-- [AI Co-Pilot](docs/ixopay/modules/payments-intelligence/observability/ai-copilot.md) — AI Co-Pilot
+- [IXO AI](docs/ixopay/modules/payments-intelligence/observability/ai-copilot.md) — IXO AI
 - [Alerts](docs/ixopay/modules/payments-intelligence/observability/alerts.md) — The IXOPAY Payments Intelligence formerly Congrify platform enhances your payments awareness and decision-making through customizable real-time ale...
 - [Anomaly Detection](docs/ixopay/modules/payments-intelligence/observability/anomaly-detection.md) — Anomaly Detection
-- [Dashboards](docs/ixopay/modules/payments-intelligence/observability/dashboards.md) — IXOPAY Payments Intelligence formerly Congrify empowers businesses with complete visibility into their payment ecosystems. By leveraging no-code in...
+- [Dashboards and Analytics](docs/ixopay/modules/payments-intelligence/observability/dashboards.md) — Dashboards and Analytics
 - [Data Explorer](docs/ixopay/modules/payments-intelligence/observability/data-explorer.md) — Data Explorer
 - [KPIs](docs/ixopay/modules/payments-intelligence/observability/kpis.md) — In this section, you can find the relevant KPIs glossary for the IXOPAY Payments Intelligence formerly Congrify Observability and Analytics sections.
 - [Transaction Search](docs/ixopay/modules/payments-intelligence/observability/transaction-search.md) — Transaction Search
@@ -469,7 +469,7 @@
 - [Payments Observability & Intelligence](docs/ixopay/modules/payments-intelligence/platform/payments.md) — Payments Observability & Intelligence
 - [How to Start](docs/ixopay/modules/payments-intelligence/platform/platform-onboarding.md) — How to Start
 - [Registration & Login](docs/ixopay/modules/payments-intelligence/platform/registration-login.md) — Registration & Login
-- [Security](docs/ixopay/modules/payments-intelligence/platform/security.md) — As part of the Ixopay Group, IXOPAY Payments Intelligence formerly Congrify undergoes an ISO 27001 and SOC2 certification audit for its data platfo...
+- [Security](docs/ixopay/modules/payments-intelligence/platform/security.md) — As part of the IXOPAYhttps://www.ixopay.com Group, IXOPAY Payments Intelligence formerly Congrify undergoes an ISO 27001 and SOC2 certification aud...
 - [User Management and Notifications](docs/ixopay/modules/payments-intelligence/platform/user-management-notifications.md) — User Management and Notifications
 - [3DS Device Fingerprinting](docs/ixopay/modules/tokenex/3-d-secure-device-fingerprinting.md) — 3-D Secure Authentication  3DS Device Fingerprinting
 - [Brand Specific Guidelines](docs/ixopay/modules/tokenex/3ds-brand-specific-guidelines.md) — 3-D Secure Authentication  Brand Specific Guidelines

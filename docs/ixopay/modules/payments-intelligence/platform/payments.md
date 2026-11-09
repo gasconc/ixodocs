@@ -9,12 +9,12 @@ tags:
 - alerts-monitoring-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-alerts-monitoring-direct-link-alerts-monitoring
 - ixopay-payments-intelligence-fee-allocation-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-ixopay-payments-intelligence-fee-allocation-direct-link-ixopay-payments-intelligence-fee-allocation
 - payment-reconciliation-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-payment-reconciliation-direct-link-payment-reconciliation
-- pilot-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-pilot-direct-link-pilot
+- ixo-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-ixo-direct-link-ixo
 - pre-chargebacks-alerts-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-pre-chargebacks-alerts-direct-link-pre-chargebacks-alerts
 - anomaly-detection-https-documentation-ixopay-com-modules-docs-payments-intelligence-platform-payments-anomaly-detection-direct-link-anomaly-detection
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments
 portal: ixopay-modules
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -31,15 +31,15 @@ IXOPAY Payments Intelligence offers a modular solution that enables businesses t
 ### Payment Data pipelines[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#payment-data-pipelines "Direct link to Payment Data pipelines")
 IXOPAY Payments Intelligence allows data-sharing in synchronization with databases or via file sharing with S3. The platform currently integrates Snowflake, available on their marketplace, with plans to add more data-sharing options (e.g., AWS Redshift, Databricks). Unified Reports are also available for fee and cost management.
 ### Payments observability[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#payments-observability "Direct link to Payments observability")
-Businesses can access the platform to easily sign-in and create an account where they can configure the available payment service providers and data connections in a no-code mode by just providing Reporting API or SFTP credentials. The payments observability platform provides access to insights on Authorization rates, transaction declines, Sales, Refunds, Chargebacks, Fees, and Payouts, all with a few clicks. Powered by AI co-pilots to help the users navigate their payment data and easily identify opportunities as well, while running data analysis and investigations.
+Businesses can access the platform to easily sign-in and create an account where they can configure the available payment service providers and data connections in a no-code mode by just providing Reporting API or SFTP credentials. The payments observability platform provides access to insights on Authorization rates, transaction declines, Sales, Refunds, Chargebacks, Fees, and Payouts, all with a few clicks. Powered by IXO AI, your AI Payments Assistant to help the users navigate their payment data and easily identify opportunities as well, while running data analysis and investigations.
 ### Alerts & Monitoring[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#alerts--monitoring "Direct link to Alerts & Monitoring")
 With IXOPAY Payments Intelligence’s intuitive front end, users can set up advanced performance monitoring rules and stay informed about changes in acceptance rates, declines, and chargebacks with real-time alerts.
 ### IXOPAY Payments Intelligence & Fee Allocation[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#ixopay-payments-intelligence--fee-allocation "Direct link to IXOPAY Payments Intelligence & Fee Allocation")
 Cost Allocation Engine — enabling precise mapping of non-transactional costs (e.g., FX, platform fees, rolling reserves) at both the order and transaction level for accurate margin analysis and reconciliation.
 ### Payment reconciliation[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#payment-reconciliation "Direct link to Payment reconciliation")
 Reconcile easily across multiple payment data sources by building rules and workflows to match transactional events and payouts. Receive summary and reports on reconciliation statuses and event mismatches.
-### AI Co-Pilot[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#ai-co-pilot "Direct link to AI Co-Pilot")
-This intelligent assistant helps users navigate and analyze payment data, providing actionable recommendations to address anomalies and optimize payment setups.
+### IXO AI[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#ixo-ai "Direct link to IXO AI")
+Powered by the latest foundational LLMs, RAG based payments knowledge, and expanding agentic functionalities - IXO AI is an AI Payments Intelligence Assistant helping users navigate and analyze their payments data (across KPIs and data dimensions), providing actionable recommendations to optimize payments performance, processing and setups, via a conversational experience.
 ### Pre-Chargebacks Alerts[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#pre-chargebacks-alerts "Direct link to Pre-Chargebacks Alerts")
 Verifi RDR and Ethoca Alerts as a stand-alone solution to reduce chargebacks.
 ### Anomaly Detection[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#anomaly-detection "Direct link to Anomaly Detection")
@@ -64,9 +64,9 @@ If there are no reports previously generated for historical imports, please make
 ### How to monitor the data ingestion?[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#how-to-monitor-the-data-ingestion "Direct link to How to monitor the data ingestion?")
 You have a dedicated section to track file- or API-based data ingestions. IXOPAY Payments Intelligence notifies you when reports or incorrect data ingestion are detected.
 ### How is your data kept secure?[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#how-is-your-data-kept-secure "Direct link to How is your data kept secure?")
-Data is kept secure, and the platform is ISO 27001 and SOC2 certified, undergoing yearly audits as part of the Ixopay group.
+Data is kept secure, and the platform is ISO 27001 and SOC2 certified, undergoing yearly audits as part of the [IXOPAY](https://www.ixopay.com) group.
 Additionally, the platform requires MFA access for all users due to the sensitivity of payments data, allows PII anonymization, and has database segregation policies across different customers.
 ### What’s the pricing model?[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#whats-the-pricing-model "Direct link to What’s the pricing model?")
 The pricing model is based on the number of connections and ingested events. For a pricing quote, please reach out to your point of contact or to the support team.
 ### As a TokenEx customer, how can I see my tokenization data inside payments intelligence?[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/platform/payments#as-a-tokenex-customer-how-can-i-see-my-tokenization-data-inside-payments-intelligence "Direct link to As a TokenEx customer, how can I see my tokenization data inside payments intelligence?")
-Existing TokenEx customers can enable Ixopay Payments Intelligence modules (as provided under the PI Basic package) - please contact the Ixopay Support team to integrate and enable access to your payments and tokenization data in the Ixopay Payments Intelligence portal.
+Existing TokenEx customers can enable IXOPAY Payments Intelligence modules (as provided under the PI Basic package) - please contact the IXOPAY Support team to integrate and enable access to your payments and tokenization data in the IXOPAY Payments Intelligence portal.

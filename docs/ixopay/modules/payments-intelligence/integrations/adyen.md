@@ -17,7 +17,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/integrations/adyen
 portal: ixopay-modules
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -43,8 +43,8 @@ To create a Reporting Service User:
 
   * Create a Username and Password, then generate the HMAC Signature.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/adyen_webhook_3.0fc2f0a.1570.png)
-  * Insert your Adyen credentials, including HMAC key generated, on the Ixopay Payments Intelligence platform.(User Profile → Connections → Adyen 'Add Provider', and create the server configuration URL)
-![](https://documentation.ixopay.com/modules/assets/ideal-img/Adyen_update_webhook.c8eb579.1600.png)
+  * Insert your Adyen credentials, including HMAC key generated, on the IXOPAY Payments Intelligence platform.(User Profile → Connections → Adyen 'Add Provider', and create the server configuration URL)
+![](https://documentation.ixopay.com/modules/assets/ideal-img/Adyen_update_webhook.6ada3d8.1440.png)
   * Enter the Server configuration URL provided by IXOPAY Payments Intelligence, for webhook configuration on Adyen.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/adyen_webhook_2.f7ea53b.1570.png)
   * Select only the REPORT_AVAILABLE webhook event.

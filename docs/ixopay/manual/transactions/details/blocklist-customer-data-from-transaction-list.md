@@ -7,7 +7,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details/blocklist-customer-data-from-transaction-list
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -26,3 +26,6 @@ After clicking on the sign, the data will be saved as a new Blocklist item in yo
 ![Blocklist confirmation](https://documentation.ixopay.com/manual/assets/ideal-img/blocklist-confirmation.4c1b833.1200.png)Blocklist confirmation
 note
 Only the **first six digits** representing the BIN (Bank Identification Number) will be put on the Blocklist even in case of a 8-digit BIN.
+Customer data masking
+When customer data masking is enabled in the [IXOPAY platform](https://www.ixopay.com), customer email addresses and phone numbers are shown masked (e.g. `jo******@gmail.com`, `98******10`) unless your role includes the [PII data permission](https://documentation.ixopay.com/manual/docs/system-setup/roles).
+Blocklisting a masked **Email** , **Billing Phone** or **Shipping Phone** still stores the full value from the transaction, so the Blocklist item matches correctly.

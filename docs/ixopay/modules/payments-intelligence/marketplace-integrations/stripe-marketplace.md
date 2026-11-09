@@ -2,7 +2,7 @@
 title: Stripe App Marketplace
 summary: ' Marketplace Integrations  Stripe App Marketplace'
 tags:
-- expect-ixopay-payments-intelligence-assistant-https-documentation-ixopay-com-modules-docs-payments-intelligence-marketplace-integrations-stripe-marketplace-expect-ixopay-payments-intelligences-assistant-direct-link-expect-ixopay-payments-intelligence-assistant
+- expect-ixopay-payments-intelligence-ixo-https-documentation-ixopay-com-modules-docs-payments-intelligence-marketplace-integrations-stripe-marketplace-expect-ixopay-payments-intelligences-ixo-direct-link-expect-ixopay-payments-intelligence-ixo
 - onboarding-flow-https-documentation-ixopay-com-modules-docs-payments-intelligence-marketplace-integrations-stripe-marketplace-onboarding-flow-direct-link-onboarding-flow
 - uninstalling-flow-https-documentation-ixopay-com-modules-docs-payments-intelligence-marketplace-integrations-stripe-marketplace-uninstalling-flow-direct-link-uninstalling-flow
 - ixopay
@@ -11,7 +11,7 @@ tags:
 - dashboard
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace
 portal: ixopay-modules
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -22,9 +22,9 @@ related: []
 IXOPAY Payments Intelligence's (formerly Congrify) platform is now available directly within the Stripe ecosystem. With the Stripe app, you can unlock powerful payment insights and performance monitoring—without ever leaving your Stripe dashboard.
 The integration is secure, seamless, and takes just a few clicks to set up. Once installed, you’ll be able to analyze trends, detect anomalies, and optimize your payment operations with real-time intelligence tailored to your business.
 You can try IXOPAY Payments Intelligence for free before upgrading to the Basic plan designed specifically for Stripe users. Get started today and turn your Stripe data into actionable insights.
-## What to expect from IXOPAY Payments Intelligence's AI Assistant[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace#what-to-expect-from-ixopay-payments-intelligences-ai-assistant "Direct link to What to expect from IXOPAY Payments Intelligence's AI Assistant")
-With IXOPAY Payments Intelligence’s AI Payment Assistant, you can:
-  * Chat with an AI model tailored to your Stripe data and get instant answers
+## What to expect from IXOPAY Payments Intelligence's IXO AI[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace#what-to-expect-from-ixopay-payments-intelligences-ixo-ai "Direct link to What to expect from IXOPAY Payments Intelligence's IXO AI")
+With IXOPAY Payments Intelligence’s IXO AI, you can:
+  * Chat, in a natural language style, tailored to your Stripe data and get instant answers
   * Receive smart interpretations and actionable recommendations on your payment performance
   * Gain insights in seconds—no downloads, no manual analysis required
   * Learn best practices with curated industry knowledge from seasoned payment experts
@@ -39,17 +39,17 @@ With IXOPAY Payments Intelligence’s AI Payment Assistant, you can:
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/stripe_marketplace_install_step3_1.f2a81e9.1600.png)
   4. When you return to the app, you’ll see data syncing in progress. IXOPAY Payments Intelligence will securely import the last 30 days of your Stripe data, which may take up to 15–30 minutes.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/stripe_marketplace_install_data_download.bafd992.1552.png)
-  5. After synchronization finishes, the app will display two tabs: Your Insights and AI Assistant.
+  5. After synchronization finishes, the app will display two tabs: Your Insights and IXO AI.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/stripe_marketplace_install_using1.66db5b5.1600.png)
   6. Click any item in Your Insights to get an AI-powered analysis of your opportunities, complete with visual charts and a detailed explanation.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/stripe_marketplace_install_using2.df4fd0d.1600.png)
-  7. Open the AI Assistant tab to chat with IXOPAY Payments Intelligence’s AI and ask questions about your payment performance on Stripe.
+  7. Open the IXO AI tab to chat with IXOPAY Payments Intelligence’s IXO AI and ask questions about your payment performance on Stripe.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/stripe_marketplace_install_using3.0a11027.1600.png)
-  8. The AI Assistant offers a limited number of interactions before guiding you to continue your analysis in IXOPAY Payments Intelligence’s portal. After the initial app registration, click Complete Registration to finish setting up your account.
+  8. The IXO AI offers a limited number of interactions before guiding you to continue your analysis in IXOPAY Payments Intelligence’s portal. After the initial app registration, click Complete Registration to finish setting up your account.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/stripe_marketplace_install_using4.317927e.1600.png)
   9. To finish registration, simply enter your first and last name and create a password for IXOPAY Payments Intelligence’s web portal. Once complete, you can access the portal anytime—either through the Stripe app or directly at app.congrify.com.
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/congrify_payment_assistant_stripe_marketplace_17.794963b.1600.png)
-  10. Once registered, you’ll have full access to IXOPAY Payments Intelligence’s portal, where you can continue using the AI Co-Pilot to analyze your Stripe data and receive personalized recommendations to optimize payment performance. Here, you can also dive into IXOPAY Payments Intelligence’s advanced observability and intelligence tools—including extensive analytics, real-time alerting, data exploration, and monitoring capabilities. Simply choose the plan that best fits your business needs.
+  10. Once registered, you’ll have full access to IXOPAY Payments Intelligence’s portal, where you can continue using IXO AI to analyze your Stripe data and receive personalized recommendations to optimize payment performance. Here, you can also dive into IXOPAY Payments Intelligence’s advanced observability and intelligence tools—including extensive analytics, real-time alerting, data exploration, and monitoring capabilities. Simply choose the plan that best fits your business needs.
 
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/congrify_payment_assistant_stripe_marketplace_19.b598785.1600.png)
 ## Uninstalling flow[​](https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace#uninstalling-flow "Direct link to Uninstalling flow")
@@ -64,6 +64,6 @@ With IXOPAY Payments Intelligence’s AI Payment Assistant, you can:
 ![](https://documentation.ixopay.com/modules/assets/ideal-img/stripe_marketplace_install_uninstalling5.873a586.1560.png)
   5. If you’ve created an account in the IXOPAY Payments Intelligence portal, contact our Support Team in the [IXOPAY Customer Experience Portal](https://ixopay.my.site.com/support) to request its deletion.
 
-  * [What to expect from IXOPAY Payments Intelligence's AI Assistant](https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace#what-to-expect-from-ixopay-payments-intelligences-ai-assistant)
+  * [What to expect from IXOPAY Payments Intelligence's IXO AI](https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace#what-to-expect-from-ixopay-payments-intelligences-ixo-ai)
   * [Onboarding flow](https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace#onboarding-flow)
   * [Uninstalling flow](https://documentation.ixopay.com/modules/docs/payments-intelligence/marketplace-integrations/stripe-marketplace#uninstalling-flow)

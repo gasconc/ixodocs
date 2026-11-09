@@ -16,7 +16,7 @@ tags:
 - transaction
 source_url: https://documentation.ixopay.com/manual/adapters/kalixa
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -38,8 +38,15 @@ Configure the following parameters for the Connector (see Connector Config - Kal
   2. Fill in the mandatory **Password** Merchant’s account password.
   3. Fill in the mandatory **Extra Data: merchantID** Unique ID to identify the Merchants. Generated and provided by PSP.
   4. Fill in the mandatory **Extra Data: shopID** The ID of the shop.
+  5. Enable the optional **Extra Data: captureWaitForWebhook** (Instore Card Deposit only) to keep captures _pending_ until PXP confirms or refuses them by notification. Default: disabled.
 
 ![Connector Config - Kalixa](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-kalixa.b1484d0.1280.png)Connector Config - Kalixa
+Captures for Instore Card Deposit
+PXP answers an Instore Card Deposit capture synchronously with _PendingToBeCaptured_. The capture is only final once PXP sends its outcome notification, usually a few minutes later.
+  * **Disabled** (default): the capture is shown as _success_ immediately. If PXP refuses it later, the capture turns into an _Error after Success_ conflict, and the merchant does not receive a postback.
+  * **Enabled** : the capture stays _pending_. _CapturedByProvider_ sets it to _success_ , _CaptureRefused_ sets it to _error_ , and the merchant receives a postback in both cases.
+
+There is no status polling for this connector. If PXP's notification does not arrive, the capture stays _pending_. Make sure PXP has set the shop's notification URL to this connector.
 ## Data Fetcher Configuration[​](https://documentation.ixopay.com/manual/adapters/kalixa#data-fetcher-configuration "Direct link to Data Fetcher Configuration")
 You have the option to configure Data Fetchers (see section [Enable and Set Up Reconciliation on the Provider Level](https://documentation.ixopay.com/manual/docs/post-processing/provider)) either on Provider or on Connector Level, depending on which setup works better for your provider (see Edit Provider).
 ### Provider Settlement[​](https://documentation.ixopay.com/manual/adapters/kalixa#provider-settlement "Direct link to Provider Settlement")

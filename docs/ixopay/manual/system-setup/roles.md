@@ -14,7 +14,7 @@ tags:
 - settlement
 source_url: https://documentation.ixopay.com/manual/docs/system-setup/roles
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -35,6 +35,8 @@ This feature allow you to control the areas and permissions (edit, add, create, 
   6. Click "**Save Roles** "
 
 ![Roles Overview](https://documentation.ixopay.com/manual/assets/ideal-img/roles-overview.91be629.1280.png)Roles Overview![Edit Role](https://documentation.ixopay.com/manual/assets/ideal-img/edit-role.7ef2576.1280.png)Edit Role
+Example: PII Data Administrator
+When customer data masking is enabled, customer email addresses and phone numbers are masked for all users (e.g. `jo******@gmail.com`, `98******10`). To let selected users see the full values, create a role named **PII Data Administrator** , select the permission `misc.show-pii-data` and assign the role only to the users who need it.
 ## 4 Eyes Principle[​](https://documentation.ixopay.com/manual/docs/system-setup/roles#4-eyes-principle "Direct link to 4 Eyes Principle")
 To ensure compliance to Access, Roles and Right Guidelines and changes on the [IXOPAY platform](https://www.ixopay.com) setup are sufficiently reviewed, 4 eyes confirmation of status changes can be configured.
 By splitting up responsibilities you can be ensured that at least 2 sets of eyes look over configuration changes before they get applied to the production system.  
@@ -47,7 +49,7 @@ By splitting up responsibilities you can be ensured that at least 2 sets of eyes
 | Dashboard  | Enable Pivot Table and reports  |  
 | Fee entity  | Enable the permission to create, edit, list and mapping  |  
 | Merchant  | Enable Merchants to get access to various features offered in the IXOPAY platform (Connector, Fee, Transaction types, User)  |  
-| Misc  | Alert, BitPay-pairing, FAST Editor. Data export, audit-logs, Virtual Terminal  |  
+| Misc  | Alert, BitPay-pairing, FAST Editor. Data export, audit-logs, PII data, Virtual Terminal  |  
 | Post-Processing  | Data fetcher, job-config, job, line-item, Provider settlement, reconciliation  |  
 | Provider  | Assign Connectors, create, edit, list, show  |  
 | Risk check  | Risk Rules and Risk-Rule-Set management  |  
@@ -81,6 +83,7 @@ By splitting up responsibilities you can be ensured that at least 2 sets of eyes
 | misc.alert.dismissForAll  | Dismiss Alert notifications  |  
 | misc.alert.resolve  | Resolve Alert notifications  |  
 | misc.data-export  | Use Data-Export to export transactions to an XLSX/CSV  |  
+| misc.show-pii-data  | See unmasked customer email addresses and phone numbers while customer data masking is enabled  |  
 | misc.virtual-terminal.register  | Use Virtual-Terminal for Register transactions  |  
 | misc.virtual-terminal.use  | Use Virtual-Terminal for Sale transactions  |  
 | schedule.show  | Show all transaction recurring schedules from the merchants  |  

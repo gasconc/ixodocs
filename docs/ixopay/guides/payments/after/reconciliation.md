@@ -14,7 +14,7 @@ tags:
 - gateway
 source_url: https://documentation.ixopay.com/docs/guides/payments/after/reconciliation
 portal: ixopay-dev
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 

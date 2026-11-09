@@ -14,7 +14,7 @@ tags:
 - comments-https-documentation-ixopay-com-manual-docs-transactions-details-comments-direct-link-comments
 source_url: https://documentation.ixopay.com/manual/docs/transactions/details
 portal: ixopay-manual
-updated: '2026-11-02'
+updated: '2026-11-09'
 related: []
 ---
 
@@ -105,6 +105,11 @@ In case the customer data is linked to a [Customer Profile](https://documentatio
 | IP Country  | Customer's IP Country.  |  
 | Browser Fingerprint  | Browser Fingerprint. [See also Blocklist Customer Data from Transaction list](https://documentation.ixopay.com/manual/docs/transactions/details/blocklist-customer-data-from-transaction-list)  |  
 | Company  | Customer Company Name  |  
+| Billing Phone  | Customer billing phone number. [See also Blocklist Customer Data from Transaction list](https://documentation.ixopay.com/manual/docs/transactions/details/blocklist-customer-data-from-transaction-list)  |  
+| Shipping Phone  | Customer shipping phone number. [See also Blocklist Customer Data from Transaction list](https://documentation.ixopay.com/manual/docs/transactions/details/blocklist-customer-data-from-transaction-list)  |  
+Customer data masking
+When customer data masking is enabled in the IXOPAY platform, customer email addresses and phone numbers are shown masked (e.g. `jo******@gmail.com`, `98******10`) unless your role includes the [PII data permission](https://documentation.ixopay.com/manual/docs/system-setup/roles).
+In this section, this applies to **Email** , **Billing Phone** and **Shipping Phone**.
 ## Status History[​](https://documentation.ixopay.com/manual/docs/transactions/details#status-history "Direct link to Status History")
 In this section you will find the different Processing Status Changes (e.g. await_redirect to redirected, redirected to success) as well as Settlement Status Changes (e.g. Notice Received, Funds Received, Pending, In Progress, Cleared) incl. timestamp.
 ![Processing Status](https://documentation.ixopay.com/manual/assets/ideal-img/processing-status.3f3864b.1280.png)Processing Status![Settlement Status](https://documentation.ixopay.com/manual/assets/ideal-img/settlement-status.c5c0163.1280.png)Settlement Status
@@ -150,4 +155,5 @@ In this section you have the possibility to add internal comments to the individ
 ![Comments](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-comments.4d21cf3.1280.png)Comments![Set Note & Confirm](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-set-note-confirm.b5600d5.533.png)Set Note & Confirm
 ## Logs[​](https://documentation.ixopay.com/manual/docs/transactions/details#logs "Direct link to Logs")
 In this section you will find all data relating to the transaction processing starting from the moment the API Request is received by the IXOPAY platform, including all intermediate (Payment Form Rendering, Redirecting, Postback Notifications) and executed actions with different PSPs in the background (Adapter Calls) with exact timestamp (UTC).
+When customer data masking is enabled, customer email addresses and phone numbers inside log entries are also shown masked.
 ![Logs](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-logs.0962eec.1280.png)Logs![Logs Entry](https://documentation.ixopay.com/manual/assets/ideal-img/transaction-details-log-entry.6bb7a11.1280.png)Logs Entry
