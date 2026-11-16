@@ -14,7 +14,7 @@ tags:
 - tokenex
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/rsa-key-management
 portal: ixopay-modules
-updated: '2026-11-09'
+updated: '2026-11-16'
 related: []
 ---
 

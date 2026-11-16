@@ -11,7 +11,7 @@ tags:
 - merchant
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/tokenize-cvv
 portal: tokenex
-updated: '2026-11-09'
+updated: '2026-11-16'
 related: []
 ---
 

@@ -14,7 +14,7 @@ tags:
 - chargeback
 source_url: https://documentation.ixopay.com/api/pci/callback
 portal: ixopay-dev
-updated: '2026-11-09'
+updated: '2026-11-16'
 related: []
 ---
 

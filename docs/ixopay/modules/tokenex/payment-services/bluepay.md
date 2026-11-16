@@ -15,7 +15,7 @@ tags:
 - void
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/payment-services/bluepay
 portal: ixopay-modules
-updated: '2026-11-09'
+updated: '2026-11-16'
 related: []
 ---
 

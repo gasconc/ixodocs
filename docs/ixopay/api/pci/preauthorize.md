@@ -14,7 +14,7 @@ tags:
 - 3d-secure
 source_url: https://documentation.ixopay.com/api/pci/preauthorize
 portal: ixopay-dev
-updated: '2026-11-09'
+updated: '2026-11-16'
 related: []
 ---
 
@@ -845,7 +845,7 @@ The Primary Account Number (PAN) of the credit card.
 **Example:**`4111111111111111`
 **cvv** string
 The CVV/CVC of the credit card.
-**Possible values:** Value must match regular expression `^[0-9]{3-4}$`
+**Possible values:** Value must match regular expression `^[0-9]{3,4}$`
 **Example:**`123`
 **expirationMonth** string
 Two-digit expiration month of the credit card.

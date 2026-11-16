@@ -13,7 +13,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/modules/api/tokenex/token-servicesv-2-validatetoken
 portal: ixopay-modules
-updated: '2026-11-09'
+updated: '2026-11-16'
 related: []
 ---
 

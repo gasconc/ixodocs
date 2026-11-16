@@ -12,7 +12,7 @@ tags:
 - authorization
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/the-basics-1
 portal: ixopay-modules
-updated: '2026-11-09'
+updated: '2026-11-16'
 related: []
 ---
 

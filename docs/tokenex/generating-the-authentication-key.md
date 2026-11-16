@@ -13,7 +13,7 @@ tags:
 - iframe
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/generating-the-authentication-key
 portal: tokenex
-updated: '2026-11-09'
+updated: '2026-11-16'
 related: []
 ---
 
