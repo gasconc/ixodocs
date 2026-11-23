@@ -1,8 +1,8 @@
 # Coverage Audit Report
 
-_Generated at 2026-11-16T15:36:36+00:00_
+_Generated at 2026-11-23T18:02:13+00:00_
 
-**358 missing** · **3 stale** across 3 source(s).
+**360 missing** · **3 stale** across 3 source(s).
 
 Legend:
 - **Missing**: URL is published upstream but absent from `docs_manifest.json` (scraping gap).
@@ -11,7 +11,7 @@ Legend:
 ## ixopay-docs
 _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.com)._
 
-- Published: **961** · Indexed: **610** · Missing: **351** · Stale: **2**
+- Published: **964** · Indexed: **610** · Missing: **354** · Stale: **2**
 
 ### Missing (published but not indexed)
 
@@ -154,6 +154,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/ppro
 - https://documentation.ixopay.com/adapters/qualpay
 - https://documentation.ixopay.com/adapters/redsys
+- https://documentation.ixopay.com/adapters/revolut
 - https://documentation.ixopay.com/adapters/sampath-bank-paycenter
 - https://documentation.ixopay.com/adapters/sampath-bank-shopping-mall
 - https://documentation.ixopay.com/adapters/stripe
@@ -171,6 +172,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/adapters/trustpayments-pci
 - https://documentation.ixopay.com/adapters/unzer
 - https://documentation.ixopay.com/adapters/usio-ach
+- https://documentation.ixopay.com/adapters/usio-pci
 - https://documentation.ixopay.com/adapters/valitor-pay
 - https://documentation.ixopay.com/adapters/vantiv
 - https://documentation.ixopay.com/adapters/visa-direct
@@ -306,6 +308,7 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 - https://documentation.ixopay.com/manual/adapters/ppro
 - https://documentation.ixopay.com/manual/adapters/razer
 - https://documentation.ixopay.com/manual/adapters/redsys
+- https://documentation.ixopay.com/manual/adapters/revolut
 - https://documentation.ixopay.com/manual/adapters/sadad
 - https://documentation.ixopay.com/manual/adapters/sampathbank
 - https://documentation.ixopay.com/manual/adapters/tecs
@@ -375,12 +378,11 @@ _Ixopay Developer Hub, User Manual, and Modules (all under documentation.ixopay.
 ## ixopay-corp-legal
 _Ixopay corporate legal & compliance pages._
 
-- Published: **18** · Indexed: **11** · Missing: **7** · Stale: **1**
+- Published: **17** · Indexed: **11** · Missing: **6** · Stale: **1**
 
 ### Missing (published but not indexed)
 
 - https://www.ixopay.com/legal/billable-operations
-- https://www.ixopay.com/legal/general-terms-conditions
 - https://www.ixopay.com/legal/ixopay-terms
 - https://www.ixopay.com/legal/jca
 - https://www.ixopay.com/legal/legal-notice

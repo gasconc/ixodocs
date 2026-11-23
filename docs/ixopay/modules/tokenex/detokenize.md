@@ -14,7 +14,7 @@ tags:
 - credit-card
 source_url: https://documentation.ixopay.com/modules/docs/tokenex/detokenize
 portal: ixopay-modules
-updated: '2026-11-16'
+updated: '2026-11-23'
 related: []
 ---
 
@@ -26,12 +26,16 @@ related: []
 The TokenEx iFrame also allows you to securely display detokenized sensitive data on a web page, while keeping the webserver out of PCI scope. For example, a booking engine could enable their customers to view detokenized data in a web portal. Using the Detokenization iFrame to present detokenized data in a web page allows TokenEx to host the PCI or other sensitive data, while you maintain complete control over the other content on the page.
 ## Generating the Authentication Key for the Detokenization Iframe[​](https://documentation.ixopay.com/modules/docs/tokenex/detokenize#generating-the-authentication-key-for-the-detokenization-iframe "Direct link to Generating the Authentication Key for the Detokenization Iframe")
 In order to generate the Authentication Key for the Detokenization Iframe, you will need to provide an existing token value in place of the tokenScheme required when generating the Authentication Key for the tokenization modes of the iFrame.
+Signature format update
+The Detokenize Authentication Key now uses a purpose-bound signature: the string to sign is prefixed with `Detokenize|`. This keeps a key generated for another iFrame mode (for example, CVV Only) from ever being accepted by Detokenize.
+If your integration generates the Authentication Key using the older template (`tokenExId|origin|timestamp|token`, without the `Detokenize|` prefix), update it to the template below. Existing integrations that have not yet migrated keep working during the transition window. Contact your TokenEx representative if you have questions about your account's status.
 warning
 The Authentication Key is only valid with a timestamp less than 20 seconds old by default, configurable up to 60 seconds via `expiresInSeconds`.
 A key is only valid for one operation: data or cvv. Outside combined mode the key is fully consumed by that one operation — a key used to display card data cannot afterwards display the CVV, and vice versa. In combined data/cvv mode, one key covers both operations.
 Re-using the same key for another operation returns the error `Invalid Authentication Key - Authentication key already used`. A request that fails authentication does not consume the key.  
 | Name  | Type  | Description  |  
 | --- | --- | --- |  
+| _literal_  | string  | The fixed literal string `Detokenize` — identifies this signature as purpose-bound to the Detokenize operation. Include it exactly as written; it is not a variable.  |  
 | tokenExId  | string  | Your TokenEx ID  |  
 | origin  | string  | The fully qualified Origin of your application  |  
 | timestamp  | string  | The timestamp (UTC) when the hash is generated, in yyyyMMddHHmmss   
@@ -48,9 +52,9 @@ Timestamp: 20180109161437 (January 9th, 2018 4:14:37 PM UTC, formatted in yyyyMM
 
 Token: 5454545454545454  
 
-Template: tokenExID|origin|timestamp|token  
+Template: Detokenize|tokenExID|origin|timestamp|token  
 
-Concatenated String for generating HMAC: 123456789|https://mysite.com|20180109161437|5454545454545454  
+Concatenated String for generating HMAC: Detokenize|123456789|https://mysite.com|20180109161437|5454545454545454  
 
 ```## Detokenize Iframe Configuration Object[​](https://documentation.ixopay.com/modules/docs/tokenex/detokenize#detokenize-iframe-configuration-object "Direct link to Detokenize Iframe Configuration Object")  
 | Parameter  | Type  | Required  | Description  |  
@@ -114,55 +118,9 @@ Timestamp: 20180109161437 (January 9th, 2018 4:14:37 PM UTC, formatted in yyyyMM
 
 Token: 5454545454545454  
 
-Template: tokenExID|origin|timestamp|token  
+Template: Detokenize|tokenExID|origin|timestamp|token  
 
-Concatenated String for generating HMAC: 123456789|https://mysite.com|20180109161437|5454545454545454  
-
-```
-```
-
-//create the config object  
-
-var iframeConfig = {  
-
-  origin: "https://mysite.com",  
-
-  timestamp: "20200109161437",  
-
-  tokenExID: "123456789",  
-
-  authenticationKey: "QmFzZTY0KEhNQRNTSEEyNTYoIlRva2VuRXhJRHxPcmlnaW58VGltZXN0YW1wfFRva2VuU2NoZW1lKSk=",  
-
-  token: "5454545454545454",  
-
-};  
-
-  
-
-//create a new instance of the detokenize iframe, and add the container ID and config object  
-
-var iframe = new TokenEx.DetokenizeIframe("tokenExIframeDiv", iframeConfig);  
-
-  
-
-//calling the iframe's load function adds the iframe to the DOM.  
-
-iframe.load();  
-
-```
-```
-
-TokenEx ID: 123456789  
-
-Origin: https://mysite.com  
-
-Timestamp: 20180109161437 (January 9th, 2018 4:14:37 PM UTC, formatted in yyyyMMddHHmmss format)  
-
-Token: 5454545454545454  
-
-Template: tokenExID|origin|timestamp|token  
-
-Concatenated String for generating HMAC: 123456789|https://mysite.com|20180109161437|5454545454545454  
+Concatenated String for generating HMAC: Detokenize|123456789|https://mysite.com|20180109161437|5454545454545454  
 
 ```
 ```
@@ -206,9 +164,55 @@ Timestamp: 20180109161437 (January 9th, 2018 4:14:37 PM UTC, formatted in yyyyMM
 
 Token: 5454545454545454  
 
-Template: tokenExID|origin|timestamp|token  
+Template: Detokenize|tokenExID|origin|timestamp|token  
 
-Concatenated String for generating HMAC: 123456789|https://mysite.com|20180109161437|5454545454545454  
+Concatenated String for generating HMAC: Detokenize|123456789|https://mysite.com|20180109161437|5454545454545454  
+
+```
+```
+
+//create the config object  
+
+var iframeConfig = {  
+
+  origin: "https://mysite.com",  
+
+  timestamp: "20200109161437",  
+
+  tokenExID: "123456789",  
+
+  authenticationKey: "QmFzZTY0KEhNQRNTSEEyNTYoIlRva2VuRXhJRHxPcmlnaW58VGltZXN0YW1wfFRva2VuU2NoZW1lKSk=",  
+
+  token: "5454545454545454",  
+
+};  
+
+  
+
+//create a new instance of the detokenize iframe, and add the container ID and config object  
+
+var iframe = new TokenEx.DetokenizeIframe("tokenExIframeDiv", iframeConfig);  
+
+  
+
+//calling the iframe's load function adds the iframe to the DOM.  
+
+iframe.load();  
+
+```
+```
+
+TokenEx ID: 123456789  
+
+Origin: https://mysite.com  
+
+Timestamp: 20180109161437 (January 9th, 2018 4:14:37 PM UTC, formatted in yyyyMMddHHmmss format)  
+
+Token: 5454545454545454  
+
+Template: Detokenize|tokenExID|origin|timestamp|token  
+
+Concatenated String for generating HMAC: Detokenize|123456789|https://mysite.com|20180109161437|5454545454545454  
 
 ```
 ```
@@ -254,9 +258,9 @@ Timestamp: 20180109161437 (January 9th, 2018 4:14:37 PM UTC, formatted in yyyyMM
 
 Token: 5454545454545454  
 
-Template: tokenExID|origin|timestamp|token  
+Template: Detokenize|tokenExID|origin|timestamp|token  
 
-Concatenated String for generating HMAC: 123456789|https://mysite.com|20180109161437|5454545454545454  
+Concatenated String for generating HMAC: Detokenize|123456789|https://mysite.com|20180109161437|5454545454545454  
 
 ```
 ```
@@ -300,9 +304,9 @@ Timestamp: 20180109161437 (January 9th, 2018 4:14:37 PM UTC, formatted in yyyyMM
 
 Token: 5454545454545454  
 
-Template: tokenExID|origin|timestamp|token  
+Template: Detokenize|tokenExID|origin|timestamp|token  
 
-Concatenated String for generating HMAC: 123456789|https://mysite.com|20180109161437|5454545454545454  
+Concatenated String for generating HMAC: Detokenize|123456789|https://mysite.com|20180109161437|5454545454545454  
 
 ```
 ```

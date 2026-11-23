@@ -5,6 +5,7 @@ summary: 'Depending on the chosen method the a subset of the following parameter
   the mandatory Username 2.'
 tags:
 - stripe-https-documentation-ixopay-com-manual-adapters-stripe-stripe-direct-link-stripe
+- surcharge-application-fee-https-documentation-ixopay-com-manual-adapters-stripe-surcharge-application-fee-direct-link-surcharge-application-fee
 - stripe-creditcard-https-documentation-ixopay-com-manual-adapters-stripe-stripe-creditcard-direct-link-stripe-creditcard
 - statement-descriptor-https-documentation-ixopay-com-manual-adapters-stripe-statement-descriptor-direct-link-statement-descriptor
 - data-fetcher-configuration-https-documentation-ixopay-com-manual-adapters-stripe-data-fetcher-configuration-direct-link-data-fetcher-configuration
@@ -13,10 +14,9 @@ tags:
 - settlement-report-mapped-fields-https-documentation-ixopay-com-manual-adapters-stripe-settlement-report-mapped-fields-direct-link-settlement-report-mapped-fields
 - api
 - json
-- webhook
 source_url: https://documentation.ixopay.com/manual/adapters/stripe
 portal: ixopay-manual
-updated: '2026-11-16'
+updated: '2026-11-23'
 related: []
 ---
 
@@ -37,9 +37,14 @@ Additional Extra Data is available to be configured:
   1. Fill in the optional **Extra Data: descriptor**
   2. Fill in the mandatory **Extra Data:** **publishableKey** (mandatory for Method Creditcard)
   3. Fill in the mandatory **Extra Data:** **connectAccountId** (for Stripe Connect Accounts)
-  4. Fill in the optional **Extra Data: currencyForRegister** (Method Creditcard - Stripe Elements)
-  5. Fill in the optional **Extra Data: registerWithAuthorize** : True, False (Method Creditcard - Stripe Elements)
+  4. Select the optional **Extra Data: sendSurchargeAsApplicationFee** : True, False (Stripe Connect only, default: False). If set to True, the transaction's `surchargeAmount` is sent to Stripe as the application fee (`application_fee_amount`), which the platform account collects from the connected account's payment (see [Surcharge as application fee](https://documentation.ixopay.com/manual/adapters/stripe#surcharge-as-application-fee))
+  5. Fill in the optional **Extra Data: currencyForRegister** (Method Creditcard - Stripe Elements)
+  6. Fill in the optional **Extra Data: registerWithAuthorize** : True, False (Method Creditcard - Stripe Elements)
 
+### Surcharge as application fee[​](https://documentation.ixopay.com/manual/adapters/stripe#surcharge-as-application-fee "Direct link to Surcharge as application fee")
+With **sendSurchargeAsApplicationFee** enabled, the `surchargeAmount` sent in the [Transaction API](https://documentation.ixopay.com/api/transaction/debit) is passed to Stripe as the application fee for debits and preauthorizations, including subsequent recurring transactions. If the setting is disabled or the transaction has no surcharge, no application fee is sent.
+info
+This setting does not change the transaction amount. If **HPP: enable Surcharge Calculation** is enabled on the connector, the `surchargeAmount` is added to the base amount (see [Surcharge - GST Fee](https://documentation.ixopay.com/manual/docs/connector/advanced-configuration/surcharge)). If it is disabled, the amount is sent unchanged and must already include the fee; `surchargeAmount` then only sets the application fee. The application fee must not exceed the charged amount, otherwise Stripe declines the payment.
 ## Stripe Creditcard[​](https://documentation.ixopay.com/manual/adapters/stripe#stripe-creditcard "Direct link to Stripe Creditcard")
 Configure the following parameters for the Connector (see Connector Detail Overview - Stripe Connect Creditcard - Vault Configuration):
   1. Fill in the mandatory **Stripe Connect Account Key**
@@ -50,6 +55,7 @@ Configure the following parameters for the Connector (see Connector Detail Overv
 ![Connector Detail Overview - Stripe Connect Creditcard - Vault Configuration](https://documentation.ixopay.com/manual/assets/ideal-img/connector-detail-overview-stripe-connect-creditcard-vault-configuration.988eaa2.1280.png)Connector Detail Overview - Stripe Connect Creditcard - Vault Configuration
 info
 For Transaction types **partial capture** , make sure the feature is enabled on your Stripe account
+To send the transaction's `surchargeAmount` to Stripe as the application fee (`application_fee_amount`), set the optional **Extra Data: sendSurchargeAsApplicationFee** to True (default: False) on the gateway connector for Stripe Connect PCI. This setting is configured in the gateway connector's **Extra Data** , not in the Vault Setup. It behaves the same as for Stripe Connect (Payment Intents), see [Surcharge as application fee](https://documentation.ixopay.com/manual/adapters/stripe#surcharge-as-application-fee).
 ## (Statement) Descriptor[​](https://documentation.ixopay.com/manual/adapters/stripe#statement-descriptor "Direct link to \(Statement\) Descriptor")
 info
 Keep in mind that statement descriptors need to comply to several requirements:

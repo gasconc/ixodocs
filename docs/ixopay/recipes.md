@@ -7,7 +7,7 @@ tags:
 - ixopay
 source_url: https://documentation.ixopay.com/docs/recipes
 portal: ixopay-dev
-updated: '2026-11-16'
+updated: '2026-11-23'
 related: []
 ---
 

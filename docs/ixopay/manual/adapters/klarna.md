@@ -15,7 +15,7 @@ tags:
 - capture
 source_url: https://documentation.ixopay.com/manual/adapters/klarna
 portal: ixopay-manual
-updated: '2026-11-16'
+updated: '2026-11-23'
 related: []
 ---
 
@@ -41,8 +41,10 @@ Configure the following parameters for the Connector (see Connector Config - Kla
      * Send UUID of capture transaction to Klarna. The UUID will be then available in the settlements to reconcile capture transactions
   13. Select the **Extra Data: disableHppSessionOnTxExpiration** — true, false
      * Upon expiration of the transaction (see [Expire transaction with a given status after given minutes](https://documentation.ixopay.com/manual/docs/connector/edit/connector-settings#transaction-processing-settings)) the Klarna Hosted Payment Session will also be expired
+  14. Select the **Extra Data: cancelAndDisableHppSessionOnBack** — true, false
+     * When the customer navigates back from the Klarna Hosted Payment Page, the transaction is cancelled and the Klarna Hosted Payment Session is disabled, so the customer cannot complete the payment afterwards. Default: false
 
-![Connector Config - KlarnaHpp](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-klarnahpp.f457de6.1320.png)Connector Config - KlarnaHpp
+![Connector Config - KlarnaHpp](https://documentation.ixopay.com/manual/assets/ideal-img/connector-config-klarnahpp.8dacf7c.1160.png)Connector Config - KlarnaHpp
 ## Klarna Widget[​](https://documentation.ixopay.com/manual/adapters/klarna#klarna-widget "Direct link to Klarna Widget")
 Configure the following parameters for the Connector (see Connector Config - KlarnaWidget):
   1. Fill in the mandatory **Username**

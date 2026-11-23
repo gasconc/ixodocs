@@ -8,12 +8,13 @@ tags:
 - json
 - ixopay
 - psp
+- capture
 - credit-card
 - transaction
 - merchant
 source_url: https://documentation.ixopay.com/docs/guides/production/handling-errors
 portal: ixopay-dev
-updated: '2026-11-16'
+updated: '2026-11-23'
 related: []
 ---
 
@@ -23,7 +24,7 @@ related: []
 # Handling errors
 When working with payment transactions, errors can occur at various stages. Properly handling errors is crucial to ensure a smooth payment processing experience and provide customers with the best possible service.
 ## API responses[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#api-responses "Direct link to API responses")
-Response objects in the payment APIs include a `success` flag to indicate if the request was successful or not. If the flag is `false`, the API response indicates an error. These errors can be either system errors, which are caused by the client-server interaction, or processing errors, which are caused by an error while processing the request, for example caused by the PSP. For a complete list of error codes and their meanings, please see the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
+Response objects in the payment APIs include a `success` flag to indicate if the request was successful or not. If the flag is `false`, the API response indicates an error. These errors can be either system errors, which are caused by the client-server interaction, or processing errors, which are caused by an error while processing the request, for example a decline by the PSP or a request rejected by [IXOPAY platform](https://www.ixopay.com)'s validation. For a complete list of error codes and their meanings, please see the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
 `true`
 `false`
 200
@@ -67,7 +68,7 @@ Content-Type: application/json
 }  
 
 ```#### Maintenance mode[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#maintenance-mode "Direct link to Maintenance mode")
-Maintenance mode is a unique system error that occurs when [IXOPAY platform](https://www.ixopay.com) is undergoing scheduled maintenance. Advance notice of upcoming maintenance events will be communicated through [status.ixopay.com](https://status.ixopay.com) (subscribe to updates via email or other channels).
+Maintenance mode is a unique system error that occurs when IXOPAY platform is undergoing scheduled maintenance. Advance notice of upcoming maintenance events will be communicated through [status.ixopay.com](https://status.ixopay.com) (subscribe to updates via email or other channels).
 ```
 
 HTTP/1.1 503 Service Unavailable  
@@ -87,10 +88,14 @@ Content-Type: application/json
 }  
 
 ```### Processing errors[​](https://documentation.ixopay.com/docs/guides/production/handling-errors#processing-errors "Direct link to Processing errors")
-If the HTTP status code is 200, it means a transaction has been created, but some other error happened along the way. To help you understand what went wrong, the response will include an `errors` field, which is an array of error objects. Each object contains fields such as `errorMessage`, `errorCode`, `adapterMessage`, and `adapterCode`.
+If the HTTP status code is 200 and `success` is `false`, the request was well-formed, but it couldn't be completed. There are two cases:
+  * **A transaction was created and then failed.** For example, the PSP declined it, or a capture amount exceeded the authorized amount. The response includes the `uuid` and `purchaseId` of the failed transaction.
+  * **The request was rejected before a transaction was created.** For example, the `referenceUuid` points to a transaction that can't be used for this operation. The response doesn't include a `uuid` or `purchaseId`.
+
+To help you understand what went wrong, the response will include an `errors` field, which is an array of error objects. Each object contains fields such as `errorMessage`, `errorCode`, `adapterMessage`, and `adapterCode`.
 The `errorMessage` field provides a brief description of the error. The `errorCode` field is a standardized error code by the IXOPAY platform, which maps the variety of different PSP error codes to a unified error scheme. You can find the individual error codes in the appendix on [Error codes](https://documentation.ixopay.com/docs/reference/appendix/error-codes).
 Finally, the `adapterMessage` and `adapterCode` fields contain the native error message and code from the payment provider or acquiring bank, which gives you more specific information about what went wrong.
-Example processing error
+Example processing error (transaction created)
 ```
 
 HTTP/1.1 200 OK  
@@ -105,7 +110,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -122,6 +127,37 @@ Content-Type: application/json
       "adapterMessage": "Invalid parameters given",  
 
       "adapterCode": "1234"  
+
+    }  
+
+  ]  
+
+}  
+
+```Example processing error (no transaction created)
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
+  "returnType": "ERROR",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Referenced transaction with UUID 'd94c0d72f3a36e21f16e' not found",  
+
+      "errorCode": 9999,  
+
+      "adapterCode": ""  
 
     }  
 
@@ -151,7 +187,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -240,7 +276,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -373,7 +409,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -410,9 +446,40 @@ Content-Type: application/json
 
   "success": false,  
 
+  "returnType": "ERROR",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Referenced transaction with UUID 'd94c0d72f3a36e21f16e' not found",  
+
+      "errorCode": 9999,  
+
+      "adapterCode": ""  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -489,7 +556,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -615,7 +682,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -652,9 +719,40 @@ Content-Type: application/json
 
   "success": false,  
 
+  "returnType": "ERROR",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Referenced transaction with UUID 'd94c0d72f3a36e21f16e' not found",  
+
+      "errorCode": 9999,  
+
+      "adapterCode": ""  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -731,7 +829,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -859,7 +957,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -896,9 +994,40 @@ Content-Type: application/json
 
   "success": false,  
 
+  "returnType": "ERROR",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Referenced transaction with UUID 'd94c0d72f3a36e21f16e' not found",  
+
+      "errorCode": 9999,  
+
+      "adapterCode": ""  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -975,7 +1104,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1107,7 +1236,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1144,9 +1273,40 @@ Content-Type: application/json
 
   "success": false,  
 
+  "returnType": "ERROR",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Referenced transaction with UUID 'd94c0d72f3a36e21f16e' not found",  
+
+      "errorCode": 9999,  
+
+      "adapterCode": ""  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1223,7 +1383,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1349,7 +1509,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1386,9 +1546,40 @@ Content-Type: application/json
 
   "success": false,  
 
+  "returnType": "ERROR",  
+
+  "errors": [  
+
+    {  
+
+      "errorMessage": "Referenced transaction with UUID 'd94c0d72f3a36e21f16e' not found",  
+
+      "errorCode": 9999,  
+
+      "adapterCode": ""  
+
+    }  
+
+  ]  
+
+}  
+
+```
+```
+
+HTTP/1.1 200 OK  
+
+Content-Type: application/json  
+
+  
+
+{  
+
+  "success": false,  
+
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 
@@ -1465,7 +1656,7 @@ Content-Type: application/json
 
   "uuid": "d94c0d72f3a36e21f16e",  
 
-  "purchaseId": "20261115-d94c0d72f3a36e21f16e",  
+  "purchaseId": "20261122-d94c0d72f3a36e21f16e",  
 
   "returnType": "ERROR",  
 

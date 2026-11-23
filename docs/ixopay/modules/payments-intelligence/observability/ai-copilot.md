@@ -14,7 +14,7 @@ tags:
 - maximize-minimize-table-https-documentation-ixopay-com-modules-docs-payments-intelligence-observability-copilot-maximize-minimize-table-direct-link-maximize-minimize-table
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/ai-copilot
 portal: ixopay-modules
-updated: '2026-11-16'
+updated: '2026-11-23'
 related: []
 ---
 

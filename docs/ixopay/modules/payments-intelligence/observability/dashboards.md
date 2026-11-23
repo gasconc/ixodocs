@@ -14,7 +14,7 @@ tags:
 - table-views-https-documentation-ixopay-com-modules-docs-payments-intelligence-observability-dashboards-table-views-direct-link-table-views
 source_url: https://documentation.ixopay.com/modules/docs/payments-intelligence/observability/dashboards
 portal: ixopay-modules
-updated: '2026-11-16'
+updated: '2026-11-23'
 related: []
 ---
 
